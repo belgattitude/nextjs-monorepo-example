@@ -1,0 +1,24 @@
+{
+  "name": "@optional-package-scope/bar",
+  "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
+  "source": "src/index.ts",
+  "main": "dist/bar.js",
+  "module": "dist/bar.module.js",
+  "scripts": {
+    "build": "microbundle --jsx React.createElement",
+    "dev": "microbundle watch",
+    "typecheck": "tsc -p ./ --noEmit",
+    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7",
+    "microbundle": "^0.12.3"
+  },
+  "peerDependencies": {
+    "react": "^16.2.1",
+    "react-dom": "^16.2.1"
+  }
+}

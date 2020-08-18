@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@optional-package-scope/bar/*": ["packages/bar/src/*"],
+      "@optional-package-scope/bar": ["packages/bar/src/index"],
+      "@optional-package-scope/foo/*": ["packages/foo/src/*"],
+      "@optional-package-scope/foo": ["packages/foo/src/index"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+
+}

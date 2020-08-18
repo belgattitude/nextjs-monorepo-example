@@ -1,0 +1,14 @@
+{
+  "name": "@optional-package-scope/foo",
+  "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc -p ./ --noEmit",
+    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
+}

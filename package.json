@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn --cwd apps/web-app dev",
+    "build": "yarn --cwd apps/web-app build",
+    "start": "yarn --cwd apps/web-app start",
+    "typecheck": "yarn workspaces run typecheck",
+    "deps:check": "yarn workspaces run deps:check",
+    "deps:update": "yarn workspaces run deps:update"
+  }
+}

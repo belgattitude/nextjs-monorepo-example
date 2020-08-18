@@ -1,0 +1,26 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc -p ./ --noEmit",
+    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "@types/node": "^14.6.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@optional-package-scope/bar": "*",
+    "@optional-package-scope/foo": "*",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "license": "ISC"
+}
