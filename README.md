@@ -1,7 +1,8 @@
 # NextJS monorepo tests
 
-Experimenting with Vercel monorepo support: https://github.com/vercel/vercel/issues/3547#issuecomment-673687255 and 
-https://github.com/vercel/vercel/issues/3547#issuecomment-675313672.
+Experimenting with Vercel monorepo support: 
+- https://github.com/vercel/vercel/issues/3547#issuecomment-673687255 and 
+- https://github.com/vercel/vercel/issues/3547#issuecomment-675313672.
 
 Be sure to go to https://vercel.com/_flags and enable monorepo support.
 
