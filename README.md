@@ -1,8 +1,7 @@
 # NextJS monorepo tests
 
-Experimenting with a monorepo setup for nextjs / typescript.
+Experimenting with Vercel monorepo support: https://github.com/vercel/vercel/issues/3547#issuecomment-673687255
 
-See: https://next-transpile-ts-workspace.vercel.app/
 
 ### Approach
 
