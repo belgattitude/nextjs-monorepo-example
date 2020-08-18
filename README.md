@@ -2,6 +2,10 @@
 
 Experimenting with Vercel monorepo support: https://github.com/vercel/vercel/issues/3547#issuecomment-673687255
 
+Be sure to go to https://vercel.com/_flags and enable monorepo support.
+
+See also: https://vercel.com/docs/git-integrations#monorepos
+
 
 ### Approach
 
