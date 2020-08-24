@@ -1,5 +1,6 @@
 const path = require('path')
 module.exports = {
+    target: 'serverless',
     webpack: function (config, { defaultLoaders }) {
         const resolvedBaseUrl = path.resolve(config.context, '../../')
         config.module.rules = [
