@@ -4,7 +4,7 @@ import {AsyncMessage, Message} from '@optional-package-scope/bar'
 export default function Home() {
   return (
     <div>
-      Imported and transpiled modules from other workspaces:
+      <h3>I'm the web-app</h3>
       <ul>
           <li>{`Foo says: ${sayHello('World')} from @optional-package-scope/foo`}</li>
           <li><Message message={'Bar react component from @optional-package-scope/bar'}/></li>
