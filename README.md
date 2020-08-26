@@ -55,8 +55,8 @@ Two shared packages: packages/bar and packages/foo.
 
 #### Vercel
 
-When importing the repo, set the name of the app (i.e blog-app) and ensure
-the build and development settings are overidden with:
+When importing the repo, set the name of the app (i.e blog-app) and be sure
+to override development settings are like this:
 
 ![](./docs/images/vercel-monorepo-config.jpg)
 
