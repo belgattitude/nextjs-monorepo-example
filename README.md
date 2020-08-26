@@ -57,6 +57,7 @@ Two shared packages: packages/bar and packages/foo.
 
 #### Vercel
 
+![](./docs/images/vercel-monorepo-config.jpg)
 
 
 ### Notes
