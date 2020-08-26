@@ -8,25 +8,25 @@ Be sure to go to https://vercel.com/_flags and enable monorepo support.
 
 See also: https://vercel.com/docs/git-integrations#monorepos
 
-
 ### Approach
 
 - [x] Setup with [yarn workspace](./package.json).
 - [x] Relies on NextJs 9.5.2 tsconfig baseUrl resolution improvements [#13542](https://github.com/vercel/next.js/pull/13542) 
       (rather than next-transpile-module, see this branch for [next-transpile-module](https://github.com/belgattitude/next-transpile-ts-workspace/tree/v1_with_transpile_modules))
 
-### How to
-
-- Declare your workspaces paths in [package.json](./package.json)
-- Create a base [tsconfig.json](./tsconfig.json) at the root.
-  Set `baseUrl` to '.' and define your dependencies in `paths`.
-- Configure webpack in [next.config.js](./apps/web-app/next.config.js)
-
 ### Structure
+
+Two nextjs apps: apps/blog-app and the apps/web-app. 
+Two shared packages: packages/bar and packages/foo.  
 
 ```
 .
 ├── apps
+│   ├── blog-app                 (NextJS application)
+|   |   ├── src/
+|   |   ├── next.config.js
+|   |   ├── package.json
+|   |   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS application)
 |   |   ├── src/
 |   |   ├── next.config.js
@@ -42,9 +42,23 @@ See also: https://vercel.com/docs/git-integrations#monorepos
 |   |   ├── package.json
 |   |   └── tsconfig.json       (extends base config)
 ├── package.json                (the workspace config)
-├── tsconfig.json               (base typescript config)
-└── vercel.json 
+└── tsconfig.json               (base typescript config)
 ```
+
+### How to
+
+#### Config
+
+- Declare your workspaces paths in [package.json](./package.json)
+- Create a base [tsconfig.json](./tsconfig.json) at the root.
+  Set `baseUrl` to '.' and define your dependencies in `paths`.
+- Configure webpack in [next.config.js](./apps/web-app/next.config.js)
+- Be sure you build as 'serverless' to benefit from recent vercel monorepo support.
+
+#### Vercel
+
+![](./docs/images/vercel-monorepo-config.jpg)
+
 
 ### Notes
 
@@ -54,7 +68,7 @@ See also: https://vercel.com/docs/git-integrations#monorepos
   (There's a script to check that `yarn deps:check`)
 - You might have to create multiple tsconfig.json (i.e: tsconfig.dev.json, tsconfig.build.json...) if you 
   want to use a distributed package rather than transpiling. 
-- Currently only one app can be build on vercel (waiting for monorepo support)
+- Currently, only one app can be build on vercel (waiting for monorepo support)
 
 #### Advantages over next-transpile-modules
 
