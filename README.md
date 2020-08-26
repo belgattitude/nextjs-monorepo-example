@@ -1,18 +1,16 @@
 # NextJS monorepo tests
 
-Experimenting with Vercel monorepo support: 
-- https://github.com/vercel/vercel/issues/3547#issuecomment-673687255 and 
-- https://github.com/vercel/vercel/issues/3547#issuecomment-675313672.
 
-Be sure to go to https://vercel.com/_flags and enable monorepo support.
+Using recent [vercel monorep support](https://vercel.com/docs/git-integrations#monorepos), Be sure to go to https://vercel.com/_flags to enable the feature.
 
-See also: https://vercel.com/docs/git-integrations#monorepos
+Two apps deployed:
 
-### Approach
+- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/
+- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/
 
-- [x] Setup with [yarn workspace](./package.json).
-- [x] Relies on NextJs 9.5.2 tsconfig baseUrl resolution improvements [#13542](https://github.com/vercel/next.js/pull/13542) 
-      (rather than next-transpile-module, see this branch for [next-transpile-module](https://github.com/belgattitude/next-transpile-ts-workspace/tree/v1_with_transpile_modules))
+Both uses shared packages relying on yarn workspaces and uses
+typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
+      (rather than next-transpile-module)
 
 ### Structure
 
@@ -57,8 +55,10 @@ Two shared packages: packages/bar and packages/foo.
 
 #### Vercel
 
-![](./docs/images/vercel-monorepo-config.jpg)
+When importing the repo, set the name of the app (i.e blog-app) and ensure
+the build and development settings are overidden with:
 
+![](./docs/images/vercel-monorepo-config.jpg)
 
 ### Notes
 
