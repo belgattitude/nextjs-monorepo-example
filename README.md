@@ -58,7 +58,8 @@ Two shared packages: packages/bar and packages/foo.
 When importing the repo, set the name of the app (i.e blog-app) and be sure
 to override development settings are like this:
 
-![](./docs/images/vercel-monorepo-config.jpg)
+![](docs/images/vercel-monorepo-import.png)
+![](docs/images/vercel-monorepo-import-config.png)
 
 ### Notes
 
