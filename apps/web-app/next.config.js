@@ -1,5 +1,5 @@
 const path = require('path');
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
+const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'serverless';
 module.exports = {
     target: NEXTJS_BUILD_TARGET,
     webpack: function (config, { defaultLoaders }) {
