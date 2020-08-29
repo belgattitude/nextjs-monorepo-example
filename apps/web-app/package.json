@@ -6,7 +6,7 @@
     "dev": "next",
     "build": "next build",
     "clean": "rimraf --no-glob ./.next ./out",
-    "vercel-build": "cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-build": "cross-env NEXTJS_BUILD_TARGET=server next build",
     "start": "next start",
     "typecheck": "tsc -p ./ --noEmit",
     "deps:check": "npx npm-check-updates --dep prod,dev,optional",
