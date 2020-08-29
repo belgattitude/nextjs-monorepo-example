@@ -7,6 +7,7 @@ export default function Home() {
       <ul>
           <li>{`Foo says: ${sayHello('World')} from @optional-package-scope/foo`}</li>
       </ul>
+      <img src={'/images/nextjs-logo.png'} alt={'logo'} />
     </div>
   )
 }

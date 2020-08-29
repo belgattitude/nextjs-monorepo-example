@@ -58,13 +58,14 @@ Two shared packages: packages/bar and packages/foo.
 When importing the repo, set the name of the app (i.e blog-app) and be sure
 to override development settings are like this:
 
-![](./docs/images/vercel-monorepo-config.jpg)
+![](docs/images/vercel-monorepo-import.png)
+![](docs/images/vercel-monorepo-import-config.png)
 
 ### Notes
 
-### Drawbacks
+### Drawbacks of monorepos
 
-- Keep all deps at the same version. You will run into problem if one package depends a v1 version and another in a v2.
+- Better to keep all deps at the same version. You will run into problem if one package depends a v1 version and another in a v2.
   (There's a script to check that `yarn deps:check`)
 - You might have to create multiple tsconfig.json (i.e: tsconfig.dev.json, tsconfig.build.json...) if you 
   want to use a distributed package rather than transpiling. 

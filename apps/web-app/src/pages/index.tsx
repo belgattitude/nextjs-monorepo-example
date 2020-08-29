@@ -10,6 +10,7 @@ export default function Home() {
           <li><Message message={'Bar react component from @optional-package-scope/bar'}/></li>
           <li><AsyncMessage apiUrl={'/api/hello'}/></li>
       </ul>
+      <img src={'/images/nextjs-logo.png'} alt={'logo'} />
     </div>
   )
 }
