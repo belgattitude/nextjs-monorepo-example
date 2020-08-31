@@ -60,6 +60,7 @@ to override development settings are like this:
 
 ![](docs/images/vercel-monorepo-import.png)
 ![](docs/images/vercel-monorepo-import-config.png)
+![](docs/images/vercel-monorepo-output-dir.png)
 
 ### Notes
 
@@ -88,6 +89,6 @@ to override development settings are like this:
 
 #### Caution
 
-- Monorepos are not monoliths, this approach is for sanity while developing (not rebuild). 
-  For production packages should be publishable and apps deployable independently (lerna, nx...).
+- Monorepos are not monoliths, this approach is for sanity while developing and using sandboxes 
+  (a scenario where you generally don't want to version and publish your shared packages). 
   
