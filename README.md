@@ -67,15 +67,10 @@ to override development settings are like this:
 ![](docs/images/vercel-monorepo-import-config.png)
 ![](docs/images/vercel-monorepo-output-dir.png)
 
-### Notes
+### Pros/Cons
 
-### Drawbacks of monorepos
-
-- Better to keep all deps at the same version. You will run into problem if one package depends a v1 version and another in a v2.
-  (There's a script to check that `yarn deps:check`)
-- You might have to create multiple tsconfig.json (i.e: tsconfig.dev.json, tsconfig.build.json...) if you 
-  want to use a distributed package rather than transpiling. 
-- Currently, only one app can be build on vercel (waiting for monorepo support)
+This implementation make use of typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
+(rather than next-transpile-module). Both approaches can be used.
 
 #### Advantages over next-transpile-modules
 
@@ -87,13 +82,20 @@ to override development settings are like this:
 
 - It handles css/scss as well
 
-#### Interesting next steps:
+
+### Notes
+
+- Monorepos are not monoliths, this approach is for sanity while developing and using sandboxes 
+  (a scenario where you generally don't want to version and publish your shared packages). 
+- You might have to create multiple tsconfig.json (i.e: tsconfig.dev.json, tsconfig.build.json...) if you 
+  want to use a distributed package rather than transpiling. 
+- Better to keep all deps at the same version. You will run into problem if one package depends a v1 version and another in a v2.
+  (There's a script to check that `yarn deps:check`)
+  
+
+### Links
 
 - RFC: https://github.com/vercel/next.js/discussions/15327
 - Vercel monorepo support: https://github.com/vercel/vercel/issues/3547#issuecomment-673687255
 
-#### Caution
 
-- Monorepos are not monoliths, this approach is for sanity while developing and using sandboxes 
-  (a scenario where you generally don't want to version and publish your shared packages). 
-  
