@@ -1,7 +1,7 @@
 # NextJS monorepo tests
 
 
-Using recent [vercel monorep support](https://vercel.com/docs/git-integrations#monorepos), Be sure to go to https://vercel.com/_flags to enable the feature.
+Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs](https://vercel.com/docs/git-integrations#monorepos)).
 
 Two apps deployed:
 
