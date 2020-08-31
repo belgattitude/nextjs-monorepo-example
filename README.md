@@ -1,6 +1,5 @@
 # NextJS monorepo tests
 
-
 Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs](https://vercel.com/docs/git-integrations#monorepos)).
 
 Two apps deployed:
@@ -11,6 +10,12 @@ Two apps deployed:
 Both uses shared packages relying on yarn workspaces and uses
 typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
       (rather than next-transpile-module)
+
+### Bugs
+
+- API routes are not yet working, see 
+  - https://github.com/vercel/next.js/issues/16667#issuecomment-683642207
+  - https://github.com/vercel/vercel/issues/3547#issuecomment-683340482
 
 ### Structure
 
