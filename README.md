@@ -70,7 +70,22 @@ to override development settings are like this:
 ### Pros/Cons
 
 This implementation make use of typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
-(rather than next-transpile-module). Both approaches can be used.
+(rather than next-transpile-module). Both approaches can be used depending on use case.
+
+
+| Support matrix        | tsconfig paths | next-transpile-module |
+|-----------------------|----------------|-----------------------|
+| Typescript            | ✅              | ✅                    |
+| Javascript            | ✅              | ✅                    |
+| NextJs Fast refresh   | ✅              | ✅                    |
+| CSS                   | ❌              | ✅                    |
+| SCSS                  | ❌              | ✅                    |
+| CSS-in-JS             | ✅              | ✅                    |
+| ts-jest               | ✅              | ?                    |
+| Vercel monorepo       | ✅              | ✅                    |
+| Yarn 2 PNP            | ✅              | ❌                    |
+| Experimental webpack5 | ?               | ❌  (working on it)  |
+
 
 #### Advantages over next-transpile-modules
 
