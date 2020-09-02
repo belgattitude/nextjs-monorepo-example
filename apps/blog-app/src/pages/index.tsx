@@ -1,13 +1,33 @@
-import {sayHello} from '@optional-package-scope/foo'
+import { sayHello } from '@optional-package-scope/foo'
+import { getPosts, Post } from '../data/blog'
 
-export default function Home() {
+type Props = {
+  posts: Post[]
+}
+
+export default function Blog({ posts }: Props) {
   return (
     <div>
-        <h3>I'm the blog-app</h3>
+      <h3>I'm the SSG blog-app</h3>
       <ul>
-          <li>{`Foo says: ${sayHello('World')} from @optional-package-scope/foo`}</li>
+        <li>{`Foo says: ${sayHello(
+          'World'
+        )} from @optional-package-scope/foo`}</li>
       </ul>
-      <img src={'/images/nextjs-logo.png'} alt={'logo'} />
+      <h3>Here's the blog posts</h3>
+      <ul>
+        {posts.map(({ title, slug }) => (
+          <li key={slug}>{title}</li>
+        ))}
+      </ul>
     </div>
   )
+}
+
+export async function getStaticProps(): Promise<{ props: Props }> {
+  return {
+    props: {
+      posts: getPosts(),
+    },
+  }
 }
