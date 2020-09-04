@@ -36,7 +36,7 @@ Two shared packages: packages/bar and packages/foo.
 |   |   ├── package.json
 |   |   └── tsconfig.json       (extends base config)
 ├── packages
-│   ├── bar                     Bar package, publishable with microbundle)
+│   ├── bar                     Bar package, publishable with microbundle
 |   |   ├── src/
 |   |   ├── package.json
 |   |   └── tsconfig.json       (extends base config)
