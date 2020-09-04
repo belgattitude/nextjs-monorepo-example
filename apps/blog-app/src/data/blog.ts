@@ -3,7 +3,7 @@ export type Post = {
     title: string,
 }
 
-const posts = [
+const posts: Post[] = [
     {slug: 'post1', title: 'The first blog post'},
     {slug: 'post2', title: 'The second blog post'},
 ];
