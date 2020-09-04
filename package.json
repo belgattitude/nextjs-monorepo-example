@@ -8,6 +8,7 @@
     "clean": "yarn workspaces run clean",
     "typecheck": "yarn workspaces run typecheck",
     "deps:check": "yarn workspaces run deps:check",
-    "deps:update": "yarn workspaces run deps:update"
+    "deps:update": "yarn workspaces run deps:update",
+    "prettier:all": "npx prettier './**/src/**/*.(ts|tsx|css|scss)' --write"
   }
 }
