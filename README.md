@@ -25,12 +25,12 @@ Two shared packages: packages/bar and packages/foo.
 ```
 .
 ├── apps
-│   ├── blog-app                 (NextJS application)
+│   ├── blog-app                 (NextJS SSG app)
 |   |   ├── src/
 |   |   ├── next.config.js
 |   |   ├── package.json
 |   |   └── tsconfig.json       (extends base config)
-│   ├── web-app                 (NextJS application)
+│   ├── web-app                 (NextJS app with api-routes)
 |   |   ├── src/
 |   |   ├── next.config.js
 |   |   ├── package.json
@@ -104,7 +104,7 @@ This implementation make use of typescript baseUrl resolution improvements from 
   (a scenario where you generally don't want to version and publish your shared packages). 
 - You might have to create multiple tsconfig.json (i.e: tsconfig.dev.json, tsconfig.build.json...) if you 
   want to use a distributed package rather than transpiling. 
-- Better to keep all deps at the same version. You will run into problem if one package depends a v1 version and another in a v2.
+- Better to keep all deps at the same version. You might run into problem if one package depends a v1 version and another in a v2.
   (There's a script to check that `yarn deps:check`)
   
 
