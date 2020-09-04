@@ -4,8 +4,8 @@ Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs
 
 Two apps deployed:
 
-- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/
-- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/
+- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/ (SSG - getStaticProps)
+- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/ (With Api-routes)
 
 Both uses shared packages relying on yarn workspaces and uses
 typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
