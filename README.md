@@ -4,18 +4,17 @@ Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs
 
 Two apps deployed:
 
-- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/ (SSG - getStaticProps)
-- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/ (With Api-routes)
+- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/ (SSG - with getStaticProps)
+- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/ (SSR - with Api-routes)
 
 Both uses shared packages relying on yarn workspaces and uses
 typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
       (rather than next-transpile-module)
 
-### Bugs
+### Caution
 
-- API routes are not yet working, see 
-  - https://github.com/vercel/next.js/issues/16667#issuecomment-683642207
-  - https://github.com/vercel/vercel/issues/3547#issuecomment-683340482
+A vercel bug have recently been fixed, don't forget to set `"FORCE_BUILDER_TAG": "canary"` in your env.
+See https://github.com/vercel/next.js/issues/16667#issuecomment-687624723. This fixes api routes. 
 
 ### Structure
 
