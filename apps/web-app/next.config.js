@@ -10,7 +10,6 @@ const withTM = require('next-transpile-modules')([
 
 const config = withTM({
     target: NEXTJS_BUILD_TARGET,
-    /*
     webpack: function (config, { defaultLoaders }) {
         const resolvedBaseUrl = path.resolve(config.context, '../../')
         // This extra config allows to use paths defined in tsconfig
@@ -28,7 +27,7 @@ const config = withTM({
             },
         ]
         return config
-    },*/
+    },
 });
 
 module.exports = config;
