@@ -9,12 +9,14 @@
   "scripts": {
     "build": "microbundle --jsx React.createElement",
     "dev": "microbundle watch",
+    "clean": "rimraf --no-glob ./dist",
     "typecheck": "tsc -p ./ --noEmit",
     "deps:check": "npx npm-check-updates --dep prod,dev,optional",
     "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
   },
   "devDependencies": {
-    "microbundle": "^0.12.3",
+    "microbundle": "^0.12.4",
+    "rimraf": "^3.0.2",
     "sass": "^1.26.11",
     "typescript": "^4.0.3"
   },
