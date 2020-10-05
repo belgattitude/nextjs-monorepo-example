@@ -5,7 +5,9 @@ const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'serverless';
 // @link https://www.npmjs.com/package/next-transpile-modules
 const withTM = require('next-transpile-modules')([
     '@optional-package-scope/foo',
-    '@optional-package-scope/bar',
+    // The transpilation of the bar package  will
+    // be handled by tsconfig paths rather thant next-transpile-modules
+    //'@optional-package-scope/bar',
 ])
 
 const config = withTM({
