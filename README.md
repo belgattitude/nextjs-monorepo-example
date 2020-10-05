@@ -7,10 +7,12 @@ Two apps deployed:
 - apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/ (SSG - with getStaticProps)
 - apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/ (SSR - with Api-routes)
 
-Both uses shared packages relying on yarn workspaces and uses
-typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
-      (rather than next-transpile-module)
+Both uses packages relying on yarn workspaces and illustrate two methods to allow transpilation. 
 
+- @optional-package-scope/foo: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
+- @optional-package-scope/bar: shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
+
+ 
 ### Structure
 
 Two nextjs apps: apps/blog-app and the apps/web-app. 
@@ -30,14 +32,15 @@ Two shared packages: packages/bar and packages/foo.
 |   |   ├── package.json
 |   |   └── tsconfig.json       (extends base config)
 ├── packages
-│   ├── bar                     Bar package, publishable with microbundle
+│   ├── bar                     (Shared with tsconfig path resolution, publishable with microbundle)
 |   |   ├── src/
 |   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
-│   ├── foo 
+|   |   └── tsconfig.json       
+│   ├── foo                     (Shared with next-transpile-modules)
 |   |   ├── src/
+|   |   ├── index.ts            (re-export of src/index.ts to allow next-transpile-modules)
 |   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
+|   |   └── tsconfig.json       
 ├── package.json                (the workspace config)
 └── tsconfig.json               (base typescript config)
 ```
@@ -63,9 +66,8 @@ to override development settings are like this:
 
 ### Pros/Cons
 
-This implementation make use of typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
-(rather than next-transpile-module). Both approaches can be used depending on use case.
-
+@optional-package-scope/bar is shared through typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
+(rather than next-transpile-module). 
 
 | Support matrix        | tsconfig paths | next-transpile-module |
 |-----------------------|----------------|-----------------------|
