@@ -2,6 +2,7 @@ import { sayHello } from '@optional-package-scope/foo'
 import { AsyncMessage, Message } from '@optional-package-scope/bar'
 import {Layout} from "@/components/layout";
 import {InfoCard} from "@optional-package-scope/bar/component/info-card";
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -21,7 +22,10 @@ export default function Home() {
           <AsyncMessage apiUrl={'/api/hello'} />
         </li>
       </ul>
-      <img src={'/images/nextjs-logo.png'} alt={'logo'} />
+      <Image src={'/images/nextjs-logo.png'}
+             alt={'logo'}
+             width={300}
+             height={300} />
     </Layout>
   )
 }

@@ -1,6 +1,7 @@
 import { sayHello } from '@optional-package-scope/foo'
 import { getPosts, Post } from '../data/blog'
-import {Layout} from "@/components/layout";
+import { Layout } from '@/components/layout'
+import Image from 'next/image'
 
 type Props = {
   posts: Post[]
@@ -21,6 +22,12 @@ export default function Blog({ posts }: Props) {
           <li key={slug}>{title}</li>
         ))}
       </ul>
+      <Image
+        src={'/images/nextjs-logo.png'}
+        alt={'logo'}
+        width={300}
+        height={300}
+      />
     </Layout>
   )
 }
