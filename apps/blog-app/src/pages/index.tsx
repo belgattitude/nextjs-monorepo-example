@@ -1,5 +1,7 @@
 import { sayHello } from '@optional-package-scope/foo'
 import { getPosts, Post } from '../data/blog'
+import { Layout } from '@/components/layout'
+import Image from 'next/image'
 
 type Props = {
   posts: Post[]
@@ -7,7 +9,7 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
   return (
-    <div>
+    <Layout>
       <h3>I'm the SSG blog-app</h3>
       <ul>
         <li>{`Foo says: ${sayHello(
@@ -20,7 +22,13 @@ export default function Blog({ posts }: Props) {
           <li key={slug}>{title}</li>
         ))}
       </ul>
-    </div>
+      <Image
+        src={'/images/nextjs-logo.png'}
+        alt={'logo'}
+        width={400}
+        height={240}
+      />
+    </Layout>
   )
 }
 
