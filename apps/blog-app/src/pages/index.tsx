@@ -25,8 +25,8 @@ export default function Blog({ posts }: Props) {
       <Image
         src={'/images/nextjs-logo.png'}
         alt={'logo'}
-        width={300}
-        height={300}
+        width={400}
+        height={240}
       />
     </Layout>
   )
