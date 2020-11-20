@@ -1,3 +1,3 @@
 export const sayHello = (name: string) => {
-  return `Hello ${name} !`
+  return `I'm the @optional-package-scope/bar component telling ${name} !`
 }

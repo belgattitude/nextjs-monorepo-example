@@ -1,7 +1,16 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@optional-package-scope/bar/*": ["../../packages/bar/src/*"],
+      "@optional-package-scope/bar": ["../../packages/bar/src/index"]
+    },
+    "incremental": true
   },
   "exclude": [
     "node_modules"
