@@ -9,10 +9,9 @@ Two apps deployed:
 
 Both uses packages relying on yarn workspaces and illustrate two methods to allow transpilation. 
 
-- @optional-package-scope/foo: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 - @optional-package-scope/bar: shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
+- @optional-package-scope/foo: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 
- 
 ### Structure
 
 Two nextjs apps: apps/blog-app and the apps/web-app. 
@@ -58,7 +57,10 @@ Two shared packages: packages/bar and packages/foo.
 
 2. For next-transpile-module
 
-- Define your shared packages in [next.config.js](./apps/web-app/next.config.js)
+- Define your shared packages in your apps, i.e: [next.config.js](./apps/web-app/next.config.js)
+- Your shared packages have to indicate a `main` field *(since next-transpile-modules v6)*, i.e: 
+  [package.json](./packages/foo/package.json). 
+
 
 3. For deployments
 
@@ -90,6 +92,7 @@ to override development settings are like this:
 | Vercel monorepo       | ✅              | ✅                    |
 | Yarn 2 PNP            | ✅              | ❌                    |
 | Experimental webpack5 | ?               | ❌  (working on it)  |
+| Publishable (npm)     | ✅               | ❌  (cause they rely on "main")  |
 
 
 #### Advantages over next-transpile-modules
