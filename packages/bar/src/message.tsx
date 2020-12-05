@@ -1,5 +1,4 @@
 import React from 'react'
-//import styles from "./message.module.scss";
 
 type Props = {
   message: string
