@@ -38,7 +38,6 @@ Two shared packages: packages/bar and packages/foo.
 |   |   └── tsconfig.json       
 │   ├── foo                     (Shared with next-transpile-modules)
 |   |   ├── src/
-|   |   ├── index.ts            (re-export of src/index.ts to allow next-transpile-modules)
 |   |   ├── package.json
 |   |   └── tsconfig.json       
 ├── package.json                (the workspace config)

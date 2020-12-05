@@ -3,12 +3,18 @@ const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'serverless'
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
-const withTM = require('next-transpile-modules')([
-  '@optional-package-scope/foo',
-  // The transpilation of the bar package will
-  // be handled by tsconfig paths rather than next-transpile-modules
-  //'@optional-package-scope/bar'
-])
+const withTM = require('next-transpile-modules')(
+  [
+    '@optional-package-scope/foo',
+    // The transpilation of the bar package will
+    // be handled by tsconfig paths rather than next-transpile-modules
+    //'@optional-package-scope/bar'
+  ],
+  {
+    debug: false,
+    unstable_webpack5: false,
+  }
+)
 
 const config = withTM({
   target: NEXTJS_BUILD_TARGET,
