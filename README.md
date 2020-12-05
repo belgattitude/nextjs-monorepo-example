@@ -49,10 +49,20 @@ Two shared packages: packages/bar and packages/foo.
 #### Config
 
 - Declare your workspaces paths in [package.json](./package.json)
+
+1. For typescript config base path:
+
 - Create a base [tsconfig.json](./tsconfig.json) at the root.
   Set `baseUrl` to '.' and define your dependencies in `paths`.
 - Configure webpack in [next.config.js](./apps/web-app/next.config.js)
-- Be sure you build as 'serverless' to benefit from recent vercel monorepo support.
+
+2. For next-transpile-module
+
+- Define your shared packages in [next.config.js](./apps/web-app/next.config.js)
+
+3. For deployments
+
+- Be sure you build as 'serverless' to benefit from vercel monorepo support. 
 
 #### Vercel
 
