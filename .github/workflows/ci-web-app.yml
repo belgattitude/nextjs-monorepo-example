@@ -51,6 +51,7 @@ jobs:
           sh ./scripts/check-git-pristine-yarn-lock.sh
 
       - name: Unit tests
+        working-directory: apps/web-app
         run: |
           yarn test:unit
 
