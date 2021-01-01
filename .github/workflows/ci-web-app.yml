@@ -5,6 +5,11 @@ on:
     branches:
       - dev
       - master
+    paths:
+      - "apps/web-app/**"
+      - "yarn.lock"
+      - "package.json"
+      - "packages/**"
 
   pull_request:
     types:
@@ -19,7 +24,7 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -49,6 +54,11 @@ jobs:
         run: |
           yarn install --frozen-lockfile --check-files
           sh ./scripts/check-git-pristine-yarn-lock.sh
+
+      - name: Unit tests
+        working-directory: apps/web-app
+        run: |
+          yarn test:unit
 
       - name: Build webapp
         working-directory: apps/web-app

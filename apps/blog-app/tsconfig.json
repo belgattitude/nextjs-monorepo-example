@@ -1,9 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "preserve",
     "baseUrl": ".",
+    "jsx": "preserve",
     "paths": {
+      "test-utils": [
+        "config/jest/test-utils"
+      ],
       "@/components/*": [
         "./src/components/*"
       ],
@@ -12,11 +15,20 @@
     }
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    ".next",
+    "out",
+    "docs",
+    "public",
+    "coverage"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.json"
   ]
 }
