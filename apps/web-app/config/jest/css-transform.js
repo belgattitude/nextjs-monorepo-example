@@ -1,3 +1,4 @@
+// Borrowed from https://github.com/facebook/create-react-app v4.0.1
 'use strict'
 
 // This is a custom Jest transformer turning style imports into empty objects.
