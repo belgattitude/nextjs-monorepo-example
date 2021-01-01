@@ -1,4 +1,3 @@
-import React from 'react'
 import type { AppProps as NextAppProps } from 'next/app'
 import { AppProviders } from '../app-providers'
 
