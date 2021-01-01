@@ -5,6 +5,11 @@ on:
     branches:
       - dev
       - master
+    paths:
+      - "apps/blog-app/**"
+      - "yarn.lock"
+      - "package.json"
+      - "packages/**"
 
   pull_request:
     types:
@@ -49,6 +54,11 @@ jobs:
         run: |
           yarn install --frozen-lockfile --check-files
           sh ./scripts/check-git-pristine-yarn-lock.sh
+
+      - name: Unit tests
+        working-directory: apps/blog-app
+        run: |
+          yarn test:unit
 
       - name: Build blogapp
         working-directory: apps/blog-app

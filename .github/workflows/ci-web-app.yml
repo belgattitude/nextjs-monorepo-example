@@ -5,6 +5,11 @@ on:
     branches:
       - dev
       - master
+    paths:
+      - "apps/web-app/**"
+      - "yarn.lock"
+      - "package.json"
+      - "packages/**"
 
   pull_request:
     types:
