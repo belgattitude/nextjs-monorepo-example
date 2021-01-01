@@ -1,4 +1,4 @@
-# NextJS monorepo tests
+# NextJS monorepo example
 
 Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs](https://vercel.com/docs/git-integrations#monorepos)).
 
