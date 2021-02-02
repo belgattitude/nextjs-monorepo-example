@@ -15,5 +15,5 @@ export const AsyncMessage: FC<Props> = (props) => {
         setMsg(res)
       })
   })
-  return <Message message={msg} />
+  return <Message hello={'cool'} message={msg} />
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 
 type Props = {
-  message: string
+  message: string,
+  hello: string,
   children?: never
 }
 
