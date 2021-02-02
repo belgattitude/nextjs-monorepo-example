@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {
   message: string,
-  hello?: string,
+  hello: string,
   children?: never
 }
 
