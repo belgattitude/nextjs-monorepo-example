@@ -16,6 +16,7 @@ export default function Home() {
         <li>
           <Message
             message={'Bar react component from @optional-package-scope/bar'}
+            hello={'Cool'}
           />
         </li>
         <li>
