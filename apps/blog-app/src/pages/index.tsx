@@ -1,4 +1,5 @@
 import { sayHello } from '@optional-package-scope/foo'
+import { Message } from '@optional-package-scope/bar'
 import { getPosts, Post } from '../data/blog'
 import { Layout } from '@/components/layout'
 import Image from 'next/image'
@@ -22,6 +23,7 @@ export default function Blog({ posts }: Props) {
           <li key={slug}>{title}</li>
         ))}
       </ul>
+      <Message message={'cool'} />
       <Image
         src={'/images/nextjs-logo.png'}
         alt={'logo'}
