@@ -7,7 +7,7 @@
   "scripts": {
     "typecheck": "tsc -p ./ --noEmit",
     "clean": "rimraf --no-glob ./dist",
-    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
-    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
+    "deps:check": "npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npm-check-updates --dep prod,dev,optional -u"
   }
 }

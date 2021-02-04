@@ -11,8 +11,8 @@
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist",
     "typecheck": "tsc -p ./ --noEmit",
-    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
-    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
+    "deps:check": "npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npm-check-updates --dep prod,dev,optional -u"
   },
   "devDependencies": {
     "microbundle": "^0.13.0"
