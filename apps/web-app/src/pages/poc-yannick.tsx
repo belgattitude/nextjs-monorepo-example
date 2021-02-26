@@ -18,11 +18,10 @@ export default function PocYannick() {
     </section>
 
     <div className="flex justify-center">
-      <!-- component -->
       <div className="relative max-w-screen-md m-4 sm:m-12">
         <div
           className="border-r-2 border-gray-300 absolute h-full top-0"
-          style="left: 15px"
+          style={{left: '15px'}}
         ></div>
         <ul className="list-none m-0 p-0">
           <li className="mb-2">
