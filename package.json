@@ -7,6 +7,8 @@
   "scripts": {
     "clean": "yarn workspaces run clean",
     "typecheck": "yarn workspaces run typecheck",
+    "test": "run-s test:*",
+    "test:unit": "yarn workspaces run test:unit",
     "deps:check": "npm-check-updates && yarn workspaces run deps:check",
     "deps:update": "npm-check-updates -u && yarn workspaces run deps:update",
     "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write"
@@ -20,6 +22,7 @@
     "jest-circus": "^26.6.3",
     "jest-cli": "^26.6.3",
     "npm-check-updates": "^11.1.9",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.2.2",
