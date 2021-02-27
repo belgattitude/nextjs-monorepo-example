@@ -10,6 +10,8 @@
     "build": "microbundle --jsx React.createElement",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist",
+    "test": "run-s test:*",
+    "test:unit": "echo \"No tests yet\"",
     "typecheck": "tsc -p ./ --noEmit",
     "deps:check": "npm-check-updates --dep prod,dev,optional",
     "deps:update": "npm-check-updates --dep prod,dev,optional -u"

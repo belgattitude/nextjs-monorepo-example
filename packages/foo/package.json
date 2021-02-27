@@ -7,6 +7,8 @@
   "scripts": {
     "typecheck": "tsc -p ./ --noEmit",
     "clean": "rimraf --no-glob ./dist",
+    "test": "run-s test:*",
+    "test:unit": "echo \"No tests yet\"",
     "deps:check": "npm-check-updates --dep prod,dev,optional",
     "deps:update": "npm-check-updates --dep prod,dev,optional -u"
   }

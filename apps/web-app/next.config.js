@@ -11,13 +11,14 @@ const withTM = require('next-transpile-modules')(
     //'@optional-package-scope/bar'
   ],
   {
-    debug: false,
-    unstable_webpack5: false,
+    debug: false
   }
 )
 
 const config = withTM({
   target: NEXTJS_BUILD_TARGET,
+  reactStrictMode: true,
+  future: { webpack5: false },
   webpack: function (config, { defaultLoaders }) {
     const resolvedBaseUrl = path.resolve(config.context, '../../')
     // This extra config allows to use paths defined in tsconfig
