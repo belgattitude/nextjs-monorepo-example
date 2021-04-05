@@ -1,4 +1,4 @@
-import { render } from 'test-utils'
+import { render } from '@/test-utils'
 import { Layout } from '@/components/layout'
 
 describe('Layout tests', () => {
