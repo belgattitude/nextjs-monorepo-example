@@ -10,8 +10,9 @@ on:
     #   to prevent unnecessary builds.
     paths:
       - "apps/web-app/**"
-      - "yarn.lock"
       - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
       - "packages/**"
 
   pull_request:
