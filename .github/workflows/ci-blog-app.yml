@@ -58,16 +58,21 @@ jobs:
         run: |
           yarn install --immutable
 
+      - name: Typecheck
+        run: |
+          yarn typecheck
+
       - name: Unit tests
         working-directory: apps/blog-app
         run: |
           yarn test:unit
 
-      - name: Build blogapp
+      - name: Build blog-app
         working-directory: apps/blog-app
         run: |
           yarn build
         env:
+          DISABLE_SOURCEMAP: 1
           NEXT_TELEMETRY_DISABLED: 1
 
 
