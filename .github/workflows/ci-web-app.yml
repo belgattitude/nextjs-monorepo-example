@@ -56,7 +56,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable
           sh ./scripts/check-git-pristine-yarn-lock.sh
 
       - name: Unit tests
