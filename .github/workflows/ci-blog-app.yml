@@ -5,10 +5,14 @@ on:
     branches:
       - dev
       - master
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
     paths:
       - "apps/blog-app/**"
-      - "yarn.lock"
       - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
       - "packages/**"
 
   pull_request:

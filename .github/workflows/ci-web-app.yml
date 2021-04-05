@@ -5,6 +5,9 @@ on:
     branches:
       - dev
       - master
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
     paths:
       - "apps/web-app/**"
       - "yarn.lock"
