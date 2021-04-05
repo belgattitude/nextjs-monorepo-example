@@ -1,8 +1,18 @@
 {
   "name": "@optional-package-scope/foo",
   "version": "1.0.0",
-  "license": "ISC",
+  "license": "MIT",
   "private": true,
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "directory": "packages/foo"
+  },
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc -p ./ --noEmit",
