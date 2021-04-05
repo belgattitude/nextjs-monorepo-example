@@ -22,15 +22,16 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "yarn workspaces foreach run clean",
-    "typecheck": "yarn workspaces foreach run typecheck",
+    "clean": "yarn workspaces foreach -pt run clean",
+    "typecheck": "yarn workspaces foreach -pt run typecheck",
     "test": "run-s test:*",
-    "test:unit": "yarn workspaces foreach run test:unit",
+    "test:unit": "yarn workspaces foreach -pt run test:unit",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
     "deps:check": "npm-check-updates && yarn workspaces foreach run deps:check",
     "deps:update": "npm-check-updates -u && yarn workspaces foreach run deps:update",
-    "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write"
+    "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write",
+    "yarn:doctor": "yarn dlx @yarnpkg/doctor ."
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.3.0",
