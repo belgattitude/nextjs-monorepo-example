@@ -48,10 +48,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Restore nextjs build from cache
+      - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/packages/web-app/.next/cache
+          path: ${{ github.workspace }}/apps/web-app/.next/cache
           key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
