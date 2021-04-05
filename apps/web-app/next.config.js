@@ -11,6 +11,7 @@ const withTM = require('next-transpile-modules')(
     //'@optional-package-scope/bar'
   ],
   {
+    resolveSymlinks: true,
     debug: false
   }
 )
