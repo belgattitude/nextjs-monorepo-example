@@ -57,7 +57,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-          sh ./scripts/check-git-pristine-yarn-lock.sh
 
       - name: Unit tests
         working-directory: apps/blog-app
