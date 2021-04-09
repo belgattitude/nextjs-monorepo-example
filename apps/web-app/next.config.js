@@ -1,5 +1,5 @@
 const path = require('path')
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'serverless'
+const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server'
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
