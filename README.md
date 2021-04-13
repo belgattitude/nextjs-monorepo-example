@@ -40,7 +40,7 @@ Two shared packages: packages/bar and packages/foo.
 |   |   ├── package.json
 |   |   └── tsconfig.json       
 ├── package.json                (the workspace config)
-└── tsconfig.json               (base typescript config)
+└── tsconfig.base.json               (base typescript config)
 ```
 
 ### How to
@@ -51,7 +51,7 @@ Two shared packages: packages/bar and packages/foo.
 
 1. For typescript config base path:
 
-- Create a base [tsconfig.json](./tsconfig.json) at the root.
+- In [tsconfig.base.json](tsconfig.base.json) at the root.
   Set `baseUrl` to '.' and define your dependencies in `paths`.
 - Configure webpack in [next.config.js](./apps/web-app/next.config.js)
 
