@@ -18,6 +18,7 @@
     "build": "next build",
     "export": "next export",
     "clean": "rimraf --no-glob ./.next ./out",
+    "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --color $@",
     "vercel-build": "cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "start": "next start",
