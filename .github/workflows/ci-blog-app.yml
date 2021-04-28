@@ -62,6 +62,7 @@ jobs:
           yarn install --immutable
 
       - name: Typecheck
+        working-directory: apps/blog-app
         run: |
           yarn typecheck
 

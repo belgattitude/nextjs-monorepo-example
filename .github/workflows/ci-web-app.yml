@@ -62,6 +62,7 @@ jobs:
           yarn install --immutable
 
       - name: Typecheck
+        working-directory: apps/web-app
         run: |
           yarn typecheck
 
