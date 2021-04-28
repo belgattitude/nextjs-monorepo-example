@@ -24,7 +24,7 @@
   "scripts": {
     "clean": "yarn workspaces foreach -pt run clean",
     "typecheck": "yarn workspaces foreach -pt run typecheck",
-    "test": "run-s test:*",
+    "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -pt run test:unit",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
