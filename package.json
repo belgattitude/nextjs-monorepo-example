@@ -28,8 +28,8 @@
     "test:unit": "yarn workspaces foreach -pt run test:unit",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
-    "deps:check": "yarn npm-check-updates --deep --dep prod,dev,optional",
-    "deps:update": "yarn npm-check-updates -u --deep --dep prod,dev,optional",
+    "deps:check": "npm-check-updates --packageManager npm --deep --dep prod,dev,optional",
+    "deps:update": "npm-check-updates --packageManager npm -u --deep --dep prod,dev,optional",
     "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write",
     "check:install": "yarn dlx @yarnpkg/doctor ."
   },
