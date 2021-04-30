@@ -28,15 +28,15 @@
     "test:unit": "yarn workspaces foreach -pt run test:unit",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
-    "deps:check": "npm-check-updates --packageManager npm --deep --dep prod,dev,optional",
-    "deps:update": "npm-check-updates --packageManager npm -u --deep --dep prod,dev,optional",
+    "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
+    "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
     "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write",
     "check:install": "yarn dlx @yarnpkg/doctor ."
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.16.0",
-    "npm-check-updates": "11.5.5",
+    "npm-check-updates": "11.5.7",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2"
   },
