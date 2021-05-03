@@ -23,7 +23,6 @@ const config = {
   rootDir: '.',
   transform: {
     ...tsjPreset.transform,
-    '^.+\\.jsx?$': 'ts-jest',
     '^.+\\.css$': '<rootDir>/config/jest/css-transform.js',
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)':
       '<rootDir>/config/jest/file-transform.js',
