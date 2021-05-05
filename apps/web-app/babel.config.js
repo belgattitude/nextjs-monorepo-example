@@ -5,45 +5,42 @@ module.exports = {
         [
           'next/babel',
           {
-            'preset-env': {},
-            'transform-runtime': {},
-            'styled-jsx': {},
-            'class-properties': {},
-          },
+            "preset-react": {
+              "runtime": "automatic",
+              "importSource": "@emotion/react"
+            }
+          }
         ],
-        //['@emotion/babel-preset-css-prop'],
       ],
-      //plugins: [],
+      "plugins": ["@emotion/babel-plugin"]
     },
     production: {
       presets: [
         [
           'next/babel',
           {
-            'preset-env': {},
-            'transform-runtime': {},
-            'styled-jsx': {},
-            'class-properties': {},
-          },
+            "preset-react": {
+              "runtime": "automatic",
+              "importSource": "@emotion/react"
+            }
+          }
         ],
-        //['@emotion/babel-preset-css-prop'],
       ],
-      //plugins: [],
+      "plugins": ["@emotion/babel-plugin"]
     },
     test: {
       presets: [
         [
           'next/babel',
           {
-            'preset-env': {},
-            'transform-runtime': {},
-            'styled-jsx': {},
-            'class-properties': {},
-          },
+            "preset-react": {
+              "runtime": "automatic",
+              "importSource": "@emotion/react"
+            }
+          }
         ],
-        //['@emotion/babel-preset-css-prop'],
       ],
-      //plugins: [],
+      "plugins": ["@emotion/babel-plugin"]
     },
   },
 };
