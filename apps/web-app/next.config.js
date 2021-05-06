@@ -20,6 +20,12 @@ const config = withTM({
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   future: { webpack5: true },
+  resolve: {
+    fallback: {
+      // Fixes npm packages that depend on `fs` module
+      fs: false,
+    },
+  },
   webpack: function (config, { defaultLoaders }) {
     const resolvedBaseUrl = path.resolve(config.context, '../../');
     // This extra config allows to use paths defined in tsconfig
@@ -28,7 +34,7 @@ const config = withTM({
     config.module.rules = [
       ...config.module.rules,
       {
-        test: /\.(tsx|ts|js|mjs|jsx)$/,
+        test: /\.(tsx|ts|js|jsx)$/,
         include: [resolvedBaseUrl],
         use: defaultLoaders.babel,
         exclude: (excludePath) => {
