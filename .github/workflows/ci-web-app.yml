@@ -69,9 +69,8 @@ jobs:
           yarn check:typescript
 
       - name: Linter
-        working-directory: apps/web-app
         run: |
-          yarn check:lint
+          yarn workspace web-app check:lint
 
       - name: Unit tests
         working-directory: apps/web-app
