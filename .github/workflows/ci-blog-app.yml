@@ -68,10 +68,15 @@ jobs:
         run: |
           yarn check:typescript
 
+      - name: Linter
+        working-directory: apps/blog-app
+        run: |
+          yarn check:lint
+
       - name: Unit tests
         working-directory: apps/blog-app
         run: |
-          yarn test:unit
+          yarn ci-test:unit
 
       - name: Build blog-app
         working-directory: apps/blog-app
