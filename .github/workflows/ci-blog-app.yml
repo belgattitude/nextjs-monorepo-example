@@ -68,11 +68,6 @@ jobs:
         run: |
           yarn typecheck
 
-      - name: Linter / Code style
-        working-directory: apps/blog-app
-        run: |
-          yarn lint
-
       - name: Unit tests
         working-directory: apps/blog-app
         run: |
