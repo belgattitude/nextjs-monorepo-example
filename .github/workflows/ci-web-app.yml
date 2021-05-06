@@ -15,6 +15,8 @@ on:
       - "tsconfig.json"
       - "yarn.lock"
       - "packages/**"
+      - ".eslintrc.json"
+      - ".eslintignore"
 
   pull_request:
     types:
@@ -65,6 +67,11 @@ jobs:
         working-directory: apps/web-app
         run: |
           yarn typecheck
+
+      - name: Linter / Code style
+        working-directory: apps/blog-app
+        run: |
+          yarn lint
 
       - name: Unit tests
         working-directory: apps/web-app

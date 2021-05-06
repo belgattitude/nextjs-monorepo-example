@@ -1,4 +1,4 @@
-name: CI apps/blog-app
+name: CI monorepo linter
 
 on:
   push:
@@ -10,10 +10,7 @@ on:
     #   to prevent unnecessary builds.
     paths:
       - ".github/workflows/**"
-      - "apps/blog-app/**"
-      - "package.json"
-      - "tsconfig.json"
-      - "yarn.lock"
+      - "apps/**"
       - "packages/**"
       - ".eslintrc.json"
       - ".eslintignore"
@@ -63,29 +60,10 @@ jobs:
         run: |
           yarn install --immutable
 
-      - name: Typecheck
-        working-directory: apps/blog-app
-        run: |
-          yarn typecheck
-
-      - name: Linter / Code style
-        working-directory: apps/blog-app
+      - name: Linter
         run: |
           yarn lint
 
-      - name: Unit tests
-        working-directory: apps/blog-app
-        run: |
-          yarn test:unit
-
-      - name: Build blog-app
-        working-directory: apps/blog-app
-        run: |
-          yarn build
-        env:
-          DISABLE_SOURCEMAP: 1
-          NEXT_TELEMETRY_DISABLED: 0
-          NEXTJS_BUILD_TARGET: server
 
 
 
