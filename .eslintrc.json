@@ -2,6 +2,7 @@
     "root": true,
     "extends": [
         "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
         "plugin:jest/recommended"
     ],
     "plugins": [
@@ -29,13 +30,6 @@
     },
     "overrides": [
         {
-            "files": ["jest.*.ts"],
-            "rules": {
-                "@typescript-eslint/no-explicit-any": "off",
-                "@typescript-eslint/no-var-requires": "off"
-            }
-        },
-        {
             "files": ["jest.config.ts", "**/config/jest/**/*.ts", "**/config/jest/**/*.tsx"],
             "rules": {
                 "@typescript-eslint/no-explicit-any": "off",
@@ -44,7 +38,7 @@
             }
         },
         {
-            "files": ["jest.config.js", "**/config/jest/**/*.js"],
+            "files": ["lint-staged.config.js", "jest.config.js", "**/config/jest/**/*.js"],
             "parser": "espree",
             "parserOptions": {
                 "ecmaVersion": 2019
