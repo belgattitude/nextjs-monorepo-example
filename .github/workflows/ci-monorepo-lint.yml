@@ -50,12 +50,6 @@ jobs:
             yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-
             yarn-cache-folder-os-${{ runner.os }}-
 
-      - name: Restore nextjs build blog-app from cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/apps/blog-app/.next/cache
-          key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install dependencies
         run: |
           yarn install --immutable
