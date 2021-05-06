@@ -27,6 +27,7 @@
     "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -pt run test:unit",
     "lint": "yarn workspaces foreach -pt run lint",
+    "lint-staged": "yarn workspaces foreach -t run precommit",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
     "deps:check": "npm-check-updates --deep --dep prod,dev,optional",

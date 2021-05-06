@@ -39,6 +39,7 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\""
+    "test:unit": "echo \"No tests yet\"",
+    "precommit": "lint-staged --allow-empty"
   }
 }

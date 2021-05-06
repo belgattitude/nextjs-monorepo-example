@@ -16,13 +16,14 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "vercel-build": "cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "clean": "rimraf --no-glob ./.next ./out",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --color $@",
-    "vercel-build": "cross-env NEXTJS_BUILD_TARGET=serverless next build"
+    "precommit": "lint-staged --allow-empty"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
