@@ -1,6 +1,6 @@
 import { sayHello } from '@optional-package-scope/foo'
 import { getPosts, Post } from '../data/blog'
-import { Layout } from '@/components/layout'
+import { MainLayout } from '@/components/layout/main-layout'
 import Image from 'next/image'
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
   return (
-    <Layout>
+    <MainLayout>
       <h3>I'm the SSG blog-app</h3>
       <ul>
         <li>{`Foo says: ${sayHello(
@@ -28,7 +28,7 @@ export default function Blog({ posts }: Props) {
         width={400}
         height={240}
       />
-    </Layout>
+    </MainLayout>
   )
 }
 

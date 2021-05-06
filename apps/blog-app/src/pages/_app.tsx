@@ -1,6 +1,8 @@
 import type { AppProps as NextAppProps } from 'next/app'
 import { AppProviders } from '../app-providers'
 
+import 'tailwindcss/tailwind.css'
+
 // Import global styles, polyfills... here.
 // i.e.: import '@/assets/theme/style.scss'
 
