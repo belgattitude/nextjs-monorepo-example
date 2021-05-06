@@ -40,6 +40,9 @@
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\"",
-    "precommit": "lint-staged --allow-empty"
+    "check:typescript": "tsc -p ./ --noEmit",
+    "check:lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   }
 }

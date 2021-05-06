@@ -17,6 +17,8 @@ const escapeFileNamesForPrettier = (filenames) =>
 module.exports = {
   '**/*.{js,jsx,ts,tsx}': (filenames) => {
     return [
+      // react-hooks/exhaustive-deps must be kept off, a change made here can
+      // potentially break your code
       `eslint --rule 'react-hooks/exhaustive-deps: off' --max-warnings=25 --fix ${filenames
         .filter((file) => !cli.isPathIgnored(file))
         .map((f) => `"${f}"`)

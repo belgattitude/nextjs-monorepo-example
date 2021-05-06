@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
-  originatingAppName: string
-  children?: never
-}
+  originatingAppName: string;
+  children?: never;
+};
 export const InfoCard: React.FC<Props> = (props) => {
-  const { originatingAppName } = props
+  const { originatingAppName } = props;
   return (
     <div className="card">
       <img src="img_avatar.png" alt="Avatar" style={{ width: '100%' }} />
@@ -16,5 +16,5 @@ export const InfoCard: React.FC<Props> = (props) => {
         <p>{originatingAppName}</p>
       </div>
     </div>
-  )
-}
+  );
+};

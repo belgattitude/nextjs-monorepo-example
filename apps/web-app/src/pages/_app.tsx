@@ -1,5 +1,5 @@
-import type { AppProps as NextAppProps } from 'next/app'
-import { AppProviders } from '../app-providers'
+import type { AppProps as NextAppProps } from 'next/app';
+import { AppProviders } from '../app-providers';
 
 // Import global styles, polyfills... here.
 // i.e.: import '@/assets/theme/style.scss'
@@ -7,8 +7,8 @@ import { AppProviders } from '../app-providers'
 // Workaround for https://github.com/zeit/next.js/issues/8592
 export type AppProps = NextAppProps & {
   /** Will be defined only is there was an error */
-  err?: Error
-}
+  err?: Error;
+};
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
@@ -18,8 +18,8 @@ const MyApp = ({ Component, pageProps, err }: AppProps) => {
     <AppProviders>
       <Component {...pageProps} err={err} />
     </AppProviders>
-  )
-}
+  );
+};
 
 /*
 MyApp.getInitialProps = async appContext => {
@@ -29,4 +29,4 @@ MyApp.getInitialProps = async appContext => {
 }
 */
 
-export default MyApp
+export default MyApp;

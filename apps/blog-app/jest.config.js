@@ -1,17 +1,17 @@
-'use strict'
+'use strict';
 
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { defaults: tsjPreset } = require('ts-jest/presets')
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { defaults: tsjPreset } = require('ts-jest/presets');
 
-const { compilerOptions: baseTsConfig } = require('./tsconfig.json')
+const { compilerOptions: baseTsConfig } = require('./tsconfig.json');
 
 // Take the paths from tsconfig automatically from base tsconfig.json
 // @link https://kulshekhar.github.io/ts-jest/docs/paths-mapping
 const getTsConfigBasePaths = () => {
   return pathsToModuleNameMapper(baseTsConfig.paths, {
     prefix: '<rootDir>/',
-  })
-}
+  });
+};
 
 /** @typedef {import('ts-jest')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
@@ -47,6 +47,6 @@ const config = {
       tsconfig: './tsconfig.jest.json',
     },
   },
-}
+};
 
-module.exports = config
+module.exports = config;

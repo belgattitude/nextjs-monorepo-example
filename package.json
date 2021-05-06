@@ -23,16 +23,16 @@
   ],
   "scripts": {
     "clean": "yarn workspaces foreach -pt run clean",
-    "typecheck": "yarn workspaces foreach -pt run typecheck",
     "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -pt run test:unit",
-    "lint": "yarn workspaces foreach -pt run lint",
-    "lint-staged": "yarn workspaces foreach -t run precommit",
+    "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
+    "fix:all-files": "yarn workspaces foreach -pt run fix:all-files",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
     "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
     "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
-    "prettier:all": "prettier './**/src/**/*.(ts|tsx|css|scss)' --write",
+    "check:typescript": "yarn workspaces foreach -pt run check:typescript",
+    "check:lint": "yarn workspaces foreach -pt run check:lint",
     "check:install": "yarn dlx @yarnpkg/doctor ."
   },
   "devDependencies": {

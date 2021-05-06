@@ -1,5 +1,5 @@
-const path = require('path')
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server'
+const path = require('path');
+const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
@@ -12,16 +12,16 @@ const withTM = require('next-transpile-modules')(
   ],
   {
     resolveSymlinks: true,
-    debug: false
+    debug: false,
   }
-)
+);
 
 const config = withTM({
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   future: { webpack5: true },
   webpack: function (config, { defaultLoaders }) {
-    const resolvedBaseUrl = path.resolve(config.context, '../../')
+    const resolvedBaseUrl = path.resolve(config.context, '../../');
     // This extra config allows to use paths defined in tsconfig
     // rather than next-transpile-modules.
     // @link https://github.com/vercel/next.js/pull/13542
@@ -32,12 +32,12 @@ const config = withTM({
         include: [resolvedBaseUrl],
         use: defaultLoaders.babel,
         exclude: (excludePath) => {
-          return /node_modules/.test(excludePath)
+          return /node_modules/.test(excludePath);
         },
       },
-    ]
-    return config
+    ];
+    return config;
   },
-})
+});
 
-module.exports = config
+module.exports = config;

@@ -1,11 +1,11 @@
-import { sayHello } from '@optional-package-scope/foo'
-import { getPosts, Post } from '../data/blog'
-import { MainLayout } from '@/components/layout/main-layout'
-import Image from 'next/image'
+import { sayHello } from '@optional-package-scope/foo';
+import { getPosts, Post } from '../data/blog';
+import { MainLayout } from '@/components/layout/main-layout';
+import Image from 'next/image';
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
 export default function Blog({ posts }: Props) {
   return (
@@ -29,7 +29,7 @@ export default function Blog({ posts }: Props) {
         height={240}
       />
     </MainLayout>
-  )
+  );
 }
 
 export async function getStaticProps(): Promise<{ props: Props }> {
@@ -37,5 +37,5 @@ export async function getStaticProps(): Promise<{ props: Props }> {
     props: {
       posts: getPosts(),
     },
-  }
+  };
 }
