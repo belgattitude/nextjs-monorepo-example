@@ -35,8 +35,9 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "typecheck": "tsc -p ./ --noEmit",
     "clean": "rimraf --no-glob ./dist",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\""
   }
