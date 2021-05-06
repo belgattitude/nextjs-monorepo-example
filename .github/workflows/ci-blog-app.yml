@@ -69,7 +69,6 @@ jobs:
           yarn check:typescript
 
       - name: Linter
-        working-directory: apps/blog-app
         run: |
           yarn workspace blog-app check:lint
 
