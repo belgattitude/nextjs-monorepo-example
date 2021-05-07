@@ -22,17 +22,17 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "yarn workspaces foreach -pt run clean",
+    "clean": "yarn workspaces foreach -ptv run clean",
     "test": "run-s 'test:*'",
-    "test:unit": "yarn workspaces foreach -pt run test:unit",
+    "test:unit": "yarn workspaces foreach -ptv run test:unit",
     "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
-    "fix:all-files": "yarn workspaces foreach -pt run fix:all-files",
+    "fix:all-files": "yarn workspaces foreach -ptv run fix:all-files",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
     "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
     "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
-    "check:typescript": "yarn workspaces foreach -pt run check:typescript",
-    "check:lint": "yarn workspaces foreach -pt run check:lint",
+    "check:typescript": "yarn workspaces foreach -ptv run check:typescript",
+    "check:lint": "yarn workspaces foreach -ptv run check:lint",
     "check:install": "yarn dlx @yarnpkg/doctor ."
   },
   "devDependencies": {
