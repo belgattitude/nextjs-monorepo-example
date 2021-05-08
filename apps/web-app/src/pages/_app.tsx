@@ -1,8 +1,11 @@
 import type { AppProps as NextAppProps } from 'next/app';
 import { AppProviders } from '../app-providers';
 
-// Import global styles, polyfills... here.
-// i.e.: import '@/assets/theme/style.scss'
+/**
+ * Import global styles, global css or polyfills here
+ * i.e.: import '@/assets/theme/style.scss'
+ */
+import 'tailwindcss/tailwind.css';
 
 // Workaround for https://github.com/zeit/next.js/issues/8592
 export type AppProps = NextAppProps & {
