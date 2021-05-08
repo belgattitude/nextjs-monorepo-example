@@ -1960,9 +1960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@eslint/eslintrc@npm:0.4.0"
+"@eslint/eslintrc@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@eslint/eslintrc@npm:0.4.1"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.1.1
@@ -1973,7 +1973,7 @@ __metadata:
     js-yaml: ^3.13.1
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: c4e7a5021bfdd293aff47b1993a66aee3d7a71a6b13bc8036028c71aa08bdac232c8683f5bb55090d0f260ecf81f4159e1a28554c8ad242a372ee89583dc75af
+  checksum: 85eeaa022eba510ff093040a66e67bf0b4c5e5aa8c39e3655e4fa6de929d1076e2320858325708b723b367d8aeaddd89e6fa5b34c8676a4d95246d099e1b1759
   languageName: node
   linkType: hard
 
@@ -2443,7 +2443,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     camelcase: ^6.2.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: ^24.3.6
@@ -2483,7 +2483,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     camelcase: ^6.2.0
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: ^24.3.6
@@ -2649,6 +2649,20 @@ __metadata:
   dependencies:
     defer-to-connect: ^1.0.1
   checksum: 4d9158061c5f397c57b4988cde33a163244e4f02df16364f103971957a32886beb104d6180902cbe8b38cb940e234d9f98a4e486200deca621923f62f50a06fe
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/typography@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@tailwindcss/typography@npm:0.4.0"
+  dependencies:
+    lodash.castarray: ^4.4.0
+    lodash.isplainobject: ^4.0.6
+    lodash.merge: ^4.6.2
+    lodash.uniq: ^4.5.0
+  peerDependencies:
+    tailwindcss: 2.0.0-alpha.24 || ^2.0.0
+  checksum: bdb221d48909eaf4e61cacfdb78670157a4289309125549b1c78c382585679c2faef33f332d9e4d445d2f469f7810fc78bf715607e0a435277310d49fba056d1
   languageName: node
   linkType: hard
 
@@ -3899,6 +3913,7 @@ __metadata:
     "@headlessui/react": ^1.1.1
     "@heroicons/react": ^1.0.1
     "@optional-package-scope/foo": ^1.0.0
+    "@tailwindcss/typography": ^0.4.0
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.6
     "@testing-library/react-hooks": ^5.1.2
@@ -3911,7 +3926,7 @@ __metadata:
     autoprefixer: ^10.2.5
     camelcase: ^6.2.0
     cross-env: ^7.0.3
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: ^24.3.6
@@ -6203,12 +6218,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.25.0":
-  version: 7.25.0
-  resolution: "eslint@npm:7.25.0"
+"eslint@npm:^7.26.0":
+  version: 7.26.0
+  resolution: "eslint@npm:7.26.0"
   dependencies:
     "@babel/code-frame": 7.12.11
-    "@eslint/eslintrc": ^0.4.0
+    "@eslint/eslintrc": ^0.4.1
     ajv: ^6.10.0
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
@@ -6246,7 +6261,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 8d418fccd017608f6d04551c85fb2b3f12f722933f79e5c71a6c9f27ec989c4cf24727f5b05344d5851c91cd676e6776607f3d1a4e337353ade5e7f62602fb91
+  checksum: 6178eeb1bf1161471fd5ecb12b1182f26313482371fb067659cc44095791e80e1e0eba22e543929935f559b2f8066ec128311b35b068bcba10cfada78a1ce91d
   languageName: node
   linkType: hard
 
@@ -9376,6 +9391,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.castarray@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.castarray@npm:4.4.0"
+  checksum: fca8c7047e0ae2738b0b2503fb00157ae0ff6d8a1b716f87ed715b22560e09de438c75b65e01a7e44ceb41c5b31dce2eb576e46db04beb9c699c498e03cbd00f
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -9394,6 +9416,13 @@ __metadata:
   version: 4.4.0
   resolution: "lodash.flatten@npm:4.4.0"
   checksum: 0ac34a393d4b795d4b7421153d27c13ae67e08786c9cbb60ff5b732210d46f833598eee3fb3844bb10070e8488efe390ea53bb567377e0cb47e9e630bf0811cb
+  languageName: node
+  linkType: hard
+
+"lodash.isplainobject@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "lodash.isplainobject@npm:4.0.6"
+  checksum: 29c6351f281e0d9a1d58f1a4c8f4400924b4c79f18dfc4613624d7d54784df07efaff97c1ff2659f3e085ecf4fff493300adc4837553104cef2634110b0d5337
   languageName: node
   linkType: hard
 
@@ -10203,7 +10232,7 @@ __metadata:
     "@commitlint/config-conventional": ^12.1.1
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: ^24.3.6
@@ -14868,6 +14897,7 @@ resolve@^2.0.0-next.3:
     "@headlessui/react": ^1.1.1
     "@heroicons/react": ^1.0.1
     "@prisma/client": ^2.22.1
+    "@tailwindcss/typography": ^0.4.0
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.6
     "@testing-library/react-hooks": ^5.1.2
@@ -14878,7 +14908,7 @@ resolve@^2.0.0-next.3:
     autoprefixer: ^10.2.5
     camelcase: ^6.2.0
     cross-env: ^7.0.3
-    eslint: ^7.25.0
+    eslint: ^7.26.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: ^24.3.6
