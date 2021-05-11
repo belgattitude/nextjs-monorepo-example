@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
 import { MainFooter } from '@/components/layout/main-footer';
 
-export const MainLayout: React.FC = (props) => {
+export const MainLayout: FC = (props) => {
   const { children } = props;
 
   return (

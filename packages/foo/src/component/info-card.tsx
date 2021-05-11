@@ -1,8 +1,10 @@
+import { FC } from 'react';
+
 type Props = {
   originatingAppName: string;
   children?: never;
 };
-export const InfoCard: React.FC<Props> = (props) => {
+export const InfoCard: FC<Props> = (props) => {
   const { originatingAppName } = props;
   return (
     <div className="card">

@@ -19,7 +19,9 @@ export default function Blog({ posts }: Props) {
       <h3>Here's the blog posts</h3>
       <ul>
         {posts.map(({ title, slug }) => (
-          <li key={slug}>{title}</li>
+          <article key={slug} className="prose lg:prose-xl">
+            <p>{title}</p>
+          </article>
         ))}
       </ul>
       <Image
