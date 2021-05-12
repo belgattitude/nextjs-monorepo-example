@@ -17,14 +17,14 @@
   "main": "dist/bar.js",
   "module": "dist/bar.module.js",
   "scripts": {
-    "build": "microbundle --jsx React.createElement",
+    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\"",
-    "check:typescript": "tsc -p ./ --noEmit",
-    "check:lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },

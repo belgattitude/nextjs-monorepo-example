@@ -37,6 +37,7 @@
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
     "jest-cli": "^26.6.3",
+    "microbundle": "^0.13.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
@@ -46,13 +47,14 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
+    "build:noworking:ntm": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "clean": "rimraf --no-glob ./dist",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\"",
-    "check:typescript": "tsc -p ./ --noEmit",
-    "check:lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   }
