@@ -13,7 +13,9 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
-  "main": "./src/index.ts",
+  "source": "src/index.ts",
+  "main": "dist/foo.js",
+  "module": "dist/foo.module.js",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
@@ -47,7 +49,7 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build:noworking:ntm": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "clean": "rimraf --no-glob ./dist",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
