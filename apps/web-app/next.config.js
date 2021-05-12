@@ -34,7 +34,7 @@ const config = withTM({
     config.module.rules = [
       ...config.module.rules,
       {
-        test: /\.(tsx|ts|js|jsx)$/,
+        test: /\.(tsx|ts|js|jsx|json)$/,
         include: [resolvedBaseUrl],
         use: defaultLoaders.babel,
         exclude: (excludePath) => {
