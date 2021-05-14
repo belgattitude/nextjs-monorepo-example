@@ -10,16 +10,22 @@ const withTM = require('next-transpile-modules')(
   }
 );
 
-const config = withTM({
-  target: NEXTJS_BUILD_TARGET,
-  reactStrictMode: true,
-  future: { webpack5: true },
-  resolve: {
-    fallback: {
-      // Fixes npm packages that depend on `fs` module
-      fs: false,
-    },
-  },
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
 });
+
+const config = withBundleAnalyzer(
+  withTM({
+    target: NEXTJS_BUILD_TARGET,
+    reactStrictMode: true,
+    future: { webpack5: true },
+    resolve: {
+      fallback: {
+        // Fixes npm packages that depend on `fs` module
+        fs: false,
+      },
+    },
+  })
+);
 
 module.exports = config;

@@ -20,6 +20,7 @@
     "clean": "rimraf --no-glob ./.next ./out",
     "export": "next export",
     "start": "next start",
+    "bundle:analyze": "cross-env ANALYZE=true yarn build",
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
     "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
+    "@next/bundle-analyzer": "^10.2.0",
     "@tailwindcss/typography": "^0.4.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
@@ -42,6 +44,7 @@
     "@typescript-eslint/parser": "^4.23.0",
     "autoprefixer": "^10.2.5",
     "camelcase": "^6.2.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "2.23.0",
