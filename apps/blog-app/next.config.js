@@ -1,4 +1,5 @@
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
+const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
@@ -26,12 +27,37 @@ if (disableSourceMaps) {
   );
 }
 
+// Example of setting up secure headers
+// @link https://github.com/jagaapple/next-secure-headers
+const { createSecureHeaders } = require('next-secure-headers');
+const secureHeaders = createSecureHeaders({
+  contentSecurityPolicy: {
+    directives: {
+      //defaultSrc: "'self'",
+      //styleSrc: ["'self'"],
+    },
+  },
+  ...(isProd
+    ? {
+        forceHTTPSRedirect: [
+          true,
+          { maxAge: 60 * 60 * 24 * 4, includeSubDomains: true },
+        ],
+      }
+    : {}),
+  referrerPolicy: 'same-origin',
+});
+
 const config = withBundleAnalyzer(
   withTM({
     target: NEXTJS_BUILD_TARGET,
     reactStrictMode: true,
     future: { webpack5: true },
     productionBrowserSourceMaps: !disableSourceMaps,
+
+    async headers() {
+      return [{ source: '/(.*)', headers: secureHeaders }];
+    },
   })
 );
 

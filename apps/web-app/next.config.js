@@ -32,12 +32,38 @@ if (disableSourceMaps) {
   );
 }
 
+// Example of setting up secure headers
+// @link https://github.com/jagaapple/next-secure-headers
+const { createSecureHeaders } = require('next-secure-headers');
+const secureHeaders = createSecureHeaders({
+  contentSecurityPolicy: {
+    directives: {
+      //defaultSrc: "'self'",
+      //styleSrc: ["'self'"],
+    },
+  },
+  ...(isProd
+    ? {
+        forceHTTPSRedirect: [
+          true,
+          { maxAge: 60 * 60 * 24 * 4, includeSubDomains: true },
+        ],
+      }
+    : {}),
+  referrerPolicy: 'same-origin',
+});
+
 const config = withBundleAnalyzer(
   withTM({
     target: NEXTJS_BUILD_TARGET,
     reactStrictMode: true,
     future: { webpack5: true },
     productionBrowserSourceMaps: !disableSourceMaps,
+
+    async headers() {
+      return [{ source: '/(.*)', headers: secureHeaders }];
+    },
+
     webpack: function (config, { defaultLoaders }) {
       const resolvedBaseUrl = path.resolve(config.context, '../../');
       // This extra config allows to use paths defined in tsconfig
