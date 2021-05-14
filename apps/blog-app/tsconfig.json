@@ -3,20 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "jsx": "preserve",
+    "incremental": true,
     "paths": {
-      "@/test-utils": [
-        "config/jest/test-utils"
-      ],
-      "@/components/*": [
-        "./src/components/*"
-      ]
+      "@/test-utils": ["config/jest/test-utils"],
+      "@/components/*": ["./src/components/*"]
     }
   },
   "exclude": [
