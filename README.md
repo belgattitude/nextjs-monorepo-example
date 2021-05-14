@@ -21,24 +21,24 @@ Two shared packages: packages/bar and packages/foo.
 .
 ├── apps
 │   ├── blog-app                 (NextJS SSG app)
-|   |   ├── src/
-|   |   ├── next.config.js
-|   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
+│   │   ├── src/
+│   │   ├── next.config.js
+│   │   ├── package.json
+│   │   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS app with api-routes)
-|   |   ├── src/
-|   |   ├── next.config.js
-|   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
+│   │   ├── src/
+│   │   ├── next.config.js
+│   │   ├── package.json
+│   │   └── tsconfig.json       (extends base config)
 ├── packages
 │   ├── bar                     (Shared with tsconfig path resolution, publishable with microbundle)
-|   |   ├── src/
-|   |   ├── package.json
-|   |   └── tsconfig.json       
+│   │   ├── src/
+│   │   ├── package.json
+│   │   └── tsconfig.json       
 │   ├── foo                     (Shared with next-transpile-modules)
-|   |   ├── src/
-|   |   ├── package.json
-|   |   └── tsconfig.json       
+│   │   ├── src/
+│   │   ├── package.json
+│   │   └── tsconfig.json       
 ├── package.json                (the workspace config)
 └── tsconfig.base.json               (base typescript config)
 ```
