@@ -87,7 +87,10 @@ jobs:
         run: |
           yarn build
         env:
-          DISABLE_SOURCEMAP: 1
+          # Disable sourcemaps will speed up ci
+          # be sure to disable it if you intent to use the build
+          # done in this step (i.e: deploy, docker....)
+          NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
           NEXTJS_BUILD_TARGET: server
 
