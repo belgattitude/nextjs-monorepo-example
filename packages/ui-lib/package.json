@@ -1,5 +1,5 @@
 {
-  "name": "@optional-package-scope/foo",
+  "name": "@your-org/ui-lib",
   "version": "2.0.0",
   "license": "MIT",
   "private": true,
@@ -7,13 +7,27 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
-    "directory": "packages/foo"
+    "directory": "packages/ui-lib"
   },
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
-  "main": "./src/index.ts",
+  "source": "src/index.ts",
+  "main": "dist/ui-lib.js",
+  "module": "dist/ui-lib.module.js",
+  "scripts": {
+    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
+    "dev": "microbundle watch",
+    "clean": "rimraf --no-glob ./dist",
+    "typecheck": "tsc -p ./ --noEmit",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo \"No tests yet\"",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -45,17 +59,6 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^26.5.6",
     "typescript": "^4.2.4"
-  },
-  "scripts": {
-    "build:noworking:ntm": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
-    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
-    "clean": "rimraf --no-glob ./dist",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "typecheck": "tsc -p ./ --noEmit",
-    "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\"",
-    "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.1",
