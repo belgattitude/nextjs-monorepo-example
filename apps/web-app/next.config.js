@@ -4,21 +4,21 @@ const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
-const withTM = require('next-transpile-modules')(
-  [
-    '@your-org/core-lib',
-    // The transpilation of the bar package will
-    // be handled by tsconfig paths rather than next-transpile-modules
-    //'@your-org/ui-lib'
+const tmModules = [
+  // for legacy browsers support (only in prod)
+  ...(isProd
+    ? [
+        // ie: '@react-google-maps/api'...
+      ]
+    : []),
+  // esm modules not yet supported by nextjs
+  ...[
+    // ie: 'ky'..
   ],
-  {
-    resolveSymlinks: true,
-    debug: false,
-  }
-);
-
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+];
+const withTM = require('next-transpile-modules')(tmModules, {
+  resolveSymlinks: true,
+  debug: false,
 });
 
 /**
@@ -29,9 +29,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
 if (disableSourceMaps) {
   console.log(
-    '[INFO]: Sourcemaps have been disabled through NEXT_DISABLE_SOURCEMAPS'
+    '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
   );
 }
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 // Example of setting up secure headers
 // @link https://github.com/jagaapple/next-secure-headers
