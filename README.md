@@ -1,21 +1,32 @@
 # NextJS monorepo example
 
-Using recent [vercel monorep support](https://vercel.com/blog/monorepos). ([docs](https://vercel.com/docs/git-integrations#monorepos)).
+Monorepo concepts oriented around nextjs apps, useful to
 
-Two apps deployed:
+- Set a structure and show a lifecycle perspective (dx, ci, deploy...)
+- Glue tools configs (lint, jest, typescript...) and some popular libs.     
+- Create nextjs/vercel/prisma... bug reports with reproducible examples *(originally done for that)*.
 
-- apps/public-app: https://vercel-monorepo-test-web-app.vercel.app/ (SSG - with getStaticProps)
-- apps/blog-app: https://vercel-monorepo-test-blog-app.vercel.app/ (SSR - with Api-routes)
+> The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
+> or [Nx](https://nx.dev/). This repo focus to be manageable with a regular package manager 
+> (yarn, pnpm). Yet most recipes and examples can be joyfully replicated somewhere else.
+> Important here is to have something as agnostic as possible with a decent speed.
 
-Both uses packages relying on yarn workspaces and illustrate two methods to allow transpilation. 
+## What ?
 
-- @your-org/ui-lib: shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
-- @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
+Oh all in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
+tailwind, prisma 2... check older branches if stuck on older nextjs.
+
+### Two apps
+
+- [apps/blog-app](./apps/blog-app): SSG with getStaticProps: https://vercel-monorepo-test-blog-app.vercel.app
+- [apps/web-app](./apps/web-app): SSR - with getServerSideProps: https://vercel-monorepo-test-web-app.vercel.app
+
+### Some shared code
+
+- [packages/ui-lib](./packages/ui-lib): shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
+- [packages/core-lib](./packages/core-lib): @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 
 ### Structure
-
-Two nextjs apps: apps/blog-app and the apps/web-app. 
-Two shared packages: packages/bar and packages/foo.  
 
 ```
 .
@@ -120,5 +131,5 @@ to override development settings are like this:
 
 - RFC: https://github.com/vercel/next.js/discussions/15327
 - Vercel monorepo support: https://github.com/vercel/vercel/issues/3547#issuecomment-673687255
-
+- shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542)
 
