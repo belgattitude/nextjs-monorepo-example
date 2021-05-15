@@ -1,5 +1,11 @@
 # web-app
 
+## 3.0.1
+
+### Patch Changes
+
+- [#41](https://github.com/belgattitude/nextjs-monorepo-example/pull/41) [`f12f210`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f12f21014caa6a70260711833543479f495b5348) Thanks [@belgattitude](https://github.com/belgattitude)! - Explicit dependencies on packages with workspace:\* protocol
+
 ## 3.0.0
 
 ### Major Changes
