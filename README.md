@@ -8,7 +8,7 @@
 
 > The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). This repo focus to be manageable with a regular package manager 
-> like [yarn](https://github.com/yarnpkg/berry), pnpm... Yet most recipes can be replicated, adapted
+> like [yarn 3.0](https://github.com/yarnpkg/berry), pnpm... Yet most recipes can be replicated, adapted
 > or opted-out easily.
 > Accent here is to have something as agnostic as possible, complex enough to forge ideas and get a decent CI/CD 
 > speed baseline (under a minute).
