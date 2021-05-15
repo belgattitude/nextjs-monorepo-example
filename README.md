@@ -1,15 +1,13 @@
-# NextJS monorepo example
+**Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps**, useful to
 
-Monorepo concepts oriented around nextjs apps, useful to
+- Set a **structure** and show a lifecycle perspective (dx, ci, deploy...)
+- Integrate **tools & configs** (lint, jest, typescript...).     
+- Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial purpose)*.
 
-- Set a structure and show a lifecycle perspective (dx, ci, deploy...)
-- Glue tools configs (lint, jest, typescript...) and some popular libs.     
-- Create nextjs/vercel/prisma... bug reports with reproducible examples *(originally done for that)*.
-
-> The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
+> *The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). This repo focus to be manageable with a regular package manager 
-> (yarn, pnpm). Yet most recipes and examples can be joyfully replicated somewhere else.
-> Important here is to have something as agnostic as possible with a decent speed.
+> like [yarn](https://github.com/yarnpkg/berry), pnpm... Yet most recipes can be replicated somewhere else.
+> Important here is to have something as agnostic as possible with a decent dx and build speed.*
 
 ## What ?
 
