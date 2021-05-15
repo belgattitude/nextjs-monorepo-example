@@ -17,8 +17,8 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 
 ### Two apps
 
-- [apps/web-app](./apps/web-app): SSR and API: https://vercel-monorepo-test-web-app.vercel.app
-- [apps/blog-app](./apps/blog-app): SSG, consumes web-app API: https://vercel-monorepo-test-blog-app.vercel.app
+- [apps/web-app](./apps/web-app): SSR and API: https://nextjs-monorepo-example-web-app.vercel.app
+- [apps/blog-app](./apps/blog-app): SSG, consumes web-app API: https://nextjs-monorepo-example-blog-app.vercel.app
 
 ### Some shared code
 
@@ -77,14 +77,15 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 
 - Be sure you build as 'serverless' to benefit from vercel monorepo support. 
 
-#### Vercel
+## Deploy
 
-When importing the repo, set the name of the app (i.e blog-app) and be sure
-to override development settings are like this:
+### Vercel
 
-![](docs/images/vercel-monorepo-import.png)
-![](docs/images/vercel-monorepo-import-config.png)
-![](docs/images/vercel-monorepo-output-dir.png)
+Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deploy/deploy-vercel.md) document.
+
+### Others
+
+Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
 ### Pros/Cons
 
