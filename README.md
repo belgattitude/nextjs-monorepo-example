@@ -2,7 +2,7 @@
 
 - Set a **structure** and show a lifecycle perspective (dx, ci, deploy...)
 - Clarify **advantages** of monorepos (sharing locales, images, code, conventions, shared api types...).
-- Integrate **tools & configs** (lint, jest, typescript...).
+- Integrate **tools & configs** (typescript, jest, changelogs, versioning...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial purpose)*.
 
 > *The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
@@ -32,21 +32,23 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 ├── apps
 │   ├── blog-app                 (NextJS SSG app)
 │   │   ├── src/
-│   │   ├── next.config.js
+│   │   ├── CHANGELOG.md
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS app with api-routes)
 │   │   ├── src/
-│   │   ├── next.config.js
+│   │   ├── CHANGELOG.md
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 ├── packages
 │   ├── core-lib                 
 │   │   ├── src/
+│   │   ├── CHANGELOG.md
 │   │   ├── package.json
 │   │   └── tsconfig.json       
 │   ├── ui-lib                   
 │   │   ├── src/
+│   │   ├── CHANGELOG.md
 │   │   ├── package.json
 │   │   └── tsconfig.json       
 ├── .yarnrc.yml
