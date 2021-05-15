@@ -21,26 +21,26 @@ Two shared packages: packages/bar and packages/foo.
 .
 ├── apps
 │   ├── blog-app                 (NextJS SSG app)
-|   |   ├── src/
-|   |   ├── next.config.js
-|   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
+│   │   ├── src/
+│   │   ├── next.config.js
+│   │   ├── package.json
+│   │   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS app with api-routes)
-|   |   ├── src/
-|   |   ├── next.config.js
-|   |   ├── package.json
-|   |   └── tsconfig.json       (extends base config)
+│   │   ├── src/
+│   │   ├── next.config.js
+│   │   ├── package.json
+│   │   └── tsconfig.json       (extends base config)
 ├── packages
 │   ├── bar                     (Shared with tsconfig path resolution, publishable with microbundle)
-|   |   ├── src/
-|   |   ├── package.json
-|   |   └── tsconfig.json       
+│   │   ├── src/
+│   │   ├── package.json
+│   │   └── tsconfig.json       
 │   ├── foo                     (Shared with next-transpile-modules)
-|   |   ├── src/
-|   |   ├── package.json
-|   |   └── tsconfig.json       
+│   │   ├── src/
+│   │   ├── package.json
+│   │   └── tsconfig.json       
 ├── package.json                (the workspace config)
-└── tsconfig.json               (base typescript config)
+└── tsconfig.base.json               (base typescript config)
 ```
 
 ### How to
@@ -51,7 +51,7 @@ Two shared packages: packages/bar and packages/foo.
 
 1. For typescript config base path:
 
-- Create a base [tsconfig.json](./tsconfig.json) at the root.
+- In [tsconfig.base.json](tsconfig.base.json) at the root.
   Set `baseUrl` to '.' and define your dependencies in `paths`.
 - Configure webpack in [next.config.js](./apps/web-app/next.config.js)
 

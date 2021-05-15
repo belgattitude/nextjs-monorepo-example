@@ -1,5 +1,5 @@
-import { render } from 'test-utils'
-import { Layout } from '@/components/layout'
+import { render } from '@/test-utils';
+import { Layout } from '@/components/layout';
 
 describe('Layout tests', () => {
   it('should render children', async () => {
@@ -9,9 +9,9 @@ describe('Layout tests', () => {
           Hello
         </div>
       </Layout>
-    )
-    const appContent = getByTestId('app-content')
-    expect(appContent).toHaveClass('cls')
-    expect(appContent).toHaveTextContent('Hello')
-  })
-})
+    );
+    const appContent = getByTestId('app-content');
+    expect(appContent).toHaveClass('cls');
+    expect(appContent).toHaveTextContent('Hello');
+  });
+});

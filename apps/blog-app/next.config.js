@@ -1,42 +1,64 @@
-const path = require('path')
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'serverless'
+const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
+const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
 const withTM = require('next-transpile-modules')(
-  [
-    '@optional-package-scope/foo',
-    // The transpilation of the bar package  will
-    // be handled by tsconfig paths rather thant next-transpile-modules
-    //'@optional-package-scope/bar',
-  ],
+  ['@optional-package-scope/foo'],
   {
-    debug: false
+    resolveSymlinks: true,
+    debug: false,
   }
-)
+);
 
-const config = withTM({
-  target: NEXTJS_BUILD_TARGET,
-  reactStrictMode: true,
-  future: { webpack5: false },
-  webpack: function (config, { defaultLoaders }) {
-    const resolvedBaseUrl = path.resolve(config.context, '../../')
-    // This extra config allows to use paths defined in tsconfig
-    // rather than next-transpile-modules.
-    // @link https://github.com/vercel/next.js/pull/13542
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.(tsx|ts|js|mjs|jsx)$/,
-        include: [resolvedBaseUrl],
-        use: defaultLoaders.babel,
-        exclude: (excludePath) => {
-          return /node_modules/.test(excludePath)
-        },
-      },
-    ]
-    return config
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+/**
+ * A way to allow CI optimization when the build done there is not used
+ * to deliver an image or deploy the files.
+ * @link https://nextjs.org/docs/advanced-features/source-maps
+ */
+const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
+if (disableSourceMaps) {
+  console.log(
+    '[INFO]: Sourcemaps have been disabled through NEXT_DISABLE_SOURCEMAPS'
+  );
+}
+
+// Example of setting up secure headers
+// @link https://github.com/jagaapple/next-secure-headers
+const { createSecureHeaders } = require('next-secure-headers');
+const secureHeaders = createSecureHeaders({
+  contentSecurityPolicy: {
+    directives: {
+      //defaultSrc: "'self'",
+      //styleSrc: ["'self'"],
+    },
   },
-})
+  ...(isProd
+    ? {
+        forceHTTPSRedirect: [
+          true,
+          { maxAge: 60 * 60 * 24 * 4, includeSubDomains: true },
+        ],
+      }
+    : {}),
+  referrerPolicy: 'same-origin',
+});
 
-module.exports = config
+const config = withBundleAnalyzer(
+  withTM({
+    target: NEXTJS_BUILD_TARGET,
+    reactStrictMode: true,
+    future: { webpack5: true },
+    productionBrowserSourceMaps: !disableSourceMaps,
+
+    async headers() {
+      return [{ source: '/(.*)', headers: secureHeaders }];
+    },
+  })
+);
+
+module.exports = config;

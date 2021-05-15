@@ -1,0 +1,68 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "jest",
+    "jest-formatting"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "globals": {
+    "context": "readonly",
+    "cy": "readonly",
+    "assert": "readonly",
+    "Cypress": "readonly"
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": [
+        "jest.config.ts",
+        "**/config/jest/**/*.ts",
+        "**/config/jest/**/*.tsx"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
+      "files": [
+        "lint-staged.config.js",
+        "jest.config.js",
+        "**/config/jest/**/*.js"
+      ],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2019
+      },
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
+      "files": ["*.test.ts", "*.test.tsx"],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-object-literal-type-assertion": "off",
+        "@typescript-eslint/no-empty-function": "off"
+      }
+    }
+  ]
+}

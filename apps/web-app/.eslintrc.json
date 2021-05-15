@@ -1,0 +1,29 @@
+{
+    "extends": [
+        "plugin:jsx-a11y/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "overrides": [
+        {
+            "files": ["next.config.js"],
+            "parser": "espree",
+            "parserOptions": {
+                "ecmaVersion": 2019
+            },
+            "rules": {
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            }
+        },
+        {
+            "files": ["src/pages/**/*.ts", "src/pages/**/*.tsx"],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            }
+        }
+    ]
+}
