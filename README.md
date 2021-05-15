@@ -1,8 +1,8 @@
 **Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps**, useful to
 
-- Set a **structure** and show a lifecycle perspective (dx, ci, deploy...)
+- Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - Clarify **advantages** of monorepos (sharing locales, images, code, conventions, shared api types...).
-- Integrate **tools & configs** (ts, jest, changelogs, versioning, dx...) + **CI/CD**.
+- Integrate **tools & configs** (ts, jest, changelogs, versioning...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial purpose)*.
 
 > *The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
