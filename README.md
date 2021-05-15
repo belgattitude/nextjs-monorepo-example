@@ -2,13 +2,14 @@
 
 - Set a **structure** and show a lifecycle perspective (dx, ci, deploy...)
 - Clarify **advantages** of monorepos (sharing locales, images, code, conventions, shared api types...).
-- Integrate **tools & configs** (typescript, jest, changelogs, versioning...).
+- Integrate **tools & configs** (typescript, jest, changelogs, versioning...) + **CI/CD**.
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial purpose)*.
 
 > *The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). This repo focus to be manageable with a regular package manager 
 > like [yarn](https://github.com/yarnpkg/berry), pnpm... Yet most recipes can be replicated somewhere else.
-> Important here is to have something as agnostic as possible with a modern dx and a decent build speed (under a minute).*
+> Important here is to have something as agnostic as possible with a modern dx and a decent CI/CD 
+> speed baseline (under a minute).*
 
 ## What ?
 
