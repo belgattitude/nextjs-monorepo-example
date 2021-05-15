@@ -3,13 +3,10 @@ const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
-const withTM = require('next-transpile-modules')(
-  ['@optional-package-scope/foo'],
-  {
-    resolveSymlinks: true,
-    debug: false,
-  }
-);
+const withTM = require('next-transpile-modules')(['@your-org/core-lib'], {
+  resolveSymlinks: true,
+  debug: false,
+});
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',

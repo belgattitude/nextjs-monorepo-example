@@ -9,8 +9,8 @@ Two apps deployed:
 
 Both uses packages relying on yarn workspaces and illustrate two methods to allow transpilation. 
 
-- @optional-package-scope/bar: shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
-- @optional-package-scope/foo: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
+- @your-org/ui-lib: shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
+- @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 
 ### Structure
 
@@ -59,7 +59,7 @@ Two shared packages: packages/bar and packages/foo.
 
 - Define your shared packages in your apps, i.e: [next.config.js](./apps/web-app/next.config.js)
 - Your shared packages have to indicate a `main` field *(since next-transpile-modules v6)*, i.e: 
-  [package.json](./packages/foo/package.json). 
+  [package.json](packages/core-lib/package.json). 
 
 
 3. For deployments
@@ -77,7 +77,7 @@ to override development settings are like this:
 
 ### Pros/Cons
 
-@optional-package-scope/bar is shared through typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
+@your-org/ui-lib is shared through typescript baseUrl resolution improvements from [#13542](https://github.com/vercel/next.js/pull/13542) 
 (rather than next-transpile-module). 
 
 | Support matrix        | tsconfig paths | next-transpile-module |

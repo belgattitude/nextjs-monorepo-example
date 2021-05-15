@@ -6,10 +6,10 @@ const isProd = process.env.NODE_ENV === 'production';
 // @link https://www.npmjs.com/package/next-transpile-modules
 const withTM = require('next-transpile-modules')(
   [
-    '@optional-package-scope/foo',
+    '@your-org/core-lib',
     // The transpilation of the bar package will
     // be handled by tsconfig paths rather than next-transpile-modules
-    //'@optional-package-scope/bar'
+    //'@your-org/ui-lib'
   ],
   {
     resolveSymlinks: true,

@@ -36,10 +36,10 @@
     "check:install": "yarn dlx @yarnpkg/doctor .",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@optional-package-scope/*' run build",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@optional-package-scope/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@optional-package-scope/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@optional-package-scope/*' run clean"
+    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
+    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
+    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
+    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
