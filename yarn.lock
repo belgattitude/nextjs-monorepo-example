@@ -3059,7 +3059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@your-org/core-lib@^2.0.0, @your-org/core-lib@workspace:packages/core-lib":
+"@your-org/core-lib@workspace:*, @your-org/core-lib@workspace:packages/core-lib":
   version: 0.0.0-use.local
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
@@ -3099,7 +3099,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@your-org/ui-lib@workspace:packages/ui-lib":
+"@your-org/ui-lib@workspace:*, @your-org/ui-lib@workspace:packages/ui-lib":
   version: 0.0.0-use.local
   resolution: "@your-org/ui-lib@workspace:packages/ui-lib"
   dependencies:
@@ -3950,7 +3950,8 @@ __metadata:
     "@types/react-dom": ^17.0.5
     "@typescript-eslint/eslint-plugin": ^4.23.0
     "@typescript-eslint/parser": ^4.23.0
-    "@your-org/core-lib": ^2.0.0
+    "@your-org/core-lib": "workspace:*"
+    "@your-org/ui-lib": "workspace:*"
     autoprefixer: ^10.2.5
     camelcase: ^6.2.0
     cross-env: ^7.0.3
@@ -14965,6 +14966,8 @@ resolve@^2.0.0-next.3:
     "@types/node": ^15.3.0
     "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.5
+    "@your-org/core-lib": "workspace:*"
+    "@your-org/ui-lib": "workspace:*"
     autoprefixer: ^10.2.5
     camelcase: ^6.2.0
     cross-env: ^7.0.3
