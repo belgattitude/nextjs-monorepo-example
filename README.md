@@ -1,13 +1,14 @@
 **Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps**, useful to
 
 - Set a **structure** and show a lifecycle perspective (dx, ci, deploy...)
-- Integrate **tools & configs** (lint, jest, typescript...).     
+- Clarify **advantages** of monorepos (sharing locales, images, code, conventions, shared api types...).
+- Integrate **tools & configs** (lint, jest, typescript...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial purpose)*.
 
 > *The approach doesn't rely on specific monorepo tooling like [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). This repo focus to be manageable with a regular package manager 
 > like [yarn](https://github.com/yarnpkg/berry), pnpm... Yet most recipes can be replicated somewhere else.
-> Important here is to have something as agnostic as possible with a decent dx and build speed.*
+> Important here is to have something as agnostic as possible with a modern dx and a decent build speed (under a minute).*
 
 ## What ?
 
@@ -16,8 +17,8 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 
 ### Two apps
 
-- [apps/blog-app](./apps/blog-app): SSG with getStaticProps: https://vercel-monorepo-test-blog-app.vercel.app
-- [apps/web-app](./apps/web-app): SSR - with getServerSideProps: https://vercel-monorepo-test-web-app.vercel.app
+- [apps/web-app](./apps/web-app): SSR and API: https://vercel-monorepo-test-web-app.vercel.app
+- [apps/blog-app](./apps/blog-app): SSG, consumes web-app API: https://vercel-monorepo-test-blog-app.vercel.app
 
 ### Some shared code
 
@@ -40,15 +41,16 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 ├── packages
-│   ├── bar                     (Shared with tsconfig path resolution, publishable with microbundle)
+│   ├── core-lib                 
 │   │   ├── src/
 │   │   ├── package.json
 │   │   └── tsconfig.json       
-│   ├── foo                     (Shared with next-transpile-modules)
+│   ├── ui-lib                   
 │   │   ├── src/
 │   │   ├── package.json
 │   │   └── tsconfig.json       
-├── package.json                (the workspace config)
+├── .yarnrc.yml
+├── package.json                     (the workspace config)
 └── tsconfig.base.json               (base typescript config)
 ```
 
