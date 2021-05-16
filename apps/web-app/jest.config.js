@@ -20,27 +20,24 @@ const config = {
   testRunner: 'jest-circus/runner',
   testEnvironment: 'jsdom',
   verbose: true,
-  rootDir: '.',
+  rootDir: './src',
   transform: {
     ...tsjPreset.transform,
-    '^.+\\.css$': '<rootDir>/config/jest/css-transform.js',
+    '^.+\\.css$': '<rootDir>/../config/jest/css-transform.js',
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)':
-      '<rootDir>/config/jest/file-transform.js',
+      '<rootDir>/../config/jest/file-transform.js',
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  transformIgnorePatterns: [
-    '[/\\\\]node_modules[/\\\\].+\\.(jsx?|tsx?)$',
-    '^.+\\.module\\.(css|sass|scss|less)$',
-  ],
-  testMatch: ['<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'],
+  transformIgnorePatterns: ['^.+\\.module\\.(css|sass|scss|less)$'],
+  testMatch: ['<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   moduleNameMapper: {
     // For @testing-library/react
-    '^test-utils$': '<rootDir>/config/jest/test-utils',
+    '^@/test-utils$': '<rootDir>/../config/jest/test-utils',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     ...getTsConfigBasePaths(),
   },
   coverageDirectory: '<rootDir>/coverage',
-  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
+  collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
   globals: {
     'ts-jest': {
       diagnostics: true,
