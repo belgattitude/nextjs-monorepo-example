@@ -1,5 +1,15 @@
 # web-app
 
+## 3.1.0
+
+### Minor Changes
+
+- [#50](https://github.com/belgattitude/nextjs-monorepo-example/pull/50) [`62cea64`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62cea645216dad5e5160be0bb368967596ad90a5) Thanks [@belgattitude](https://github.com/belgattitude)! - Set baseUrl to ./src in tsconfig.json and jest.config.js
+
+### Patch Changes
+
+- [#46](https://github.com/belgattitude/nextjs-monorepo-example/pull/46) [`83a7239`](https://github.com/belgattitude/nextjs-monorepo-example/commit/83a7239773edd74a8aa93263fb93ffdc16bc2980) Thanks [@belgattitude](https://github.com/belgattitude)! - Remove the need for next-transpile-modules
+
 ## 3.0.1
 
 ### Patch Changes
