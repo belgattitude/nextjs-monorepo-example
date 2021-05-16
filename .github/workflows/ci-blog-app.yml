@@ -23,6 +23,18 @@ on:
       - opened
       - synchronize
       - reopened
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
+    paths:
+      - ".github/workflows/**"
+      - "apps/blog-app/**"
+      - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
+      - "packages/**"
+      - ".eslintrc.json"
+      - ".eslintignore"
 
 jobs:
   test:
