@@ -21,10 +21,10 @@
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\"",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
@@ -58,7 +58,7 @@
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.5.6",
-    "typescript": "^4.3.1-rc"
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.1",

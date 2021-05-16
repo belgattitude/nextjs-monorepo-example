@@ -13,7 +13,21 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
-  "main": "./src/index.ts",
+  "source": "./src/index.ts",
+  "main": "dist/core-lib.js",
+  "module": "dist/core-lib.module.js",
+  "scripts": {
+    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
+    "dev": "microbundle watch",
+    "clean": "rimraf --no-glob ./dist",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc -p ./ --noEmit",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo \"No tests yet\"",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -44,18 +58,7 @@
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.5.6",
-    "typescript": "^4.3.1-rc"
-  },
-  "scripts": {
-    "build:noworking:ntm": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
-    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
-    "clean": "rimraf --no-glob ./dist",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "typecheck": "tsc -p ./ --noEmit",
-    "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\"",
-    "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.1",
