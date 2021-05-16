@@ -1,30 +1,21 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/test-utils": ["config/jest/test-utils"],
-      "@/components/*": ["./src/components/*"],
-      "@your-org/ui-lib/*": ["../../packages/ui-lib/src/*"],
-      "@your-org/ui-lib": ["../../packages/ui-lib/src/index"],
-      "@your-org/core-lib/*": ["../../packages/core-lib/src/*"],
-      "@your-org/core-lib": ["../../packages/core-lib/src/index"]
+      "@/test-utils": ["../config/jest/test-utils"],
+      "@/components/*": ["./components/*"],
+      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@your-org/core-lib": ["../../../packages/core-lib/src/index"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".next",
-    "out",
-    "docs",
-    "public",
-    "coverage"
-  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
