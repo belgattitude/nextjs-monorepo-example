@@ -11,22 +11,22 @@
 > By keeping the examples agnostic as much as possible, it should be very easy to apply them
 > in others tools. See also the FAQ about differences.
 
-## What ?
+## 1. Structure
 
-Oh all in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
-tailwind, prisma 2... check older branches if stuck on older nextjs.
+All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
+tailwind, prisma 2... add as much as you like.
 
-### Two apps
+#### Two apps
 
 - [apps/web-app](./apps/web-app): SSR and API: https://nextjs-monorepo-example-web-app.vercel.app
 - [apps/blog-app](./apps/blog-app): SSG, consumes web-app API: https://nextjs-monorepo-example-blog-app.vercel.app
 
-### Some shared code
+#### Some shared code
 
 - [packages/ui-lib](./packages/ui-lib): shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
 - [packages/core-lib](./packages/core-lib): @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 
-### Structure
+#### Folder overview
 
 ```
 .
@@ -34,11 +34,13 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 │   ├── blog-app                 (NextJS SSG app)
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
+│   │   ├── jest.config.js
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS app with api-routes)
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
+│   │   ├── jest.config.js
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 ├── packages
@@ -57,36 +59,69 @@ tailwind, prisma 2... check older branches if stuck on older nextjs.
 └── tsconfig.base.json               (base typescript config)
 ```
 
-### How to
+## 2. How create and use a package ?
 
-#### Config
+1. Workspace config lives in the root [package.json](./package.json), see workspace section. 
+   there's already 2 roots defined: ./packages/* and ./apps/*. So nothing to do.
+   
+2. Create a new folder, i.e: `mkdir packages/magnificent-poney`.
+   
+3. Initialize a `package.json`, set a name and dependencies you'll need. For inspiration,
+   take the [ui-lib](./packages/ui-lib/package.json) as an example. Copy/paste other files
+   you might need (tsconfig.json...). Place sources in the `magnificent-poney/src` folder.
+   
+4. To use it in an app first declare the dependency in its package.json deps by adding 
+   `"@your-org/magnificent-poney": "workspace:*"`. Inspiration in [web-app/package.json](./apps/web-app/package.json).
+   
+5. Run `yarn install` to update the workspace and create symlinks.
+   
+6. Add paths in the app `tsconfig.json`, take an example in [web-app/tsconfig.json](./apps/web-app/tsconfig.json)
+   
+   ```json5
+   {
+      "compilerOptions": {
+      "paths": { 
+        "@your-org/magnificent-poney/*": ["../../../packages/magnificent-poney/src/*"],
+        "@your-org/magnificent-poney": ["../../../packages/magnificent-poney/src/index"],
+      }
+   }
+   ``` 
+7. Be sure you next.config.js overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
+   
+   ```js
+   webpack: function (config, { defaultLoaders }) {
+      const resolvedBaseUrl = path.resolve(config.context, '../../');
+      // @link https://github.com/vercel/next.js/pull/13542
+      config.module.rules = [
+        ...config.module.rules,
+        {
+          test: /\.(tsx|ts|js|jsx|json)$/,
+          include: [resolvedBaseUrl],
+          use: defaultLoaders.babel,
+          exclude: (excludePath) => {
+            return /node_modules/.test(excludePath);
+          },
+        },
+      ];
+      return config;
+    }
+   ```
 
-- Declare your workspaces paths in [package.json](./package.json)
-
-1. For typescript config base path:
-
-- In [tsconfig.base.json](tsconfig.base.json) at the root.
-  Set `baseUrl` to '.' and define your dependencies in `paths`.
-- Configure webpack in [next.config.js](./apps/web-app/next.config.js)
-
-2. For next-transpile-module
-
-- Define your shared packages in your apps, i.e: [next.config.js](./apps/web-app/next.config.js)
-- Your shared packages have to indicate a `main` field *(since next-transpile-modules v6)*, i.e: 
-  [package.json](packages/core-lib/package.json). 
+>PS: 
+>- NextJS 10.2 has an experimental flag for monorepo, when time comes it's gonna be even easier.
+>- If you intent to use css, scss... in your new package. Next-transpile-module will be your friend.
 
 
-3. For deployments
+// TODO explain
 
-- Be sure you build as 'serverless' to benefit from vercel monorepo support. 
 
-## Deploy
+## 8. Deploy
 
-### Vercel
+#### Vercel
 
 Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deploy/deploy-vercel.md) document.
 
-### Others
+#### Others
 
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 

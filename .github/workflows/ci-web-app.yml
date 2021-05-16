@@ -5,18 +5,15 @@ on:
     branches:
       - dev
       - main
-    # Optional:
-    #   Only consider those files/paths to trigger the github action
-    #   to prevent unnecessary builds.
     paths:
-      - ".github/workflows/**"
       - "apps/web-app/**"
+      - "packages/**"
       - "package.json"
       - "tsconfig.json"
       - "yarn.lock"
-      - "packages/**"
       - ".eslintrc.json"
       - ".eslintignore"
+      - ".github/workflows/**"
 
   pull_request:
     types:
