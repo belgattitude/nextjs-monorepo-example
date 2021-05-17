@@ -1,4 +1,26 @@
-**Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps** but not limited to, useful to
+<p align="left">
+  <a aria-label="Build" href="https://github.com/soluble-io/cache-interop/actions?query=workflow%3ACI">
+    <img alt="build" src="https://img.shields.io/github/workflow/status/soluble-io/cache-interop/CI/main?label=CI&logo=github&style=for-the-badge&labelColor=000000" />
+  </a>
+  <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example">
+    <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=for-the-badge&labelColor=000000" />
+  </a>
+  <a aria-label="CodeClimate maintainability" href="https://codeclimate.com/github/belgattitude/nextjs-monorepo-example">
+    <img alt="Maintainability" src="https://img.shields.io/codeclimate/maintainability/belgattitude/nextjs-monorepo-example?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=000000" />
+  </a>
+  <a aria-label="CodeClimate technical debt" href="https://codeclimate.com/github/belgattitude/nextjs-monorepo-example">
+    <img alt="Techdebt" src="https://img.shields.io/codeclimate/tech-debt/belgattitude/nextjs-monorepo-example?label=TechDebt&logo=code-climate&style=for-the-badge&labelColor=000000" />
+  </a>
+  <a aria-label="Ts LoC" href="https://github.com/soluble-io/cache-interop/search">  
+    <img alt="TS LoC" src="https://img.shields.io/tokei/lines/github/belgattitude/nextjs-monorepo-example?style=for-the-badge&labelColor=000000" />
+  </a>
+  <a aria-label="Licence" href="https://github.com/belgattitude/nextjs-monorepo-example/blob/main/LICENSE">
+    <img alt="Licence" src="https://img.shields.io/github/license/belgattitude/nextjs-monorepo-example?style=for-the-badge&labelColor=000000" />
+  </a>
+</p>
+
+
+**Monorepo concepts, tips and tricks oriented around [nextjs](https://www.nextjs.org) apps** (but not limited to). Useful to
 
 - Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - How to create **shared packages**, shared locales, assets, images folders, api types...
@@ -8,7 +30,7 @@
 
 > The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). It does not try to compete, accent is on recipes with a focus on 
-> regular package managers like [yarn 3.0](https://github.com/yarnpkg/berry), pnpm... 
+> workspace enabled package managers like [yarn 3.0](https://github.com/yarnpkg/berry), pnpm, npm v7... 
 > By keeping the examples as **agnostic** as possible, it should be very easy to apply them
 > in others tools. See also the FAQ about differences.
 
