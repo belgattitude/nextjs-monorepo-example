@@ -1,9 +1,9 @@
-**Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps**, useful to
+**Monorepo concepts oriented around [nextjs](https://www.nextjs.org) apps** but not limited to, useful to
 
 - Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - How to create **shared packages**, shared locales, assets, images folders, api types...
 - Integrate **tools & configs** (ts, jest, changelogs, versioning...).
-- Clarify some **advantages** of monorepos (team cohesion, consistency...).
+- Clarify some **advantages** of monorepos (team cohesion, consistency, duplication...).
 - Create nextjs/vercel/prisma/webpack5... bug reports with **reproducible examples** *(initial goal of this repo)*.
 
 > The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/) 
@@ -183,14 +183,14 @@ See here a quick comparison:
 | Typescript            | ✅              | ✅                    |
 | Javascript            | ✅              | ✅                    |
 | NextJs Fast refresh   | ✅              | ✅                    |
-| CSS                   | ❌              | ✅                    |
-| SCSS                  | ❌              | ✅                    |
+| CSS                   | custom webpack cfg     | ✅                    |
+| SCSS                  | custom webpack cfg     | ✅                    |
 | CSS-in-JS             | ✅              | ✅                    |
-| ts-jest               | ✅              | ?                    |
+| ts-jest               | ✅              | custom aliases        |
 | Vercel monorepo       | ✅              | ✅                    |
 | Yarn 2 PNP            | ✅              | ✅                    |
-| Experimental webpack5 | ?               | ✅                   |
-| Publishable (npm)     | ✅               | ❌  (cause they rely on "main")  |
+| Webpack5              | ✅               | ✅                   |
+| Publishable (npm)     | ✅               | ❌  (ntm relies on "main")  |
 
 
 
