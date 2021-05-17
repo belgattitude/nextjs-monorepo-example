@@ -12,6 +12,9 @@
 > By keeping the examples as **agnostic** as possible, it should be very easy to apply them
 > in others tools. See also the FAQ about differences.
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
+
+
 ## 1. Structure
 
 All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
