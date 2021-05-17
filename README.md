@@ -119,9 +119,13 @@ tailwind, prisma 2... add as much as you like.
    >  - If your shared package make use of scss bundler...  A custom webpack configuration will be necessary 
    >    or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
-8. Package publishing.
+8. Using the package in your app 
    
-   If you need to share some packages outside of the repository, you can publish them to npm or private repositories. 
+   The packages are now linked to your app, just import them like regular packages: `import { poney } from '@your-org/magnificent-poney'`.
+
+9. Optional package publishing.
+   
+   If you need to share some packages outside of the monorepo, you can publish them to npm or private repositories. 
    An example based on microbundle is present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
    and it's simple as typing:
       
@@ -133,7 +137,10 @@ tailwind, prisma 2... add as much as you like.
    When merging it, a [github action](./.github/workflows/release.yml) will publish the packages 
    with resulting semver version and generate CHANGELOGS for you.
    
-   > PS: To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
+   > PS:
+   >  - Even if you don't need to publish, changeset can maintain an automated changelog for your apps. Nice !
+   >  - To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
+   >  - Want to tune the behaviour, see [.changeset/config.json](./.changeset/config.json).
 
 ## 3. Monorepo essentials 
 
