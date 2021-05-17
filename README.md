@@ -121,17 +121,17 @@ tailwind, prisma 2... add as much as you like.
 
 8. Package publishing.
    
-   All packages can be published to npm or private repositories. An example based on microbundle is
-   present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
+   If you need to share some packages outside of the repository, you can publish them to npm or private repositories. 
+   An example based on microbundle is present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
    and it's simple as typing:
       
    ```bash
    $ yarn changeset 
    ```
    
-   Choose the semver version... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
+   Follow the instructions... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
    When merging it, a [github action](./.github/workflows/release.yml) will publish the packages 
-   with resulting version and generate CHANGELOGS for you.
+   with resulting semver version and generate CHANGELOGS for you.
    
    > PS: To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
 
