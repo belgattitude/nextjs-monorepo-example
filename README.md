@@ -3,7 +3,7 @@
 - Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - How to create **shared packages**, shared locales, assets, images folders, api types...
 - Integrate **tools & configs** (ts, jest, changelogs, versioning...).
-- Clarify some **advantages** of monorepos (team conventions, ).
+- Clarify some **advantages** of monorepos (team conventions, consistency...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial goal of this repo)*.
 
 > The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/) 
@@ -114,7 +114,7 @@ tailwind, prisma 2... add as much as you like.
    ```
    
    > PS: 
-   >  - NextJS 10.2+ [has an experimental flag](https://github.com/vercel/next.js/pull/22867) for monorepo, 
+   >  - NextJS 10.2+ [has an experimental.externalDir option](https://github.com/vercel/next.js/pull/22867) for monorepo, 
    >    when time comes it might allow to skip the webpack config override above.
    >  - If your shared package make use of scss bundler...  A custom webpack configuration will be necessary 
    >    or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
@@ -159,7 +159,7 @@ handle shared packages.
 
 In this repo, we use next-transpile-modules only for ie11 and esm. The monorepo management is done through [tsconfig path](https://github.com/vercel/next.js/pull/13542).
 It will work best regarding to external tooling (ts-jest...), but comes with some limitations if your shared package use an
-scss compiler for example.
+scss compiler for example. Note that future version of NextJs might improve monorepo support through [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
 
 See here a quick comparison:
 
