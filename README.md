@@ -119,6 +119,17 @@ tailwind, prisma 2... add as much as you like.
    >  - If your shared package make use of scss bundler...  A custom webpack configuration will be necessary 
    >    or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
+8. Package publishing.
+   
+   All packages can be published to npm or private repositories. An example based on microbundle is
+   present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
+   ant it's simple as typing:
+      
+   ```bash
+   $ yarn changeset 
+   ```
+   
+   PS: To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
 
 ## 3. Monorepo essentials 
 
