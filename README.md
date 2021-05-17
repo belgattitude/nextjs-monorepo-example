@@ -123,7 +123,7 @@ tailwind, prisma 2... add as much as you like.
    
    All packages can be published to npm or private repositories. An example based on microbundle is
    present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
-   ant it's simple as typing:
+   and it's simple as typing:
       
    ```bash
    $ yarn changeset 
