@@ -4,7 +4,7 @@
 - How to create **shared packages**, shared locales, assets, images folders, api types...
 - Integrate **tools & configs** (ts, jest, changelogs, versioning...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency...).
-- Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial goal of this repo)*.
+- Create nextjs/vercel/prisma/webpack5... bug reports with **reproducible examples** *(initial goal of this repo)*.
 
 > The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/) 
 > or [Nx](https://nx.dev/). It does not try to compete, accent is on recipes with a focus on 
