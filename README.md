@@ -116,7 +116,7 @@ tailwind, prisma 2... add as much as you like.
    > PS: 
    >  - NextJS 10.2+ [has an experimental flag](https://github.com/vercel/next.js/pull/22867) for monorepo, 
    >    when time comes it might allow to skip the webpack config override above.
-   >  - If your shared package make use of css, scss... in your new package. A custom webpack configuration must be done, 
+   >  - If your shared package make use of scss bundler...  A custom webpack configuration will be necessary 
    >    or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
 
