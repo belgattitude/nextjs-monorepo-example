@@ -1,4 +1,8 @@
-<p align="left">
+<div align="center">
+  <h1 align="center"><a aria-label="NextJs Monorepo" href="https://github.com/soluble-io/cache-interop">NextJs Monorepo</a></h1>
+  <p align="center"><strong>Monorepo concepts, tips and tricks oriented around NextJs</strong></p>
+</div>
+<p align="center">
   <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
     <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-web-app/main?label=CI&logo=github&style=for-the-badge&labelColor=000000" />
   </a>
@@ -20,9 +24,9 @@
 </p>
 
 
-**Monorepo concepts, tips and tricks oriented around [nextjs](https://www.nextjs.org) apps** (but not limited to). Useful to
+Useful to
 
-- Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
+- Establish a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - How to create **shared packages**, shared locales, assets, images folders, api types...
 - Integrate **tools & configs** (ts, jest, changelogs, versioning...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication...).
