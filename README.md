@@ -15,8 +15,11 @@
   <a aria-label="CodeClimate technical debt" href="https://codeclimate.com/github/belgattitude/nextjs-monorepo-example">
     <img alt="Techdebt" src="https://img.shields.io/codeclimate/tech-debt/belgattitude/nextjs-monorepo-example?label=TechDebt&logo=code-climate&style=flat-quare&labelColor=000000" />
   </a>
-  <a aria-label="Ts LoC" href="https://github.com/soluble-io/cache-interop/search">  
-    <img alt="TS LoC" src="https://img.shields.io/tokei/lines/github/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
+  <a aria-label="LoC" href="https://github.com/soluble-io/cache-interop/search">  
+    <img alt="LoC" src="https://img.shields.io/tokei/lines/github/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
+  </a>
+  <a aria-label="Typings">
+    <img alt="TS" src="https://img.shields.io/static/v1?label=&message=4.2%2B&logo=typescript&style=flat-square&labelColor=000&color=blue" />
   </a>
   <a aria-label="Licence" href="https://github.com/belgattitude/nextjs-monorepo-example/blob/main/LICENSE">
     <img alt="Licence" src="https://img.shields.io/github/license/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
