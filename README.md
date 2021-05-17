@@ -91,7 +91,7 @@ tailwind, prisma 2... add as much as you like.
         },
    }
    ``` 
-7. Be sure you next.config.js overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
+7. Be sure your next.config.js app overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
    
    ```js
    webpack: function (config, { defaultLoaders }) {
