@@ -129,6 +129,9 @@ tailwind, prisma 2... add as much as you like.
    $ yarn changeset 
    ```
    
+   Choose the semver version... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
+   When merging it, an action will publish the packages with correct version and generate CHANGELOGS for you.
+   
    PS: To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
 
 ## 3. Monorepo essentials 
