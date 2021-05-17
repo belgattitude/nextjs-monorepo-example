@@ -35,12 +35,14 @@ tailwind, prisma 2... add as much as you like.
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
 │   │   ├── jest.config.js
+│   │   ├── next.config.js
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 │   ├── web-app                 (NextJS app with api-routes)
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
 │   │   ├── jest.config.js
+│   │   ├── next.config.js
 │   │   ├── package.json
 │   │   └── tsconfig.json       (extends base config)
 ├── packages
