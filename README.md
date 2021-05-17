@@ -3,7 +3,7 @@
 - Set a **structure** and show a lifecycle perspective (dx, ci/cd...)
 - How to create **shared packages**, shared locales, assets, images folders, api types...
 - Integrate **tools & configs** (ts, jest, changelogs, versioning...).
-- Clarify some **advantages** of monorepos (team conventions, consistency...).
+- Clarify some **advantages** of monorepos (team cohesion, consistency...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** *(initial goal of this repo)*.
 
 > The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/) 
