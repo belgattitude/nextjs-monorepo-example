@@ -1,6 +1,6 @@
 <p align="left">
-  <a aria-label="Build" href="https://github.com/soluble-io/cache-interop/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/workflow/status/soluble-io/cache-interop/CI/main?label=CI&logo=github&style=for-the-badge&labelColor=000000" />
+  <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
+    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-web-app/main?label=CI&logo=github&style=for-the-badge&labelColor=000000" />
   </a>
   <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example">
     <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=for-the-badge&labelColor=000000" />
