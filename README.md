@@ -75,15 +75,15 @@ tailwind, prisma 2... add as much as you like.
    
 5. Run `yarn install` to update the workspace and create symlinks.
    
-6. Add paths in the app `tsconfig.json`, take an example in [web-app/tsconfig.json](./apps/web-app/tsconfig.json)
+6. Add tsconfig paths in the app `tsconfig.json`, take an example in [web-app/tsconfig.json](./apps/web-app/tsconfig.json)
    
    ```json5
    {
       "compilerOptions": {
-      "paths": { 
-        "@your-org/magnificent-poney/*": ["../../../packages/magnificent-poney/src/*"],
-        "@your-org/magnificent-poney": ["../../../packages/magnificent-poney/src/index"],
-      }
+        "paths": { 
+          "@your-org/magnificent-poney/*": ["../../../packages/magnificent-poney/src/*"],
+          "@your-org/magnificent-poney": ["../../../packages/magnificent-poney/src/index"],
+        }
    }
    ``` 
 7. Be sure you next.config.js overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
@@ -91,6 +91,7 @@ tailwind, prisma 2... add as much as you like.
    ```js
    webpack: function (config, { defaultLoaders }) {
       const resolvedBaseUrl = path.resolve(config.context, '../../');
+      // Will allow transpilation of shared packages through tsonfig paths
       // @link https://github.com/vercel/next.js/pull/13542
       config.module.rules = [
         ...config.module.rules,
@@ -106,10 +107,11 @@ tailwind, prisma 2... add as much as you like.
       return config;
     }
    ```
-
->PS: 
->- NextJS 10.2 has an experimental flag for monorepo, when time comes it's gonna be even easier.
->- If you intent to use css, scss... in your new package. Next-transpile-module will be your friend.
+   
+   > PS: 
+   >  - NextJS 10.2+ [has an experimental flag](https://github.com/vercel/next.js/pull/22867) for monorepo, 
+   >    when time comes it might allow to skip the webpack config override above.
+   >  - If your shared package make use of css, scss... in your new package. A custom webpack configuration mst be done, or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
 
 
 // TODO explain
