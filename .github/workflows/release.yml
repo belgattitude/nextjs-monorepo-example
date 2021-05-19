@@ -38,7 +38,7 @@ jobs:
             yarn-cache-folder-os-${{ runner.os }}-
 
       - name: Install Dependencies
-        run: yarn --immutable
+        run: yarn install --immutable
 
       - name: Create Release Pull Request
         uses: changesets/action@master
