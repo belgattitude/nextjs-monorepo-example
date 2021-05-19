@@ -26,7 +26,7 @@ export default function Home() {
           </li>
         </ul>
         <Image
-          src={'/images/nextjs-logo.png'}
+          src={'/shared-assets/images/nextjs-logo.png'}
           alt={'logo'}
           width={400}
           height={240}

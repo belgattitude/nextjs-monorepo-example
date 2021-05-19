@@ -29,7 +29,7 @@ export default function Blog({ posts }: Props) {
           ))}
         </ul>
         <Image
-          src={'/images/nextjs-logo.png'}
+          src={'/shared-assets/images/nextjs-logo.png'}
           alt={'logo'}
           width={400}
           height={240}
