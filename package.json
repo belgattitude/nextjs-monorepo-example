@@ -19,7 +19,8 @@
   ],
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "static/*"
   ],
   "scripts": {
     "clean": "yarn workspaces foreach -ptv run clean",
@@ -34,6 +35,7 @@
     "typecheck": "yarn workspaces foreach -ptv run typecheck",
     "lint": "yarn workspaces foreach -ptv run lint",
     "check:install": "yarn dlx @yarnpkg/doctor .",
+    "link:static": "yarn workspaces foreach -ptv run link:static",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
     "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",

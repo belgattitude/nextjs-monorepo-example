@@ -3100,6 +3100,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@your-org/static-assets@workspace:static/assets":
+  version: 0.0.0-use.local
+  resolution: "@your-org/static-assets@workspace:static/assets"
+  languageName: unknown
+  linkType: soft
+
 "@your-org/ui-lib@workspace:*, @your-org/ui-lib@workspace:packages/ui-lib":
   version: 0.0.0-use.local
   resolution: "@your-org/ui-lib@workspace:packages/ui-lib"
@@ -3140,6 +3146,13 @@ __metadata:
     react-dom: ^16.14.0 || ^17.0.1
   languageName: unknown
   linkType: soft
+
+"@zkochan/rimraf@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "@zkochan/rimraf@npm:2.1.1"
+  checksum: 5d3911ea4d5c13925de306ce8f533575de82556c6de7e618467ef8229a76398973254d4aa0bfcb853dabc04012248691655e3c1b9ced589fe946ac74abc87997
+  languageName: node
+  linkType: hard
 
 "JSONStream@npm:^1.0.4":
   version: 1.3.5
@@ -3909,7 +3922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-path-resolve@npm:1.0.0":
+"better-path-resolve@npm:1.0.0, better-path-resolve@npm:^1.0.0":
   version: 1.0.0
   resolution: "better-path-resolve@npm:1.0.0"
   dependencies:
@@ -3980,6 +3993,7 @@ __metadata:
     react-dom: ^17.0.2
     rimraf: ^3.0.2
     shell-quote: ^1.7.2
+    symlink-dir: ^5.0.1
     tailwindcss: ^2.1.2
     ts-jest: ^26.5.6
     typescript: ^4.2.4
@@ -12513,6 +12527,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rename-overwrite@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "rename-overwrite@npm:4.0.0"
+  dependencies:
+    "@zkochan/rimraf": ^2.1.0
+  checksum: 0637fbe782c2e04a21160d830263bf09068d9b09bc0c2b0b5b9d987917bf25e58ecf9bb04061c26570adbd25ba7ec6a48934464d1034ac753ef90ecd48410fda
+  languageName: node
+  linkType: hard
+
 "repeat-element@npm:^1.1.2":
   version: 1.1.4
   resolution: "repeat-element@npm:1.1.4"
@@ -13969,6 +13992,18 @@ resolve@^2.0.0-next.3:
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
   checksum: 6e8fc7e1486b8b54bea91199d9535bb72f10842e40c79e882fc94fb7b14b89866adf2fd79efa5ebb5b658bc07fb459ccce5ac0e99ef3d72f474e74aaf284029d
+  languageName: node
+  linkType: hard
+
+"symlink-dir@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "symlink-dir@npm:5.0.1"
+  dependencies:
+    better-path-resolve: ^1.0.0
+    rename-overwrite: ^4.0.0
+  bin:
+    symlink-dir: dist/cli.js
+  checksum: 73694291cb357c07eb60241d509c6faa2350a4bccfa5b5278101d3d7b7bfa9ad7a3884ada5d11920aece59a1af4e43ba99c4c1bad845c2901f7bcf0a0bea9e32
   languageName: node
   linkType: hard
 
