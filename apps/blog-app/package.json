@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "vercel-build": "cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-build": "yarn link:static && cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "clean": "rimraf --no-glob ./.next ./out",
     "export": "next export",
     "start": "next start",
