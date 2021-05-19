@@ -26,6 +26,8 @@
   </a>
 </p>
 
+> **WARNING** This document covers the most recent version based on Yarn 3.0 and NextJs 10.2.1. Docs and examples are
+> still WIP. 
 
 Useful to
 
@@ -51,13 +53,13 @@ tailwind, prisma 2... add as much as you like.
 
 #### Two apps
 
-- [apps/web-app](./apps/web-app): SSR and API: https://nextjs-monorepo-example-web-app.vercel.app
-- [apps/blog-app](./apps/blog-app): SSG, consumes web-app API: https://nextjs-monorepo-example-blog-app.vercel.app
+- [apps/web-app](./apps/web-app): SSR and API. [[README](./apps/web-app/README.md)] | [[DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app)] 
+- [apps/blog-app](./apps/blog-app): SSG, consumes web-app API. [[README](./apps/blog-app/README.md)] | [[DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app)]
 
 #### Some shared code
 
-- [packages/ui-lib](./packages/ui-lib): shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
-- [packages/core-lib](./packages/core-lib): @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
+- [packages/ui-lib](./packages/ui-lib): used by web-app and blog-app, publishable with changesets. 
+- [packages/core-lib](./packages/core-lib): used by web-app and blog-app, publishable with changesets.
 
 ### Some shared assets
 
@@ -120,12 +122,19 @@ tailwind, prisma 2... add as much as you like.
    ```json5
    {
       "compilerOptions": {
+        "baseUrl": "./src",
         "paths": { 
+          // regular app aliases
+          "@/components/*": ["./components/*"],
+          // packages aliases, relative to app_directory/baseUrl 
           "@your-org/magnificent-poney/*": ["../../../packages/magnificent-poney/src/*"],
           "@your-org/magnificent-poney": ["../../../packages/magnificent-poney/src/index"]
         },
    }
    ``` 
+   > PS: The packages aliases should be declared per app (not in the tsconfig.base.json), so
+   > to keep being explicit with the dependencies. 
+   
 7. Be sure your next.config.js app overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
    
    ```js
@@ -181,7 +190,7 @@ tailwind, prisma 2... add as much as you like.
 
 ### 3.1 Monorepo scripts 
 
-Some global monorepo scripts are defined in the [root package.json](./package.json), they generally 
+Some convenience global scripts are defined in the [root package.json](./package.json), they generally 
 call their counterparts defined in packages and apps. 
 
 ```json5
@@ -209,11 +218,16 @@ call their counterparts defined in packages and apps.
 > PS:
 >  - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
 >  - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
-    
 
 ## 4. Quality
 
-### 4.1 Hooks & formatting
+### 4.1 Linters
+
+An example 
+
+### 4.2 Hooks / Lint-staged
+
+Check the [.husky](./.husky) folder content to see what hooks are enabled.
 
 ### 4.2 Tests
 
