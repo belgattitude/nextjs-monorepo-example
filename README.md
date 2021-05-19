@@ -59,6 +59,9 @@ tailwind, prisma 2... add as much as you like.
 - [packages/ui-lib](./packages/ui-lib): shared with typescript baseUrl resolution initiated in [#13542](https://github.com/vercel/next.js/pull/13542) 
 - [packages/core-lib](./packages/core-lib): @your-org/core-lib: shared with [next-transpile-modules](https://github.com/martpie/next-transpile-modules)
 
+### Some shared assets
+
+
 #### Folder overview
 
 ```
@@ -176,18 +179,65 @@ tailwind, prisma 2... add as much as you like.
 
 ## 3. Monorepo essentials 
 
-To ease ... see monorepo commands in root [./package.json](./package.json)
+### 3.1 Monorepo scripts 
 
-### 3.1 How to keep all deps fresh
+Global monorepo scripts are simply defined in the [root package.json](./package.json).
+Here's an extract: 
 
-At the root
-
-```bash
-$ yarn deps:check
-$ yarn deps:update 
+```json5
+{
+   "scripts": {
+      // Global workspaces commands, ie:
+      "clean": "yarn workspaces foreach -ptv run clean",
+      "typecheck": "yarn workspaces foreach -ptv run typecheck",
+      "lint": "yarn workspaces foreach -ptv run lint",
+      "test": "run-s 'test:*'",
+      "test:unit": "yarn workspaces foreach -ptv run test:unit",
+      // Manage versions and releases with atlassion/changesets
+      "changeset": "changeset",
+      "release": "yarn build && changeset publish",
+      // Utility script to check/upgrade deps across the entire monorepo 
+      "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
+      "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
+      // Some extras you can set based on needs.
+      "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
+      "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build"
+   },
+}
 ```
 
+> PS:
+>  - Convention: whatever the script name, keeps it across root, packages and apps.    
 
+## 4. Quality
+
+### 4.1 Hooks & formatting
+
+### 4.2 Tests
+
+### 4.3 CI
+
+Look at the example workflows in [.github/workflows](./.github/workflows), they 
+contain few common steps easy to opt-out;
+
+- Install and check for duplicates
+- Typecheck and lint
+- Run unit tests
+- Build 
+  - If a Nextjs app, test a build or an export
+  - If a package, test a build 
+
+> PS:
+>   - **Speed**: actions are only trigerred on path changes, ie:
+>     ```
+>      paths:
+>        - "apps/blog-app/**"
+>        - "packages/**"
+>        - "package.json"
+>        - "tsconfig.json"
+>        - "yarn.lock"
+>        - ".github/workflows/**"
+>     ```
 
 
 ## 8. Deploy
