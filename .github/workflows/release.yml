@@ -39,6 +39,8 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --immutable
+        env:
+          HUSKY: 0
 
       - name: Create Release Pull Request
         uses: changesets/action@master
