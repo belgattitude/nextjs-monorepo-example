@@ -255,9 +255,12 @@ To ensure decent performance, those features are present in the example actions:
   >    - "apps/blog-app/**"
   >    - "packages/**"
   >    - "package.json"
-  >    - "tsconfig.json"
+  >    - "tsconfig.base.json"
   >    - "yarn.lock"
+  >    - ".yarnrc.yml"
   >    - ".github/workflows/**"
+  >    - ".eslintrc.base.json"
+  >    - ".eslintignore" 
   > ```
 
 

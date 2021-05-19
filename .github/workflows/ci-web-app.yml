@@ -9,11 +9,12 @@ on:
       - "apps/web-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.json"
+      - "tsconfig.base.json"
       - "yarn.lock"
-      - ".eslintrc.json"
-      - ".eslintignore"
+      - ".yarnrc.yml"
       - ".github/workflows/**"
+      - ".eslintrc.base.json"
+      - ".eslintignore"
 
   pull_request:
     types:
@@ -24,13 +25,14 @@ on:
     #   Only consider those files/paths to trigger the github action
     #   to prevent unnecessary builds.
     paths:
-      - ".github/workflows/**"
       - "apps/web-app/**"
-      - "package.json"
-      - "tsconfig.json"
-      - "yarn.lock"
       - "packages/**"
-      - ".eslintrc.json"
+      - "package.json"
+      - "tsconfig.base.json"
+      - "yarn.lock"
+      - ".yarnrc.yml"
+      - ".github/workflows/**"
+      - ".eslintrc.base.json"
       - ".eslintignore"
 jobs:
   test:
