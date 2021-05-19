@@ -181,8 +181,8 @@ tailwind, prisma 2... add as much as you like.
 
 ### 3.1 Monorepo scripts 
 
-Global monorepo scripts are simply defined in the [root package.json](./package.json).
-Here's an extract: 
+Some global monorepo scripts are defined in the [root package.json](./package.json), they generally 
+call their counterparts defined in packages and apps. 
 
 ```json5
 {
@@ -207,7 +207,9 @@ Here's an extract:
 ```
 
 > PS:
->  - Convention: whatever the script name, keeps it across root, packages and apps.    
+>  - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
+>  - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
+    
 
 ## 4. Quality
 
@@ -217,27 +219,32 @@ Here's an extract:
 
 ### 4.3 CI
 
-Look at the example workflows in [.github/workflows](./.github/workflows), they 
-contain few common steps easy to opt-out;
+You'll find some example workflows for github action in [.github/workflows](./.github/workflows).
+By default, they will ensure that
 
-- Install and check for duplicates
-- Typecheck and lint
-- Run unit tests
-- Build 
-  - If a Nextjs app, test a build or an export
-  - If a package, test a build 
+- You don't have package duplicates.
+- You don't have typecheck errors.
+- You don't have linter / code-style errors.  
+- Your test suite is successful.
+- Your apps (nextjs) or packages can be successfully built.
 
-> PS:
->   - **Speed**: actions are only trigerred on path changes, ie:
->     ```
->      paths:
->        - "apps/blog-app/**"
->        - "packages/**"
->        - "package.json"
->        - "tsconfig.json"
->        - "yarn.lock"
->        - ".github/workflows/**"
->     ```
+Each of those steps can be opted-out.
+
+To ensure decent performance, those features are present in the example actions:
+
+- **Caching** of packages (node_modules...) - install around 25s
+- **Caching** of nextjs previous build - built around 20s
+- **Triggered when changed** using [actions paths](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths), ie:
+  
+  > ```
+  >  paths:
+  >    - "apps/blog-app/**"
+  >    - "packages/**"
+  >    - "package.json"
+  >    - "tsconfig.json"
+  >    - "yarn.lock"
+  >    - ".github/workflows/**"
+  > ```
 
 
 ## 8. Deploy
