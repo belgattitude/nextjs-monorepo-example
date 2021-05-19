@@ -43,7 +43,9 @@
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
@@ -54,6 +56,7 @@
     "lint-staged": "^11.0.0",
     "npm-check-updates": "^11.5.13",
     "npm-run-all": "^4.1.5",
+    "pinst": "^2.1.6",
     "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "shell-quote": "^1.7.2"
