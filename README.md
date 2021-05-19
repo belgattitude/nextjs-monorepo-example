@@ -230,6 +230,10 @@ call their counterparts defined in packages and apps.
 >  - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
 >  - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
 
+### 3.2 Maintaining deps updated
+
+The commands `yarn deps:check` and `yarn deps:updates` will help to maintain the same versions across the entire monorepo.
+
 ## 4. Quality
 
 ### 4.1 Linters
