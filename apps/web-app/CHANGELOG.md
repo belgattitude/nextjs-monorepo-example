@@ -1,5 +1,11 @@
 # web-app
 
+## 3.2.0
+
+### Minor Changes
+
+- [#61](https://github.com/belgattitude/nextjs-monorepo-example/pull/61) [`757aef8`](https://github.com/belgattitude/nextjs-monorepo-example/commit/757aef899e005b18aef175240856e5c89dc8e23c) Thanks [@belgattitude](https://github.com/belgattitude)! - Example for sharing static assets and locales
+
 ## 3.1.0
 
 ### Minor Changes
