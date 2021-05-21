@@ -51,10 +51,12 @@ const userData: Prisma.UserCreateInput[] = [
 async function main() {
   console.log(`Start seeding ...`);
   for (const u of userData) {
-    const user = await prisma.user.create({
-      data: u,
+    const user = await prisma.user.upsert({
+      where: { email: u.email },
+      update: {},
+      create: u,
     });
-    console.log(`Created user with id: ${user.id}`);
+    console.log(`Created or updated user with id: ${user.id}`);
   }
   console.log(`Seeding finished.`);
 }
