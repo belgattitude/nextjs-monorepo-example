@@ -1,4 +1,4 @@
-export * as Asserts from './utils/assertions';
+export { Asserts } from './utils/asserts';
 export * as Typeguards from './utils/typeguards';
 
 export const sayHello = (name: string): string => {
