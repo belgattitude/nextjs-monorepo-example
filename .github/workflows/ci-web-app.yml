@@ -73,6 +73,10 @@ jobs:
         run: |
           yarn install --immutable
 
+      - name: Generate Prisma client
+        run: |
+          yarn prisma generate
+
       - name: Check for duplicate dependencies in lock file
         run: |
           yarn dedupe --check
