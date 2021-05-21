@@ -77,10 +77,10 @@ jobs:
         run: |
           yarn dedupe --check
 
-      - name: Generate Prisma client
-        working-directory: apps/web-app
-        run: |
-          yarn prisma generate
+      #- name: Generate Prisma client
+      #  working-directory: apps/web-app
+      #  run: |
+      #    yarn prisma generate
 
       - name: Typecheck
         working-directory: apps/web-app
