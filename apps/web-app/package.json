@@ -16,7 +16,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-build": "yarn share:static:hardlink && yarn vercel-install-dev-data && cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-install-dev-data": "syncdir ./data ./src/public/dev-data --copy",
     "clean": "rimraf --no-glob ./.next ./out",
     "start": "next start",
     "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
