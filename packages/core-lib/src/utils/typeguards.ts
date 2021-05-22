@@ -14,13 +14,13 @@ export const isParsableNumeric = (v: unknown): v is number | string => {
     return false;
   }
   return !Number.isNaN(
-    Number.parseInt(v) || Number.isNaN(Number.parseFloat(v))
+    Number.parseInt(v, 10) || Number.isNaN(Number.parseFloat(v))
   );
 };
 
 export const isParsableSafeInteger = (v: unknown): v is number | string => {
   const value =
-    typeof v === 'string' && /^-?\d+$/.test(v) ? Number.parseInt(v) : v;
+    typeof v === 'string' && /^-?\d+$/.test(v) ? Number.parseInt(v, 10) : v;
   return isSafeInteger(value);
 };
 
