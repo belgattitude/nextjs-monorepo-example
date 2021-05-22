@@ -1,4 +1,5 @@
 import { Asserts } from '../asserts';
+
 describe('Asserts test', () => {
   describe('Asserts.nonEmptyString', () => {
     it('should work as expected', () => {
@@ -6,16 +7,13 @@ describe('Asserts test', () => {
         Asserts.nonEmptyString('cool');
       }).not.toThrowError('');
       expect(() => {
-        Asserts.nonEmptyString('    ', 'message');
+        Asserts.nonEmptyString(' ', 'message');
       }).toThrow('message');
       expect(() => {
         Asserts.nonEmptyString(true, () => {
           return new Error('message2');
         });
       }).toThrowError('message2');
-      expect(() => {
-        Asserts.nonEmptyString(new Date(), new Error('message3'));
-      }).toThrowError('message3');
     });
   });
 });
