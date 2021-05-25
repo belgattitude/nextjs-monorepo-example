@@ -15,3 +15,18 @@ $ cd apps/web-app
 $ yarn dev -p 3001
 # Alternatively: yarn workspace webapp run dev -p 3000
 ```
+
+## Prisma
+
+### Generate client
+
+```bash
+$ yarn prisma generate
+```
+
+### Seeding data
+
+```bash
+$ yarn prisma db seed --preview-feature
+``
+```
