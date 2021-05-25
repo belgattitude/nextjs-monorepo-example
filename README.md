@@ -149,10 +149,10 @@ See the global [static](./static) folder.
 7. Be sure your next.config.js app overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
 
    ```js
-   webpack: function (config, { defaultLoaders }) {
-      const resolvedBaseUrl = path.resolve(config.context, '../../');
+   webpack: function(config, { defaultLoaders }) {
       // Will allow transpilation of shared packages through tsonfig paths
       // @link https://github.com/vercel/next.js/pull/13542
+      const resolvedBaseUrl = path.resolve(config.context, '../../');
       config.module.rules = [
         ...config.module.rules,
         {
