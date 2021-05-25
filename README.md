@@ -150,9 +150,9 @@ See the global [static](./static) folder.
 
    ```js
    webpack: function (config, { defaultLoaders }) {
-      const resolvedBaseUrl = path.resolve(config.context, '../../');
       // Will allow transpilation of shared packages through tsonfig paths
       // @link https://github.com/vercel/next.js/pull/13542
+      const resolvedBaseUrl = path.resolve(config.context, '../../');
       config.module.rules = [
         ...config.module.rules,
         {
