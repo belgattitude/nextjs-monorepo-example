@@ -2733,6 +2733,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node10@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "@tsconfig/node10@npm:1.0.7"
+  checksum: 54c3d90a93c7f0c04a4781403f4ec68f263968380d20e474ef615cec5eacac433b20081c68a084b13cc396bb2d1a1e1ee717592cbe02611b407654c4c50e0178
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node12@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "@tsconfig/node12@npm:1.0.7"
+  checksum: e58704bf5132ca95e39935bbb1825e81ca40e12ec6be5446c54b9e612b5b8c16e81a5ab0e706f8c74883210adf25e4d34115dc38457991aefea37003a72ecad8
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node14@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@tsconfig/node14@npm:1.0.0"
+  checksum: a6e564b91e588bc05d37e2689e009ccd12743f6e1a2532ca7d20ca5e80b4d3b5b324b03e477497f2ebf2311901a369095a36c1c3cf744da7f35486923672c1f0
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node16@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@tsconfig/node16@npm:1.0.1"
+  checksum: 5fdfd91e48dc1f406cb59d19fd450a594ea6279f3be54a50bd6fd6b8d189a53bb930f2e7d496cbc3bb45fbb23f0ce5c69086f90c796ce8441cbd2a26fb738fd5
+  languageName: node
+  linkType: hard
+
 "@tsed/core@npm:6.50.0":
   version: 6.50.0
   resolution: "@tsed/core@npm:6.50.0"
@@ -15069,10 +15097,14 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "ts-node@npm:9.1.1"
+"ts-node@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "ts-node@npm:10.0.0"
   dependencies:
+    "@tsconfig/node10": ^1.0.7
+    "@tsconfig/node12": ^1.0.7
+    "@tsconfig/node14": ^1.0.0
+    "@tsconfig/node16": ^1.0.1
     arg: ^4.1.0
     create-require: ^1.1.0
     diff: ^4.0.1
@@ -15080,13 +15112,22 @@ resolve@^2.0.0-next.3:
     source-map-support: ^0.5.17
     yn: 3.1.1
   peerDependencies:
+    "@swc/core": ">=1.2.45"
+    "@swc/wasm": ">=1.2.45"
+    "@types/node": "*"
     typescript: ">=2.7"
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    "@swc/wasm":
+      optional: true
   bin:
     ts-node: dist/bin.js
+    ts-node-cwd: dist/bin-cwd.js
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
-  checksum: 356e2647b8b1e6ab00380c0537fa569b63bd9b6f006cc40fd650f81fae1817bd8fecc075300036950d8f45c1d85b95be33cd1e48a1a424a7d86c3dbb42bf60e5
+  checksum: 96d633774e13eb90ad49d644f397e99f5da72818e36040bf5b6bd66d0ab369dbb4348e499193c0fa45071f8e9559bb7724174139389e56bb562db36a3842484e
   languageName: node
   linkType: hard
 
@@ -15805,7 +15846,7 @@ resolve@^2.0.0-next.3:
     sync-directory: ^2.2.22
     tailwindcss: ^2.1.2
     ts-jest: ^26.5.6
-    ts-node: ^9.1.1
+    ts-node: ^10.0.0
     typescript: ^4.2.4
   languageName: unknown
   linkType: soft
