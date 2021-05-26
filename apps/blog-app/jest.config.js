@@ -1,7 +1,8 @@
+// @ts-check
 'use strict';
 
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-const { defaults: tsjPreset } = require('ts-jest/presets');
+const { pathsToModuleNameMapper, createJestPreset } = require('ts-jest/utils');
+const { defaults: tsPreset } = require('ts-jest/presets');
 
 const { compilerOptions: baseTsConfig } = require('./tsconfig.json');
 
@@ -15,7 +16,7 @@ const getTsConfigBasePaths = () => {
     : {};
 };
 
-/** @typedef {import('ts-jest')} */
+/** @typedef {import('ts-jest/dist/types')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
   name: 'blog-app:unit',
@@ -24,7 +25,7 @@ const config = {
   verbose: true,
   rootDir: './src',
   transform: {
-    ...tsjPreset.transform,
+    ...tsPreset.transform,
     '^.+\\.css$': '<rootDir>/../config/jest/css-transform.js',
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)':
       '<rootDir>/../config/jest/file-transform.js',
