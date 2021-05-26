@@ -26,7 +26,10 @@
     "assert": "readonly",
     "Cypress": "readonly"
   },
-  "rules": {},
+  "rules": {
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["error",{"allow": ["private-constructors", "decoratedFunctions"]}]
+  },
   "overrides": [
     {
       "files": [

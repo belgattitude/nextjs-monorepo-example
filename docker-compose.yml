@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  database:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=maindb
+      - POSTGRES_PASSWORD=!ChangeMe!
+      - POSTGRES_USER=nextjs
+    volumes:
+      - db_data:/var/lib/postgresql/data:rw
+      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+
+volumes:
+  db_data:

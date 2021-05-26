@@ -18,7 +18,7 @@ const getTsConfigBasePaths = () => {
 /** @typedef {import('ts-jest')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
-  name: 'web-app:unit',
+  name: 'core-lib:unit',
   testRunner: 'jest-circus/runner',
   testEnvironment: 'jsdom',
   verbose: true,
