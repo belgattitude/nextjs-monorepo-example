@@ -53,7 +53,7 @@ tailwind, prisma 2... add as much as you like.
 
 #### Two apps
 
-- [apps/web-app](./apps/web-app): SSR and API. [[README](./apps/web-app/README.md)] | [[DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app)] | [[CHANGELOG]](./apps/web-app)
+- [apps/web-app](./apps/web-app): SSR and API. [[README](./apps/web-app/README.md)] | [[DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app)] | [[CHANGELOG]](./apps/web-app/CHANGELOG.md)
 - [apps/blog-app](./apps/blog-app): SSG. [[README](./apps/blog-app/README.md)] | [[DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app)] | [[CHANGELOG]](./apps/blog-app/CHANGELOG.md)
 
 #### Some shared code
