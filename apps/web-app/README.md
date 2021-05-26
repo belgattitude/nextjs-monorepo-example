@@ -44,9 +44,11 @@ PRISMA_DATABASE_URL=postgresql://postgres:[PASSWORD]@[HOST]:[PORT]/postgres?sche
 
 ### Step 2:
 
-Create and seed the database if needed
+Create and seed the database the first time or after a change.
 
-```
+```bash
+# Using push here rather than migrate it's easier for
+# the example.
 $ yarn prisma:db:push
 $ yarn prisma:db:seed
 ```
