@@ -1,5 +1,16 @@
 # web-app
 
+## 3.3.0
+
+### Minor Changes
+
+- [#64](https://github.com/belgattitude/nextjs-monorepo-example/pull/64) [`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d) Thanks [@belgattitude](https://github.com/belgattitude)! - Add prisma and next-auth example
+
+### Patch Changes
+
+- Updated dependencies [[`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d), [`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d)]:
+  - @your-org/core-lib@3.1.0
+
 ## 3.2.0
 
 ### Minor Changes

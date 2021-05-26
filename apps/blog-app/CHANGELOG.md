@@ -1,5 +1,12 @@
 # blog-app
 
+## 3.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d), [`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d)]:
+  - @your-org/core-lib@3.1.0
+
 ## 3.2.0
 
 ### Minor Changes

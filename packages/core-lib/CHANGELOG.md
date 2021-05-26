@@ -1,5 +1,13 @@
 # @your-org/core-lib
 
+## 3.1.0
+
+### Minor Changes
+
+- [#64](https://github.com/belgattitude/nextjs-monorepo-example/pull/64) [`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example asserts and typeguards
+
+* [#64](https://github.com/belgattitude/nextjs-monorepo-example/pull/64) [`800ccdc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/800ccdcc93884157d4b9535272625a5a5719e83d) Thanks [@belgattitude](https://github.com/belgattitude)! - Add jest example for packages
+
 ## 3.0.0
 
 ### Major Changes
