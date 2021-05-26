@@ -12,7 +12,10 @@
 
 ```bash
 $ cd apps/web-app
-$ yarn dev -p 3001
+$ yarn docker:up:database
+# On first time
+$ yarn db:install
+$ yarn dev -p 3000
 # Alternatively: yarn workspace webapp run dev -p 3000
 ```
 
@@ -28,5 +31,4 @@ $ yarn prisma generate
 
 ```bash
 $ yarn prisma db seed --preview-feature
-``
 ```

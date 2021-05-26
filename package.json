@@ -43,7 +43,10 @@
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "postinstall": "is-ci || yarn husky install"
+    "postinstall": "is-ci || yarn husky install",
+    "docker:up": "docker-compose up -d",
+    "docker:up:database": "docker-compose up -d database",
+    "docker:down": "docker-compose down"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",

@@ -19,6 +19,7 @@
     "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "clean": "rimraf --no-glob ./.next ./out",
     "start": "next start",
+    "db:install": "yarn prisma db push && yarn prisma db seed --preview-feature",
     "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share:static:symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "?share:static:hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
