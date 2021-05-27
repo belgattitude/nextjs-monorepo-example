@@ -17,7 +17,7 @@
     "dev": "next",
     "build": "next build",
     "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
-    "clean": "rimraf --no-glob ./.next ./out",
+    "clean": "rimraf --no-glob ./.next ./out && jest --clear-cache",
     "start": "next start",
     "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
     "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",

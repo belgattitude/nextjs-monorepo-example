@@ -17,7 +17,7 @@
     "dev": "next",
     "build": "next build",
     "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
-    "clean": "rimraf --no-glob ./.next ./out",
+    "clean": "rimraf --no-glob ./.next ./out && jest --clear-cache",
     "export": "next export",
     "start": "next start",
     "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
