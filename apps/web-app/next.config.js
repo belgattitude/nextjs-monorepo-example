@@ -1,4 +1,5 @@
 const path = require('path');
+const { i18n } = require('./next-i18next.config');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -64,6 +65,7 @@ const config = withBundleAnalyzer(
     reactStrictMode: true,
     future: { webpack5: true },
     productionBrowserSourceMaps: !disableSourceMaps,
+    i18n,
 
     async headers() {
       return [{ source: '/(.*)', headers: secureHeaders }];
