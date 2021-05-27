@@ -1,3 +1,4 @@
+// @ts-check
 'use strict';
 
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
@@ -15,7 +16,7 @@ const getTsConfigBasePaths = () => {
     : {};
 };
 
-/** @typedef {import('ts-jest')} */
+/** @typedef {import('ts-jest/dist/types')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
   name: 'core-lib:unit',
@@ -38,7 +39,9 @@ const config = {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     ...getTsConfigBasePaths(),
   },
-  coverageDirectory: '<rootDir>/coverage',
+  // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true
+  collectCoverage: false,
+  coverageDirectory: '<rootDir>/../coverage',
   collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
   globals: {
     'ts-jest': {
