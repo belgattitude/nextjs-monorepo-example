@@ -39,7 +39,9 @@ const config = {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     ...getTsConfigBasePaths(),
   },
-  coverageDirectory: '<rootDir>/coverage',
+  // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true
+  collectCoverage: false,
+  coverageDirectory: '<rootDir>/../coverage',
   collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
   globals: {
     'ts-jest': {
