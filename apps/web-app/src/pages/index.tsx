@@ -1,19 +1,18 @@
 import { sayHello } from '@your-org/core-lib';
 import { AsyncMessage, Message } from '@your-org/ui-lib';
-import { Layout } from '@/components/layout';
 import { InfoCard } from '@your-org/ui-lib/component/info-card';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
+import { MainLayout } from '@/components/layout/main-layout';
 
 export default function Home() {
   return (
     <>
       <NextSeo
-        title="[blog-app] nextjs-monorepo example"
+        title="[web-app] nextjs-monorepo example"
         description="See https://github.com/belgattitude/nextjs-monorepo-example"
       />
-
-      <Layout>
+      <MainLayout>
         <h3>I'm the web-app</h3>
         <ul>
           <InfoCard originatingAppName={'web-app'} />
@@ -31,7 +30,7 @@ export default function Home() {
           width={400}
           height={240}
         />
-      </Layout>
+      </MainLayout>
     </>
   );
 }
