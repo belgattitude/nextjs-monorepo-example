@@ -1,5 +1,17 @@
 # blog-app
 
+## 3.3.0
+
+### Minor Changes
+
+- [#67](https://github.com/belgattitude/nextjs-monorepo-example/pull/67) [`152e4ad`](https://github.com/belgattitude/nextjs-monorepo-example/commit/152e4adc8be95f192b066f75ef4bb2dd42c46d12) Thanks [@belgattitude](https://github.com/belgattitude)! - Jest 27 and Typescript 4.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`152e4ad`](https://github.com/belgattitude/nextjs-monorepo-example/commit/152e4adc8be95f192b066f75ef4bb2dd42c46d12)]:
+  - @your-org/core-lib@3.2.0
+  - @your-org/ui-lib@3.1.0
+
 ## 3.2.1
 
 ### Patch Changes
