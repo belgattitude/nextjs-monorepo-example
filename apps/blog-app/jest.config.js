@@ -1,7 +1,7 @@
 // @ts-check
 'use strict';
 
-const { pathsToModuleNameMapper, createJestPreset } = require('ts-jest/utils');
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
 const { defaults: tsPreset } = require('ts-jest/presets');
 
 const { compilerOptions: baseTsConfig } = require('./tsconfig.json');

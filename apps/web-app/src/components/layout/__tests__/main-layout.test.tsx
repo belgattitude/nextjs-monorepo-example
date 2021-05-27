@@ -1,14 +1,14 @@
 import { render } from '@/test-utils';
-import { Layout } from '@/components/layout';
+import { MainLayout } from '@/components/layout/main-layout';
 
 describe('Layout tests', () => {
   it('should render children', async () => {
     const { getByTestId } = render(
-      <Layout>
+      <MainLayout>
         <div data-testid={'app-content'} className={'cls'}>
           Hello
         </div>
-      </Layout>
+      </MainLayout>
     );
     const appContent = getByTestId('app-content');
     expect(appContent).toHaveClass('cls');
