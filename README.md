@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center"><a aria-label="NextJs Monorepo" href="https://github.com/soluble-io/cache-interop">NextJs Monorepo</a></h1>
+  <h1 align="center"><a aria-label="NextJs Monorepo" href="https://github.com/belgattitude/nextjs-monorepo-example">NextJs Monorepo</a></h1>
   <p align="center"><strong>Monorepo concepts, tips and tricks oriented around NextJs</strong></p>
 </div>
 <p align="center">
