@@ -1,5 +1,6 @@
 import type { AppProps as NextAppProps } from 'next/app';
 import { AppProviders } from '../app-providers';
+import { appWithTranslation } from 'next-i18next';
 
 /**
  * Import global styles, global css or polyfills here
@@ -32,4 +33,4 @@ MyApp.getInitialProps = async appContext => {
 }
 */
 
-export default MyApp;
+export default appWithTranslation(MyApp);
