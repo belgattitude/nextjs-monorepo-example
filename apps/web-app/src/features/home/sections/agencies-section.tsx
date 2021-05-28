@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import { GetExampleData, getExampleData } from './agencies-section.api';
-import { CakeIcon } from '@heroicons/react/outline';
+import LazyLoad from 'react-lazyload';
 
 type Props = {
   children?: never;
@@ -14,12 +14,20 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
     <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
       <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
         <figure className="mb-2">
-          <img
-            alt={agency.name}
-            src={logoUrl}
-            width={200}
-            className="h-64 ml-auto mr-auto"
-          />
+          <LazyLoad
+            height={200}
+            once={true}
+            offset={100}
+            scroll={true}
+            resize={true}
+            overflow={false}>
+            <img
+              alt={agency.name}
+              src={logoUrl}
+              width={200}
+              className="h-64 ml-auto mr-auto"
+            />
+          </LazyLoad>
         </figure>
         <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
           <div>
