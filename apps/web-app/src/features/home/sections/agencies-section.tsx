@@ -1,9 +1,42 @@
+import { Fragment } from 'react';
 import { useQuery } from 'react-query';
-import { getExampleData } from './agencies-section.api';
+import { GetExampleData, getExampleData } from './agencies-section.api';
+import { CakeIcon } from '@heroicons/react/outline';
 
 type Props = {
   children?: never;
 };
+
+const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
+  const { agency } = props;
+  const logoUrl = `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`;
+  return (
+    <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
+      <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
+        <figure className="mb-2">
+          <img
+            alt={agency.name}
+            src={logoUrl}
+            width={200}
+            className="h-64 ml-auto mr-auto"
+          />
+        </figure>
+        <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
+          <div>
+            <h5 className="text-2xl font-bold leading-none">{agency.name}</h5>
+            <span className="text-xs text-gray-400 leading-none">
+              {agency.slug}
+            </span>
+          </div>
+          <div className="flex items-center">
+            <div className="text-lg text-white font-light">$1099,00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const AgenciesSection: React.FC<Props> = () => {
   const { error, isLoading, data } = useQuery(`example-data`, () =>
     getExampleData()
@@ -13,14 +46,17 @@ export const AgenciesSection: React.FC<Props> = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
         {error && <div>Error</div>}
         {isLoading && <div>Loading</div>}
-        {data &&
-          data.agencies.map((agency) => {
-            return (
-              <div key={agency.slug}>
-                <img alt={agency.name} src={agency.logo.url} width={200} />
-              </div>
-            );
-          })}
+        {data && (
+          <div className="w-full container ml-auto mr-auto flex flex-wrap items-start">
+            {data.agencies.map((agency) => {
+              return (
+                <Fragment key={agency.slug}>
+                  <Card agency={agency} />
+                </Fragment>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
