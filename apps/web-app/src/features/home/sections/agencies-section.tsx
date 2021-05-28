@@ -31,7 +31,9 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
         </figure>
         <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
           <div>
-            <h5 className="text-2xl font-bold leading-none">{agency.name}</h5>
+            <h5 className="text-white text-2xl font-bold leading-none">
+              {agency.name}
+            </h5>
             <span className="text-xs text-gray-400 leading-none">
               {agency.slug}
             </span>
