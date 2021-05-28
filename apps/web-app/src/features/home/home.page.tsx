@@ -4,6 +4,7 @@ import { Banner } from '@/components/banner';
 import { HeroSection } from './sections/hero-section';
 import { FeaturesSection } from './sections/features-section';
 import { CTASection } from './sections/cta-section';
+import { AgenciesSection } from './sections/agencies-section';
 
 type Props = {
   children?: never;
@@ -20,6 +21,7 @@ export const HomePage: React.FC<Props> = () => {
         <Banner />
         <HeroSection />
         <FeaturesSection />
+        <AgenciesSection />
         <CTASection />
       </MainLayout>
     </>
