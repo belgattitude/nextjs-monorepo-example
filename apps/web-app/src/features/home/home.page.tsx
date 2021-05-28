@@ -5,6 +5,7 @@ import { HeroSection } from './sections/hero-section';
 import { FeaturesSection } from './sections/features-section';
 import { CTASection } from './sections/cta-section';
 import { useTranslation } from 'next-i18next';
+import { AgenciesSection } from './sections/agencies-section';
 
 type Props = {
   children?: never;
