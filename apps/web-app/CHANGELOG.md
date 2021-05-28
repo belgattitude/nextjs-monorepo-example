@@ -1,5 +1,11 @@
 # web-app
 
+## 3.5.0
+
+### Minor Changes
+
+- [#69](https://github.com/belgattitude/nextjs-monorepo-example/pull/69) [`4fda76c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4fda76c2c9bc7b528d4a794b2738ef52fd505465) Thanks [@belgattitude](https://github.com/belgattitude)! - Styling the app with tailwind
+
 ## 3.4.0
 
 ### Minor Changes
