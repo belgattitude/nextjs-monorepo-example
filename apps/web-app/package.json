@@ -30,7 +30,9 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "?postinstall": "@todo: the prisma generate seems to be required, but is installed at the root",
+    "postinstall": "yarn workspace @your-org/prisma-db1 run prisma generate"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
