@@ -19,7 +19,7 @@
     "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",
     "prisma:db:push": "dotenv-flow -- yarn prisma db push",
     "prisma:studio": "dotenv-flow -- yarn prisma studio",
-    "clean": "rimraf --no-glob ./src/generated/*",
+    "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s 'test:*'",

@@ -17,7 +17,7 @@
     "dev": "next",
     "build": "next build",
     "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
-    "clean": "rimraf --no-glob ./.next ./out ./coverage && jest --clear-cache",
+    "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo && jest --clear-cache",
     "start": "next start",
     "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share:static:symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
