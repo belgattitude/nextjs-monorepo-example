@@ -1,4 +1,4 @@
-import { PrismaClient } from '@your-org/prisma-db1';
+import { PrismaClient } from '@prisma/client';
 import { Asserts } from '@your-org/core-lib';
 
 declare let global: {
