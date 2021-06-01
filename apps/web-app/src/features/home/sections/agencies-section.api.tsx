@@ -45,7 +45,7 @@ export const getExampleDataFromSource = async (): Promise<
   JsonApiResponse<GetExampleData>
 > => {
   const url =
-    'https://public-app-git-feature-longtail-1-sortlist.vercel.app/api/query/longtail/agencies?locale=en&locationSlug=brussels-brussels-be&_limit=100';
+    'https://public-app-git-feature-longtail-1-sortlist.vercel.app/api/query/longtail/agencies?locale=en&locationSlug=brussels-brussels-be&_limit=300';
   return axios
     .get<JsonApiResponse<GetExampleData>>(url)
     .then((res) => res.data);
