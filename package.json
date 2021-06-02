@@ -46,7 +46,8 @@
     "postinstall": "is-ci || yarn husky install",
     "docker:up": "docker-compose up -d",
     "docker:up:database": "docker-compose up -d database",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
