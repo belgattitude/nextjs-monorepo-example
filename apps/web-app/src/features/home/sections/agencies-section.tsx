@@ -52,7 +52,7 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
           {/* let's try this */}
           <img
             loading={'lazy'}
-            className="h-64 ml-auto mr-auto"
+            className="h-64 ml-auto mr-auto object-contain p-15 sm:p-5"
             srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
                      https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto 800w`}
             sizes="(max-width: 600px) 480px, 800px"
