@@ -54,10 +54,10 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
             loading={'lazy'}
             className="h-64 ml-auto mr-auto object-contain p-15 sm:p-5"
             srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
-                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto 800w`}
+                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto 800w`}
             sizes="(max-width: 600px) 480px, 800px"
-            width="150"
-            src={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto`}
+            width="200"
+            src={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`}
             alt={agency.name}
           />
         </figure>
