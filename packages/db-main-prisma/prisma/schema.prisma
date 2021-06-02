@@ -1,5 +1,7 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["napi"]
+  // output = "../src/generated"
 }
 
 datasource db {
@@ -14,6 +16,7 @@ model Post {
   published Boolean @default(false)
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
+
   @@map(name: "post")
 }
 
@@ -26,6 +29,7 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   posts         Post[]
+
   @@map(name: "user")
 }
 
@@ -41,6 +45,7 @@ model AuthAccount {
   accessTokenExpires DateTime? @map(name: "access_token_expires")
   createdAt          DateTime  @default(now()) @map(name: "created_at")
   updatedAt          DateTime  @default(now()) @map(name: "updated_at")
+
   @@index([providerAccountId], name: "providerAccountId")
   @@index([providerId], name: "providerId")
   @@index([userId], name: "userId")
@@ -55,6 +60,7 @@ model AuthSession {
   accessToken  String   @unique @map(name: "access_token")
   createdAt    DateTime @default(now()) @map(name: "created_at")
   updatedAt    DateTime @default(now()) @map(name: "updated_at")
+
   @@map(name: "auth_session")
 }
 
@@ -65,5 +71,6 @@ model AuthVerificationRequest {
   expires    DateTime
   createdAt  DateTime @default(now()) @map(name: "created_at")
   updatedAt  DateTime @default(now()) @map(name: "updated_at")
+
   @@map(name: "auth_verification_request")
 }
