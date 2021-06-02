@@ -49,7 +49,6 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
             />
           </picture>
           */}
-
           <img
             loading={'lazy'}
             className="h-64 ml-auto mr-auto"
