@@ -10,10 +10,12 @@ type Props = {
 const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
   const { agency } = props;
   const logoUrl = `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`;
+
   return (
     <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
       <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
         <figure className="mb-2">
+          {/*
           <LazyLoad
             height={200}
             once={true}
@@ -28,6 +30,35 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
               className="h-64 ml-auto mr-auto"
             />
           </LazyLoad>
+          */}
+
+          {/*
+          <picture className="h-64 ml-auto mr-auto">
+            <source
+              media="(min-width: 800px)"
+              srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto, https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=600&format=auto 2x`}
+            />
+            <source
+              media="(min-width: 450px)"
+              srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto, https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto 2x`}
+            />
+            <img
+              src="head-fb.jpg"
+              srcSet="head-fb-2x.jpg 2x"
+              alt="a head carved out of wood"
+            />
+          </picture>
+          */}
+
+          <img
+            loading={'lazy'}
+            className="h-64 ml-auto mr-auto"
+            srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
+                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto 800w`}
+            sizes="(max-width: 600px) 480px, 800px"
+            src={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=300&format=auto`}
+            alt={agency.name}
+          />
         </figure>
         <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
           <div>
