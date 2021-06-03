@@ -1,4 +1,4 @@
-import { ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import LazyLoad, { LazyLoadProps } from 'react-lazyload';
 
 type Props = {
