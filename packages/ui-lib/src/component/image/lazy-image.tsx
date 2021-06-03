@@ -5,7 +5,7 @@ import { Asserts } from '@your-org/core-lib';
 
 type BrowserLoadingProps = {
   strategy: 'browser';
-  /** preferred img loading attribute, will be ignore in other startegies */
+  /** preferred img loading attribute, will be ignore in other strategies */
   imgLoading: ImgHTMLAttributes<HTMLImageElement>['loading'];
   imgProps: ImgHTMLAttributes<HTMLImageElement>;
   lazyLoadProps?: LazyLoadProps;
