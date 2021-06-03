@@ -1,10 +1,15 @@
 import { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import { GetExampleData, getExampleData } from './agencies-section.api';
-import LazyLoad from 'react-lazyload';
+import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
+import { isBrowser } from '@your-org/ui-lib/utils/is-browser';
 
 type Props = {
   children?: never;
+};
+
+const supportsBrowserLoading = () => {
+  return isBrowser() && 'loading' in document.createElement('img');
 };
 
 const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
@@ -50,15 +55,18 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
           </picture>
           */}
           {/* let's try this */}
-          <img
-            loading={'lazy'}
-            className="h-64 ml-auto mr-auto object-contain p-15 sm:p-5"
-            srcSet={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
-                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto 800w`}
-            sizes="(max-width: 600px) 480px, 800px"
-            width="200"
-            src={`https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`}
-            alt={agency.name}
+          <LazyImage
+            strategy={supportsBrowserLoading() ? 'browser' : 'react-lazyload'}
+            imgLoading={'lazy'}
+            imgProps={{
+              className: 'h-64 ml-auto mr-auto object-contain p-15 sm:p-5',
+              srcSet: `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
+                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto 800w`,
+              sizes: '(max-width: 600px) 480px, 800px',
+              width: 200,
+              src: `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`,
+              alt: agency.name,
+            }}
           />
         </figure>
         <div className="rounded-lg p-4 bg-purple-700 flex flex-col">

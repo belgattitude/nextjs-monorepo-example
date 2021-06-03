@@ -37,7 +37,12 @@ export class Asserts {
   }
 
   static never(v: never, msg?: string): never {
-    throw new Error(msg ?? 'Unexpected value');
+    throw new Error(
+      msg ??
+        `Unexpected value: ${
+          ['string', 'number'].includes(typeof v) ? v : '(not a scalar)'
+        }`
+    );
   }
 
   private static createException(
