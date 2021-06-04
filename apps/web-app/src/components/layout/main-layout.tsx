@@ -1,5 +1,3 @@
-import * as S from './main-layout.style';
-
 export const MainLayout: React.FC = (props) => {
   const { children } = props;
   return (
