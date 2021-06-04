@@ -28,7 +28,10 @@
   },
   "rules": {
     "no-empty-function": "off",
-    "@typescript-eslint/no-empty-function": ["error",{"allow": ["private-constructors", "decoratedFunctions"]}]
+    "@typescript-eslint/no-empty-function": [
+      "error",
+      { "allow": ["private-constructors", "decoratedFunctions"] }
+    ]
   },
   "overrides": [
     {
@@ -44,13 +47,10 @@
       }
     },
     {
-      "files": [
-        "*.config.js",
-        "**/jest/**/*.js"
-      ],
+      "files": ["*.config.js", "**/jest/**/*.js"],
       "parser": "espree",
       "parserOptions": {
-        "ecmaVersion": 2019
+        "ecmaVersion": 2020
       },
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
