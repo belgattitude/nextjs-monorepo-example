@@ -11,15 +11,12 @@ type Props = {
 };
 
 export const HomePage: React.FC<Props> = () => {
-  const [lang, setLang] = useState('fr');
-
   return (
     <>
       <NextSeo
         title="[web-app] nextjs-monorepo example"
         description="See https://github.com/belgattitude/nextjs-monorepo-example"
       />
-      <button onClick={() => setLang(lang === 'en' ? 'fr' : 'en')}>Lang</button>
       <MainLayout>
         <Banner />
         <HeroSection />
