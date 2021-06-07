@@ -23,7 +23,7 @@
     "static/*"
   ],
   "scripts": {
-    "clean": "yarn workspaces foreach -ptv run clean",
+    "clean": "pnpm --filter '*' clean",
     "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -ptv run test:unit",
     "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
@@ -43,11 +43,12 @@
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "postinstall": "is-ci || yarn husky install",
+    "postinstall": "is-ci || pnpm husky install",
     "docker:up": "docker-compose up -d",
     "docker:up:database": "docker-compose up -d database",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)"
+    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
+    "pnpm:reinstall": "pnpx -y rimraf@^3.0.2 '**/node_modules' 'pnpm-lock.yaml'"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
@@ -66,6 +67,7 @@
   "engines": {
     "node": ">=14",
     "yarn": ">=1.22.0",
+    "pnpm": ">=6",
     "npm": "please-use-yarn"
   }
 }

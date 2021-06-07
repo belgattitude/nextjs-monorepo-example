@@ -16,14 +16,14 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-build": "pnpm share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo && jest --clear-cache",
     "start": "next start",
     "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share:static:symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "?share:static:hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share:static:hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
-    "bundle:analyze": "cross-env ANALYZE=true yarn build",
+    "bundle:analyze": "cross-env ANALYZE=true pnpm build",
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
     "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
@@ -32,7 +32,7 @@
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "?postinstall": "@todo: the prisma generate seems to be required, but is installed at the root",
-    "postinstall": "yarn workspace @your-org/db-main-prisma run prisma generate"
+    "postinstall": "pnpm prisma:generate --workspace-root --filter @your-org/db-main-prisma"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
@@ -86,6 +86,7 @@
     "@emotion/styled": "^11.3.0",
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
+    "@prisma/client": "^2.24.1",
     "@tsed/exceptions": "^6.53.0",
     "@your-org/core-lib": "workspace:*",
     "@your-org/db-main-prisma": "workspace:*",
