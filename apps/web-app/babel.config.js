@@ -1,7 +1,7 @@
 module.exports = function (api) {
   const isDevelopment = process.env['NODE_ENV'] === 'development';
   const isServer = api.caller((caller) => caller?.isServer);
-  const isCallerDevelopment = api.caller((caller) => caller.isDev);
+  const isCallerDevelopment = api.caller((caller) => caller?.isDev);
 
   api.cache(true);
 
