@@ -1,5 +1,15 @@
 # @your-org/core-lib
 
+## 3.2.1
+
+### Patch Changes
+
+- [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`a9c0d5e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a9c0d5e2651732ab23f1a335acddd23aef5a6b88) Thanks [@belgattitude](https://github.com/belgattitude)! - Jest: use css transform from jest-css-modules-transform
+
+* [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - Jest: added mock configs
+
+- [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - ESlint: added plugin:testing-library/react
+
 ## 3.2.0
 
 ### Minor Changes
