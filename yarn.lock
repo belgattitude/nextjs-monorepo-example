@@ -3327,7 +3327,6 @@ __metadata:
     "@types/react-dom": ^17.0.6
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
-    camelcase: ^6.2.0
     eslint: ^7.28.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-import: 2.23.4
@@ -4205,7 +4204,6 @@ __metadata:
     "@your-org/core-lib": "workspace:*"
     "@your-org/ui-lib": "workspace:*"
     autoprefixer: ^10.2.6
-    camelcase: ^6.2.0
     cross-env: ^7.0.3
     eslint: ^7.28.0
     eslint-config-prettier: ^8.3.0
@@ -4218,6 +4216,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.2.0
     eslint-plugin-testing-library: ^4.6.0
     jest: ^27.0.4
+    jest-css-modules-transform: ^4.2.1
     next: ^10.2.3
     next-secure-headers: ^2.2.0
     next-seo: ^4.24.0
@@ -8593,6 +8592,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-css-modules-transform@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "jest-css-modules-transform@npm:4.2.1"
+  dependencies:
+    camelcase: ^6.2.0
+    postcss: ^7.0.30 || ^8.0.0
+    postcss-nested: ^4.2.1 || ^5.0.0
+  checksum: fb07618326faa9c5d312068ec802f0c534d04369a8e325a90e7f1cb53000d038e65268e8f46e79b9427387e78306b82903a8fc0fe7983d650c5eef4ceb922a25
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^26.0.0":
   version: 26.6.2
   resolution: "jest-diff@npm:26.6.2"
@@ -11811,7 +11821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-nested@npm:5.0.5":
+"postcss-nested@npm:5.0.5, postcss-nested@npm:^4.2.1 || ^5.0.0":
   version: 5.0.5
   resolution: "postcss-nested@npm:5.0.5"
   dependencies:
@@ -12046,7 +12056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.3.0":
+"postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.3.0":
   version: 8.3.0
   resolution: "postcss@npm:8.3.0"
   dependencies:
@@ -15161,7 +15171,6 @@ resolve@^2.0.0-next.3:
     "@your-org/db-main-prisma": "workspace:*"
     "@your-org/ui-lib": "workspace:*"
     autoprefixer: ^10.2.6
-    camelcase: ^6.2.0
     cors: ^2.8.5
     cross-env: ^7.0.3
     dotenv-flow: ^3.2.0
@@ -15177,6 +15186,7 @@ resolve@^2.0.0-next.3:
     eslint-plugin-react-hooks: ^4.2.0
     eslint-plugin-testing-library: ^4.6.0
     jest: ^27.0.4
+    jest-css-modules-transform: ^4.2.1
     next: ^10.2.3
     next-auth: ^3.25.0
     next-connect: ^0.10.1
