@@ -22,6 +22,9 @@ const config = {
   name: 'core-lib:unit',
   testRunner: 'jest-circus/runner',
   testEnvironment: 'jsdom',
+  resetMocks: true,
+  resetModules: true,
+  restoreMocks: true,
   verbose: true,
   rootDir: './src',
   transform: {
