@@ -1,17 +1,14 @@
-import { render } from '@/test-utils';
+import { render, screen } from '@/test-utils';
 import { MainLayout } from '@/components/layout/main-layout';
 
 describe('Layout tests', () => {
   it('should render children', async () => {
-    const { getByTestId } = render(
+    render(
       <MainLayout>
-        <div data-testid={'app-content'} className={'cls'}>
-          Hello
-        </div>
+        <div role="article">Hello</div>
       </MainLayout>
     );
-    const appContent = getByTestId('app-content');
-    expect(appContent).toHaveClass('cls');
+    const appContent = screen.getByRole('article');
     expect(appContent).toHaveTextContent('Hello');
   });
 });
