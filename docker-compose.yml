@@ -17,11 +17,14 @@ services:
     container_name: web-app-dev
     volumes:
       - .:/app/
-      # the volume above prevents our host system's node_modules to be mounted
+      # the volumes below prevents our host system's node_modules to be mounted
       - excl_node_modules_root:/app/node_modules/
       - excl_node_modules_web-app:/app/apps/web-app/node_modules/
       - excl_node_modules_blog-app:/app/apps/blog-app/node_modules/
+      - excl_node_modules_core-lib:/app/packages/core-lib/node_modules/
       - excl_node_modules_db-main-prisma:/app/packages/db-main-prisma/node_modules/
+      - excl_node_modules_ui-lib:/app/packages/ui-lib/node_modules/
+      # the volume below prevents our host system's build to be mounted
       - excl_build_web-app:/app/apps/web-app/.next/
     depends_on:
       - main-db
@@ -46,6 +49,8 @@ volumes:
   excl_node_modules_root:
   excl_node_modules_web-app:
   excl_node_modules_blog-app:
+  excl_node_modules_core-lib:
   excl_node_modules_db-main-prisma:
+  excl_node_modules_ui-lib:
   excl_build_web-app:
   db_data:
