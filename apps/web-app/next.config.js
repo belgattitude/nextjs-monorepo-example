@@ -64,6 +64,7 @@ const config = withBundleAnalyzer(
     reactStrictMode: true,
     future: { webpack5: true },
     productionBrowserSourceMaps: !disableSourceMaps,
+    optimizeFonts: true,
 
     async headers() {
       return [{ source: '/(.*)', headers: secureHeaders }];

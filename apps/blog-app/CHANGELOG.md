@@ -1,5 +1,15 @@
 # blog-app
 
+## 3.4.0
+
+### Minor Changes
+
+- [#91](https://github.com/belgattitude/nextjs-monorepo-example/pull/91) [`3c646e7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3c646e7dfd6ec246035f048634f6533082412d3a) Thanks [@belgattitude](https://github.com/belgattitude)! - Example for google font preconnect
+
+* [#91](https://github.com/belgattitude/nextjs-monorepo-example/pull/91) [`45de065`](https://github.com/belgattitude/nextjs-monorepo-example/commit/45de0659558ac7a3f88ee6cb7fd070bd0395f83e) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: customize tailwind configuration
+
+- [#89](https://github.com/belgattitude/nextjs-monorepo-example/pull/89) [`5fe5f2a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5fe5f2a9cc0528617f0b53f9fb369afaf252358f) Thanks [@belgattitude](https://github.com/belgattitude)! - Example for browserlist support
+
 ## 3.3.1
 
 ### Patch Changes
