@@ -14,13 +14,15 @@ services:
       - target: 8000
         published: 8000
         protocol: tcp
-    container_name: web-app
+    container_name: web-app-dev
     volumes:
       - .:/app/
       # the volume above prevents our host system's node_modules to be mounted
-      - excluded_main_node_modules:/app/node_modules
-      - excluded_prisma_node_modules:/app/packages/db-main-prisma/node_modules
-      - excluded_web_app_cache:/app/apps/web-app/.next
+      - excl_node_modules_root:/app/node_modules/
+      - excl_node_modules_web-app:/app/apps/web-app/node_modules/
+      - excl_node_modules_blog-app:/app/apps/blog-app/node_modules/
+      - excl_node_modules_db-main-prisma:/app/packages/db-main-prisma/node_modules/
+      - excl_build_web-app:/app/apps/web-app/.next/
     depends_on:
       - main-db
 
@@ -41,7 +43,9 @@ services:
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
 volumes:
-  excluded_main_node_modules:
-  excluded_prisma_node_modules:
-  excluded_web_app_cache:
+  excl_node_modules_root:
+  excl_node_modules_web-app:
+  excl_node_modules_blog-app:
+  excl_node_modules_db-main-prisma:
+  excl_build_web-app:
   db_data:

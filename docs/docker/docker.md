@@ -8,6 +8,6 @@
 ### Debugging
 
 ```
-$ docker-compose build --force-rm web-app
-$ docker-compose run --rm web-app sh
+$ docker-compose build --force-rm web-app-dev
+$ docker-compose run --rm web-app-dev sh
 ```
