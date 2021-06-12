@@ -82,7 +82,6 @@ tailwind, prisma 2... add as much as you like.
 │   │   └── tsconfig.json        (define path to packages)
 │   │
 │   └── web-app                  (NextJS app with api-routes)
-│       ├── prisma/              (database models and seeds)
 │       ├── public/
 │       │   ├── shared-assets/   (symlink to global static/assets)
 │       │   └── shared-locales/  (symlink to global static/locales)
@@ -92,6 +91,7 @@ tailwind, prisma 2... add as much as you like.
 │       ├── next.config.js
 │       ├── package.json         (define package workspace:package deps)
 │       └── tsconfig.json        (define path to packages)
+│
 ├── packages
 │   ├── core-lib                 (basic ts libs)
 │   │   ├── src/
