@@ -8,7 +8,7 @@ BASEDIR=$(dirname $(dirname $(realpath "$0")))
 CACHE_PATH="${BASEDIR}/node_modules/.yarn/cache"
 
 cd "$BASEDIR"
-
+ls -la $CACHE_PATH
 #echo $CACHE_PATH;
 #exit 1;
 
