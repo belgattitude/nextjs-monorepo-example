@@ -8,10 +8,10 @@ Vercel supports it natively, so there's pretty much nothing to do.
 
 1. Select the app
    ![](./images/vercel-monorepo-import.jpg)
-   
 2. Choose the name
    ![](./images/vercel-monorepo-naming.jpg)
 
-3. (Option) add cache support for yarn 2+  
-   Override install with `YARN_CACHE_FOLDER=./node_modules/.yarn-cache yarn install`   
+3. (Option) To speed up install step and allow yarn 2 cache strategy till it's supported natively
+   by Vercel, use a workaround by overriding install step with `YARN_CACHE_FOLDER=.next/cache/yarn-cache yarn install`.
+
    ![](./images/vercel-monorepo-cache.jpg)
