@@ -1,5 +1,7 @@
 const path = require('path');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
+const NEXTJS_IGNORE_ESLINT =
+  process.env.NEXTJS_IGNORE_ESLINT === 'true' || false;
 const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
@@ -66,6 +68,11 @@ const config = withBundleAnalyzer(
     productionBrowserSourceMaps: !disableSourceMaps,
     optimizeFonts: true,
 
+    eslint: {
+      ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
+      dirs: ['src'],
+    },
+
     async headers() {
       return [{ source: '/(.*)', headers: secureHeaders }];
     },
@@ -91,6 +98,12 @@ const config = withBundleAnalyzer(
       if (isServer) {
         config.externals.push('_http_common');
       }
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        issuer: /\.(js|ts)x?$/,
+        use: ['@svgr/webpack'],
+      });
 
       return config;
     },
