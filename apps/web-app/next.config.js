@@ -62,7 +62,7 @@ const config = withBundleAnalyzer(
   withTM({
     target: NEXTJS_BUILD_TARGET,
     reactStrictMode: true,
-    future: { webpack5: true },
+    webpack5: true,
     productionBrowserSourceMaps: !disableSourceMaps,
     optimizeFonts: true,
 
