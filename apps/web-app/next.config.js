@@ -1,7 +1,6 @@
 const path = require('path');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
-const NEXTJS_IGNORE_ESLINT =
-  process.env.NEXTJS_IGNORE_ESLINT === 'true' || false;
+const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
