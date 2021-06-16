@@ -1,5 +1,13 @@
 # web-app
 
+## 3.8.0
+
+### Minor Changes
+
+- [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`86022f7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/86022f784a07c1ad222b3d8897fcba021d268564) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to NextJs 11
+
+* [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`1392357`](https://github.com/belgattitude/nextjs-monorepo-example/commit/1392357e45c13bbbdf234208bc73c9f23be12ed3) Thanks [@belgattitude](https://github.com/belgattitude)! - Add nextjs eslint recommended configuration
+
 ## 3.7.0
 
 ### Minor Changes
