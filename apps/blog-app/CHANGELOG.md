@@ -1,5 +1,11 @@
 # blog-app
 
+## 3.6.0
+
+### Minor Changes
+
+- [#101](https://github.com/belgattitude/nextjs-monorepo-example/pull/101) [`218827a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/218827aa16c68d728a31e3ffcefe03c0df8febd0) Thanks [@belgattitude](https://github.com/belgattitude)! - Update to tailwind 2.2.0 and jit mode
+
 ## 3.5.0
 
 ### Minor Changes
