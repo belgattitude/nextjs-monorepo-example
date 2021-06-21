@@ -1,9 +1,17 @@
 {
   "root": true,
-  "extends": ["../../.eslintrc.base.json", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "../../.eslintrc.base.json",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:testing-library/react"
+  ],
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "@next/next/no-img-element": "warn"
   },
   "overrides": [
     {
