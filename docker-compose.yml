@@ -1,16 +1,47 @@
-version: "3.4"
+version: "3.8"
 
 services:
-  database:
+  web-app-dev:
+    # Service must be started explicitly with docker-compose up web-app
+    profiles:
+      - donotstart
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    stdin_open: true
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+    container_name: web-app
+    volumes:
+      - .:/app/
+      # the volume above prevents our host system's node_modules to be mounted
+      - excluded_main_node_modules:/app/node_modules
+      - excluded_prisma_node_modules:/app/packages/db-main-prisma/node_modules
+      - excluded_web_app_cache:/app/apps/web-app/.next
+    depends_on:
+      - main-db
+
+  main-db:
     image: postgres:13-alpine
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
     environment:
       - POSTGRES_DB=maindb
       - POSTGRES_PASSWORD=!ChangeMe!
       - POSTGRES_USER=nextjs
     volumes:
       - db_data:/var/lib/postgresql/data:rw
-      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # you may use a bind-mounted host directory instead,
+      # so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
 volumes:
+  excluded_main_node_modules:
+  excluded_prisma_node_modules:
+  excluded_web_app_cache:
   db_data:

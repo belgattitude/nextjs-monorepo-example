@@ -1,16 +1,24 @@
 {
   "root": true,
-  "extends": ["../../.eslintrc.base.json", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "../../.eslintrc.base.json",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:testing-library/react"
+  ],
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "@next/next/no-img-element": "warn"
   },
   "overrides": [
     {
       "files": ["next.config.js"],
       "parser": "espree",
       "parserOptions": {
-        "ecmaVersion": 2019
+        "ecmaVersion": 2020
       },
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
@@ -28,6 +36,12 @@
       "files": ["src/pages/**/*.ts", "src/pages/**/*.tsx"],
       "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
+      "files": ["**/*.devtool.ts", "**/*.devtool.tsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ]

@@ -1,0 +1,59 @@
+{
+  "name": "@your-org/db-main-prisma",
+  "version": "1.1.1",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "directory": "packages/db-main-prisma"
+  },
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
+    "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",
+    "prisma:db:push": "dotenv-flow -- yarn prisma db push",
+    "prisma:studio": "dotenv-flow -- yarn prisma studio",
+    "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo \"No tests yet\"",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "?ts-node": "Tip: this is only needed for prisma seeds",
+    "ts-node": "ts-node --compiler-options {\\\"module\\\":\\\"commonjs\\\"}"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "camelcase": "^6.2.0",
+    "dotenv-flow": "^3.2.0",
+    "dotenv-flow-cli": "^1.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest-formatting": "^3.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.1",
+    "prisma": "^2.25.0",
+    "rimraf": "^3.0.2",
+    "shell-quote": "^1.7.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.25.0",
+    "@your-org/core-lib": "workspace:*"
+  }
+}

@@ -1,5 +1,63 @@
 # web-app
 
+## 3.9.0
+
+### Minor Changes
+
+- [#101](https://github.com/belgattitude/nextjs-monorepo-example/pull/101) [`218827a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/218827aa16c68d728a31e3ffcefe03c0df8febd0) Thanks [@belgattitude](https://github.com/belgattitude)! - Update to tailwind 2.2.0 and jit mode
+
+## 3.8.0
+
+### Minor Changes
+
+- [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`86022f7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/86022f784a07c1ad222b3d8897fcba021d268564) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to NextJs 11
+
+* [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`1392357`](https://github.com/belgattitude/nextjs-monorepo-example/commit/1392357e45c13bbbdf234208bc73c9f23be12ed3) Thanks [@belgattitude](https://github.com/belgattitude)! - Add nextjs eslint recommended configuration
+
+## 3.7.0
+
+### Minor Changes
+
+- [#91](https://github.com/belgattitude/nextjs-monorepo-example/pull/91) [`3c646e7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3c646e7dfd6ec246035f048634f6533082412d3a) Thanks [@belgattitude](https://github.com/belgattitude)! - Example for google font preconnect
+
+* [#91](https://github.com/belgattitude/nextjs-monorepo-example/pull/91) [`45de065`](https://github.com/belgattitude/nextjs-monorepo-example/commit/45de0659558ac7a3f88ee6cb7fd070bd0395f83e) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: customize tailwind configuration
+
+- [#89](https://github.com/belgattitude/nextjs-monorepo-example/pull/89) [`5fe5f2a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5fe5f2a9cc0528617f0b53f9fb369afaf252358f) Thanks [@belgattitude](https://github.com/belgattitude)! - Example for browserlist support
+
+## 3.6.1
+
+### Patch Changes
+
+- [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`a9c0d5e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a9c0d5e2651732ab23f1a335acddd23aef5a6b88) Thanks [@belgattitude](https://github.com/belgattitude)! - Jest: use css transform from jest-css-modules-transform
+
+* [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - Jest: added mock configs
+
+- [#84](https://github.com/belgattitude/nextjs-monorepo-example/pull/84) [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - ESlint: added plugin:testing-library/react
+
+- Updated dependencies [[`a9c0d5e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a9c0d5e2651732ab23f1a335acddd23aef5a6b88), [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293), [`697842e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/697842e913bd7164b21b51c9c9adb943b0904293)]:
+  - @your-org/core-lib@3.2.1
+  - @your-org/db-main-prisma@1.1.1
+  - @your-org/ui-lib@3.1.1
+
+## 3.6.0
+
+### Minor Changes
+
+- [#74](https://github.com/belgattitude/nextjs-monorepo-example/pull/74) [`5010c94`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5010c944162165ab47923718a9ccaf1cafc419ee) Thanks [@belgattitude](https://github.com/belgattitude)! - Extract a separate prisma package lib
+
+* [#79](https://github.com/belgattitude/nextjs-monorepo-example/pull/79) [`a38c143`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a38c1434486d2affdd95bfd9836160d63a11a2f7) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with why-did-you-render
+
+### Patch Changes
+
+- Updated dependencies [[`5010c94`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5010c944162165ab47923718a9ccaf1cafc419ee)]:
+  - @your-org/db-main-prisma@1.1.0
+
+## 3.5.0
+
+### Minor Changes
+
+- [#69](https://github.com/belgattitude/nextjs-monorepo-example/pull/69) [`4fda76c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4fda76c2c9bc7b528d4a794b2738ef52fd505465) Thanks [@belgattitude](https://github.com/belgattitude)! - Styling the app with tailwind
+
 ## 3.4.0
 
 ### Minor Changes

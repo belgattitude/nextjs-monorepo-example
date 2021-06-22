@@ -1,3 +1,6 @@
+// Optional why-did-you-render dev-tool component
+// @link https://github.com/welldone-software/why-did-you-render
+import '../utils/dev-tools/wdyr.devtool';
 import type { AppProps as NextAppProps } from 'next/app';
 import { AppProviders } from '../app-providers';
 import { appWithTranslation } from 'next-i18next';
