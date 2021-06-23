@@ -18,14 +18,14 @@ services:
     volumes:
       - .:/app/
       # the volumes below prevents our host system's node_modules to be mounted
-      - excl_node_modules_root:/app/node_modules/
-      - excl_node_modules_web-app:/app/apps/web-app/node_modules/
-      - excl_node_modules_blog-app:/app/apps/blog-app/node_modules/
-      - excl_node_modules_core-lib:/app/packages/core-lib/node_modules/
-      - excl_node_modules_db-main-prisma:/app/packages/db-main-prisma/node_modules/
-      - excl_node_modules_ui-lib:/app/packages/ui-lib/node_modules/
+      - nm_exclude_root:/app/node_modules/
+      - nm_exclude_web-app:/app/apps/web-app/node_modules/
+      - nm_exclude_blog-app:/app/apps/blog-app/node_modules/
+      - nm_exclude_core-lib:/app/packages/core-lib/node_modules/
+      - nm_exclude_db-main-prisma:/app/packages/db-main-prisma/node_modules/
+      - nm_exclude_ui-lib:/app/packages/ui-lib/node_modules/
       # the volume below prevents our host system's build to be mounted
-      - excl_build_web-app:/app/apps/web-app/.next/
+      - build_excl_web-app:/app/apps/web-app/.next/
     depends_on:
       - main-db
 
@@ -46,11 +46,11 @@ services:
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
 volumes:
-  excl_node_modules_root:
-  excl_node_modules_web-app:
-  excl_node_modules_blog-app:
-  excl_node_modules_core-lib:
-  excl_node_modules_db-main-prisma:
-  excl_node_modules_ui-lib:
-  excl_build_web-app:
+  nm_exclude_root:
+  nm_exclude_web-app:
+  nm_exclude_blog-app:
+  nm_exclude_core-lib:
+  nm_exclude_db-main-prisma:
+  nm_exclude_ui-lib:
+  build_excl_web-app:
   db_data:
