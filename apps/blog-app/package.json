@@ -1,6 +1,6 @@
 {
   "name": "blog-app",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
@@ -13,12 +13,19 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
-  "browserslist": [
-    ">0.3%",
-    "not ie 11",
-    "not dead",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.3%",
+      "not ie 11",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
