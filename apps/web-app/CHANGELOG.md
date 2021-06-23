@@ -1,5 +1,11 @@
 # web-app
 
+## 3.9.1
+
+### Patch Changes
+
+- [#107](https://github.com/belgattitude/nextjs-monorepo-example/pull/107) [`90b0d23`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0d23a8da942718f6f2834d73171ac9b4005da) Thanks [@belgattitude](https://github.com/belgattitude)! - Browserlist per environment (dev/prod)
+
 ## 3.9.0
 
 ### Minor Changes
