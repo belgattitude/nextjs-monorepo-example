@@ -17,7 +17,7 @@
   "main": "dist/ui-lib.js",
   "module": "dist/ui-lib.module.js",
   "scripts": {
-    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build": "rimraf --no-glob ./dist && microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo",
