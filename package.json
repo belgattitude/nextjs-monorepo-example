@@ -47,7 +47,9 @@
     "docker:up": "docker-compose up -d",
     "docker:up:database": "docker-compose up -d database",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)"
+    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
+    "?clear:node_modules": "remove all node_modules folders present under the root",
+    "clear:node_modules": "rimraf '**/node_modules'"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.0",
