@@ -257,7 +257,12 @@ call their counterparts defined in packages and apps.
 
 ### 3.2 Maintaining deps updated
 
-The commands `yarn deps:check` and `yarn deps:updates` will help to maintain the same versions across the entire monorepo.
+The global commands `yarn deps:check` and `yarn deps:update` will help to maintain the same versions across the entire monorepo.
+They are based on the excellent [npm-check-updates](https://github.com/raineorshine/npm-check-updates) (see [options](https://github.com/raineorshine/npm-check-updates#options)).
+
+> After running `yarn deps:update`, a `yarn install` is required. To prevent
+> having duplicates in the yarn.lock, you can run `yarn dedupe --check` and `yarn dedupe` to
+> apply deduplication. The duplicate check is enforced in the example github actions.
 
 ## 4. Quality
 
