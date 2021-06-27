@@ -1,5 +1,25 @@
 # web-app
 
+## 3.9.1
+
+### Patch Changes
+
+- [#107](https://github.com/belgattitude/nextjs-monorepo-example/pull/107) [`90b0d23`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0d23a8da942718f6f2834d73171ac9b4005da) Thanks [@belgattitude](https://github.com/belgattitude)! - Browserlist per environment (dev/prod)
+
+## 3.9.0
+
+### Minor Changes
+
+- [#101](https://github.com/belgattitude/nextjs-monorepo-example/pull/101) [`218827a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/218827aa16c68d728a31e3ffcefe03c0df8febd0) Thanks [@belgattitude](https://github.com/belgattitude)! - Update to tailwind 2.2.0 and jit mode
+
+## 3.8.0
+
+### Minor Changes
+
+- [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`86022f7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/86022f784a07c1ad222b3d8897fcba021d268564) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to NextJs 11
+
+* [#98](https://github.com/belgattitude/nextjs-monorepo-example/pull/98) [`1392357`](https://github.com/belgattitude/nextjs-monorepo-example/commit/1392357e45c13bbbdf234208bc73c9f23be12ed3) Thanks [@belgattitude](https://github.com/belgattitude)! - Add nextjs eslint recommended configuration
+
 ## 3.7.0
 
 ### Minor Changes
