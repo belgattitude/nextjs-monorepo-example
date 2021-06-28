@@ -59,13 +59,17 @@ tailwind, prisma 2... add as much as you like.
 - [apps/web-app](./apps/web-app): SSR and API. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
 - [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
 
+> Apps should not depend on apps, they can depend on packages
+
 #### Some shared code
 
 - [packages/core-lib](./packages/core-lib): used by web-app and blog-app, publishable. [CHANGELOG](./packages/core-lib/CHANGELOG.md)
 - [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
 - [packages/ui-lib](./packages/ui-lib): used by web-app and blog-app, publishable. [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
 
-### Static shared assets
+> Apps can depend on packages, packages can depend on each others...
+
+#### Static shared assets
 
 If needed static resources like **locales**, **images**,... can be shared by using symlinks in the repo.
 
@@ -253,7 +257,13 @@ call their counterparts defined in packages and apps.
 
 ### 3.2 Maintaining deps updated
 
-The commands `yarn deps:check` and `yarn deps:updates` will help to maintain the same versions across the entire monorepo.
+The global commands `yarn deps:check` and `yarn deps:update` will help to maintain the same versions across the entire monorepo.
+They are based on the excellent [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
+(see [options](https://github.com/raineorshine/npm-check-updates#options), i.e: `yarn check:deps -t minor`).
+
+> After running `yarn deps:update`, a `yarn install` is required. To prevent
+> having duplicates in the yarn.lock, you can run `yarn dedupe --check` and `yarn dedupe` to
+> apply deduplication. The duplicate check is enforced in the example github actions.
 
 ## 4. Quality
 
@@ -346,3 +356,7 @@ See here a quick comparison:
 | Yarn 2 PNP          | ✅                 | ✅                        |
 | Webpack5            | ✅                 | ✅                        |
 | Publishable (npm)   | ✅                 | ❌ (ntm relies on "main") |
+
+## License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbelgattitude%2Fnextjs-monorepo-example.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbelgattitude%2Fnextjs-monorepo-example?ref=badge_large)
