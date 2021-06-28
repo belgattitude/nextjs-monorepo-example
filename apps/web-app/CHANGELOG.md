@@ -1,5 +1,11 @@
 # web-app
 
+## 3.10.0
+
+### Minor Changes
+
+- [#112](https://github.com/belgattitude/nextjs-monorepo-example/pull/112) [`f1b34bf`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f1b34bfbf65fd1cadde8ced3811bd88b014aa65d) Thanks [@belgattitude](https://github.com/belgattitude)! - Remove why-did-your-render, does not work well with emotion
+
 ## 3.9.1
 
 ### Patch Changes
