@@ -58,7 +58,6 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
 ```json5
 {
   "compilerOptions": {
-
     "baseUrl": "./src",
     "paths": {
       "@your-org/ui-lib/*": [ "../../../packages/ui-lib/src/*" ],
