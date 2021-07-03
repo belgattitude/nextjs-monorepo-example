@@ -63,9 +63,9 @@ tailwind, prisma 2... add as much as you like.
 
 #### Some shared code
 
-- [packages/core-lib](./packages/core-lib): used by web-app and blog-app, publishable. [CHANGELOG](./packages/core-lib/CHANGELOG.md)
-- [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
-- [packages/ui-lib](./packages/ui-lib): used by web-app and blog-app, publishable. [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
+- [packages/core-lib](./packages/core-lib): used by web-app and blog-app, publishable. [README](./packages/core-lib/README.md) | [CHANGELOG](./packages/core-lib/CHANGELOG.md)
+- [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [README](./packages/db-main-prisma/README.md) | [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
+- [packages/ui-lib](./packages/ui-lib): used by web-app and blog-app, publishable. [README](./packages/ui-lib/README.md) | [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
 
 > Apps can depend on packages, packages can depend on each others...
 
