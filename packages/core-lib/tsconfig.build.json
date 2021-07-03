@@ -2,10 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "jsx": "react-jsx",
-    "noEmit": false
+    "module": "esnext"
   },
-  "exclude": ["dist"]
+  "exclude": ["dist", "**/__tests__/*"]
 }
