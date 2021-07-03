@@ -6,65 +6,73 @@
   </a>
 </p>
 
-> Part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example)
+## Intro
+
+Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+
+- Homepage: [Demo/Vercel english](https://nextjs-monorepo-example-web-app.vercel.app/en/home) | [Demo/vercel french](https://nextjs-monorepo-example-web-app.vercel.app/fr/home)
+- API: [Demo rest/Vercel](https://nextjs-monorepo-example-web-app.vercel.app/api/rest/post/1)
+- [Changelog](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/apps/web-app/CHANGELOG.md)
 
 ## Quick start
 
-### Step 1: Database
-
-This project uses [Prisma](https://prisma.io) as primary database layer an connect
-to a postgresql database. An example schema is defined in [./prisma/schema.prisma](./prisma/schema.prisma),
-seeds are available in [./prisma/seeds.ts](./prisma/seed.ts).
-
-#### Option 1: Postgresql local
-
-The default env for PRISMA_DATABASE_URL is defined in the main [.env](.env) file.
-By default, it connects to the postgresql service defined in [../../docker-compose.yml](../../docker-compose.yml).
-
-Ensure you have docker and docker-compose and run
+> For rest/api database access be sure to start `docker-compose up database`,
+> see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/packages/db-main-prisma/README.md).
 
 ```bash
-# In the root folder
-$ docker-compose up database
-# Alternatively, from any folder
-$ yarn docker:up
+$ yarn install
+$ cd apps/web-app
+$ yarn dev
 ```
 
-#### Option 2: An hosted postgres instance
+### Features
 
-To quick start, you can use a free tier at supabase.io, but all providers will work.
+> Some common features that have been enabled to widen monorepo testing scenarios.
 
-As an example, simply create an `.env.local` and set the supabase pgbouncer url:
+- [x] Api routes: some api routes for rest.
+- [x] I18n: based on [next-i18next](https://github.com/isaachinman/next-i18next)
+- [x] Styling: [Emotion](https://emotion.sh/) support with critical path extraction enabled.
+- [x] Styling: [Tailwind](https://tailwindcss.com/) with JIT mode enabled and common plugins.
+- [x] Security: [next-secure-headers](https://github.com/jagaapple/next-secure-headers) with basic defaults.
+- [x] Seo: [next-seo](https://github.com/garmeeh/next-seo)
+- [x] Tests: Jest with ts-jest enabled
 
-```env
-PRISMA_DATABASE_URL=postgresql://postgres:[PASSWORD]@[HOST]:[PORT]/postgres?schema=public&pgbouncer=true&sslmode=require&sslaccept=strict&sslcert=../config/certs/supabase-prod-ca-2021.crt
+Database access for api's and server-side rendered
+
+### Monorepo deps
+
+This app relies on packages in the monorepo, see [how](https://github.com/belgattitude/nextjs-monorepo-example)
+
+```json5
+{
+  dependencies: {
+    '@your-org/core-lib': 'workspace:*',
+    '@your-org/db-main-prisma': 'workspace:*',
+    '@your-org/ui-lib': 'workspace:*',
+  },
+}
 ```
 
-> You can append `&connection_limit=1` if deploying on a serverless/lambda provider (ie: vercel, netlify...)
+### Structure
 
-### Step 2:
-
-Create and seed the database the first time or after a change.
-
-```bash
-# Using push here rather than migrate it's easier for
-# the example.
-$ yarn prisma:db:push
-$ yarn prisma:db:seed
 ```
-
-> **Warning**. Notice how we use ':' rather than spaces. Why ? Cause prisma
-> [does not support](https://github.com/prisma/prisma/issues/3865) the .env.[local|development...] supported by nextjs.
-> Curious ? Open the package.json script folder to see how we use dotenv-flow under the hood read [this](https://github.com/prisma/prisma/issues/3865).
-
-## Nextjs
+.
+├── apps
+│   └── web-app
+│       ├── public/
+│       │   └── locales/
+│       ├── src/
+│       │   ├── features/*
+│       │   └── pages/api
+│       └── next.config.js
+└── packages  (monorepo's packages that this app is using)
+    ├── core-lib
+    ├── main-db-prisma
+    └── ui-lib
+```
 
 ### Develop
 
 ```
 $ yarn dev
 ```
-
-To test the api/db browse to
-
-- http://localhost:3000/api/rest/post/1
