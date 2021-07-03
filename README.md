@@ -230,22 +230,33 @@ call their counterparts defined in packages and apps.
 
 ```json5
 {
-  scripts: {
-    // Global workspaces commands, ie:
-    clean: 'yarn workspaces foreach -ptv run clean',
-    typecheck: 'yarn workspaces foreach -ptv run typecheck',
-    lint: 'yarn workspaces foreach -ptv run lint',
-    test: "run-s 'test:*'",
-    'test:unit': 'yarn workspaces foreach -ptv run test:unit',
+  "scripts": {
+    "clean": "yarn workspaces foreach -ptv run clean",
+    "test": "run-s 'test:*'",
+    "test:unit": "yarn workspaces foreach -ptv run test:unit",
+    "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
+    "fix:all-files": "yarn workspaces foreach -ptv run fix:all-files",
     // Manage versions and releases with atlassion/changesets
-    changeset: 'changeset',
-    release: 'yarn build && changeset publish',
-    // Utility script to check/upgrade deps across the entire monorepo
-    'deps:check': 'npm-check-updates --deep --dep prod,dev,optional',
-    'deps:update': 'npm-check-updates -u --deep --dep prod,dev,optional',
-    // Some extras you can set based on needs.
-    'apps:build': "yarn workspaces foreach -ptv --include '*-app' run build",
-    'packages:build': "yarn workspaces foreach -ptv --include '@your-org/*' run build",
+    "changeset": "changeset",
+    "release": "yarn build && changeset publish",
+    // Utility scripts to check/upgrade deps across the entire monorepo
+    // use yarn dedupe after install
+    "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
+    "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
+    "typecheck": "yarn workspaces foreach -ptv run typecheck",
+    "lint": "yarn workspaces foreach -ptv run lint",
+    "share:static:symlink": "yarn workspaces foreach -pv --include '*-app' run share:static:symlink",
+    "share:static:hardlink": "yarn workspaces foreach -pv --include '*-app' run share:static:hardlink",
+    "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
+    "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
+    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
+    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
+    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
+    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
+    "docker:up": "docker-compose up -d",
+    "docker:up:database": "docker-compose up -d database",
+    "docker:down": "docker-compose down",
+    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
 }
 ```
