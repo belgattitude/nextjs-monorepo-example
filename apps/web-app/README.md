@@ -60,14 +60,17 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@your-org/ui-lib/*": [ "../../../packages/ui-lib/src/*" ],
-      "@your-org/ui-lib": [ "../../../packages/ui-lib/src/index" ],
-      "@your-org/core-lib/*": [ "../../../packages/core-lib/src/*" ],
-      "@your-org/core-lib": [ "../../../packages/core-lib/src/index" ],
-      "@your-org/db-main-prisma/*": [ "../../../packages/db-main-prisma/src/*" ],
-      "@your-org/db-main-prisma": [ "../../../packages/db-main-prisma/src/index" ]
-    }
-  }
+      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@your-org/core-lib": ["../../../packages/core-lib/src/index"],
+      "@your-org/db-main-prisma/*": ["../../../packages/db-main-prisma/src/*"],
+      "@your-org/db-main-prisma": [
+        "../../../packages/db-main-prisma/src/index",
+      ],
+    },
+  },
+}
 ```
 
 ## Some tips
