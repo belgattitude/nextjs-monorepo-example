@@ -46,9 +46,9 @@ This app relies on packages in the monorepo, see detailed instructions in [READM
 ```json5
 {
   dependencies: {
-    '@your-org/core-lib': 'workspace:*',
-    '@your-org/db-main-prisma': 'workspace:*',
-    '@your-org/ui-lib': 'workspace:*',
+    "@your-org/core-lib": "workspace:*",
+    "@your-org/db-main-prisma": "workspace:*",
+    "@your-org/ui-lib": "workspace:*",
   },
 }
 ```
@@ -58,25 +58,15 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
 ```json5
 {
   "compilerOptions": {
+
+    "baseUrl": "./src",
     "paths": {
-      "@your-org/ui-lib/*": [
-        "../../../packages/ui-lib/src/*"
-      ],
-      "@your-org/ui-lib": [
-        "../../../packages/ui-lib/src/index"
-      ],
-      "@your-org/core-lib/*": [
-        "../../../packages/core-lib/src/*"
-      ],
-      "@your-org/core-lib": [
-        "../../../packages/core-lib/src/index"
-      ],
-      "@your-org/db-main-prisma/*": [
-        "../../../packages/db-main-prisma/src/*"
-      ],
-      "@your-org/db-main-prisma": [
-        "../../../packages/db-main-prisma/src/index"
-      ]
+      "@your-org/ui-lib/*": [ "../../../packages/ui-lib/src/*" ],
+      "@your-org/ui-lib": [ "../../../packages/ui-lib/src/index" ],
+      "@your-org/core-lib/*": [ "../../../packages/core-lib/src/*" ],
+      "@your-org/core-lib": [ "../../../packages/core-lib/src/index" ],
+      "@your-org/db-main-prisma/*": [ "../../../packages/db-main-prisma/src/*" ],
+      "@your-org/db-main-prisma": [ "../../../packages/db-main-prisma/src/index" ]
     }
   }
 ```
