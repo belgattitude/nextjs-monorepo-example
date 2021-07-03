@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 1.1.2
+
+### Patch Changes
+
+- [#117](https://github.com/belgattitude/nextjs-monorepo-example/pull/117) [`4607a02`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4607a02d91e87134f306d25dfeabdba9c83b3837) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved documentation
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # web-app
 
+## 3.11.0
+
+### Minor Changes
+
+- [#71](https://github.com/belgattitude/nextjs-monorepo-example/pull/71) [`3903624`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3903624ad3c87b282947ed3eea84f6451c622fe6) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with next-i18next and typed translation keys
+
+### Patch Changes
+
+- [#117](https://github.com/belgattitude/nextjs-monorepo-example/pull/117) [`4607a02`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4607a02d91e87134f306d25dfeabdba9c83b3837) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved documentation
+
+- Updated dependencies [[`4607a02`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4607a02d91e87134f306d25dfeabdba9c83b3837)]:
+  - @your-org/db-main-prisma@1.1.2
+
 ## 3.10.0
 
 ### Minor Changes
