@@ -3456,7 +3456,7 @@ __metadata:
     rimraf: ^3.0.2
     shell-quote: ^1.7.2
     ts-jest: ^27.0.3
-    typescript: ^4.3.5
+    typescript: ^4.4.0-beta
   peerDependencies:
     react: ^16.14.0 || ^17.0.1
     react-dom: ^16.14.0 || ^17.0.1
@@ -3489,7 +3489,7 @@ __metadata:
     shell-quote: ^1.7.2
     ts-jest: ^27.0.3
     ts-node: ^10.0.0
-    typescript: ^4.3.5
+    typescript: ^4.4.0-beta
   languageName: unknown
   linkType: soft
 
@@ -3525,7 +3525,7 @@ __metadata:
     rimraf: ^3.0.2
     shell-quote: ^1.7.2
     ts-jest: ^27.0.3
-    typescript: ^4.3.5
+    typescript: ^4.4.0-beta
   peerDependencies:
     react: ^16.14.0 || ^17.0.1
     react-dom: ^16.14.0 || ^17.0.1
@@ -4367,7 +4367,7 @@ __metadata:
     sync-directory: ^2.2.22
     tailwindcss: ^2.2.4
     ts-jest: ^27.0.3
-    typescript: ^4.3.5
+    typescript: ^4.4.0-beta
   languageName: unknown
   linkType: soft
 
@@ -15464,7 +15464,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@^4.1.3, typescript@^4.3.5":
+typescript@^4.1.3:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -15474,13 +15474,33 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.1.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
+typescript@^4.4.0-beta:
+  version: 4.4.0-dev.20210702
+  resolution: "typescript@npm:4.4.0-dev.20210702"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: b5add862ab4bbd53ced957e14bb8e03c78188b1f02c5ff3a1716b06d2ae45877d20525a4dea40e78dcf56a1c551dcbc41dced6840ffd59d89c01f508f81ee53c
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.1.3#~builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: bc2c4fdf0f1557fdafe4ef74848c72ebd9c8c60829568248f869121aea2bb20e16649a252431d0acb185ec118143be22bed73d08f64379557810d82756afedde
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.4.0-beta#~builtin<compat/typescript>":
+  version: 4.4.0-dev.20210702
+  resolution: "typescript@patch:typescript@npm%3A4.4.0-dev.20210702#~builtin<compat/typescript>::version=4.4.0-dev.20210702&hash=d8b4e7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: a6fbb0d328da910b254f8c20587a2878edd3e9cde9aa3d1594a37b63c6ba90d83b0da33d004f66f2befdf3d7d751900691e748523cb063b9ef912743e218b7c7
   languageName: node
   linkType: hard
 
@@ -15946,7 +15966,7 @@ resolve@^2.0.0-next.3:
     tailwindcss: ^2.2.4
     ts-jest: ^27.0.3
     ts-node: ^10.0.0
-    typescript: ^4.3.5
+    typescript: ^4.4.0-beta
   languageName: unknown
   linkType: soft
 
