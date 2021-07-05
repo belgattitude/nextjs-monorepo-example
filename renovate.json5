@@ -1,5 +1,6 @@
 /**
- * Renovatebot config and overrides
+ * Renovatebot config and overrides for the monorepo
+ *
  * - https://docs.renovatebot.com/configuration-options/
  * - https://docs.renovatebot.com/presets-default/
  */
@@ -9,17 +10,28 @@
   "enabledManagers": ["npm", "docker-compose", "dockerfile", "github-actions"],
   "packageRules": [
     {
+      // Root package.json
+      "matchPaths": ["package.json"],
+      "matchDepTypes": [
+        "dependencies",
+      ],
+      "rangeStrategy": "pin"
+    },
+    {
       // Will pin dependencies found in apps/*...
-      "matchPaths": ["apps/+(package.json)"],
+      "matchPaths": ["apps/**"],
+      "matchDepTypes": [
+        "dependencies",
+      ],
       "rangeStrategy": "pin"
     },
     {
       // Will preserve semver found in packages/*
-      "matchPaths": ["packages/+(package.json)"],
-      "rangeStrategy": "replace",
+      "matchPaths": ["packages/**"],
       "matchDepTypes": [
         "dependencies",
-      ]
+      ],
+      "rangeStrategy": "replace"
     },
     {
       // All dev deps
