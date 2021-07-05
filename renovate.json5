@@ -1,0 +1,32 @@
+/**
+ * Renovatebot config and overrides
+ * - https://docs.renovatebot.com/configuration-options/
+ * - https://docs.renovatebot.com/presets-default/
+ */
+{
+  "extends": ["config:base"],
+  "enabled": true,
+  "enabledManagers": ["dockerfile", "npm"],
+  "packageRules": [
+    {
+      // Will pin dependencies found in apps/*...
+      "matchPaths": ["apps/+(package.json)"],
+      "rangeStrategy": "pin"
+    },
+    {
+      // Will preserve semver found in packages/*
+      "matchPaths": ["packages/+(package.json)"],
+      "rangeStrategy": "replace",
+      "matchDepTypes": [
+        "dependencies",
+      ]
+    },
+    {
+      // All dev deps
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "rangeStrategy": "auto"
+    }
+  ]
+}
