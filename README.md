@@ -339,7 +339,19 @@ Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in th
 
 ## FAQ
 
-#### Quid next-transpile-modules ?
+#### Exact vs semver dependencies
+
+Apps dependencies and devDependencies are pinned to exact versions. Packages deps will use semver compatible ones.
+For more info about this change see [reasoning here](https://docs.renovatebot.com/dependency-pinning/) and our
+[renovabot.json5](renovate.json5) configuration file.
+
+To help keeping deps up-to-date, see the `yarn deps:check && yarn deps:update` scripts and / or use the [renovatebot](https://github.com/marketplace/renovate).
+
+> When adding a dep through yarn cli (i.e.: yarn add something), it's possible to set the save-exact behaviour automatically
+> by setting `defaultSemverRangePrefix: ""` in [yarnrc.yml](./.yarnrc.yml). But this would make the default for packages/\* as well.
+> Better to handle `yarn add something --exact` on per-case basis.
+
+#### About next-transpile-modules
 
 And why this repo example doesn't use it to support package sharing.
 
