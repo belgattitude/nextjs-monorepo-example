@@ -1,5 +1,14 @@
 # @your-org/db-main-prisma
 
+## 1.1.3
+
+### Patch Changes
+
+- [#135](https://github.com/belgattitude/nextjs-monorepo-example/pull/135) [`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
+
+- Updated dependencies [[`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3)]:
+  - @your-org/core-lib@3.2.2
+
 ## 1.1.2
 
 ### Patch Changes
