@@ -6,7 +6,7 @@
 {
   "extends": ["config:base"],
   "enabled": true,
-  "enabledManagers": ["dockerfile", "npm"],
+  "enabledManagers": ["npm", "docker-compose", "dockerfile", "github-actions"],
   "packageRules": [
     {
       // Will pin dependencies found in apps/*...
