@@ -23,18 +23,32 @@ describe('Typeguards tests', () => {
     });
   });
   describe('isParsableNumeric', () => {
-    it('should work as expected', () => {
-      expect(isParsableNumeric(10)).toBeTruthy();
-      expect(isParsableNumeric('100')).toBeTruthy();
-      expect(isParsableNumeric('-3')).toBeTruthy();
-      expect(isParsableNumeric('2.12')).toBeTruthy();
-      expect(isParsableNumeric(NaN)).toBeFalsy();
-      expect(isParsableNumeric(undefined)).toBeFalsy();
-      expect(isParsableNumeric(null)).toBeFalsy();
-      expect(isParsableNumeric(false)).toBeFalsy();
-      expect(isParsableNumeric({})).toBeFalsy();
-      expect(isParsableNumeric([])).toBeFalsy();
-      expect(isParsableNumeric(new Date())).toBeFalsy();
+    it.each([
+      [10, true],
+      ['100', true],
+      ['-3', true],
+      ['2.12', true],
+      [NaN, false],
+      [undefined, false],
+      [false, false],
+      [null, false],
+      [{}, false],
+      [[], false],
+      [new Date(), false],
+    ])('when "%p" is given should return "%b"', (value, expected) => {
+      expect(isParsableNumeric(value)).toStrictEqual(expected);
+    });
+  });
+
+  describe('isPlainObject', () => {
+    it.each([
+      [{}, true],
+      [{ name: 'seb' }, true],
+      [new Date(), false],
+      [false, false],
+      [undefined, false],
+    ])('when "%p" is given, should return %p', (v, expected) => {
+      expect(v).toStrictEqual(expected);
     });
   });
 });
