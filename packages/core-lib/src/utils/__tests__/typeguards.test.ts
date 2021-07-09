@@ -1,4 +1,8 @@
-import { isNonEmptyString, isParsableNumeric } from '../typeguards';
+import {
+  isNonEmptyString,
+  isParsableNumeric,
+  isPlainObject,
+} from '../typeguards';
 
 describe('Typeguards tests', () => {
   describe('isNonEmptyString', () => {
@@ -44,11 +48,14 @@ describe('Typeguards tests', () => {
     it.each([
       [{}, true],
       [{ name: 'seb' }, true],
+      [{ name: 'deep', children: [{ test: 1 }] }, true],
       [new Date(), false],
       [false, false],
       [undefined, false],
+      [null, false],
+      [() => 'cool', false],
     ])('when "%p" is given, should return %p', (v, expected) => {
-      expect(v).toStrictEqual(expected);
+      expect(isPlainObject(v)).toStrictEqual(expected);
     });
   });
 });
