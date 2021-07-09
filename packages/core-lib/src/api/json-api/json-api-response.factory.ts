@@ -25,13 +25,12 @@ export class JsonApiResponseFactory {
   };
   static fromSuccess = <T>(
     data: T,
-    metadata: JsonApiSuccessResponse<T>['meta'],
-    autoParseJson = true
+    metadata?: JsonApiSuccessResponse<T>['meta']
   ): JsonApiSuccessResponse<T> => {
     return {
       success: true,
-      data: autoParseJson && typeof data === 'string' ? JSON.parse(data) : data,
-      meta: metadata,
+      data: data,
+      ...(isPlainObject(metadata) ? { meta: metadata } : {}),
     };
   };
 }

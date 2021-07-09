@@ -2,6 +2,26 @@ import { JsonApiResponseFactory } from '../json-api-response.factory';
 import { JsonApiError } from '../json-api-response.types';
 
 describe('JsonApiResponseFactory tests', () => {
+  describe('When creating a success from a string', () => {
+    it('should decode the json', () => {
+      const data = [
+        {
+          name: 'seb',
+        },
+      ] as const;
+      const resp = JsonApiResponseFactory.fromSuccess<typeof data>(data, {
+        total: data.length,
+      });
+      expect(resp).toStrictEqual({
+        success: true,
+        data: data,
+        meta: {
+          total: data.length,
+        },
+      });
+    });
+  });
+
   describe('When creating an error from a string', () => {
     it('should set the string in the detail', () => {
       const resp = JsonApiResponseFactory.fromError('error');
