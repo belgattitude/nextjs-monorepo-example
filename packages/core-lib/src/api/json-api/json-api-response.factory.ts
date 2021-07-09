@@ -8,6 +8,7 @@ import { isPlainObject } from '../../utils/typeguards';
 export class JsonApiResponseFactory {
   static fromError = (
     errors: string | JsonApiError | JsonApiError[],
+    /** fallback http status if not present in JsonApiError */
     httpStatus?: number
   ): JsonApiErrorResponse => {
     let errs: JsonApiError[];
