@@ -10,11 +10,23 @@
 
 Basic demo of a shared package using [prisma](<(https://prisma.io)>) to handle database access, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example)
 
+## Quick start
+
+Start the database with `docker-compose up database` then run
+
+```
+cd packages/db-main-prisma
+yarn prisma:db:push
+yarn prisma:db:seed
+```
+
+> See the .env(.local|.production|.development) file to edit the connection.
+> **Curious about the setup ?**, we use [dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow) under the hood read [this](https://github.com/prisma/prisma/issues/3865)
+> and see the script section of [./package.json](./package.json)
+
 ## Install
 
-### Pre-requisites
-
-> Have a database running
+### Database
 
 #### Option 1: Postgresql local
 
@@ -42,17 +54,28 @@ PRISMA_DATABASE_URL=postgresql://postgres:[PASSWORD]@[HOST]:[PORT]/postgres?sche
 
 > You can append `&connection_limit=1` if deploying on a serverless/lambda provider (ie: vercel, netlify...)
 
+## DB creation
+
+To create the database, simply run
+
+```bash
+$ yarn prisma:db:push
+```
+
 ## DB Seeding
 
 Create and seed the database the first time or after a change.
 
 ```bash
-# Using push here rather than migrate it's easier for
-# the example.
-$ yarn prisma:db:push
 $ yarn prisma:db:seed
 ```
 
-> **Warning**. Notice how we use ':' rather than spaces. Why ? Cause prisma
-> [does not support](https://github.com/prisma/prisma/issues/3865) the .env.[local|development...] supported by nextjs.
-> Curious ? Open the package.json script folder to see how we use [dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow) under the hood read [this](https://github.com/prisma/prisma/issues/3865).
+## DB type generation
+
+Create or update the types. This is generally automatically done in
+a postinstall from any app, see script section of [../../apps/web-app/package.json](../../apps/web-app/package.json)
+or try it out with `yarn workspace web-app postinstall`
+
+```bash
+$ yarn prisma generate
+```
