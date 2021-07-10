@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
-import { fetchPostsWithKy } from '../api/fetch-posts-ky.api';
-import { GetPosts } from '../../api/rest/post-repository.ssr';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
+import { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 
 type Props = {
   children?: never;
@@ -43,15 +43,21 @@ const BlogCtn = styled.div`
   }
 `;
 
-const Blog: React.FC<{ post: GetPosts[number]; children?: never }> = (
+const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
   props
 ) => {
-  const { post } = props;
+  const { poem } = props;
   return (
     <BlogCtn>
-      <img src={post.image ?? ''} alt={'cool'} />
+      <img
+        src={
+          poem.image ??
+          `https://source.unsplash.com/random/800x600?${poem.title.split('')}`
+        }
+        alt={'cool'}
+      />
       <div>
-        <h3>{post.title}</h3>
+        <h3>{poem.title}</h3>
       </div>
     </BlogCtn>
   );
@@ -65,12 +71,12 @@ const BlogListCtn = styled.div`
   padding: 0;
 `;
 
-const BlogList: React.FC<{ posts: GetPosts; children?: never }> = (props) => {
-  const { posts } = props;
+const PoemList: React.FC<{ poems: GetPoems; children?: never }> = (props) => {
+  const { poems } = props;
   return (
     <BlogListCtn>
-      {posts.map((post) => (
-        <Blog key={post.id} post={post} />
+      {poems.map((poem) => (
+        <Poem key={poem.id} poem={poem} />
       ))}
     </BlogListCtn>
   );
@@ -79,7 +85,7 @@ const BlogList: React.FC<{ posts: GetPosts; children?: never }> = (props) => {
 const ReactQueryApi: React.FC = () => {
   const { data, isLoading, error } = useQuery(
     'posts',
-    () => fetchPostsWithKy(),
+    () => fetchPoemsWithKy(),
     {}
   );
   if (isLoading) {
@@ -88,7 +94,7 @@ const ReactQueryApi: React.FC = () => {
   if (error) {
     return <div>Error {JSON.stringify(error)}</div>;
   }
-  return <div>{data && <BlogList posts={data} />}</div>;
+  return <div>{data && <PoemList poems={data} />}</div>;
 };
 
 export const DemoApiSection: React.FC<Props> = () => {
