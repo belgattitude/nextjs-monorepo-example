@@ -15,6 +15,7 @@
   },
   "main": "./src/index.ts",
   "scripts": {
+    "prisma:migrate": "dotenv-flow -- yarn prisma migrate",
     "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
     "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",
     "prisma:db:push": "dotenv-flow -- yarn prisma db push",
