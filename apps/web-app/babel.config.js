@@ -6,20 +6,18 @@ module.exports = function (api) {
 
   api.cache(true);
 
-  const emotionJsxPresets = [
-    [
-      'next/babel',
-      {
-        'preset-react': {
-          runtime: 'automatic',
-          importSource: '@emotion/react',
-        },
-      },
-    ],
-  ];
-
   return {
-    presets: emotionJsxPresets,
+    presets: [
+      [
+        'next/babel',
+        {
+          'preset-react': {
+            runtime: 'automatic',
+            importSource: '@emotion/react',
+          },
+        },
+      ],
+    ],
     plugins: ['@emotion/babel-plugin'],
   };
 };
