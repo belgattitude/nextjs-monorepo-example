@@ -1,29 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prismaClient } from '@/backend/config/container.config';
-import {
-  BadRequest,
-  InternalServerError,
-  MethodNotAllowed,
-  NotFound,
-} from '@tsed/exceptions';
+import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
 import { Asserts } from '@your-org/core-lib';
 import { StringConvert } from '@your-org/core-lib/utils/string-convert';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import { PostRepositorySsr } from '../../../../features/api/rest/post-repository.ssr';
 
 export default async function handleGetPost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    try {
-      const { id } = req.query;
-      const postId = StringConvert.toSafeInteger(id);
+    const { id } = req.query;
+    const postId = StringConvert.toSafeInteger(id);
+    const postRepo = new PostRepositorySsr(prismaClient);
 
+    try {
       Asserts.safeInteger(postId, () => new BadRequest('Wrong param id'));
 
       return res.json(
-        JsonApiResponseFactory.fromSuccess(await getPostSsr(postId))
+        JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))
       );
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromTsedException(e);
@@ -42,22 +39,3 @@ export default async function handleGetPost(
       );
   }
 }
-
-/**
- * @throws Exception
- */
-const getPostSsr = async (postId: number) => {
-  try {
-    const post = await prismaClient.post.findUnique({
-      where: { id: postId },
-      include: { author: true },
-    });
-    Asserts.isPresent(
-      post,
-      () => new NotFound(`Post ${postId} can't be found`)
-    );
-    return post;
-  } catch (e) {
-    throw new InternalServerError(`Post ${postId} can't be retrieved`, e);
-  }
-};
