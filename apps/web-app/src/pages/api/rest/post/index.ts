@@ -1,16 +1,24 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prismaClient } from '@/backend/config/container.config';
-import { InternalServerError, MethodNotAllowed } from '@tsed/exceptions';
+import { MethodNotAllowed } from '@tsed/exceptions';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import { PostRepositorySsr } from '../../../../features/api/rest/post-repository.ssr';
 
 export default async function handleListPosts(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
+    const postRepo = new PostRepositorySsr(prismaClient);
     try {
-      return res.json(await getPostsSsr());
+      return res.json(
+        JsonApiResponseFactory.fromSuccess(
+          await postRepo.getPosts({
+            limit: 100,
+          })
+        )
+      );
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromTsedException(e);
       return res
@@ -28,31 +36,3 @@ export default async function handleListPosts(
       );
   }
 }
-
-/**
- * @throws Exception
- */
-const getPostsSsr = async () => {
-  try {
-    const posts = await prismaClient.post.findMany({
-      where: {
-        publishedAt: {
-          not: null,
-        },
-      },
-      include: {
-        author: {
-          select: {
-            firstName: true,
-            lastName: true,
-            nickname: true,
-          },
-        },
-      },
-      orderBy: { publishedAt: 'desc' },
-    });
-    return posts;
-  } catch (e) {
-    throw new InternalServerError(`Posts can't be retrieved`, e);
-  }
-};

@@ -22,7 +22,9 @@ export default async function handleGetPost(
 
       Asserts.safeInteger(postId, () => new BadRequest('Wrong param id'));
 
-      return res.json(await getPostSsr(postId));
+      return res.json(
+        JsonApiResponseFactory.fromSuccess(await getPostSsr(postId))
+      );
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromTsedException(e);
       return res
