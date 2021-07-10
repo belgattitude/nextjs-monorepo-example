@@ -13,7 +13,7 @@ export class PostRepositorySsr {
    * @throws Error
    */
   getPosts = async (options?: { limit?: number; offset?: number }) => {
-    const { limit = undefined, offset = undefined } = options ?? {};
+    const { limit, offset } = options ?? {};
     try {
       return await prismaClient.post.findMany({
         skip: offset,
