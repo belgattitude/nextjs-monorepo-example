@@ -40,7 +40,10 @@ async function main() {
       where: {
         slug: poem.slug,
       },
-      update: {},
+      update: {
+        content: poem.content,
+        keywords: poem.keywords,
+      },
       create: poem,
     });
     console.log(`Created or updated poem with slug: ${poem.slug}`);
