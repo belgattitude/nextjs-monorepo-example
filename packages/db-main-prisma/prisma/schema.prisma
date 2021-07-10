@@ -9,6 +9,18 @@ datasource db {
   url      = env("PRISMA_DATABASE_URL")
 }
 
+model Poem {
+  id        Int     @id @default(autoincrement())
+  slug      String  @unique
+  title     String
+  content   String
+  author    String
+  link      String?
+  image     String?
+
+  @@map(name: "poem")
+}
+
 model Post {
   id        Int     @id @default(autoincrement())
   title     String

@@ -1,4 +1,6 @@
 import { PrismaClient, Prisma } from '@prisma/client';
+import { poemsSeed } from './seeds/poem/poems.seed';
+import { slugify } from 'transliteration';
 
 const prisma = new PrismaClient();
 
@@ -24,6 +26,7 @@ const userData: Prisma.UserCreateInput[] = [
 
 async function main() {
   console.log(`Start seeding ...`);
+  // users and posts
   for (const u of userData) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
@@ -31,6 +34,20 @@ async function main() {
       create: u,
     });
     console.log(`Created or updated user with id: ${user.id}`);
+  }
+  // poems
+  for (const p of poemsSeed) {
+    const poem = {
+      ...p,
+      slug: slugify(`${p.author}-${p.title}`),
+    };
+    await prisma.poem.upsert({
+      where: {
+        slug: poem.slug,
+      },
+      update: {},
+      create: poem,
+    });
   }
   console.log(`Seeding finished.`);
 }
