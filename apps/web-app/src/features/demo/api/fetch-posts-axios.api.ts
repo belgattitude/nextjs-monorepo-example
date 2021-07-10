@@ -1,9 +1,9 @@
-import { GetPosts } from '../../api/rest/post-repository.ssr';
 import axios from 'axios';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
+import { GetPosts } from '@/backend/api/rest/post-repository.ssr';
 
 export const fetchPostsWithAxios = async (): Promise<GetPosts> => {
   return axios
