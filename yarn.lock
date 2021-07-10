@@ -3487,6 +3487,7 @@ __metadata:
     prisma: 2.26.0
     rimraf: 3.0.2
     shell-quote: 1.7.2
+    transliteration: 2.2.0
     ts-jest: 27.0.3
     ts-node: 10.1.0
     typescript: 4.3.5
@@ -15295,6 +15296,18 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"transliteration@npm:2.2.0":
+  version: 2.2.0
+  resolution: "transliteration@npm:2.2.0"
+  dependencies:
+    yargs: ^16.1.0
+  bin:
+    slugify: dist/bin/slugify
+    transliterate: dist/bin/transliterate
+  checksum: 68cfaaaecb3b75ef1bc2f87bb3e4c446f2d3e60ea5a329c4366c2650c81a359895a229b092acbd0806fd579845a1d4b10ff79cc342d4c042334cc9eed2d04443
+  languageName: node
+  linkType: hard
+
 "trim-newlines@npm:^3.0.0":
   version: 3.0.1
   resolution: "trim-newlines@npm:3.0.1"
@@ -16446,7 +16459,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^16.0.0, yargs@npm:^16.0.3, yargs@npm:^16.2.0":
+"yargs@npm:^16.0.0, yargs@npm:^16.0.3, yargs@npm:^16.1.0, yargs@npm:^16.2.0":
   version: 16.2.0
   resolution: "yargs@npm:16.2.0"
   dependencies:
