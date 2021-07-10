@@ -10,7 +10,7 @@ export class PostRepositorySsr {
   constructor(private prisma: PrismaClient) {}
 
   /**
-   * @throws Exception
+   * @throws Error
    */
   getPosts = async (options?: { limit?: number; offset?: number }) => {
     const { limit = undefined, offset = undefined } = options ?? {};
