@@ -1,8 +1,10 @@
 import { Prisma } from '@prisma/client';
+import keywordExtractor from 'keyword-extractor';
+import { slugify } from 'transliteration';
 
 // Taken from https://medium.com/@EmEmbarty/31-of-the-best-and-most-famous-short-classic-poems-of-all-time-e445986e6df
 
-export const poemsSeed: Omit<Prisma.PoemCreateInput, 'slug'>[] = [
+export const poemsSeed: Prisma.PoemCreateInput[] = [
   {
     author: 'John Donne',
     title: 'No man is an island',
@@ -276,13 +278,26 @@ export const poemsSeed: Omit<Prisma.PoemCreateInput, 'slug'>[] = [
       But only God can make a tree.
     `,
   },
-].map((poem) => {
-  const sanitized = poem.content
+].map((partial) => {
+  const sanitizedContent = partial.content
     .split(/(\n|\r|\r\n)/)
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
     .join('\n')
     .trim();
-  poem.content = sanitized;
+
+  const keywords = keywordExtractor.extract(partial.title, {
+    language: 'english',
+    remove_digits: true,
+    return_changed_case: true,
+    remove_duplicates: false,
+  });
+
+  const poem: Prisma.PoemCreateInput = {
+    ...partial,
+    slug: slugify(`${partial.author}-${partial.title}`),
+    content: sanitizedContent,
+    keywords: keywords,
+  };
   return poem;
 });
