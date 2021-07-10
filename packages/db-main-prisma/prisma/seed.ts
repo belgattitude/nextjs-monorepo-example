@@ -1,6 +1,5 @@
 import { PrismaClient, Prisma } from '@prisma/client';
 import { poemsSeed } from './seeds/poem/poems.seed';
-import { slugify } from 'transliteration';
 
 const prisma = new PrismaClient();
 
@@ -36,11 +35,7 @@ async function main() {
     console.log(`Created or updated user with id: ${user.id}`);
   }
   // poems
-  for (const p of poemsSeed) {
-    const poem = {
-      ...p,
-      slug: slugify(`${p.author}-${p.title}`),
-    };
+  for (const poem of poemsSeed) {
     await prisma.poem.upsert({
       where: {
         slug: poem.slug,
@@ -48,6 +43,7 @@ async function main() {
       update: {},
       create: poem,
     });
+    console.log(`Created or updated poem with slug: ${poem.slug}`);
   }
   console.log(`Seeding finished.`);
 }

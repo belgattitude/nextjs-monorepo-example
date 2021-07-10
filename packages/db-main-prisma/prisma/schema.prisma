@@ -14,6 +14,7 @@ model Poem {
   slug      String  @unique
   title     String
   content   String
+  keywords  String[]
   author    String
   link      String?
   image     String?
