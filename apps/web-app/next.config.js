@@ -13,9 +13,12 @@ const tmModules = [
         // ie: '@react-google-maps/api'...
       ]
     : []),
-  // esm modules not yet supported by nextjs
+  // ESM only packages are not yet supported by NextJs
+  // @link https://github.com/vercel/next.js/issues/23725
+  // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   ...[
-    // ie: 'ky'..
+    // ie: newer versions of https://github.com/sindresorhus packages
+    'ky',
   ],
 ];
 const withTM = require('next-transpile-modules')(tmModules, {
