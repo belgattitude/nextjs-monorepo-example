@@ -47,15 +47,14 @@ const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
   props
 ) => {
   const { poem } = props;
+  const img =
+    poem.image ??
+    `https://source.unsplash.com/random/800x600?${(poem.keywords ?? [])
+      .map((keyword) => encodeURI(keyword))
+      .join(',')}`;
   return (
     <BlogCtn>
-      <img
-        src={
-          poem.image ??
-          `https://source.unsplash.com/random/800x600?${poem.title.split('')}`
-        }
-        alt={'cool'}
-      />
+      <img src={img} alt={'cool'} />
       <div>
         <h3>{poem.title}</h3>
       </div>
