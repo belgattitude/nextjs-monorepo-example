@@ -11,17 +11,17 @@ import { StringConvert } from '@your-org/core-lib/utils/string-convert';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
 
-export default async function handle(
+export default async function handleGetPost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    const { id } = req.query;
-    const postId = StringConvert.toSafeInteger(id);
-
-    Asserts.safeInteger(postId, () => new BadRequest('Wrong param id'));
-
     try {
+      const { id } = req.query;
+      const postId = StringConvert.toSafeInteger(id);
+
+      Asserts.safeInteger(postId, () => new BadRequest('Wrong param id'));
+
       return res.json(await getPostSsr(postId));
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromTsedException(e);
