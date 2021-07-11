@@ -16,7 +16,7 @@ export const isJsonApiResponse = <T = unknown>(
 export const isJsonApiSuccessResponse = <T = unknown>(
   val: unknown
 ): val is JsonApiSuccessResponse<T> => {
-  return isJsonApiResponse<T>(val) && val.success === true && 'data' in val;
+  return isJsonApiResponse<T>(val) && val.success && 'data' in val;
 };
 
 export const isJsonApiErrorResponse = (
@@ -24,7 +24,7 @@ export const isJsonApiErrorResponse = (
 ): val is JsonApiErrorResponse => {
   return (
     isJsonApiResponse<unknown>(val) &&
-    val.success === false &&
+    !val.success &&
     'errors' in val &&
     Array.isArray(val.errors)
   );
