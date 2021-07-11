@@ -109,7 +109,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   ├── package.json
 │   │   └── tsconfig.json
 │   │
-│   ├── main-db-prisma          (basic db layer with prisma)
+│   ├── db-main-prisma          (basic db layer with prisma)
 │   │   ├── prisma/
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
