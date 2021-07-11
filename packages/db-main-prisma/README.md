@@ -14,7 +14,7 @@ Basic demo of a shared package using [prisma](<(https://prisma.io)>) to handle d
 
 Start the database with `docker-compose up database` then run
 
-```
+```bash
 cd packages/db-main-prisma
 yarn prisma:db:push
 yarn prisma:db:seed
@@ -37,9 +37,9 @@ Ensure you have docker and docker-compose and run
 
 ```bash
 # In the root folder
-$ docker-compose up database
+docker-compose up database
 # Alternatively, from any folder
-$ yarn docker:up
+yarn docker:up
 ```
 
 #### Option 2: An hosted postgres instance
@@ -59,7 +59,7 @@ PRISMA_DATABASE_URL=postgresql://postgres:[PASSWORD]@[HOST]:[PORT]/postgres?sche
 To create the database, simply run
 
 ```bash
-$ yarn prisma:db:push
+yarn prisma:db:push
 ```
 
 ## DB Seeding
@@ -67,7 +67,7 @@ $ yarn prisma:db:push
 Create and seed the database the first time or after a change.
 
 ```bash
-$ yarn prisma:db:seed
+yarn prisma:db:seed
 ```
 
 ## DB type generation
@@ -77,5 +77,5 @@ a postinstall from any app, see script section of [../../apps/web-app/package.js
 or try it out with `yarn workspace web-app postinstall`
 
 ```bash
-$ yarn prisma generate
+yarn prisma generate
 ```
