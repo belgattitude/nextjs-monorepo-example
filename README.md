@@ -52,7 +52,7 @@ Useful to
 ## 1. Structure
 
 All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
-tailwind, prisma 2... add as much as you like.
+tailwind, prisma 2... add or remove as much as you like.
 
 #### Two apps
 
@@ -131,9 +131,23 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 └── tsconfig.base.json           (base typescript config)
 ```
 
-## 2. Howtos ?
+## 3. Quick start
 
-### 2.1 How create a new shared package ?
+> As an example you can start with the web-app
+
+```bash
+# Install the monorepo
+yarn install
+# In another terminal
+docker-compose up database
+# Run the web-app
+cd apps/web-app
+yarn dev
+```
+
+## 3. Howtos ?
+
+### 3.1 How create a new shared package ?
 
 1. Workspace config lives in the root [package.json](./package.json), see workspace section.
    there's already 2 roots defined: ./packages/_ and ./apps/_. So nothing to do.
@@ -221,9 +235,9 @@ If needed static resources like **locales**, **images**,... can be shared by usi
    > - To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
    > - Want to tune the behaviour, see [.changeset/config.json](./.changeset/config.json).
 
-## 3. Monorepo essentials
+## 4. Monorepo essentials
 
-### 3.1 Monorepo scripts
+### 4.1 Monorepo scripts
 
 Some convenience global scripts are defined in the [root package.json](./package.json), they generally
 call their counterparts defined in packages and apps.
@@ -266,7 +280,7 @@ call their counterparts defined in packages and apps.
 > - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
 > - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
 
-### 3.2 Maintaining deps updated
+### 4.2 Maintaining deps updated
 
 The global commands `yarn deps:check` and `yarn deps:update` will help to maintain the same versions across the entire monorepo.
 They are based on the excellent [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
@@ -276,26 +290,26 @@ They are based on the excellent [npm-check-updates](https://github.com/raineorsh
 > having duplicates in the yarn.lock, you can run `yarn dedupe --check` and `yarn dedupe` to
 > apply deduplication. The duplicate check is enforced in the example github actions.
 
-## 4. Quality
+## 5. Quality
 
-### 4.1 Linters
+### 5.1 Linters
 
 An example of base eslint configuration can be found in [./.eslint.base.json](./.eslintrc.base.json), apps
 and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.json](./apps/web-app/.eslintrc.json).
 Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
 
-### 4.2 Hooks / Lint-staged
+### 5.2 Hooks / Lint-staged
 
 Check the [.husky](./.husky) folder content to see what hooks are enabled. Lint-staged is used to guarantee
 that lint and prettier are applied automatically on commit and/or pushes.
 
-### 4.2 Tests
+### 5.3 Tests
 
 Tests relies on ts-jest with support for typescript path aliases. React-testing-library is enabled
 whenever react is involved. Configuration lives in the root folder of each apps/packages. As an
 example see [./apps/web-app/jest.config.js](./apps/web-app/jest.config.js).
 
-### 4.3 CI
+### 5.4 CI
 
 You'll find some example workflows for github action in [.github/workflows](./.github/workflows).
 By default, they will ensure that
