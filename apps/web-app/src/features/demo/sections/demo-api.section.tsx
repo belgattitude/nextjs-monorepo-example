@@ -22,6 +22,7 @@ const BlogCtn = styled.div`
   img {
     width: 100%;
     object-fit: cover;
+    aspect-ratio: 16/9;
     transition: transform 0.5s ease-in-out;
     &:hover {
       transform: scale(1.07);
@@ -45,9 +46,9 @@ const BlogCtn = styled.div`
   }
 `;
 
-const waterImages = new Array(24).fill('').map((img, idx) => {
+const waterImages = new Array(25).fill('').map((img, idx) => {
   const index = String(idx + 1).padStart(2, '0');
-  return `/shared-assets/images/water/water-${index}.png`;
+  return `/shared-assets/images/water/water-${index}.jpg`;
 });
 
 const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
