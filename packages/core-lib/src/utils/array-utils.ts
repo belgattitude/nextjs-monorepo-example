@@ -1,5 +1,7 @@
+import { RandomUtils } from './random-utils';
+
 export class ArrayUtils {
   static getRandom<T>(items: T[]): T {
-    return items[Math.floor(Math.random() * items.length)];
+    return items[RandomUtils.getRandomInt(0, items.length)];
   }
 }
