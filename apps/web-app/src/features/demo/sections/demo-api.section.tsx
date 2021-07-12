@@ -51,22 +51,20 @@ const waterImages = new Array(25).fill('').map((img, idx) => {
   return `/shared-assets/images/water/water-${index}.jpg`;
 });
 
-const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
-  props
-) => {
-  const { poem } = props;
+const Poem: React.FC<{
+  poem: GetPoems[number];
+  defaultImg?: string;
+  children?: never;
+}> = (props) => {
+  const { poem, defaultImg } = props;
 
-  /**
   const img =
     poem.image ??
+    defaultImg ??
     `https://source.unsplash.com/random/800x600?${(poem.keywords ?? [])
-      .map((keyword) => encodeURI(keyword))
+      .map((keyword) => encodeURIComponent(keyword))
       .join(',')}`;
-*/
 
-  const img = `/_next/image?url=${encodeURIComponent(
-    ArrayUtils.getRandom(waterImages)
-  )}&w=640&q=85`;
   return (
     <BlogCtn>
       <img loading="lazy" src={img} alt={'cool'} />
@@ -80,7 +78,7 @@ const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
 const BlogListCtn = styled.div`
   border: 1px solid black;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: dense;
   grid-gap: 10px;
   /*
@@ -95,11 +93,21 @@ const BlogListCtn = styled.div`
 
 const PoemList: React.FC<{ poems: GetPoems; children?: never }> = (props) => {
   const { poems } = props;
+  let images = waterImages;
   return (
     <BlogListCtn>
-      {poems.map((poem) => (
-        <Poem key={poem.id} poem={poem} />
-      ))}
+      {poems.map((poem) => {
+        const randomImg = ArrayUtils.getRandom(images);
+        const defaultImg = `/_next/image?url=${encodeURIComponent(
+          randomImg
+        )}&w=640&q=85`;
+        images =
+          images.length < 1
+            ? waterImages
+            : ArrayUtils.removeItem(images, randomImg);
+
+        return <Poem key={poem.id} poem={poem} defaultImg={defaultImg} />;
+      })}
     </BlogListCtn>
   );
 };
