@@ -20,5 +20,13 @@ describe('ArrayUtils', () => {
       const unique = results.filter((v, i, a) => a.indexOf(v) === i);
       expect(unique.length).toBeGreaterThan(1);
     });
+    it('should always return an element from the array', () => {
+      const arr = ['cool', 'test', true, 0];
+      const maxIterations = 20;
+      for (let i = 0; i < maxIterations; i++) {
+        const el = ArrayUtils.getRandom(arr);
+        expect(arr.indexOf(el)).toBeGreaterThanOrEqual(0);
+      }
+    });
   });
 });
