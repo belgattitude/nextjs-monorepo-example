@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
 import { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import { ArrayUtils } from '@your-org/core-lib';
 
 type Props = {
   children?: never;
@@ -20,6 +21,7 @@ const BlogCtn = styled.div`
   color: #d9d9d9;
   img {
     width: 100%;
+    object-fit: cover;
     transition: transform 0.5s ease-in-out;
     &:hover {
       transform: scale(1.07);
@@ -43,18 +45,30 @@ const BlogCtn = styled.div`
   }
 `;
 
+const waterImages = new Array(24).fill('').map((img, idx) => {
+  const index = String(idx + 1).padStart(2, '0');
+  return `/shared-assets/images/water/water-${index}.png`;
+});
+
 const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
   props
 ) => {
   const { poem } = props;
+
+  /**
   const img =
     poem.image ??
     `https://source.unsplash.com/random/800x600?${(poem.keywords ?? [])
       .map((keyword) => encodeURI(keyword))
       .join(',')}`;
+*/
+
+  const img = `/_next/image?url=${encodeURIComponent(
+    ArrayUtils.getRandom(waterImages)
+  )}&w=640&q=85`;
   return (
     <BlogCtn>
-      <img src={img} alt={'cool'} />
+      <img loading="lazy" src={img} alt={'cool'} />
       <div>
         <h3>{poem.title}</h3>
       </div>
@@ -63,11 +77,19 @@ const Poem: React.FC<{ poem: GetPoems[number]; children?: never }> = (
 };
 
 const BlogListCtn = styled.div`
+  border: 1px solid black;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 10px;
+  /*
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   grid-gap: 1.5rem;
   justify-items: center;
   padding: 0;
+  
+   */
 `;
 
 const PoemList: React.FC<{ poems: GetPoems; children?: never }> = (props) => {
@@ -100,7 +122,7 @@ export const DemoApiSection: React.FC<Props> = () => {
   return (
     <div
       css={css`
-        width: 100px;
+        width: 100%;
       `}>
       <ReactQueryApi />
     </div>
