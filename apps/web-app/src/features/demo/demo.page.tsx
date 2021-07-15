@@ -14,11 +14,7 @@ type Props = {
 };
 
 export const DemoPage: React.FC<Props> = () => {
-  const { t } = useTranslation(
-    // slice() will allow to get rid of the readonly
-    // @see https:/github.com/i18next/react-i18next/pull/1340#issuecomment-874728587
-    demoConfig.i18nNamespaces.slice()
-  );
+  const { t } = useTranslation(demoConfig.i18nNamespaces);
 
   return (
     <>
