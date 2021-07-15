@@ -1,5 +1,17 @@
 # @your-org/core-lib
 
+## 3.3.0
+
+### Minor Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Added basic example for JSON-API support
+
+### Patch Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Added Unpromisify utility
+
+* [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
 ## 3.2.2
 
 ### Patch Changes

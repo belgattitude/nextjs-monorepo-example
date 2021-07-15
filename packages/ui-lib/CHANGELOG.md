@@ -1,5 +1,11 @@
 # @your-org/ui-lib
 
+## 3.1.3
+
+### Patch Changes
+
+- [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
 ## 3.1.2
 
 ### Patch Changes
