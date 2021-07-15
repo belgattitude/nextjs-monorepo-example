@@ -13,9 +13,12 @@ const tmModules = [
         // ie: '@react-google-maps/api'...
       ]
     : []),
-  // esm modules not yet supported by nextjs
+  // ESM only packages are not yet supported by NextJs
+  // @link https://github.com/vercel/next.js/issues/23725
+  // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   ...[
-    // ie: 'ky'..
+    // ie: newer versions of https://github.com/sindresorhus packages
+    'ky',
   ],
 ];
 const withTM = require('next-transpile-modules')(tmModules, {
@@ -68,6 +71,15 @@ const config = withBundleAnalyzer(
     productionBrowserSourceMaps: !disableSourceMaps,
     i18n,
     optimizeFonts: true,
+
+    // @link https://nextjs.org/docs/basic-features/image-optimization
+    images: {
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+      disableStaticImages: false,
+      // Allowed domains for next/image
+      domains: ['source.unsplash.com'],
+    },
 
     eslint: {
       ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,

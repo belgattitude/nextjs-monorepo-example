@@ -1,47 +1,22 @@
 import { PrismaClient, Prisma } from '@prisma/client';
+import { poemsSeed } from './seeds/poem/poems.seed';
 
 const prisma = new PrismaClient();
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    name: 'Alice',
-    email: 'alice@prisma.io',
+    firstName: 'Sébastien',
+    lastName: 'Vanvelthem',
+    nickname: 'belgattitude',
+    email: 'belgattitude@gmail.com',
     posts: {
       create: [
         {
-          title: 'Join the Prisma Slack',
-          content: 'https://slack.prisma.io',
-          published: true,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Nilu',
-    email: 'nilu@prisma.io',
-    posts: {
-      create: [
-        {
-          title: 'Follow Prisma on Twitter',
-          content: 'https://www.twitter.com/prisma',
-          published: true,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Mahmoud',
-    email: 'mahmoud@prisma.io',
-    posts: {
-      create: [
-        {
-          title: 'Ask a question about Prisma on GitHub',
-          content: 'https://www.github.com/prisma/prisma/discussions',
-          published: true,
-        },
-        {
-          title: 'Prisma on YouTube',
-          content: 'https://pris.ly/youtube',
+          title: 'Nextjs monorepo example',
+          link: 'https://github.com/belgattitude/nextjs-monorepo-example',
+          image:
+            'https://images.unsplash.com/photo-1625904835711-fa25795530e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80',
+          publishedAt: new Date(),
         },
       ],
     },
@@ -50,6 +25,7 @@ const userData: Prisma.UserCreateInput[] = [
 
 async function main() {
   console.log(`Start seeding ...`);
+  // users and posts
   for (const u of userData) {
     const user = await prisma.user.upsert({
       where: { email: u.email },
@@ -57,6 +33,20 @@ async function main() {
       create: u,
     });
     console.log(`Created or updated user with id: ${user.id}`);
+  }
+  // poems
+  for (const poem of poemsSeed) {
+    await prisma.poem.upsert({
+      where: {
+        slug: poem.slug,
+      },
+      update: {
+        content: poem.content,
+        keywords: poem.keywords,
+      },
+      create: poem,
+    });
+    console.log(`Created or updated poem with slug: ${poem.slug}`);
   }
   console.log(`Seeding finished.`);
 }

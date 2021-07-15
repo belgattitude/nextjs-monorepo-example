@@ -1,1 +1,1 @@
-export { prismaClient } from '../../../../../packages/db-main-prisma';
+export { prismaClient } from '@your-org/db-main-prisma';

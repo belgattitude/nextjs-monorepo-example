@@ -15,6 +15,7 @@
   },
   "main": "./src/index.ts",
   "scripts": {
+    "prisma:migrate": "dotenv-flow -- yarn prisma migrate",
     "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
     "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",
     "prisma:db:push": "dotenv-flow -- yarn prisma db push",
@@ -25,9 +26,7 @@
     "test": "run-s 'test:*'",
     "test:unit": "echo \"No tests yet\"",
     "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-    "?ts-node": "Tip: this is only needed for prisma seeds",
-    "ts-node": "ts-node --compiler-options {\\\"module\\\":\\\"commonjs\\\"}"
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "devDependencies": {
     "@types/node": "16.3.2",
@@ -43,11 +42,13 @@
     "eslint-plugin-jest-formatting": "3.0.0",
     "eslint-plugin-prettier": "3.4.0",
     "jest": "27.0.6",
+    "keyword-extractor": "0.0.20",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.2",
     "prisma": "2.27.0",
     "rimraf": "3.0.2",
     "shell-quote": "1.7.2",
+    "transliteration": "2.2.0",
     "ts-jest": "27.0.3",
     "ts-node": "10.1.0",
     "typescript": "4.3.5"

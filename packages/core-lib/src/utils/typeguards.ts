@@ -2,6 +2,17 @@ export const isNonEmptyString = (v: unknown, trim = true): v is string => {
   return typeof v === 'string' && (trim ? v.trim() : v).length > 0;
 };
 
+export const isPlainObject = <T = unknown, K extends string | number = string>(
+  v: unknown
+): v is Record<K, T> => {
+  return (
+    typeof v === 'object' &&
+    v !== null &&
+    v.constructor === Object &&
+    Object.getPrototypeOf(v) === Object.prototype
+  );
+};
+
 export const isSafeInteger = (v: unknown): v is number => {
   return typeof v === 'number' && Number.isSafeInteger(v);
 };
