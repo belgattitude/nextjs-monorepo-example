@@ -1,5 +1,20 @@
 # web-app
 
+## 3.12.0
+
+### Minor Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of fully typed api (ssr and frontend)
+
+### Patch Changes
+
+- [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
+- Updated dependencies [[`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`3c8ef69`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3c8ef6900120557fae33ff565595f8fe2b9628a9), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f)]:
+  - @your-org/core-lib@3.3.0
+  - @your-org/db-main-prisma@1.2.0
+  - @your-org/ui-lib@3.1.3
+
 ## 3.11.1
 
 ### Patch Changes
