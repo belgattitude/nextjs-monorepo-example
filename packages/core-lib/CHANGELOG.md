@@ -1,5 +1,11 @@
 # @your-org/core-lib
 
+## 3.4.0
+
+### Minor Changes
+
+- [#181](https://github.com/belgattitude/nextjs-monorepo-example/pull/181) [`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Allow peerDependencies on react to be optional
+
 ## 3.3.0
 
 ### Minor Changes
