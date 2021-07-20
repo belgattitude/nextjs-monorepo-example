@@ -3460,6 +3460,11 @@ __metadata:
   peerDependencies:
     react: ^16.14.0 || ^17.0.2
     react-dom: ^16.14.0 || ^17.0.2
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -4335,6 +4340,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog-app@workspace:apps/blog-app"
   dependencies:
+    "@babel/core": 7.14.6
     "@emotion/babel-plugin": 11.3.0
     "@emotion/react": 11.4.0
     "@emotion/styled": 11.3.0
@@ -8106,21 +8112,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"i18next@npm:20.3.3, i18next@npm:^20.1.0":
+  version: 20.3.3
+  resolution: "i18next@npm:20.3.3"
+  dependencies:
+    "@babel/runtime": ^7.12.0
+  checksum: 906fae951a0932403708a47c919a5e1d8b7e2300a254c6e6bb82923474eb0a7e3a66fc7fa03d7ebbc8a04f50a5a272be44d797a54ceb2cddbca6b639ca7e5a8e
+  languageName: node
+  linkType: hard
+
 "i18next@npm:^19.7.0":
   version: 19.9.2
   resolution: "i18next@npm:19.9.2"
   dependencies:
     "@babel/runtime": ^7.12.0
   checksum: a24207707eacb28488975f8921d843bc35b86f2a48504cb82eaf620e1aacddbda8d53a4dc600543a708ba49bc45e61072a753f250e89fad2c1932259190ef81a
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^20.1.0":
-  version: 20.3.2
-  resolution: "i18next@npm:20.3.2"
-  dependencies:
-    "@babel/runtime": ^7.12.0
-  checksum: 71867418c1d3e477b453daa0696999fe80a4b2c6d37b27fff073645a5e06b36b6adbf02bff738e288e523add10bb6b16dd72e0c13f3d6a2a3733836dcdbcd5ec
   languageName: node
   linkType: hard
 
@@ -16008,6 +16014,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "web-app@workspace:apps/web-app"
   dependencies:
+    "@babel/core": 7.14.6
     "@emotion/babel-plugin": 11.3.0
     "@emotion/react": 11.4.0
     "@emotion/styled": 11.3.0
@@ -16048,6 +16055,7 @@ resolve@^2.0.0-next.3:
     eslint-plugin-react: 7.24.0
     eslint-plugin-react-hooks: 4.2.0
     eslint-plugin-testing-library: 4.9.1
+    i18next: 20.3.3
     jest: 27.0.6
     jest-css-modules-transform: 4.3.0
     ky: 0.28.5
