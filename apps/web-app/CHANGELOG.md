@@ -1,5 +1,15 @@
 # web-app
 
+## 3.12.1
+
+### Patch Changes
+
+- [#181](https://github.com/belgattitude/nextjs-monorepo-example/pull/181) [`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix possible issues with peerDeps
+
+- Updated dependencies [[`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06)]:
+  - @your-org/core-lib@3.4.0
+  - @your-org/db-main-prisma@1.2.1
+
 ## 3.12.0
 
 ### Minor Changes
