@@ -3455,7 +3455,7 @@ __metadata:
     react-dom: 17.0.2
     rimraf: 3.0.2
     shell-quote: 1.7.2
-    ts-jest: 27.0.3
+    ts-jest: 27.0.4
     typescript: 4.3.5
   peerDependencies:
     react: ^16.14.0 || ^17.0.2
@@ -3494,7 +3494,7 @@ __metadata:
     rimraf: 3.0.2
     shell-quote: 1.7.2
     transliteration: 2.2.0
-    ts-jest: 27.0.3
+    ts-jest: 27.0.4
     ts-node: 10.1.0
     typescript: 4.3.5
   languageName: unknown
@@ -3531,7 +3531,7 @@ __metadata:
     react-dom: 17.0.2
     rimraf: 3.0.2
     shell-quote: 1.7.2
-    ts-jest: 27.0.3
+    ts-jest: 27.0.4
     typescript: 4.3.5
   peerDependencies:
     react: ^16.14.0 || ^17.0.2
@@ -4390,7 +4390,7 @@ __metadata:
     symlink-dir: 5.0.1
     sync-directory: 2.2.22
     tailwindcss: 2.2.4
-    ts-jest: 27.0.3
+    ts-jest: 27.0.4
     typescript: 4.3.5
   languageName: unknown
   linkType: soft
@@ -15319,9 +15319,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.0.3":
-  version: 27.0.3
-  resolution: "ts-jest@npm:27.0.3"
+"ts-jest@npm:27.0.4":
+  version: 27.0.4
+  resolution: "ts-jest@npm:27.0.4"
   dependencies:
     bs-logger: 0.x
     buffer-from: 1.x
@@ -15334,11 +15334,21 @@ resolve@^2.0.0-next.3:
     semver: 7.x
     yargs-parser: 20.x
   peerDependencies:
+    "@babel/core": ">=7.0.0-beta.0 <8"
+    "@types/jest": ^26.0.0
+    babel-jest: ">=27.0.0 <28"
     jest: ^27.0.0
     typescript: ">=3.8 <5.0"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@types/jest":
+      optional: true
+    babel-jest:
+      optional: true
   bin:
     ts-jest: cli.js
-  checksum: 197f6722e3182de40223d6c7a87fbee06dec5e20748365497f081179bf00e4d95ed5e479d1d9b006752701f0353cb0cc1e16b8b54ffdf83335e5010f642d28b5
+  checksum: 0f6013e35bb84bf5e65a1a85ea7ed5febff13ad40745dcf5bd6a40854b6d9cff3ffcd382994028941cb7f4548ec835f6fcfc502f5a3bf69deaec0cd92fa89f9b
   languageName: node
   linkType: hard
 
@@ -16081,7 +16091,7 @@ resolve@^2.0.0-next.3:
     symlink-dir: 5.0.1
     sync-directory: 2.2.22
     tailwindcss: 2.2.4
-    ts-jest: 27.0.3
+    ts-jest: 27.0.4
     ts-node: 10.1.0
     typescript: 4.3.5
   languageName: unknown
