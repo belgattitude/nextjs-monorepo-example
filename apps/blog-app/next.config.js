@@ -34,10 +34,6 @@ if (disableSourceMaps) {
   );
 }
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
 // Example of setting up secure headers
 // @link https://github.com/jagaapple/next-secure-headers
 const { createSecureHeaders } = require('next-secure-headers');
@@ -59,49 +55,54 @@ const secureHeaders = createSecureHeaders({
   referrerPolicy: 'same-origin',
 });
 
-const config = withBundleAnalyzer(
-  withTM({
-    target: NEXTJS_BUILD_TARGET,
-    reactStrictMode: true,
-    webpack5: true,
-    productionBrowserSourceMaps: !disableSourceMaps,
-    optimizeFonts: true,
+const config = withTM({
+  target: NEXTJS_BUILD_TARGET,
+  reactStrictMode: true,
+  webpack5: true,
+  productionBrowserSourceMaps: !disableSourceMaps,
+  optimizeFonts: true,
 
-    eslint: {
-      ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
-      dirs: ['src'],
-    },
+  eslint: {
+    ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
+    dirs: ['src'],
+  },
 
-    async headers() {
-      return [{ source: '/(.*)', headers: secureHeaders }];
-    },
+  async headers() {
+    return [{ source: '/(.*)', headers: secureHeaders }];
+  },
 
-    webpack: function (config, { defaultLoaders }) {
-      // This extra config allows to use paths defined in tsconfig
-      // rather than next-transpile-modules.
-      // @link https://github.com/vercel/next.js/pull/13542
-      const resolvedBaseUrl = path.resolve(config.context, '../../');
-      config.module.rules = [
-        ...config.module.rules,
-        {
-          test: /\.(tsx|ts|js|jsx|json)$/,
-          include: [resolvedBaseUrl],
-          use: defaultLoaders.babel,
-          exclude: (excludePath) => {
-            return /node_modules/.test(excludePath);
-          },
+  webpack: function (config, { defaultLoaders }) {
+    // This extra config allows to use paths defined in tsconfig
+    // rather than next-transpile-modules.
+    // @link https://github.com/vercel/next.js/pull/13542
+    const resolvedBaseUrl = path.resolve(config.context, '../../');
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /\.(tsx|ts|js|jsx|json)$/,
+        include: [resolvedBaseUrl],
+        use: defaultLoaders.babel,
+        exclude: (excludePath) => {
+          return /node_modules/.test(excludePath);
         },
-      ];
+      },
+    ];
 
-      config.module.rules.push({
-        test: /\.svg$/,
-        issuer: /\.(js|ts)x?$/,
-        use: ['@svgr/webpack'],
-      });
+    config.module.rules.push({
+      test: /\.svg$/,
+      issuer: /\.(js|ts)x?$/,
+      use: ['@svgr/webpack'],
+    });
 
-      return config;
-    },
-  })
-);
+    return config;
+  },
+});
 
-module.exports = config;
+if (process.env.ANALYZE === 'true') {
+  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: true,
+  });
+  module.exports = withBundleAnalyzer(config);
+} else {
+  module.exports = config;
+}
