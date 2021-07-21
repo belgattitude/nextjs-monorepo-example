@@ -73,7 +73,6 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 COPY . .
-COPY ./apps/web-app/next.config.js ./apps/web-app/next.config.js
 COPY --from=workspaces-full-install /workspace-install ./
 
 RUN yarn workspace web-app build
