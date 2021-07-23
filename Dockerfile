@@ -27,7 +27,7 @@ COPY .yarn/ ./.yarn/
 
 # Specific to monerepo's as docker COPY command is pretty limited
 # we use buidkit to prepare all files that are necessary for install
-# and that will be used to invalidate docker cache:
+# and that will be used to invalidate docker cache.
 #
 # Files are copied with rsync:
 #
@@ -81,13 +81,32 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
     SKIP_POSTINSTALL=1 \
     YARN_CACHE_FOLDER=/root/.yarn-cache \
     yarn workspaces focus web-app --production
-# ./node_modules/.bin/next apps/web-app/ -p 8000
 
-#RUN cd apps/web-app && \
-#    yarn build && \
-#    YARN_CACHE_FOLDER=/root/.yarn-cache \
-#    yarn workspaces focus web-app --production
 
+# For production
+FROM node:14-alpine AS production
+
+WORKDIR /app
+
+ENV NODE_ENV production
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+COPY --from=builder /app/apps/web-app/next.config.js ./apps/web-app/
+COPY --from=builder /app/apps/web-app/package.json ./apps/web-app/
+COPY --from=builder /app/apps/web-app/public ./apps/web-app/public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web-app/.next ./apps/web-app/.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+USER nextjs
+
+EXPOSE 8000
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
 
 
 # For development
@@ -100,38 +119,4 @@ COPY --from=workspaces-full-install /workspace-install ./
 
 EXPOSE 8000
 CMD ["yarn", "workspace", "web-app", "dev", "-p", "8000"]
-#CMD ["sh"]
-# Rebuild the source code only when needed
-#FROM node:alpine AS builder
-#WORKDIR /app
-#COPY . .
-#COPY --from=deps /app/node_modules ./node_modules
-# Clean here is required due to pah changes and webpack 5
-#RUN yarn workspace web-app clean && yarn workspace web-app build && yarn workspaces focus web-app --production
 
-# Production image, copy all the files and run next
-#FROM node:alpine AS runner
-#WORKDIR /app
-
-#ENV NODE_ENV production
-
-#RUN addgroup -g 1001 -S nodejs
-#RUN adduser -S nextjs -u 1001
-
-# You only need to copy next.config.js if you are NOT using the default configuration
-# COPY --from=builder /app/next.config.js ./
-#COPY --from=builder /app/public ./public
-#COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-#COPY --from=builder /app/node_modules ./node_modules
-#COPY --from=builder /app/package.json ./package.json
-
-#USER nextjs
-
-#EXPOSE 8000
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-#CMD ["yarn", "start", "-p", "8000"]
