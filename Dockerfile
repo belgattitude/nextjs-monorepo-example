@@ -75,7 +75,7 @@ WORKDIR /app
 COPY . .
 COPY --from=workspaces-full-install /workspace-install ./
 
-RUN yarn workspace web-app build
+RUN NEXTJS_IGNORE_ESLINT=1 yarn workspace web-app build
 
 RUN --mount=type=cache,target=/root/.yarn-cache \
     SKIP_POSTINSTALL=1 \
