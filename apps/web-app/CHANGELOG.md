@@ -1,5 +1,66 @@
 # web-app
 
+## 3.12.1
+
+### Patch Changes
+
+- [#181](https://github.com/belgattitude/nextjs-monorepo-example/pull/181) [`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix possible issues with peerDeps
+
+- Updated dependencies [[`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06)]:
+  - @your-org/core-lib@3.4.0
+  - @your-org/db-main-prisma@1.2.1
+
+## 3.12.0
+
+### Minor Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of fully typed api (ssr and frontend)
+
+### Patch Changes
+
+- [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
+- Updated dependencies [[`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`3c8ef69`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3c8ef6900120557fae33ff565595f8fe2b9628a9), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f)]:
+  - @your-org/core-lib@3.3.0
+  - @your-org/db-main-prisma@1.2.0
+  - @your-org/ui-lib@3.1.3
+
+## 3.11.1
+
+### Patch Changes
+
+- [#135](https://github.com/belgattitude/nextjs-monorepo-example/pull/135) [`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
+
+- Updated dependencies [[`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3)]:
+  - @your-org/core-lib@3.2.2
+  - @your-org/db-main-prisma@1.1.3
+  - @your-org/ui-lib@3.1.2
+
+## 3.11.0
+
+### Minor Changes
+
+- [#71](https://github.com/belgattitude/nextjs-monorepo-example/pull/71) [`3903624`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3903624ad3c87b282947ed3eea84f6451c622fe6) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with next-i18next and typed translation keys
+
+### Patch Changes
+
+- [#117](https://github.com/belgattitude/nextjs-monorepo-example/pull/117) [`4607a02`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4607a02d91e87134f306d25dfeabdba9c83b3837) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved documentation
+
+- Updated dependencies [[`4607a02`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4607a02d91e87134f306d25dfeabdba9c83b3837)]:
+  - @your-org/db-main-prisma@1.1.2
+
+## 3.10.0
+
+### Minor Changes
+
+- [#112](https://github.com/belgattitude/nextjs-monorepo-example/pull/112) [`f1b34bf`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f1b34bfbf65fd1cadde8ced3811bd88b014aa65d) Thanks [@belgattitude](https://github.com/belgattitude)! - Remove why-did-your-render, does not work well with emotion
+
+## 3.9.1
+
+### Patch Changes
+
+- [#107](https://github.com/belgattitude/nextjs-monorepo-example/pull/107) [`90b0d23`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0d23a8da942718f6f2834d73171ac9b4005da) Thanks [@belgattitude](https://github.com/belgattitude)! - Browserlist per environment (dev/prod)
+
 ## 3.9.0
 
 ### Minor Changes

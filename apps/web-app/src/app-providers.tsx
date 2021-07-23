@@ -1,8 +1,5 @@
 import { FC } from 'react';
 
-/**
- * Set your global app-providers (i.e: redux, react-query,...) here
- */
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient({
@@ -15,8 +12,10 @@ const queryClient = new QueryClient({
 
 export const AppProviders: FC = (props) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      {props.children}
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={queryClient}>
+        {props.children}
+      </QueryClientProvider>
+    </>
   );
 };

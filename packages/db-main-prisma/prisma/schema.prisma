@@ -9,20 +9,39 @@ datasource db {
   url      = env("PRISMA_DATABASE_URL")
 }
 
+model Poem {
+  id        Int     @id @default(autoincrement())
+  slug      String  @unique
+  title     String
+  content   String
+  keywords  String[]
+  author    String
+  link      String?
+  image     String?
+
+  @@map(name: "poem")
+}
+
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
   content   String?
-  published Boolean @default(false)
+  link      String?
+  image     String?
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
+  publishedAt   DateTime?  @map(name: "published_at")
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
 
   @@map(name: "post")
 }
 
 model User {
   id            Int       @id @default(autoincrement())
-  name          String?
+  firstName     String?   @map(name: "first_name")
+  lastName      String?   @map(name: "last_name")
+  nickname      String    @unique
   email         String    @unique
   emailVerified DateTime? @map(name: "email_verified")
   image         String?

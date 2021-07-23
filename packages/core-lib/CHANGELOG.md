@@ -1,5 +1,29 @@
 # @your-org/core-lib
 
+## 3.4.0
+
+### Minor Changes
+
+- [#181](https://github.com/belgattitude/nextjs-monorepo-example/pull/181) [`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Allow peerDependencies on react to be optional
+
+## 3.3.0
+
+### Minor Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Added basic example for JSON-API support
+
+### Patch Changes
+
+- [#140](https://github.com/belgattitude/nextjs-monorepo-example/pull/140) [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f) Thanks [@belgattitude](https://github.com/belgattitude)! - Added Unpromisify utility
+
+* [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
+## 3.2.2
+
+### Patch Changes
+
+- [#135](https://github.com/belgattitude/nextjs-monorepo-example/pull/135) [`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
+
 ## 3.2.1
 
 ### Patch Changes

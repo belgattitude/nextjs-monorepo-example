@@ -47,25 +47,28 @@
     "docker:up": "docker-compose up -d",
     "docker:up:database": "docker-compose up -d database",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)"
+    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
+    "?clear:node_modules": "remove all node_modules folders present under the root",
+    "clear:node_modules": "rimraf '**/node_modules'"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.0",
-    "@changesets/cli": "^2.16.0",
+    "@changesets/changelog-github": "0.4.0",
+    "@changesets/cli": "2.16.0",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "husky": "^6.0.0",
-    "is-ci": "^3.0.0",
-    "lint-staged": "^11.0.0",
-    "npm-check-updates": "^11.7.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.1",
-    "rimraf": "^3.0.2",
-    "shell-quote": "^1.7.2"
+    "husky": "7.0.1",
+    "is-ci": "3.0.0",
+    "lint-staged": "11.0.1",
+    "npm-check-updates": "11.8.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "shell-quote": "1.7.2"
   },
   "engines": {
     "node": ">=14",
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
-  }
+  },
+  "packageManager": "yarn@3.0.0-rc.12"
 }

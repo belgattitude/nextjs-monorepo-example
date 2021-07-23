@@ -5,7 +5,7 @@ declare let global: {
   __PRISMA_CLIENT__: PrismaClient | undefined;
 };
 
-class PrismaFactory {
+export class PrismaFactory {
   private static instance: PrismaClient | undefined;
   private constructor() {}
   private static createNewInstance(): PrismaClient {
@@ -14,13 +14,38 @@ class PrismaFactory {
       url,
       `Cannot create prisma client instance, missing env variable PRISMA_DATABASE_URL.`
     );
-    return new PrismaClient({
+    const prismaClient = new PrismaClient({
       datasources: {
         db: {
           url: url,
         },
       },
+      log: [
+        {
+          emit: 'event',
+          level: 'query',
+        },
+        {
+          emit: 'stdout',
+          level: 'error',
+        },
+        {
+          emit: 'stdout',
+          level: 'info',
+        },
+        {
+          emit: 'stdout',
+          level: 'warn',
+        },
+      ],
     });
+    if (process.env.NODE_ENV === 'development') {
+      prismaClient.$on('query', (e) => {
+        console.log('Query: ' + e.query);
+        console.log('Duration: ' + e.duration + 'ms');
+      });
+    }
+    return prismaClient;
   }
   static getInstance() {
     if (process.env.NODE_ENV === 'production') {
@@ -42,5 +67,4 @@ class PrismaFactory {
     }
   }
 }
-
 export const prismaClient = PrismaFactory.getInstance();

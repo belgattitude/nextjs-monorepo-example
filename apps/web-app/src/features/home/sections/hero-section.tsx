@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { useTranslation } from 'next-i18next';
 
 type Props = {
   children?: never;
@@ -15,6 +16,8 @@ const navigation = [
 ];
 
 export const HeroSection: React.FC<Props> = () => {
+  const { t } = useTranslation(['home', 'common']);
+
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -140,14 +143,14 @@ export const HeroSection: React.FC<Props> = () => {
                   <a
                     href="#"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                    Get started
+                    {t('home:btn.getStarted')}
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
                     href="#"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                    Live demo
+                    {t('home:btn.liveDemo')}
                   </a>
                 </div>
               </div>

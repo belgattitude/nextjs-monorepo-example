@@ -1,6 +1,6 @@
 {
   "name": "@your-org/core-lib",
-  "version": "3.2.1",
+  "version": "3.4.0",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
@@ -17,7 +17,7 @@
   "main": "dist/core-lib.js",
   "module": "dist/core-lib.module.js",
   "scripts": {
-    "build": "microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build": "rimraf --no-glob ./dist && microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo && jest --clear-cache",
@@ -29,38 +29,50 @@
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
+  "dependencies": {
+    "@tsed/exceptions": "^6.60.1",
+    "dequal": "^2.0.2"
+  },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/react-hooks": "^7.0.0",
-    "@types/node": "^15.12.4",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
-    "eslint": "^7.29.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/react-hooks": "7.0.1",
+    "@types/node": "16.4.0",
+    "@types/react": "17.0.14",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.28.4",
+    "@typescript-eslint/parser": "4.28.4",
+    "eslint": "7.31.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
-    "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-jest-formatting": "^3.0.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-testing-library": "^4.6.0",
-    "jest": "^27.0.4",
-    "microbundle": "^0.13.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rimraf": "^3.0.2",
-    "shell-quote": "^1.7.2",
-    "ts-jest": "^27.0.3",
-    "typescript": "^4.3.4"
+    "eslint-plugin-jest": "24.4.0",
+    "eslint-plugin-jest-formatting": "3.0.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-testing-library": "4.10.1",
+    "jest": "27.0.6",
+    "microbundle": "0.13.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rimraf": "3.0.2",
+    "shell-quote": "1.7.2",
+    "ts-jest": "27.0.4",
+    "typescript": "4.3.5"
   },
   "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.1",
-    "react-dom": "^16.14.0 || ^17.0.1"
+    "react": "^16.14.0 || ^17.0.2",
+    "react-dom": "^16.14.0 || ^17.0.2"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   }
 }

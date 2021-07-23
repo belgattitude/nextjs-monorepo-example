@@ -1,5 +1,40 @@
 # blog-app
 
+## 3.6.4
+
+### Patch Changes
+
+- [#181](https://github.com/belgattitude/nextjs-monorepo-example/pull/181) [`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix possible issues with peerDeps
+
+- Updated dependencies [[`c5173ea`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06)]:
+  - @your-org/core-lib@3.4.0
+
+## 3.6.3
+
+### Patch Changes
+
+- [#172](https://github.com/belgattitude/nextjs-monorepo-example/pull/172) [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
+
+- Updated dependencies [[`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`01e5e89`](https://github.com/belgattitude/nextjs-monorepo-example/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4), [`4929105`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f)]:
+  - @your-org/core-lib@3.3.0
+  - @your-org/ui-lib@3.1.3
+
+## 3.6.2
+
+### Patch Changes
+
+- [#135](https://github.com/belgattitude/nextjs-monorepo-example/pull/135) [`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
+
+- Updated dependencies [[`d548b70`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3)]:
+  - @your-org/core-lib@3.2.2
+  - @your-org/ui-lib@3.1.2
+
+## 3.6.1
+
+### Patch Changes
+
+- [#107](https://github.com/belgattitude/nextjs-monorepo-example/pull/107) [`90b0d23`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0d23a8da942718f6f2834d73171ac9b4005da) Thanks [@belgattitude](https://github.com/belgattitude)! - Browserlist per environment (dev/prod)
+
 ## 3.6.0
 
 ### Minor Changes
