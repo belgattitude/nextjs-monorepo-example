@@ -7,6 +7,7 @@ import { CTASection } from './sections/cta-section';
 import { useTranslation } from 'next-i18next';
 import { homeConfig } from './home.config';
 import { CustomTypeOptions } from 'react-i18next';
+import { AgenciesSection } from './sections/agencies-section';
 
 type Props = {
   children?: never;
@@ -24,6 +25,7 @@ export const HomePage: React.FC<Props> = () => {
       <MainLayout>
         <Banner />
         <HeroSection />
+        <AgenciesSection />
         <FeaturesSection />
         <CTASection />
       </MainLayout>
