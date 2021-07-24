@@ -160,6 +160,7 @@ export const HeroSection: React.FC<Props> = () => {
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <Image
+          loading={'eager'}
           src={'/assets/unsplash-photo-1551434678.jpg'}
           alt={'tailwind-ui-logo'}
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
