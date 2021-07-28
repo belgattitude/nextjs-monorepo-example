@@ -73,6 +73,12 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
 }
 ```
 
+## API routes
+
+### Rest api
+
+/api/rest/
+
 ## Some tips
 
 ### I18N & typings
