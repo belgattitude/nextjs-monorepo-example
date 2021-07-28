@@ -90,7 +90,7 @@ const config = withBundleAnalyzer(
       return [{ source: '/(.*)', headers: secureHeaders }];
     },
 
-    webpack: function (config, { defaultLoaders, isServer }) {
+    webpack: (config, { defaultLoaders, isServer }) => {
       // This extra config allows to use paths defined in tsconfig
       // rather than next-transpile-modules.
       // @link https://github.com/vercel/next.js/pull/13542
