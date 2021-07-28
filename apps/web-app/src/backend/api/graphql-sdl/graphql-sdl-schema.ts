@@ -1,5 +1,5 @@
 import { GraphqlSdlContext } from './graphql-sdl-context';
-import { makeExecutableSchema, gql } from 'apollo-server-micro';
+import { gql } from 'apollo-server-micro';
 import { PoemRepositorySsr } from '@/backend/api/rest/poem-repository.ssr';
 
 const typeDefs = gql`
@@ -33,7 +33,14 @@ const resolvers = {
   },
 };
 
+export const graphqlSdlSchema = {
+  resolvers,
+  typeDefs,
+};
+
+/**
 export const graphqlSdlSchema = makeExecutableSchema({
   resolvers,
   typeDefs,
 });
+*/
