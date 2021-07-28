@@ -6,6 +6,8 @@ const typeDefs = gql`
   type Poem {
     id: Int!
     title: String
+    content: String
+    author: String
   }
   type Query {
     allPoems: [Poem!]!
@@ -23,8 +25,6 @@ const resolvers = {
       context: GraphqlSdlContext
     ) => {
       const poemRepo = new PoemRepositorySsr(context.prisma);
-      console.log('poemRepo', context);
-      //return [{ id: 10, title: 'cool' }];
       return poemRepo.getPoems({
         limit: _args.limit,
         offset: _args.offset,

@@ -77,7 +77,22 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
 
 ### Rest api
 
-/api/rest/
+Try this route http://localhost:3000/api/rest/poem
+
+### Graphql (sdl)
+
+In development just open http://localhost:3000/api/graphql-sdl to have the graphiql console.
+
+Try
+
+```gql
+query {
+  allPoems {
+    id
+    title
+  }
+}
+```
 
 ## Some tips
 
