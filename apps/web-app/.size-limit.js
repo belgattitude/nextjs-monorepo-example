@@ -11,12 +11,21 @@ try {
 }
 const pages = manifest.pages;
 
+const limitCfg = {
+  defaultSize: '100kb',
+  pages: {
+    '/_app': '120kb',
+    '/_error': '80kb',
+    '/': '95kb',
+    '/demo': '95kb',
+  },
+};
 const getPageLimits = () => {
   let pageLimits = [];
   for (const [uri, paths] of Object.entries(pages)) {
     pageLimits.push({
       name: `Browser page '${uri}'`,
-      limit: '100kb',
+      limit: limitCfg.pages?.[uri] ?? limitCfg.defaultSize,
       path: paths.map((p) => `.next/${p}`),
     });
   }
