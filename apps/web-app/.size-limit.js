@@ -1,5 +1,6 @@
 // Just a basic example for size limit with simple file preset
 // @link https://github.com/ai/size-limit
+
 let manifest;
 try {
   manifest = require('./.next/build-manifest.json');
