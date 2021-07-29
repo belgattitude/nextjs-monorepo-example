@@ -97,5 +97,9 @@ jobs:
           NEXTJS_IGNORE_ESLINT: 1
           NEXTJS_BUILD_TARGET: server
 
+      - name: Check bundle size
+        working-directory: apps/web-app
+        run: |
+          yarn bundle:check-size
 
 
