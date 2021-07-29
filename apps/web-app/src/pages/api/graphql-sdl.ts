@@ -17,7 +17,7 @@ export const config = {
 
 const startServer = apolloServer.start();
 
-export default async function handler(
+export default async function handlerGraphQl(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -28,7 +28,7 @@ export default async function handler(
   );
   res.setHeader(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
+    'Origin, X-Requested-With, Content-Type, Accept, Vary'
   );
   if (req.method === 'OPTIONS') {
     res.end();
