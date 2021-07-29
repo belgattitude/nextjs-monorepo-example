@@ -319,6 +319,7 @@ By default, they will ensure that
 - You don't have linter / code-style errors.
 - Your test suite is successful.
 - Your apps (nextjs) or packages can be successfully built.
+- Basic size-limit example in web-app.
 
 Each of those steps can be opted-out.
 

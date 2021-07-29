@@ -37,6 +37,7 @@
     "?share:static:hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share:static:hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
     "bundle:analyze": "cross-env ANALYZE=true yarn build",
+    "bundle:check-size": "size-limit",
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
     "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
@@ -50,6 +51,7 @@
   "devDependencies": {
     "@emotion/babel-plugin": "11.3.0",
     "@next/bundle-analyzer": "11.0.1",
+    "@size-limit/file": "^5.0.2",
     "@svgr/webpack": "5.5.0",
     "@tailwindcss/aspect-ratio": "0.2.1",
     "@tailwindcss/forms": "0.3.3",
@@ -88,6 +90,7 @@
     "rimraf": "3.0.2",
     "sass": "1.36.0",
     "shell-quote": "1.7.2",
+    "size-limit": "^5.0.2",
     "symlink-dir": "5.0.1",
     "sync-directory": "2.2.22",
     "tailwindcss": "2.2.7",

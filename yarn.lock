@@ -2674,6 +2674,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@size-limit/file@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@size-limit/file@npm:5.0.2"
+  dependencies:
+    semver: 7.3.5
+  peerDependencies:
+    size-limit: 5.0.2
+  checksum: 3329bc4ce3d17e5e6b23a18625ade70543213485794c1eb6d703189f2777f006fb1f8b240457b74638e90025a92f33d7ccc803638ce8ca4f490a0c7340646f2b
+  languageName: node
+  linkType: hard
+
 "@sqltools/formatter@npm:^1.2.2":
   version: 1.2.3
   resolution: "@sqltools/formatter@npm:1.2.3"
@@ -4679,6 +4690,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bytes-iec@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "bytes-iec@npm:3.1.1"
+  checksum: 092a90897e938c8d28acf2b6383e5b91abc97c5d4251d9b6ebe331eb55b6064a331dcc78520efb98f90d554cfe9c7309e9138306f58d133dc0dcfa1edf38fc0a
+  languageName: node
+  linkType: hard
+
 "bytes@npm:3.1.0, bytes@npm:^3.0.0":
   version: 3.1.0
   resolution: "bytes@npm:3.1.0"
@@ -5005,6 +5023,13 @@ __metadata:
   version: 3.2.0
   resolution: "ci-info@npm:3.2.0"
   checksum: c68995a94e95ce3f233ff845e62dfc56f2e8ff1e3f5c1361bcdd520cbbc9726d8a54cbc1a685cb9ee19c3c5e71a1dade6dda23eb364b59b8e6c32508a9b761bc
+  languageName: node
+  linkType: hard
+
+"ci-job-number@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "ci-job-number@npm:1.2.2"
+  checksum: 9da8edd2c1d79e59f28e1c62e8f9f2611c29d6e470cd02551fcb8b5f5eaed6385711b9c5e3fb3b9c456dc716058fc48b4a9e38783bc378a26a8c7d4ed1348211
   languageName: node
   linkType: hard
 
@@ -10345,6 +10370,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mico-spinner@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "mico-spinner@npm:1.2.1"
+  dependencies:
+    colorette: ^1.2.2
+  checksum: 8b6607876dd28939b68d9050812be456ac27c1fd6150ced62627960ed6d38db769d221061767a20f8a2bfaaf84d08e828a7ab0ef506dff60e797cfd8e446238e
+  languageName: node
+  linkType: hard
+
 "microbundle@npm:0.13.3":
   version: 0.13.3
   resolution: "microbundle@npm:0.13.3"
@@ -14194,6 +14228,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"size-limit@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "size-limit@npm:5.0.2"
+  dependencies:
+    bytes-iec: ^3.1.1
+    chokidar: ^3.5.2
+    ci-job-number: ^1.2.2
+    colorette: ^1.2.2
+    globby: ^11.0.4
+    lilconfig: ^2.0.3
+    mico-spinner: ^1.2.1
+  bin:
+    size-limit: bin.js
+  checksum: fa71d45677329e101d02d4b0586348683bd1fe1be2df9a5066610e61c2f6ce2e4663130b8cfc8d06b6c0306c446bd0b8a451f84f16389c7e804d35f1a4f6151b
+  languageName: node
+  linkType: hard
+
 "slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
@@ -16004,6 +16055,7 @@ resolve@^2.0.0-next.3:
     "@headlessui/react": 1.4.0
     "@heroicons/react": 1.0.3
     "@next/bundle-analyzer": 11.0.1
+    "@size-limit/file": ^5.0.2
     "@svgr/webpack": 5.5.0
     "@tailwindcss/aspect-ratio": 0.2.1
     "@tailwindcss/forms": 0.3.3
@@ -16061,6 +16113,7 @@ resolve@^2.0.0-next.3:
     rimraf: 3.0.2
     sass: 1.36.0
     shell-quote: 1.7.2
+    size-limit: ^5.0.2
     symlink-dir: 5.0.1
     sync-directory: 2.2.22
     tailwindcss: 2.2.7
