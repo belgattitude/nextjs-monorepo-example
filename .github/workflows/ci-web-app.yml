@@ -102,11 +102,3 @@ jobs:
         run: |
           yarn bundle:check-size
 
-      - name: Executing size limit action
-        uses: andresz1/size-limit-action@v1
-        working-directory: apps/web-app
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_step: build
-          directory: apps/web-app
-
