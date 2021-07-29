@@ -17,7 +17,7 @@ export const config = {
 
 const startServer = apolloServer.start();
 
-export default async function handlerGraphQl(
+export default async function graphQLHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
