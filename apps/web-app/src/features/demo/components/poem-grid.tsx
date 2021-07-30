@@ -24,7 +24,7 @@ export const PoemList: React.FC<{ poems: GetPoems; children?: never }> = (
             ? waterImages
             : ArrayUtils.removeItem(images, randomImg);
 
-        const unsplashImg = `https://source.unsplash.com/random/800x600?${(
+        const unsplashImg = `https://source.unsplash.com/random/640x480?${(
           poem.keywords ?? []
         )
           .map((keyword) => encodeURIComponent(keyword))
