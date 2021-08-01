@@ -120,10 +120,10 @@ const baseConfig = withTM({
   env: {
     APP_NAME: packageJson.name,
     APP_VERSION: packageJson.version,
-    SENTRY_RELEASE: `${packageJson.name}@${packageJson.version}`,
     BUILD_TIME: new Date().getTime(),
-  },
-  publicRuntimeConfig: {
+    SENTRY_RELEASE: process.env.SENTRY_RELEASE
+      ? process.env.SENTRY_RELEASE
+      : `${packageJson.name}@${packageJson.version}`,
     NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
   },
   serverRuntimeConfig: {
@@ -134,7 +134,7 @@ const baseConfig = withTM({
 
 let config = baseConfig;
 
-if (process.env.ENABLE_SENTRY === 'true') {
+if (process.env.SENTRY_ENABLED === 'true') {
   config = withSentryConfig(baseConfig, {
     dryRun: process.env.NODE_ENV !== 'production',
   });
