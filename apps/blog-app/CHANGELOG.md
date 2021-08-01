@@ -1,5 +1,15 @@
 # blog-app
 
+## 3.7.0
+
+### Minor Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Multistage docker build example
+
+### Patch Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix next.config.js to not rely on bundle-analyzer when installed in production
+
 ## 3.6.4
 
 ### Patch Changes
