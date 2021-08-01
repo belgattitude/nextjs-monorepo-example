@@ -6,7 +6,6 @@ import { FeaturesSection } from './sections/features-section';
 import { CTASection } from './sections/cta-section';
 import { useTranslation } from 'next-i18next';
 import { homeConfig } from './home.config';
-import { CustomTypeOptions } from 'react-i18next';
 
 type Props = {
   children?: never;
