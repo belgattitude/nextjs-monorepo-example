@@ -9,8 +9,6 @@ import { NextPage, NextPageContext } from 'next';
 
 import * as Sentry from '@sentry/nextjs';
 
-const ignoredSentryHttpStatusCode = [404, 410];
-
 // Adds HttpException to the list of possible error types.
 type AugmentedError = NonNullable<NextPageContext['err']> | null;
 type CustomErrorProps = {
