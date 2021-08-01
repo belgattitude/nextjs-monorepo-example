@@ -1,5 +1,11 @@
 # web-app
 
+## 3.14.0
+
+### Minor Changes
+
+- [#216](https://github.com/belgattitude/nextjs-monorepo-example/pull/216) [`0184987`](https://github.com/belgattitude/nextjs-monorepo-example/commit/0184987f390b704dbfbcad0f272b220f4765f9c8) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with sentry
+
 ## 3.13.0
 
 ### Minor Changes
