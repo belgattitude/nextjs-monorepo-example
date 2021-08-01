@@ -1,4 +1,5 @@
 const path = require('path');
+const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
@@ -117,12 +118,7 @@ const baseConfig = withTM({
   },
 });
 
-let config = baseConfig;
-
-if (process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN) {
-  const { withSentryConfig } = require('@sentry/nextjs');
-  config = withSentryConfig(baseConfig, {});
-}
+let config = withSentryConfig(baseConfig, {});
 
 if (process.env.ANALYZE === 'true') {
   const withBundleAnalyzer = require('@next/bundle-analyzer')({
