@@ -1,31 +1,45 @@
 version: "3.8"
 
 services:
+  #
+  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-full-install
+  #
+  workspaces-full-install:
+    profiles:
+      - donotstart
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: workspaces-full-install
+
+  builder:
+    profiles:
+      - donotstart
+    container_name: nextjs-monorepo-web-app_dev-build
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: builder
+
   web-app-dev:
     # Service must be started explicitly with docker-compose up web-app
     profiles:
       - donotstart
+    container_name: nextjs-monorepo-web-app_dev
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile
-      target: development
+      target: web-app-dev
     stdin_open: true
     ports:
       - target: 8000
         published: 8000
         protocol: tcp
-    container_name: web-app-dev
     volumes:
       - .:/app/
-      # the volumes below prevents our host system's node_modules to be mounted
-      - nm_exclude_root:/app/node_modules/
-      - nm_exclude_web-app:/app/apps/web-app/node_modules/
-      - nm_exclude_blog-app:/app/apps/blog-app/node_modules/
-      - nm_exclude_core-lib:/app/packages/core-lib/node_modules/
-      - nm_exclude_db-main-prisma:/app/packages/db-main-prisma/node_modules/
-      - nm_exclude_ui-lib:/app/packages/ui-lib/node_modules/
-      # the volume below prevents our host system's build to be mounted
-      - build_excl_web-app:/app/apps/web-app/.next/
+      - excluded_build:/app/apps/web-app/.next/
     depends_on:
       - main-db
 
@@ -46,11 +60,5 @@ services:
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
 volumes:
-  nm_exclude_root:
-  nm_exclude_web-app:
-  nm_exclude_blog-app:
-  nm_exclude_core-lib:
-  nm_exclude_db-main-prisma:
-  nm_exclude_ui-lib:
-  build_excl_web-app:
+  excluded_build:
   db_data:

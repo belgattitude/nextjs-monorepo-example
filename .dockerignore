@@ -1,15 +1,36 @@
-# Docker related
-.dockerignore
-Dockerfile
-docker-compose.override.yml
-docker
+# All node_modules directories
+**/node_modules
 
-# Dot files (.env, .git, ...)
+# All secrets
+**/.env.local
+**/.env.*.local
+
+# By default all dot files (.env, .git, ...)
 .*
-!.pnp.js
+
+# Exception to dot files
+
+# Yarn
 !.yarnrc.yml
 !.yarn/plugins
 !.yarn/releases
+
+# Used when building with nextjs (next-eslint)
+!.eslintrc.base.json
+!.prettierignore
+!.prettierrc.json
+!.eslintignore
+
+# npm
+!.npmrc
+
+
+# Docker related
+Dockerfile
+docker-compose.*.yml
+docker-compose.yml
+docker
+
 
 # Log files
 logs
@@ -19,11 +40,4 @@ logs
 tmp
 *.tmp
 
-# Deps directories
-**/node_modules
 
-# Build directories
-**/.next
-
-# Other resources
-README.md
