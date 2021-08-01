@@ -9,7 +9,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 // @vercel/nft would not correctly detect it as a dep leading
 // to deployments errors in vercel, serverless...
-require('ts-tiny-invariant');
+//require('ts-tiny-invariant');
 
 const apolloServer = new ApolloServer({
   typeDefs: graphqlSdlSchema.typeDefs,
