@@ -8,6 +8,11 @@
   "extends": ["config:base"],
   "enabled": true,
   "enabledManagers": ["npm", "docker-compose", "dockerfile", "github-actions"],
+  "postUpdateOptions": [
+    // https://docs.renovatebot.com/configuration-options/#postupdateoptions
+    // Will run yarn dedupe --strategy highest
+    'yarnDedupeHighest'
+  ],
   "packageRules": [
     {
       // Root package.json

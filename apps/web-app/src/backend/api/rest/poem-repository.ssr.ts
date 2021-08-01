@@ -1,6 +1,6 @@
 import { PrismaClient } from '@your-org/db-main-prisma';
-import { InternalServerError, NotFound } from '@tsed/exceptions';
-import { Asserts, UnPromisify } from '@your-org/core-lib';
+import { InternalServerError } from '@tsed/exceptions';
+import { UnPromisify } from '@your-org/core-lib';
 
 export type GetPoems = UnPromisify<
   ReturnType<typeof PoemRepositorySsr['prototype']['getPoems']>

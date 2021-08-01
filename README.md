@@ -18,11 +18,11 @@
   <a aria-label="Codacy grade" href="https://www.codacy.com/gh/belgattitude/nextjs-monorepo-example/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=belgattitude/nextjs-monorepo-example&amp;utm_campaign=Badge_Grade">
     <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=flat-square&labelColor=000&label=Codacy">
   </a>
-  <a aria-label="LoC" href="https://github.com/soluble-io/cache-interop/search">  
+  <a aria-label="LoC">  
     <img alt="LoC" src="https://img.shields.io/tokei/lines/github/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
   </a>
-  <a aria-label="Typings">
-    <img alt="TS" src="https://img.shields.io/static/v1?label=&message=4.2%2B&logo=typescript&style=flat-square&labelColor=000&color=blue" />
+  <a aria-label="Top language" href="https://github.com/belgattitude/nextjs-monorepo-example/search?l=typescript">
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/belgattitude/nextjs-monorepo-example?style=flat-square&labelColor=000&color=blue">
   </a>
   <a aria-label="Licence" href="https://github.com/belgattitude/nextjs-monorepo-example/blob/main/LICENSE">
     <img alt="Licence" src="https://img.shields.io/github/license/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
@@ -185,23 +185,23 @@ yarn dev
 7. Be sure your next.config.js app overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
 
    ```js
-   webpack: function(config, { defaultLoaders }) {
-      // Will allow transpilation of shared packages through tsonfig paths
-      // @link https://github.com/vercel/next.js/pull/13542
-      const resolvedBaseUrl = path.resolve(config.context, '../../');
-      config.module.rules = [
-        ...config.module.rules,
-        {
-          test: /\.(tsx|ts|js|jsx|json)$/,
-          include: [resolvedBaseUrl],
-          use: defaultLoaders.babel,
-          exclude: (excludePath) => {
-            return /node_modules/.test(excludePath);
-          },
-        },
-      ];
-      return config;
-    }
+   webpack: (config, { defaultLoaders }) => {
+     // Will allow transpilation of shared packages through tsonfig paths
+     // @link https://github.com/vercel/next.js/pull/13542
+     const resolvedBaseUrl = path.resolve(config.context, "../../");
+     config.module.rules = [
+       ...config.module.rules,
+       {
+         test: /\.(tsx|ts|js|jsx|json)$/,
+         include: [resolvedBaseUrl],
+         use: defaultLoaders.babel,
+         exclude: (excludePath) => {
+           return /node_modules/.test(excludePath);
+         },
+       },
+     ];
+     return config;
+   };
    ```
 
    > PS:
@@ -319,6 +319,7 @@ By default, they will ensure that
 - You don't have linter / code-style errors.
 - Your test suite is successful.
 - Your apps (nextjs) or packages can be successfully built.
+- Basic size-limit example in web-app.
 
 Each of those steps can be opted-out.
 

@@ -1,4 +1,6 @@
 const path = require('path');
+const packageJson = require('./package');
+const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
@@ -59,7 +61,7 @@ const secureHeaders = createSecureHeaders({
   referrerPolicy: 'same-origin',
 });
 
-const config = withTM({
+const baseConfig = withTM({
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   webpack5: true,
@@ -85,7 +87,7 @@ const config = withTM({
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
-  webpack: function (config, { defaultLoaders, isServer }) {
+  webpack: (config, { defaultLoaders, isServer }) => {
     // This extra config allows to use paths defined in tsconfig
     // rather than next-transpile-modules.
     // @link https://github.com/vercel/next.js/pull/13542
@@ -115,13 +117,34 @@ const config = withTM({
 
     return config;
   },
+  env: {
+    APP_NAME: packageJson.name,
+    APP_VERSION: packageJson.version,
+    BUILD_TIME: new Date().getTime(),
+    SENTRY_RELEASE: process.env.SENTRY_RELEASE
+      ? process.env.SENTRY_RELEASE
+      : `${packageJson.name}@${packageJson.version}`,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
+  },
+  serverRuntimeConfig: {
+    // to bypass https://github.com/zeit/next.js/issues/8251
+    PROJECT_ROOT: __dirname,
+  },
 });
+
+let config = baseConfig;
+
+if (process.env.SENTRY_ENABLED === 'true') {
+  config = withSentryConfig(baseConfig, {
+    dryRun: process.env.NODE_ENV !== 'production',
+  });
+}
 
 if (process.env.ANALYZE === 'true') {
   const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: true,
   });
-  module.exports = withBundleAnalyzer(config);
-} else {
-  module.exports = config;
+  config = withBundleAnalyzer(config);
 }
+
+module.exports = config;

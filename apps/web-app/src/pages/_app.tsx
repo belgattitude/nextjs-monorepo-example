@@ -20,6 +20,7 @@ export type AppProps = NextAppProps & {
 const MyApp = ({ Component, pageProps, err }: AppProps) => {
   return (
     <AppProviders>
+      {/* Workaround for https://github.com/vercel/next.js/issues/8592 */}
       <Component {...pageProps} err={err} />
     </AppProviders>
   );
