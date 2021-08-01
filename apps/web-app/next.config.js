@@ -1,4 +1,5 @@
 const path = require('path');
+const packageJson = require('./package');
 const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
@@ -116,9 +117,28 @@ const baseConfig = withTM({
 
     return config;
   },
+  env: {
+    APP_NAME: packageJson.name,
+    APP_VERSION: packageJson.version,
+    SENTRY_RELEASE: `${packageJson.name}@${packageJson.version}`,
+    BUILD_TIME: new Date().getTime(),
+  },
+  publicRuntimeConfig: {
+    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
+  },
+  serverRuntimeConfig: {
+    // to bypass https://github.com/zeit/next.js/issues/8251
+    PROJECT_ROOT: __dirname,
+  },
 });
 
-let config = withSentryConfig(baseConfig, {});
+let config = baseConfig;
+
+if (process.env.ENABLE_SENTRY === 'true') {
+  config = withSentryConfig(baseConfig, {
+    dryRun: process.env.NODE_ENV !== 'production',
+  });
+}
 
 if (process.env.ANALYZE === 'true') {
   const withBundleAnalyzer = require('@next/bundle-analyzer')({
