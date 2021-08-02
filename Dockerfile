@@ -17,7 +17,7 @@
 #      layer sizes                                                #
 ###################################################################
 
-FROM node:14-alpine AS workspaces-full-install
+FROM node:16-alpine AS workspaces-full-install
 RUN apk add --no-cache rsync
 
 WORKDIR /workspace-install
@@ -68,7 +68,7 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 #   2. this stage will use workspaces-full-install stage          #                                                                 #
 ###################################################################
 
-FROM node:14-alpine AS builder
+FROM node:16-alpine AS builder
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -84,7 +84,7 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 
 
 # For production
-FROM node:14-alpine AS production
+FROM node:16-alpine AS production
 
 WORKDIR /app
 
@@ -110,7 +110,7 @@ CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
 
 
 # For development
-FROM node:14-alpine AS web-app-dev
+FROM node:16-alpine AS web-app-dev
 ENV NODE_ENV=development
 
 WORKDIR /app
