@@ -45,15 +45,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ardatan/aggregate-error@npm:0.0.6":
-  version: 0.0.6
-  resolution: "@ardatan/aggregate-error@npm:0.0.6"
-  dependencies:
-    tslib: ~2.0.1
-  checksum: 72334225df487342ca1d9c9dc6b6b7080e9ccba6e85ffbfd04839997067c709c4b058f747ee20bcac0477db6f12c9b098fd030bd7559dbc552a283df87ef4478
-  languageName: node
-  linkType: hard
-
 "@babel/code-frame@npm:7.12.11":
   version: 7.12.11
   resolution: "@babel/code-frame@npm:7.12.11"
@@ -2073,20 +2064,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:^7.1.5":
-  version: 7.1.5
-  resolution: "@graphql-tools/schema@npm:7.1.5"
-  dependencies:
-    "@graphql-tools/utils": ^7.1.2
-    tslib: ~2.2.0
-    value-or-promise: 1.0.6
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
-  checksum: 4baf3a39bd33ef33dbc0cfc04fa671718f48f603b5301ec21d5501145fd270a258dd4ea94d49a8062091d6c2ed35727e31a7992c564cbb14bb4d159f7f2d60f8
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/schema@npm:^8.0.1":
+"@graphql-tools/schema@npm:^8.0.0, @graphql-tools/schema@npm:^8.0.1":
   version: 8.0.1
   resolution: "@graphql-tools/schema@npm:8.0.1"
   dependencies:
@@ -2100,7 +2078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:8.0.1":
+"@graphql-tools/utils@npm:8.0.1, @graphql-tools/utils@npm:^8.0.0":
   version: 8.0.1
   resolution: "@graphql-tools/utils@npm:8.0.1"
   dependencies:
@@ -2108,19 +2086,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0
   checksum: 21782ba9911dad7098dc6b39296393882a955c52fc5e7809197a42265519b410adec9b4e15f52e7512162010e8a33fd03058e46c9fd717debb1ccfcdbc0da8e2
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/utils@npm:^7.1.2, @graphql-tools/utils@npm:^7.9.0":
-  version: 7.10.0
-  resolution: "@graphql-tools/utils@npm:7.10.0"
-  dependencies:
-    "@ardatan/aggregate-error": 0.0.6
-    camel-case: 4.1.2
-    tslib: ~2.2.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
-  checksum: e40c29608d3380f589f756977f6afd1cc2b96dd08eaa392a412ee320dce98af32e62138ceae752e3db5561776370e3b7766a859eed0b52f8c1e35d0e8fabc6db
   languageName: node
   linkType: hard
 
@@ -4269,15 +4234,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "apollo-server-core@npm:3.1.1"
+"apollo-server-core@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "apollo-server-core@npm:3.1.2"
   dependencies:
     "@apollographql/apollo-tools": ^0.5.1
     "@apollographql/graphql-playground-html": 1.6.29
     "@graphql-tools/mock": ^8.1.2
-    "@graphql-tools/schema": ^7.1.5
-    "@graphql-tools/utils": ^7.9.0
+    "@graphql-tools/schema": ^8.0.0
+    "@graphql-tools/utils": ^8.0.0
     "@josephg/resolvable": ^1.0.0
     apollo-datasource: ^3.0.3
     apollo-graphql: ^0.9.0
@@ -4296,7 +4261,7 @@ __metadata:
     uuid: ^8.0.0
   peerDependencies:
     graphql: ^15.3.0
-  checksum: 68af49291de272b8379fabd70712874a1fa91f8456984084cf59abef3d14438ab4bde9fe99a6fe228498665957b61b05a02430b4ed8980fc921cd7a21c8cc2ca
+  checksum: 09d505c71a844de1e597c4630e0bb7c0906147c6747458db3c7e3cf498c4f5e527ca6769d32da1d5af6db3a2e98b2369bc44c284927c331cf9e212c98aceac1d
   languageName: node
   linkType: hard
 
@@ -4318,17 +4283,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-micro@npm:3.1.1":
-  version: 3.1.1
-  resolution: "apollo-server-micro@npm:3.1.1"
+"apollo-server-micro@npm:3.1.2":
+  version: 3.1.2
+  resolution: "apollo-server-micro@npm:3.1.2"
   dependencies:
     "@hapi/accept": ^5.0.2
-    apollo-server-core: ^3.1.1
+    apollo-server-core: ^3.1.2
     apollo-server-types: ^3.1.1
     type-is: ^1.6.18
   peerDependencies:
     micro: ^9.3.4
-  checksum: 2bc7fc9add7535800b7debac8a24e986a2b604eb6f69233882173df171ca52785babedb7efd9aa1ba74125aa2f9922145cc501e26d20b6dbdfb6b211ab96c58d
+  checksum: 04246f15fc02f0eb4a233a8bcc0eeafde5cf398d459f392efc7d6841717e9e54c59d22b2d61928ca4a8033c7651d1cf4ecd80119828508dfef5fa1d7eef6629a
   languageName: node
   linkType: hard
 
@@ -5355,7 +5320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camel-case@npm:4.1.2, camel-case@npm:^4.1.2":
+"camel-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "camel-case@npm:4.1.2"
   dependencies:
@@ -16166,7 +16131,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.2.0, tslib@npm:~2.2.0":
+"tslib@npm:2.2.0":
   version: 2.2.0
   resolution: "tslib@npm:2.2.0"
   checksum: a48c9639f7496fa701ea8ffe0561070fcb44c104a59632f7f845c0af00825c99b6373575ec59b2b5cdbfd7505875086dbe5dc83312304d8979f22ce571218ca3
@@ -16184,13 +16149,6 @@ resolve@^2.0.0-next.3:
   version: 2.3.0
   resolution: "tslib@npm:2.3.0"
   checksum: 8869694c26e4a7b56d449662fd54a4f9ba872c889d991202c74462bd99f10e61d5bd63199566c4284c0f742277736292a969642cc7b590f98727a7cae9529122
-  languageName: node
-  linkType: hard
-
-"tslib@npm:~2.0.1":
-  version: 2.0.3
-  resolution: "tslib@npm:2.0.3"
-  checksum: 00fcdd1f9995c9f8eb6a4a1ad03f55bc95946321b7f55434182dddac259d4e095fedf78a84f73b6e32dd3f881d9281f09cb583123d3159ed4bdac9ad7393ef8b
   languageName: node
   linkType: hard
 
@@ -16726,13 +16684,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"value-or-promise@npm:1.0.6":
-  version: 1.0.6
-  resolution: "value-or-promise@npm:1.0.6"
-  checksum: 3f255d288ba25c4021cb88f319c3a8fe147d1cbc9a4a3b70c795c1a6225d126959b1709d3b4d357745ceb4812f644218de02907ad4934023ca0be2db7e194f86
-  languageName: node
-  linkType: hard
-
 "vary@npm:^1":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -16850,7 +16801,7 @@ resolve@^2.0.0-next.3:
     "@your-org/core-lib": "workspace:*"
     "@your-org/db-main-prisma": "workspace:*"
     "@your-org/ui-lib": "workspace:*"
-    apollo-server-micro: 3.1.1
+    apollo-server-micro: 3.1.2
     autoprefixer: 10.3.1
     axios: 0.21.1
     cors: 2.8.5
