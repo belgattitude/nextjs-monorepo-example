@@ -44,6 +44,7 @@ services:
       - main-db
 
   main-db:
+    container_name: nextjs-monorepo-example-main-db
     image: postgres:13-alpine
     ports:
       - target: 5432
@@ -58,6 +59,19 @@ services:
       # you may use a bind-mounted host directory instead,
       # so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
+
+  pgadmin:
+    container_name: nextjs-monorepo-example-main-db
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - target: 80
+        published: 5555
+        protocol: tcp
 
 volumes:
   excluded_build:
