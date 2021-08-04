@@ -60,14 +60,14 @@ services:
       # so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
-  pgadmin:
-    container_name: nextjs-monorepo-example-main-db
+  pgadmin4:
+    container_name: nextjs-monorepo-example-pgadmin4
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      #- PGADMIN_CONFIG_SERVER_MODE='False'
     ports:
       - target: 80
         published: 5555
