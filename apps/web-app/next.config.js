@@ -134,9 +134,11 @@ const baseConfig = withTM({
 
 let config = baseConfig;
 
-if (process.env.SENTRY_ENABLED === 'true') {
+if (process.env.NEXT_DISABLE_SENTRY !== '1') {
   config = withSentryConfig(baseConfig, {
-    dryRun: process.env.NODE_ENV !== 'production',
+    dryRun:
+      process.env.NODE_ENV !== 'production' ||
+      process.env.NEXT_SENTRY_DRY_RUN === '1',
   });
 }
 

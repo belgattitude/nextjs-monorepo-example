@@ -88,14 +88,19 @@ jobs:
         run: |
           yarn build
         env:
+          NEXTJS_BUILD_TARGET: server
+          # Speed up build cause they are linted in a previous step
+          NEXTJS_IGNORE_ESLINT: 1
+          # Speed up build by not running sourcemap upload (not even dry-run)
           # Disable sourcemaps will speed up ci
           # be sure to disable it if you intent to use the build
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
-          # Speed up build cause they are linted in a previous step
-          NEXTJS_IGNORE_ESLINT: 1
-          NEXTJS_BUILD_TARGET: server
+          # Fully disable sentry registration here (no overhead in build time)
+          NEXT_DISABLE_SENTRY=1
+          # Disable sentry source map upload (when not needed)
+          NEXT_SENTRY_DRY_RUN=1
 
       - name: Check bundle size
         working-directory: apps/web-app
