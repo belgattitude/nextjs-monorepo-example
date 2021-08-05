@@ -1,5 +1,11 @@
 # web-app
 
+## 3.15.1
+
+### Patch Changes
+
+- [#231](https://github.com/belgattitude/nextjs-monorepo-example/pull/231) [`90b0472`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0472a3894a28a2b94e4ef85bee7d3a05f059e) Thanks [@belgattitude](https://github.com/belgattitude)! - Allow sentry/nextjs to be disabled by env variables (ie: in for local builds or CI)
+
 ## 3.15.0
 
 ### Minor Changes
