@@ -98,9 +98,9 @@ jobs:
           NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
           # Fully disable sentry registration here (no overhead in build time)
-          NEXT_DISABLE_SENTRY=1
+          NEXT_DISABLE_SENTRY: 1
           # Disable sentry source map upload (when not needed)
-          NEXT_SENTRY_DRY_RUN=1
+          NEXT_SENTRY_DRY_RUN: 1
 
       - name: Check bundle size
         working-directory: apps/web-app
