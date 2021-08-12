@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       // @see https:/github.com/i18next/react-i18next/pull/1340#issuecomment-874728587
-      ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
+      ...(await serverSideTranslations(locale, i18nNamespaces?.slice())),
     },
   };
 };
