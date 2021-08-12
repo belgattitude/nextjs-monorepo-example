@@ -35,28 +35,61 @@
 Useful to
 
 - Establish a **structure** and show a lifecycle perspective (dx, ci/cd...)
-- How to create **shared packages**, shared locales, assets, images folders, api types...
-- Integrate **tools & configs** (ts, jest, changelogs, versioning...).
-- Clarify some **advantages** of monorepos (team cohesion, consistency, duplication...).
+- Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
+- How to create **shared packages**, shared locales, assets, images folders, api types... and how to consume them.
+- Integrate **tools & configs** (ts, eslint, jest, changelogs, versioning...).
+- Configure **3rd parties** (qa tools, deployments, docker...)
 - Create nextjs/vercel/prisma/webpack5... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
-> The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/)
-> or [Nx](https://nx.dev/). It does not try to compete, accent is on recipes with a focus on
-> workspace enabled package managers like [yarn 3.0](https://github.com/yarnpkg/berry), pnpm, npm v7...
-> By keeping the examples as **agnostic** as possible, it should be very easy to apply them
-> in others tools. Code is shared through typescript aliases (no build necessary), topology and
-> dependency graph handled by the package manager, caches by NextJs. See also the FAQ about differences.
+> The approach here doesn't rely on tools such as [Rush](https://rushjs.io/)
+> or [Nx](https://nx.dev/). The monorepo is handled by [Yarn 3.0](https://github.com/yarnpkg/berry)
+> and tries its best to be as nodish agnostic as possible with a strict package isolation.
+> Recipes, tips can be easily ported to whatever you want (pnpm, rush, nx). Curious
+> about the advantages / drawbacks of this approach, see the FAQ
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
-## 1. Structure
+## 1. Intro
+
+Nowadays node / nextjs / typescript projects plays incredibly well with monorepos.
+
+### 1.1 Advantages.
+
+- [x] **Ease of code reuse.** You can easily extract shared libraries (like api, shared ui, locales, images...) and use them across apps without
+      the need of handling them in separate git repos (removing the need to publish, version, test separately...). This limit the tendency to create code duplication
+      amongst developers when time is short.
+- [x] **Atomic commits.** When projects that work together are contained in separate repositories, releases need to sync which versions of one project work
+      with the other. In monorepo CI, sandboxes and releases are much easier to reason about (ie: [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)...).
+      A pull-request contains all changes at once, no need to coordinate multiple packages versions to test it integrally (multiple published canary versions...).
+- [x] **Code refactoring.** Changes made on a library will immediately propagate to all consuming apps / packages.
+      Typescript / typechecks, tests, ci, sandboxes... will improve the confidence to make a change _(or the right one thanks to improved discoverability of
+      possible side effects)_. It also limits the tendency to create tech debt as it invites the dev to refactor all the code that depends on a change.
+- [x] **Collaboration across teams**. Consistency, linters, discoverability, duplication... helps to maintain
+      cohesion and collaboration across teams.
+
+### 2.1 Drawbacks
+
+- [x] **~~Increased build time~~**. Generally a concern but not relevant in this context thanks to the combination of
+      nextjs/webpack5, typescript path aliases and yarn. Dependencies does
+      not need to be build... modified files are included as needed and properly cached (ci, deploy, docker/buildkit...).
+- [x] **~~Versioning and publishing~~**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
+      See the notes about [atlassian changeset](https://github.com/atlassian/changesets). Not relevant here.
+- [x] **Git repo size**. Often mentioned
+- [x] **Multi-languages**. Setting up a monorepo containing code in multiple languages (php, ruby, java, node) is extremely
+      difficult to handle due to nonexistence of mature tooling (bazel...). In other words try to avoid mixing languages, package managers...
+      inside of a monorepo. Choose with care.
+- [x] hh
+
+### 2.3 Note
+
+## 2. Structure
 
 All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
-tailwind, prisma 2... add or remove as much as you like.
+tailwind, prisma 2, react-query... add or remove as much as you like.
 
 #### Two apps
 
-- [apps/web-app](./apps/web-app): SSR and API. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
+- [apps/web-app](./apps/web-app): SSR, i18n and API. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
 - [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
 
 > Apps should not depend on apps, they can depend on packages
@@ -145,9 +178,112 @@ cd apps/web-app
 yarn dev
 ```
 
-## 3. Howtos ?
+## 4. Howto
 
-### 3.1 How create a new shared package ?
+### 4.1 Enable monorepo support
+
+Modern packages managers yarn, pnpm, npm v7 the first step is to define
+the paths to where your apps and packages will when looking for the apps and packages that will be consideredthe workspace configuration must be set in the root [package.json](./package.json)
+in a section called `workspaces`.
+
+<details>
+<summary>example</summary>
+
+```json5
+{
+  "name": "nextjs-monorepo-example",
+  // Set the directories where your apps, packages will be placed
+  "workspaces": ["apps/*", "packages/*"],
+  //...
+}
+```
+
+_The package manager will scan those directories and look for children `package.json`. Their
+content is used to defined the workspace topology (apps, libs, dependencies...)._
+
+</details>
+
+### 4.2 Create a new package
+
+Create a folder in [./packages/](./packages) directory with the name of
+your package.
+
+<details>
+   <summary>instructions</summary>
+
+```bash
+mkdir packages/magnificent-poney
+mkdir packages/magnificent-poney/src
+cd packages/magnificent-poney
+```
+
+</details>
+
+Then initialize a package.json with the name of your package. Rather than
+typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
+as a working example and edit its values.
+
+_Note that as we want t be strict with dependencies, the best is to
+define all you need (eslint, ...) per package. And not in the monorepo root.
+That might seem weird, but on the long run it's much safer._
+
+<details>
+<summary>example</summary>
+
+```json5
+{
+  "name": "@your-org/magnificent-poney",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo \"No tests yet\"",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/react-hooks": "7.0.1",
+    "@types/node": "16.4.10",
+    "@types/react": "17.0.15",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "camelcase": "6.2.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jest": "24.4.0",
+    "eslint-plugin-jest-formatting": "3.0.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-testing-library": "4.10.1",
+    "jest": "27.0.6",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rimraf": "3.0.2",
+    "shell-quote": "1.7.2",
+    "ts-jest": "27.0.4",
+    "typescript": "4.3.5",
+  },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.2",
+    "react-dom": "^16.14.0 || ^17.0.2",
+  },
+}
+```
+
+</details>
+
+### 4.1 How create a new shared package ?
 
 1. Workspace config lives in the root [package.json](./package.json), see workspace section.
    there's already 2 roots defined: ./packages/_ and ./apps/_. So nothing to do.
