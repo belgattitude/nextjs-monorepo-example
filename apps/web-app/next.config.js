@@ -1,7 +1,12 @@
+// @ts-check
+
 const path = require('path');
-const packageJson = require('./package');
 const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
+
+// @ts-ignore
+const packageJson = require('./package');
+
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const isProd = process.env.NODE_ENV === 'production';
@@ -23,7 +28,7 @@ const tmModules = [
     'ky',
   ],
 ];
-const withTM = require('next-transpile-modules')(tmModules, {
+const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
   resolveSymlinks: true,
   debug: false,
 });
@@ -61,19 +66,36 @@ const secureHeaders = createSecureHeaders({
   referrerPolicy: 'same-origin',
 });
 
-const baseConfig = withTM({
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
+  // @ts-ignore
   webpack5: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   i18n,
   optimizeFonts: true,
 
+  httpAgentOptions: {
+    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    keepAlive: true,
+  },
+
+  experimental: {
+    // Prefer loading of ES Modules over CommonJS
+    // @link https://nextjs.org/blog/next-11-1#es-modules-support
+    esmExternals: false,
+  },
+
   // @link https://nextjs.org/docs/basic-features/image-optimization
+  // @ts-ignore
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     disableStaticImages: false,
+    loader: 'default',
     // Allowed domains for next/image
     domains: ['source.unsplash.com'],
   },
@@ -87,6 +109,7 @@ const baseConfig = withTM({
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
+  // @ts-ignore
   webpack: (config, { defaultLoaders, isServer }) => {
     // This extra config allows to use paths defined in tsconfig
     // rather than next-transpile-modules.
@@ -98,6 +121,7 @@ const baseConfig = withTM({
         test: /\.(tsx|ts|js|jsx|json)$/,
         include: [resolvedBaseUrl],
         use: defaultLoaders.babel,
+        // @ts-ignore
         exclude: (excludePath) => {
           return /node_modules/.test(excludePath);
         },
@@ -120,22 +144,22 @@ const baseConfig = withTM({
   env: {
     APP_NAME: packageJson.name,
     APP_VERSION: packageJson.version,
-    BUILD_TIME: new Date().getTime(),
+    BUILD_TIME: new Date().getTime().toString(10),
     SENTRY_RELEASE: process.env.SENTRY_RELEASE
       ? process.env.SENTRY_RELEASE
       : `${packageJson.name}@${packageJson.version}`,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN ?? '',
   },
   serverRuntimeConfig: {
     // to bypass https://github.com/zeit/next.js/issues/8251
     PROJECT_ROOT: __dirname,
   },
-});
+};
 
-let config = baseConfig;
+let config = withNextTranspileModules(nextConfig);
 
 if (process.env.NEXT_DISABLE_SENTRY !== '1') {
-  config = withSentryConfig(baseConfig, {
+  config = withSentryConfig(config, {
     dryRun:
       process.env.NODE_ENV !== 'production' ||
       process.env.NEXT_SENTRY_DRY_RUN === '1',
@@ -143,6 +167,7 @@ if (process.env.NEXT_DISABLE_SENTRY !== '1') {
 }
 
 if (process.env.ANALYZE === 'true') {
+  // @ts-ignore
   const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: true,
   });
