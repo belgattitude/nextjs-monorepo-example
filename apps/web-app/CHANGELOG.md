@@ -1,5 +1,18 @@
 # web-app
 
+## 3.17.0
+
+### Minor Changes
+
+- [#260](https://github.com/belgattitude/nextjs-monorepo-example/pull/260) [`57e8cb1`](https://github.com/belgattitude/nextjs-monorepo-example/commit/57e8cb1fac0adbbdcbb88bdac709ed6e75e8887d) Thanks [@belgattitude](https://github.com/belgattitude)! - Typesafe features configs with i18n namespaces
+
+* [#257](https://github.com/belgattitude/nextjs-monorepo-example/pull/257) [`d3b8916`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c) Thanks [@belgattitude](https://github.com/belgattitude)! - Backend config for prisma updated to multi schema (prep)
+
+### Patch Changes
+
+- Updated dependencies [[`d3b8916`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c)]:
+  - @your-org/db-main-prisma@2.0.0
+
 ## 3.16.0
 
 ### Minor Changes
