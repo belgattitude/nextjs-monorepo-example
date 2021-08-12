@@ -69,6 +69,17 @@ const baseConfig = withTM({
   i18n,
   optimizeFonts: true,
 
+  httpAgentOptions: {
+    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    keepAlive: true,
+  },
+
+  experimental: {
+    // Prefer loading of ES Modules over CommonJS
+    // @link https://nextjs.org/blog/next-11-1#es-modules-support
+    esmExternals: false,
+  },
+
   // @link https://nextjs.org/docs/basic-features/image-optimization
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

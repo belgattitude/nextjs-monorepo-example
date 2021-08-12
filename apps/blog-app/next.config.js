@@ -62,6 +62,17 @@ const config = withTM({
   productionBrowserSourceMaps: !disableSourceMaps,
   optimizeFonts: true,
 
+  httpAgentOptions: {
+    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    keepAlive: true,
+  },
+
+  experimental: {
+    // Prefer loading of ES Modules over CommonJS
+    // @link https://nextjs.org/blog/next-11-1#es-modules-support
+    esmExternals: false,
+  },
+
   eslint: {
     ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
     dirs: ['src'],
