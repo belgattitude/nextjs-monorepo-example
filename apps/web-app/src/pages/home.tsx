@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const { i18nNamespaces } = homeConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces)),
+      ...(await serverSideTranslations(locale, i18nNamespaces?.slice())),
     },
   };
 };
