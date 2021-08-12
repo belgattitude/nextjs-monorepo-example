@@ -1,4 +1,10 @@
+// @ts-check
+
 const path = require('path');
+
+// @ts-ignore
+const packageJson = require('./package');
+
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const isProd = process.env.NODE_ENV === 'production';
@@ -12,12 +18,14 @@ const tmModules = [
         // ie: '@react-google-maps/api'...
       ]
     : []),
-  // esm modules not yet supported by nextjs
+  // ESM only packages are not yet supported by NextJs
+  // @link https://github.com/vercel/next.js/issues/23725
+  // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   ...[
     // ie: 'ky'..
   ],
 ];
-const withTM = require('next-transpile-modules')(tmModules, {
+const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
   resolveSymlinks: true,
   debug: false,
 });
@@ -55,12 +63,27 @@ const secureHeaders = createSecureHeaders({
   referrerPolicy: 'same-origin',
 });
 
-const config = withTM({
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
+  // @ts-ignore
   webpack5: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   optimizeFonts: true,
+
+  httpAgentOptions: {
+    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    keepAlive: true,
+  },
+
+  experimental: {
+    // Prefer loading of ES Modules over CommonJS
+    // @link https://nextjs.org/blog/next-11-1#es-modules-support
+    esmExternals: false,
+  },
 
   eslint: {
     ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
@@ -71,6 +94,7 @@ const config = withTM({
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
+  // @ts-ignore
   webpack: function (config, { defaultLoaders }) {
     // This extra config allows to use paths defined in tsconfig
     // rather than next-transpile-modules.
@@ -82,6 +106,7 @@ const config = withTM({
         test: /\.(tsx|ts|js|jsx|json)$/,
         include: [resolvedBaseUrl],
         use: defaultLoaders.babel,
+        // @ts-ignore
         exclude: (excludePath) => {
           return /node_modules/.test(excludePath);
         },
@@ -96,9 +121,17 @@ const config = withTM({
 
     return config;
   },
-});
+  env: {
+    APP_NAME: packageJson.name,
+    APP_VERSION: packageJson.version,
+    BUILD_TIME: new Date().getTime().toString(10),
+  },
+};
+
+const config = withNextTranspileModules(nextConfig);
 
 if (process.env.ANALYZE === 'true') {
+  // @ts-ignore
   const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: true,
   });
