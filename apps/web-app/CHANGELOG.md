@@ -1,5 +1,13 @@
 # web-app
 
+## 3.16.0
+
+### Minor Changes
+
+- [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to NextJs 11.1.0
+
+* [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Typechecks enabled for next.config.js
+
 ## 3.15.1
 
 ### Patch Changes
