@@ -1,4 +1,4 @@
-import { PrismaClient } from '@your-org/db-main-prisma';
+import { PrismaClientDbMain } from '@your-org/db-main-prisma';
 import { InternalServerError, NotFound } from '@tsed/exceptions';
 import { Asserts, UnPromisify } from '@your-org/core-lib';
 
@@ -7,7 +7,7 @@ export type GetPosts = UnPromisify<
 >;
 
 export class PostRepositorySsr {
-  constructor(private prisma: PrismaClient) {}
+  constructor(private prisma: PrismaClientDbMain) {}
 
   /**
    * @throws Error
