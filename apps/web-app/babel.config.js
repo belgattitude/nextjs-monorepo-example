@@ -18,6 +18,6 @@ module.exports = function (api) {
         },
       ],
     ],
-    plugins: ['@emotion/babel-plugin'],
+    plugins: ['@emotion/babel-plugin', 'babel-plugin-macros'],
   };
 };

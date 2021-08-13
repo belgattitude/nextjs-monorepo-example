@@ -4,7 +4,7 @@ import { Banner } from '@/components/banner';
 import { useTranslation } from 'next-i18next';
 import { demoConfig } from '../demo.config';
 import { sayHello } from '@your-org/core-lib';
-import { InfoCard } from '@your-org/ui-lib/component/info-card';
+import { InfoCard } from '@your-org/ui-lib/components/info-card';
 import { AsyncMessage, Message } from '@your-org/ui-lib';
 import Image from 'next/image';
 import { DemoApiBlock } from '../blocks/demo-api.block';

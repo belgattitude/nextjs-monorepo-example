@@ -369,12 +369,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.5, @babel/parser@npm:^7.15.0, @babel/parser@npm:^7.3.3, @babel/parser@npm:^7.7.2":
-  version: 7.15.0
-  resolution: "@babel/parser@npm:7.15.0"
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.12.5, @babel/parser@npm:^7.14.5, @babel/parser@npm:^7.15.0, @babel/parser@npm:^7.3.3, @babel/parser@npm:^7.7.2":
+  version: 7.15.3
+  resolution: "@babel/parser@npm:7.15.3"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: f9739478b91d2c151246b5d61399d22ba2139897e979d7bfe62d9cafce6337f007ebf662933c950ad4f18858d1d25a44a9ad22157ce1870dbe6b356f0cdebe8f
+  checksum: 4b9ba7e8ffe0a3d0dd8c61dee975c79863f7744177de677cb7d12f96549eb5c8b9ffc70ca2b1b2488b06e056da99a6273e2d7d68fc31f498d01483dfac149e13
   languageName: node
   linkType: hard
 
@@ -1938,7 +1938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:11.4.1":
+"@emotion/react@npm:11.4.1, @emotion/react@npm:^11.4.1":
   version: 11.4.1
   resolution: "@emotion/react@npm:11.4.1"
   dependencies:
@@ -1981,7 +1981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:11.3.0":
+"@emotion/styled@npm:11.3.0, @emotion/styled@npm:^11.3.0":
   version: 11.3.0
   resolution: "@emotion/styled@npm:11.3.0"
   dependencies:
@@ -3906,6 +3906,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/ui-lib@workspace:packages/ui-lib"
   dependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/react": 12.0.0
     "@testing-library/react-hooks": 7.0.1
@@ -3933,9 +3935,13 @@ __metadata:
     react-dom: 17.0.2
     rimraf: 3.0.2
     shell-quote: 1.7.2
+    tailwindcss: ^2.2.7
     ts-jest: 27.0.4
+    twin.macro: 2.6.2
     typescript: 4.3.5
   peerDependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
     react: ^16.14.0 || ^17.0.2
     react-dom: ^16.14.0 || ^17.0.2
   languageName: unknown
@@ -4574,7 +4580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.3.1, autoprefixer@npm:^10.1.0":
+"autoprefixer@npm:10.3.1, autoprefixer@npm:^10.1.0, autoprefixer@npm:^10.2.5":
   version: 10.3.1
   resolution: "autoprefixer@npm:10.3.1"
   dependencies:
@@ -4705,7 +4711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-macros@npm:^2.6.1":
+"babel-plugin-macros@npm:^2.6.1, babel-plugin-macros@npm:^2.8.0":
   version: 2.8.0
   resolution: "babel-plugin-macros@npm:2.8.0"
   dependencies:
@@ -5606,6 +5612,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clean-set@npm:^1.1.1":
+  version: 1.1.2
+  resolution: "clean-set@npm:1.1.2"
+  checksum: 1bd86cc20a1f5834b2e081f96b4336c4619b8eb842392b496b748d63e1ee58aa1959aa13cd392e96988600e105b9067d29082a13ae80f3b92d55c0474c0fda08
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -5783,7 +5796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color@npm:^3.0.0, color@npm:^3.2.0":
+"color@npm:^3.0.0, color@npm:^3.1.3, color@npm:^3.2.0":
   version: 3.2.1
   resolution: "color@npm:3.2.1"
   dependencies:
@@ -6943,6 +6956,13 @@ __metadata:
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
+  languageName: node
+  linkType: hard
+
+"dset@npm:^2.0.1":
+  version: 2.1.0
+  resolution: "dset@npm:2.1.0"
+  checksum: 9fdb325dde5cedb264e37a1bece8aeefb88023e9f2bbc9c38d656cd06b2322a050ba5b361e1c8047b84e482d6e50d0d6b10a6bf439afdd8ab131fd039c103483
   languageName: node
   linkType: hard
 
@@ -10614,6 +10634,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.flatmap@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.flatmap@npm:4.5.0"
+  checksum: c01a47d32e99f8fce75409f0a4a9bd12fbb2d3a46519a0dde14deedb1e527b5ddccc2bf997705c67bdecb915f47749e8a9ffefa7a91c41f0c448e06348ec81c7
+  languageName: node
+  linkType: hard
+
+"lodash.get@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "lodash.get@npm:4.4.2"
+  checksum: e403047ddb03181c9d0e92df9556570e2b67e0f0a930fcbbbd779370972368f5568e914f913e93f3b08f6d492abc71e14d4e9b7a18916c31fa04bd2306efe545
+  languageName: node
+  linkType: hard
+
 "lodash.includes@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.includes@npm:4.3.0"
@@ -13505,7 +13539,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.6, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.1.6, postcss@npm:^8.2.1":
+"postcss@npm:8.3.6, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.1.6, postcss@npm:^8.1.8, postcss@npm:^8.2.1":
   version: 8.3.6
   resolution: "postcss@npm:8.3.6"
   dependencies:
@@ -15316,6 +15350,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"string-similarity@npm:^4.0.3":
+  version: 4.0.4
+  resolution: "string-similarity@npm:4.0.4"
+  checksum: 797b41b24e1eb6b3b0ab896950b58c295a19a82933479c75f7b5279ffb63e0b456a8c8d10329c02f607ca1a50370e961e83d552aa468ff3b0fa15809abc9eff7
+  languageName: node
+  linkType: hard
+
 "string-width@npm:^1.0.1":
   version: 1.0.2
   resolution: "string-width@npm:1.0.2"
@@ -15712,7 +15753,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:2.2.7":
+"tailwindcss@npm:2.2.7, tailwindcss@npm:^2.1.0, tailwindcss@npm:^2.2.7":
   version: 2.2.7
   resolution: "tailwindcss@npm:2.2.7"
   dependencies:
@@ -16225,6 +16266,29 @@ resolve@^2.0.0-next.3:
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
   checksum: 6061daba1724f59473d99a7bb82e13f211cdf6e31315510ae9656fefd4779851cb927adad90f3b488c8ed77c106adc0421ea8055f6f976ff21b27c5c4e918487
+  languageName: node
+  linkType: hard
+
+"twin.macro@npm:2.6.2":
+  version: 2.6.2
+  resolution: "twin.macro@npm:2.6.2"
+  dependencies:
+    "@babel/parser": ^7.12.5
+    "@babel/template": ^7.14.5
+    autoprefixer: ^10.2.5
+    babel-plugin-macros: ^2.8.0
+    chalk: ^4.1.0
+    clean-set: ^1.1.1
+    color: ^3.1.3
+    dset: ^2.0.1
+    lodash.flatmap: ^4.5.0
+    lodash.get: ^4.4.2
+    lodash.merge: ^4.6.2
+    postcss: ^8.1.8
+    string-similarity: ^4.0.3
+    tailwindcss: ^2.1.0
+    timsort: ^0.3.0
+  checksum: 4ff9351dfcec7941f884383279d9df2a8283bb94c0b6977a5b4d14677a61bb4af0fa412714eded7e284bfcddf3db07cc8b6715c8444e2502b009a18aa59e2b87
   languageName: node
   linkType: hard
 

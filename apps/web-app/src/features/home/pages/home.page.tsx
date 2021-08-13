@@ -6,6 +6,7 @@ import { FeaturesBlock } from '../blocks/features-block';
 import { CtaBlock } from '../blocks/cta-block';
 import { useTranslation } from 'next-i18next';
 import { homeConfig } from '../home.config';
+import { Button } from '@your-org/ui-lib';
 
 type Props = {
   children?: never;
@@ -21,6 +22,7 @@ export const HomePage: React.FC<Props> = () => {
         description="See https://github.com/belgattitude/nextjs-monorepo-example"
       />
       <MainLayout>
+        <Button variant={'primary'}>Hello</Button>
         <Banner />
         <HeroBlock />
         <FeaturesBlock />
