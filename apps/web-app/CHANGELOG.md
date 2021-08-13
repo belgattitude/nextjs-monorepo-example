@@ -1,5 +1,11 @@
 # web-app
 
+## 3.19.0
+
+### Minor Changes
+
+- [#265](https://github.com/belgattitude/nextjs-monorepo-example/pull/265) [`e321b8c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e321b8cdd35abab8a3c8cc08785017d39b04ce8d) Thanks [@belgattitude](https://github.com/belgattitude)! - Simplify setup, use NextJS 10.2+ experimental externalDirs option
+
 ## 3.18.0
 
 ### Minor Changes
