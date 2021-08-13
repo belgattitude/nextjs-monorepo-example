@@ -2,12 +2,12 @@ import { NextSeo } from 'next-seo';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Banner } from '@/components/banner';
 import { useTranslation } from 'next-i18next';
-import { demoConfig } from './demo.config';
+import { demoConfig } from '../demo.config';
 import { sayHello } from '@your-org/core-lib';
 import { InfoCard } from '@your-org/ui-lib/component/info-card';
 import { AsyncMessage, Message } from '@your-org/ui-lib';
 import Image from 'next/image';
-import { DemoApiSection } from './sections/demo-api.section';
+import { DemoApiBlock } from '../blocks/demo-api.block';
 
 type Props = {
   children?: never;
@@ -41,7 +41,7 @@ export const DemoPage: React.FC<Props> = () => {
           width={400}
           height={240}
         />
-        <DemoApiSection />
+        <DemoApiBlock />
       </MainLayout>
     </>
   );

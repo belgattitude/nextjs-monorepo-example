@@ -47,7 +47,7 @@ const Ctn = styled.div`
   );
 `;
 
-export const FeaturesSection: React.FC<Props> = () => {
+export const FeaturesBlock: React.FC<Props> = () => {
   return (
     <Ctn>
       <div className="py-12 bg-white" style={{ width: '100%' }}>
