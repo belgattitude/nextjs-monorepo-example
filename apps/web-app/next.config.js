@@ -87,6 +87,7 @@ const nextConfig = {
     // Prefer loading of ES Modules over CommonJS
     // @link https://nextjs.org/blog/next-11-1#es-modules-support
     esmExternals: false,
+    externalDir: true,
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
@@ -111,23 +112,6 @@ const nextConfig = {
 
   // @ts-ignore
   webpack: (config, { defaultLoaders, isServer }) => {
-    // This extra config allows to use paths defined in tsconfig
-    // rather than next-transpile-modules.
-    // @link https://github.com/vercel/next.js/pull/13542
-    const resolvedBaseUrl = path.resolve(config.context, '../../');
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.(tsx|ts|js|jsx|json)$/,
-        include: [resolvedBaseUrl],
-        use: defaultLoaders.babel,
-        // @ts-ignore
-        exclude: (excludePath) => {
-          return /node_modules/.test(excludePath);
-        },
-      },
-    ];
-
     // A temp workaround for https://github.com/prisma/prisma/issues/6899#issuecomment-849126557
     if (isServer) {
       config.externals.push('_http_common');
