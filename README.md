@@ -29,39 +29,52 @@
   </a>
 </p>
 
-> **WARNING** This document covers the most recent version based on Yarn 3.0 and NextJs 10.2+. Docs and examples are
-> still WIP.
+> Example and howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo).
+>
+> It's managed by [Yarn 3.0](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
+> / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and
+> tries to be as strict and standard as possible.
+>
+> It covers a full project lifecycle perspective (tools, ci, deployments, caches...). It's performant and
+> production ready. Don't get too much attention in the example apps, they're just there to test the thing.
+>
+> BTW, it does not rely on tools such as [Rush](https://rushjs.io) or [Nx](https://nx.dev). The trio
+> yarn / nextjs / ts perform incredibly well (if not better) in my experience. That said
+> recipes found here can be applied anywhere.
+>
+> Curious about performance and approaches ? See the FAQ.
 
 Useful to
 
-- Establish a **structure** and show a lifecycle perspective (dx, ci/cd...)
-- How to create **shared packages**, shared locales, assets, images folders, api types...
-- Integrate **tools & configs** (ts, jest, changelogs, versioning...).
-- Clarify some **advantages** of monorepos (team cohesion, consistency, duplication...).
-- Create nextjs/vercel/prisma/webpack5... bug reports with **reproducible examples** _(initial goal of this repo)_.
-
-> The approach doesn't rely on monorepo tools such as [Rush](https://rushjs.io/)
-> or [Nx](https://nx.dev/). It does not try to compete, accent is on recipes with a focus on
-> workspace enabled package managers like [yarn 3.0](https://github.com/yarnpkg/berry), pnpm, npm v7...
-> By keeping the examples as **agnostic** as possible, it should be very easy to apply them
-> in others tools. Code is shared through typescript aliases (no build necessary), topology and
-> dependency graph handled by the package manager, caches by NextJs. See also the FAQ about differences.
+- Establish a **structure** and demonstrate a lifecycle perspective (dx, ci/cd, deployments...)
+- How to create and consume **shared packages**, locales, assets, api types...
+- Integrate **tools & configs** (eslint, jest, changelogs, versioning, codecov, codeclimate...).
+- Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
+- Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
-## 1. Structure
+## Structure
 
-All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
-tailwind, prisma 2... add or remove as much as you like.
+```
+.
+├── apps
+│   ├── blog-app
+│   └── web-app
+└── packages
+    ├── core-lib
+    ├── db-main-prisma
+    └── ui-lib
+```
 
-#### Two apps
+#### Example apps
 
-- [apps/web-app](./apps/web-app): SSR and API. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
+- [apps/web-app](./apps/web-app): SSR, i18n, GraphQL, Rest. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
 - [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
 
 > Apps should not depend on apps, they can depend on packages
 
-#### Some shared code
+#### Example shared packages
 
 - [packages/core-lib](./packages/core-lib): used by web-app and blog-app, publishable. [README](./packages/core-lib/README.md) | [CHANGELOG](./packages/core-lib/CHANGELOG.md)
 - [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [README](./packages/db-main-prisma/README.md) | [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
@@ -69,13 +82,16 @@ tailwind, prisma 2... add or remove as much as you like.
 
 > Apps can depend on packages, packages can depend on each others...
 
-#### Static shared assets
+#### Shared static assets
 
 If needed static resources like **locales**, **images**,... can be shared by using symlinks in the repo.
 
 - See the global [static](./static) folder.
 
 #### Folder overview
+
+<details>
+<summary>Detailled folder structure</summary>
 
 ```
 .
@@ -131,109 +147,238 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 └── tsconfig.base.json           (base typescript config)
 ```
 
-## 3. Quick start
+</details>
 
-> As an example you can start with the web-app
+## Howtos
 
-```bash
-# Install the monorepo
-yarn install
-# In another terminal
-docker-compose up database
-# Run the web-app
-cd apps/web-app
-yarn dev
+### Enable monorepo support
+
+Modern packages managers yarn, pnpm, npm v7 the first step is to define
+the paths to where your apps and packages will when looking for the apps and packages that will be consideredthe workspace configuration must be set in the root [package.json](./package.json)
+in a section called `workspaces`.
+
+<details>
+<summary>example</summary>
+
+```json5
+{
+  "name": "nextjs-monorepo-example",
+  // Set the directories where your apps, packages will be placed
+  "workspaces": ["apps/*", "packages/*"],
+  //...
+}
 ```
 
-## 3. Howtos ?
+_The package manager will scan those directories and look for children `package.json`. Their
+content is used to define the workspace topology (apps, libs, dependencies...)._
 
-### 3.1 How create a new shared package ?
+</details>
 
-1. Workspace config lives in the root [package.json](./package.json), see workspace section.
-   there's already 2 roots defined: ./packages/_ and ./apps/_. So nothing to do.
+### Create a new package
 
-2. Create a new folder, i.e: `mkdir packages/magnificent-poney`.
+Create a folder in [./packages/](./packages) directory with the name of
+your package.
 
-3. Initialize a `package.json`, set a name and dependencies you'll need. For inspiration,
-   take the [ui-lib](./packages/ui-lib/package.json) as an example. Copy/paste other files
-   you might need (tsconfig.json...). Place sources in the `magnificent-poney/src` folder.
+<details>
+   <summary>instructions</summary>
 
-4. To use it in an app first declare the dependency in its package.json deps by adding
-   `"@your-org/magnificent-poney": "workspace:*"`. Inspiration in [web-app/package.json](./apps/web-app/package.json).
+```bash
+mkdir packages/magnificent-poney
+mkdir packages/magnificent-poney/src
+cd packages/magnificent-poney
+```
 
-5. Run `yarn install` to update the workspace and create symlinks.
+</details>
 
-6. Add tsconfig paths in the app `tsconfig.json`, take an example in [web-app/tsconfig.json](./apps/web-app/tsconfig.json)
+Then initialize a package.json with the name of your package. Rather than
+typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
+as a working example and edit its values.
 
-   ```json5
-   {
-      "compilerOptions": {
-        "baseUrl": "./src",
-        "paths": {
-          // regular app aliases
-          "@/components/*": ["./components/*"],
-          // packages aliases, relative to app_directory/baseUrl
-          "@your-org/magnificent-poney/*": ["../../../packages/magnificent-poney/src/*"],
-          "@your-org/magnificent-poney": ["../../../packages/magnificent-poney/src/index"]
+_Note that as we want t be strict with dependencies, the best is to
+define all you need (eslint, ...) per package. And not in the monorepo root.
+That might seem weird, but on the long run it's much safer._
+
+<details>
+<summary>example</summary>
+
+```json5
+{
+  "name": "@your-org/magnificent-poney",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo \"No tests yet\"",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/react-hooks": "7.0.1",
+    "@types/node": "16.4.10",
+    "@types/react": "17.0.15",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "camelcase": "6.2.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jest": "24.4.0",
+    "eslint-plugin-jest-formatting": "3.0.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-testing-library": "4.10.1",
+    "jest": "27.0.6",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rimraf": "3.0.2",
+    "shell-quote": "1.7.2",
+    "ts-jest": "27.0.4",
+    "typescript": "4.3.5",
+  },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.2",
+    "react-dom": "^16.14.0 || ^17.0.2",
+  },
+}
+```
+
+</details>
+
+### Using a shared package
+
+#### Step 1: package.json
+
+First add the package to the app package.json. The recommended way is to
+use the [workspace protocol](https://yarnpkg.com/features/protocols) supported by
+yarn and pnpm.
+
+```bash
+cd apps/my-app
+yarn add @your-org/magnificent-poney@'workspace:*'
+```
+
+Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.json).
+
+<details>
+<summary>package.json</summary>
+
+```json5
+{
+  "name": "my-app",
+  "dependencies": {
+    "@your-org/magnificient-poney": "workspace:*",
+  },
+}
+```
+
+</details>
+
+#### Step 2: In tsconfig.json
+
+Then add a typescript path alias in the app tsconfig.json. This
+will allow you to import it directly (no build needed)
+
+Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig.json).
+
+<details>
+  <summary>Example of tsonfig.json</summary>
+
+```json5
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      // regular app aliases
+      "@/components/*": ["./components/*"],
+      // packages aliases, relative to app_directory/baseUrl
+      "@your-org/magnificent-poney/*": [
+        "../../../packages/magnificent-poney/src/*",
+      ],
+      "@your-org/magnificent-poney": [
+        "../../../packages/magnificent-poney/src/index",
+      ],
+    },
+  },
+}
+```
+
+> PS:
+>
+> - Don't try to set aliases in the global tsonfig.base.json to keep strict with
+>   graph dependencies.
+> - The **star** in `@your-org/magnificent-poney/*` allows you to import subfolders. If you use
+>   a barrel file (index.ts), the alias with star can be removed.
+
+</details>
+
+#### Step 3:
+
+Modify your `next.config.js` to import the tsconfig.json path aliases.
+
+```js
+const nextConfig = {
+  webpack: (config, { defaultLoaders }) => {
+    // Will allow transpilation of shared packages through tsonfig paths
+    // @link https://github.com/vercel/next.js/pull/13542
+    const resolvedBaseUrl = path.resolve(config.context, "../../");
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /\.(tsx|ts|js|jsx|json)$/,
+        include: [resolvedBaseUrl],
+        use: defaultLoaders.babel,
+        exclude: (excludePath) => {
+          return /node_modules/.test(excludePath);
         },
-   }
-   ```
+      },
+    ];
+    return config;
+  },
+};
+```
 
-   > PS: The packages aliases should be declared per app (not in the tsconfig.base.json), so
-   > to keep being explicit with the dependencies.
+> PS:
+>
+> - NextJS 10.2+ [has an experimental.externalDir option](https://github.com/vercel/next.js/pull/22867) for monorepo,
+>   when time comes it might allow to skip the webpack config override above.
+> - If your shared package make use of scss bundler... A custom webpack configuration will be necessary
+>   or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
-7. Be sure your next.config.js app overrides webpack like in [nextjs.config.js](./apps/web-app/next.config.js):
+#### Step 4: Using the package
 
-   ```js
-   webpack: (config, { defaultLoaders }) => {
-     // Will allow transpilation of shared packages through tsonfig paths
-     // @link https://github.com/vercel/next.js/pull/13542
-     const resolvedBaseUrl = path.resolve(config.context, "../../");
-     config.module.rules = [
-       ...config.module.rules,
-       {
-         test: /\.(tsx|ts|js|jsx|json)$/,
-         include: [resolvedBaseUrl],
-         use: defaultLoaders.babel,
-         exclude: (excludePath) => {
-           return /node_modules/.test(excludePath);
-         },
-       },
-     ];
-     return config;
-   };
-   ```
+The packages are now linked to your app, just import them like regular packages: `import { poney } from '@your-org/magnificent-poney'`.
 
-   > PS:
-   >
-   > - NextJS 10.2+ [has an experimental.externalDir option](https://github.com/vercel/next.js/pull/22867) for monorepo,
-   >   when time comes it might allow to skip the webpack config override above.
-   > - If your shared package make use of scss bundler... A custom webpack configuration will be necessary
-   >   or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
+### Publishing
 
-8. Using the package in your app
+> Optional
 
-   The packages are now linked to your app, just import them like regular packages: `import { poney } from '@your-org/magnificent-poney'`.
+If you need to share some packages outside of the monorepo, you can publish them to npm or private repositories.
+An example based on microbundle is present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
+and it's simple as typing:
 
-9. Optional package publishing.
+```bash
+$ yarn changeset
+```
 
-   If you need to share some packages outside of the monorepo, you can publish them to npm or private repositories.
-   An example based on microbundle is present in each package. Versioning and publishing can be done with [atlassian/changeset](https://github.com/atlassian/changesets),
-   and it's simple as typing:
+Follow the instructions... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
+When merging it, a [github action](./.github/workflows/release.yml) will publish the packages
+with resulting semver version and generate CHANGELOGS for you.
 
-   ```bash
-   $ yarn changeset
-   ```
-
-   Follow the instructions... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
-   When merging it, a [github action](./.github/workflows/release.yml) will publish the packages
-   with resulting semver version and generate CHANGELOGS for you.
-
-   > PS:
-   >
-   > - Even if you don't need to publish, changeset can maintain an automated changelog for your apps. Nice !
-   > - To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
-   > - Want to tune the behaviour, see [.changeset/config.json](./.changeset/config.json).
+> PS:
+>
+> - Even if you don't need to publish, changeset can maintain an automated changelog for your apps. Nice !
+> - To disable automatic publishing of some packages, just set `"private": "true"` in their package.json.
+> - Want to tune the behaviour, see [.changeset/config.json](./.changeset/config.json).
 
 ## 4. Monorepo essentials
 
@@ -353,6 +498,37 @@ Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deplo
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
 ## FAQ
+
+### Monorepo
+
+#### Benefits
+
+- [x] **Ease of code reuse.** You can easily extract shared libraries (like api, shared ui, locales, images...) and use them across apps without
+      the need of handling them in separate git repos (removing the need to publish, version, test separately...). This limit the tendency to create code duplication
+      amongst developers when time is short.
+- [x] **Atomic commits.** When projects that work together are contained in separate repositories, releases need to sync which versions of one project work
+      with the other. In monorepo CI, sandboxes and releases are much easier to reason about (ie: [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)...).
+      A pull-request contains all changes at once, no need to coordinate multiple packages versions to test it integrally (multiple published canary versions...).
+- [x] **Code refactoring.** Changes made on a library will immediately propagate to all consuming apps / packages.
+      Typescript / typechecks, tests, ci, sandboxes... will improve the confidence to make a change _(or the right one thanks to improved discoverability of
+      possible side effects)_. It also limits the tendency to create tech debt as it invites the dev to refactor all the code that depends on a change.
+- [x] **Collaboration across teams**. Consistency, linters, discoverability, duplication... helps to maintain
+      cohesion and collaboration across teams.
+
+#### Drawbacks
+
+- [x] **~~Increased build time~~**. Generally a concern but not relevant in this context thanks to the combination of
+      nextjs/webpack5, typescript path aliases and yarn. Deps does
+      not need to be build... modified files are included as needed and properly cached (nextjs webpack5, ci, deploy, docker/buildkit...).
+- [x] **~~Versioning and publishing~~**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
+      See the notes about [atlassian changeset](https://github.com/atlassian/changesets). Not relevant here.
+- [x] **Git repo size**. All packages and apps and history will fit in the same git repository increasing its size and
+      checkout time. Generally when you reach size problems, check for assets like images first and extract
+      packages that don't churn anymore.
+- [x] **Multi-languages**. Setting up a monorepo containing code in multiple languages (php, ruby, java, node) is extremely
+      difficult to handle due to nonexistence of mature tooling (bazel...).The general idea is
+      to create a monorepo with the same stack (node, typescript...) and managed by the same
+      package manager (yarn, pnpm,...)
 
 #### Exact vs semver dependencies
 
