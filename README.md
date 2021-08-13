@@ -29,11 +29,9 @@
   </a>
 </p>
 
-> Example and howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo).
->
-> It's managed by [Yarn 3.0](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
+> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.0](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
 > / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and
-> tries to be as strict and standard as possible.
+> tries to be as strict and standard as possible. Check how it compares to NX or Rush [here](README.md#approach).
 
 Useful to
 
@@ -488,6 +486,10 @@ Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deplo
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
 ## FAQ
+
+### Approach
+
+This repo does not rely on monorepo tools like [Rush]() or [Nx]().
 
 ### Monorepo
 
