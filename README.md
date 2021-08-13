@@ -80,7 +80,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 #### Folder overview
 
 <details>
-<summary>Detailled folder structure</summary>
+<summary>Detailed folder structure</summary>
 
 ```
 .
@@ -138,15 +138,12 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 
 </details>
 
-## Howtos
+## Howto
 
-### Enable workspace support
-
-Already set in this example, but check you root package.json and add directories
-that holds you packages and apps in the `workspaces` section=,
+### 1. Enable workspace support
 
 <details>
-<summary>example</summary>
+<summary>Root package.json with workspace directories</summary>
 
 ```json5
 {
@@ -162,13 +159,13 @@ content is used to define the workspace topology (apps, libs, dependencies...)._
 
 </details>
 
-### Create a new package
+### 2. Create a new package
 
 Create a folder in [./packages/](./packages) directory with the name of
 your package.
 
 <details>
-   <summary>instructions</summary>
+   <summary>Create the package folder</summary>
 
 ```bash
 mkdir packages/magnificent-poney
@@ -178,16 +175,13 @@ cd packages/magnificent-poney
 
 </details>
 
-Then initialize a package.json with the name of your package. Rather than
-typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
-as a working example and edit its values.
+Initialize a package.json with the name of your package.
 
-_Note that as we want t be strict with dependencies, the best is to
-define all you need (eslint, ...) per package. And not in the monorepo root.
-That might seem weird, but on the long run it's much safer._
+> Rather than typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
+> as a working example and edit its values.
 
 <details>
-<summary>example</summary>
+<summary>Example of package.json</summary>
 
 ```json5
 {
@@ -240,11 +234,15 @@ That might seem weird, but on the long run it's much safer._
 }
 ```
 
+> _Note that as we want to be strict with dependencies, the best is to
+> define all you need (eslint, ...) per package. And not in the monorepo root.
+> That might seem weird, but on the long run it's much safer._
+
 </details>
 
-### Using a shared package
+### 3. Using the package in app
 
-#### Step 1: package.json
+#### Step 3.1: package.json
 
 First add the package to the app package.json. The recommended way is to
 use the [workspace protocol](https://yarnpkg.com/features/protocols) supported by
@@ -271,7 +269,7 @@ Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.j
 
 </details>
 
-#### Step 2: In tsconfig.json
+#### Step 3.2: In tsconfig.json
 
 Then add a typescript path alias in the app tsconfig.json. This
 will allow you to import it directly (no build needed)
@@ -309,7 +307,7 @@ Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig
 
 </details>
 
-#### Step 3:
+#### Step 3.3: Next config
 
 Edit your `next.config.js` and enable the [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
 Feedbacks [here](https://github.com/vercel/next.js/discussions/26420).
@@ -353,16 +351,14 @@ const nextConfig = {
 
 </details>
 
-> PS:
->
-> - If your shared package make use of scss bundler... A custom webpack configuration will be necessary
->   or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
+> PS: If your shared package make use of scss bundler... A custom webpack configuration will be necessary
+> or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
-#### Step 4: Using the package
+#### Step 3.4: Using the package
 
 The packages are now linked to your app, just import them like regular packages: `import { poney } from '@your-org/magnificent-poney'`.
 
-### Publishing
+### 4. Publishing
 
 > Optional
 
@@ -386,7 +382,7 @@ with resulting semver version and generate CHANGELOGS for you.
 
 ## 4. Monorepo essentials
 
-### 4.1 Monorepo scripts
+### Monorepo scripts
 
 Some convenience global scripts are defined in the [root package.json](./package.json), they generally
 call their counterparts defined in packages and apps.
@@ -429,7 +425,7 @@ call their counterparts defined in packages and apps.
 > - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
 > - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
 
-### 4.2 Maintaining deps updated
+### Maintaining deps updated
 
 The global commands `yarn deps:check` and `yarn deps:update` will help to maintain the same versions across the entire monorepo.
 They are based on the excellent [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
