@@ -489,7 +489,24 @@ Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in th
 
 ### Approach
 
-This repo does not rely on monorepo tools like [Rush]() or [Nx]().
+This repo does not rely on monorepo tools like [Rush](https://rushjs.io/) or [Nx](https://nx.dev/). Those
+tools are really interesting to tackle the monorepo build performance. In other words
+they can skip building packages / files that haven't changed (using a cache)
+
+In this specific example, packages aren't built... files are imported like they exist in the app folder,
+the cache offered by nextjs do the job and would be used anyway... So there's less
+advantages.
+
+Nowadays yarn / pnpm are totally able to act as a task runner (yarn workspaces commands),
+handle the dependency graph and the monorepo topology.
+
+It's very scalable...
+
+That said, recipes present here can be applied in any tool cause they're
+very standard.
+
+If you intend to add multiple frameworks (other than nextjs, such as nestjs, express...) in a monorepo
+and don't want to spend time, Nx or rush will be better bets.
 
 ### Monorepo
 
