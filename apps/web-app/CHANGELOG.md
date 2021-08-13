@@ -1,5 +1,13 @@
 # web-app
 
+## 3.18.0
+
+### Minor Changes
+
+- [#262](https://github.com/belgattitude/nextjs-monorepo-example/pull/262) [`dd2669d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/dd2669d6d4079af52b7127722531404aec48d371) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with typed getServerSideProps
+
+* [#261](https://github.com/belgattitude/nextjs-monorepo-example/pull/261) [`7e3b862`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7e3b862766dd33423d295134fd3e365eed6fa220) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor app structure and configs
+
 ## 3.17.0
 
 ### Minor Changes
