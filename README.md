@@ -311,7 +311,23 @@ Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig
 
 #### Step 3:
 
-Modify your `next.config.js` to import the tsconfig.json path aliases.
+Edit your `next.config.js` and enable the [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
+Feedbacks [here](https://github.com/vercel/next.js/discussions/26420).
+
+```js
+const nextConfig = {
+  experimental: {
+    externalDir: true,
+  },
+};
+export default nextConfig;
+```
+
+<details>
+  <summary>Using a NextJs version prior to 10.2.0 ?</summary>
+
+If you're using an older NextJs version and don't have the experimental flag, you can simply override your
+webpack config.
 
 ```js
 const nextConfig = {
@@ -335,10 +351,10 @@ const nextConfig = {
 };
 ```
 
+</details>
+
 > PS:
 >
-> - NextJS 10.2+ [has an experimental.externalDir option](https://github.com/vercel/next.js/pull/22867) for monorepo,
->   when time comes it might allow to skip the webpack config override above.
 > - If your shared package make use of scss bundler... A custom webpack configuration will be necessary
 >   or use [next-transpile-modules](https://github.com/martpie/next-transpile-modules), see FAQ below.
 
