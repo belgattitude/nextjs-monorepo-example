@@ -83,6 +83,10 @@ const nextConfig = {
     // Prefer loading of ES Modules over CommonJS
     // @link https://nextjs.org/blog/next-11-1#es-modules-support
     esmExternals: false,
+    // Experimental monorepo support
+    // @link https://github.com/vercel/next.js/pull/22867
+    // @link https://github.com/vercel/next.js/discussions/26420
+    externalDir: true,
   },
 
   eslint: {
@@ -96,23 +100,6 @@ const nextConfig = {
 
   // @ts-ignore
   webpack: function (config, { defaultLoaders }) {
-    // This extra config allows to use paths defined in tsconfig
-    // rather than next-transpile-modules.
-    // @link https://github.com/vercel/next.js/pull/13542
-    const resolvedBaseUrl = path.resolve(config.context, '../../');
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.(tsx|ts|js|jsx|json)$/,
-        include: [resolvedBaseUrl],
-        use: defaultLoaders.babel,
-        // @ts-ignore
-        exclude: (excludePath) => {
-          return /node_modules/.test(excludePath);
-        },
-      },
-    ];
-
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
