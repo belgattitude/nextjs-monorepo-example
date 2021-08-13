@@ -34,15 +34,6 @@
 > It's managed by [Yarn 3.0](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
 > / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and
 > tries to be as strict and standard as possible.
->
-> It covers a full project lifecycle perspective (tools, ci, deployments, caches...). It's performant and
-> production ready. Don't get too much attention in the example apps, they're just there to test the thing.
->
-> BTW, it does not rely on tools such as [Rush](https://rushjs.io) or [Nx](https://nx.dev). The trio
-> yarn / nextjs / ts perform incredibly well (if not better) in my experience. That said
-> recipes found here can be applied anywhere.
->
-> Curious about performance and approaches ? See the FAQ.
 
 Useful to
 
@@ -151,11 +142,10 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 
 ## Howtos
 
-### Enable monorepo support
+### Enable workspace support
 
-Modern packages managers yarn, pnpm, npm v7 the first step is to define
-the paths to where your apps and packages will when looking for the apps and packages that will be consideredthe workspace configuration must be set in the root [package.json](./package.json)
-in a section called `workspaces`.
+Already set in this example, but check you root package.json and add directories
+that holds you packages and apps in the `workspaces` section=,
 
 <details>
 <summary>example</summary>
