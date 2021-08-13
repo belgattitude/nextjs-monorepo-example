@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.0.0
+
+### Major Changes
+
+- [#257](https://github.com/belgattitude/nextjs-monorepo-example/pull/257) [`d3b8916`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c) Thanks [@belgattitude](https://github.com/belgattitude)! - PrismaManager, prepare multi connection support for prisma
+
 ## 1.2.1
 
 ### Patch Changes

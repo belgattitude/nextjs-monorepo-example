@@ -1,8 +1,8 @@
 import { prismaClient } from '@/backend/config/container.config';
-import { PrismaClient } from '@your-org/db-main-prisma';
+import { PrismaClientDbMain } from '@your-org/db-main-prisma';
 
 export type GraphqlSdlContext = {
-  prisma: PrismaClient;
+  prisma: PrismaClientDbMain;
 };
 
 export const graphqlSdlContext: GraphqlSdlContext = {

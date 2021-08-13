@@ -21,7 +21,7 @@ const PoemGridWithReactQueryAndKy: React.FC<NoChildrenProps> = () => {
   return <>{data && <PoemList poems={data} />}</>;
 };
 
-export const DemoApiSection: React.FC<NoChildrenProps> = () => {
+export const DemoApiBlock: React.FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">

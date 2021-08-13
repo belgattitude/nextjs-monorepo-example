@@ -1,1 +1,2 @@
-export { prismaClient } from '@your-org/db-main-prisma';
+import { getPrismaClientDbMain } from './prisma/db-main-prisma.config';
+export const prismaClient = getPrismaClientDbMain();
