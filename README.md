@@ -56,8 +56,16 @@ Useful to
 
 ## Structure
 
-All in typescript, latest nextjs 10.2+, webpack5, yarn v3, ts-jest, prettier, eslint, emotion,
-tailwind, prisma 2, react-query... add or remove as much as you like.
+```
+.
+├── apps
+│   ├── blog-app
+│   └── web-app
+└── packages
+    ├── core-lib
+    ├── db-main-prisma
+    └── ui-lib
+```
 
 #### Example apps
 
@@ -83,7 +91,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 #### Folder overview
 
 <details>
-<summary>Key folders</summary>
+<summary>Detailled folder structure</summary>
 
 ```
 .
