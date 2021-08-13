@@ -495,7 +495,11 @@ they can skip building packages / files that haven't changed (using a cache)
 
 In this specific example, packages aren't built... files are imported like they exist in the app folder,
 the cache offered by nextjs do the job and would be used anyway... So there's less
-advantages.
+advantages (it's even worse cause you double cache, costs++).
+
+To get and idea of speed, check the CI actions and deployment performance (less than 2 minutes).
+That said there's still room for more perf, by running the typechecks, tests and linters on
+changed files only (like with [ultra-runner](https://github.com/folke/ultra-runner#readme)).
 
 Nowadays yarn / pnpm are totally able to act as a task runner (yarn workspaces commands),
 handle the dependency graph and the monorepo topology.
