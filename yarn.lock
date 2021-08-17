@@ -3858,7 +3858,7 @@ __metadata:
     react-dom: 17.0.2
     rimraf: 3.0.2
     shell-quote: 1.7.2
-    ts-jest: 27.0.4
+    ts-jest: 27.0.5
     typescript: 4.3.5
   peerDependencies:
     react: ^16.14.0 || ^17.0.2
@@ -3896,7 +3896,7 @@ __metadata:
     rimraf: 3.0.2
     shell-quote: 1.7.2
     transliteration: 2.2.0
-    ts-jest: 27.0.4
+    ts-jest: 27.0.5
     ts-node: 10.2.0
     typescript: 4.3.5
   languageName: unknown
@@ -3933,7 +3933,7 @@ __metadata:
     react-dom: 17.0.2
     rimraf: 3.0.2
     shell-quote: 1.7.2
-    ts-jest: 27.0.4
+    ts-jest: 27.0.5
     typescript: 4.3.5
   peerDependencies:
     react: ^16.14.0 || ^17.0.2
@@ -4922,7 +4922,7 @@ __metadata:
     symlink-dir: 5.0.1
     sync-directory: 2.2.22
     tailwindcss: 2.2.7
-    ts-jest: 27.0.4
+    ts-jest: 27.0.5
     typescript: 4.3.5
   languageName: unknown
   linkType: soft
@@ -5159,7 +5159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-from@npm:1.x, buffer-from@npm:^1.0.0":
+"buffer-from@npm:^1.0.0":
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
   checksum: ccc53b69736008bff764497367c4d24879ba7122bc619ee499ff47eef3a5b885ca496e87272e7ebffa0bec3804c83f84041c616f6e3318f40624e27c1d80f045
@@ -11334,15 +11334,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:1.x, mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "mkdirp@npm:1.0.4"
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
-  languageName: node
-  linkType: hard
-
 "mkdirp@npm:^0.5.5, mkdirp@npm:~0.5.1":
   version: 0.5.5
   resolution: "mkdirp@npm:0.5.5"
@@ -11351,6 +11342,15 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 3bce20ea525f9477befe458ab85284b0b66c8dc3812f94155af07c827175948cdd8114852ac6c6d82009b13c1048c37f6d98743eb019651ee25c39acc8aabe7d
+  languageName: node
+  linkType: hard
+
+"mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "mkdirp@npm:1.0.4"
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
   languageName: node
   linkType: hard
 
@@ -16052,23 +16052,21 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.0.4":
-  version: 27.0.4
-  resolution: "ts-jest@npm:27.0.4"
+"ts-jest@npm:27.0.5":
+  version: 27.0.5
+  resolution: "ts-jest@npm:27.0.5"
   dependencies:
     bs-logger: 0.x
-    buffer-from: 1.x
     fast-json-stable-stringify: 2.x
     jest-util: ^27.0.0
     json5: 2.x
     lodash: 4.x
     make-error: 1.x
-    mkdirp: 1.x
     semver: 7.x
     yargs-parser: 20.x
   peerDependencies:
     "@babel/core": ">=7.0.0-beta.0 <8"
-    "@types/jest": ^26.0.0
+    "@types/jest": ^27.0.0
     babel-jest: ">=27.0.0 <28"
     jest: ^27.0.0
     typescript: ">=3.8 <5.0"
@@ -16081,7 +16079,7 @@ resolve@^2.0.0-next.3:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 0f6013e35bb84bf5e65a1a85ea7ed5febff13ad40745dcf5bd6a40854b6d9cff3ffcd382994028941cb7f4548ec835f6fcfc502f5a3bf69deaec0cd92fa89f9b
+  checksum: fd53cdb6f913cbe802799d2b491f70f33c52c840c4b8483cecf600ff360efbd00c8d7ed9eb0dd677219f330ee38928b7b9890e9853e9f4d3574b9d8e1dcf4a30
   languageName: node
   linkType: hard
 
@@ -16874,7 +16872,7 @@ resolve@^2.0.0-next.3:
     symlink-dir: 5.0.1
     sync-directory: 2.2.22
     tailwindcss: 2.2.7
-    ts-jest: 27.0.4
+    ts-jest: 27.0.5
     ts-node: 10.2.0
     type-fest: 2.0.0
     typescript: 4.3.5
