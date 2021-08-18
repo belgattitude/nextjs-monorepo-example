@@ -1,11 +1,13 @@
 /**
- * An example declaration for svg if you're relying on @svgr/webpack or
- * equivalent strategy. I will improve type completion experience.
+ * An example declaration for svg if you're relying on https://react-svgr.com/
+ * and @svgr/webpack equivalent strategy.
+ *
+ * This definition will improve type completion experience.
  *
  * @link {https://github.com/gregberge/svgr/issues/546|For issue followup}
  * @link {https://github.com/gregberge/svgr/pull/573|To follow upcoming improvements}
  *
- * If you're not using @svgr/webpack, just replace by definition by
+ * If you're NOT using @svgr/webpack, be sure the svg definition is equivalent to
  *
  * ```
  * declare module "*.svg" {
