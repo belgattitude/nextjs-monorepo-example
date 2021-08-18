@@ -1,5 +1,20 @@
 # blog-app
 
+## 3.10.0
+
+### Minor Changes
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of svg icons
+
+* [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add webpack/svgr typescript type definitions
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add src/types.d folder to store the additional type defs
+
+### Patch Changes
+
+- Updated dependencies [[`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def)]:
+  - @your-org/ui-lib@3.2.0
+
 ## 3.9.0
 
 ### Minor Changes
