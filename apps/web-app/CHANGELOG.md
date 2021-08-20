@@ -1,5 +1,11 @@
 # web-app
 
+## 3.21.0
+
+### Minor Changes
+
+- [#286](https://github.com/belgattitude/nextjs-monorepo-example/pull/286) [`e030e4b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e030e4b1c2e865378bb5bc3e219286fda9bbebfc) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable experimental.esmExternals for NextJs 11.1.0
+
 ## 3.20.0
 
 ### Minor Changes
