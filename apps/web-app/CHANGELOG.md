@@ -1,5 +1,85 @@
 # web-app
 
+## 3.20.0
+
+### Minor Changes
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of svg icons
+
+* [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add webpack/svgr typescript type definitions
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add src/types.d folder to store the additional type defs
+
+### Patch Changes
+
+- Updated dependencies [[`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def)]:
+  - @your-org/ui-lib@3.2.0
+
+## 3.19.0
+
+### Minor Changes
+
+- [#265](https://github.com/belgattitude/nextjs-monorepo-example/pull/265) [`e321b8c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e321b8cdd35abab8a3c8cc08785017d39b04ce8d) Thanks [@belgattitude](https://github.com/belgattitude)! - Simplify setup, use NextJS 10.2+ experimental externalDirs option
+
+## 3.18.0
+
+### Minor Changes
+
+- [#262](https://github.com/belgattitude/nextjs-monorepo-example/pull/262) [`dd2669d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/dd2669d6d4079af52b7127722531404aec48d371) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with typed getServerSideProps
+
+* [#261](https://github.com/belgattitude/nextjs-monorepo-example/pull/261) [`7e3b862`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7e3b862766dd33423d295134fd3e365eed6fa220) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor app structure and configs
+
+## 3.17.0
+
+### Minor Changes
+
+- [#260](https://github.com/belgattitude/nextjs-monorepo-example/pull/260) [`57e8cb1`](https://github.com/belgattitude/nextjs-monorepo-example/commit/57e8cb1fac0adbbdcbb88bdac709ed6e75e8887d) Thanks [@belgattitude](https://github.com/belgattitude)! - Typesafe features configs with i18n namespaces
+
+* [#257](https://github.com/belgattitude/nextjs-monorepo-example/pull/257) [`d3b8916`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c) Thanks [@belgattitude](https://github.com/belgattitude)! - Backend config for prisma updated to multi schema (prep)
+
+### Patch Changes
+
+- Updated dependencies [[`d3b8916`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c)]:
+  - @your-org/db-main-prisma@2.0.0
+
+## 3.16.0
+
+### Minor Changes
+
+- [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to NextJs 11.1.0
+
+* [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Typechecks enabled for next.config.js
+
+## 3.15.1
+
+### Patch Changes
+
+- [#231](https://github.com/belgattitude/nextjs-monorepo-example/pull/231) [`90b0472`](https://github.com/belgattitude/nextjs-monorepo-example/commit/90b0472a3894a28a2b94e4ef85bee7d3a05f059e) Thanks [@belgattitude](https://github.com/belgattitude)! - Allow sentry/nextjs to be disabled by env variables (ie: in for local builds or CI)
+
+## 3.15.0
+
+### Minor Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Multistage docker build example
+
+* [#207](https://github.com/belgattitude/nextjs-monorepo-example/pull/207) [`3ee5d16`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3ee5d16081bbf12aaa0345e0587012cb94546914) Thanks [@belgattitude](https://github.com/belgattitude)! - Basic example of graphql (sdl based) route
+
+### Patch Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix next.config.js to not rely on bundle-analyzer when installed in production
+
+## 3.14.0
+
+### Minor Changes
+
+- [#216](https://github.com/belgattitude/nextjs-monorepo-example/pull/216) [`0184987`](https://github.com/belgattitude/nextjs-monorepo-example/commit/0184987f390b704dbfbcad0f272b220f4765f9c8) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with sentry
+
+## 3.13.0
+
+### Minor Changes
+
+- [#210](https://github.com/belgattitude/nextjs-monorepo-example/pull/210) [`9d68258`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9d6825850cb95e593b648f408814b02eb1c85fc7) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of basic size-limit action
+
 ## 3.12.1
 
 ### Patch Changes

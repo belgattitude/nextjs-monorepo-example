@@ -36,6 +36,7 @@ const config = {
     // For @testing-library/react
     '^@/test-utils$': '<rootDir>/../config/jest/test-utils',
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
+    '\\.svg$': '<rootDir>/../config/jest/__mocks__/react-svgr-mock.tsx',
     ...getTsConfigBasePaths(),
   },
   // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true

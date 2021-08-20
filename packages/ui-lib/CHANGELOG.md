@@ -1,5 +1,11 @@
 # @your-org/ui-lib
 
+## 3.2.0
+
+### Minor Changes
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of svg icons
+
 ## 3.1.3
 
 ### Patch Changes

@@ -1,5 +1,44 @@
 # blog-app
 
+## 3.10.0
+
+### Minor Changes
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of svg icons
+
+* [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add webpack/svgr typescript type definitions
+
+- [#278](https://github.com/belgattitude/nextjs-monorepo-example/pull/278) [`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def) Thanks [@belgattitude](https://github.com/belgattitude)! - Add src/types.d folder to store the additional type defs
+
+### Patch Changes
+
+- Updated dependencies [[`3b15241`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3b15241726d57c7ddafc9b2766cb670ada617def)]:
+  - @your-org/ui-lib@3.2.0
+
+## 3.9.0
+
+### Minor Changes
+
+- [#265](https://github.com/belgattitude/nextjs-monorepo-example/pull/265) [`e321b8c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e321b8cdd35abab8a3c8cc08785017d39b04ce8d) Thanks [@belgattitude](https://github.com/belgattitude)! - Simplify setup, use NextJS 10.2+ experimental externalDirs option
+
+## 3.8.0
+
+### Minor Changes
+
+- [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to NextJs 11.1.0
+
+* [#251](https://github.com/belgattitude/nextjs-monorepo-example/pull/251) [`931ba44`](https://github.com/belgattitude/nextjs-monorepo-example/commit/931ba441f6558386b6857571061f1cc559bf2e43) Thanks [@belgattitude](https://github.com/belgattitude)! - Typechecks enabled for next.config.js
+
+## 3.7.0
+
+### Minor Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Multistage docker build example
+
+### Patch Changes
+
+- [#189](https://github.com/belgattitude/nextjs-monorepo-example/pull/189) [`9be480e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9be480efadf976df9e8a106532cb3860014bfd4d) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix next.config.js to not rely on bundle-analyzer when installed in production
+
 ## 3.6.4
 
 ### Patch Changes

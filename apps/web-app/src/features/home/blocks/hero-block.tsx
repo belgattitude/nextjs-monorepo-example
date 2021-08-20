@@ -15,7 +15,7 @@ const navigation = [
   { name: 'Company', href: '#' },
 ];
 
-export const HeroSection: React.FC<Props> = () => {
+export const HeroBlock: React.FC<Props> = () => {
   const { t } = useTranslation(['home', 'common']);
 
   return (

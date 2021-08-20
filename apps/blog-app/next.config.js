@@ -1,4 +1,8 @@
-const path = require('path');
+// @ts-check
+
+// @ts-ignore
+const packageJson = require('./package');
+
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const isProd = process.env.NODE_ENV === 'production';
@@ -12,12 +16,18 @@ const tmModules = [
         // ie: '@react-google-maps/api'...
       ]
     : []),
-  // esm modules not yet supported by nextjs
+  // ESM only packages are not yet supported by NextJs if you're not
+  // using experimental experimental esmExternals
+  // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
+  // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
+  // @link https://github.com/vercel/next.js/issues/23725
+  // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   ...[
-    // ie: 'ky'..
+    // ie: newer versions of https://github.com/sindresorhus packages
   ],
 ];
-const withTM = require('next-transpile-modules')(tmModules, {
+
+const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
   resolveSymlinks: true,
   debug: false,
 });
@@ -33,10 +43,6 @@ if (disableSourceMaps) {
     '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
   );
 }
-
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
 
 // Example of setting up secure headers
 // @link https://github.com/jagaapple/next-secure-headers
@@ -59,49 +65,67 @@ const secureHeaders = createSecureHeaders({
   referrerPolicy: 'same-origin',
 });
 
-const config = withBundleAnalyzer(
-  withTM({
-    target: NEXTJS_BUILD_TARGET,
-    reactStrictMode: true,
-    webpack5: true,
-    productionBrowserSourceMaps: !disableSourceMaps,
-    optimizeFonts: true,
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  target: NEXTJS_BUILD_TARGET,
+  reactStrictMode: true,
+  // @ts-ignore
+  webpack5: true,
+  productionBrowserSourceMaps: !disableSourceMaps,
+  optimizeFonts: true,
 
-    eslint: {
-      ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
-      dirs: ['src'],
-    },
+  httpAgentOptions: {
+    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    keepAlive: true,
+  },
 
-    async headers() {
-      return [{ source: '/(.*)', headers: secureHeaders }];
-    },
+  experimental: {
+    // Prefer loading of ES Modules over CommonJS
+    // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
+    // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
+    esmExternals: true,
+    // Experimental monorepo support
+    // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
+    // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
+    externalDir: true,
+  },
 
-    webpack: function (config, { defaultLoaders }) {
-      // This extra config allows to use paths defined in tsconfig
-      // rather than next-transpile-modules.
-      // @link https://github.com/vercel/next.js/pull/13542
-      const resolvedBaseUrl = path.resolve(config.context, '../../');
-      config.module.rules = [
-        ...config.module.rules,
-        {
-          test: /\.(tsx|ts|js|jsx|json)$/,
-          include: [resolvedBaseUrl],
-          use: defaultLoaders.babel,
-          exclude: (excludePath) => {
-            return /node_modules/.test(excludePath);
-          },
-        },
-      ];
+  eslint: {
+    ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
+    dirs: ['src'],
+  },
 
-      config.module.rules.push({
-        test: /\.svg$/,
-        issuer: /\.(js|ts)x?$/,
-        use: ['@svgr/webpack'],
-      });
+  async headers() {
+    return [{ source: '/(.*)', headers: secureHeaders }];
+  },
 
-      return config;
-    },
-  })
-);
+  // @ts-ignore
+  webpack: function (config, { defaultLoaders }) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      issuer: /\.(js|ts)x?$/,
+      use: ['@svgr/webpack'],
+    });
 
-module.exports = config;
+    return config;
+  },
+  env: {
+    APP_NAME: packageJson.name,
+    APP_VERSION: packageJson.version,
+    BUILD_TIME: new Date().getTime().toString(10),
+  },
+};
+
+const config = withNextTranspileModules(nextConfig);
+
+if (process.env.ANALYZE === 'true') {
+  // @ts-ignore
+  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: true,
+  });
+  module.exports = withBundleAnalyzer(config);
+} else {
+  module.exports = config;
+}

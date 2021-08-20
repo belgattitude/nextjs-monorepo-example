@@ -1,20 +1,16 @@
 # Changelog
 
-All notable changes to this project will be documented 
+All notable changes to this project will be documented
 in their respective packages and apps. Changelog generation is
 done through atlassian/changesets.
 
 ```
 .
 ├── apps
-│   ├── blog-app        
-│   │   └── CHANGELOG.md
-│   ├── web-app  
-│   │   └── CHANGELOG.md
+│   ├── blog-app
+│   └── web-app
 └── packages
     ├── core-lib
-    │   └── CHANGELOG.md
-    └── ui-lib                   
-        └── CHANGELOG.md
+    ├── db-main-prisma
+    └── ui-lib
 ```
-
