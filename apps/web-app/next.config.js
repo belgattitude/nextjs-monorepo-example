@@ -1,6 +1,5 @@
 // @ts-check
 
-const path = require('path');
 const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 
@@ -20,12 +19,14 @@ const tmModules = [
         // ie: '@react-google-maps/api'...
       ]
     : []),
-  // ESM only packages are not yet supported by NextJs
+  // ESM only packages are not yet supported by NextJs if you're not
+  // using experimental experimental esmExternals
+  // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
+  // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
   // @link https://github.com/vercel/next.js/issues/23725
   // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
   ...[
     // ie: newer versions of https://github.com/sindresorhus packages
-    'ky',
   ],
 ];
 const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
@@ -85,11 +86,12 @@ const nextConfig = {
 
   experimental: {
     // Prefer loading of ES Modules over CommonJS
-    // @link https://nextjs.org/blog/next-11-1#es-modules-support
-    esmExternals: false,
+    // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
+    // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
+    esmExternals: true,
     // Experimental monorepo support
-    // @link https://github.com/vercel/next.js/pull/22867
-    // @link https://github.com/vercel/next.js/discussions/26420
+    // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
+    // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
   },
 
