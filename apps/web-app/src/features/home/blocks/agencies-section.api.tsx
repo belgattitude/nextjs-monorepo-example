@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { JsonApiResponse } from '../../../core/json-api/json-api';
+import { JsonApiResponse } from '@/core/json-api/json-api';
 
 export type GetExampleData = {
   count: number | null;

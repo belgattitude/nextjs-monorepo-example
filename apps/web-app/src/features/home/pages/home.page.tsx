@@ -6,7 +6,7 @@ import { FeaturesBlock } from '../blocks/features-block';
 import { CtaBlock } from '../blocks/cta-block';
 import { useTranslation } from 'next-i18next';
 import { homeConfig } from '../home.config';
-import { AgenciesSection } from './sections/agencies-section';
+import { AgenciesSection } from '../blocks/agencies-section';
 
 type Props = {
   children?: never;
