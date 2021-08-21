@@ -1,13 +1,16 @@
 import { Fragment } from 'react';
 import { useQuery } from 'react-query';
-import { GetExampleData, getExampleData } from './agencies-section.api';
 import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
+import {
+  fetchAgencies,
+  GetAgenciesData,
+} from '@/features/home/api/fetch.agencies';
 
 type Props = {
   children?: never;
 };
 
-const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
+const Card: React.FC<{ agency: GetAgenciesData['agencies'][0] }> = (props) => {
   const { agency } = props;
 
   return (
@@ -46,9 +49,9 @@ const Card: React.FC<{ agency: GetExampleData['agencies'][0] }> = (props) => {
   );
 };
 
-export const AgenciesSection: React.FC<Props> = () => {
+export const AgenciesBlock: React.FC<Props> = () => {
   const { error, isLoading, data } = useQuery(`example-data`, () =>
-    getExampleData()
+    fetchAgencies().then((resp) => resp.data)
   );
   return (
     <div className="bg-gray-50">

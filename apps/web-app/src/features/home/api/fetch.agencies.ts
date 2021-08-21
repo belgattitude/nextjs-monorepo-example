@@ -1,7 +1,11 @@
-import axios from 'axios';
-import { JsonApiResponse } from '@/core/json-api/json-api';
+import ky from 'ky';
+import {
+  isJsonApiSuccessResponse,
+  JsonApiResponse,
+  JsonApiSuccessResponse,
+} from '@your-org/core-lib/api/json-api';
 
-export type GetExampleData = {
+export type GetAgenciesData = {
   count: number | null;
   agencies: Array<{
     slug: string;
@@ -30,23 +34,22 @@ export type GetExampleData = {
   }>;
 };
 
-export const getExampleData = async (): Promise<GetExampleData> => {
-  const url = '/api/rest/example';
-  const data = await axios
-    .get<JsonApiResponse<GetExampleData>>(url)
-    .then((res) => res.data);
-  if (data.success) {
-    return data.data;
-  }
-  throw new Error('Cant load data');
-};
-
-export const getExampleDataFromSource = async (): Promise<
-  JsonApiResponse<GetExampleData>
+export const fetchAgencies = async (): Promise<
+  JsonApiSuccessResponse<GetAgenciesData>
 > => {
   const url =
     'https://public-app-git-feature-longtail-1-sortlist.vercel.app/api/query/longtail/agencies?locale=en&locationSlug=brussels-brussels-be&_limit=300';
-  return axios
-    .get<JsonApiResponse<GetExampleData>>(url)
-    .then((res) => res.data);
+  return ky
+    .get(url, {
+      throwHttpErrors: true,
+    })
+    .json<JsonApiResponse<GetAgenciesData>>()
+    .then((resp) => {
+      if (!isJsonApiSuccessResponse(resp)) {
+        throw new Error(
+          `Error fetching agencies: ${JSON.stringify(resp.errors)}`
+        );
+      }
+      return resp;
+    });
 };

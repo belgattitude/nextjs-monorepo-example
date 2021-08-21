@@ -6,7 +6,7 @@ import { FeaturesBlock } from '../blocks/features-block';
 import { CtaBlock } from '../blocks/cta-block';
 import { useTranslation } from 'next-i18next';
 import { homeConfig } from '../home.config';
-import { AgenciesSection } from '../blocks/agencies-section';
+import { AgenciesBlock } from '../blocks/agencies-block';
 
 type Props = {
   children?: never;
@@ -24,7 +24,7 @@ export const HomePage: React.FC<Props> = () => {
       <MainLayout>
         <Banner />
         <HeroBlock />
-        <AgenciesSection />
+        <AgenciesBlock />
         <FeaturesBlock />
         <CtaBlock />
       </MainLayout>
