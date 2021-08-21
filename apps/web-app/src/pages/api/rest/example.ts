@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getExampleDataFromSource } from '../../../features/home/sections/agencies-section.api';
+import { fetchAgencies } from '../../../features/home/api/fetch.agencies';
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    const data = await getExampleDataFromSource();
+    const data = await fetchAgencies();
     res.setHeader('Cache-Control', 'public,max-age=3600,s-maxage=3600');
     return res.json(data);
   } else {
