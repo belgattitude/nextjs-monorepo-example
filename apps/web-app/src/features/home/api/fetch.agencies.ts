@@ -34,11 +34,30 @@ export type GetAgenciesData = {
   }>;
 };
 
-export const fetchAgencies = async (): Promise<
+export const fetchAgenciesFromOriginatingSandbox = async (): Promise<
   JsonApiSuccessResponse<GetAgenciesData>
 > => {
   const url =
     'https://public-app-git-feature-longtail-1-sortlist.vercel.app/api/query/longtail/agencies?locale=en&locationSlug=brussels-brussels-be&_limit=300';
+  return ky
+    .get(url, {
+      throwHttpErrors: true,
+    })
+    .json<JsonApiResponse<GetAgenciesData>>()
+    .then((resp) => {
+      if (!isJsonApiSuccessResponse(resp)) {
+        throw new Error(
+          `Error fetching agencies: ${JSON.stringify(resp.errors)}`
+        );
+      }
+      return resp;
+    });
+};
+
+export const fetchAgenciesFromInternalApi = async (): Promise<
+  JsonApiSuccessResponse<GetAgenciesData>
+> => {
+  const url = '/api/rest/example';
   return ky
     .get(url, {
       throwHttpErrors: true,

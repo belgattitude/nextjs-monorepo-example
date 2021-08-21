@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
 import {
-  fetchAgencies,
+  fetchAgenciesFromInternalApi,
   GetAgenciesData,
 } from '@/features/home/api/fetch.agencies';
 
@@ -51,7 +51,7 @@ const Card: React.FC<{ agency: GetAgenciesData['agencies'][0] }> = (props) => {
 
 export const AgenciesBlock: React.FC<Props> = () => {
   const { error, isLoading, data } = useQuery(`example-data`, () =>
-    fetchAgencies().then((resp) => resp.data)
+    fetchAgenciesFromInternalApi().then((resp) => resp.data)
   );
   return (
     <div className="bg-gray-50">
