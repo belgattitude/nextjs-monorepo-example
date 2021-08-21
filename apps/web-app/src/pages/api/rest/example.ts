@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { fetchAgencies } from '../../../features/home/api/fetch.agencies';
+import { fetchAgencies } from '@/features/home/api/fetch.agencies';
 
 export default async function handle(
   req: NextApiRequest,
