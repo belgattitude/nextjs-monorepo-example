@@ -1,5 +1,11 @@
 # web-app
 
+## 3.23.1
+
+### Patch Changes
+
+- [#312](https://github.com/belgattitude/nextjs-monorepo-example/pull/312) [`3982ef0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3982ef0c9c078b159d2d1aa0076367c49fedb4f0) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactored and fully type i18n keys per activated namespaces
+
 ## 3.23.0
 
 ### Minor Changes
