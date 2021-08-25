@@ -1,5 +1,13 @@
 # blog-app
 
+## 3.13.0
+
+### Minor Changes
+
+- [#287](https://github.com/belgattitude/nextjs-monorepo-example/pull/287) [`5a24abb`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5a24abb4db86141eb22ccc2634d87c2b0902c3af) Thanks [@belgattitude](https://github.com/belgattitude)! - Add 404 page in example to reduce bundle size
+
+* [#309](https://github.com/belgattitude/nextjs-monorepo-example/pull/309) [`e7a6f54`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e7a6f54ca392fef6afa6824dcfc6bed211442d5f) Thanks [@belgattitude](https://github.com/belgattitude)! - Testing, clarify test-utils and app providers
+
 ## 3.12.0
 
 ### Minor Changes
