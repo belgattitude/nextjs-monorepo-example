@@ -5,6 +5,9 @@ const packageJson = require('./package');
 
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
+const NEXTJS_IGNORE_TYPECHECK =
+  process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
+
 const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
@@ -90,6 +93,10 @@ const nextConfig = {
     // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
+  },
+
+  typescript: {
+    ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
   },
 
   eslint: {

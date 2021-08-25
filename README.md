@@ -41,9 +41,9 @@ Useful to
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
-[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
-
 ## Structure
+
+[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
 ```
 .

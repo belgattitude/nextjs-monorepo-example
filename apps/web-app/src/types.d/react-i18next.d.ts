@@ -8,6 +8,7 @@ import 'react-i18next';
 import common from '../../public/locales/en/common.json';
 import home from '../../public/locales/en/home.json';
 import demo from '../../public/locales/en/demo.json';
+import systemPages from '../../public/locales/en/systemPages.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
@@ -16,6 +17,7 @@ declare module 'react-i18next' {
       common: typeof common;
       home: typeof home;
       demo: typeof demo;
+      systemPages: typeof systemPages;
     };
   }
 }

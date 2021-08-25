@@ -1,5 +1,25 @@
 # blog-app
 
+## 3.13.0
+
+### Minor Changes
+
+- [#287](https://github.com/belgattitude/nextjs-monorepo-example/pull/287) [`5a24abb`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5a24abb4db86141eb22ccc2634d87c2b0902c3af) Thanks [@belgattitude](https://github.com/belgattitude)! - Add 404 page in example to reduce bundle size
+
+* [#309](https://github.com/belgattitude/nextjs-monorepo-example/pull/309) [`e7a6f54`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e7a6f54ca392fef6afa6824dcfc6bed211442d5f) Thanks [@belgattitude](https://github.com/belgattitude)! - Testing, clarify test-utils and app providers
+
+## 3.12.0
+
+### Minor Changes
+
+- [#307](https://github.com/belgattitude/nextjs-monorepo-example/pull/307) [`adaf85e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/adaf85edd8137eae23a2b084ca9d85ea7a11a6fd) Thanks [@belgattitude](https://github.com/belgattitude)! - Perf: next.config.js allow conditional typecheck in build (faster ci possible)
+
+## 3.11.0
+
+### Minor Changes
+
+- [#286](https://github.com/belgattitude/nextjs-monorepo-example/pull/286) [`e030e4b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e030e4b1c2e865378bb5bc3e219286fda9bbebfc) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable experimental.esmExternals for NextJs 11.1.0
+
 ## 3.10.0
 
 ### Minor Changes

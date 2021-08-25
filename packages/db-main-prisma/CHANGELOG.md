@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.1.0
+
+### Minor Changes
+
+- [#302](https://github.com/belgattitude/nextjs-monorepo-example/pull/302) [`6cc466a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6cc466a8d0caf4e2ec8931ce87696ee83af71d19) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to prisma 2.30.0 with napi by default
+
 ## 2.0.0
 
 ### Major Changes
