@@ -1,5 +1,11 @@
 # blog-app
 
+## 3.12.0
+
+### Minor Changes
+
+- [#307](https://github.com/belgattitude/nextjs-monorepo-example/pull/307) [`adaf85e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/adaf85edd8137eae23a2b084ca9d85ea7a11a6fd) Thanks [@belgattitude](https://github.com/belgattitude)! - Perf: next.config.js allow conditional typecheck in build (faster ci possible)
+
 ## 3.11.0
 
 ### Minor Changes
