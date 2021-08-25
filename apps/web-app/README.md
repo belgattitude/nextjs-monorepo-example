@@ -16,7 +16,7 @@ Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.
 
 ## Quick start
 
-> For rest/api database access be sure to start `docker-compose up database`,
+> For rest/api database access be sure to start `docker-compose up main-db`,
 > see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/packages/db-main-prisma/README.md).
 
 ```bash

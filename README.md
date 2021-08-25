@@ -413,7 +413,7 @@ call their counterparts defined in packages and apps.
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
     "docker:up": "docker-compose up -d",
-    "docker:up:database": "docker-compose up -d database",
+    "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
     "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
