@@ -2,6 +2,8 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'react-i18next';
 import { getServerSideTranslations } from '@/core/i18n/get-server-side-translations';
 
+// The only way I found to ensure typing of keys... Otherwise
+// all namespaces will be accepted
 const i18nNamespaces: Array<'systemPages'> = ['systemPages'];
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
