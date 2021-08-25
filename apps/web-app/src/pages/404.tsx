@@ -2,6 +2,7 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'react-i18next';
 import { I18nNamespaces } from '@/core/i18n/i18n-namespaces.type';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import nextI18nextConfig from '../../next-i18next.config';
 
 const i18nNamespaces: I18nNamespaces = ['servicePages'];
 
@@ -22,10 +23,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     locale: string,
     namespaces: string[]
   ) => {
-    return serverSideTranslations(locale, namespaces);
+    return await serverSideTranslations(locale, namespaces, nextI18nextConfig);
   };
 
-  const inlinedTranslation = await getFakeServerSideTranslations(
+  const inlinedTranslation = await getRealServerSideTranslations(
     locale,
     i18nNamespaces
   );
