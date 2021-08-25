@@ -81,13 +81,16 @@ jobs:
         run: |
           yarn build
         env:
+          # Speed up build cause they are linted in a previous step
+          NEXTJS_IGNORE_ESLINT: 1
+          # Speed up build cause they are typechecked in a previous step
+          NEXTJS_IGNORE_TYPECHECK: 1
+          # Speed up build by not running sourcemap upload (not even dry-run)
           # Disable sourcemaps will speed up ci
           # be sure to disable it if you intent to use the build
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
-          # Speed up build cause they are linted in a previous step
-          NEXTJS_IGNORE_ESLINT: 1
           NEXTJS_BUILD_TARGET: server
 
 

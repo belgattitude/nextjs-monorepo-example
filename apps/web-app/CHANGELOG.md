@@ -1,5 +1,24 @@
 # web-app
 
+## 3.22.0
+
+### Minor Changes
+
+- [#307](https://github.com/belgattitude/nextjs-monorepo-example/pull/307) [`adaf85e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/adaf85edd8137eae23a2b084ca9d85ea7a11a6fd) Thanks [@belgattitude](https://github.com/belgattitude)! - Perf: next.config.js allow conditional typecheck in build (faster ci possible)
+
+## 3.21.1
+
+### Patch Changes
+
+- Updated dependencies [[`6cc466a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6cc466a8d0caf4e2ec8931ce87696ee83af71d19)]:
+  - @your-org/db-main-prisma@2.1.0
+
+## 3.21.0
+
+### Minor Changes
+
+- [#286](https://github.com/belgattitude/nextjs-monorepo-example/pull/286) [`e030e4b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e030e4b1c2e865378bb5bc3e219286fda9bbebfc) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable experimental.esmExternals for NextJs 11.1.0
+
 ## 3.20.0
 
 ### Minor Changes
