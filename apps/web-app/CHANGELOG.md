@@ -1,5 +1,15 @@
 # web-app
 
+## 3.23.0
+
+### Minor Changes
+
+- [#311](https://github.com/belgattitude/nextjs-monorepo-example/pull/311) [`f4cce0d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f4cce0d2c24536c49b72a1a18565548879e639aa) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of translated Custom 404 page (getStaticProps)
+
+* [#287](https://github.com/belgattitude/nextjs-monorepo-example/pull/287) [`5a24abb`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5a24abb4db86141eb22ccc2634d87c2b0902c3af) Thanks [@belgattitude](https://github.com/belgattitude)! - Add 404 page in example to reduce bundle size
+
+- [#309](https://github.com/belgattitude/nextjs-monorepo-example/pull/309) [`e7a6f54`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e7a6f54ca392fef6afa6824dcfc6bed211442d5f) Thanks [@belgattitude](https://github.com/belgattitude)! - Testing: add example with react-i18n provider
+
 ## 3.22.0
 
 ### Minor Changes
