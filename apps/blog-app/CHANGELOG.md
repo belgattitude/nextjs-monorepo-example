@@ -1,5 +1,11 @@
 # blog-app
 
+## 3.14.0
+
+### Minor Changes
+
+- [#314](https://github.com/belgattitude/nextjs-monorepo-example/pull/314) [`fb8db49`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fb8db4975f50090f43196a0951b014f9fedbc4b0) Thanks [@belgattitude](https://github.com/belgattitude)! - From Nextjs 11.1.0 we can use next-image in serverless
+
 ## 3.13.0
 
 ### Minor Changes
