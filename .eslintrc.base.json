@@ -1,6 +1,7 @@
 {
   "root": true,
   "extends": [
+    "plugin:sonarjs/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:jest/recommended"
@@ -10,7 +11,8 @@
     "prettier",
     "react-hooks",
     "jest",
-    "jest-formatting"
+    "jest-formatting",
+    "sonarjs"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -30,8 +32,9 @@
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": [
       "error",
-      { "allow": ["private-constructors", "decoratedFunctions"] }
-    ]
+      { "allow": ["private-constructors"] }
+    ],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
   },
   "overrides": [
     {
@@ -55,7 +58,9 @@
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off"
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "sonarjs/no-duplicate-string": "off",
+        "sonarjs/no-all-duplicated-branches": "off"
       }
     },
     {
