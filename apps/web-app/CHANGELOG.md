@@ -1,5 +1,18 @@
 # web-app
 
+## 3.24.0
+
+### Minor Changes
+
+- [#319](https://github.com/belgattitude/nextjs-monorepo-example/pull/319) [`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to Typescript 4.4.2 strict ("useUnknownInCatchVariables": true)
+
+### Patch Changes
+
+- Updated dependencies [[`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
+  - @your-org/core-lib@3.5.0
+  - @your-org/db-main-prisma@2.2.0
+  - @your-org/ui-lib@3.3.0
+
 ## 3.23.1
 
 ### Patch Changes
