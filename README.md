@@ -443,6 +443,8 @@ An example of base eslint configuration can be found in [./.eslint.base.json](./
 and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.json](./apps/web-app/.eslintrc.json).
 Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
 
+For code complexity and deeper code analysis [sonarjs plugin](https://github.com/SonarSource/eslint-plugin-sonarjs) is activated.
+
 ### 5.2 Hooks / Lint-staged
 
 Check the [.husky](./.husky) folder content to see what hooks are enabled. Lint-staged is used to guarantee

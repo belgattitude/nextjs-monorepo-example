@@ -40,6 +40,12 @@
       }
     },
     {
+      "files": ["src/backend/api/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
       "files": ["**/*.devtool.ts", "**/*.devtool.tsx"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
