@@ -1,5 +1,17 @@
 # blog-app
 
+## 3.16.0
+
+### Minor Changes
+
+- [#323](https://github.com/belgattitude/nextjs-monorepo-example/pull/323) [`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: eslint-plugin-sonarjs cause cause it desserves to belong here
+
+### Patch Changes
+
+- Updated dependencies [[`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
+  - @your-org/core-lib@3.6.0
+  - @your-org/ui-lib@3.4.0
+
 ## 3.15.0
 
 ### Minor Changes
