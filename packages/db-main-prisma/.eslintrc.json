@@ -1,8 +1,15 @@
 {
   "root": true,
-  "extends": ["../../.eslintrc.base.json", "plugin:jsx-a11y/recommended"],
+  "extends": ["../../.eslintrc.base.json"],
   "env": {
     "browser": true
   },
-  "overrides": []
+  "overrides": [
+    {
+      "files": ["*.seed.ts", "*.seed.js"],
+      "rules": {
+        "sonarjs/no-duplicate-string": "off"
+      }
+    }
+  ]
 }
