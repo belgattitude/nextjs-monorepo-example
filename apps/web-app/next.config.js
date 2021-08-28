@@ -124,14 +124,6 @@ const nextConfig = {
 
   // @ts-ignore
   webpack: (config, { defaultLoaders, isServer }) => {
-    // A temp workaround for https://github.com/prisma/prisma/issues/6899#issuecomment-849126557
-    /*
-    if (isServer) {
-      config.externals.push('_http_common');
-    }
-
-     */
-
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
