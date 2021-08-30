@@ -49,11 +49,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
+      # see https://github.com/vercel/next.js/pull/27362
       - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/apps/web-app/.next/cache
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          restore-keys: |
+               ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
         run: |
