@@ -123,7 +123,7 @@ const nextConfig = {
   },
 
   // @ts-ignore
-  webpack: (config, { isServer, _defaultLoaders }) => {
+  webpack: (config, { _isServer, _defaultLoaders }) => {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
