@@ -54,7 +54,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/apps/web-app/.next/cache
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/blog-app/src/**.json') }}
+          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
           restore-keys: |
                ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
 
