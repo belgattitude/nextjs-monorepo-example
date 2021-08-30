@@ -1,5 +1,60 @@
 # web-app
 
+## 3.25.0
+
+### Minor Changes
+
+- [#323](https://github.com/belgattitude/nextjs-monorepo-example/pull/323) [`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: eslint-plugin-sonarjs cause cause it desserves to belong here
+
+### Patch Changes
+
+- Updated dependencies [[`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
+  - @your-org/core-lib@3.6.0
+  - @your-org/db-main-prisma@2.3.0
+  - @your-org/ui-lib@3.4.0
+
+## 3.24.0
+
+### Minor Changes
+
+- [#319](https://github.com/belgattitude/nextjs-monorepo-example/pull/319) [`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to Typescript 4.4.2 strict ("useUnknownInCatchVariables": true)
+
+### Patch Changes
+
+- Updated dependencies [[`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
+  - @your-org/core-lib@3.5.0
+  - @your-org/db-main-prisma@2.2.0
+  - @your-org/ui-lib@3.3.0
+
+## 3.23.1
+
+### Patch Changes
+
+- [#312](https://github.com/belgattitude/nextjs-monorepo-example/pull/312) [`3982ef0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3982ef0c9c078b159d2d1aa0076367c49fedb4f0) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactored and fully type i18n keys per activated namespaces
+
+## 3.23.0
+
+### Minor Changes
+
+- [#311](https://github.com/belgattitude/nextjs-monorepo-example/pull/311) [`f4cce0d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f4cce0d2c24536c49b72a1a18565548879e639aa) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of translated Custom 404 page (getStaticProps)
+
+* [#287](https://github.com/belgattitude/nextjs-monorepo-example/pull/287) [`5a24abb`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5a24abb4db86141eb22ccc2634d87c2b0902c3af) Thanks [@belgattitude](https://github.com/belgattitude)! - Add 404 page in example to reduce bundle size
+
+- [#309](https://github.com/belgattitude/nextjs-monorepo-example/pull/309) [`e7a6f54`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e7a6f54ca392fef6afa6824dcfc6bed211442d5f) Thanks [@belgattitude](https://github.com/belgattitude)! - Testing: add example with react-i18n provider
+
+## 3.22.0
+
+### Minor Changes
+
+- [#307](https://github.com/belgattitude/nextjs-monorepo-example/pull/307) [`adaf85e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/adaf85edd8137eae23a2b084ca9d85ea7a11a6fd) Thanks [@belgattitude](https://github.com/belgattitude)! - Perf: next.config.js allow conditional typecheck in build (faster ci possible)
+
+## 3.21.1
+
+### Patch Changes
+
+- Updated dependencies [[`6cc466a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6cc466a8d0caf4e2ec8931ce87696ee83af71d19)]:
+  - @your-org/db-main-prisma@2.1.0
+
 ## 3.21.0
 
 ### Minor Changes

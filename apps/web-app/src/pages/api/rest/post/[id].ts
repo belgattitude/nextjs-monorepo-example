@@ -23,7 +23,7 @@ export default async function handleGetPost(
         JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))
       );
     } catch (e) {
-      const apiError = JsonApiErrorFactory.fromTsedException(e);
+      const apiError = JsonApiErrorFactory.fromCatchVariable(e);
       return res
         .status(apiError.status ?? 500)
         .json(JsonApiResponseFactory.fromError(apiError));

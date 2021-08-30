@@ -8,6 +8,9 @@ const packageJson = require('./package');
 
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
+const NEXTJS_IGNORE_TYPECHECK =
+  process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
+
 const isProd = process.env.NODE_ENV === 'production';
 
 // Tell webpack to compile those packages
@@ -106,6 +109,10 @@ const nextConfig = {
     domains: ['source.unsplash.com'],
   },
 
+  typescript: {
+    ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
+  },
+
   eslint: {
     ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
     dirs: ['src'],
@@ -116,12 +123,7 @@ const nextConfig = {
   },
 
   // @ts-ignore
-  webpack: (config, { defaultLoaders, isServer }) => {
-    // A temp workaround for https://github.com/prisma/prisma/issues/6899#issuecomment-849126557
-    if (isServer) {
-      config.externals.push('_http_common');
-    }
-
+  webpack: (config, { isServer, _defaultLoaders }) => {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,

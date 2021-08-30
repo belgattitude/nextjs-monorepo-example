@@ -1,5 +1,49 @@
 # blog-app
 
+## 3.16.0
+
+### Minor Changes
+
+- [#323](https://github.com/belgattitude/nextjs-monorepo-example/pull/323) [`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: eslint-plugin-sonarjs cause cause it desserves to belong here
+
+### Patch Changes
+
+- Updated dependencies [[`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
+  - @your-org/core-lib@3.6.0
+  - @your-org/ui-lib@3.4.0
+
+## 3.15.0
+
+### Minor Changes
+
+- [#319](https://github.com/belgattitude/nextjs-monorepo-example/pull/319) [`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to Typescript 4.4.2 strict ("useUnknownInCatchVariables": true)
+
+### Patch Changes
+
+- Updated dependencies [[`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
+  - @your-org/core-lib@3.5.0
+  - @your-org/ui-lib@3.3.0
+
+## 3.14.0
+
+### Minor Changes
+
+- [#314](https://github.com/belgattitude/nextjs-monorepo-example/pull/314) [`fb8db49`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fb8db4975f50090f43196a0951b014f9fedbc4b0) Thanks [@belgattitude](https://github.com/belgattitude)! - From Nextjs 11.1.0 we can use next-image in serverless
+
+## 3.13.0
+
+### Minor Changes
+
+- [#287](https://github.com/belgattitude/nextjs-monorepo-example/pull/287) [`5a24abb`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5a24abb4db86141eb22ccc2634d87c2b0902c3af) Thanks [@belgattitude](https://github.com/belgattitude)! - Add 404 page in example to reduce bundle size
+
+* [#309](https://github.com/belgattitude/nextjs-monorepo-example/pull/309) [`e7a6f54`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e7a6f54ca392fef6afa6824dcfc6bed211442d5f) Thanks [@belgattitude](https://github.com/belgattitude)! - Testing, clarify test-utils and app providers
+
+## 3.12.0
+
+### Minor Changes
+
+- [#307](https://github.com/belgattitude/nextjs-monorepo-example/pull/307) [`adaf85e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/adaf85edd8137eae23a2b084ca9d85ea7a11a6fd) Thanks [@belgattitude](https://github.com/belgattitude)! - Perf: next.config.js allow conditional typecheck in build (faster ci possible)
+
 ## 3.11.0
 
 ### Minor Changes

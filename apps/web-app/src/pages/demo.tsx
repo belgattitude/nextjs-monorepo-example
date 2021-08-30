@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function DemoRoute(
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
+  _props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return <DemoPage />;
 }

@@ -41,9 +41,9 @@ Useful to
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
-[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
-
 ## Structure
+
+[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
 ```
 .
@@ -413,7 +413,7 @@ call their counterparts defined in packages and apps.
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
     "docker:up": "docker-compose up -d",
-    "docker:up:database": "docker-compose up -d database",
+    "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
     "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
@@ -442,6 +442,8 @@ They are based on the excellent [npm-check-updates](https://github.com/raineorsh
 An example of base eslint configuration can be found in [./.eslint.base.json](./.eslintrc.base.json), apps
 and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.json](./apps/web-app/.eslintrc.json).
 Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
+
+For code complexity and deeper code analysis [sonarjs plugin](https://github.com/SonarSource/eslint-plugin-sonarjs) is activated.
 
 ### 5.2 Hooks / Lint-staged
 

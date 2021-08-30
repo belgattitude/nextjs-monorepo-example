@@ -12,7 +12,7 @@ module.exports = {
     colors: {
       ...defaultTheme.colors,
       gray: colors.coolGray,
-      blue: colors.lightBlue,
+      blue: colors.sky,
     },
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],

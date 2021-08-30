@@ -20,7 +20,7 @@ export default async function handleListPoems(
         )
       );
     } catch (e) {
-      const apiError = JsonApiErrorFactory.fromTsedException(e);
+      const apiError = JsonApiErrorFactory.fromCatchVariable(e);
       return res
         .status(apiError.status ?? 500)
         .json(JsonApiResponseFactory.fromError(apiError));
