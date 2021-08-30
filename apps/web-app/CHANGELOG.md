@@ -1,5 +1,11 @@
 # web-app
 
+## 3.26.0
+
+### Minor Changes
+
+- [#330](https://github.com/belgattitude/nextjs-monorepo-example/pull/330) [`25a163d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/25a163db7c17a3a126514978f427d41fe121b961) Thanks [@belgattitude](https://github.com/belgattitude)! - Add sharp as regular dependency
+
 ## 3.25.0
 
 ### Minor Changes
