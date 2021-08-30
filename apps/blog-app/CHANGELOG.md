@@ -1,5 +1,13 @@
 # blog-app
 
+## 3.16.1
+
+### Patch Changes
+
+- [#334](https://github.com/belgattitude/nextjs-monorepo-example/pull/334) [`7c69c58`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7c69c5863bb5e5d5b426ca7ded7362ce4f445305) Thanks [@belgattitude](https://github.com/belgattitude)! - next.config.js allow example unused variables in webpack override
+
+* [#290](https://github.com/belgattitude/nextjs-monorepo-example/pull/290) [`ec1cd6a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ec1cd6a346f323ee67570082a32ecb9f7ec2d136) Thanks [@belgattitude](https://github.com/belgattitude)! - CI perf - nextjs build cache: prevent cache going stale
+
 ## 3.16.0
 
 ### Minor Changes
