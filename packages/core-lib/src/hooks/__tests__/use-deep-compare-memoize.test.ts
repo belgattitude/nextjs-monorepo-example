@@ -1,5 +1,5 @@
-import { useDeepCompareMemoize } from '../use-deep-compare-memoize';
 import { renderHook } from '@testing-library/react-hooks';
+import { useDeepCompareMemoize } from '../use-deep-compare-memoize';
 
 describe('useDeepCompareMemoize', () => {
   it('should not mutate references', () => {
