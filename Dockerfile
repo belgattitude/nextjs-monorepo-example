@@ -17,7 +17,7 @@
 #      layer sizes                                                #
 ###################################################################
 
-ARG NODE_VERSION=16
+ARG NODE_VERSION=14
 
 FROM node:${NODE_VERSION}-alpine AS workspaces-full-install
 RUN apk add --no-cache rsync
