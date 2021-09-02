@@ -8,7 +8,7 @@ import {
   flush as sentryFlush,
 } from '@sentry/nextjs';
 import { isNonEmptyString } from '@your-org/core-lib';
-import { NextPage, NextPageContext } from 'next';
+import type { NextPage, NextPageContext } from 'next';
 import NextErrorComponent from 'next/error';
 import type { ErrorProps } from 'next/error';
 
