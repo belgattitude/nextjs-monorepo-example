@@ -3,8 +3,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 
-// @ts-ignore
-const packageJson = require('./package');
+const packageJson = require('./package.json');
 
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
@@ -76,8 +75,6 @@ const secureHeaders = createSecureHeaders({
 const nextConfig = {
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
-  // @ts-ignore
-  webpack5: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   i18n,
   optimizeFonts: true,
@@ -122,8 +119,11 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
-  // @ts-ignore
-  webpack: (config, { _isServer, _defaultLoaders }) => {
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Add specific config for server mode
+    }
+
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
