@@ -19,6 +19,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'react/no-unescaped-entities': 'off',
 
     // next/image might not be yet a good move as of NextJs v11.
     // https://github.com/vercel/next.js/discussions/16832
@@ -32,6 +33,7 @@ module.exports = {
         ecmaVersion: 2020,
       },
       rules: {
+        'import/order': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',
@@ -48,6 +50,13 @@ module.exports = {
       files: ['src/backend/api/**/*.ts'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+      },
+    },
+    {
+      files: ['config/jest/test-utils.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'import/export': 'off',
       },
     },
   ],

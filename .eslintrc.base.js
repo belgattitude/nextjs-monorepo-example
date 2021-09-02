@@ -14,6 +14,9 @@ module.exports = {
     sourceType: 'module',
   },
   settings: {
+    react: {
+      version: 'detect',
+    },
     'import/resolver': {
       typescript: {},
     },
@@ -50,7 +53,6 @@ module.exports = {
           'index',
           'object',
         ],
-        'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
