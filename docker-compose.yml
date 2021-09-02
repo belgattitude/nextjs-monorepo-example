@@ -70,8 +70,10 @@ services:
       #- PGADMIN_CONFIG_SERVER_MODE='False'
     ports:
       - target: 80
-        published: 5555
+        published: 5556
         protocol: tcp
+    depends_on:
+      - main-db
 
 volumes:
   excluded_build:
