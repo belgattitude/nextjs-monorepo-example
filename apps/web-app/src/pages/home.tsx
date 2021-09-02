@@ -1,8 +1,8 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { HomePage } from '@/features/home/pages/home.page';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { BadRequest } from '@tsed/exceptions';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { homeConfig } from '@/features/home/home.config';
+import { HomePage } from '@/features/home/pages/home.page';
 
 type Props = {
   /** Add HomeRoute props here */

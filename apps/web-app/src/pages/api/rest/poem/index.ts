@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { prismaClient } from '@/backend/config/container.config';
 import { MethodNotAllowed } from '@tsed/exceptions';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { PoemRepositorySsr } from '@/backend/api/rest/poem-repository.ssr';
+import { prismaClient } from '@/backend/config/container.config';
 
 export default async function handleListPoems(
   req: NextApiRequest,

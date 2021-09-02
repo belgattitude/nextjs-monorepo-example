@@ -1,11 +1,11 @@
-import { ApolloServer } from 'apollo-server-micro';
 import {
   ApolloServerPluginLandingPageLocalDefault,
   ApolloServerPluginLandingPageProductionDefault,
 } from 'apollo-server-core';
-import { graphqlSdlSchema } from '@/backend/api/graphql-sdl/graphql-sdl-schema';
-import { graphqlSdlContext } from '@/backend/api/graphql-sdl/graphql-sdl-context';
+import { ApolloServer } from 'apollo-server-micro';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { graphqlSdlContext } from '@/backend/api/graphql-sdl/graphql-sdl-context';
+import { graphqlSdlSchema } from '@/backend/api/graphql-sdl/graphql-sdl-schema';
 
 const apolloServer = new ApolloServer({
   typeDefs: graphqlSdlSchema.typeDefs,

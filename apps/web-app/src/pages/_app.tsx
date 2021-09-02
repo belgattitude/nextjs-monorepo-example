@@ -1,6 +1,6 @@
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import { AppProviders } from '../app-providers';
-import { appWithTranslation } from 'next-i18next';
 
 /**
  * Import global styles, global css or polyfills here

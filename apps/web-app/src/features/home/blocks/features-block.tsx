@@ -1,10 +1,10 @@
+import styled from '@emotion/styled';
 import {
   AnnotationIcon,
   GlobeAltIcon,
   LightningBoltIcon,
   ScaleIcon,
 } from '@heroicons/react/outline';
-import styled from '@emotion/styled';
 
 type Props = {
   children?: never;

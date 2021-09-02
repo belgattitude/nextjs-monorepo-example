@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
+import { Fragment } from 'react';
 
 type Props = {
   children?: never;

@@ -1,8 +1,8 @@
-import ky from 'ky';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
+import ky from 'ky';
 import { GetPosts } from '@/backend/api/rest/post-repository.ssr';
 
 export const fetchPostsWithKy = async (): Promise<GetPosts> => {
