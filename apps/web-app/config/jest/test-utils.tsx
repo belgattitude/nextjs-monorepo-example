@@ -2,8 +2,8 @@
  * Automatically add app-providers
  * @see https://testing-library.com/docs/react-testing-library/setup#configuring-jest-with-test-utils
  */
-import React from 'react';
 import { render } from '@testing-library/react';
+import React from 'react';
 import { AppTestProviders } from './app-test-providers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

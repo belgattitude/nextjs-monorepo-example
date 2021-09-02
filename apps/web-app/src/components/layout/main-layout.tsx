@@ -1,5 +1,5 @@
-import GithubIcon from '@your-org/ui-lib/icons/social/github.svg';
 import { css } from '@emotion/react';
+import GithubIcon from '@your-org/ui-lib/icons/social/github.svg';
 
 export const MainLayout: React.FC = (props) => {
   const { children } = props;

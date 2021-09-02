@@ -1,13 +1,13 @@
-import { NextSeo } from 'next-seo';
-import { MainLayout } from '@/components/layout/main-layout';
-import { Banner } from '@/components/banner';
-import { useTranslation } from 'next-i18next';
-import { demoConfig } from '../demo.config';
 import { sayHello } from '@your-org/core-lib';
-import { InfoCard } from '@your-org/ui-lib/component/info-card';
 import { AsyncMessage, Message } from '@your-org/ui-lib';
+import { InfoCard } from '@your-org/ui-lib/component/info-card';
+import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { DemoApiBlock } from '../blocks/demo-api.block';
+import { demoConfig } from '../demo.config';
+import { Banner } from '@/components/banner';
+import { MainLayout } from '@/components/layout/main-layout';
 
 type Props = {
   children?: never;

@@ -6,8 +6,8 @@
  */
 import 'react-i18next';
 import common from '../../public/locales/en/common.json';
-import home from '../../public/locales/en/home.json';
 import demo from '../../public/locales/en/demo.json';
+import home from '../../public/locales/en/home.json';
 import system from '../../public/locales/en/system.json';
 
 declare module 'react-i18next' {

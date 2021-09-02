@@ -2,8 +2,9 @@ import { Prisma } from '@prisma/client';
 import keywordExtractor from 'keyword-extractor';
 import { slugify } from 'transliteration';
 
-// Taken from https://medium.com/@EmEmbarty/31-of-the-best-and-most-famous-short-classic-poems-of-all-time-e445986e6df
+/* eslint-disable sonarjs/no-duplicate-string */
 
+// Taken from https://medium.com/@EmEmbarty/31-of-the-best-and-most-famous-short-classic-poems-of-all-time-e445986e6df
 export const poemsSeed: Prisma.PoemCreateInput[] = [
   {
     author: 'John Donne',

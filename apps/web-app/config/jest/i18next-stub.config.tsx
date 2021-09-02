@@ -1,7 +1,6 @@
-import React from 'react';
-import { initReactI18next } from 'react-i18next';
-import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18next';
+import React from 'react';
+import { initReactI18next, I18nextProvider } from 'react-i18next';
 
 /**
  * Using stub strategy, you can use mocks as well
