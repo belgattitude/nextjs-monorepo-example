@@ -1,5 +1,13 @@
 # @your-org/db-main-prisma
 
+## 2.3.1
+
+### Patch Changes
+
+- [#356](https://github.com/belgattitude/nextjs-monorepo-example/pull/356) [`db7870f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: add extra check for missing / undeclared dependencies
+
+* [#354](https://github.com/belgattitude/nextjs-monorepo-example/pull/354) [`16e4e2d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve eslint config and add eslint-plugin-import
+
 ## 2.3.0
 
 ### Minor Changes
