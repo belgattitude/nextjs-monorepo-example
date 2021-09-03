@@ -8,11 +8,10 @@ on:
     paths:
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
 
   pull_request:
@@ -23,12 +22,12 @@ on:
     paths:
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
+
 jobs:
   test:
     runs-on: ubuntu-latest

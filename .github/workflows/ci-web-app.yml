@@ -9,12 +9,12 @@ on:
       - "apps/web-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+
 
   pull_request:
     types:
@@ -28,12 +28,12 @@ on:
       - "apps/web-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+
 jobs:
   test:
     runs-on: ubuntu-latest

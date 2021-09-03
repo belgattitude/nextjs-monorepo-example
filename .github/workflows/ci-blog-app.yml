@@ -9,11 +9,10 @@ on:
       - "apps/blog-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
 
   pull_request:
@@ -25,11 +24,10 @@ on:
       - "apps/blog-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
 
 jobs:
@@ -94,7 +92,7 @@ jobs:
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
-          # Cause that's what vercel, netlify will actually call
+          # Cause that's what vercel, netlify, serverless will actually call
           NEXTJS_BUILD_TARGET: experimental-serverless-trace
 
 
