@@ -33,7 +33,22 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-
+            yarn-cache-folder-os-${{ runner.os }}-
 
       - name: Install dependencies
         run: |
