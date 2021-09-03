@@ -22,14 +22,12 @@ jobs:
         with:
           node-version: 14.x
 
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      # While setup-node action has a cache option since v2.2.0 for yarn which makes
-      # config shorter. It seems to invalidate the cache whenever yarn.lock changes,
-      # and so yarn has to download again deps (rather than reusing / managing the
-      # .yarn/cache/*.zip that it already have)
       - name: Restore yarn cache
         uses: actions/cache@v2
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
