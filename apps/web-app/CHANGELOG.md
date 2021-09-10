@@ -1,5 +1,12 @@
 # web-app
 
+## 3.26.3
+
+### Patch Changes
+
+- Updated dependencies [[`dd239d6`](https://github.com/belgattitude/nextjs-monorepo-example/commit/dd239d63d99fdbf23150faf776f8c4be4dcf6e20)]:
+  - @your-org/db-main-prisma@2.4.0
+
 ## 3.26.2
 
 ### Patch Changes
