@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.4.0
+
+### Minor Changes
+
+- [#404](https://github.com/belgattitude/nextjs-monorepo-example/pull/404) [`dd239d6`](https://github.com/belgattitude/nextjs-monorepo-example/commit/dd239d63d99fdbf23150faf776f8c4be4dcf6e20) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to prisma 3.0.2 and official seed feature
+
 ## 2.3.1
 
 ### Patch Changes
