@@ -14,10 +14,13 @@
     "url": "https://github.com/belgattitude"
   },
   "main": "./src/index.ts",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
     "prisma:migrate": "dotenv-flow -- yarn prisma migrate",
     "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
-    "prisma:db:seed": "dotenv-flow -- yarn prisma db seed --preview-feature",
+    "prisma:db:seed": "dotenv-flow -- yarn prisma db seed",
     "prisma:db:push": "dotenv-flow -- yarn prisma db push",
     "prisma:studio": "dotenv-flow -- yarn prisma studio",
     "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
