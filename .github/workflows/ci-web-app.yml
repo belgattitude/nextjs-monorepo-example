@@ -59,10 +59,9 @@ jobs:
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
-            yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-
-            yarn-cache-folder-os-${{ runner.os }}-
+            yarn-cache-folder-
 
       # see https://github.com/vercel/next.js/pull/27362
       - name: Restore nextjs build web-app from cache
@@ -76,15 +75,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-
-      - name: Check for duplicate dependencies in lock file
-        run: |
-          yarn dedupe --check
-
-      #- name: Generate Prisma client
-      #  working-directory: apps/web-app
-      #  run: |
-      #    yarn prisma generate
 
       - name: Typecheck
         working-directory: apps/web-app

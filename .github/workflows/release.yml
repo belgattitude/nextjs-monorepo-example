@@ -33,10 +33,9 @@ jobs:
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
-            yarn-cache-folder-os-${{ runner.os }}-node-${{ env.node-version }}-
-            yarn-cache-folder-os-${{ runner.os }}-
+            yarn-cache-folder-
 
       - name: Install Dependencies
         run: yarn install --immutable
