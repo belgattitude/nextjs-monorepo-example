@@ -61,10 +61,6 @@ jobs:
         run: |
           yarn install --immutable
 
-      - name: Check for duplicate dependencies in lock file
-        run: |
-          yarn dedupe --check
-
       - name: Typecheck
         run: |
           yarn packages:typecheck
