@@ -55,7 +55,7 @@ jobs:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
-            yarn-cache-folder
+            yarn-cache-folder-
 
       - name: Install dependencies
         run: |
