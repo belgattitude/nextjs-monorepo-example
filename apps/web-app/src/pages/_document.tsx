@@ -1,4 +1,11 @@
-import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
+import { EmotionCache } from '@emotion/cache';
+import createEmotionServer from '@emotion/server/create-instance';
+import type {
+  AppContextType,
+  AppInitialProps,
+  AppPropsType,
+  NextComponentType,
+} from 'next/dist/shared/lib/utils';
 import Document, {
   DocumentContext,
   Html,
@@ -7,36 +14,19 @@ import Document, {
   NextScript,
   DocumentProps,
 } from 'next/document';
-
-import createEmotionServer from '@emotion/server/create-instance';
 import { Children as ReactChildren } from 'react';
+import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 
 type Props = DocumentProps;
 
+type EnhancedApp = NextComponentType<
+  AppContextType,
+  AppInitialProps,
+  AppPropsType & { emotionCache?: EmotionCache }
+>;
+
 class MyDocument extends Document<Props> {
   static async getInitialProps(ctx: DocumentContext) {
-    // Resolution order
-    //
-    // On the server:
-    // 1. app.getInitialProps
-    // 2. page.getInitialProps
-    // 3. document.getInitialProps
-    // 4. app.render
-    // 5. page.render
-    // 6. document.render
-    //
-    // On the server with error:
-    // 1. document.getInitialProps
-    // 2. app.render
-    // 3. page.render
-    // 4. document.render
-    //
-    // On the client
-    // 1. app.getInitialProps
-    // 2. page.getInitialProps
-    // 3. app.render
-    // 4. page.render
-
     const originalRenderPage = ctx.renderPage;
 
     // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
@@ -46,7 +36,7 @@ class MyDocument extends Document<Props> {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App: any) => (props) =>
+        enhanceApp: (App: EnhancedApp) => (props) =>
           <App emotionCache={cache} {...props} />,
       });
 
