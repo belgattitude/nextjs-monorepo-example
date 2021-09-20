@@ -1,7 +1,7 @@
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import { FC } from 'react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { CacheProvider, EmotionCache } from '@emotion/react';
 import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 
 const queryClient = new QueryClient({
