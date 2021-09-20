@@ -27,9 +27,11 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
-    'plugin:sonarjs/recommended',
   ],
+  // By loading jest and sonarjs globally as a plugin
+  // we can load recommended on specific code base (regular / tests) through
+  // overrides.
+  plugins: ['jest', 'sonarjs'],
   globals: {
     context: 'readonly',
     cy: 'readonly',
@@ -65,6 +67,27 @@ module.exports = {
   },
   overrides: [
     {
+      // For performance run sonarjs/recommended on regular code, not test files.
+      files: ['**/*.[jt]s?(x)'],
+      extends: ['plugin:sonarjs/recommended'],
+      rules: {
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+    {
+      // For performance run jest/recommended on test files, not regular code
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(test).[jt]s?(x)'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+
+    {
       files: ['*.config.js', '**/jest/**/*.js'],
       parser: 'espree',
       parserOptions: {
@@ -76,14 +99,6 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'sonarjs/no-duplicate-string': 'off',
         'sonarjs/no-all-duplicated-branches': 'off',
-      },
-    },
-    {
-      files: ['*.test.ts', '*.test.tsx'],
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-object-literal-type-assertion': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
       },
     },
   ],
