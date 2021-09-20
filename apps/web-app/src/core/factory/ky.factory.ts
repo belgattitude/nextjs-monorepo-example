@@ -12,7 +12,7 @@ type Props = {
 
 export class KyFactory {
   constructor(private props: Props) {}
-  create = (options?: Omit<Options, 'hooks'>) => {
+  create = (options?: Omit<Options, 'hooks'>): typeof Ky => {
     const hooks: Options['hooks'] =
       this.props.onAuthFailure !== undefined
         ? {
