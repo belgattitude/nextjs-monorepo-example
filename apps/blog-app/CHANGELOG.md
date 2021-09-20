@@ -1,5 +1,17 @@
 # blog-app
 
+## 3.17.0
+
+### Minor Changes
+
+- [#438](https://github.com/belgattitude/nextjs-monorepo-example/pull/438) [`6b78e59`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a) Thanks [@belgattitude](https://github.com/belgattitude)! - Eslint performance by not running test plugins over regular code
+
+### Patch Changes
+
+- Updated dependencies [[`6b78e59`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a)]:
+  - @your-org/core-lib@3.7.0
+  - @your-org/ui-lib@3.5.0
+
 ## 3.16.2
 
 ### Patch Changes
