@@ -24,7 +24,7 @@ services:
       target: builder
 
   web-app-dev:
-    # Service must be started explicitly with docker-compose up web-app
+    # DOCKER_BUILDKIT=1 docker-compose up web-app-dev
     profiles:
       - donotstart
     container_name: nextjs-monorepo-web-app_dev
