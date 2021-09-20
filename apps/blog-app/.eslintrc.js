@@ -8,8 +8,10 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:@next/next/recommended',
-    'plugin:testing-library/react',
   ],
+  // By loading testing-library as a plugin, we can only enable it
+  // on test files via overrides.
+  plugins: ['testing-library'],
   env: {
     browser: true,
     es6: true,
@@ -26,6 +28,11 @@ module.exports = {
     '@next/next/no-img-element': 'off',
   },
   overrides: [
+    {
+      // For performance run jest/recommended on test files, not regular code
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
     {
       files: ['next.config.js'],
       parser: 'espree',
