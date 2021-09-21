@@ -1,7 +1,3 @@
-type NoChildrenProps = {
-  children?: never;
-};
-
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -17,7 +13,11 @@ import { red } from '@mui/material/colors';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import * as React from 'react';
+import { FC, useState } from 'react';
+
+type NoChildrenProps = {
+  children?: never;
+};
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -35,7 +35,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 function RecipeReviewCard() {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -120,7 +120,7 @@ function RecipeReviewCard() {
   );
 }
 
-export const DemoMuiBlock: React.FC<NoChildrenProps> = () => {
+export const DemoMuiBlock: FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">
