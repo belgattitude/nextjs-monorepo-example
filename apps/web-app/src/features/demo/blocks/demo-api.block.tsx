@@ -25,10 +25,10 @@ export const DemoApiBlock: React.FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">
-        <h1 className="font-bold text-4xl mb-2">Some poems</h1>
+        <h1 className="font-bold text-4xl mb-2">Poetry on the wild.</h1>
         <h2 className="font-bold text-xl mb-2 text-indigo-600">
-          Regular client fetch with react-query and ky from nextjs api, db in
-          supabase.io, connection with prisma. Ui with tailwind
+          Client fetch with ky / react-query from nextjs api, db in supabase.io,
+          connection with prisma. Ui with tailwind
         </h2>
         <PoemGridWithReactQueryAndKy />
       </div>
