@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
 
 /**
- * Using stub strategy, you can use mocks as well
+ * Fully wrapped strategy for i18next, you can use stub/mocks as well
  * @link {https://react.i18next.com/misc/testing}
  */
 i18n.use(initReactI18next).init({
