@@ -1,5 +1,11 @@
 # web-app
 
+## 3.28.0
+
+### Minor Changes
+
+- [#439](https://github.com/belgattitude/nextjs-monorepo-example/pull/439) [`2f26167`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2f2616760b024bb887d52f200d0943e57da69f61) Thanks [@belgattitude](https://github.com/belgattitude)! - Basic example for material-ui v5.0.0 and critical path extraction (emotion)
+
 ## 3.27.0
 
 ### Minor Changes
