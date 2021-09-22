@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import React from 'react';
+import type { FC } from 'react';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
 
 /**
@@ -10,16 +10,15 @@ i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
   ns: ['common'],
-  defaultNS: 'translations',
+  defaultNS: 'common',
   debug: false,
   interpolation: {
     escapeValue: false, // not needed for react!!
   },
-  // Let empty so you can test for keys rather
-  // than translations
-  resources: { en: { translations: {} } },
+  // Let empty so you can test on translation keys rather than translated strings
+  resources: { en: { common: {} } },
 });
 
-export const I18nextTestStubProvider: React.FC = ({ children }) => {
+export const I18nextTestStubProvider: FC = ({ children }) => {
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 };
