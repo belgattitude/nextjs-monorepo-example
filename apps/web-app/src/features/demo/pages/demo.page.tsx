@@ -8,6 +8,7 @@ import { DemoApiBlock } from '../blocks/demo-api.block';
 import { demoConfig } from '../demo.config';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
+import { DemoMuiBlock } from '@/features/demo/blocks/demo-mui.block';
 
 type Props = {
   children?: never;
@@ -41,6 +42,9 @@ export const DemoPage: React.FC<Props> = () => {
           width={400}
           height={240}
         />
+        <div className={'pt-8'} />
+        <DemoMuiBlock />
+        <div className={'pt-8'} />
         <DemoApiBlock />
       </MainLayout>
     </>

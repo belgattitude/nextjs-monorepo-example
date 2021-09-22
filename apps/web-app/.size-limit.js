@@ -18,8 +18,8 @@ const limitCfg = {
     '/_app': '110kb',
     '/_error': '100kb',
     '/404': '120kb',
-    '/': '95kb',
-    '/demo': '95kb',
+    '/': '120kb',
+    '/demo': '120kb',
   },
 };
 const getPageLimits = () => {

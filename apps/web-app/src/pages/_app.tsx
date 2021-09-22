@@ -1,3 +1,4 @@
+import type { EmotionCache } from '@emotion/react';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import { AppProviders } from '../app-providers';
@@ -12,14 +13,16 @@ import 'tailwindcss/tailwind.css';
 export type AppProps = NextAppProps & {
   /** Will be defined only is there was an error */
   err?: Error;
+  emotionCache?: EmotionCache;
 };
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
-const MyApp = ({ Component, pageProps, err }: AppProps) => {
+const MyApp = (appProps: AppProps) => {
+  const { Component, pageProps, emotionCache, err } = appProps;
   return (
-    <AppProviders>
+    <AppProviders emotionCache={emotionCache}>
       {/* Workaround for https://github.com/vercel/next.js/issues/8592 */}
       <Component {...pageProps} err={err} />
     </AppProviders>

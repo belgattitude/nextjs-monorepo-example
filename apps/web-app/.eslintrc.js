@@ -51,6 +51,7 @@ module.exports = {
       files: ['src/pages/**/*.ts', 'src/pages/**/*.tsx'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'react/display-name': 'off',
       },
     },
     {
