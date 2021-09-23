@@ -1,4 +1,4 @@
-import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline';
+import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
 
 type Props = {
   children?: never;
@@ -11,10 +11,7 @@ export const Banner: React.FC<Props> = () => {
         <div className="flex items-center justify-between flex-wrap">
           <div className="w-0 flex-1 flex items-center">
             <span className="flex p-2 rounded-lg bg-indigo-800">
-              <SpeakerphoneIcon
-                className="h-6 w-6 text-white"
-                aria-hidden="true"
-              />
+              <SpeakerIcon className="h-6 w-6 text-white" aria-hidden="true" />
             </span>
             <p className="ml-3 font-medium text-white truncate">
               <span className="md:hidden">We announced a new product!</span>
