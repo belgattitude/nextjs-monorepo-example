@@ -15,11 +15,12 @@ const limitCfg = {
   defaultSize: '100kb',
   pages: {
     // Customize specific page limits if needed
-    '/_app': '110kb',
-    '/_error': '100kb',
-    '/404': '120kb',
-    '/': '120kb',
-    '/demo': '120kb',
+    '/_app': '105kb',
+    '/_error': '105kb',
+    '/404': '100kb',
+    '/': '105kb',
+    '/demo': '105kb',
+    '/home': '100kb',
   },
 };
 const getPageLimits = () => {
