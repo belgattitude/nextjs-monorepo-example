@@ -1,5 +1,11 @@
 # web-app
 
+## 3.29.0
+
+### Minor Changes
+
+- [#494](https://github.com/belgattitude/nextjs-monorepo-example/pull/494) [`6360483`](https://github.com/belgattitude/nextjs-monorepo-example/commit/63604839a2b8a2caac59e461d533100b5f9146aa) Thanks [@belgattitude](https://github.com/belgattitude)! - Import locally installed fonts rather than google hosted ones, thx fontsource.org
+
 ## 3.28.0
 
 ### Minor Changes
