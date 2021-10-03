@@ -14,7 +14,7 @@ To enable [buildkit](https://docs.docker.com/develop/develop-images/build_enhanc
 ### Build
 
 ```bash
-BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-full-install
+BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-deps
 BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain builder
 BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain production
 ```

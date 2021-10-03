@@ -18,8 +18,9 @@
 ###################################################################
 
 ARG NODE_VERSION=14
+ARG ALPINE_VERSION=3.14
 
-FROM node:${NODE_VERSION}-alpine AS workspaces-full-install
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS workspaces-deps
 RUN apk add --no-cache rsync
 
 WORKDIR /workspace-install
@@ -59,7 +60,9 @@ RUN --mount=type=bind,target=/docker-context \
 #
 
 RUN --mount=type=cache,target=/root/.yarn-cache \
-    YARN_CACHE_FOLDER=/root/.yarn-cache yarn install --immutable --inline-builds
+    YARN_CACHE_FOLDER=/root/.yarn-cache \
+    npm_config_platform=linuxmusl npm_config_arch=x64 \
+    yarn install --immutable --inline-builds
 
 
 ###################################################################
@@ -67,15 +70,15 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 # ----------------------------------------------------------------#
 # Notes:                                                          #
 #   1. this stage relies on buildkit features                     #
-#   2. this stage will use workspaces-full-install stage          #                                                                 #
+#   2. this stage will use workspaces-deps stage          #                                                                 #
 ###################################################################
 
-FROM node:${NODE_VERSION}-alpine AS builder
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS builder
 ENV NODE_ENV=production
 
 WORKDIR /app
 COPY . .
-COPY --from=workspaces-full-install /workspace-install ./
+COPY --from=workspaces-deps /workspace-install ./
 
 RUN NEXTJS_IGNORE_ESLINT=1 yarn workspace web-app build
 
@@ -86,7 +89,7 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 
 
 # For production
-FROM node:${NODE_VERSION}-alpine AS production
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS production
 
 WORKDIR /app
 
@@ -112,12 +115,12 @@ CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
 
 
 # For development
-FROM node:${NODE_VERSION}-alpine AS web-app-dev
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS web-app-dev
 ENV NODE_ENV=development
 
 WORKDIR /app
 
-COPY --from=workspaces-full-install /workspace-install ./
+COPY --from=workspaces-deps /workspace-install ./
 
 EXPOSE 8000
 CMD ["yarn", "workspace", "web-app", "dev", "-p", "8000"]

@@ -2,16 +2,16 @@ version: "3.8"
 
 services:
   #
-  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-full-install
+  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-deps
   #
-  workspaces-full-install:
+  workspaces-deps:
     profiles:
       - donotstart
     stdin_open: true
     build:
       context: ./
       dockerfile: Dockerfile
-      target: workspaces-full-install
+      target: workspaces-deps
 
   builder:
     profiles:
