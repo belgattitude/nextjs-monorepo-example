@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:@next/next/recommended',
+    'plugin:@next/next/core-web-vitals',
   ],
   // By loading testing-library as a plugin, we can only enable it
   // on test files via overrides.
