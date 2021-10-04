@@ -69,12 +69,8 @@ module.exports = {
     {
       // For performance run sonarjs/recommended on regular code, not test files.
       files: ['**/*.[jt]s?(x)'],
+      excludedFiles: ['**/*.test.[jt]s?(x)', '**/*.spec.[jt]s?(x)'],
       extends: ['plugin:sonarjs/recommended'],
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-object-literal-type-assertion': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
-      },
     },
     {
       // For performance run jest/recommended on test files, not regular code
