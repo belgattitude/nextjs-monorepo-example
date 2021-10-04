@@ -65,22 +65,7 @@ class MyDocument extends Document<Props> {
   render() {
     return (
       <Html>
-        <Head>
-          {/*
-             Preconnect might be part of nextjs font optimization by default in
-             a later version, so this line can be dropped
-             @link https://github.com/vercel/next.js/discussions/24645
-          */}
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
