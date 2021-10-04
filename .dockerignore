@@ -1,14 +1,16 @@
 # All node_modules directories
+node_modules
 **/node_modules
 
 # All secrets
 **/.env.local
 **/.env.*.local
 
-# By default all dot files (.env, .git, ...)
-.*
-
-# Exception to dot files
+# By default all git files
+.git
+.gitignore
+.gitattributes
+.github
 
 # Yarn
 !.yarnrc.yml
@@ -26,6 +28,7 @@
 
 
 # Docker related
+.dockerignore
 Dockerfile
 docker-compose.*.yml
 docker-compose.yml

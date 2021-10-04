@@ -20,7 +20,8 @@
 ARG NODE_VERSION=14
 ARG ALPINE_VERSION=3.14
 
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS workspaces-deps
+
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS deps
 RUN apk add --no-cache rsync
 
 WORKDIR /workspace-install
@@ -47,6 +48,9 @@ RUN --mount=type=bind,target=/docker-context \
           --include='*/' --exclude='*' \
           /docker-context/ /workspace-install/;
 
+# @see https://www.prisma.io/docs/reference/api-reference/environment-variables-reference#cli-binary-targets
+ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
+
 #
 # To speed up installations, we override the default yarn cache folder
 # and mount it as a buildkit cache mount (builkit will rotate it if needed)
@@ -58,11 +62,14 @@ RUN --mount=type=bind,target=/docker-context \
 #  2. To manually clear the cache
 #     > docker builder prune --filter type=exec.cachemount
 #
-
 RUN --mount=type=cache,target=/root/.yarn-cache \
+    #npm_config_platform=linuxmusl npm_config_arch=x64 \
+    PRISMA_CLI_BINARY_TARGETS=linux-musl \
     YARN_CACHE_FOLDER=/root/.yarn-cache \
-    npm_config_platform=linuxmusl npm_config_arch=x64 \
-    yarn install --immutable --inline-builds
+    yarn install --immutable --inline-builds \
+    && yarn rebuild sharp;
+    # \
+    #&& npm_config_platform=linuxmusl npm_config_arch=x64 yarn rebuild sharp;
 
 
 ###################################################################
@@ -70,7 +77,7 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 # ----------------------------------------------------------------#
 # Notes:                                                          #
 #   1. this stage relies on buildkit features                     #
-#   2. this stage will use workspaces-deps stage          #                                                                 #
+#   2. this stage will use deps stage          #                                                                 #
 ###################################################################
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS builder
@@ -78,7 +85,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 COPY . .
-COPY --from=workspaces-deps /workspace-install ./
+COPY --from=deps /workspace-install ./
 
 RUN NEXTJS_IGNORE_ESLINT=1 yarn workspace web-app build
 
@@ -117,11 +124,13 @@ CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
 # For development
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS web-app-dev
 ENV NODE_ENV=development
+ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 
 WORKDIR /app
 
-COPY --from=workspaces-deps /workspace-install ./
+COPY --from=deps /workspace-install ./
 
 EXPOSE 8000
+
 CMD ["yarn", "workspace", "web-app", "dev", "-p", "8000"]
 

@@ -2,16 +2,16 @@ version: "3.8"
 
 services:
   #
-  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain workspaces-deps
+  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain deps
   #
-  workspaces-deps:
+  deps:
     profiles:
       - donotstart
     stdin_open: true
     build:
       context: ./
       dockerfile: Dockerfile
-      target: workspaces-deps
+      target: deps
 
   builder:
     profiles:
@@ -39,7 +39,9 @@ services:
         protocol: tcp
     volumes:
       - .:/app/
-      - excluded_build:/app/apps/web-app/.next/
+      - excluded_web-app_build:/app/apps/web-app/.next/
+      - excluded_web-app_nm:/app/node_modules
+      - excluded_web-app_nm:/app/packages/db-main-prisma/node_modules
     depends_on:
       - main-db
 
@@ -76,5 +78,6 @@ services:
       - main-db
 
 volumes:
-  excluded_build:
+  excluded_web-app_build:
+  excluded_web-app_nm:
   db_data:

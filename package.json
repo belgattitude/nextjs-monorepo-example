@@ -47,8 +47,13 @@
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
     "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
+    "docker:web-app-dev:build": "cross-env DOCKER_BUILDKIT=1 docker-compose build --force-rm web-app-dev",
+    "docker:web-app-dev:shell": "DOCKER_BUILDKIT=1 docker-compose run --rm web-app-dev sh",
     "?clear:node_modules": "remove all node_modules folders present under the root",
     "clear:node_modules": "rimraf '**/node_modules'"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",

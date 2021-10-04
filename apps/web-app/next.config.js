@@ -121,9 +121,10 @@ const nextConfig = {
 
   webpack: (config, { isServer }) => {
     if (isServer) {
-      // Add specific config for server mode
+      // Till undici 4 haven't landed in prisma, we need this for docker/alpine
+      // @see https://github.com/prisma/prisma/issues/6925#issuecomment-905935585
+      config.externals.push('_http_common');
     }
-
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
