@@ -3291,6 +3291,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@surma/rollup-plugin-off-main-thread@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@surma/rollup-plugin-off-main-thread@npm:2.2.2"
+  dependencies:
+    ejs: ^3.1.6
+    json5: ^2.2.0
+    magic-string: ^0.25.0
+  checksum: d08cac21668c0f9e7ddbb7091d2b91aa2269ebbb0dfeaeb01e6496ef9b13664ae9b540a9f723dd5214fd585b21d6ea877ca7d163876ba1aa7dc248781d2e05de
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:^5.4.0":
   version: 5.4.0
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:5.4.0"
@@ -4108,7 +4119,7 @@ __metadata:
     eslint-plugin-sonarjs: 0.10.0
     eslint-plugin-testing-library: 4.12.4
     jest: 27.2.4
-    microbundle: 0.13.3
+    microbundle: 0.14.0
     npm-run-all: 4.1.5
     prettier: 2.4.1
     react: 17.0.2
@@ -4187,7 +4198,7 @@ __metadata:
     eslint-plugin-sonarjs: 0.10.0
     eslint-plugin-testing-library: 4.12.4
     jest: 27.2.4
-    microbundle: 0.13.3
+    microbundle: 0.14.0
     npm-run-all: 4.1.5
     prettier: 2.4.1
     react: 17.0.2
@@ -4809,6 +4820,13 @@ __metadata:
   dependencies:
     retry: 0.12.0
   checksum: 42b518505c0cf56179d49d0cc373e50656a1edf913842c045e84a9f7191ade10b73edf583915b05617296ed3d8c2f1f151e47fcb10eb47681a935db3b407787f
+  languageName: node
+  linkType: hard
+
+"async@npm:0.9.x":
+  version: 0.9.2
+  resolution: "async@npm:0.9.2"
+  checksum: 87dbf129292b8a6c32a4e07f43f462498162aa86f404a7e11f978dbfdf75cfb163c26833684bb07b9d436083cd604cbbf730a57bfcbe436c6ae1ed266cdc56bb
   languageName: node
   linkType: hard
 
@@ -7352,6 +7370,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ejs@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "ejs@npm:3.1.6"
+  dependencies:
+    jake: ^10.6.1
+  bin:
+    ejs: ./bin/cli.js
+  checksum: 81a9cdea0b4ded3b5a4b212b7c17e20bb07468f08394e2d519708d367957a70aef3d282a6d5d38bf6ad313ba25802b9193d4227f29b084d2ee0f28d115141d48
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.3.857":
   version: 1.3.857
   resolution: "electron-to-chromium@npm:1.3.857"
@@ -8199,6 +8228,15 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
+  languageName: node
+  linkType: hard
+
+"filelist@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "filelist@npm:1.0.2"
+  dependencies:
+    minimatch: ^3.0.4
+  checksum: 4d6953cb6f76c5345a52fc50222949e244946f485462ab6bae977176fff64fe5200cc1f44db175c27fc887f91cead401504c22eefcdcc064012ee44759947561
   languageName: node
   linkType: hard
 
@@ -9911,6 +9949,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jake@npm:^10.6.1":
+  version: 10.8.2
+  resolution: "jake@npm:10.8.2"
+  dependencies:
+    async: 0.9.x
+    chalk: ^2.4.2
+    filelist: ^1.0.1
+    minimatch: ^3.0.4
+  bin:
+    jake: ./bin/cli.js
+  checksum: b604c51863260e374ccd62cd0cfe0b659f72cb71beb7d5fb5137dd65b04cf9d5603abd01f9f6eaaac8f4182f396d6cfae01e0b0844c2215c9c1e200572307cf9
+  languageName: node
+  linkType: hard
+
 "jest-changed-files@npm:^27.2.4":
   version: 27.2.4
   resolution: "jest-changed-files@npm:27.2.4"
@@ -10641,7 +10693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:2.x, json5@npm:^2.1.2":
+"json5@npm:2.x, json5@npm:^2.1.2, json5@npm:^2.2.0":
   version: 2.2.0
   resolution: "json5@npm:2.2.0"
   dependencies:
@@ -11273,7 +11325,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.0, magic-string@npm:^0.25.7":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -11504,9 +11556,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"microbundle@npm:0.13.3":
-  version: 0.13.3
-  resolution: "microbundle@npm:0.13.3"
+"microbundle@npm:0.14.0":
+  version: 0.14.0
+  resolution: "microbundle@npm:0.14.0"
   dependencies:
     "@babel/core": ^7.12.10
     "@babel/plugin-proposal-class-properties": 7.12.1
@@ -11523,6 +11575,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^17.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^11.0.1
+    "@surma/rollup-plugin-off-main-thread": ^2.2.2
     asyncro: ^3.0.0
     autoprefixer: ^10.1.0
     babel-plugin-macros: ^3.0.1
@@ -11550,7 +11603,7 @@ __metadata:
     typescript: ^4.1.3
   bin:
     microbundle: dist/cli.js
-  checksum: 9816aad2e0b7f8885733e2d0115a620114b36b66b16f7128bab7f690675006c1fd18ba22ab3caa826929b780a83ba36796f1678ef3994b4300b435c4d6047dd6
+  checksum: e7235de2f098d519b2fd5c3c361f6dbd6bd00da4811d6f2d2cdb1ddeed77711ebfdc941db938c285d349ed8a9e78842450a8c2cc7605ea67fc6088b832dada13
   languageName: node
   linkType: hard
 
