@@ -1,14 +1,27 @@
 import { Dialog } from '@mui/material';
 import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
+import { LongtailSummary } from '@/features/home/api/fetch-longtail-summary';
 import { GetAgenciesData } from '@/features/home/api/fetch.agencies';
+import { GraphQlAgency } from '@/features/home/api/use-longtail-agencies';
 
 type Props = {
-  agency: GetAgenciesData['agencies'][0];
+  agency: GraphQlAgency;
   children?: never;
 };
 
-export const AgencyCard: React.FC<Props> = (props) => {
+export const AgencyCard2: React.FC<Props> = (props) => {
   const { agency } = props;
+
+  const keywords = [
+    'mountain',
+    ...agency.name
+      .replace(/(,)/, '')
+      .split(/(\ -)/)
+      .filter((el) => el.length > 4)
+      .map((el) => {
+        return encodeURIComponent(el);
+      }),
+  ];
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -19,11 +32,11 @@ export const AgencyCard: React.FC<Props> = (props) => {
           imgProps={{
             className:
               'w-full h-full object-center object-cover lg:w-full lg:h-full',
-            srcSet: `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
-                     https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto 800w`,
-            sizes: '(max-width: 600px) 480px, 800px',
             width: 200,
-            src: `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto`,
+            src: `https://source.unsplash.com/random/300x300?${keywords.slice(
+              0,
+              2
+            )}`,
             alt: agency.name,
           }}
         />
@@ -38,22 +51,22 @@ export const AgencyCard: React.FC<Props> = (props) => {
       <article className="prose px-6 py-4">
         <div className="font-bold text-xl mb-2">{agency.name}</div>
         <p className="text-gray-700 text-base line-clamp-4">
-          {agency.location_name}
+          {agency.description}
         </p>
       </article>
-      {/*
+
       <div className="px-6 pt-4 pb-2">
-        {agency..map((keyword) => {
+        {agency.servicesByProviderId.edges.map((services) => {
+          const { id, name, budget } = services.node;
           return (
             <span
-              key={keyword}
+              key={id}
               className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #{keyword}
+              #{name}
             </span>
           );
         })}
       </div>
-      */}
     </div>
   );
 };
