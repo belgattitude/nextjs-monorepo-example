@@ -2,7 +2,7 @@ export const OctopusTrust = () => {
 
   return (
     <div className="flex flex-row">
-        <div className="flex align-items-center-center">
+        <div className="flex items-center">
         <img width="77.45" height="147" src={'/images/orange-octopus.svg'} alt="octopus-logo" />
         </div>
       
