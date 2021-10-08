@@ -6,13 +6,13 @@ export const MainLayout: React.FC = (props) => {
   return (
     <div className="flex flex-col h-screen">
       <main>{children}</main>
-      <footer>
+      {/* <footer>
         <GithubIcon
           css={css`
             fill: black;
           `}
         />
-      </footer>
+      </footer> */}
     </div>
   );
 };
