@@ -45,6 +45,9 @@ export const Banner: React.FC<Props> = () => {
               color: '#FF774A',
               border: 'None',
             }}
+            onClick={() => {
+              window.location.href = 'https://www.sortlist.com/apply';
+            }}
             variant="outlined">
             I'm an agency
           </Button>
@@ -54,7 +57,10 @@ export const Banner: React.FC<Props> = () => {
               backgroundColor: '#FF774A',
               color: '#FFFFFF',
             }}
-            variant="contained">
+            variant="contained"
+            onClick={() => {
+              window.location.href = 'https://www.sortlist.com/project/new';
+            }}>
             Post a project
           </Button>
         </div>

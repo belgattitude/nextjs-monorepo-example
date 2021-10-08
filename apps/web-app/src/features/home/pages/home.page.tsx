@@ -194,7 +194,8 @@ export const HomePage: React.FC<Props> = () => {
               <div style={{ width: '33%' }}>
                 {agencies.map((name) => (
                   <>
-                    <div
+                    <a
+                      href="https://www.sortlist.com/agency/87seconds"
                       style={{
                         display: 'block',
                         flexDirection: 'row',
@@ -202,14 +203,15 @@ export const HomePage: React.FC<Props> = () => {
                       }}>
                       <img src="/images/agencylogo.png" alt="" />
                       <span>{name}</span>
-                    </div>
+                    </a>
                   </>
                 ))}
               </div>
               <div style={{ width: '33%' }}>
                 {agencies.map((name) => (
                   <>
-                    <div
+                    <a
+                      href="https://www.sortlist.com/agency/87seconds"
                       style={{
                         display: 'block',
                         flexDirection: 'row',
@@ -217,14 +219,15 @@ export const HomePage: React.FC<Props> = () => {
                       }}>
                       <img src="/images/agencylogo.png" alt="" />
                       <span>{name}</span>
-                    </div>
+                    </a>
                   </>
                 ))}
               </div>
               <div style={{ width: '33%' }}>
                 {agencies.map((name) => (
                   <>
-                    <div
+                    <a
+                      href="https://www.sortlist.com/agency/87seconds"
                       style={{
                         display: 'block',
                         flexDirection: 'row',
@@ -232,7 +235,7 @@ export const HomePage: React.FC<Props> = () => {
                       }}>
                       <img src="/images/agencylogo.png" alt="" />
                       <span>{name}</span>
-                    </div>
+                    </a>
                   </>
                 ))}
               </div>
