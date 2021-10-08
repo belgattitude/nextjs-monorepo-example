@@ -1,10 +1,5 @@
-import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
-import { Fragment } from 'react';
 import { useQuery } from 'react-query';
-import {
-  fetchAgenciesFromInternalApi,
-  GetAgenciesData,
-} from '@/features/home/api/fetch.agencies';
+import { fetchAgenciesFromInternalApi } from '@/features/home/api/fetch.agencies';
 import { AgencyCard } from '@/features/home/components/agency-card';
 
 type Props = {
