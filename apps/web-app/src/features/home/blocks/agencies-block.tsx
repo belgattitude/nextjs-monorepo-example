@@ -1,3 +1,4 @@
+import { Grid, Container } from '@mui/material';
 import { useQuery } from 'react-query';
 import { fetchAgenciesFromInternalApi } from '@/features/home/api/fetch.agencies';
 import { AgencyCard } from '@/features/home/components/agency-card';
@@ -11,24 +12,25 @@ export const AgenciesBlock: React.FC<Props> = () => {
     fetchAgenciesFromInternalApi().then((resp) => resp.data)
   );
   return (
-    <div className="bg-gray-50">
-      <div className="flex flex-wrap">
-        {error && <div>Error</div>}
-        {isLoading && <div>Loading</div>}
-        {data && (
-          <>
-            {data.agencies.map((agency) => {
-              return (
-                <div
-                  key={`${agency.slug}`}
-                  className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 m-2">
-                  <AgencyCard agency={agency} />
-                </div>
-              );
-            })}
-          </>
-        )}
-      </div>
-    </div>
+    <Container maxWidth="lg">
+      {error && <div>Error</div>}
+      {isLoading && <div>Loading</div>}
+      {data && (
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start">
+          {data.agencies.map((agency) => {
+            return (
+              <Grid item key={`${agency.slug}`} xs={12}>
+                <AgencyCard agency={agency} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      )}
+    </Container>
   );
 };
