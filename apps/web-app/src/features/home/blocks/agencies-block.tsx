@@ -1,10 +1,11 @@
+import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
 import { Fragment } from 'react';
 import { useQuery } from 'react-query';
-import { LazyImage } from '@your-org/ui-lib/component/image/lazy-image';
 import {
   fetchAgenciesFromInternalApi,
   GetAgenciesData,
 } from '@/features/home/api/fetch.agencies';
+import { AgencyCard } from '@/features/home/components/agency-card';
 
 type Props = {
   children?: never;
@@ -63,7 +64,7 @@ export const AgenciesBlock: React.FC<Props> = () => {
             {data.agencies.map((agency) => {
               return (
                 <Fragment key={agency.slug}>
-                  <Card agency={agency} />
+                  <AgencyCard agency={agency} />
                 </Fragment>
               );
             })}
