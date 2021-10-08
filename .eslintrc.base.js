@@ -43,6 +43,7 @@ module.exports = {
     'import/default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
+    'sonarjs/no-identical-functions': 'off',
     'import/order': [
       'error',
       {
@@ -74,6 +75,9 @@ module.exports = {
         '**/?(*.)+(test).[jt]s?(x)',
       ],
       extends: ['plugin:sonarjs/recommended'],
+      rules: {
+        'sonarjs/no-identical-functions': 'off',
+      },
     },
     {
       // For performance run jest/recommended on test files, not regular code

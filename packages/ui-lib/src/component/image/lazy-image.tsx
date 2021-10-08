@@ -1,7 +1,7 @@
+import { Asserts } from '@your-org/core-lib';
 import type { ImgHTMLAttributes } from 'react';
 import type { LazyLoadProps } from 'react-lazyload';
 import { LazyImageReactLazyload } from './strategy/lazy-image-react-lazyload';
-import { Asserts } from '@your-org/core-lib';
 
 type BrowserLoadingProps = {
   strategy: 'browser';

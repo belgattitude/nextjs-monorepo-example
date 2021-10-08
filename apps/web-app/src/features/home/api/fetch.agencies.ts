@@ -1,9 +1,9 @@
-import ky from 'ky';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
   JsonApiSuccessResponse,
 } from '@your-org/core-lib/api/json-api';
+import ky from 'ky';
 
 export type GetAgenciesData = {
   count: number | null;
@@ -33,7 +33,6 @@ export type GetAgenciesData = {
     };
   }>;
 };
-
 export const fetchAgenciesFromOriginatingSandbox = async (): Promise<
   JsonApiSuccessResponse<GetAgenciesData>
 > => {
