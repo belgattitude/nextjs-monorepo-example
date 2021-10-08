@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { prismaClient } from '@/backend/config/container.config';
 import { MethodNotAllowed } from '@tsed/exceptions';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
+import { prismaClient } from '@/backend/config/container.config';
 
 export default async function handleListPosts(
   req: NextApiRequest,
@@ -20,7 +20,7 @@ export default async function handleListPosts(
         )
       );
     } catch (e) {
-      const apiError = JsonApiErrorFactory.fromTsedException(e);
+      const apiError = JsonApiErrorFactory.fromCatchVariable(e);
       return res
         .status(apiError.status ?? 500)
         .json(JsonApiResponseFactory.fromError(apiError));

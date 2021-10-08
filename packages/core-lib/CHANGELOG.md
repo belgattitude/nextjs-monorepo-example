@@ -1,5 +1,31 @@
 # @your-org/core-lib
 
+## 3.7.0
+
+### Minor Changes
+
+- [#438](https://github.com/belgattitude/nextjs-monorepo-example/pull/438) [`6b78e59`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a) Thanks [@belgattitude](https://github.com/belgattitude)! - Eslint performance by not running test plugins over regular code
+
+## 3.6.1
+
+### Patch Changes
+
+- [#356](https://github.com/belgattitude/nextjs-monorepo-example/pull/356) [`db7870f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: add extra check for missing / undeclared dependencies
+
+* [#354](https://github.com/belgattitude/nextjs-monorepo-example/pull/354) [`16e4e2d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve eslint config and add eslint-plugin-import
+
+## 3.6.0
+
+### Minor Changes
+
+- [#323](https://github.com/belgattitude/nextjs-monorepo-example/pull/323) [`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: eslint-plugin-sonarjs cause cause it desserves to belong here
+
+## 3.5.0
+
+### Minor Changes
+
+- [#319](https://github.com/belgattitude/nextjs-monorepo-example/pull/319) [`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to Typescript 4.4.2 strict ("useUnknownInCatchVariables": true)
+
 ## 3.4.0
 
 ### Minor Changes

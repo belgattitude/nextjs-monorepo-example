@@ -3,8 +3,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 
-// @ts-ignore
-const packageJson = require('./package');
+const packageJson = require('./package.json');
 
 const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
@@ -76,8 +75,6 @@ const secureHeaders = createSecureHeaders({
 const nextConfig = {
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
-  // @ts-ignore
-  webpack5: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   i18n,
   optimizeFonts: true,
@@ -122,11 +119,9 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
-  // @ts-ignore
-  webpack: (config, { defaultLoaders, isServer }) => {
-    // A temp workaround for https://github.com/prisma/prisma/issues/6899#issuecomment-849126557
+  webpack: (config, { isServer }) => {
     if (isServer) {
-      config.externals.push('_http_common');
+      // Add specific config for server mode
     }
 
     config.module.rules.push({
@@ -155,11 +150,21 @@ const nextConfig = {
 let config = withNextTranspileModules(nextConfig);
 
 if (process.env.NEXT_DISABLE_SENTRY !== '1') {
-  config = withSentryConfig(config, {
+  /** @type {Partial<import('@sentry/nextjs/dist/config/types').SentryWebpackPluginOptions>} */
+  const sentryWebpackPluginOptions = {
+    // Additional config options for the Sentry Webpack plugin. Keep in mind that
+    // the following options are set automatically, and overriding them is not
+    // recommended:
+    //   release, url, org, project, authToken, configFile, stripPrefix,
+    //   urlPrefix, include, ignore
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options.
     dryRun:
       process.env.NODE_ENV !== 'production' ||
       process.env.NEXT_SENTRY_DRY_RUN === '1',
-  });
+  };
+
+  config = withSentryConfig(config, sentryWebpackPluginOptions);
 }
 
 if (process.env.ANALYZE === 'true') {

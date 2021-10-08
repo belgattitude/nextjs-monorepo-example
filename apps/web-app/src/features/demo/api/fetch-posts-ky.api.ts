@@ -1,19 +1,17 @@
-import ky from 'ky';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
-import { GetPosts } from '@/backend/api/rest/post-repository.ssr';
+import type { GetPosts } from '@/backend/api/rest/post-repository.ssr';
+import { ky } from '@/config/ky';
 
 export const fetchPostsWithKy = async (): Promise<GetPosts> => {
   return ky
-    .get('/api/rest/post', {
-      throwHttpErrors: true,
-    })
+    .get('/api/rest/post')
     .json<JsonApiResponse<GetPosts>>()
     .then((resp) => {
       if (!isJsonApiSuccessResponse(resp)) {
-        throw new Error(`Error fetching posts: ${resp.errors}`);
+        throw new Error(`Error fetching posts: ${JSON.stringify(resp.errors)}`);
       }
       return resp.data;
     });

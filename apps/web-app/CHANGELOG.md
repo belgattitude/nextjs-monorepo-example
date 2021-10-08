@@ -1,5 +1,96 @@
 # web-app
 
+## 3.29.0
+
+### Minor Changes
+
+- [#494](https://github.com/belgattitude/nextjs-monorepo-example/pull/494) [`6360483`](https://github.com/belgattitude/nextjs-monorepo-example/commit/63604839a2b8a2caac59e461d533100b5f9146aa) Thanks [@belgattitude](https://github.com/belgattitude)! - Import locally installed fonts rather than google hosted ones, thx fontsource.org
+
+## 3.28.0
+
+### Minor Changes
+
+- [#439](https://github.com/belgattitude/nextjs-monorepo-example/pull/439) [`2f26167`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2f2616760b024bb887d52f200d0943e57da69f61) Thanks [@belgattitude](https://github.com/belgattitude)! - Basic example for material-ui v5.0.0 and critical path extraction (emotion)
+
+## 3.27.0
+
+### Minor Changes
+
+- [#438](https://github.com/belgattitude/nextjs-monorepo-example/pull/438) [`6b78e59`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a) Thanks [@belgattitude](https://github.com/belgattitude)! - Eslint performance by not running test plugins over regular code
+
+### Patch Changes
+
+- Updated dependencies [[`6b78e59`](https://github.com/belgattitude/nextjs-monorepo-example/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a)]:
+  - @your-org/core-lib@3.7.0
+  - @your-org/ui-lib@3.5.0
+  - @your-org/db-main-prisma@2.5.0
+
+## 3.26.3
+
+### Patch Changes
+
+- Updated dependencies [[`dd239d6`](https://github.com/belgattitude/nextjs-monorepo-example/commit/dd239d63d99fdbf23150faf776f8c4be4dcf6e20)]:
+  - @your-org/db-main-prisma@2.4.0
+
+## 3.26.2
+
+### Patch Changes
+
+- [#356](https://github.com/belgattitude/nextjs-monorepo-example/pull/356) [`db7870f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: add extra check for missing / undeclared dependencies
+
+* [#354](https://github.com/belgattitude/nextjs-monorepo-example/pull/354) [`16e4e2d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve eslint config and add eslint-plugin-import
+
+* Updated dependencies [[`db7870f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685), [`16e4e2d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5)]:
+  - @your-org/core-lib@3.6.1
+  - @your-org/db-main-prisma@2.3.1
+  - @your-org/ui-lib@3.4.1
+
+## 3.26.1
+
+### Patch Changes
+
+- [#334](https://github.com/belgattitude/nextjs-monorepo-example/pull/334) [`7c69c58`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7c69c5863bb5e5d5b426ca7ded7362ce4f445305) Thanks [@belgattitude](https://github.com/belgattitude)! - next.config.js allow example unused variables in webpack override
+
+* [#290](https://github.com/belgattitude/nextjs-monorepo-example/pull/290) [`ec1cd6a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ec1cd6a346f323ee67570082a32ecb9f7ec2d136) Thanks [@belgattitude](https://github.com/belgattitude)! - CI perf - nextjs build cache: prevent cache going stale
+
+## 3.26.0
+
+### Minor Changes
+
+- [#330](https://github.com/belgattitude/nextjs-monorepo-example/pull/330) [`25a163d`](https://github.com/belgattitude/nextjs-monorepo-example/commit/25a163db7c17a3a126514978f427d41fe121b961) Thanks [@belgattitude](https://github.com/belgattitude)! - Add sharp as regular dependency
+
+## 3.25.0
+
+### Minor Changes
+
+- [#323](https://github.com/belgattitude/nextjs-monorepo-example/pull/323) [`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0) Thanks [@belgattitude](https://github.com/belgattitude)! - Example: eslint-plugin-sonarjs cause cause it desserves to belong here
+
+### Patch Changes
+
+- Updated dependencies [[`a416f35`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
+  - @your-org/core-lib@3.6.0
+  - @your-org/db-main-prisma@2.3.0
+  - @your-org/ui-lib@3.4.0
+
+## 3.24.0
+
+### Minor Changes
+
+- [#319](https://github.com/belgattitude/nextjs-monorepo-example/pull/319) [`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to Typescript 4.4.2 strict ("useUnknownInCatchVariables": true)
+
+### Patch Changes
+
+- Updated dependencies [[`2ccb056`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
+  - @your-org/core-lib@3.5.0
+  - @your-org/db-main-prisma@2.2.0
+  - @your-org/ui-lib@3.3.0
+
+## 3.23.1
+
+### Patch Changes
+
+- [#312](https://github.com/belgattitude/nextjs-monorepo-example/pull/312) [`3982ef0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/3982ef0c9c078b159d2d1aa0076367c49fedb4f0) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactored and fully type i18n keys per activated namespaces
+
 ## 3.23.0
 
 ### Minor Changes

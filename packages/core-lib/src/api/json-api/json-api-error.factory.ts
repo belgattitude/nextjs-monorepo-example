@@ -1,7 +1,18 @@
-import { JsonApiError } from './json-api-response.types';
 import { Exception } from '@tsed/exceptions';
+import { JsonApiError } from './json-api-response.types';
 
 export class JsonApiErrorFactory {
+  static fromCatchVariable = (
+    error: unknown,
+    defaultHttpStatus = 500
+  ): JsonApiError => {
+    const e =
+      typeof error === 'string' || error instanceof Error
+        ? error
+        : `Unknown error (type of catched variable: ${typeof error}`;
+    return JsonApiErrorFactory.fromTsedException(e, defaultHttpStatus);
+  };
+
   static fromTsedException = (
     exception: Exception | Error | string,
     /** fallback http status if it can't be inferred from exception */

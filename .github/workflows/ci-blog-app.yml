@@ -9,11 +9,10 @@ on:
       - "apps/blog-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
 
   pull_request:
@@ -25,11 +24,10 @@ on:
       - "apps/blog-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
 
 jobs:
@@ -45,21 +43,34 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
 
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      # see https://github.com/vercel/next.js/pull/27362
       - name: Restore nextjs build blog-app from cache
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/apps/blog-app/.next/cache
-          key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/blog-app/src/**.[jt]sx?', 'apps/blog-app/src/**.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
         run: |
           yarn install --immutable
-
-      - name: Check for duplicate dependencies in lock file
-        run: |
-          yarn dedupe --check
 
       - name: Typecheck
         working-directory: apps/blog-app
@@ -91,7 +102,8 @@ jobs:
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
           NEXT_TELEMETRY_DISABLED: 0
-          NEXTJS_BUILD_TARGET: server
+          # Cause that's what vercel, netlify, serverless will actually call
+          NEXTJS_BUILD_TARGET: experimental-serverless-trace
 
 
 

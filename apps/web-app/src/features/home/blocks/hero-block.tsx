@@ -1,8 +1,8 @@
+import { Popover, Transition } from '@headlessui/react';
+import { MenuOpen, Close } from '@mui/icons-material';
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import { Popover, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { useTranslation } from 'next-i18next';
 
 type Props = {
   children?: never;
@@ -51,7 +51,7 @@ export const HeroBlock: React.FC<Props> = () => {
                         <div className="-mr-2 flex items-center md:hidden">
                           <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                             <span className="sr-only">Open main menu</span>
-                            <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                            <MenuOpen className="h-6 w-6" aria-hidden="true" />
                           </Popover.Button>
                         </div>
                       </div>
@@ -99,7 +99,7 @@ export const HeroBlock: React.FC<Props> = () => {
                         <div className="-mr-2">
                           <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                             <span className="sr-only">Close main menu</span>
-                            <XIcon className="h-6 w-6" aria-hidden="true" />
+                            <Close className="h-6 w-6" aria-hidden="true" />
                           </Popover.Button>
                         </div>
                       </div>

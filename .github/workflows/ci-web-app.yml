@@ -9,12 +9,12 @@ on:
       - "apps/web-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+
 
   pull_request:
     types:
@@ -28,12 +28,12 @@ on:
       - "apps/web-app/**"
       - "packages/**"
       - "package.json"
-      - "tsconfig.base.json"
       - "yarn.lock"
       - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
       - ".github/workflows/**"
-      - ".eslintrc.base.json"
-      - ".eslintignore"
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -47,26 +47,34 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
 
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      # see https://github.com/vercel/next.js/pull/27362
       - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/apps/web-app/.next/cache
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          restore-keys: |
+               ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
         run: |
           yarn install --immutable
-
-      - name: Check for duplicate dependencies in lock file
-        run: |
-          yarn dedupe --check
-
-      #- name: Generate Prisma client
-      #  working-directory: apps/web-app
-      #  run: |
-      #    yarn prisma generate
 
       - name: Typecheck
         working-directory: apps/web-app

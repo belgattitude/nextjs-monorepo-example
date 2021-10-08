@@ -3,15 +3,14 @@
  * @link https://nextjs.org/docs/advanced-features/custom-error-page
  */
 
-import NextErrorComponent from 'next/error';
-import NextError, { ErrorProps } from 'next/error';
-import { NextPage, NextPageContext } from 'next';
-
 import {
   captureException as sentryCaptureException,
   flush as sentryFlush,
 } from '@sentry/nextjs';
 import { isNonEmptyString } from '@your-org/core-lib';
+import type { NextPage, NextPageContext } from 'next';
+import NextErrorComponent from 'next/error';
+import type { ErrorProps } from 'next/error';
 
 // Adds HttpException to the list of possible error types.
 type AugmentedError = NonNullable<NextPageContext['err']> | null;
@@ -65,7 +64,7 @@ CustomError.getInitialProps = async ({
   err,
   asPath,
 }: AugmentedNextPageContext) => {
-  const errorInitialProps = (await NextError.getInitialProps({
+  const errorInitialProps = (await NextErrorComponent.getInitialProps({
     res,
     err,
   } as NextPageContext)) as CustomErrorProps;

@@ -1,15 +1,13 @@
-import ky from 'ky';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
-import { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import { ky } from '@/config/ky';
 
 export const fetchPoemsWithKy = async (): Promise<GetPoems> => {
   return ky
-    .get('/api/rest/poem', {
-      throwHttpErrors: true,
-    })
+    .get('/api/rest/poem')
     .json<JsonApiResponse<GetPoems>>()
     .then((resp) => {
       if (!isJsonApiSuccessResponse(resp)) {

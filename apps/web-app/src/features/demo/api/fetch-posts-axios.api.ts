@@ -1,9 +1,9 @@
-import axios from 'axios';
 import {
   isJsonApiSuccessResponse,
   JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
-import { GetPosts } from '@/backend/api/rest/post-repository.ssr';
+import axios from 'axios';
+import type { GetPosts } from '@/backend/api/rest/post-repository.ssr';
 
 export const fetchPostsWithAxios = async (): Promise<GetPosts> => {
   return axios
@@ -11,10 +11,12 @@ export const fetchPostsWithAxios = async (): Promise<GetPosts> => {
       responseType: 'json',
     })
     .then((resp) => {
-      const data = resp.data;
-      if (!isJsonApiSuccessResponse(data)) {
-        throw new Error(`Error fetching posts: ${data.errors}`);
+      const payload = resp.data;
+      if (!isJsonApiSuccessResponse(payload)) {
+        throw new Error(
+          `Error fetching posts: ${JSON.stringify(payload.errors)}`
+        );
       }
-      return data.data;
+      return payload.data;
     });
 };

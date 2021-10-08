@@ -1,9 +1,9 @@
+import { isPlainObject } from '../../utils/typeguards';
 import {
   JsonApiError,
   JsonApiErrorResponse,
   JsonApiSuccessResponse,
 } from './json-api-response.types';
-import { isPlainObject } from '../../utils/typeguards';
 
 export class JsonApiResponseFactory {
   static fromError = (

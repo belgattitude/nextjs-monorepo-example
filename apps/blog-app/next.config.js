@@ -1,9 +1,9 @@
 // @ts-check
 
-// @ts-ignore
-const packageJson = require('./package');
+const packageJson = require('./package.json');
 
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
+const NEXTJS_BUILD_TARGET =
+  process.env.NEXTJS_BUILD_TARGET || 'experimental-serverless-trace';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const NEXTJS_IGNORE_TYPECHECK =
   process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
@@ -74,8 +74,6 @@ const secureHeaders = createSecureHeaders({
 const nextConfig = {
   target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
-  // @ts-ignore
-  webpack5: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   optimizeFonts: true,
 
@@ -108,8 +106,11 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
-  // @ts-ignore
-  webpack: function (config, { defaultLoaders }) {
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Add specific config for server mode
+    }
+
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,

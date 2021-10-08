@@ -1,8 +1,8 @@
 import { sayHello } from '@your-org/core-lib';
+import { NextSeo } from 'next-seo';
+import Image from 'next/image';
 import { getPosts, Post } from '../data/blog';
 import { MainLayout } from '@/components/layout/main-layout';
-import Image from 'next/image';
-import { NextSeo } from 'next-seo';
 
 type Props = {
   posts: Post[];

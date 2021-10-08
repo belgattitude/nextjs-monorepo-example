@@ -1,10 +1,11 @@
-import {
-  AnnotationIcon,
-  GlobeAltIcon,
-  LightningBoltIcon,
-  ScaleIcon,
-} from '@heroicons/react/outline';
 import styled from '@emotion/styled';
+
+import {
+  AccessAlarm,
+  Lightbulb,
+  LinearScale,
+  MobileFriendly,
+} from '@mui/icons-material';
 
 type Props = {
   children?: never;
@@ -17,22 +18,22 @@ const features = [
   {
     name: 'Competitive exchange rates',
     description: lorem,
-    icon: GlobeAltIcon,
+    icon: AccessAlarm,
   },
   {
     name: 'No hidden fees',
     description: lorem,
-    icon: ScaleIcon,
+    icon: LinearScale,
   },
   {
     name: 'Transfers are instant',
     description: lorem,
-    icon: LightningBoltIcon,
+    icon: Lightbulb,
   },
   {
     name: 'Mobile notifications',
     description: lorem,
-    icon: AnnotationIcon,
+    icon: MobileFriendly,
   },
 ];
 

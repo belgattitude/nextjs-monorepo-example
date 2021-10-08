@@ -413,7 +413,7 @@ call their counterparts defined in packages and apps.
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
     "docker:up": "docker-compose up -d",
-    "docker:up:database": "docker-compose up -d database",
+    "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
     "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
@@ -439,9 +439,11 @@ They are based on the excellent [npm-check-updates](https://github.com/raineorsh
 
 ### 5.1 Linters
 
-An example of base eslint configuration can be found in [./.eslint.base.json](./.eslintrc.base.json), apps
-and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.json](./apps/web-app/.eslintrc.json).
+An example of base eslint configuration can be found in [./.eslint.base.js](./.eslintrc.base.js), apps
+and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.js](./apps/web-app/.eslintrc.js).
 Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
+
+For code complexity and deeper code analysis [sonarjs plugin](https://github.com/SonarSource/eslint-plugin-sonarjs) is activated.
 
 ### 5.2 Hooks / Lint-staged
 

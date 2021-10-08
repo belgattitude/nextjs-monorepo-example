@@ -1,11 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { prismaClient } from '@/backend/config/container.config';
 import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
 import { Asserts } from '@your-org/core-lib';
-import { StringConvert } from '@your-org/core-lib/utils/string-convert';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import { StringConvert } from '@your-org/core-lib/utils/string-convert';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
+import { prismaClient } from '@/backend/config/container.config';
 
 export default async function handleGetPost(
   req: NextApiRequest,
@@ -23,7 +23,7 @@ export default async function handleGetPost(
         JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))
       );
     } catch (e) {
-      const apiError = JsonApiErrorFactory.fromTsedException(e);
+      const apiError = JsonApiErrorFactory.fromCatchVariable(e);
       return res
         .status(apiError.status ?? 500)
         .json(JsonApiResponseFactory.fromError(apiError));

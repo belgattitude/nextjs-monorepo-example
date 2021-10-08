@@ -24,7 +24,7 @@ services:
       target: builder
 
   web-app-dev:
-    # Service must be started explicitly with docker-compose up web-app
+    # DOCKER_BUILDKIT=1 docker-compose up web-app-dev
     profiles:
       - donotstart
     container_name: nextjs-monorepo-web-app_dev
@@ -45,7 +45,7 @@ services:
 
   main-db:
     container_name: nextjs-monorepo-example-main-db
-    image: postgres:13-alpine
+    image: postgres:14-alpine
     ports:
       - target: 5432
         published: 5432
@@ -70,8 +70,10 @@ services:
       #- PGADMIN_CONFIG_SERVER_MODE='False'
     ports:
       - target: 80
-        published: 5555
+        published: 5556
         protocol: tcp
+    depends_on:
+      - main-db
 
 volumes:
   excluded_build:
