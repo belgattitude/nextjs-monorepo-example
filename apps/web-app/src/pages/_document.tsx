@@ -66,7 +66,7 @@ class MyDocument extends Document<Props> {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="font-sans">
           <Main />
           <NextScript />
         </body>
