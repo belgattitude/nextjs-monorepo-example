@@ -8,10 +8,12 @@ import {
 import React, { useState } from 'react';
 
 type Props = {
+  element?: ReactNode;
   children?: never;
 };
 
-export const Banner: React.FC<Props> = () => {
+export const Banner: React.FC<Props> = (props) => {
+  const { element } = props;
   const [brand, setBrand] = useState('');
   const [location, setLocation] = useState('');
 
@@ -32,11 +34,8 @@ export const Banner: React.FC<Props> = () => {
             />
           </a>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-          <b style={{ color: '#FF774A', fontSize: '20px' }}>
-            Looking for an agency for your project?
-          </b>
-        </div>
+        <div>
+        
         <div style={{ padding: '32px' }}>
           <Button
             style={{
@@ -64,6 +63,9 @@ export const Banner: React.FC<Props> = () => {
             Post a project
           </Button>
         </div>
+        {element}
+        </div>
+        
       </div>
     </div>
   );

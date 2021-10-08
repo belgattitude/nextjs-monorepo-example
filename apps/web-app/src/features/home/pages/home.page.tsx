@@ -44,7 +44,11 @@ export const HomePage: React.FC<Props> = () => {
         title={`Best agencies in ${summaryData.city}`}
         description={`Best agencies in ${summaryData.city}`}></NextSeo>
       <MainLayout>
-        <Banner />
+        <Banner element={(<div style={{ display: 'flex', alignItems: 'flex-end' }}>
+          <b style={{ color: '#FF774A', fontSize: '20px' }}>
+            Looking for an agency for your project?
+          </b>
+        </div>)}/>
         <div
           style={{
             display: 'flex',
