@@ -5,7 +5,7 @@ import {
   MenuItem,
   Select,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 type Props = {
   element?: ReactNode;
@@ -35,37 +35,35 @@ export const Banner: React.FC<Props> = (props) => {
           </a>
         </div>
         <div>
-        
-        <div style={{ padding: '32px' }}>
-          <Button
-            style={{
-              margin: '16px',
-              backgroundColor: 'rgba(255, 119, 74, 0.2)',
-              color: '#FF774A',
-              border: 'None',
-            }}
-            onClick={() => {
-              window.location.href = 'https://www.sortlist.com/apply';
-            }}
-            variant="outlined">
-            I'm an agency
-          </Button>
-          <Button
-            style={{
-              margin: '16px',
-              backgroundColor: '#FF774A',
-              color: '#FFFFFF',
-            }}
-            variant="contained"
-            onClick={() => {
-              window.location.href = 'https://www.sortlist.com/project/new';
-            }}>
-            Post a project
-          </Button>
+          <div style={{ padding: '32px' }}>
+            <Button
+              style={{
+                margin: '16px',
+                backgroundColor: 'rgba(255, 119, 74, 0.2)',
+                color: '#FF774A',
+                border: 'None',
+              }}
+              onClick={() => {
+                window.location.href = 'https://www.sortlist.com/apply';
+              }}
+              variant="outlined">
+              I'm an agency
+            </Button>
+            <Button
+              style={{
+                margin: '16px',
+                backgroundColor: '#FF774A',
+                color: '#FFFFFF',
+              }}
+              variant="contained"
+              onClick={() => {
+                window.location.href = 'https://www.sortlist.com/project/new';
+              }}>
+              Post a project
+            </Button>
+          </div>
+          {element}
         </div>
-        {element}
-        </div>
-        
       </div>
     </div>
   );

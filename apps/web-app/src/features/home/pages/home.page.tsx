@@ -44,11 +44,15 @@ export const HomePage: React.FC<Props> = () => {
         title={`Best agencies in ${summaryData.city}`}
         description={`Best agencies in ${summaryData.city}`}></NextSeo>
       <MainLayout>
-        <Banner element={(<div style={{ display: 'flex', alignItems: 'flex-end' }}>
-          <b style={{ color: '#FF774A', fontSize: '20px' }}>
-            Looking for an agency for your project?
-          </b>
-        </div>)}/>
+        <Banner
+          element={
+            <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+              <b style={{ color: '#FF774A', fontSize: '20px' }}>
+                Looking for an agency for your project?
+              </b>
+            </div>
+          }
+        />
         <div
           style={{
             display: 'flex',
@@ -131,7 +135,7 @@ export const HomePage: React.FC<Props> = () => {
                 <b style={{ fontSize: '32px', color: '#FFFFFF' }}>
                   2 seconds to scan 100 000 agencies
                 </b>
-                <h3 style={{ color: '#FFFFFF', fontWeight: '200' }}>
+                <h3 style={{ color: '#FFFFFF', fontWeight: 200 }}>
                   Insane, isn't ? Jack is the largest, globally distributed
                   marketplace of top business, design, and technology agencies,
                   ready to tackle your most important initiatives. He will guide

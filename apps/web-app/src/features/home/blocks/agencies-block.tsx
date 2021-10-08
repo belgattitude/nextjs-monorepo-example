@@ -19,9 +19,9 @@ export const AgenciesBlock: React.FC<Props> = () => {
         <Grid
           container
           spacing={2}
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start">
+          direction={'row'}
+          justifyContent={'flex-start'}
+          alignItems={'flex-start'}>
           {data.agencies.map((agency) => {
             return (
               <Grid item key={`${agency.slug}`} xs={12}>
