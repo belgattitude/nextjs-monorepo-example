@@ -69,7 +69,10 @@ module.exports = {
     {
       // For performance run sonarjs/recommended on regular code, not test files.
       files: ['**/*.[jt]s?(x)'],
-      excludedFiles: ['**/*.test.[jt]s?(x)', '**/*.spec.[jt]s?(x)'],
+      excludedFiles: [
+        '**/__tests__/**/*.[jt]s?(x)',
+        '**/?(*.)+(test).[jt]s?(x)',
+      ],
       extends: ['plugin:sonarjs/recommended'],
     },
     {
