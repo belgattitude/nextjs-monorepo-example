@@ -8,6 +8,7 @@ import { homeConfig } from '../home.config';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
 import { fetchLongtailSummary } from '@/features/home/api/fetch-longtail-summary';
+import { AgenciesRealBlock } from '@/features/home/blocks/agencies-real-block';
 
 type Props = {
   children?: never;
@@ -29,6 +30,7 @@ export const HomePage: React.FC<Props> = () => {
         <Banner />
         <HeroBlock summaryData={summaryData} />
         <AgenciesBlock />
+        <AgenciesRealBlock />
         {/*<FeaturesBlock />*/}
         <CtaBlock />
       </MainLayout>

@@ -16,7 +16,8 @@ export const AgencyCard: React.FC<Props> = (props) => {
           strategy={'browser'}
           imgLoading={'lazy'}
           imgProps={{
-            className: 'h-64 ml-auto mr-auto object-contain p-15 sm:p-5',
+            className:
+              'w-full h-full object-center object-cover lg:w-full lg:h-full',
             srcSet: `https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=150&format=auto 480w,
                      https://sortlist.gumlet.io/sortlist-core-api/${agency.logo.key}?w=200&format=auto 800w`,
             sizes: '(max-width: 600px) 480px, 800px',
