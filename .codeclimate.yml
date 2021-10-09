@@ -30,23 +30,16 @@ checks:
     config:
       threshold: 5 # in monorepo some files are often identical
 exclude_patterns:
-  ## Node modules
   - "**/node_modules/"
-  ## All config folders
   - "**/config/"
   - "**/*.config.js"
-  ## Dist folders
   - "**/dist/"
-  ## Scripts folders
   - "**/scripts/"
-  ## Test files
   - "**/__tests__/"
   - "**/*.test.js"
   - "**/*.test.jsx"
   - "**/*.test.ts"
   - "**/*.test.tsx"
-  ## Custom type definition
   - "**/*.d.ts"
-  ## Database seeds
   - "**/*.seed.ts"
   - "**/seed.ts"
