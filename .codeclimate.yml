@@ -1,35 +1,49 @@
-version: "2"         # required to adjust maintainability checks
+version: "2"
+
 checks:
   argument-count:
+    enabled: true
     config:
       threshold: 4
   complex-logic:
+    enabled: true
     config:
       threshold: 4
   file-lines:
+    enabled: true
     config:
       threshold: 300  # Threshold to 300 (tsx / react components)
   method-complexity:
+    enabled: true
     config:
       threshold: 5
   method-count:
+    enabled: true
     config:
       threshold: 20
   method-lines:
-    threshold: 300  # Threshold to 300 (due to tsx / react components)
+    enabled: true
+    config:
+      threshold: 300  # Threshold to 300 (due to tsx / react components)
   nested-control-flow:
+    enabled: true
     config:
       threshold: 4
   return-statements:
+    enabled: true
     config:
       threshold: 4
   similar-code:
+    enabled: true
     config:
       threshold: 5 # in monorepo some files are often identical
   identical-code:
+    enabled: true
     config:
       threshold: 5 # in monorepo some files are often identical
+
 exclude_patterns:
+  - "docs/"
   - "**/node_modules/"
   - "**/config/"
   - "**/*.config.js"
@@ -43,3 +57,4 @@ exclude_patterns:
   - "**/*.d.ts"
   - "**/*.seed.ts"
   - "**/seed.ts"
+
