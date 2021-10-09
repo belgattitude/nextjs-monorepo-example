@@ -29,3 +29,14 @@ checks:
     enabled: false
   identical-code:
     enabled: false
+exclude_patterns:
+  - "**/config/"
+  - "db/"
+  - "**/dist/"
+  - "**/node_modules/"
+  - "**/scripts/"
+  - "**/__tests__/"
+  - "**/*.d.ts"
+  - "**/*.config.js"
+  - "**/*.seed.ts"
+  - "**/seed.ts"
