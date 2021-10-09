@@ -1,3 +1,5 @@
+# @link https://docs.codeclimate.com/docs/default-analysis-configuration#sample-codeclimateyml
+
 version: "2"
 
 checks:
@@ -41,6 +43,11 @@ checks:
     enabled: true
     config:
       threshold: 5 # in monorepo some files are often identical
+
+# plugins:
+#   eslint:
+#     enabled: true
+#     channel: "eslint-7"
 
 exclude_patterns:
   - "docs/"
