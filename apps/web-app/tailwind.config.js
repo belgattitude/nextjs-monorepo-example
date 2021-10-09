@@ -1,5 +1,6 @@
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
+const sharedTheme = require('./src/themes/mui-tailwind-theme.config');
 
 module.exports = {
   mode: 'jit',
@@ -15,7 +16,7 @@ module.exports = {
       blue: colors.sky,
     },
     fontFamily: {
-      sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
+      sans: sharedTheme.fontFamily.sans,
       serif: [...defaultTheme.fontFamily.serif],
       mono: [...defaultTheme.fontFamily.mono],
     },

@@ -1,11 +1,10 @@
 import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
-import tailwindTheme from '../../tailwind.config';
-
+import { fontFamily } from './mui-tailwind-theme.config';
 // Create a mui v5 theme instance.
 export const muiTheme = createTheme({
   typography: {
-    fontFamily: tailwindTheme.theme.fontFamily.sans.join(','),
+    fontFamily: fontFamily.sans.join(','),
   },
   palette: {
     error: {
