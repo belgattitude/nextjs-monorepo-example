@@ -8,8 +8,7 @@ checks:
       threshold: 4
   file-lines:
     config:
-      # Threshold from default 250 to 350 (tsx / react components)
-      threshold: 250
+      threshold: 300  # Threshold to 300 (tsx / react components)
   method-complexity:
     config:
       threshold: 5
@@ -17,8 +16,7 @@ checks:
     config:
       threshold: 20
   method-lines:
-    # Threshold from default 25 to 350 (tsx / react components)
-    threshold: 250
+    threshold: 300  # Threshold to 300 (due to tsx / react components)
   nested-control-flow:
     config:
       threshold: 4
@@ -26,6 +24,22 @@ checks:
     config:
       threshold: 4
   similar-code:
-    enabled: false
+    config:
+      threshold: 5 # in monorepo some files are often identical
   identical-code:
-    enabled: false
+    config:
+      threshold: 5 # in monorepo some files are often identical
+exclude_patterns:
+  - "**/node_modules/"
+  - "**/config/"
+  - "**/*.config.js"
+  - "**/dist/"
+  - "**/scripts/"
+  - "**/__tests__/"
+  - "**/*.test.js"
+  - "**/*.test.jsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.d.ts"
+  - "**/*.seed.ts"
+  - "**/seed.ts"
