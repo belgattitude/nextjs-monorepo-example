@@ -8,8 +8,8 @@ checks:
       threshold: 4
   file-lines:
     config:
-      # Threshold to 250 (tsx / react components)
-      threshold: 250
+      # Threshold to 300 (tsx / react components)
+      threshold: 300
   method-complexity:
     config:
       threshold: 5
@@ -17,8 +17,8 @@ checks:
     config:
       threshold: 20
   method-lines:
-    # Threshold to 350 (tsx / react components)
-    threshold: 250
+    # Threshold to 300 (tsx / react components)
+    threshold: 200
   nested-control-flow:
     config:
       threshold: 4
@@ -30,13 +30,23 @@ checks:
   identical-code:
     enabled: false
 exclude_patterns:
-  - "**/config/"
-  - "db/"
-  - "**/dist/"
+  ## Node modules
   - "**/node_modules/"
-  - "**/scripts/"
-  - "**/__tests__/"
-  - "**/*.d.ts"
+  ## All config folders
+  - "**/config/"
   - "**/*.config.js"
+  ## Dist folders
+  - "**/dist/"
+  ## Scripts folders
+  - "**/scripts/"
+  ## Test files
+  - "**/__tests__/"
+  - "**/*.test.js"
+  - "**/*.test.jsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  ## Custom type definition
+  - "**/*.d.ts"
+  ## Database seeds
   - "**/*.seed.ts"
   - "**/seed.ts"
