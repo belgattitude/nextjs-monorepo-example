@@ -8,8 +8,7 @@ checks:
       threshold: 4
   file-lines:
     config:
-      # Threshold to 300 (tsx / react components)
-      threshold: 300
+      threshold: 300  # Threshold to 300 (tsx / react components)
   method-complexity:
     config:
       threshold: 5
@@ -17,8 +16,7 @@ checks:
     config:
       threshold: 20
   method-lines:
-    # Threshold to 300 (due to tsx / react components)
-    threshold: 300
+    threshold: 300  # Threshold to 300 (due to tsx / react components)
   nested-control-flow:
     config:
       threshold: 4
@@ -26,9 +24,11 @@ checks:
     config:
       threshold: 4
   similar-code:
-    enabled: false
+    config:
+      threshold: 5 # in monorepo some files are often identical
   identical-code:
-    enabled: false
+    config:
+      threshold: 5 # in monorepo some files are often identical
 exclude_patterns:
   ## Node modules
   - "**/node_modules/"
