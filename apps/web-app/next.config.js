@@ -119,6 +119,18 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
+  /**
+   * @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
+  async rewrites() {
+    return [
+      {
+        source: `/`,
+        destination: '/demo',
+      },
+    ];
+  },
+  */
+
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Add specific config for server mode
