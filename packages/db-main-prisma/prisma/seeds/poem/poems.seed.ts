@@ -281,7 +281,8 @@ export const poemsSeed: Prisma.PoemCreateInput[] = [
   },
 ].map((partial) => {
   const sanitizedContent = partial.content
-    .split(/(\n|\r|\r\n)/)
+    // @link http://www.unicode.org/reports/tr18/#RL1.6
+    .split(/(\r\n|[\n\v\f\r\x85\u2028\u2029])/)
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
     .join('\n')
