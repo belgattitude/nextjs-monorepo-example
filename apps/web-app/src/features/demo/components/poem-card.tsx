@@ -14,25 +14,25 @@ export const PoemCard: React.FC<Props> = (props) => {
   const { img, content, author, title, keywords, defaultImg } = props;
   const image = img ?? defaultImg;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <div className="aspect-w-16 aspect-h-9 lg:aspect-none h-56">
+    <div className="overflow-hidden max-w-sm rounded shadow-lg">
+      <div className="h-56 aspect-w-16 aspect-h-9 lg:aspect-none">
         <img
-          className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+          className="object-cover object-center w-full lg:w-full h-full lg:h-full"
           src={image ?? ''}
           alt={title}
         />
       </div>
-      <article className="prose px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
+      <article className="py-4 px-6 prose">
+        <div className="mb-2 text-xl font-bold">{title}</div>
         <p className="text-indigo-600">By {author}</p>
-        <p className="text-gray-700 text-base line-clamp-4">{content}</p>
+        <p className="text-base text-gray-700 line-clamp-4">{content}</p>
       </article>
       <div className="px-6 pt-4 pb-2">
         {keywords.map((keyword) => {
           return (
             <span
               key={keyword}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              className="inline-block py-1 px-3 mr-2 mb-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
               #{keyword}
             </span>
           );
