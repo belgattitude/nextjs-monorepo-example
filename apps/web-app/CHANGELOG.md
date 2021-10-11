@@ -1,5 +1,18 @@
 # web-app
 
+## 3.31.0
+
+### Minor Changes
+
+- [#553](https://github.com/belgattitude/nextjs-monorepo-example/pull/553) [`77e758b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f) Thanks [@belgattitude](https://github.com/belgattitude)! - Add eslint-plugin-regexp
+
+### Patch Changes
+
+- Updated dependencies [[`77e758b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f)]:
+  - @your-org/core-lib@3.8.0
+  - @your-org/db-main-prisma@2.6.0
+  - @your-org/ui-lib@3.6.0
+
 ## 3.30.0
 
 ### Minor Changes
