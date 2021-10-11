@@ -1,3 +1,4 @@
-// Here redirect that what should be the home page
+// Re-export the component used as homepage.
+// Alternatively you can use rewrites in next.config.js
 
 export { default, getServerSideProps } from './demo';

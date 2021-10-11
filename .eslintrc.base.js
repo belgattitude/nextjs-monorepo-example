@@ -26,6 +26,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'plugin:regexp/recommended',
     'plugin:prettier/recommended',
   ],
   // By loading jest and sonarjs globally as a plugin

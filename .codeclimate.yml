@@ -1,31 +1,67 @@
-version: "2"         # required to adjust maintainability checks
+# @link https://docs.codeclimate.com/docs/default-analysis-configuration#sample-codeclimateyml
+
+version: "2"
+
 checks:
   argument-count:
+    enabled: true
     config:
       threshold: 4
   complex-logic:
+    enabled: true
     config:
       threshold: 4
   file-lines:
+    enabled: true
     config:
-      # Threshold from default 250 to 350 (tsx / react components)
-      threshold: 250
+      threshold: 300
   method-complexity:
+    enabled: true
     config:
       threshold: 5
   method-count:
+    enabled: true
     config:
       threshold: 20
   method-lines:
-    # Threshold from default 25 to 350 (tsx / react components)
-    threshold: 250
+    enabled: true
+    config:
+      threshold: 300
   nested-control-flow:
+    enabled: true
     config:
       threshold: 4
   return-statements:
+    enabled: true
     config:
       threshold: 4
   similar-code:
     enabled: false
+    config:
+      threshold: 5
   identical-code:
     enabled: false
+    config:
+      threshold: 5
+
+# plugins:
+#   eslint:
+#     enabled: true
+#     channel: "eslint-7"
+
+exclude_patterns:
+  - "docs/"
+  - "**/node_modules/"
+  - "**/config/"
+  - "**/*.config.js"
+  - "**/dist/"
+  - "**/scripts/"
+  - "**/__tests__/"
+  - "**/*.test.js"
+  - "**/*.test.jsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.d.ts"
+  - "**/*.seed.ts"
+  - "**/seed.ts"
+

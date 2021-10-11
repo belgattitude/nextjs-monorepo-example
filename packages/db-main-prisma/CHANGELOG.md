@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.6.0
+
+### Minor Changes
+
+- [#553](https://github.com/belgattitude/nextjs-monorepo-example/pull/553) [`77e758b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f) Thanks [@belgattitude](https://github.com/belgattitude)! - Add eslint-plugin-regexp
+
 ## 2.5.0
 
 ### Minor Changes
