@@ -1,5 +1,11 @@
 # blog-app
 
+## 3.18.0
+
+### Minor Changes
+
+- [#551](https://github.com/belgattitude/nextjs-monorepo-example/pull/551) [`a93c0b7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a93c0b76875073cb27ed76f31f793e2cbf4af107) Thanks [@belgattitude](https://github.com/belgattitude)! - Add eslint-plugin-tailwindcss to help consistency
+
 ## 3.17.0
 
 ### Minor Changes
