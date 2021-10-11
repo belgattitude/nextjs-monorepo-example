@@ -11535,15 +11535,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mico-spinner@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "mico-spinner@npm:1.3.0"
-  dependencies:
-    nanocolors: ^0.1.1
-  checksum: 311b002c0ea2563bd0d8f9e7158e3650273186decdc618e365eacee6e5513f1a76551e0da00cb48a21986a9bd82069ebb5027068131ced62dc1f9e5b6b52df8e
-  languageName: node
-  linkType: hard
-
 "micro@npm:9.3.4":
   version: 9.3.4
   resolution: "micro@npm:9.3.4"
@@ -11930,19 +11921,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanocolors@npm:^0.1.1":
-  version: 0.1.12
-  resolution: "nanocolors@npm:0.1.12"
-  checksum: 2ce58f57006ddd1d2680d05fe21f54d858db8ba81bd13381598ddc546f7637e33c4407da2ea7da40ea1c96794250e7c14a4d00358b48eeae4d917d6a92bafe4c
-  languageName: node
-  linkType: hard
-
 "nanoid@npm:^3.1.23, nanoid@npm:^3.1.28":
   version: 3.1.28
   resolution: "nanoid@npm:3.1.28"
   bin:
     nanoid: bin/nanoid.cjs
   checksum: ae2fa9f3ce7a690ec62fc2fdf92345f023b20db760024f767c25ad392bde6414dc0b44a8e66dc1209426f36e4771e63b09ad2b49d8f1b04063b37e21b46af8d0
+  languageName: node
+  linkType: hard
+
+"nanospinner@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "nanospinner@npm:0.2.2"
+  dependencies:
+    picocolors: ^0.2.0
+  checksum: a11b4dd304b3b18a5e0cb91c5d6d86e403e789ab2e3b9a1ed678ac277b510abfe4792715918300785488c99f9ea4d602ba0119a05b90350c41f0f18c7f9625a8
   languageName: node
   linkType: hard
 
@@ -13175,7 +13168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^0.2.1":
+"picocolors@npm:^0.2.0, picocolors@npm:^0.2.1":
   version: 0.2.1
   resolution: "picocolors@npm:0.2.1"
   checksum: 3b0f441f0062def0c0f39e87b898ae7461c3a16ffc9f974f320b44c799418cabff17780ee647fda42b856a1dc45897e2c62047e1b546d94d6d5c6962f45427b2
@@ -15606,20 +15599,20 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"size-limit@npm:6.0.0":
-  version: 6.0.0
-  resolution: "size-limit@npm:6.0.0"
+"size-limit@npm:6.0.1":
+  version: 6.0.1
+  resolution: "size-limit@npm:6.0.1"
   dependencies:
     bytes-iec: ^3.1.1
     chokidar: ^3.5.2
     ci-job-number: ^1.2.2
     globby: ^11.0.4
     lilconfig: ^2.0.3
-    mico-spinner: ^1.3.0
+    nanospinner: ^0.2.2
     picocolors: ^0.2.1
   bin:
     size-limit: bin.js
-  checksum: 0b93517df7abccb06b787f7dbea0c85960a9c6143509c658adc4f34b507f593a6e97fb0452b6d883091d275e8a2622e787669982f6ea7373d4652f5390b5b136
+  checksum: 19a961d24dc88e5c812cf7b0bb9fc7fb29c06cf347a7858f61b027b7bfab72047b30edba34e9f6f75ccd21697fad088c820135ac25429a00b6b030eb53129558
   languageName: node
   linkType: hard
 
@@ -17601,7 +17594,7 @@ resolve@^2.0.0-next.3:
     sass: 1.42.1
     sharp: 0.29.1
     shell-quote: 1.7.2
-    size-limit: 6.0.0
+    size-limit: 6.0.1
     superjson: 1.7.5
     symlink-dir: 5.0.1
     sync-directory: 2.2.23
