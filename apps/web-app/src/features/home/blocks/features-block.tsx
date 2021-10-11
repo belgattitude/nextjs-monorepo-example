@@ -52,28 +52,28 @@ export const FeaturesBlock: React.FC<Props> = () => {
   return (
     <Ctn>
       <div className="py-12 bg-white" style={{ width: '100%' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+            <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase">
               Transactions
             </h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight leading-8 text-gray-900">
               A better way to send money
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="lg:mx-auto mt-4 max-w-2xl text-xl text-gray-500">
               {lorem}
             </p>
           </div>
 
           <div className="mt-10">
-            <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            <dl className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 space-y-10 md:space-y-0">
               {features.map((feature) => (
                 <div key={feature.name} className="relative">
                   <dt>
-                    <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                      <feature.icon className="h-6 w-6" aria-hidden="true" />
+                    <div className="flex absolute justify-center items-center w-12 h-12 text-white bg-indigo-500 rounded-md">
+                      <feature.icon className="w-6 h-6" aria-hidden="true" />
                     </div>
-                    <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                    <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
                       {feature.name}
                     </p>
                   </dt>
