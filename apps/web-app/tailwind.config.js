@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
-const sharedTheme = require('./src/themes/mui-tailwind-theme.config');
+const sharedTheme = require('@/themes/tailwind/tailwind.theme');
 
 module.exports = {
   mode: 'jit',

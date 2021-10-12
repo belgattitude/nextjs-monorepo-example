@@ -3,7 +3,7 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material';
 import { FC } from 'react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { muiTheme } from './themes/mui.theme';
+import { muiTheme } from '@/themes/mui/mui.theme';
 import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 
 const queryClient = new QueryClient({

@@ -1,4 +1,10 @@
-const systemFonts = {
+// @ts-check
+// Keep this file as '.js' as it's included in tailwind.config.js
+
+/**
+ * @type {{mono: string[], sans: string[], serif: string[]}}
+ */
+const browserFonts = {
   sans: [
     'ui-sans-serif',
     'system-ui',
@@ -36,5 +42,5 @@ const systemFonts = {
 };
 
 module.exports = {
-  systemFonts,
+  browserFonts: browserFonts,
 };
