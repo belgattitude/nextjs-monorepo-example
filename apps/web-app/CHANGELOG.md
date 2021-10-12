@@ -1,5 +1,11 @@
 # web-app
 
+## 3.32.0
+
+### Minor Changes
+
+- [#538](https://github.com/belgattitude/nextjs-monorepo-example/pull/538) [`186e7d6`](https://github.com/belgattitude/nextjs-monorepo-example/commit/186e7d674b4e93d0e7067b2e80af7b98d52c42e2) Thanks [@belgattitude](https://github.com/belgattitude)! - Add example of mui / tailwind shared theme spec
+
 ## 3.31.0
 
 ### Minor Changes
