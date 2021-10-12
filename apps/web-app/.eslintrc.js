@@ -44,7 +44,7 @@ module.exports = {
       extends: ['plugin:testing-library/react'],
     },
     {
-      files: ['next.config.js'],
+      files: ['next.config.js', '*.theme.js'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 2020,
