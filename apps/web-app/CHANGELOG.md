@@ -1,5 +1,11 @@
 # web-app
 
+## 3.33.0
+
+### Minor Changes
+
+- [#580](https://github.com/belgattitude/nextjs-monorepo-example/pull/580) [`fe262d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fe262d011845ac4d9471b3334b4bd387d96b2e87) Thanks [@belgattitude](https://github.com/belgattitude)! - Optimize svg with svgo by default when building the apps
+
 ## 3.32.0
 
 ### Minor Changes
