@@ -598,6 +598,10 @@ See here a quick comparison:
 | Webpack5            | ✅                 | ✅                        |
 | Publishable (npm)   | ✅                 | ❌ (ntm relies on "main") |
 
+## See also
+
+- https://stackoverflow.com/a/69554480/5490184
+
 ## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbelgattitude%2Fnextjs-monorepo-example.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbelgattitude%2Fnextjs-monorepo-example?ref=badge_large)
