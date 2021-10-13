@@ -25,8 +25,8 @@ export const DemoApiBlock: React.FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">
-        <h1 className="font-bold text-4xl mb-2">Poetry on the wild.</h1>
-        <h2 className="font-bold text-xl mb-2 text-indigo-600">
+        <h1 className="mb-2 text-4xl font-bold">Poetry on the wild.</h1>
+        <h2 className="mb-2 text-xl font-bold text-indigo-600">
           Client fetch with ky / react-query from nextjs api, db in supabase.io,
           connection with prisma. Ui with tailwind
         </h2>

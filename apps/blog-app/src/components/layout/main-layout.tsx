@@ -8,7 +8,7 @@ export const MainLayout: FC = (props) => {
   return (
     <div className="flex flex-col h-screen">
       <MainHeader />
-      <main className="flex-1 overflow-y-auto p-5">{children}</main>
+      <main className="overflow-y-auto flex-1 p-5">{children}</main>
       <MainFooter />
     </div>
   );

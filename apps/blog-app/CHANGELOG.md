@@ -1,5 +1,29 @@
 # blog-app
 
+## 3.20.0
+
+### Minor Changes
+
+- [#580](https://github.com/belgattitude/nextjs-monorepo-example/pull/580) [`fe262d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fe262d011845ac4d9471b3334b4bd387d96b2e87) Thanks [@belgattitude](https://github.com/belgattitude)! - Optimize svg with svgo by default when building the apps
+
+## 3.19.0
+
+### Minor Changes
+
+- [#553](https://github.com/belgattitude/nextjs-monorepo-example/pull/553) [`77e758b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f) Thanks [@belgattitude](https://github.com/belgattitude)! - Add eslint-plugin-regexp
+
+### Patch Changes
+
+- Updated dependencies [[`77e758b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f)]:
+  - @your-org/core-lib@3.8.0
+  - @your-org/ui-lib@3.6.0
+
+## 3.18.0
+
+### Minor Changes
+
+- [#551](https://github.com/belgattitude/nextjs-monorepo-example/pull/551) [`a93c0b7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a93c0b76875073cb27ed76f31f793e2cbf4af107) Thanks [@belgattitude](https://github.com/belgattitude)! - Add eslint-plugin-tailwindcss to help consistency
+
 ## 3.17.0
 
 ### Minor Changes

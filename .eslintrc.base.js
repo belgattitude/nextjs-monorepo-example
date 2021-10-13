@@ -26,6 +26,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'plugin:regexp/recommended',
     'plugin:prettier/recommended',
   ],
   // By loading jest and sonarjs globally as a plugin
@@ -69,12 +70,11 @@ module.exports = {
     {
       // For performance run sonarjs/recommended on regular code, not test files.
       files: ['**/*.[jt]s?(x)'],
+      excludedFiles: [
+        '**/__tests__/**/*.[jt]s?(x)',
+        '**/?(*.)+(test).[jt]s?(x)',
+      ],
       extends: ['plugin:sonarjs/recommended'],
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-object-literal-type-assertion': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
-      },
     },
     {
       // For performance run jest/recommended on test files, not regular code

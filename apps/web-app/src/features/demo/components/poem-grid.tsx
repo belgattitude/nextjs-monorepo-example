@@ -33,7 +33,7 @@ export const PoemList: React.FC<{ poems: GetPoems; children?: never }> = (
         return (
           <div
             key={`${poem.id}`}
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 m-2">
+            className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
             <PoemCard
               title={poem.title}
               content={poem.content}
