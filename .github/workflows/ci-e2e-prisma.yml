@@ -1,4 +1,4 @@
-name: CI-packages
+name: CI-e2e-prisma
 
 on:
   push:
@@ -6,12 +6,9 @@ on:
       - dev
       - main
     paths:
-      - "packages/**"
+      - "packages/db-main-prisma"
       - "package.json"
       - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
       - ".github/workflows/**"
 
   pull_request:
@@ -20,12 +17,9 @@ on:
       - synchronize
       - reopened
     paths:
-      - "packages/**"
+      - "packages/db-main-prisma"
       - "package.json"
       - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
       - ".github/workflows/**"
 
 jobs:
@@ -33,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
 
@@ -61,21 +55,9 @@ jobs:
         run: |
           yarn install --immutable
 
-      - name: Typecheck
+      - name: E2E prisma
+        working-directory: packages/db-main-prisma
         run: |
-          yarn packages:typecheck
-
-      - name: Linter
-        run: |
-          yarn packages:lint
-
-      - name: Test
-        run: |
-          yarn packages:test
-
-      - name: Build
-        run: |
-          yarn packages:build
-
+          yarn test:e2e
 
 

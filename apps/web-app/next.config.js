@@ -119,6 +119,18 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: secureHeaders }];
   },
 
+  /**
+   * @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
+  async rewrites() {
+    return [
+      {
+        source: `/`,
+        destination: '/demo',
+      },
+    ];
+  },
+  */
+
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Till undici 4 haven't landed in prisma, we need this for docker/alpine
@@ -128,7 +140,24 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
-      use: ['@svgr/webpack'],
+      use: [
+        {
+          loader: '@svgr/webpack',
+          // https://react-svgr.com/docs/webpack/#passing-options
+          options: {
+            svgo: true,
+            // @link https://github.com/svg/svgo#configuration
+            svgoConfig: {
+              multipass: false,
+              datauri: 'base64',
+              js2svg: {
+                indent: 2,
+                pretty: false,
+              },
+            },
+          },
+        },
+      ],
     });
 
     return config;

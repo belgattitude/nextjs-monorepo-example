@@ -124,7 +124,7 @@ export const DemoMuiBlock: FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">
-        <h1 className="font-bold text-4xl mb-2">Material-ui V5.</h1>
+        <h1 className="mb-2 text-4xl font-bold">Material-ui V5.</h1>
         <RecipeReviewCard />
       </div>
     </div>

@@ -15,7 +15,7 @@ const limitCfg = {
   defaultSize: '100kb',
   pages: {
     // Customize specific page limits if needed
-    '/_app': '105kb',
+    '/_app': '110kb',
     '/_error': '105kb',
     '/404': '100kb',
     '/': '105kb',

@@ -7,7 +7,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:@next/next/recommended',
+    'plugin:tailwindcss/recommended',
+    'plugin:@next/next/core-web-vitals',
   ],
   // By loading testing-library as a plugin, we can only enable it
   // on test files via overrides.
@@ -26,6 +27,15 @@ module.exports = {
     // next/image might not be yet a good move as of NextJs v11.
     // https://github.com/vercel/next.js/discussions/16832
     '@next/next/no-img-element': 'off',
+
+    // @link https://github.com/francoismassart/eslint-plugin-tailwindcss
+    'tailwindcss/no-custom-classname': [
+      'warn',
+      {
+        // Add custom classes or missing ones here to avoid warnings
+        whitelist: ['aspect-none', 'prose-xl'],
+      },
+    ],
   },
   overrides: [
     {
