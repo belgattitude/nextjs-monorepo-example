@@ -32,7 +32,7 @@ describe('prisma cli commands', () => {
   describe('Create and seed', () => {
     // See https://github.com/actions/setup-node/issues/224#issuecomment-943531791
     const commands =
-      process.env.HACK_FOR_GITHUB_ACTION === '1'
+      process.env.HACK_FOR_GITHUB_ACTION === '1' && false
         ? {
             create: 'node ../../node_modules/.bin/prisma db push',
             seed: 'node ../../node_modules/.bin/prisma db seed',
@@ -51,6 +51,7 @@ describe('prisma cli commands', () => {
         const options: ExecSyncOptionsWithStringEncoding = {
           encoding: 'utf-8',
           env: {
+            ...process.env,
             PRISMA_DATABASE_URL: dsn,
           },
         };
