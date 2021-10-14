@@ -30,6 +30,18 @@ const execCmd = async (
 
 describe('prisma cli commands', () => {
   describe('Create and seed', () => {
+    // See https://github.com/actions/setup-node/issues/224#issuecomment-943531791
+    const commands =
+      process.env.HACK_FOR_GITHUB_ACTION === '1'
+        ? {
+            create: 'node ../../node_modules/.bin/prisma db push',
+            seed: 'node ../../node_modules/.bin/prisma db seed',
+          }
+        : {
+            create: 'yarn prisma db push',
+            seed: 'yarn prisma db seed',
+          };
+
     it.each(['postgresql13', 'postgresql14'] as const)(
       'should load seed data in a newly created db',
       async (dbKey) => {
@@ -43,14 +55,14 @@ describe('prisma cli commands', () => {
           },
         };
 
-        const createResult = await execCmd('yarn prisma db push', options);
+        const createResult = await execCmd(commands.create, options);
 
         expect(createResult.status).toBeUndefined();
         expect(createResult.stdout).toMatch(
           /your database is now in sync with your schema/i
         );
 
-        const seedResult = await execCmd('yarn prisma db seed', options);
+        const seedResult = await execCmd(commands.seed, options);
 
         expect(seedResult.status).toBeUndefined();
         expect(seedResult.stdout).toMatch(/seeding finished/i);
