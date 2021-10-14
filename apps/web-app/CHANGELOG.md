@@ -1,5 +1,11 @@
 # web-app
 
+## 3.33.2
+
+### Patch Changes
+
+- [#593](https://github.com/belgattitude/nextjs-monorepo-example/pull/593) [`7622030`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7622030785a60e6ee203db68b5b3e22373839840) Thanks [@belgattitude](https://github.com/belgattitude)! - Prevent installation of both v20 & v21 of i18next
+
 ## 3.33.1
 
 ### Patch Changes
