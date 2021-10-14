@@ -15,6 +15,10 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": ["i18next", "@types/i18next-fs-backend"],
+      "enabled": false
+    },
+    {
       // Root package.json
       "matchPaths": ["package.json"],
       "matchDepTypes": [
