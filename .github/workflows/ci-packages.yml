@@ -69,6 +69,10 @@ jobs:
         run: |
           yarn packages:lint
 
+      - name: Test
+        run: |
+          yarn packages:test
+
       - name: Build
         run: |
           yarn packages:build
