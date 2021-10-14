@@ -39,6 +39,7 @@
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
     "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
+    "packages:test": "yarn workspaces foreach -ptv --include '@your-org/*' run test",
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
