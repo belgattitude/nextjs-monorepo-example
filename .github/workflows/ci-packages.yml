@@ -57,6 +57,18 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
+      - name: Restore packages cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
+          key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
+          restore-keys: |
+            ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+
       - name: Install dependencies
         run: |
           yarn install --immutable
@@ -67,11 +79,12 @@ jobs:
 
       - name: Linter
         run: |
-          yarn packages:lint
+          yarn packages:lint --cache
 
-      - name: Test
+      - name: Unit tests
         run: |
-          yarn packages:test
+          yarn packages:ci-test:unit
+      # to debug cache issues: ls ${{ github.workspace }}/.cache
 
       - name: Build
         run: |

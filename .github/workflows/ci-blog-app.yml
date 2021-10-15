@@ -63,10 +63,23 @@ jobs:
       - name: Restore nextjs build blog-app from cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/apps/blog-app/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/blog-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
           key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/blog-app/src/**.[jt]sx?', 'apps/blog-app/src/**.json') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-
+
+      #- name: Monorepo tooling cache
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: |
+      #      ${{ github.workspace }}/.cache
+      #      ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+      #    key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: |
@@ -80,7 +93,7 @@ jobs:
       - name: Linter
         working-directory: apps/blog-app
         run: |
-          yarn lint
+          yarn lint --cache
 
       - name: Unit tests
         working-directory: apps/blog-app
@@ -101,7 +114,7 @@ jobs:
           # be sure to disable it if you intent to use the build
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
-          NEXT_TELEMETRY_DISABLED: 0
+          NEXT_TELEMETRY_DISABLED: 1
           # Cause that's what vercel, netlify, serverless will actually call
           NEXTJS_BUILD_TARGET: experimental-serverless-trace
 

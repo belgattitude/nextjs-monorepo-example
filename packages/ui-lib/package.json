@@ -17,14 +17,15 @@
   "main": "dist/ui-lib.js",
   "module": "dist/ui-lib.module.js",
   "scripts": {
-    "build": "rimraf --no-glob ./dist && microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --compress",
+    "build": "rimraf --no-glob ./dist && microbundle --tsconfig ./tsconfig.build.json ./.eslintcache --jsx React.createElement --compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\"",
+    "test:unit": "echo \"No unit tests yet\"",
+    "ci-test:unit": "echo \"No unit tests yet\"",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
