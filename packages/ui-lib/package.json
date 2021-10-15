@@ -24,7 +24,8 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\"",
+    "test:unit": "echo \"No unit tests yet\"",
+    "ci-test:unit": "echo \"No unit tests yet\"",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },

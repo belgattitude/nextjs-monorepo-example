@@ -22,9 +22,10 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "yarn workspaces foreach -ptv run clean",
+    "clean": "rimraf '.cache/*' && yarn workspaces foreach -ptv run clean",
     "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -ptv run test:unit",
+    "ci-test:unit": "yarn workspaces foreach -tv run ci-test:unit",
     "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
     "fix:all-files": "yarn workspaces foreach -ptv run fix:all-files",
     "changeset": "changeset",
@@ -39,7 +40,8 @@
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
     "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:test": "yarn workspaces foreach -ptv --include '@your-org/*' run test",
+    "packages:test:unit": "yarn workspaces foreach -ptv --include '@your-org/*' run test:unit",
+    "packages:ci-test:unit": "yarn workspaces foreach -tv --include '@your-org/*' run ci-test:unit",
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
@@ -49,7 +51,7 @@
     "docker:down": "docker-compose down",
     "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
     "?clear:node_modules": "remove all node_modules folders present under the root",
-    "clear:node_modules": "yarn dlx rimraf '**/node_modules'",
+    "clear:node_modules": "rimraf '**/node_modules'",
     "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator"
   },
   "devDependencies": {
