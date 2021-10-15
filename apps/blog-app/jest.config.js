@@ -1,5 +1,4 @@
 // @ts-check
-'use strict';
 
 const { defaults: tsPreset } = require('ts-jest/presets');
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
