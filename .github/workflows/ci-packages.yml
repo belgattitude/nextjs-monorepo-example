@@ -69,9 +69,11 @@ jobs:
         run: |
           yarn packages:lint
 
-      - name: Test
+      - name: Unit tests
+        # Running "packages:ci-test:unit" is faster than "packages:test:unit" on CI
+        # Mostly cause we run jest with --runInBand by default
         run: |
-          yarn packages:test
+          yarn packages:ci-test:unit
 
       - name: Build
         run: |
