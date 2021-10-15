@@ -71,7 +71,9 @@ jobs:
       - name: Monorepo tooling cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/.cache
+          path: |
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
           key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
