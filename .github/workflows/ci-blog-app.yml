@@ -63,18 +63,22 @@ jobs:
       - name: Restore nextjs build blog-app from cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/apps/blog-app/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/blog-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+
           key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/blog-app/src/**.[jt]sx?', 'apps/blog-app/src/**.json') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-
 
-      - name: Monorepo tooling cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ github.workspace }}/.cache
-            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-          key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
+      #- name: Monorepo tooling cache
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: |
+      #      ${{ github.workspace }}/.cache
+      #      ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+      #    key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: |

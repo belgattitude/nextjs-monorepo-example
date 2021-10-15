@@ -67,10 +67,15 @@ jobs:
       - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/apps/web-app/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/web-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+
           key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
           restore-keys: |
                ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+
 
       - name: Install dependencies
         run: |
