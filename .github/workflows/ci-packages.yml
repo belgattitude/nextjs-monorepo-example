@@ -80,11 +80,9 @@ jobs:
           yarn packages:lint
 
       - name: Unit tests
-        working-directory: packages/core-lib
         run: |
           ls ${{ github.workspace }}/.cache
-          yarn test:unit --debug
-      # yarn packages:ci-test:unit
+          yarn packages:ci-test:unit
 
       - name: Build
         run: |
