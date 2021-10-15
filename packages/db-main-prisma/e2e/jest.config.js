@@ -1,5 +1,4 @@
 // @ts-check
-'use strict';
 
 const { defaults: tsjPreset } = require('ts-jest/presets');
 
