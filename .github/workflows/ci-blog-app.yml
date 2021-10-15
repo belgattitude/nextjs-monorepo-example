@@ -71,9 +71,7 @@ jobs:
       - name: Monorepo tooling cache
         uses: actions/cache@v2
         with:
-          path: |
-            ~/.cache
-            !~/.cache/exclude
+          path: ${{ github.workspace }}/.cache
           key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
@@ -109,7 +107,7 @@ jobs:
           # be sure to disable it if you intent to use the build
           # done in this step (i.e: deploy, docker....)
           NEXT_DISABLE_SOURCEMAPS: 1
-          NEXT_TELEMETRY_DISABLED: 0
+          NEXT_TELEMETRY_DISABLED: 1
           # Cause that's what vercel, netlify, serverless will actually call
           NEXTJS_BUILD_TARGET: experimental-serverless-trace
 
