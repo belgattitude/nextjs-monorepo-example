@@ -89,6 +89,7 @@ jobs:
       - name: Linter
         working-directory: apps/web-app
         run: |
+          ls -la
           yarn lint --cache
 
       - name: Unit tests
