@@ -3,11 +3,14 @@
 
 const { defaults: tsjPreset } = require('ts-jest/presets');
 
+const { getJestCachePath } = require('../../../cache.config');
+const packageJson = require('../package.json');
+
 /** @typedef {import('ts-jest/dist/types')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
-  name: 'db-main-prisma:e2e',
-  displayName: 'db-main-prisma:e2e',
+  name: `${packageJson.name}:e2e`,
+  cacheDirectory: getJestCachePath(`${packageJson.name}:e2e`),
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/e2e/jest.setup.ts'],
   verbose: true,
