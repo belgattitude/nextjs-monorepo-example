@@ -5,7 +5,6 @@
  * @link https://react.i18next.com/latest/typescript
  */
 import 'react-i18next';
-import type { ReportNamespaces } from 'react-i18next';
 import common from '../../public/locales/en/common.json';
 import demo from '../../public/locales/en/demo.json';
 import home from '../../public/locales/en/home.json';
