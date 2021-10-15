@@ -68,6 +68,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-
 
+      - name: Monorepo tooling cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache
+            !~/.cache/exclude
+          key: monorepo-tooling-cache-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install dependencies
         run: |
           yarn install --immutable
