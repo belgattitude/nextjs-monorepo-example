@@ -63,6 +63,8 @@ jobs:
           path: |
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
           key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
           restore-keys: |
             ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
@@ -77,12 +79,12 @@ jobs:
 
       - name: Linter
         run: |
-          yarn packages:lint
+          yarn packages:lint --cache
 
       - name: Unit tests
         run: |
-          ls ${{ github.workspace }}/.cache
           yarn packages:ci-test:unit
+      # to debug cache issues: ls ${{ github.workspace }}/.cache
 
       - name: Build
         run: |

@@ -67,6 +67,7 @@ jobs:
             ${{ github.workspace }}/apps/blog-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
 
           key: ${{ runner.os }}-nextjs-blog-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/blog-app/src/**.[jt]sx?', 'apps/blog-app/src/**.json') }}
           restore-keys: |
@@ -92,7 +93,7 @@ jobs:
       - name: Linter
         working-directory: apps/blog-app
         run: |
-          yarn lint
+          yarn lint --cache
 
       - name: Unit tests
         working-directory: apps/blog-app

@@ -71,11 +71,11 @@ jobs:
             ${{ github.workspace }}/apps/web-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
 
           key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
           restore-keys: |
                ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
-
 
       - name: Install dependencies
         run: |
@@ -89,7 +89,7 @@ jobs:
       - name: Linter
         working-directory: apps/web-app
         run: |
-          yarn lint
+          yarn lint --cache
 
       - name: Unit tests
         working-directory: apps/web-app
