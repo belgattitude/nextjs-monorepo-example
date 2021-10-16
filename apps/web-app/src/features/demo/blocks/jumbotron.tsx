@@ -52,6 +52,26 @@ const GradientText = styled.span<Props>`
   ${(props) => gradients[props?.bg ?? 'sky']};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: absolute;
+  white-space: pre;
+  &:before {
+    content: ' ';
+  }
+  &.fadeIn {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1.5s;
+    transition-timing-function: ease-in;
+  }
+  &.fadeOut {
+    opacity: 0;
+    transform: translate(100px);
+    transition: all 1.5s ease-out;
+    &:last-of-type {
+      font-size: 2em;
+      transition-duration: 1s;
+    }
+  }
 `;
 
 const titles: [string, GradientTextBackgrounds][] = [
@@ -65,34 +85,35 @@ const titles: [string, GradientTextBackgrounds][] = [
 export const Jumbotron: FC = () => {
   const [count, setCount] = useState(0);
   useIntervalWhen(() => {
-    setCount(count >= titles.length - 1 ? 0 : count + 1);
-  }, 2000);
+    setCount((count) => (count >= titles.length - 1 ? 0 : count + 1));
+  }, 3500);
   console.log('count', count);
   return (
-    <div
-      css={css`
-        font-weight: bolder;
-        font-size: 3em;
-        line-height: 1.1em;
-        @media (min-width: 600px) {
-          font-size: 5em;
-        } ;
-      `}>
-      One of many ways to start with{' '}
-      {titles.map((title, idx) => {
-        const [label, grad] = titles[idx];
-        return (
-          <GradientText
-            key={grad}
-            css={css`
-              opacity: ${idx === count ? 1 : 0.7};
-              font-size: ${idx === count ? '3em' : '0.5em'};
-            `}
-            bg={grad}>
-            {label}
-          </GradientText>
-        );
-      })}
-    </div>
+    <>
+      <div
+        css={css`
+          font-weight: bolder;
+          font-size: 3em;
+          line-height: 1.1em;
+          @media (min-width: 600px) {
+            font-size: 4em;
+          } ;
+        `}>
+        One of many possibles
+        <br /> made with
+        {titles.map((title, idx) => {
+          const [label, grad] = titles[idx];
+          const curr = idx === count;
+          return (
+            <GradientText
+              className={curr ? 'fadeIn' : 'fadeOut'}
+              key={grad}
+              bg={grad}>
+              {label}
+            </GradientText>
+          );
+        })}
+      </div>
+    </>
   );
 };
