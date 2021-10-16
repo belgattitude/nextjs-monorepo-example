@@ -1,6 +1,7 @@
 import type { EmotionCache } from '@emotion/react';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
+import Head from 'next/head';
 import { AppProviders } from '../app-providers';
 
 /**
@@ -32,6 +33,9 @@ const MyApp = (appProps: AppProps) => {
   const { Component, pageProps, emotionCache, err } = appProps;
   return (
     <AppProviders emotionCache={emotionCache}>
+      <Head>
+        <meta name="viewport" content="viewport-fit=cover" />
+      </Head>
       {/* Workaround for https://github.com/vercel/next.js/issues/8592 */}
       <Component {...pageProps} err={err} />
     </AppProviders>
