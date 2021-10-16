@@ -4,6 +4,7 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useIntervalWhen } from 'rooks';
 
+// noinspection CssUnknownTarget
 const gradients = {
   sky: css`
     background: linear-gradient(
@@ -38,7 +39,7 @@ const gradients = {
     );
   `,
   fun: css`
-    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-image: url('/images/anims/flow-giphy.webp');
     background-size: cover;
   `,
 } as const;
