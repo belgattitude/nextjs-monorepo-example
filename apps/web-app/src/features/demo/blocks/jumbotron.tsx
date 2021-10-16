@@ -88,7 +88,7 @@ export const Jumbotron: FC = () => {
   useIntervalWhen(() => {
     setCount((count) => (count >= titles.length - 1 ? 0 : count + 1));
   }, 3500);
-  console.log('count', count);
+
   return (
     <>
       <div
