@@ -1,5 +1,11 @@
 # web-app
 
+## 3.34.0
+
+### Minor Changes
+
+- [#614](https://github.com/belgattitude/nextjs-monorepo-example/pull/614) [`b36771c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/b36771cd573f3a0805eee97d8e2bffb079915bf9) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of favicons
+
 ## 3.33.2
 
 ### Patch Changes
