@@ -85,6 +85,12 @@ const nextConfig = {
   },
 
   experimental: {
+    // Should solves "local files are not readable from APIs"
+    // https://github.com/vercel/next.js/issues/24700
+    // https://github.com/vercel/next.js/issues/8251#issuecomment-
+    // https://github.com/vercel/next.js/pull/25538
+    outputFileTracing: true,
+
     // Not ready yet to replace babel plugins
     swcLoader: false,
     swcMinify: false,
