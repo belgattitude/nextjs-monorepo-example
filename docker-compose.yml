@@ -43,22 +43,6 @@ services:
     depends_on:
       - main-db
 
-  e2e-db:
-    profiles:
-      - donotstart
-    container_name: e2e-postgresql
-    image: postgres:14-alpine
-    ports:
-      - target: 5432
-        published: 5432
-        protocol: tcp
-    environment:
-      - POSTGRES_DB=e2edb
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-    volumes:
-      - e2e_db_data:/var/lib/postgresql/data:rw
-
   main-db:
     container_name: nextjs-monorepo-example-main-db
     image: postgres:14-alpine
