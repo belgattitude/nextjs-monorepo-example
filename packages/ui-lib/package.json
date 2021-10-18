@@ -14,10 +14,11 @@
     "url": "https://github.com/belgattitude"
   },
   "source": "src/index.ts",
-  "main": "dist/ui-lib.js",
-  "module": "dist/ui-lib.module.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf --no-glob ./dist && microbundle --tsconfig ./tsconfig.build.json ./.eslintcache --jsx React.createElement --compress",
+    "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo",
@@ -39,7 +40,7 @@
     "@types/react-dom": "17.0.9",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "5.0.0",
-    "camelcase": "6.2.0",
+    "cross-env": "7.0.3",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-typescript": "2.5.0",
