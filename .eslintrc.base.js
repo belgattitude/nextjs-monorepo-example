@@ -75,6 +75,9 @@ module.exports = {
         '**/?(*.)+(test).[jt]s?(x)',
       ],
       extends: ['plugin:sonarjs/recommended'],
+      rules: {
+        'sonarjs/no-nested-template-literals': 'off',
+      },
     },
     {
       // For performance run jest/recommended on test files, not regular code

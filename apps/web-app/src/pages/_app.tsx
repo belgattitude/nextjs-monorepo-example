@@ -34,7 +34,7 @@ const MyApp = (appProps: AppProps) => {
   return (
     <AppProviders emotionCache={emotionCache}>
       <Head>
-        <meta name="viewport" content="viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       {/* Workaround for https://github.com/vercel/next.js/issues/8592 */}
       <Component {...pageProps} err={err} />
