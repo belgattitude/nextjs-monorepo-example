@@ -1,10 +1,11 @@
 import { parseDsn } from '@soluble/dsn-parser';
+import type { ParsedDsn } from '@soluble/dsn-parser';
 import isPortReachable from 'is-port-reachable';
 import pc from 'picocolors';
 
 const dsn = process.env.E2E_PRISMA_DATABASE_URL as string;
 
-export const getValidatedDsn = () => {
+export const getValidatedDsn = (): { dsn: string } & ParsedDsn => {
   const parsedDsn = parseDsn(dsn);
   if (!parsedDsn.success) {
     throw new Error(
