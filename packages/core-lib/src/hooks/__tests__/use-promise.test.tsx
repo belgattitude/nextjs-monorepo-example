@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
-
+import type { FC } from 'react';
 import { usePromise } from '../use-promise';
 
 describe('usePromise', () => {
@@ -98,7 +98,7 @@ describe('usePromise', () => {
         asyncFn: LoaderPromise;
         params: Params;
       };
-      const MyComp: React.FC<Props> = ({ asyncFn, params }) => {
+      const MyComp: FC<Props> = ({ asyncFn, params }) => {
         const { data } = usePromise(asyncFn, params);
         return <div data-testid={'content'}>{data}</div>;
       };
