@@ -23,11 +23,32 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  e2e:
+    # containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+    # Docker Hub image that `postgres-job` executes in
+    container: alpine:13
+
+      # label used to access the service container
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_HOST: postgres-host
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_PORT: 5432
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     strategy:
       matrix:
         node-version: [16.x]
+
     steps:
       - uses: actions/checkout@v2
 
@@ -59,5 +80,7 @@ jobs:
         working-directory: packages/db-main-prisma
         run: |
           yarn test:e2e
+        env:
+          E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@postgres-host:5432/db-main-prisma-e2e?schema=public
 
 
