@@ -75,15 +75,15 @@ jobs:
 
       - name: Typecheck
         run: |
-          yarn packages:typecheck
+          yarn workspaces foreach -tv --include '@your-org/*' --since --recursive run typecheck
 
       - name: Linter
         run: |
-          yarn packages:lint --cache
+          yarn workspaces foreach -tv --include '@your-org/*' --since --recursive run lint --cache
 
       - name: Unit tests
         run: |
-          yarn packages:ci-test:unit
+          yarn workspaces foreach -tv --include '@your-org/*' --since --recursive run test-unit
       # to debug cache issues: ls ${{ github.workspace }}/.cache
 
       - name: Build
