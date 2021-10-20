@@ -83,7 +83,7 @@ jobs:
 
       - name: Unit tests
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since --recursive run test-unit
+          yarn workspaces foreach -tv --include '@your-org/*' --since --recursive run test:unit
       # to debug cache issues: ls ${{ github.workspace }}/.cache
 
       - name: Build
