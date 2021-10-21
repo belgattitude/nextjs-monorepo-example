@@ -1,5 +1,11 @@
 # @your-org/ui-lib
 
+## 3.6.1
+
+### Patch Changes
+
+- [#623](https://github.com/belgattitude/nextjs-monorepo-example/pull/623) [`fcd68ed`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fcd68ed476734fefda85f5ffa2cf82cbd1502aa6) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix package publishing in esm and cjs
+
 ## 3.6.0
 
 ### Minor Changes

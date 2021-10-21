@@ -23,11 +23,18 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  e2e:
+    # containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [16.x]
+        database:
+          - e2e-postgres
+        node-version: [16.X]
+
     steps:
       - uses: actions/checkout@v2
 
@@ -51,6 +58,10 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
+      - name: Start postgresql
+        working-directory: packages/db-main-prisma
+        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+
       - name: Install dependencies
         run: |
           yarn install --immutable
@@ -59,5 +70,7 @@ jobs:
         working-directory: packages/db-main-prisma
         run: |
           yarn test:e2e
+        env:
+          E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
 
 
