@@ -29,9 +29,9 @@
   </a>
 </p>
 
-> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.0](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
+> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.1](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
 > / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and
-> tries to be as strict and standard as possible. Check how it compares to NX or Rush [here](README.md#approach).
+> tries to be as strict and standard as possible.
 
 Useful to
 
@@ -500,31 +500,6 @@ Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deplo
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
 ## FAQ
-
-### Approach
-
-This repo does not rely on monorepo tools like [Rush](https://rushjs.io/) or [Nx](https://nx.dev/). Those
-tools are really interesting to tackle the monorepo build performance. In other words
-they can skip building packages / files that haven't changed (using a cache)
-
-In this specific example, packages aren't built... files are imported like they exist in the app folder,
-the cache offered by nextjs do the job and would be used anyway... So there's less
-advantages (it's even worse cause you double cache, costs++).
-
-To get and idea of speed, check the CI actions and deployment performance (less than 2 minutes).
-That said there's still room for more perf, by running the typechecks, tests and linters on
-changed files only (like with [ultra-runner](https://github.com/folke/ultra-runner#readme)).
-
-Nowadays yarn / pnpm are totally able to act as a task runner (yarn workspaces commands),
-handle the dependency graph and the monorepo topology.
-
-It's very scalable...
-
-That said, recipes present here can be applied in any tool cause they're
-very standard.
-
-If you intend to add multiple frameworks (other than nextjs, such as nestjs, express...) in a monorepo
-and don't want to spend time, Nx or rush will be better bets.
 
 ### Monorepo
 
