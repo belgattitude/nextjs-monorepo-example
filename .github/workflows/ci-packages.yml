@@ -76,22 +76,28 @@ jobs:
         run: |
           yarn install --immutable
 
+      # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
+      # That allows to see if we're introducing "surface" regressions (just the types)
       - name: Typecheck
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run typecheck
+          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main --recursive run typecheck
 
+      # Lint packages that have changed (--include & --since)
       - name: Linter
         run: |
           yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint --cache
 
+      # Test packages that have changed (--include & --since)
       - name: Unit tests
         run: |
-          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main --recursive run test:unit
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test:unit
       # to debug cache issues: ls ${{ github.workspace }}/.cache
 
+      # Build packages that have changed (--include & --since), assuming that
+      # apps build are done already. Otherwise --from & --since
       - name: Build
         run: |
-          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main run packages:build
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run packages:build
 
 
 
