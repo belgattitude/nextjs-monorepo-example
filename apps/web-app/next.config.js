@@ -1,6 +1,5 @@
 // @ts-check
 
-const { withSentryConfig } = require('@sentry/nextjs');
 const { i18n } = require('./next-i18next.config');
 
 const packageJson = require('./package.json');
@@ -132,8 +131,9 @@ const nextConfig = {
   */
 
   webpack: (config, { isServer }) => {
-    if (isServer) {
-      // Add specific config for server mode
+    if (!isServer) {
+      // Swap sentry/node by sentry/browser
+      config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
 
     config.module.rules.push({
@@ -164,11 +164,7 @@ const nextConfig = {
   env: {
     APP_NAME: packageJson.name,
     APP_VERSION: packageJson.version,
-    BUILD_TIME: new Date().getTime().toString(10),
-    SENTRY_RELEASE: process.env.SENTRY_RELEASE
-      ? process.env.SENTRY_RELEASE
-      : `${packageJson.name}@${packageJson.version}`,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN ?? '',
+    BUILD_TIME: new Date().toISOString(),
   },
   serverRuntimeConfig: {
     // to bypass https://github.com/zeit/next.js/issues/8251
@@ -177,24 +173,6 @@ const nextConfig = {
 };
 
 let config = withNextTranspileModules(nextConfig);
-
-if (process.env.NEXT_DISABLE_SENTRY !== '1') {
-  /** @type {Partial<import('@sentry/nextjs/dist/config/types').SentryWebpackPluginOptions>} */
-  const sentryWebpackPluginOptions = {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-    dryRun:
-      process.env.NODE_ENV !== 'production' ||
-      process.env.NEXT_SENTRY_DRY_RUN === '1',
-  };
-
-  config = withSentryConfig(config, sentryWebpackPluginOptions);
-}
 
 if (process.env.ANALYZE === 'true') {
   // @ts-ignore

@@ -1,4 +1,6 @@
 import type { EmotionCache } from '@emotion/react';
+import * as Sentry from '@sentry/browser';
+import { isNonEmptyString } from '@your-org/core-lib';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
@@ -19,12 +21,21 @@ import '@fontsource/inter/700.css';
 // @link https://fontsource.org/docs/variable-fonts
 import '@fontsource/inter/variable.css';
 
+import { sentryBrowserInitConfig } from '@/config/sentry.config';
+
 // Workaround for https://github.com/zeit/next.js/issues/8592
 export type AppProps = NextAppProps & {
   /** Will be defined only is there was an error */
   err?: Error;
   emotionCache?: EmotionCache;
 };
+
+if (
+  process.env.NEXT_PUBLIC_SENTRY_DSN &&
+  isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)
+) {
+  Sentry.init(sentryBrowserInitConfig);
+}
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
@@ -42,6 +53,10 @@ const MyApp = (appProps: AppProps) => {
   );
 };
 
+/**
+ * Generally don't enable getInitialProp if you don't need to,
+ * all your pages will be served server-side (no static optimizations).
+ */
 /*
 MyApp.getInitialProps = async appContext => {
    // calls page's `getInitialProps` and fills `appProps.pageProps`

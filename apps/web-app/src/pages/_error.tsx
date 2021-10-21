@@ -3,10 +3,7 @@
  * @link https://nextjs.org/docs/advanced-features/custom-error-page
  */
 
-import {
-  captureException as sentryCaptureException,
-  flush as sentryFlush,
-} from '@sentry/nextjs';
+import * as Sentry from '@sentry/node';
 import { isNonEmptyString } from '@your-org/core-lib';
 import type { NextPage, NextPageContext } from 'next';
 import NextErrorComponent from 'next/error';
@@ -17,7 +14,6 @@ type AugmentedError = NonNullable<NextPageContext['err']> | null;
 type CustomErrorProps = {
   err?: AugmentedError;
   message?: string;
-  sentryErrorId?: string;
   hasGetInitialPropsRun?: boolean;
 } & Omit<ErrorProps, 'err'>;
 
@@ -26,8 +22,11 @@ type AugmentedNextPageContext = Omit<NextPageContext, 'err'> & {
 };
 
 const captureException = async (err: string | Error) => {
-  if (isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)) {
-    sentryCaptureException(err);
+  if (
+    process.env.NEXT_PUBLIC_SENTRY_DSN &&
+    isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)
+  ) {
+    Sentry.captureException(err);
   }
 };
 
@@ -35,12 +34,15 @@ const captureExceptionAndFlush = async (
   err: string | Error,
   flushAfter = 2000
 ) => {
-  if (isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)) {
-    sentryCaptureException(err);
+  if (
+    process.env.NEXT_PUBLIC_SENTRY_DSN &&
+    isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)
+  ) {
+    Sentry.captureException(err);
     if (flushAfter > 0) {
       // Flushing before returning is necessary if deploying to Vercel, see
       // https://vercel.com/docs/platform/limits#streaming-responses
-      await sentryFlush(flushAfter);
+      await Sentry.flush(flushAfter);
     }
   }
 };
@@ -49,9 +51,9 @@ const CustomError: NextPage<CustomErrorProps> = (props) => {
   const { statusCode, err, hasGetInitialPropsRun } = props;
 
   if (!hasGetInitialPropsRun && err) {
-    // getInitialProps is not called in case of
-    // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
-    // err via _app.js so it can be captured
+    // getInitialProps is not called in case of https://github.com/vercel/next.js/issues/8592.
+    // As a workaround, we pass err via _app.js so it can be captured
+
     // Flushing is not required in this case as it only happens on the client
     captureException(err);
   }
