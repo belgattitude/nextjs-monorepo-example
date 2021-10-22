@@ -99,12 +99,13 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
-  // @ts-ignore
   images: {
+    loader: 'default',
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     disableStaticImages: false,
-    loader: 'default',
+    // https://nextjs.org/docs/api-reference/next/image#caching-behavior
+    minimumCacheTTL: 60,
     // Allowed domains for next/image
     domains: ['source.unsplash.com'],
   },
