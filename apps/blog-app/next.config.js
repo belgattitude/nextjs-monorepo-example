@@ -96,6 +96,10 @@ const nextConfig = {
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
   },
+  future: {
+    // @link https://github.com/vercel/next.js/pull/20914
+    strictPostcssConfiguration: true,
+  },
 
   typescript: {
     ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,

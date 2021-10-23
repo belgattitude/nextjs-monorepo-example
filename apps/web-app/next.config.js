@@ -97,6 +97,10 @@ const nextConfig = {
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
   },
+  future: {
+    // @link https://github.com/vercel/next.js/pull/20914
+    strictPostcssConfiguration: true,
+  },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
   images: {
