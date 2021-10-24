@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link, Route } from 'wouter';
+
 import { sayHello } from '@your-org/core-lib';
 import { Message } from '@your-org/ui-lib';
 
@@ -10,35 +12,47 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{`${sayHello('Hello Vite')} from @your-org/core-lib`}</p>
+      <Route path="/">
+        <main className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>{`${sayHello('Hello Vite')} from @your-org/core-lib`}</p>
+          <p>
+            <button
+              type="button"
+              onClick={() => setCount((count) => count + 1)}>
+              count is: {count}
+            </button>
+          </p>
+          <p>
+            <Message message={'React component from @your-org/ui-lib'} />
+          </p>
+          <p>
+            <Link href="/about">
+              <a className="App-link">About</a>
+            </Link>
+            {' | '}
+            <a
+              className="App-link"
+              href="https://vitejs.dev/guide/features.html"
+              target="_blank"
+              rel="noopener noreferrer">
+              Vite Docs
+            </a>
+          </p>
+        </main>
+      </Route>
+      <Route path="/about">
+        <h1>About</h1>
+        <p>Simple routing example.</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
+          Minim ea nisi irure voluptate commodo nostrud duis et laboris ipsum
+          aute aute incididunt occaecat. Excepteur qui velit adipisicing id est
+          nulla nisi irure aliqua pariatur esse reprehenderit ea reprehenderit.
         </p>
-        <p>
-          <Message message={'React component from @your-org/ui-lib'} />
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer">
-            Vite Docs
-          </a>
-        </p>
-      </header>
+        <Link className="App-link" href="/">
+          <a>&larr; Home</a>
+        </Link>
+      </Route>
     </div>
   );
 }
