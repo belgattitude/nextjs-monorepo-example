@@ -102,7 +102,6 @@ jobs:
         run: |
           yarn build
         env:
-          NEXTJS_BUILD_TARGET: server
           # Speed up build cause they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: 1
           # Speed up build cause they are typechecked in a previous step

@@ -2,8 +2,6 @@
 
 const packageJson = require('./package.json');
 
-const NEXTJS_BUILD_TARGET =
-  process.env.NEXTJS_BUILD_TARGET || 'experimental-serverless-trace';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const NEXTJS_IGNORE_TYPECHECK =
   process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
@@ -72,7 +70,6 @@ const secureHeaders = createSecureHeaders({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   optimizeFonts: true,
