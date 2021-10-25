@@ -1,3 +1,4 @@
+// See ../../.eslintrc.base.js
 module.exports = {
   root: true,
   ignorePatterns: ['node_modules/*', '.next'],
@@ -30,25 +31,11 @@ module.exports = {
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(test).[jt]s?(x)'],
+      files: ['**/*.test.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
     },
     {
-      files: ['next.config.js'],
-      parser: 'espree',
-      parserOptions: {
-        ecmaVersion: 2020,
-      },
-      rules: {
-        'import/order': 'off',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-      },
-    },
-    {
-      files: ['src/pages/**/*.ts', 'src/pages/**/*.tsx'],
+      files: ['src/pages/**/*.{ts,tsx}'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/display-name': 'off',

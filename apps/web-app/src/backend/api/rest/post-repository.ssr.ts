@@ -1,6 +1,7 @@
 import { InternalServerError, NotFound } from '@tsed/exceptions';
-import { Asserts, UnPromisify } from '@your-org/core-lib';
-import { PrismaClientDbMain } from '@your-org/db-main-prisma';
+import type { UnPromisify } from '@your-org/core-lib';
+import { Asserts } from '@your-org/core-lib';
+import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
 
 export type GetPosts = UnPromisify<
   ReturnType<typeof PostRepositorySsr['prototype']['getPosts']>

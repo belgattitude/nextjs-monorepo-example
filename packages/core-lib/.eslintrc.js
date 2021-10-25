@@ -24,7 +24,7 @@ module.exports = {
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      files: ['**/__tests__/**/*.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
     },
   ],

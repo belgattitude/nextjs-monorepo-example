@@ -1,4 +1,4 @@
-import { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 
 type Props = {
   img: GetPoems[0]['image'];

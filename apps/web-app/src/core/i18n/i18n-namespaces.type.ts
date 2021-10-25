@@ -1,4 +1,4 @@
-import { CustomTypeOptions } from 'react-i18next';
+import type { CustomTypeOptions } from 'react-i18next';
 
 export type I18nNamespace = keyof CustomTypeOptions['resources'];
 

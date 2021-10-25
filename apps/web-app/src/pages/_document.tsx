@@ -1,4 +1,4 @@
-import { EmotionCache } from '@emotion/cache';
+import type { EmotionCache } from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
 import type {
   AppContextType,
@@ -6,14 +6,8 @@ import type {
   AppPropsType,
   NextComponentType,
 } from 'next/dist/shared/lib/utils';
-import Document, {
-  DocumentContext,
-  Html,
-  Main,
-  Head,
-  NextScript,
-  DocumentProps,
-} from 'next/document';
+import type { DocumentContext, DocumentProps } from 'next/document';
+import Document, { Html, Main, Head, NextScript } from 'next/document';
 import { Children as ReactChildren } from 'react';
 import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 
