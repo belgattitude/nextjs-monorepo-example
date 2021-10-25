@@ -1,4 +1,3 @@
-const base = require('../../.eslintrc.base.js');
 module.exports = {
   root: true,
   ignorePatterns: ['node_modules/*', 'dist', 'build'],
@@ -17,10 +16,6 @@ module.exports = {
     es6: true,
     node: true,
   },
-  parserOptions: {
-    ...base.parserOptions,
-    project: ['./tsconfig.json'],
-  },
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -29,7 +24,7 @@ module.exports = {
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      files: ['**/__tests__/**/*.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
     },
   ],

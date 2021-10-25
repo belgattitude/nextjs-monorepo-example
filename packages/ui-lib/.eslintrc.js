@@ -1,15 +1,9 @@
-const base = require('../../.eslintrc.base.js');
-
 module.exports = {
   root: true,
   ignorePatterns: ['node_modules/*', 'dist', 'build'],
-  parserOptions: {
-    ...base.parserOptions,
-    project: ['./tsconfig.json'],
-  },
   extends: [
     '../../.eslintrc.base.js',
-    // Add specific rules for react and nextjs
+    // Add specific rules for react
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
@@ -30,7 +24,7 @@ module.exports = {
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      files: ['**/__tests__/**/*.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
     },
   ],
