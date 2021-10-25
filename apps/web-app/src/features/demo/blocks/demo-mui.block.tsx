@@ -10,10 +10,12 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Collapse from '@mui/material/Collapse';
 import { red } from '@mui/material/colors';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { FC, useState } from 'react';
+import type { FC } from 'react';
+import { useState } from 'react';
 
 type NoChildrenProps = {
   children?: never;

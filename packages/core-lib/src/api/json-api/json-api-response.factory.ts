@@ -1,5 +1,5 @@
 import { isPlainObject } from '../../utils/typeguards';
-import {
+import type {
   JsonApiError,
   JsonApiErrorResponse,
   JsonApiSuccessResponse,
