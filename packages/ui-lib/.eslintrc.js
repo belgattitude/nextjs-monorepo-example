@@ -1,6 +1,12 @@
+const base = require('../../.eslintrc.base.js');
+
 module.exports = {
   root: true,
   ignorePatterns: ['node_modules/*', 'dist', 'build'],
+  parserOptions: {
+    ...base.parserOptions,
+    project: ['./tsconfig.json'],
+  },
   extends: [
     '../../.eslintrc.base.js',
     // Add specific rules for react and nextjs

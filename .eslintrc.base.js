@@ -6,12 +6,15 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/*'],
   parser: '@typescript-eslint/parser',
+  // @link https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      globalReturn: false,
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
+    ecmaVersion: 'es2020',
+    lib: ['es2020'],
+    project: ['./apps/**/tsconfig.json', 'packages/**/tsconfig.json'],
   },
   settings: {
     react: {
@@ -76,6 +79,8 @@ module.exports = {
       ],
       extends: ['plugin:sonarjs/recommended'],
       rules: {
+        '@typescript-eslint/consistent-type-exports': 'error',
+        '@typescript-eslint/consistent-type-imports': 'error',
         'sonarjs/no-nested-template-literals': 'off',
       },
     },
