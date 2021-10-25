@@ -34,7 +34,7 @@
     "deps:update": "yarn dlx npm-check-updates --configFileName ncurc.yml -u --deep --dep prod,dev,optional",
     "typecheck": "yarn workspaces foreach -ptv run typecheck",
     "lint": "yarn workspaces foreach -ptv run lint --color",
-    "check:install": "yarn dlx @yarnpkg/doctor@3.1.0 .",
+    "check:install": "yarn dlx @yarnpkg/doctor@^3.1.0 .",
     "share:static:symlink": "yarn workspaces foreach -pv --include '*-app' run share:static:symlink",
     "share:static:hardlink": "yarn workspaces foreach -pv --include '*-app' run share:static:hardlink",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
