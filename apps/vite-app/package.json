@@ -6,7 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "test": "run-s 'test:*'",
+    "test:unit": "echo 'No test present yet'",
+    "ci-test:unit": "echo 'No test present yet'",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "fix:staged-files": "lint-staged --allow-empty",
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@your-org/core-lib": "workspace:*",
