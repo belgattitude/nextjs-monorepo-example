@@ -1,5 +1,7 @@
 // @ts-check
 
+const pc = require('picocolors');
+
 const { i18n } = require('./next-i18next.config');
 
 const packageJson = require('./package.json');
@@ -41,8 +43,10 @@ const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
  */
 const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
 if (disableSourceMaps) {
-  console.log(
-    '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
+  console.info(
+    `${pc.green(
+      'notice'
+    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
   );
 }
 
