@@ -85,11 +85,10 @@ const nextConfig = {
     keepAlive: true,
   },
 
-  experimental: {
-    // https://github.com/vercel/next.js/pull/29267
-    // @ts-ignore
-    outputFileTracing: true,
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
+  outputFileTracing: true,
 
+  experimental: {
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
