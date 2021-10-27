@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
+import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 import { compilerOptions } from './tsconfig.json';
-import { resolve } from 'path';
 
 // Workaround to enable tsconfig paths
 const alias = Object.entries(compilerOptions.paths).reduce(
