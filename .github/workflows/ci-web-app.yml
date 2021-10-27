@@ -33,6 +33,7 @@ on:
       - ".yarnrc.yml"
       - "*.base.json"
       - "*.base.js"
+      - ".prettier*.*"
       - ".github/workflows/**"
 
 jobs:
@@ -102,15 +103,13 @@ jobs:
         run: |
           yarn build
         env:
-          # Speed up build cause they are linted in a previous step
+          # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: 1
-          # Speed up build cause they are typechecked in a previous step
+          # Speed up build: they are typechecked in a previous step
           NEXTJS_IGNORE_TYPECHECK: 1
-          # Speed up build by not running sourcemap upload (not even dry-run)
-          # Disable sourcemaps will speed up ci
-          # be sure to disable it if you intent to use the build
-          # done in this step (i.e: deploy, docker....)
+          # Speed up build: don't run if not needed, enable if it becomes needed
           NEXT_DISABLE_SOURCEMAPS: 1
+          # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: 1
           # Fully disable sentry registration here (no overhead in build time)
           NEXT_DISABLE_SENTRY: 1

@@ -1,5 +1,7 @@
 // @ts-check
 
+const pc = require('picocolors');
+
 const { i18n } = require('./next-i18next.config');
 
 const packageJson = require('./package.json');
@@ -41,8 +43,10 @@ const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
  */
 const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
 if (disableSourceMaps) {
-  console.log(
-    '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
+  console.info(
+    `${pc.green(
+      'notice'
+    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
   );
 }
 
@@ -81,11 +85,10 @@ const nextConfig = {
     keepAlive: true,
   },
 
-  experimental: {
-    // https://github.com/vercel/next.js/pull/29267
-    // @ts-ignore
-    outputFileTracing: true,
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
+  outputFileTracing: true,
 
+  experimental: {
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}

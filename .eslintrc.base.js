@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  ignorePatterns: ['node_modules/*'],
+  ignorePatterns: ['node_modules/*', '.eslintrc.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -42,46 +42,38 @@ module.exports = {
   },
   rules: {
     'linebreak-style': ['error', 'unix'],
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': [
+      'error',
+      { allow: ['private-constructors'] },
+    ],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'import/default': 'off',
+    'import/no-named-as-default-member': 'off',
+    'import/no-named-as-default': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+        ],
+        alphabetize: { order: 'asc', caseInsensitive: true },
+      },
+    ],
+    '@typescript-eslint/consistent-type-exports': 'error',
+    '@typescript-eslint/consistent-type-imports': 'error',
   },
   overrides: [
     {
-      files: ['*.{ts,tsx}'],
-      rules: {
-        '@typescript-eslint/consistent-type-exports': 'error',
-        '@typescript-eslint/consistent-type-imports': 'error',
-        'no-empty-function': 'off',
-        '@typescript-eslint/no-empty-function': [
-          'error',
-          { allow: ['private-constructors'] },
-        ],
-        '@typescript-eslint/no-unused-vars': [
-          'warn',
-          { argsIgnorePattern: '^_' },
-        ],
-        'import/default': 'off',
-        'import/no-named-as-default-member': 'off',
-        'import/no-named-as-default': 'off',
-        'import/order': [
-          'error',
-          {
-            groups: [
-              'builtin',
-              'external',
-              'internal',
-              'parent',
-              'sibling',
-              'index',
-              'object',
-            ],
-            alphabetize: { order: 'asc', caseInsensitive: true },
-          },
-        ],
-      },
-    },
-    {
       // For performance run sonarjs/recommended on regular code, not test files.
-      files: ['**/*.{ts,tsx}'],
-      excludedFiles: ['**/__tests__/**/*.{ts,tsx}'],
+      files: ['**/*.{js,jsx,ts,tsx}'],
+      excludedFiles: ['**/__tests__/**/*.{js,jsx,ts,tsx}'],
       extends: ['plugin:sonarjs/recommended'],
       rules: {
         'sonarjs/no-nested-template-literals': 'off',
@@ -89,7 +81,7 @@ module.exports = {
     },
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.{ts,tsx}', '**/?(*.)+(test).{ts,tsx}'],
+      files: ['**/?(*.)+(test|spec).{js,jsx,ts,tsx}'],
       extends: ['plugin:jest/recommended'],
       rules: {
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -99,10 +91,6 @@ module.exports = {
     },
     {
       files: ['*.js'],
-      parser: 'espree',
-      parserOptions: {
-        ecmaVersion: 2020,
-      },
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
@@ -110,6 +98,9 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'sonarjs/no-duplicate-string': 'off',
         'sonarjs/no-all-duplicated-branches': 'off',
+        '@typescript-eslint/consistent-type-exports': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
+        'import/order': 'off',
       },
     },
   ],
