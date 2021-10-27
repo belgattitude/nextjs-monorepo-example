@@ -62,7 +62,8 @@ Useful to
 - [apps/web-app](./apps/web-app): SSR, i18n, GraphQL, Rest. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
 - [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
 - [apps/vite-app](./apps/vite-app): Basic vite-app. [README](./apps/vite-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-vite-app.vercel.app) | [CHANGELOG](./apps/vite-app/CHANGELOG.md)
-  > Apps should not depend on apps, they can depend on packages
+
+> Apps should not depend on apps, they can depend on packages
 
 #### Example shared packages
 
