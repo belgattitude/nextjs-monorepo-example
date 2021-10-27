@@ -1,7 +1,7 @@
 // See ../../.eslintrc.base.js
 module.exports = {
   root: true,
-  ignorePatterns: ['node_modules/*', '.next'],
+  ignorePatterns: ['.next'],
   extends: [
     '../../.eslintrc.base.js',
     // Add specific rules for react and nextjs
