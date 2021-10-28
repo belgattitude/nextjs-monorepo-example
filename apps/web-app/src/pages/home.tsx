@@ -1,5 +1,5 @@
 import { BadRequest } from '@tsed/exceptions';
-import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { homeConfig } from '@/features/home/home.config';
 import { HomePage } from '@/features/home/pages/home.page';
@@ -9,14 +9,12 @@ type Props = {
 };
 
 export default function HomeRoute(
-  _props: InferGetServerSidePropsType<typeof getServerSideProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   return <HomePage />;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { locale } = context;
   if (locale === undefined) {
     throw new BadRequest('locale is missing');

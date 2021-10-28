@@ -1,5 +1,5 @@
 import { BadRequest } from '@tsed/exceptions';
-import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { demoConfig } from '@/features/demo/demo.config';
 import { DemoPage } from '@/features/demo/pages/demo.page';
@@ -9,14 +9,12 @@ type Props = {
 };
 
 export default function DemoRoute(
-  _props: InferGetServerSidePropsType<typeof getServerSideProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   return <DemoPage />;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { locale } = context;
   if (locale === undefined) {
     throw new BadRequest('locale is missing');
@@ -24,7 +22,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const { i18nNamespaces } = demoConfig;
   return {
     props: {
-      // i18nNamespaces.slice() is needed here to get rid off readonly
       ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
     },
   };
