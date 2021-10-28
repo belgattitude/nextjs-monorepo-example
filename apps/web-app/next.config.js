@@ -31,10 +31,6 @@ const tmModules = [
     // ie: newer versions of https://github.com/sindresorhus packages
   ],
 ];
-const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
-  resolveSymlinks: true,
-  debug: false,
-});
 
 /**
  * A way to allow CI optimization when the build done there is not used
@@ -92,7 +88,7 @@ const nextConfig = {
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
-    esmExternals: true,
+    esmExternals: false,
     // Experimental monorepo support
     // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
@@ -182,7 +178,20 @@ const nextConfig = {
   },
 };
 
-let config = withNextTranspileModules(nextConfig);
+let config;
+
+if (tmModules.length > 0) {
+  const withNextTranspileModules = require('next-transpile-modules')(
+    tmModules,
+    {
+      resolveSymlinks: true,
+      debug: false,
+    }
+  );
+  config = withNextTranspileModules(nextConfig);
+} else {
+  config = nextConfig;
+}
 
 if (process.env.ANALYZE === 'true') {
   // @ts-ignore
