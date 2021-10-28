@@ -1,26 +1,28 @@
-import type { EmotionCache } from '@emotion/cache';
-import createEmotionServer from '@emotion/server/create-instance';
-import type {
-  AppContextType,
-  AppInitialProps,
-  AppPropsType,
-  NextComponentType,
-} from 'next/dist/shared/lib/utils';
 import type { DocumentContext, DocumentProps } from 'next/document';
 import Document, { Html, Main, Head, NextScript } from 'next/document';
-import { Children as ReactChildren } from 'react';
-import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
+import { emotionRenderStaticSsr } from '@/core/emotion/emotion-render-static.ssr';
 
 type Props = DocumentProps;
 
-type EnhancedApp = NextComponentType<
-  AppContextType,
-  AppInitialProps,
-  AppPropsType & { emotionCache?: EmotionCache }
->;
-
 class MyDocument extends Document<Props> {
   static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const { css, ids } = await emotionRenderStaticSsr(initialProps.html);
+
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          <style
+            data-emotion={`css ${ids.join(' ')}`}
+            dangerouslySetInnerHTML={{ __html: css }}
+          />
+        </>
+      ),
+    };
+
+    /*
     const originalRenderPage = ctx.renderPage;
 
     // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
@@ -54,6 +56,8 @@ class MyDocument extends Document<Props> {
         ...emotionStyleTags,
       ],
     };
+    
+     */
   }
 
   render() {
