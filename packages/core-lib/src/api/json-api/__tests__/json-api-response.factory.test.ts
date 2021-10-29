@@ -1,5 +1,5 @@
 import { JsonApiResponseFactory } from '../json-api-response.factory';
-import { JsonApiError } from '../json-api-response.types';
+import type { JsonApiError } from '../json-api-response.types';
 
 describe('JsonApiResponseFactory tests', () => {
   describe('When creating a success from a string', () => {

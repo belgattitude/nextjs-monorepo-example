@@ -1,0 +1,89 @@
+name: CI-vite-app
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - "apps/vite-app/**"
+      - "packages/**"
+      - "package.json"
+      - "yarn.lock"
+      - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
+      - ".prettier*.*"
+      - ".github/workflows/**"
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "apps/vite-app/**"
+      - "packages/**"
+      - "package.json"
+      - "yarn.lock"
+      - ".yarnrc.yml"
+      - "*.base.json"
+      - "*.base.js"
+      - ".prettier*.*"
+      - ".github/workflows/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+
+      - name: Typecheck
+        working-directory: apps/vite-app
+        run: |
+          yarn typecheck
+
+      - name: Linter
+        working-directory: apps/vite-app
+        run: |
+          yarn lint --cache
+
+      - name: Unit tests
+        working-directory: apps/vite-app
+        run: |
+          yarn ci-test:unit
+
+      - name: Build vite-app
+        working-directory: apps/vite-app
+        run: |
+          yarn build
+
+
+

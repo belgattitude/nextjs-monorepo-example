@@ -1,7 +1,7 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'react-i18next';
 import { getServerSideTranslations } from '@/core/i18n/get-server-side-translations';
-import { I18nActiveNamespaces } from '@/core/i18n/i18n-namespaces.type';
+import type { I18nActiveNamespaces } from '@/core/i18n/i18n-namespaces.type';
 
 // To allow full typechecks in keys.
 const i18nNamespaces: I18nActiveNamespaces<'system'> = ['system'];

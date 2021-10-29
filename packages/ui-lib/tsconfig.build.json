@@ -1,8 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "target": "esnext",
-    "module": "esnext"
-  },
-  "exclude": ["dist", "**/__tests__/*"]
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "jsxFactory": "",
+    "jsxFragmentFactory": ""
+  }
 }

@@ -15,6 +15,15 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": [
+        // see why in .ncurc.yml
+        "i18next",
+        "@types/i18next-fs-backend",
+        "is-port-reachable"
+      ],
+      "enabled": false
+    },
+    {
       // Root package.json
       "matchPaths": ["package.json"],
       "matchDepTypes": [

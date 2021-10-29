@@ -1,9 +1,11 @@
 // @ts-check
-'use strict';
 
 const { defaults: tsPreset } = require('ts-jest/presets');
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
 
+const { getJestCachePath } = require('../../cache.config');
+
+const packageJson = require('./package.json');
 const { compilerOptions: baseTsConfig } = require('./tsconfig.json');
 
 // Take the paths from tsconfig automatically from base tsconfig.json
@@ -19,12 +21,9 @@ const getTsConfigBasePaths = () => {
 /** @typedef {import('ts-jest/dist/types')} */
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
-  name: 'blog-app:unit',
-  testRunner: 'jest-circus/runner',
+  name: `${packageJson.name}:unit`,
+  cacheDirectory: getJestCachePath(packageJson.name),
   testEnvironment: 'jsdom',
-  resetMocks: true,
-  resetModules: true,
-  restoreMocks: true,
   verbose: true,
   rootDir: './src',
   transform: {

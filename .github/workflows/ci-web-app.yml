@@ -13,6 +13,7 @@ on:
       - ".yarnrc.yml"
       - "*.base.json"
       - "*.base.js"
+      - ".prettier*.*"
       - ".github/workflows/**"
 
 
@@ -32,6 +33,7 @@ on:
       - ".yarnrc.yml"
       - "*.base.json"
       - "*.base.js"
+      - ".prettier*.*"
       - ".github/workflows/**"
 
 jobs:
@@ -67,7 +69,12 @@ jobs:
       - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/apps/web-app/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/web-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
           key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
           restore-keys: |
                ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
@@ -84,7 +91,7 @@ jobs:
       - name: Linter
         working-directory: apps/web-app
         run: |
-          yarn lint
+          yarn lint --cache
 
       - name: Unit tests
         working-directory: apps/web-app
@@ -96,17 +103,14 @@ jobs:
         run: |
           yarn build
         env:
-          NEXTJS_BUILD_TARGET: server
-          # Speed up build cause they are linted in a previous step
+          # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: 1
-          # Speed up build cause they are typechecked in a previous step
+          # Speed up build: they are typechecked in a previous step
           NEXTJS_IGNORE_TYPECHECK: 1
-          # Speed up build by not running sourcemap upload (not even dry-run)
-          # Disable sourcemaps will speed up ci
-          # be sure to disable it if you intent to use the build
-          # done in this step (i.e: deploy, docker....)
+          # Speed up build: don't run if not needed, enable if it becomes needed
           NEXT_DISABLE_SOURCEMAPS: 1
-          NEXT_TELEMETRY_DISABLED: 0
+          # Don't send telemetry for ci
+          NEXT_TELEMETRY_DISABLED: 1
           # Fully disable sentry registration here (no overhead in build time)
           NEXT_DISABLE_SENTRY: 1
           # Disable sentry source map upload (when not needed)

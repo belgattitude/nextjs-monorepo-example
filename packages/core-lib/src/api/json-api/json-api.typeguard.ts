@@ -1,5 +1,5 @@
 import { isPlainObject } from '../../utils/typeguards';
-import {
+import type {
   JsonApiErrorResponse,
   JsonApiResponse,
   JsonApiSuccessResponse,
@@ -8,9 +8,7 @@ import {
 export const isJsonApiResponse = <T = unknown>(
   val: unknown
 ): val is JsonApiResponse<T> => {
-  return (
-    isPlainObject(val) && 'success' in val && typeof val.success === 'boolean'
-  );
+  return isPlainObject(val) && typeof val?.success === 'boolean';
 };
 
 export const isJsonApiSuccessResponse = <T = unknown>(

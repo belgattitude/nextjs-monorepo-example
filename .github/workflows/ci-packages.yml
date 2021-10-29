@@ -7,11 +7,11 @@ on:
       - main
     paths:
       - "packages/**"
-      - "package.json"
-      - "yarn.lock"
       - ".yarnrc.yml"
+      - ".prettier*.*"
       - "*.base.json"
       - "*.base.js"
+      - ".prettier*.*"
       - ".github/workflows/**"
 
   pull_request:
@@ -21,11 +21,10 @@ on:
       - reopened
     paths:
       - "packages/**"
-      - "package.json"
-      - "yarn.lock"
       - ".yarnrc.yml"
       - "*.base.json"
       - "*.base.js"
+      - ".prettier*.*"
       - ".github/workflows/**"
 
 jobs:
@@ -36,6 +35,9 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
+        with:
+          # fetch all git history so that yarn worskpaces --since can compare with the correct commits
+          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -57,25 +59,44 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
+      - name: Restore packages cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
+          key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
+          restore-keys: |
+            ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+
       - name: Install dependencies
         run: |
           yarn install --immutable
 
+      # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
+      # That allows to see if we're introducing "surface" regressions (just the types)
       - name: Typecheck
         run: |
-          yarn packages:typecheck
+          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main --recursive run typecheck
 
+      # Lint packages that have changed (--include & --since)
       - name: Linter
         run: |
-          yarn packages:lint
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint --cache
 
-      - name: Test
+      # Test packages that have changed (--include & --since)
+      - name: Unit tests
         run: |
-          yarn packages:test
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test:unit
+      # to debug cache issues: ls ${{ github.workspace }}/.cache
 
+      # Build packages that have changed (--include & --since), assuming that
+      # apps build are done already. Otherwise --from & --since
       - name: Build
         run: |
-          yarn packages:build
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run packages:build
 
 
 

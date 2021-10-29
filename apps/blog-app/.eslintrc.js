@@ -1,13 +1,13 @@
+// See ../../.eslintrc.base.js
 module.exports = {
   root: true,
-  ignorePatterns: ['node_modules/*', '.next'],
+  ignorePatterns: ['.next'],
   extends: [
     '../../.eslintrc.base.js',
     // Add specific rules for react and nextjs
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:tailwindcss/recommended',
     'plugin:@next/next/core-web-vitals',
   ],
   // By loading testing-library as a plugin, we can only enable it
@@ -27,38 +27,15 @@ module.exports = {
     // next/image might not be yet a good move as of NextJs v11.
     // https://github.com/vercel/next.js/discussions/16832
     '@next/next/no-img-element': 'off',
-
-    // @link https://github.com/francoismassart/eslint-plugin-tailwindcss
-    'tailwindcss/no-custom-classname': [
-      'warn',
-      {
-        // Add custom classes or missing ones here to avoid warnings
-        whitelist: ['aspect-none', 'prose-xl'],
-      },
-    ],
   },
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(test).[jt]s?(x)'],
+      files: ['**/*.test.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
     },
     {
-      files: ['next.config.js'],
-      parser: 'espree',
-      parserOptions: {
-        ecmaVersion: 2020,
-      },
-      rules: {
-        'import/order': 'off',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-      },
-    },
-    {
-      files: ['src/pages/**/*.ts', 'src/pages/**/*.tsx'],
+      files: ['src/pages/**/*.{ts,tsx}'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/display-name': 'off',

@@ -1,11 +1,11 @@
 // @ts-check
 
-const { withSentryConfig } = require('@sentry/nextjs');
+const pc = require('picocolors');
+
 const { i18n } = require('./next-i18next.config');
 
 const packageJson = require('./package.json');
 
-const NEXTJS_BUILD_TARGET = process.env.NEXTJS_BUILD_TARGET || 'server';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const NEXTJS_IGNORE_TYPECHECK =
   process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
@@ -31,10 +31,6 @@ const tmModules = [
     // ie: newer versions of https://github.com/sindresorhus packages
   ],
 ];
-const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
-  resolveSymlinks: true,
-  debug: false,
-});
 
 /**
  * A way to allow CI optimization when the build done there is not used
@@ -43,8 +39,10 @@ const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
  */
 const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
 if (disableSourceMaps) {
-  console.log(
-    '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
+  console.info(
+    `${pc.green(
+      'notice'
+    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
   );
 }
 
@@ -73,7 +71,6 @@ const secureHeaders = createSecureHeaders({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   i18n,
@@ -84,24 +81,32 @@ const nextConfig = {
     keepAlive: true,
   },
 
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
+  outputFileTracing: true,
+
   experimental: {
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
-    esmExternals: true,
+    esmExternals: false,
     // Experimental monorepo support
     // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
   },
+  future: {
+    // @link https://github.com/vercel/next.js/pull/20914
+    strictPostcssConfiguration: true,
+  },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
-  // @ts-ignore
   images: {
+    loader: 'default',
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     disableStaticImages: false,
-    loader: 'default',
+    // https://nextjs.org/docs/api-reference/next/image#caching-behavior
+    minimumCacheTTL: 60,
     // Allowed domains for next/image
     domains: ['source.unsplash.com'],
   },
@@ -121,7 +126,7 @@ const nextConfig = {
 
   /**
    * @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
-  async rewrites() {
+   async rewrites() {
     return [
       {
         source: `/`,
@@ -129,14 +134,17 @@ const nextConfig = {
       },
     ];
   },
-  */
+   */
 
   webpack: (config, { isServer }) => {
-    if (isServer) {
+    if (!isServer) {
+      // Swap sentry/node by sentry/browser
+      config.resolve.alias['@sentry/node'] = '@sentry/browser';
       // Till undici 4 haven't landed in prisma, we need this for docker/alpine
       // @see https://github.com/prisma/prisma/issues/6925#issuecomment-905935585
       config.externals.push('_http_common');
     }
+
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
@@ -165,11 +173,7 @@ const nextConfig = {
   env: {
     APP_NAME: packageJson.name,
     APP_VERSION: packageJson.version,
-    BUILD_TIME: new Date().getTime().toString(10),
-    SENTRY_RELEASE: process.env.SENTRY_RELEASE
-      ? process.env.SENTRY_RELEASE
-      : `${packageJson.name}@${packageJson.version}`,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN ?? '',
+    BUILD_TIME: new Date().toISOString(),
   },
   serverRuntimeConfig: {
     // to bypass https://github.com/zeit/next.js/issues/8251
@@ -177,24 +181,19 @@ const nextConfig = {
   },
 };
 
-let config = withNextTranspileModules(nextConfig);
+let config;
 
-if (process.env.NEXT_DISABLE_SENTRY !== '1') {
-  /** @type {Partial<import('@sentry/nextjs/dist/config/types').SentryWebpackPluginOptions>} */
-  const sentryWebpackPluginOptions = {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-    dryRun:
-      process.env.NODE_ENV !== 'production' ||
-      process.env.NEXT_SENTRY_DRY_RUN === '1',
-  };
-
-  config = withSentryConfig(config, sentryWebpackPluginOptions);
+if (tmModules.length > 0) {
+  const withNextTranspileModules = require('next-transpile-modules')(
+    tmModules,
+    {
+      resolveSymlinks: true,
+      debug: false,
+    }
+  );
+  config = withNextTranspileModules(nextConfig);
+} else {
+  config = nextConfig;
 }
 
 if (process.env.ANALYZE === 'true') {

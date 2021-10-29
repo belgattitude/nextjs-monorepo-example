@@ -1,4 +1,4 @@
-import { I18nActiveNamespaces } from '@/core/i18n/i18n-namespaces.type';
+import type { I18nActiveNamespaces } from '@/core/i18n/i18n-namespaces.type';
 
 export type HomeConfig = {
   // Define installed namespaces in the type here

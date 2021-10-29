@@ -1,9 +1,9 @@
 // @ts-check
 
+const pc = require('picocolors');
+
 const packageJson = require('./package.json');
 
-const NEXTJS_BUILD_TARGET =
-  process.env.NEXTJS_BUILD_TARGET || 'experimental-serverless-trace';
 const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
 const NEXTJS_IGNORE_TYPECHECK =
   process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
@@ -42,8 +42,10 @@ const withNextTranspileModules = require('next-transpile-modules')(tmModules, {
  */
 const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
 if (disableSourceMaps) {
-  console.log(
-    '[INFO]: Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS'
+  console.info(
+    `${pc.green(
+      'notice'
+    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
   );
 }
 
@@ -72,7 +74,6 @@ const secureHeaders = createSecureHeaders({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  target: NEXTJS_BUILD_TARGET,
   reactStrictMode: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   optimizeFonts: true,
@@ -81,6 +82,9 @@ const nextConfig = {
     // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
     keepAlive: true,
   },
+
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
+  outputFileTracing: true,
 
   experimental: {
     // Prefer loading of ES Modules over CommonJS
@@ -91,6 +95,10 @@ const nextConfig = {
     // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
+  },
+  future: {
+    // @link https://github.com/vercel/next.js/pull/20914
+    strictPostcssConfiguration: true,
   },
 
   typescript: {
@@ -117,6 +125,18 @@ const nextConfig = {
     ];
   },
    */
+
+  // @link https://nextjs.org/docs/basic-features/image-optimization
+  images: {
+    loader: 'default',
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    disableStaticImages: false,
+    // https://nextjs.org/docs/api-reference/next/image#caching-behavior
+    minimumCacheTTL: 60,
+    // Allowed domains for next/image
+    domains: ['source.unsplash.com'],
+  },
 
   webpack: (config, { isServer }) => {
     if (isServer) {

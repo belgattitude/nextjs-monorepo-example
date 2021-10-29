@@ -1,5 +1,13 @@
 # blog-app
 
+## 3.20.1
+
+### Patch Changes
+
+- Updated dependencies [[`fcd68ed`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fcd68ed476734fefda85f5ffa2cf82cbd1502aa6)]:
+  - @your-org/core-lib@3.8.1
+  - @your-org/ui-lib@3.6.1
+
 ## 3.20.0
 
 ### Minor Changes
