@@ -495,8 +495,26 @@ To ensure decent performance, those features are present in the example actions:
   >    - ".eslintrc.base.json"
   >    - ".eslintignore"
   > ```
+                        
+## 6. Editor support
+                        
+### 6.1 VSCode
 
-## 8. Deploy
+The ESLint plugin requires that the `eslint.workingDirectories` setting is set:
+                        
+```
+"eslint.workingDirectories": [
+    {
+        "pattern": "./apps/*/"
+    },
+    {
+        "pattern": "./packages/*/"
+    }
+],
+```
+More info [here](https://github.com/microsoft/vscode-eslint#mono-repository-setup)
+
+## 7. Deploy
 
 #### Vercel
 
