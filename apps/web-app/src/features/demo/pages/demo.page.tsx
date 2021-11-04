@@ -19,12 +19,14 @@ export const DemoPage: React.FC<Props> = () => {
 
   return (
     <>
+      {/*
       <NextSeo
         title={t('demo:page.title')}
         description="Web-app nextjs monorepo example, https://github.com/belgattitude/nextjs-monorepo-example"
       />
+      */}
       <MainLayout>
-        <Banner />
+        {/*<Banner />*/}
         <h3>I'm the web-app</h3>
         <Jumbotron />
         <ul>
