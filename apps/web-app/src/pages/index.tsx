@@ -1,6 +1,6 @@
 import { BadRequest } from '@tsed/exceptions';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { getServerSideTranslations } from '@/core/i18n/get-server-side-translations';
 import { demoConfig } from '@/features/demo/demo.config';
 import { DemoPage } from '@/features/demo/pages/demo.page';
 
@@ -9,12 +9,14 @@ type Props = {
 };
 
 export default function DemoRoute(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return <DemoPage />;
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
   const { locale } = context;
   if (locale === undefined) {
     throw new BadRequest('locale is missing');
@@ -22,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = demoConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
+      ...(await getServerSideTranslations(locale, i18nNamespaces)),
     },
   };
 };
