@@ -32,6 +32,42 @@ export const DemoPage: React.FC<Props> = () => {
           <li>
             <Message message={'Bar react component from @your-org/ui-lib'} />
           </li>
+          {/** trying out without this
+          <li>
+            <AsyncMessage apiUrl={'/api/hello'} />
+          </li>
+           */}
+        </ul>
+        <Image
+          src={'/shared-assets/images/nextjs-logo.png'}
+          alt={'logo'}
+          width={400}
+          height={240}
+        />
+        <div className={'pt-8'} />
+        <DemoMuiBlock />
+        <div className={'pt-8'} />
+        <DemoApiBlock />
+      </MainLayout>
+    </>
+  );
+
+  /*
+  return (
+    <>
+      <NextSeo
+        title={t('demo:page.title')}
+        description="Web-app nextjs monorepo example, https://github.com/belgattitude/nextjs-monorepo-example"
+      />
+      <MainLayout>
+        <Banner />
+        <h3>I'm the web-app</h3>
+        <Jumbotron />
+        <ul>
+          <li>{`Foo says: ${sayHello('World')} from @your-org/core-lib`}</li>
+          <li>
+            <Message message={'Bar react component from @your-org/ui-lib'} />
+          </li>
           <li>
             <AsyncMessage apiUrl={'/api/hello'} />
           </li>
@@ -49,4 +85,6 @@ export const DemoPage: React.FC<Props> = () => {
       </MainLayout>
     </>
   );
+
+   */
 };
