@@ -39,12 +39,14 @@ export const DemoPage: React.FC<Props> = () => {
           </li>
            */}
         </ul>
+        {/* trying out without this
         <Image
           src={'/shared-assets/images/nextjs-logo.png'}
           alt={'logo'}
           width={400}
           height={240}
         />
+        */}
         {/** try
 
         <div className={'pt-8'} />
