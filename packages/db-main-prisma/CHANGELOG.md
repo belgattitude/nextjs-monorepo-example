@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.7.0
+
+### Minor Changes
+
+- [#589](https://github.com/belgattitude/nextjs-monorepo-example/pull/589) [`bbc1a8f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/bbc1a8f07500d13ddf3e86f2cb4111f4f22ddb11) Thanks [@belgattitude](https://github.com/belgattitude)! - Add initial example for prisma cli e2e tests
+
 ## 2.6.0
 
 ### Minor Changes

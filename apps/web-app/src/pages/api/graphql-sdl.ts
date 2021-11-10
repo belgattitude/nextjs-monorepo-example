@@ -3,7 +3,7 @@ import {
   ApolloServerPluginLandingPageProductionDefault,
 } from 'apollo-server-core';
 import { ApolloServer } from 'apollo-server-micro';
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { graphqlSdlContext } from '@/backend/api/graphql-sdl/graphql-sdl-context';
 import { graphqlSdlSchema } from '@/backend/api/graphql-sdl/graphql-sdl-schema';
 

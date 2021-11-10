@@ -1,5 +1,5 @@
-import { Exception } from '@tsed/exceptions';
-import { JsonApiError } from './json-api-response.types';
+import type { Exception } from '@tsed/exceptions';
+import type { JsonApiError } from './json-api-response.types';
 
 export class JsonApiErrorFactory {
   static fromCatchVariable = (

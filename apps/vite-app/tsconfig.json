@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@your-org/core-lib": ["../../../packages/core-lib/src/index"]
+    }
+  },
+  "exclude": ["dist"],
+  "include": ["**/*.js", "**/*.ts", "**/*.tsx"]
+}

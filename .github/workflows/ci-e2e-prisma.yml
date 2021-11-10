@@ -1,0 +1,72 @@
+name: CI-e2e-prisma
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - "packages/db-main-prisma"
+      - ".github/workflows/**"
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "packages/db-main-prisma"
+      - ".github/workflows/**"
+
+jobs:
+  e2e:
+    # containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        database:
+          - e2e-postgres
+        node-version: [16.X]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      - name: Start postgresql
+        working-directory: packages/db-main-prisma
+        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+
+      - name: E2E prisma
+        working-directory: packages/db-main-prisma
+        run: |
+          yarn test:e2e
+        env:
+          E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
+
+

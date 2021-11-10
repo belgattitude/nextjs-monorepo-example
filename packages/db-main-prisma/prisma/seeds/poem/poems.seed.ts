@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import keywordExtractor from 'keyword-extractor';
 import { slugify } from 'transliteration';
 

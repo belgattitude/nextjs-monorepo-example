@@ -2,8 +2,7 @@
  * Convenience singleton to help dealing with fast-refresh
  * and connection limits in development mode.
  */
-import { PrismaClient } from '@prisma/client';
-import type { Prisma } from '@prisma/client';
+import type { Prisma, PrismaClient } from '@prisma/client';
 export type PrismaClientOptions = Prisma.PrismaClientOptions;
 export type PrismaClientDbMain = PrismaClient;
 

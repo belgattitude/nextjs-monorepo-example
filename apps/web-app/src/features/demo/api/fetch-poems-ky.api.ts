@@ -1,7 +1,5 @@
-import {
-  isJsonApiSuccessResponse,
-  JsonApiResponse,
-} from '@your-org/core-lib/api/json-api';
+import type { JsonApiResponse } from '@your-org/core-lib/api/json-api';
+import { isJsonApiSuccessResponse } from '@your-org/core-lib/api/json-api';
 import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 import { ky } from '@/config/ky';
 

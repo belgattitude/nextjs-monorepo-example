@@ -8,6 +8,9 @@
 .env.local
 .env.*.local
 
+# global monorepo cache
+.cache/*
+
 # dependencies
 node_modules
 .yarn/*
@@ -30,6 +33,7 @@ node_modules
 
 # cache
 **/tsconfig.tsbuildinfo
+**/.eslintcache
 
 # production
 /build

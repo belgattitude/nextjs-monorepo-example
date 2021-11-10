@@ -6,6 +6,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
     "incremental": true,
     "paths": {
       "@/test-utils": ["../config/jest/test-utils"],
@@ -16,6 +17,7 @@
       "@your-org/core-lib": ["../../../packages/core-lib/src/index"]
     }
   },
+  "exclude": [".next"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

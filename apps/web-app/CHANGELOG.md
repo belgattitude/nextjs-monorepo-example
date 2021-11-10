@@ -1,5 +1,38 @@
 # web-app
 
+## 3.34.1
+
+### Patch Changes
+
+- Updated dependencies [[`fcd68ed`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fcd68ed476734fefda85f5ffa2cf82cbd1502aa6)]:
+  - @your-org/core-lib@3.8.1
+  - @your-org/ui-lib@3.6.1
+
+## 3.34.0
+
+### Minor Changes
+
+- [#614](https://github.com/belgattitude/nextjs-monorepo-example/pull/614) [`b36771c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/b36771cd573f3a0805eee97d8e2bffb079915bf9) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of favicons
+
+## 3.33.2
+
+### Patch Changes
+
+- [#593](https://github.com/belgattitude/nextjs-monorepo-example/pull/593) [`7622030`](https://github.com/belgattitude/nextjs-monorepo-example/commit/7622030785a60e6ee203db68b5b3e22373839840) Thanks [@belgattitude](https://github.com/belgattitude)! - Prevent installation of both v20 & v21 of i18next
+
+## 3.33.1
+
+### Patch Changes
+
+- Updated dependencies [[`bbc1a8f`](https://github.com/belgattitude/nextjs-monorepo-example/commit/bbc1a8f07500d13ddf3e86f2cb4111f4f22ddb11)]:
+  - @your-org/db-main-prisma@2.7.0
+
+## 3.33.0
+
+### Minor Changes
+
+- [#580](https://github.com/belgattitude/nextjs-monorepo-example/pull/580) [`fe262d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fe262d011845ac4d9471b3334b4bd387d96b2e87) Thanks [@belgattitude](https://github.com/belgattitude)! - Optimize svg with svgo by default when building the apps
+
 ## 3.32.0
 
 ### Minor Changes
