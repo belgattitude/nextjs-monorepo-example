@@ -3590,46 +3590,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/core@npm:6.80.1":
-  version: 6.80.1
-  resolution: "@tsed/core@npm:6.80.1"
+"@tsed/core@npm:6.81.0":
+  version: 6.81.0
+  resolution: "@tsed/core@npm:6.81.0"
   dependencies:
     reflect-metadata: ^0.1.13
     tslib: 2.2.0
-  checksum: f555bbd54b8a56fde52ac86f1e3d515677e0916513efaa5cce0133b8a302b950917753a3bb0cdfa52e1225aa98160280761275c8a49fecb7d4618fb7051a1e65
+  checksum: 82c161bf5fe99d4931fc7dfa74a166a482404ddc1da6615158b4f0df03288acc3a0d0956ac4354fc251a0810e1e05dfcaa22a1b19455f32f96b7f7a97fa86aeb
   languageName: node
   linkType: hard
 
-"@tsed/exceptions@npm:6.80.1, @tsed/exceptions@npm:^6.75.9":
-  version: 6.80.1
-  resolution: "@tsed/exceptions@npm:6.80.1"
+"@tsed/exceptions@npm:6.81.0, @tsed/exceptions@npm:^6.75.9":
+  version: 6.81.0
+  resolution: "@tsed/exceptions@npm:6.81.0"
   dependencies:
-    "@tsed/schema": 6.80.1
+    "@tsed/schema": 6.81.0
     tslib: 2.2.0
-  checksum: 218da042aa393a14e206cb28ac66b8899f34b66770589a19f78606625141422c8fa0bf53f6897a0221e78da5ab1942162eba5379c00d141045c788d6c80f8276
+  checksum: 883aaeb2812f5cddcf05f13370042a8c84465df4660876660630e9d43e216fda89c1a744c1e2cf66bd0277e41050bcab953d66c4dc32e84d1e7a7270b6a61eb6
   languageName: node
   linkType: hard
 
-"@tsed/openspec@npm:6.80.1":
-  version: 6.80.1
-  resolution: "@tsed/openspec@npm:6.80.1"
-  checksum: 85575e39cb5181df8d2320710668c76d2dfc5454224a46b1365f30b4415f95347d42acef8c2ae4954b85f587769c16b592544c373dae759f2e1258c6db18b831
+"@tsed/openspec@npm:6.81.0":
+  version: 6.81.0
+  resolution: "@tsed/openspec@npm:6.81.0"
+  checksum: 16ac44e7807a25c89187854bdda554877f755e34ed7473c99042253cd2bf42e8d8ec950ca018f6c55dde2f14eff511d69501deab2193a6cc12ce7597beaa48af
   languageName: node
   linkType: hard
 
-"@tsed/schema@npm:6.80.1":
-  version: 6.80.1
-  resolution: "@tsed/schema@npm:6.80.1"
+"@tsed/schema@npm:6.81.0":
+  version: 6.81.0
+  resolution: "@tsed/schema@npm:6.81.0"
   dependencies:
-    "@tsed/core": 6.80.1
-    "@tsed/openspec": 6.80.1
-    change-case: 4.1.2
+    "@tsed/core": 6.81.0
+    "@tsed/openspec": 6.81.0
+    camel-case: 4.1.2
     micromatch: 4.0.2
+    pascal-case: 3.1.2
     tslib: 2.2.0
   peerDependencies:
-    "@tsed/core": ^6.80.1
-    "@tsed/openspec": ^6.80.1
-  checksum: 7d3eaaabdb0ee694e5f04363828d2c98efec5b88f08e3216d97196d9419d92f93113561b6bcc994a70a9162618da9a88ff629ea12beba941f732aa54e16f75fb
+    "@tsed/core": ^6.81.0
+    "@tsed/openspec": ^6.81.0
+  checksum: 2d988710551db75a4d51a29c1362ba33b9496c356d5f61ef1bfd07336d7cb6c671e638463908283b89870d37b1500b79bf56bb5bf2890fd7da0e734af0533151
   languageName: node
   linkType: hard
 
@@ -5594,7 +5595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camel-case@npm:^4.1.2":
+"camel-case@npm:4.1.2":
   version: 4.1.2
   resolution: "camel-case@npm:4.1.2"
   dependencies:
@@ -5662,17 +5663,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"capital-case@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "capital-case@npm:1.0.4"
-  dependencies:
-    no-case: ^3.0.4
-    tslib: ^2.0.3
-    upper-case-first: ^2.0.2
-  checksum: 41fa8fa87f6d24d0835a2b4a9341a3eaecb64ac29cd7c5391f35d6175a0fa98ab044e7f2602e1ec3afc886231462ed71b5b80c590b8b41af903ec2c15e5c5931
-  languageName: node
-  linkType: hard
-
 "chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -5724,26 +5714,6 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
-  languageName: node
-  linkType: hard
-
-"change-case@npm:4.1.2":
-  version: 4.1.2
-  resolution: "change-case@npm:4.1.2"
-  dependencies:
-    camel-case: ^4.1.2
-    capital-case: ^1.0.4
-    constant-case: ^3.0.4
-    dot-case: ^3.0.4
-    header-case: ^2.0.4
-    no-case: ^3.0.4
-    param-case: ^3.0.4
-    pascal-case: ^3.1.2
-    path-case: ^3.0.4
-    sentence-case: ^3.0.4
-    snake-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: e4bc4a093a1f7cce8b33896665cf9e456e3bc3cc0def2ad7691b1994cfca99b3188d0a513b16855b01a6bd20692fcde12a7d4d87a5615c4c515bbbf0e651f116
   languageName: node
   linkType: hard
 
@@ -6118,17 +6088,6 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
-  languageName: node
-  linkType: hard
-
-"constant-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "constant-case@npm:3.0.4"
-  dependencies:
-    no-case: ^3.0.4
-    tslib: ^2.0.3
-    upper-case: ^2.0.2
-  checksum: 6c3346d51afc28d9fae922e966c68eb77a19d94858dba230dd92d7b918b37d36db50f0311e9ecf6847e43e934b1c01406a0936973376ab17ec2c471fbcfb2cf3
   languageName: node
   linkType: hard
 
@@ -7088,16 +7047,6 @@ __metadata:
     domelementtype: ^2.2.0
     domhandler: ^4.2.0
   checksum: abf7434315283e9aadc2a24bac0e00eab07ae4313b40cc239f89d84d7315ebdfd2fb1b5bf750a96bc1b4403d7237c7b2ebf60459be394d625ead4ca89b934391
-  languageName: node
-  linkType: hard
-
-"dot-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "dot-case@npm:3.0.4"
-  dependencies:
-    no-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: a65e3519414856df0228b9f645332f974f2bf5433370f544a681122eab59e66038fc3349b4be1cdc47152779dac71a5864f1ccda2f745e767c46e9c6543b1169
   languageName: node
   linkType: hard
 
@@ -8845,16 +8794,6 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
-  languageName: node
-  linkType: hard
-
-"header-case@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "header-case@npm:2.0.4"
-  dependencies:
-    capital-case: ^1.0.4
-    tslib: ^2.0.3
-  checksum: 571c83eeb25e8130d172218712f807c0b96d62b020981400bccc1503a7cf14b09b8b10498a962d2739eccf231d950e3848ba7d420b58a6acd2f9283439546cd9
   languageName: node
   linkType: hard
 
@@ -12357,16 +12296,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"param-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "param-case@npm:3.0.4"
-  dependencies:
-    dot-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: b34227fd0f794e078776eb3aa6247442056cb47761e9cd2c4c881c86d84c64205f6a56ef0d70b41ee7d77da02c3f4ed2f88e3896a8fefe08bdfb4deca037c687
-  languageName: node
-  linkType: hard
-
 "parent-module@npm:^1.0.0":
   version: 1.0.1
   resolution: "parent-module@npm:1.0.1"
@@ -12418,7 +12347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pascal-case@npm:^3.1.2":
+"pascal-case@npm:3.1.2, pascal-case@npm:^3.1.2":
   version: 3.1.2
   resolution: "pascal-case@npm:3.1.2"
   dependencies:
@@ -12432,16 +12361,6 @@ __metadata:
   version: 1.0.1
   resolution: "path-browserify@npm:1.0.1"
   checksum: c6d7fa376423fe35b95b2d67990060c3ee304fc815ff0a2dc1c6c3cfaff2bd0d572ee67e18f19d0ea3bbe32e8add2a05021132ac40509416459fffee35200699
-  languageName: node
-  linkType: hard
-
-"path-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "path-case@npm:3.0.4"
-  dependencies:
-    dot-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: 61de0526222629f65038a66f63330dd22d5b54014ded6636283e1d15364da38b3cf29e4433aa3f9d8b0dba407ae2b059c23b0104a34ee789944b1bc1c5c7e06d
   languageName: node
   linkType: hard
 
@@ -14691,17 +14610,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sentence-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "sentence-case@npm:3.0.4"
-  dependencies:
-    no-case: ^3.0.4
-    tslib: ^2.0.3
-    upper-case-first: ^2.0.2
-  checksum: 3cfe6c0143e649132365695706702d7f729f484fa7b25f43435876efe7af2478243eefb052bacbcce10babf9319fd6b5b6bc59b94c80a1c819bcbb40651465d5
-  languageName: node
-  linkType: hard
-
 "serialize-javascript@npm:^4.0.0":
   version: 4.0.0
   resolution: "serialize-javascript@npm:4.0.0"
@@ -14935,16 +14843,6 @@ __metadata:
   bin:
     smartwrap: src/terminal-adapter.js
   checksum: 123f33d7e5095b7953dce8d9afe1141e2a1dbd592dbd722cb713838f907c1e6c3bd3f286707f06a99ba3817abee265bab1ba7dc31e50d557a997fe7b44794f6a
-  languageName: node
-  linkType: hard
-
-"snake-case@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "snake-case@npm:3.0.4"
-  dependencies:
-    dot-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: 0a7a79900bbb36f8aaa922cf111702a3647ac6165736d5dc96d3ef367efc50465cac70c53cd172c382b022dac72ec91710608e5393de71f76d7142e6fd80e8a3
   languageName: node
   linkType: hard
 
@@ -16345,24 +16243,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"upper-case-first@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "upper-case-first@npm:2.0.2"
-  dependencies:
-    tslib: ^2.0.3
-  checksum: 4487db4701effe3b54ced4b3e4aa4d9ab06c548f97244d04aafb642eedf96a76d5a03cf5f38f10f415531d5792d1ac6e1b50f2a76984dc6964ad530f12876409
-  languageName: node
-  linkType: hard
-
-"upper-case@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "upper-case@npm:2.0.2"
-  dependencies:
-    tslib: ^2.0.3
-  checksum: 508723a2b03ab90cf1d6b7e0397513980fab821cbe79c87341d0e96cedefadf0d85f9d71eac24ab23f526a041d585a575cfca120a9f920e44eb4f8a7cf89121c
-  languageName: node
-  linkType: hard
-
 "uri-js@npm:^4.2.2":
   version: 4.4.1
   resolution: "uri-js@npm:4.4.1"
@@ -16624,7 +16504,7 @@ __metadata:
     "@testing-library/jest-dom": 5.15.0
     "@testing-library/react": 12.1.2
     "@testing-library/react-hooks": 7.0.2
-    "@tsed/exceptions": 6.80.1
+    "@tsed/exceptions": 6.81.0
     "@types/cors": 2.8.12
     "@types/ioredis": 4.28.1
     "@types/jest": 27.0.2
