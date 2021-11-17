@@ -84,6 +84,7 @@ const nextConfig = {
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing
   outputFileTracing: true,
 
+  // Replace terser by swc
   swcMinify: true,
 
   experimental: {
