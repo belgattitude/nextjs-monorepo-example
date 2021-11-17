@@ -84,6 +84,9 @@ const nextConfig = {
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing
   outputFileTracing: true,
 
+  // Replace terser by swc
+  swcMinify: true,
+
   experimental: {
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
