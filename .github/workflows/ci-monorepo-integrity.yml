@@ -57,6 +57,10 @@ jobs:
         run: |
           yarn dedupe --check
 
+      - name: Check for yarn constraints.pro
+        run: |
+          yarn constraints
+
       - name: Check monorepo dependency graph
         run: |
           yarn check:install
