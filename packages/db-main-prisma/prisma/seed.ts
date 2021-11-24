@@ -1,5 +1,5 @@
-import type { Prisma } from '@prisma/client';
-import { PrismaClient } from '@prisma/client';
+import type { Prisma } from '../src/generated';
+import { PrismaClient } from '../src/generated';
 import { poemsSeed } from './seeds/poem/poems.seed';
 
 const prisma = new PrismaClient();
