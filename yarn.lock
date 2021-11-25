@@ -3234,19 +3234,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@soluble/cache-interop@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@soluble/cache-interop@npm:0.8.0"
-  checksum: 889c8fac67f7e97452ca4228d1b7afacf80b56e15c029c8f24a6a4238bb21447dd6d17a1f8abe152c578136fb46b94f990d0f738a525a40f0518af9090b3b1f0
+"@soluble/cache-interop@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "@soluble/cache-interop@npm:0.8.1"
+  checksum: 2405ff3af39c79a9bd0522c77ce8c72132285afef0e710dbbb96e011d864a24307604f8f66346ca282f99ed651c253c1835d2a4117553eb84ff24706d61d777d
   languageName: node
   linkType: hard
 
-"@soluble/cache-ioredis@npm:0.8.2":
-  version: 0.8.2
-  resolution: "@soluble/cache-ioredis@npm:0.8.2"
+"@soluble/cache-ioredis@npm:0.8.3":
+  version: 0.8.3
+  resolution: "@soluble/cache-ioredis@npm:0.8.3"
   dependencies:
-    "@soluble/cache-interop": 0.8.0
-    "@soluble/dsn-parser": 1.3.1
+    "@soluble/cache-interop": ^0.8.1
+    "@soluble/dsn-parser": ^1.3.2
   peerDependencies:
     "@types/ioredis": ^4.17.11
     ioredis: ^4.17.0
@@ -3255,18 +3255,11 @@ __metadata:
       optional: true
     ioredis:
       optional: false
-  checksum: d497011161973f7c91f3cde9d7afe3af15cb7e70a8fa78adaccd5b1bcd0cdc723e9dfa3c644eee3176c90634aff3363e7fc2a1ceb0ce999f5779e22e0953d82b
+  checksum: eaf4cfb61499c164d95074f8242cd1489b7b6d1b425dc9ebbbffe786507a373d4ef2730666e2355b6b83d2f000b37c2a9c9021c78eaf71d14530243d69773be1
   languageName: node
   linkType: hard
 
-"@soluble/dsn-parser@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@soluble/dsn-parser@npm:1.3.1"
-  checksum: 164027c1c69c25ed4db9782e85de73c4b79dd8d0cc1ff6c263c1f8f5d3f65b862ccd8b7694f6b0f75218de3a69f87eff0a3a7d96b7b51c87ea51798d0a460c20
-  languageName: node
-  linkType: hard
-
-"@soluble/dsn-parser@npm:1.3.2":
+"@soluble/dsn-parser@npm:1.3.2, @soluble/dsn-parser@npm:^1.3.2":
   version: 1.3.2
   resolution: "@soluble/dsn-parser@npm:1.3.2"
   checksum: 28bb1662236527bb04c0fec46353bd99e668f6038dac8f5b5e6c3034c3403901a41cac4b30e0d2b339607588d434800b045abb721ab134b505a1077c320b5038
@@ -16240,7 +16233,7 @@ __metadata:
     "@sentry/browser": 6.15.0
     "@sentry/node": 6.15.0
     "@size-limit/file": 7.0.3
-    "@soluble/cache-ioredis": 0.8.2
+    "@soluble/cache-ioredis": 0.8.3
     "@svgr/webpack": 6.0.0-alpha.4
     "@tailwindcss/aspect-ratio": 0.3.0
     "@tailwindcss/forms": 0.3.4
