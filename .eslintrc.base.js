@@ -81,8 +81,18 @@ module.exports = {
     },
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/?(*.)+(test|spec).{js,jsx,ts,tsx}'],
+      files: ['**/?(*.)+(test).{js,jsx,ts,tsx}'],
       extends: ['plugin:jest/recommended'],
+      rules: {
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+    {
+      // To disambiguate unit from e2e (playwright) test files, the *.spec.ts
+      // is used across this repo, so we can apply a different ruleset.
+      files: ['*.spec.ts'],
       rules: {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-object-literal-type-assertion': 'off',
