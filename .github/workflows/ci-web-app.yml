@@ -121,3 +121,8 @@ jobs:
         run: |
           yarn bundle:check-size
 
+      - name: E2E tests with playwright
+        working-directory: apps/web-app
+        run: |
+          npx playwright install-deps chromium safari
+          yarn test:e2e
