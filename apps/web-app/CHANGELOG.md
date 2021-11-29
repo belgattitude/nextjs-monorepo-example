@@ -1,5 +1,11 @@
 # web-app
 
+## 3.35.0
+
+### Minor Changes
+
+- [#890](https://github.com/belgattitude/nextjs-monorepo-example/pull/890) [`4e16294`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4e1629403e4de5e847e27bb11cc81a0eac9165c5) Thanks [@belgattitude](https://github.com/belgattitude)! - E2E test example with playwright + github action
+
 ## 3.34.1
 
 ### Patch Changes
