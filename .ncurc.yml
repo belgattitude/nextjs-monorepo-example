@@ -3,13 +3,12 @@
 # @link https://github.com/raineorshine/npm-check-updates
 reject: [
     # Add here exclusions on packages if any
-    # i.e: '@types/node'
-
-    # till next-i18next officially supports ^21.3.0
-    "i18next",
 
     # till eslint 8 is ready
     "eslint",
+
+    # execa (6.0.0 is esm and does not work with ts-jest)
+    "execa",
 
     # Too early cause in esm
     "is-port-reachable"
