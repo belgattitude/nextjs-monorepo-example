@@ -121,11 +121,20 @@ jobs:
         run: |
           yarn bundle:check-size
 
-      - name: E2E tests with playwright
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: E2E run web-app playwright tests
         working-directory: apps/web-app
-        run: |
-          npx playwright install-deps chromium webkit
+        run:
           yarn start -p 3000
           yarn test:e2e
         env:
           E2E_SKIP_NEXTJS_BUILD: 1
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: web-app-playwright-test-results
+          path: apps/web-app/e2e/.out/test-results/
+
