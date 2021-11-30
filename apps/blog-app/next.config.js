@@ -101,7 +101,7 @@ const nextConfig = {
   },
   future: {
     // @link https://github.com/vercel/next.js/pull/20914
-    strictPostcssConfiguration: true,
+    // strictPostcssConfiguration: true,
   },
 
   typescript: {
