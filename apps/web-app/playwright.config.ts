@@ -9,7 +9,7 @@ const outputDir = path.join(__dirname, 'e2e/.out');
 const config: PlaywrightTestConfig = {
   testDir: path.join(__dirname, 'e2e'),
   timeout: 30_000,
-  retries: 1,
+  retries: 2,
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: outputDir,
   preserveOutput: 'always',
