@@ -2,7 +2,17 @@ import path from 'path';
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 
-const skipNextJsBuild = process.env.E2E_SKIP_NEXTJS_BUILD === '1';
+const port = 3000;
+let webServerCmd = `yarn dev -p ${port}`;
+switch (process.env.E2E_PLAYWRIGHT_MODE) {
+  case 'BUILD_AND_START':
+    webServerCmd = `yarn build && yarn start -p ${port}`;
+    break;
+  case 'SKIP_BUILD_AND_START':
+    webServerCmd = `yarn start -p ${port}`;
+    break;
+}
+
 const outputDir = path.join(__dirname, 'e2e/.out');
 
 // Reference: https://playwright.dev/docs/test-configuration
@@ -28,9 +38,7 @@ const config: PlaywrightTestConfig = {
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
 
   webServer: {
-    command: `${
-      skipNextJsBuild ? '' : 'yarn build && '
-    } yarn start -p 3000`.trim(),
+    command: webServerCmd,
     port: 3000,
     timeout: 120_000,
     reuseExistingServer: !process.env.CI,

@@ -19,10 +19,10 @@ const escapeFileNamesForPrettier = (filenames) =>
     .map((filename) => `"${isWin ? filename : escape([filename])}"`)
     .join(' ');
 
-module.exports = {
-  /**
-   * @param {string[]} filenames
-   */
+/**
+ * @type {Record<string, (filenames: string[]) => string[]>}
+ */
+const rules = {
   '**/*.{js,jsx,ts,tsx}': (filenames) => {
     return [
       // react-hooks/exhaustive-deps must be kept off, a change made here can
@@ -33,10 +33,9 @@ module.exports = {
         .join(' ')}`,
     ];
   },
-  /**
-   * @param {string[]} filenames
-   */
   '**/*.{json,md,mdx,css,html,yml,yaml,scss}': (filenames) => {
     return [`prettier --write ${escapeFileNamesForPrettier(filenames)}`];
   },
 };
+
+module.exports = rules;
