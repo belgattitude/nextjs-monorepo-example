@@ -1,15 +1,11 @@
 # npm-check-updates configuration used by yarn deps:check && yarn deps:update
 # convenience scripts.
 # @link https://github.com/raineorshine/npm-check-updates
+
+# Add here exclusions on packages if any
 reject: [
-    # Add here exclusions on packages if any
-
-    # till eslint 8 is ready
-    "eslint",
-
     # execa (6.0.0 is esm and does not work with ts-jest)
     "execa",
-
     # Too early cause in esm
     "is-port-reachable"
 ]
