@@ -1,12 +1,14 @@
+// @ts-check
+
 /**
  * lint-staged/prettier has an issue with special characters in filenames,
  * like the ones uses for nextjs dynamic routes (ie: [id].tsx...)
  * @link https://github.com/okonet/lint-staged/issues/676
  */
 const escape = require('shell-quote').quote;
-const { CLIEngine } = require('eslint');
+const { ESLint } = require('eslint');
 
-const cli = new CLIEngine({});
+const cli = new ESLint();
 const isWin = process.platform === 'win32';
 
 const escapeFileNamesForPrettier = (filenames) =>
