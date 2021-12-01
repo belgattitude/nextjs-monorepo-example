@@ -41,6 +41,7 @@
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
     "test:e2e": "playwright test",
+    "test:e2e:prod": "cross-env E2E_PLAYWRIGHT_MODE=BUILD_AND_START playwright test",
     "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
