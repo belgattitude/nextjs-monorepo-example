@@ -1,4 +1,4 @@
-name: CI-web-app
+name: CI-e2e-web-app
 
 on:
   push:
@@ -37,11 +37,17 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [14.x]
+        node-version: [16.X]
+        database:
+          - e2e-postgres
+
     steps:
       - uses: actions/checkout@v2
 
@@ -79,47 +85,53 @@ jobs:
           restore-keys: |
                ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
 
+      - name: Start database
+        working-directory: packages/db-main-prisma
+        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+
       - name: Install dependencies
         run: |
           yarn install --immutable
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-      - name: Typecheck
-        working-directory: apps/web-app
+      - name: Create and seed test database
+        working-directory: packages/db-main-prisma
         run: |
-          yarn typecheck
-
-      - name: Linter
-        working-directory: apps/web-app
-        run: |
-          yarn lint --cache
-
-      - name: Unit tests
-        working-directory: apps/web-app
-        run: |
-          yarn ci-test:unit
+          - yarn prisma db push
+          - yarn prisma db seed
+        env:
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
       - name: Build web-app
         working-directory: apps/web-app
         run: |
           yarn build
         env:
-          # Speed up build: they are linted in a previous step
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+          # Don't need to lint / typecheck for e2e, they're done in another workflow
           NEXTJS_IGNORE_ESLINT: 1
-          # Speed up build: they are typechecked in a previous step
           NEXTJS_IGNORE_TYPECHECK: 1
-          # Speed up build: don't run if not needed, enable if it becomes needed
           NEXT_DISABLE_SOURCEMAPS: 1
-          # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: 1
-          # Fully disable sentry registration here (no overhead in build time)
-          NEXT_DISABLE_SENTRY: 1
-          # Disable sentry source map upload (when not needed)
+          NEXT_DISABLE_SENTRY: 0
           NEXT_SENTRY_DRY_RUN: 1
 
-      - name: Check bundle size
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: E2E run web-app playwright tests
         working-directory: apps/web-app
         run: |
-          yarn bundle:check-size
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test:e2e
+        env:
+          E2E_SKIP_NEXTJS_BUILD: 1
+          CI: 1
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: web-app-playwright-test-results
+          path: apps/web-app/e2e/.out
 
