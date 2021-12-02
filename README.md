@@ -37,7 +37,7 @@ Useful to
 
 - Establish a **structure** and demonstrate a lifecycle perspective (dx, ci/cd, deployments...)
 - How to create and consume **shared packages**, locales, assets, api types...
-- Integrate **tools & configs** (eslint, jest, changelogs, versioning, codecov, codeclimate...).
+- Integrate **tools & configs** (eslint, jest, playwright, changelogs, versioning, codecov, codeclimate...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
@@ -103,6 +103,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   └── tsconfig.json        (define path to packages)
 │   │
 │   └── web-app                  (NextJS app with api-routes)
+│       ├── e2e/                 (E2E tests with playwright)
 │       ├── public/
 │       │   ├── shared-assets/   (possible symlink to global assets)
 │       │   └── shared-locales/  (possible symlink to global locales)
@@ -122,6 +123,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   └── tsconfig.json
 │   │
 │   ├── db-main-prisma          (basic db layer with prisma)
+│   │   ├── e2e/                (E2E tests)
 │   │   ├── prisma/
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
@@ -495,13 +497,13 @@ To ensure decent performance, those features are present in the example actions:
   >    - ".eslintrc.base.json"
   >    - ".eslintignore"
   > ```
-                        
+
 ## 6. Editor support
-                        
+
 ### 6.1 VSCode
 
 The ESLint plugin requires that the `eslint.workingDirectories` setting is set:
-                        
+
 ```
 "eslint.workingDirectories": [
     {
@@ -512,6 +514,7 @@ The ESLint plugin requires that the `eslint.workingDirectories` setting is set:
     }
 ],
 ```
+
 More info [here](https://github.com/microsoft/vscode-eslint#mono-repository-setup)
 
 ## 7. Deploy
@@ -544,10 +547,10 @@ Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in th
 
 #### Drawbacks
 
-- [x] **~~Increased build time~~**. Generally a concern but not relevant in this context thanks to the combination of
+- [x] **Increased build time**. Generally a concern but not relevant in this context thanks to the combination of
       nextjs/webpack5, typescript path aliases and yarn. Deps does
       not need to be build... modified files are included as needed and properly cached (nextjs webpack5, ci, deploy, docker/buildkit...).
-- [x] **~~Versioning and publishing~~**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
+- [x] **Versioning and publishing**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
       See the notes about [atlassian changeset](https://github.com/atlassian/changesets). Not relevant here.
 - [x] **Git repo size**. All packages and apps and history will fit in the same git repository increasing its size and
       checkout time. Generally when you reach size problems, check for assets like images first and extract
