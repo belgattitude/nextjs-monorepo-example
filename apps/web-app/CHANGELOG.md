@@ -1,5 +1,12 @@
 # web-app
 
+## 3.35.1
+
+### Patch Changes
+
+- Updated dependencies [[`cfcab664`](https://github.com/belgattitude/nextjs-monorepo-example/commit/cfcab66479a8b28468f67748abb559c4eb2fb10a)]:
+  - @your-org/ui-lib@3.7.0
+
 ## 3.35.0
 
 ### Minor Changes
