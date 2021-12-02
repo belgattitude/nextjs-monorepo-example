@@ -28,9 +28,18 @@
     "test:unit": "echo \"No unit tests yet\"",
     "ci-test:unit": "echo \"No unit tests yet\"",
     "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.4.4",
+    "@storybook/addon-docs": "^6.4.4",
+    "@storybook/addon-essentials": "^6.4.4",
+    "@storybook/addon-links": "^6.4.4",
+    "@storybook/react": "^6.4.4",
     "@testing-library/jest-dom": "5.15.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
@@ -40,6 +49,7 @@
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "@typescript-eslint/parser": "5.5.0",
+    "babel-loader": "^8.2.3",
     "cross-env": "7.0.3",
     "eslint": "8.3.0",
     "eslint-config-prettier": "8.3.0",
