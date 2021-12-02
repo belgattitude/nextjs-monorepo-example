@@ -4577,6 +4577,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@storybook/csf@npm:0.0.1"
+  dependencies:
+    lodash: ^4.17.15
+  checksum: fb57fa028b08a51edf44e1a2bf4be40a4607f5c6ccb58aae8924f476a42b9bbd61a0ad521cfc82196f23e6a912caae0a615e70a755e6800b284c91c509fd2de6
+  languageName: node
+  linkType: hard
+
 "@storybook/manager-webpack4@npm:6.4.4":
   version: 6.4.4
   resolution: "@storybook/manager-webpack4@npm:6.4.4"
@@ -5802,7 +5811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:5.5.0, @typescript-eslint/experimental-utils@npm:^5.0.0, @typescript-eslint/experimental-utils@npm:^5.5.0":
+"@typescript-eslint/experimental-utils@npm:5.5.0, @typescript-eslint/experimental-utils@npm:^5.0.0, @typescript-eslint/experimental-utils@npm:^5.3.0, @typescript-eslint/experimental-utils@npm:^5.5.0":
   version: 5.5.0
   resolution: "@typescript-eslint/experimental-utils@npm:5.5.0"
   dependencies:
@@ -6215,6 +6224,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.3.0
     eslint-plugin-regexp: 1.5.1
     eslint-plugin-sonarjs: 0.11.0
+    eslint-plugin-storybook: 0.5.1
     eslint-plugin-testing-library: 5.0.1
     jest: 27.4.3
     microbundle: 0.14.2
@@ -10866,6 +10876,19 @@ __metadata:
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0|| ^8.0.0
   checksum: ef9633e518f6d8365b7370bf48f70fb837124c68318e14146c13ffa8f4c5a747b5f776956124549f81252131ebb8c139d071b9c66e2af77889d0eada725d6d25
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-storybook@npm:0.5.1":
+  version: 0.5.1
+  resolution: "eslint-plugin-storybook@npm:0.5.1"
+  dependencies:
+    "@storybook/csf": ^0.0.1
+    "@typescript-eslint/experimental-utils": ^5.3.0
+    requireindex: ^1.1.0
+  peerDependencies:
+    eslint: ">=6"
+  checksum: fa80eb0e679582f908991927381b91e6e0d69a0f12bb81319b27017d1d9b939e011fad158fa68236f79d546f6086916c90c83d37d0c5bd6ae7753fca4c6b7c05
   languageName: node
   linkType: hard
 
@@ -19965,6 +19988,13 @@ __metadata:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: e9e294695fea08b076457e9ddff854e81bffbe248ed34c1eec348b7abbd22a0d02e8d75506559e2265e96978f3c4720bd77a6dad84755de8162b357eb6c778c7
+  languageName: node
+  linkType: hard
+
+"requireindex@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "requireindex@npm:1.2.0"
+  checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
   languageName: node
   linkType: hard
 
