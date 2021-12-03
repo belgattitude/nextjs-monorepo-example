@@ -91,6 +91,7 @@ input:where([type='search']) {
 
 .container {
   --gutter: 16px;
+
   width: 1024px;
   max-width: calc(100% - var(--gutter) * 2);
   margin-right: auto;
@@ -157,6 +158,7 @@ input:where([type='search']) {
 .remix__page {
   --gap: 1rem;
   --space: 2rem;
+
   display: grid;
   grid-auto-rows: min-content;
   gap: var(--gap);
@@ -167,6 +169,7 @@ input:where([type='search']) {
 @media print, screen and (min-width: 640px) {
   .remix__page {
     --gap: 2rem;
+
     grid-auto-rows: unset;
     grid-template-columns: repeat(2, 1fr);
   }
