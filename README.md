@@ -37,7 +37,7 @@ Useful to
 
 - Establish a **structure** and demonstrate a lifecycle perspective (dx, ci/cd, deployments...)
 - How to create and consume **shared packages**, locales, assets, api types...
-- Integrate **tools & configs** (eslint, jest, playwright, changelogs, versioning, codecov, codeclimate...).
+- Integrate **tools & configs** (eslint, jest, playwright, storybook, changelogs, versioning, codecov, codeclimate...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
