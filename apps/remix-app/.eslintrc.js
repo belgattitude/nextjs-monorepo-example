@@ -22,13 +22,19 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/no-unescaped-entities': 'off',
-    'import/no-unresolved': [2, { ignore: [`\.css$`] }],
+    'react/jsx-no-target-blank': 'off',
   },
   overrides: [
     {
       // For performance run jest/recommended on test files, not regular code
       files: ['**/*.test.{ts,tsx}'],
       extends: ['plugin:testing-library/react'],
+    },
+    {
+      files: ['config/jest/test-utils.tsx'],
+      rules: {
+        'import/export': 'off',
+      },
     },
   ],
 };
