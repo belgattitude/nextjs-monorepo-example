@@ -6151,6 +6151,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/node@npm:1.12.1":
+  version: 1.12.1
+  resolution: "@vercel/node@npm:1.12.1"
+  dependencies:
+    "@types/node": "*"
+    ts-node: 8.9.1
+    typescript: 4.3.4
+  checksum: 15a0bae4af01e4eb96dfc4b097db70125a2945c606ab1290b4644484a242ddd262705bf4745cec016f2ca62649f8eb7079025f39027210d3aa0d7739d7509255
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react@npm:1.1.0":
   version: 1.1.0
   resolution: "@vitejs/plugin-react@npm:1.1.0"
@@ -21384,6 +21395,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remix-app@workspace:apps/remix-app"
   dependencies:
+    "@babel/core": 7.16.0
     "@emotion/babel-plugin": 11.3.0
     "@emotion/cache": 11.6.0
     "@emotion/react": 11.7.0
@@ -21400,6 +21412,7 @@ __metadata:
     "@types/react-dom": 17.0.11
     "@typescript-eslint/eslint-plugin": 5.5.0
     "@typescript-eslint/parser": 5.5.0
+    "@vercel/node": 1.12.1
     "@your-org/core-lib": "workspace:*"
     "@your-org/ui-lib": "workspace:*"
     eslint: 8.3.0
@@ -21417,6 +21430,7 @@ __metadata:
     eslint-plugin-testing-library: 5.0.1
     jest: 27.4.3
     jest-css-modules-transform: 4.3.0
+    prettier: 2.5.0
     react: 17.0.2
     react-dom: 17.0.2
     remix: 1.0.6
@@ -23904,6 +23918,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-node@npm:8.9.1":
+  version: 8.9.1
+  resolution: "ts-node@npm:8.9.1"
+  dependencies:
+    arg: ^4.1.0
+    diff: ^4.0.1
+    make-error: ^1.1.1
+    source-map-support: ^0.5.17
+    yn: 3.1.1
+  peerDependencies:
+    typescript: ">=2.7"
+  bin:
+    ts-node: dist/bin.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+    ts-script: dist/bin-script-deprecated.js
+  checksum: 59997e32cfb84323317f9fd33ff62d025b467ff36c296c3ad1ee54f08fd355c58fab37e096e2a63fd01fced929384b16b9d74bf324713a21844e527ddd5f6c17
+  languageName: node
+  linkType: hard
+
 "ts-node@npm:^9":
   version: 9.1.1
   resolution: "ts-node@npm:9.1.1"
@@ -24139,6 +24173,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:4.3.4":
+  version: 4.3.4
+  resolution: "typescript@npm:4.3.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 75e1f2769c7ff38c718523d05eaf1c2611dbf92c0ab0f85f603ead9bb23416af2009a5dac46e76ef6a207a8508fa53f51b43a41f2a91b1241b53cd744c16128c
+  languageName: node
+  linkType: hard
+
 "typescript@npm:4.5.2, typescript@npm:^4.1.3, typescript@npm:^4.4.3":
   version: 4.5.2
   resolution: "typescript@npm:4.5.2"
@@ -24146,6 +24190,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 74f9ce65d532bdf5d0214b3f60cf37992180023388c87a11ee6f838a803067ef0b63c600fa501b0deb07f989257dce1e244c9635ed79feca40bbccf6e0aa1ebc
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@4.3.4#~builtin<compat/typescript>":
+  version: 4.3.4
+  resolution: "typescript@patch:typescript@npm%3A4.3.4#~builtin<compat/typescript>::version=4.3.4&hash=493e53"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 49f3e6734d6f27c1931d3a665439350d9015b28eee87ba26ebcae0ba35fc609962ad8eb0b09f0324366497d65260c4222b8735098325bba46d508b5cab7b4640
   languageName: node
   linkType: hard
 
