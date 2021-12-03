@@ -23,11 +23,10 @@
     "share:static:hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
     "test": "run-s 'test:*'",
     "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
-    "test:e2e": "playwright test",
-    "test:e2e:prod": "cross-env E2E_PLAYWRIGHT_MODE=BUILD_AND_START playwright test",
     "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint-style": "stylelint 'app/**/*.css'",
     "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "postinstall": "remix setup node"
@@ -45,7 +44,9 @@
     "@your-org/ui-lib": "workspace:*",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "remix": "1.0.6"
+    "remix": "1.0.6",
+    "stylelint": "14.1.0",
+    "stylelint-config-standard": "24.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
@@ -74,6 +75,7 @@
     "jest": "27.4.3",
     "jest-css-modules-transform": "4.3.0",
     "prettier": "2.5.0",
+    "stylelint-config-prettier": "9.0.3",
     "ts-jest": "27.0.7",
     "typescript": "4.5.2"
   },
