@@ -101,6 +101,10 @@ module.exports = {
     },
     {
       files: ['*.js'],
+      parser: 'espree',
+      parserOptions: {
+        ecmaVersion: 2020,
+      },
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
