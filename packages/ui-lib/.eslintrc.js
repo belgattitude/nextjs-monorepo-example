@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['dist', 'build'],
+  ignorePatterns: ['dist', 'build', 'storybook-static'],
   extends: [
     '../../.eslintrc.base.js',
     'plugin:react/recommended',
