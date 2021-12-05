@@ -1,8 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
-import { GradientText } from './gradient-text';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useIntervalWhen } from 'rooks';
+import { GradientText } from './gradient-text';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -56,7 +55,7 @@ const titles = [
   ['Emotion', 'green'],
 ] as const;
 
-export const AnimatedExample: ComponentStory<typeof GradientText> = (args) => {
+export const AnimatedExample: ComponentStory<typeof GradientText> = (_args) => {
   const [count, setCount] = useState(0);
   useIntervalWhen(() => {
     setCount((count) => (count >= titles.length - 1 ? 0 : count + 1));

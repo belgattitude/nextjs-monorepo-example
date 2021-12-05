@@ -1,8 +1,5 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Simplify } from 'type-fest';
-import { SerializedStyles } from '@emotion/serialize';
-import { FC } from 'react';
+import styled from '@emotion/styled';
 
 const gradients = {
   sky: css`
