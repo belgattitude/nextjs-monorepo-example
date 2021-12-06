@@ -20,7 +20,7 @@
   "scripts": {
     "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
     "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
-    "dev": "microbundle watch",
+    "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
@@ -34,6 +34,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
+    "@emotion/react": "11.7.0",
+    "@emotion/styled": "11.6.0",
     "@mdx-js/react": "1.6.22",
     "@storybook/addon-actions": "6.4.7",
     "@storybook/addon-docs": "6.4.7",
@@ -77,13 +79,30 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "rimraf": "3.0.2",
+    "rooks": "5.8.0",
     "shell-quote": "1.7.3",
     "ts-jest": "27.1.0",
     "typescript": "4.5.2",
     "webpack": "5.64.4"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@emotion/react": {
+      "optional": false
+    },
+    "@emotion/styled": {
+      "optional": false
+    },
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    }
   }
 }

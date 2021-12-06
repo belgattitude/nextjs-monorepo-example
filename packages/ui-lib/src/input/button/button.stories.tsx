@@ -1,11 +1,11 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Button } from './Button';
+import { Button } from './button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Input/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -21,11 +21,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Button',
+  size: 'medium',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  size: 'medium',
 };
 
 export const Large = Template.bind({});
