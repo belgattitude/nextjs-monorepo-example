@@ -173,7 +173,6 @@ module.exports = {
         ],
       },
     },
-
     {
       files: ['*.js'],
       parser: 'espree',
