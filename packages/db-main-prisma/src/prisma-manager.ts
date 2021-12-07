@@ -7,6 +7,7 @@ export type PrismaClientOptions = Prisma.PrismaClientOptions;
 export type PrismaClientDbMain = PrismaClient;
 
 declare let global: {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   __PRISMA_INSTANCES__: Record<string, PrismaClient> | undefined;
 };
 
