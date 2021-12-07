@@ -42,6 +42,19 @@ module.exports = {
       },
     },
     {
+      files: ['src/backend/**/*graphql*schema*.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            // Fine-tune naming convention for graphql resolvers and allow PascalCase
+            selector: ['objectLiteralProperty'],
+            format: ['camelCase', 'PascalCase'],
+          },
+        ],
+      },
+    },
+    {
       files: ['src/backend/api/**/*.ts'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
