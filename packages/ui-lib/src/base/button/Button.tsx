@@ -1,6 +1,8 @@
+// To test out support for emotion-11/css prop in storybook
+
 import type { FC } from 'react';
 import React from 'react';
-import './button.css';
+import { cssButtonStyle } from './Button.styles';
 
 type ButtonProps = {
   /**
@@ -37,15 +39,12 @@ export const Button: FC<ButtonProps> = (props) => {
     label,
     ...restProps
   } = props;
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary';
+  const mode = primary ? 'primary' : 'secondary';
   return (
     <button
+      css={cssButtonStyle}
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
+      className={[size, mode].join(' ')}
       style={{ backgroundColor }}
       {...restProps}>
       {label}

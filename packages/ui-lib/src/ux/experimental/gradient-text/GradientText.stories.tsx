@@ -1,11 +1,11 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 import { useIntervalWhen } from 'rooks';
-import { GradientText } from './gradient-text';
+import { GradientText } from './GradientText';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Ui/Exp/GradientText',
+  title: 'Experimental/GradientText',
   component: GradientText,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
