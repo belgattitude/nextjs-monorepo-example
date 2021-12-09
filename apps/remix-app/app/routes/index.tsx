@@ -63,17 +63,33 @@ export default function Index() {
       <main>
         <h2>Welcome to Remix!</h2>
         <p>We're stoked that you're here. 🥳</p>
-        <p>
-          Feel free to take a look around the code to see how Remix does things,
-          it might be a bit different than what you’re used to. When you're
-          ready to dive deeper, we've got plenty of resources to get you
-          up-and-running quickly.
-        </p>
-        <p>
-          Check out all the demos in this starter, and then just delete the{' '}
-          <code>app/routes/demos</code> and <code>app/styles/demos</code>{' '}
-          folders when you're ready to turn this into your next project.
-        </p>
+        <div className="overflow-hidden max-w-sm rounded shadow-lg">
+          <div className="h-56 aspect-w-16 aspect-h-9 lg:aspect-none">
+            <img
+              className="object-cover object-center w-full lg:w-full h-full lg:h-full"
+              src={'/sunset.jpg'}
+              alt={'Sunhine'}
+            />
+          </div>
+          <article className="py-4 px-6 prose">
+            <div className="mb-2 text-xl font-bold">Sunshine at midnight</div>
+            <p className="text-indigo-600">By John Doe</p>
+            <p className="text-base text-gray-700 line-clamp-4">
+              Close to midnight, saw a sunshine
+            </p>
+          </article>
+          <div className="px-6 pt-4 pb-2">
+            {['sunset', 'idea', 'travel'].map((keyword) => {
+              return (
+                <span
+                  key={keyword}
+                  className="inline-block py-1 px-3 mr-2 mb-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
+                  #{keyword}
+                </span>
+              );
+            })}
+          </div>
+        </div>
       </main>
       <aside>
         <h2>Demos In This App</h2>
