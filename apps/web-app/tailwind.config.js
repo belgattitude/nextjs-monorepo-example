@@ -1,20 +1,6 @@
-const tailwindColors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const sharedTheme = require('./src/themes/tailwind/tailwind.theme');
-
-const deprecatedV3Colors = [
-  'coolGray',
-  'lightBlue',
-  'warmGray',
-  'trueGray',
-  'blueGray',
-];
-
-const tailwindColorsV3 = Object.fromEntries(
-  Object.entries(tailwindColors).filter(
-    ([name, value]) => !deprecatedV3Colors.includes(name)
-  )
-);
+const { tailwindV3Colors } = require('./src/themes/shared/colors');
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -23,7 +9,7 @@ module.exports = {
       ...defaultTheme.screens,
     },
     colors: {
-      ...tailwindColorsV3,
+      ...tailwindV3Colors,
       bermuda: '#78dcca',
       tahiti: {
         100: '#cffafe',
