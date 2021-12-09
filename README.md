@@ -60,8 +60,9 @@ Useful to
 
 #### Example apps
 
-- [apps/web-app](./apps/web-app): SSR, i18n, GraphQL, Rest. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
-- [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
+- [apps/web-app](./apps/web-app): SSR, i18n, tailwind v3, emotion, graphQL, rest... [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
+- [apps/blog-app](./apps/blog-app): Simple. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
+- [apps/remix-app](./apps/remix-app): Remix. [README](./apps/remix-app/README.md) | [~~DEMO/Vercel~~] | [CHANGELOG](./apps/remix-app/CHANGELOG.md)
 - [apps/vite-app](./apps/vite-app): Basic vite-app. [README](./apps/vite-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-vite-app.vercel.app) | [CHANGELOG](./apps/vite-app/CHANGELOG.md)
 
 > Apps should not depend on apps, they can depend on packages
