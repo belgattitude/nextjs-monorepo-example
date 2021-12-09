@@ -1,5 +1,11 @@
 # remix-app
 
+## 1.2.0
+
+### Minor Changes
+
+- [#975](https://github.com/belgattitude/nextjs-monorepo-example/pull/975) [`76e7f2c9`](https://github.com/belgattitude/nextjs-monorepo-example/commit/76e7f2c98efdef37ca21d34dd0ef791e5f673d1e) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with tailwind 3.0.0
+
 ## 1.1.0
 
 ### Minor Changes
