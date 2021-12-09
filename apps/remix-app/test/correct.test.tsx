@@ -1,5 +1,5 @@
-import { default as NiceWork } from '../correct';
 import { render, screen } from '@/test-utils';
+import { default as NiceWork } from '~/routes/demos/correct';
 
 describe('Correct component', () => {
   it('renders without crashing', () => {
