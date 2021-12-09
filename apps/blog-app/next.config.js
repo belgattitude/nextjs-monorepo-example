@@ -90,6 +90,12 @@ const nextConfig = {
   swcMinify: true,
 
   experimental: {
+    // React 18 related
+    // @link https://nextjs.org/docs/advanced-features/react-18
+    reactRoot: true,
+    concurrentFeatures: true,
+    serverComponents: true,
+
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
@@ -98,10 +104,6 @@ const nextConfig = {
     // @link {https://github.com/vercel/next.js/pull/22867|Original PR}
     // @link {https://github.com/vercel/next.js/discussions/26420|Discussion}
     externalDir: true,
-  },
-  future: {
-    // @link https://github.com/vercel/next.js/pull/20914
-    // strictPostcssConfiguration: true,
   },
 
   typescript: {
@@ -114,7 +116,18 @@ const nextConfig = {
   },
 
   async headers() {
-    return [{ source: '/(.*)', headers: secureHeaders }];
+    /**
+     * Buggy with concurrent features enabled
+     * @todo investigate and open an issue either
+     *       in next-secure-headers or nextjs
+     return [
+     {
+        source: '/(.*)',
+        headers: secureHeaders,
+      },
+     ];
+     */
+    return [];
   },
 
   /**
