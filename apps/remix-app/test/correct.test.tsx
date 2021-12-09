@@ -1,4 +1,4 @@
-import { default as NiceWork } from '../correct';
+import { default as NiceWork } from '../app/routes/demos/correct';
 import { render, screen } from '@/test-utils';
 
 describe('Correct component', () => {

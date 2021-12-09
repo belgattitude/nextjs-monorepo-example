@@ -10,7 +10,7 @@ import { AppProviders } from '../app-providers';
  * Import global styles, global css or polyfills here
  * i.e.: import '@/assets/theme/style.scss'
  */
-import 'tailwindcss/tailwind.css';
+import '../styles/global.css';
 
 /**
  * Local fonts
