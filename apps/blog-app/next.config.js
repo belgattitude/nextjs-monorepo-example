@@ -87,16 +87,16 @@ const nextConfig = {
   outputFileTracing: true,
 
   // Replace terser by swc
-  swcMinify: true,
+  // Vercel seems to bugs with swfMinify (logs:     [TypeError: {(intermediate value)} is not a function])
+  // @link https://github.com/vercel/next.js/issues/31153
+  swcMinify: false,
 
   experimental: {
     // React 18 related
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
     concurrentFeatures: true,
-    // Vercel seems to bugs with this
-    // [TypeError: {(intermediate value)} is not a function]
-    serverComponents: false,
+    serverComponents: true,
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
