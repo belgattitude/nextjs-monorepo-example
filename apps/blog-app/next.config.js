@@ -94,7 +94,9 @@ const nextConfig = {
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
     concurrentFeatures: true,
-    serverComponents: true,
+    // Vercel seems to bugs with this
+    // [TypeError: {(intermediate value)} is not a function]
+    serverComponents: false,
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
