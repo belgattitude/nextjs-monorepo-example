@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { sayHello } from '@your-org/core-lib';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
@@ -9,7 +10,12 @@ type Props = {
   posts: Post[];
 };
 
-export default function Blog({ posts }: Props) {
+const Test = styled.div`
+  font-weight: 900;
+  font-size: 3em;
+`;
+
+export default function BlogPage({ posts }: Props) {
   return (
     <>
       <NextSeo
@@ -17,6 +23,7 @@ export default function Blog({ posts }: Props) {
         description="See https://github.com/belgattitude/nextjs-monorepo-example"
       />
       <MainLayout>
+        <Test>Hello</Test>
         <h3>I'm the SSG blog-app</h3>
         <ul>
           <li>{`Foo says: ${sayHello('World')} from @your-org/core-lib`}</li>
