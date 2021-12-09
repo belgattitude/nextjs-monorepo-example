@@ -1,5 +1,5 @@
+import { MainLayout } from '@/components/layout/main-layout';
 import { render, screen } from '@/test-utils';
-import { MainLayout } from '~/components/layout/main-layout';
 
 describe('Layout tests', () => {
   it('should render children', async () => {
