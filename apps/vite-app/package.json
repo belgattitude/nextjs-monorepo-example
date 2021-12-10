@@ -1,11 +1,12 @@
 {
   "name": "vite-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.vite",
     "serve": "vite preview",
     "test": "run-s 'test:*'",
     "test:unit": "echo 'No test present yet'",
@@ -16,17 +17,21 @@
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
+    "@emotion/react": "11.7.0",
+    "@emotion/styled": "11.6.0",
     "@your-org/core-lib": "workspace:*",
     "@your-org/ui-lib": "workspace:*",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.0.0-rc.0",
+    "react-dom": "18.0.0-rc.0",
     "wouter": "2.8.0-alpha.2"
   },
   "devDependencies": {
+    "@babel/core": "7.16.0",
+    "@emotion/babel-plugin": "11.3.0",
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
-    "@vitejs/plugin-react": "1.1.0",
-    "eslint": "8.3.0",
+    "@vitejs/plugin-react": "1.1.1",
+    "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-import": "2.25.3",
@@ -39,9 +44,10 @@
     "eslint-plugin-regexp": "1.5.1",
     "eslint-plugin-sonarjs": "0.11.0",
     "eslint-plugin-testing-library": "5.0.1",
-    "prettier": "2.5.0",
-    "typescript": "4.5.2",
-    "vite": "2.6.14",
+    "prettier": "2.5.1",
+    "rimraf": "3.0.2",
+    "typescript": "4.5.3",
+    "vite": "2.7.1",
     "vite-tsconfig-paths": "3.3.17"
   }
 }

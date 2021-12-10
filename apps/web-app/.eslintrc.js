@@ -1,7 +1,7 @@
 // See ../../.eslintrc.base.js
 module.exports = {
   root: true,
-  ignorePatterns: ['.next'],
+  ignorePatterns: ['.next', '**/.out'],
   extends: [
     '../../.eslintrc.base.js',
     // Add specific rules for react and nextjs
@@ -39,6 +39,19 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/display-name': 'off',
+      },
+    },
+    {
+      files: ['src/backend/**/*graphql*schema*.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            // Fine-tune naming convention for graphql resolvers and allow PascalCase
+            selector: ['objectLiteralProperty'],
+            format: ['camelCase', 'PascalCase'],
+          },
+        ],
       },
     },
     {

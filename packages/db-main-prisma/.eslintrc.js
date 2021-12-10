@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['dist', 'build'],
+  ignorePatterns: ['dist', 'build', 'src/generated'],
   extends: ['../../.eslintrc.base.js'],
   env: {
     browser: false,

@@ -87,16 +87,19 @@ jobs:
           yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint --cache
 
       # Test packages that have changed (--include & --since)
-      - name: Unit tests
+      - name: Unit tests changed packages
         run: |
           yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test:unit
       # to debug cache issues: ls ${{ github.workspace }}/.cache
 
       # Build packages that have changed (--include & --since), assuming that
       # apps build are done already. Otherwise --from & --since
-      - name: Build
+      - name: Run build for changed packages
         run: |
           yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run packages:build
 
-
+      # Test storybook build on packages that have changed (--include & --since)
+      - name: Run storybook build for changed packages
+        run: |
+          yarn workspaces foreach -tv --exclude '*-app' --since=origin/main run build-storybook
 

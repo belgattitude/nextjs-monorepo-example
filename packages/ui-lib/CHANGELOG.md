@@ -1,5 +1,17 @@
 # @your-org/ui-lib
 
+## 3.8.0
+
+### Minor Changes
+
+- [#963](https://github.com/belgattitude/nextjs-monorepo-example/pull/963) [`5e25fab2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5e25fab2f0d620e999f536a1fb8e0ef45d56fd64) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgraded to react 18.0.0-rc.0
+
+## 3.7.0
+
+### Minor Changes
+
+- [`cfcab664`](https://github.com/belgattitude/nextjs-monorepo-example/commit/cfcab66479a8b28468f67748abb559c4eb2fb10a) Thanks [@belgattitude](https://github.com/belgattitude)! - Add storybook basic example
+
 ## 3.6.1
 
 ### Patch Changes
