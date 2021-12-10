@@ -35,9 +35,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
 
@@ -108,6 +110,29 @@ jobs:
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Build blog-app
+        working-directory: apps/blog-app
+        run: |
+          yarn build
+        env:
+          # Speed up build: they are linted in a previous step
+          NEXTJS_IGNORE_ESLINT: 1
+          # Speed up build: they are typechecked in a previous step
+          NEXTJS_IGNORE_TYPECHECK: 1
+          # Speed up build: don't run if not needed, enable if it becomes needed
+          NEXT_DISABLE_SOURCEMAPS: 1
+          # Don't send telemetry for ci
+          NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: E2E run blog-app playwright tests
+        working-directory: apps/blog-app
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test:e2e
+        env:
+          E2E_PLAYWRIGHT_MODE: SKIP_BUILD_AND_START
+          CI: 1
 
 
