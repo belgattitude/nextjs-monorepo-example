@@ -1,19 +1,27 @@
-const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const sharedTheme = require('./src/themes/tailwind/tailwind.theme');
+const { tailwindV3Colors } = require('./src/themes/shared/colors');
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
       ...defaultTheme.screens,
     },
     colors: {
-      ...defaultTheme.colors,
-      gray: colors.coolGray,
-      blue: colors.sky,
+      ...tailwindV3Colors,
+      bermuda: '#78dcca',
+      tahiti: {
+        100: '#cffafe',
+        200: '#a5f3fc',
+        300: '#67e8f9',
+        400: '#22d3ee',
+        500: '#06b6d4',
+        600: '#0891b2',
+        700: '#0e7490',
+        800: '#155e75',
+        900: '#164e63',
+      },
     },
     fontFamily: {
       sans: sharedTheme.fontFamily.sans,
@@ -27,9 +35,6 @@ module.exports = {
       },
       */
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('@tailwindcss/typography'),

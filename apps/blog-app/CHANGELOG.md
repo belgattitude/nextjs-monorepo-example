@@ -1,5 +1,25 @@
 # blog-app
 
+## 3.22.0
+
+### Minor Changes
+
+- [#975](https://github.com/belgattitude/nextjs-monorepo-example/pull/975) [`17582dd0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/17582dd09d1176311a2f2c8fd94bebaaf31fc0cf) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to tailwind V3
+
+## 3.21.0
+
+### Minor Changes
+
+- [#967](https://github.com/belgattitude/nextjs-monorepo-example/pull/967) [`d2fdd979`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d2fdd979ec38f83bc2631b489086f4d21c9eb35d) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable concurrentFeatures in blog-app
+
+* [#963](https://github.com/belgattitude/nextjs-monorepo-example/pull/963) [`5e25fab2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5e25fab2f0d620e999f536a1fb8e0ef45d56fd64) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgraded to react 18.0.0-rc.0
+
+### Patch Changes
+
+- Updated dependencies [[`5e25fab2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5e25fab2f0d620e999f536a1fb8e0ef45d56fd64)]:
+  - @your-org/core-lib@3.9.0
+  - @your-org/ui-lib@3.8.0
+
 ## 3.20.2
 
 ### Patch Changes

@@ -26,7 +26,7 @@ const tailwindV3Colors = Object.entries(
   }, {});
 
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
       ...defaultTheme.screens,

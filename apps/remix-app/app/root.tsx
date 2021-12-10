@@ -12,10 +12,13 @@ import type { LinksFunction } from 'remix';
 
 import darkStylesUrl from './styles/dark.css';
 import globalStylesUrl from './styles/global.css';
+// eslint-disable-next-line import/no-unresolved
+import tailwindStyles from './tailwind.css';
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {
   return [
+    { rel: 'stylesheet', href: tailwindStyles },
     { rel: 'stylesheet', href: globalStylesUrl },
     {
       rel: 'stylesheet',
