@@ -25,3 +25,4 @@ $ yarn dev -p 3000
 - [x] Security: [next-secure-headers](https://github.com/jagaapple/next-secure-headers) with basic defaults.
 - [x] Seo: [next-seo](https://github.com/garmeeh/next-seo)
 - [x] Tests: [jest](https://jestjs.io/) + [ts-jest](https://github.com/kulshekhar/ts-jest) + [@testing-library/react](https://testing-library.com/)
+- [x] E2E: [Playwright](https://playwright.dev/)

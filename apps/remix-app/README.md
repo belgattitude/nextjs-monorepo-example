@@ -10,4 +10,4 @@
 
 Basic demo remix-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
 
-- [Changelog](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/apps/vite-app/CHANGELOG.md)
+- [Changelog](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/apps/remix-app/CHANGELOG.md)

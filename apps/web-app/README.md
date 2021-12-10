@@ -38,8 +38,6 @@ $ yarn dev
 - [x] Tests: [jest](https://jestjs.io/) + [ts-jest](https://github.com/kulshekhar/ts-jest) + [@testing-library/react](https://testing-library.com/)
 - [x] E2E: [Playwright](https://playwright.dev/)
 
-Database access for api's and server-side rendered
-
 ### Monorepo deps
 
 This app relies on packages in the monorepo, see detailed instructions in [README.md](https://github.com/belgattitude/nextjs-monorepo-example)
