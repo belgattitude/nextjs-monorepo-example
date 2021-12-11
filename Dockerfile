@@ -77,8 +77,7 @@ COPY . .
 COPY --from=deps /workspace-install ./
 
 # Optional: if the app depends on global /static shared assets like images, locales...
-RUN yarn workspace web-app share:static:hardlink
-RUN yarn workspace web-app build
+RUN yarn workspace web-app share:static:hardlink &&yarn workspace web-app build
 
 RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
     SKIP_POSTINSTALL=1 \
@@ -96,8 +95,7 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
 COPY --from=builder /app/apps/web-app/next.config.js \
                     /app/apps/web-app/next-i18next.config.js \
