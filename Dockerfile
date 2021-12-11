@@ -1,25 +1,23 @@
 #
 # EXAMPLE OF MULTISTAGE BUILD FOR MONOREPOS
 #
-# @author Vanvelthem Sébastien (https://github.com/belgattitude)
 # @link https://github.com/belgattitude/nextjs-monorepo-example
 #
 
 ###################################################################
 # Stage 1: Install all workspaces (dev)dependencies               #
-#          and generates node_modules folder (s)                  #
+#          and generates node_modules folder(s)                   #
 # ----------------------------------------------------------------#
 # Notes:                                                          #
 #   1. this stage relies on buildkit features                     #
 #   2. depend on .dockerignore, you must at least                 #
 #      ignore: all **/node_modules folders and .yarn/cache        #
-#   3. Use https://github.com/wagoodman/dive to debug / monitor   #
-#      layer sizes                                                #
 ###################################################################
 
-ARG NODE_VERSION=14
+ARG NODE_VERSION=16
+ARG ALPINE_VERSION=3.14
 
-FROM node:${NODE_VERSION}-alpine AS workspaces-full-install
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS deps
 RUN apk add --no-cache rsync
 
 WORKDIR /workspace-install
@@ -36,7 +34,6 @@ COPY .yarn/ ./.yarn/
 #   - All package.json present in the host (root, apps/*, packages/*)
 #   - All schema.prisma (cause prisma will generate a schema on postinstall)
 #
-
 RUN --mount=type=bind,target=/docker-context \
     rsync -amv --delete \
           --exclude='node_modules' \
@@ -45,6 +42,9 @@ RUN --mount=type=bind,target=/docker-context \
           --include='schema.prisma' \
           --include='*/' --exclude='*' \
           /docker-context/ /workspace-install/;
+
+# @see https://www.prisma.io/docs/reference/api-reference/environment-variables-reference#cli-binary-targets
+ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 
 #
 # To speed up installations, we override the default yarn cache folder
@@ -57,46 +57,51 @@ RUN --mount=type=bind,target=/docker-context \
 #  2. To manually clear the cache
 #     > docker builder prune --filter type=exec.cachemount
 #
-
 RUN --mount=type=cache,target=/root/.yarn-cache \
-    YARN_CACHE_FOLDER=/root/.yarn-cache yarn install --immutable --inline-builds
+    YARN_CACHE_FOLDER=/root/.yarn-cache \
+    yarn install --immutable --inline-builds
 
 
 ###################################################################
-# Stage 2: Build production app                                   #
-# ----------------------------------------------------------------#
-# Notes:                                                          #
-#   1. this stage relies on buildkit features                     #
-#   2. this stage will use workspaces-full-install stage          #                                                                 #
+# Stage 2: Build the app                                          #
 ###################################################################
 
-FROM node:${NODE_VERSION}-alpine AS builder
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS builder
 ENV NODE_ENV=production
+ENV NEXTJS_IGNORE_ESLINT=1
+ENV NEXTJS_IGNORE_TYPECHECK=0
 
 WORKDIR /app
+
 COPY . .
-COPY --from=workspaces-full-install /workspace-install ./
+COPY --from=deps /workspace-install ./
 
-RUN NEXTJS_IGNORE_ESLINT=1 yarn workspace web-app build
+# Optional: if the app depends on global /static shared assets like images, locales...
+RUN yarn workspace web-app share:static:hardlink &&yarn workspace web-app build
 
-RUN --mount=type=cache,target=/root/.yarn-cache \
+RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
     SKIP_POSTINSTALL=1 \
     YARN_CACHE_FOLDER=/root/.yarn-cache \
     yarn workspaces focus web-app --production
 
 
-# For production
-FROM node:${NODE_VERSION}-alpine AS production
+###################################################################
+# Stage 3: Extract a minimal image from the build                 #
+###################################################################
+
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS runner
 
 WORKDIR /app
 
 ENV NODE_ENV production
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
-COPY --from=builder /app/apps/web-app/next.config.js ./apps/web-app/
-COPY --from=builder /app/apps/web-app/package.json ./apps/web-app/
+COPY --from=builder /app/apps/web-app/next.config.js \
+                    /app/apps/web-app/next-i18next.config.js \
+                    /app/apps/web-app/next-i18next.config.js \
+                    /app/apps/web-app/package.json \
+                    ./apps/web-app/
 COPY --from=builder /app/apps/web-app/public ./apps/web-app/public
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web-app/.next ./apps/web-app/.next
 COPY --from=builder /app/node_modules ./node_modules
@@ -104,21 +109,27 @@ COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
 
-EXPOSE 8000
+EXPOSE ${WEB_APP_PORT:-3000}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
+CMD ["./node_modules/.bin/next", "start", "apps/web-app/", "-p", "${WEB_APP_PORT:-3000}"]
 
 
-# For development
-FROM node:${NODE_VERSION}-alpine AS web-app-dev
+###################################################################
+# Optional: develop locally                                       #
+###################################################################
+
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS develop
 ENV NODE_ENV=development
 
 WORKDIR /app
 
-COPY --from=workspaces-full-install /workspace-install ./
+COPY --from=deps /workspace-install ./
 
-EXPOSE 8000
-CMD ["yarn", "workspace", "web-app", "dev", "-p", "8000"]
+EXPOSE ${WEB_APP_PORT:-3000}
+
+WORKDIR /app/apps/web-app
+
+CMD ["yarn", "dev", "-p", "${WEB_APP_PORT:-3000}"]
 

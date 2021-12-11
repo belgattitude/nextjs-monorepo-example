@@ -147,7 +147,10 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   ├── assets
 │   └── locales
 ├── .yarnrc.yml
-├── docker-compose.yml           (database service for now)
+├── .dockerignore
+├── docker-compose.web-app.yml   (compose specific for web-app)
+├── docker-compose.yml           (general services like postgresql...)
+├── Dockerfile                   (multistage build for web-app)
 ├── package.json                 (the workspace config)
 └── tsconfig.base.json           (base typescript config)
 ```
@@ -428,10 +431,12 @@ call their counterparts defined in packages and apps.
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "docker:up": "docker-compose up -d",
+    // If needed  docker multistage build and development mode is available
+    "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",
+    "docker:web-app:build": "docker buildx bake -f ./docker-compose.web-app.yml --progress=tty runner",
+    "docker:web-app:serve": "docker-compose ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
 }
 ```
@@ -526,11 +531,15 @@ More info [here](https://github.com/microsoft/vscode-eslint#mono-repository-setu
 
 ## 7. Deploy
 
-#### Vercel
+### Vercel
 
 Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deploy/deploy-vercel.md) document.
 
-#### Others
+### Docker
+
+There's a basic example for building a docker image, read the [docker doc](./docs/docker/docker.md).
+
+### Others
 
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
