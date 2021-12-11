@@ -35,12 +35,13 @@ and build time (taking advantage of buildx cache).
 
 ## Ready made commands
 
-| Yarn script                   | Description                              |
-| ----------------------------- | ---------------------------------------- |
-| `yarn docker:web-app:develop` | Run apps/web-app in development mode     |
-| `yarn docker:web-app:install` | Install dependencies in cache mount      |
-| `yarn docker:web-app:build`   | Create a production build                |
-| `yarn docker:web-app:serve`   | Serve production buil on localhost:3000, |
+| Yarn script                   | Description                                  |
+| ----------------------------- | -------------------------------------------- |
+| `yarn docker:web-app:develop` | Run apps/web-app in development mode         |
+| `yarn docker:web-app:install` | Install dependencies in cache mount          |
+| `yarn docker:web-app:build`   | Create a production build                    |
+| `yarn docker:web-app:serve`   | Serve production build on localhost:3000,    |
+| `yarn docker:prune-cache`     | **Run this regularly if using in local !!!** |
 
 > Build and serve commands requires to have a `./apps/web-app/.env.local` present.
 
@@ -158,12 +159,13 @@ DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml --env-file .env.s
 
 ### Cleanup
 
-| Option                | Command                                              |
-| --------------------- | ---------------------------------------------------- |
-| Remove all containers | `docker container rm -f $(docker container ls -qa)`  |
-| Clean all images      | `docker image rm -f $(docker image ls -q)`           |
-| Remove all volumes    | `docker volume rm $(docker volume ls -q)`            |
-| Prune buildx caches   | `docker builder prune --filter type=exec.cachemount` |
+| Option                  | Command                                              |
+| ----------------------- | ---------------------------------------------------- |
+| Prune buildx            | `docker buildx prune`                                |
+| Prune cachemount caches | `docker builder prune --filter type=exec.cachemount` |
+| Remove all containers   | `docker container rm -f $(docker container ls -qa)`  |
+| Clean all images        | `docker image rm -f $(docker image ls -q)`           |
+| Remove all volumes      | `docker volume rm $(docker volume ls -q)`            |
 
 ### Complete removal
 

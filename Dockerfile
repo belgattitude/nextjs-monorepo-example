@@ -6,14 +6,12 @@
 
 ###################################################################
 # Stage 1: Install all workspaces (dev)dependencies               #
-#          and generates node_modules folder (s)                  #
+#          and generates node_modules folder(s)                   #
 # ----------------------------------------------------------------#
 # Notes:                                                          #
 #   1. this stage relies on buildkit features                     #
 #   2. depend on .dockerignore, you must at least                 #
 #      ignore: all **/node_modules folders and .yarn/cache        #
-#   3. Use https://github.com/wagoodman/dive to debug / monitor   #
-#      layer sizes                                                #
 ###################################################################
 
 ARG NODE_VERSION=16
@@ -36,7 +34,6 @@ COPY .yarn/ ./.yarn/
 #   - All package.json present in the host (root, apps/*, packages/*)
 #   - All schema.prisma (cause prisma will generate a schema on postinstall)
 #
-
 RUN --mount=type=bind,target=/docker-context \
     rsync -amv --delete \
           --exclude='node_modules' \
@@ -66,11 +63,7 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 
 
 ###################################################################
-# Stage 2: Build production app                                   #
-# ----------------------------------------------------------------#
-# Notes:                                                          #
-#   1. this stage relies on buildkit features                     #
-#   2. this stage will use deps stage          #                                                                 #
+# Stage 2: Build the app                                          #
 ###################################################################
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS builder
@@ -83,7 +76,9 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /workspace-install ./
 
-RUN yarn workspace web-app share:static:hardlink && yarn workspace web-app build
+# Optional: if the app depends on global /static shared assets like images, locales...
+RUN yarn workspace web-app share:static:hardlink
+RUN yarn workspace web-app build
 
 RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
     SKIP_POSTINSTALL=1 \
@@ -91,7 +86,10 @@ RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
     yarn workspaces focus web-app --production
 
 
-# For production
+###################################################################
+# Stage 3: Extract a minimal image from the build                 #
+###################################################################
+
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS runner
 
 WORKDIR /app
@@ -120,7 +118,10 @@ ENV NEXT_TELEMETRY_DISABLED 1
 CMD ["./node_modules/.bin/next", "start", "apps/web-app/", "-p", "${WEB_APP_PORT:-3000}"]
 
 
-# For development
+###################################################################
+# Optional: develop locally                                       #
+###################################################################
+
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS develop
 ENV NODE_ENV=development
 
