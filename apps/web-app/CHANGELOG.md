@@ -1,5 +1,11 @@
 # web-app
 
+## 3.38.0
+
+### Minor Changes
+
+- [#508](https://github.com/belgattitude/nextjs-monorepo-example/pull/508) [`cb336eca`](https://github.com/belgattitude/nextjs-monorepo-example/commit/cb336eca54004d6117d004820c95055ffc655f3e) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved docker example
+
 ## 3.37.0
 
 ### Minor Changes
