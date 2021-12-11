@@ -1,7 +1,6 @@
 #
 # EXAMPLE OF MULTISTAGE BUILD FOR MONOREPOS
 #
-# @author Vanvelthem Sébastien (https://github.com/belgattitude)
 # @link https://github.com/belgattitude/nextjs-monorepo-example
 #
 
@@ -17,9 +16,8 @@
 #      layer sizes                                                #
 ###################################################################
 
-ARG NODE_VERSION=14
+ARG NODE_VERSION=16
 ARG ALPINE_VERSION=3.14
-
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS deps
 RUN apk add --no-cache rsync
@@ -63,13 +61,8 @@ ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 #     > docker builder prune --filter type=exec.cachemount
 #
 RUN --mount=type=cache,target=/root/.yarn-cache \
-    #npm_config_platform=linuxmusl npm_config_arch=x64 \
-    PRISMA_CLI_BINARY_TARGETS=linux-musl \
     YARN_CACHE_FOLDER=/root/.yarn-cache \
-    yarn install --immutable --inline-builds \
-    && yarn rebuild sharp;
-    # \
-    #&& npm_config_platform=linuxmusl npm_config_arch=x64 yarn rebuild sharp;
+    yarn install --immutable --inline-builds
 
 
 ###################################################################
@@ -82,21 +75,24 @@ RUN --mount=type=cache,target=/root/.yarn-cache \
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS builder
 ENV NODE_ENV=production
+ENV NEXTJS_IGNORE_ESLINT=1
+ENV NEXTJS_IGNORE_TYPECHECK=0
 
 WORKDIR /app
+
 COPY . .
 COPY --from=deps /workspace-install ./
 
-RUN NEXTJS_IGNORE_ESLINT=1 yarn workspace web-app build
+RUN yarn workspace web-app share:static:hardlink && yarn workspace web-app build
 
-RUN --mount=type=cache,target=/root/.yarn-cache \
+RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
     SKIP_POSTINSTALL=1 \
     YARN_CACHE_FOLDER=/root/.yarn-cache \
     yarn workspaces focus web-app --production
 
 
 # For production
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS production
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS runner
 
 WORKDIR /app
 
@@ -105,8 +101,11 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY --from=builder /app/apps/web-app/next.config.js ./apps/web-app/
-COPY --from=builder /app/apps/web-app/package.json ./apps/web-app/
+COPY --from=builder /app/apps/web-app/next.config.js \
+                    /app/apps/web-app/next-i18next.config.js \
+                    /app/apps/web-app/next-i18next.config.js \
+                    /app/apps/web-app/package.json \
+                    ./apps/web-app/
 COPY --from=builder /app/apps/web-app/public ./apps/web-app/public
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web-app/.next ./apps/web-app/.next
 COPY --from=builder /app/node_modules ./node_modules
@@ -114,23 +113,24 @@ COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
 
-EXPOSE 8000
+EXPOSE ${WEB_APP_PORT:-3000}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD ["./node_modules/.bin/next", "apps/web-app/", "-p", "8000"]
+CMD ["./node_modules/.bin/next", "start", "apps/web-app/", "-p", "${WEB_APP_PORT:-3000}"]
 
 
 # For development
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS web-app-dev
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS develop
 ENV NODE_ENV=development
-ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 
 WORKDIR /app
 
 COPY --from=deps /workspace-install ./
 
-EXPOSE 8000
+EXPOSE ${WEB_APP_PORT:-3000}
 
-CMD ["yarn", "workspace", "web-app", "dev", "-p", "8000"]
+WORKDIR /app/apps/web-app
+
+CMD ["yarn", "dev", "-p", "${WEB_APP_PORT:-3000}"]
 

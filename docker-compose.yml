@@ -1,52 +1,8 @@
 version: "3.8"
 
 services:
-  #
-  # BUILTKIT_PROGRESS=plain DOCKER_BUILDKIT=1 docker-compose build --force-rm --progress=plain deps
-  #
-  deps:
-    profiles:
-      - donotstart
-    stdin_open: true
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: deps
-
-  builder:
-    profiles:
-      - donotstart
-    container_name: nextjs-monorepo-web-app_dev-build
-    stdin_open: true
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: builder
-
-  web-app-dev:
-    # DOCKER_BUILDKIT=1 docker-compose up web-app-dev
-    profiles:
-      - donotstart
-    container_name: nextjs-monorepo-web-app_dev
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: web-app-dev
-    stdin_open: true
-    ports:
-      - target: 8000
-        published: 8000
-        protocol: tcp
-    volumes:
-      - .:/app/
-      - excluded_web-app_build:/app/apps/web-app/.next/
-      - excluded_web-app_nm:/app/node_modules
-      - excluded_web-app_nm:/app/packages/db-main-prisma/node_modules
-    depends_on:
-      - main-db
-
   main-db:
-    container_name: nextjs-monorepo-example-main-db
+    container_name: nextjs-monorepo-example-db
     image: postgres:14-alpine
     ports:
       - target: 5432
@@ -62,23 +18,5 @@ services:
       # so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 
-  pgadmin4:
-    container_name: nextjs-monorepo-example-pgadmin4
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
-      - PGADMIN_DEFAULT_PASSWORD=admin
-      #- PGADMIN_CONFIG_SERVER_MODE='False'
-    ports:
-      - target: 80
-        published: 5556
-        protocol: tcp
-    depends_on:
-      - main-db
-
 volumes:
-  excluded_web-app_build:
-  excluded_web-app_nm:
   db_data:
-  e2e_db_data:
