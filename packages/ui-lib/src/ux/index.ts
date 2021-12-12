@@ -1,1 +1,2 @@
-export { GradientText } from './experimental/gradient-text/GradientText';
+export { GradientText } from './text/GradientText';
+export { TypedText } from './text/TypedText';
