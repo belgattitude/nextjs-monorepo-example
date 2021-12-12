@@ -2,6 +2,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 import { useIntervalWhen } from 'rooks';
 import { GradientText } from './GradientText';
+import { css } from '@emotion/react';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,23 +15,6 @@ export default {
   //   },
   // },
 } as ComponentMeta<typeof GradientText>;
-/*
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof GradientText> = (args) => {
-  const { children, ...restArgs } = args;
-  return <GradientText {...restArgs}>{children}</GradientText>;
-};
-
-export const BasicExample = Template.bind({});
-BasicExample.args = {
-  bg: 'sky',
-  children: 'The world is full of surprises',
-  css: css`
-    font-size: 3em;
-    font-weight: 800;
-  `,
-};
-*/
 
 export const BasicExample: ComponentStory<typeof GradientText> = (args) => (
   <div
@@ -39,7 +23,8 @@ export const BasicExample: ComponentStory<typeof GradientText> = (args) => (
       border: '1px solid blue',
       fontSize: '3em',
       fontWeight: 800,
-    }}>
+    }}
+  >
     <span>
       Hello world, this is a long text that will be wrapped to multiple lines{' '}
       <GradientText {...args}>the sky is full of surprises</GradientText>
@@ -56,33 +41,41 @@ const titles = [
 ] as const;
 
 export const AnimatedExample: ComponentStory<typeof GradientText> = (_args) => {
-  const [count, setCount] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
   useIntervalWhen(() => {
-    setCount((count) => (count >= titles.length - 1 ? 0 : count + 1));
-  }, 1000);
+    setActiveIdx((idx) => (idx >= titles.length - 1 ? 0 : idx + 1));
+  }, 2000);
   return (
-    <div
-      style={{
-        maxWidth: '500px',
-        border: '1px solid blue',
-        fontSize: '3em',
-        fontWeight: 800,
-      }}>
-      <span style={{ overflowWrap: 'break-word' }}>
-        We can make a lot of cool things with{' '}
-        {titles.map((title, idx) => {
-          const [label, grad] = titles[idx];
-          const curr = idx === count;
-          return (
-            <GradientText
-              // style={{ position: 'absolute' }}
-              className={curr ? 'fadeIn' : 'fadeOut'}
-              key={grad}
-              bg={grad}>
-              {label}
-            </GradientText>
-          );
-        })}
+    <div className={'overflow-hidden max-w-md rounded shadow-lg m-8 p-16'}>
+      <span className={'font-bold text-3xl w-full'}>
+        <span>
+          Picked from the possibles <br /> made with{' '}
+        </span>{' '}
+        <span
+          style={{
+            position: 'relative',
+            visibility: 'hidden',
+          }}
+        >
+          Typescript
+          {titles.map((title, idx) => {
+            const [label, grad] = titles[idx];
+            const curr = idx === activeIdx;
+            return (
+              <GradientText
+                className={curr ? 'fadeIn' : 'fadeOut'}
+                css={css`
+                  visibility: visible;
+                `}
+                key={`${label}-${idx}`}
+                bg={grad}
+              >
+                {label}
+              </GradientText>
+            );
+          })}
+        </span>
+        What do you think?
       </span>
     </div>
   );

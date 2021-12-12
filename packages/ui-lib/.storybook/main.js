@@ -27,6 +27,8 @@ module.exports = {
     return config;
   },
   webpackFinal: async (config) => {
+    // Emotion 11 hacks
+
     const emotionReactEleven = path.dirname(
       require.resolve('@emotion/react/package.json')
     );

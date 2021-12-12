@@ -58,7 +58,8 @@ export const GradientText = styled.span<GradientTextProps>`
   ${(props) => gradients[props?.bg ?? 'sky']};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  //overflow-wrap: break-word;
+  position: absolute;
+  left: 0;
   &.fadeIn {
     opacity: 1;
     transition-property: opacity;
@@ -67,10 +68,11 @@ export const GradientText = styled.span<GradientTextProps>`
   }
   &.fadeOut {
     opacity: 0;
-    transform: translate(100px);
+    transform: translate(50px);
     transition: all 1.5s ease-out;
+    overflow: hidden;
     &:last-of-type {
-      font-size: 2em;
+      font-size: 18em;
       transition-duration: 1s;
     }
   }
