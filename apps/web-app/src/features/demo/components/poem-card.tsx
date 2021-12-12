@@ -32,7 +32,8 @@ export const PoemCard: React.FC<Props> = (props) => {
           return (
             <span
               key={keyword}
-              className="inline-block py-1 px-3 mr-2 mb-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
+              className="inline-block py-1 px-3 mr-2 mb-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
+            >
               #{keyword}
             </span>
           );
