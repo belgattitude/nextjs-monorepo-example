@@ -1,9 +1,5 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import { set } from 'husky';
 import type { HTMLAttributes } from 'react';
-import { Component, ElementType, useEffect, useRef, useState } from 'react';
-import { useIntervalWhen } from 'rooks';
+import { useEffect, useRef, useState } from 'react';
 
 type TypedTextProps = {
   /**
