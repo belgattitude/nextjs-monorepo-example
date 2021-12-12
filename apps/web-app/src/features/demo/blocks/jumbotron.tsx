@@ -99,7 +99,8 @@ export const Jumbotron: FC = () => {
           @media (min-width: 600px) {
             font-size: 4em;
           } ;
-        `}>
+        `}
+      >
         One of many possibles
         <br /> made with
         {titles.map((title, idx) => {
@@ -109,7 +110,8 @@ export const Jumbotron: FC = () => {
             <GradientText
               className={curr ? 'fadeIn' : 'fadeOut'}
               key={grad}
-              bg={grad}>
+              bg={grad}
+            >
               {label}
             </GradientText>
           );

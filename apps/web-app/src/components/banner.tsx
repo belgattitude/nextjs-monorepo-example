@@ -23,14 +23,16 @@ export const Banner: React.FC<Props> = () => {
           <div className="flex-shrink-0 order-3 sm:order-2 mt-2 sm:mt-0 w-full sm:w-auto">
             <a
               href="#"
-              className="flex justify-center items-center py-2 px-4 text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent shadow-sm">
+              className="flex justify-center items-center py-2 px-4 text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent shadow-sm"
+            >
               Learn more
             </a>
           </div>
           <div className="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
             <button
               type="button"
-              className="flex p-2 -mr-1 sm:-mr-2 hover:bg-indigo-500 rounded-md focus:ring-2 focus:ring-white focus:outline-none">
+              className="flex p-2 -mr-1 sm:-mr-2 hover:bg-indigo-500 rounded-md focus:ring-2 focus:ring-white focus:outline-none"
+            >
               <span className="sr-only">Dismiss</span>
               <XIcon className="w-6 h-6 text-white" aria-hidden="true" />
             </button>

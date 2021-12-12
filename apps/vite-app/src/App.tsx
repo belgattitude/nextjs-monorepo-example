@@ -19,7 +19,8 @@ function App() {
               css={css`
                 font-size: 3em;
                 font-weight: 800;
-              `}>
+              `}
+            >
               Hello
             </GradientText>
           </p>
@@ -27,7 +28,8 @@ function App() {
           <p>
             <button
               type="button"
-              onClick={() => setCount((count) => count + 1)}>
+              onClick={() => setCount((count) => count + 1)}
+            >
               count is: {count}
             </button>
           </p>
