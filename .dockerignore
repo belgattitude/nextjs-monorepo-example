@@ -12,6 +12,11 @@ node_modules
 .gitattributes
 .github
 
+# Tools caches
+.cache/*
+tsconfig.tsbuildinfo
+.eslintcache
+
 # Yarn
 !.yarnrc.yml
 !.yarn/plugins
@@ -26,14 +31,12 @@ node_modules
 # npm
 !.npmrc
 
-
 # Docker related
 .dockerignore
 Dockerfile
 docker-compose.*.yml
 docker-compose.yml
 docker
-
 
 # Log files
 logs
@@ -43,4 +46,7 @@ logs
 tmp
 *.tmp
 
+# IDE related
 
+.idea
+.vscode
