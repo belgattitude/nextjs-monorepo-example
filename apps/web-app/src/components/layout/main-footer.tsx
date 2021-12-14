@@ -35,7 +35,8 @@ export const MainFooter: FC = () => {
         <a
           href={'https://github.com/belgattitude/nextjs-monorepo-example'}
           target={'_blank'}
-          rel={'noopener noreferrer'}>
+          rel={'noopener noreferrer'}
+        >
           <GithubIcon />
         </a>
       </div>

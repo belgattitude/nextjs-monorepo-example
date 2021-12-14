@@ -46,7 +46,8 @@ export const Button: FC<ButtonProps> = (props) => {
       type="button"
       className={[size, mode].join(' ')}
       style={{ backgroundColor }}
-      {...restProps}>
+      {...restProps}
+    >
       {label}
     </button>
   );

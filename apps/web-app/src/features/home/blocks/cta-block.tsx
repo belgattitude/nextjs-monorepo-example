@@ -15,14 +15,16 @@ export const CtaBlock: React.FC<Props> = () => {
           <div className="inline-flex rounded-md shadow">
             <a
               href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md border border-transparent">
+              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md border border-transparent"
+            >
               Get started
             </a>
           </div>
           <div className="inline-flex ml-3 rounded-md shadow">
             <a
               href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent">
+              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent"
+            >
               Learn more
             </a>
           </div>
