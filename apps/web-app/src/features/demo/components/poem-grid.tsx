@@ -1,6 +1,6 @@
 import { ArrayUtils } from '@your-org/core-lib';
-import { PoemCard } from './poem-card';
 import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import { PoemCard } from './poem-card';
 
 const waterImages = new Array(25).fill('').map((img, idx) => {
   const index = String(idx + 1).padStart(2, '0');

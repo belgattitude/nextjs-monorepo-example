@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-micro';
-import type { GraphqlSdlContext } from './graphql-sdl-context';
 import { PoemRepositorySsr } from '@/backend/api/rest/poem-repository.ssr';
+import type { GraphqlSdlContext } from './graphql-sdl-context';
 
 const typeDefs = gql`
   type Poem {
