@@ -29,7 +29,7 @@
   </a>
 </p>
 
-> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.1+](https://dev.to/arcanis/yarn-3-0-performances-esbuild-better-patches-e07)
+> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.1+](https://dev.to/arcanis/yarn-31-corepack-esm-pnpm-optional-packages--3hak)
 > / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and
 > tries to be as strict and standard as possible.
 
@@ -37,7 +37,7 @@ Useful to
 
 - Establish a **structure** and demonstrate a lifecycle perspective (dx, ci/cd, deployments...)
 - How to create and consume **shared packages**, locales, assets, api types...
-- Integrate **tools & configs** (eslint, jest, changelogs, versioning, codecov, codeclimate...).
+- Integrate **tools & configs** (eslint, jest, playwright, storybook, changelogs, versioning, codecov, codeclimate...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
@@ -48,19 +48,21 @@ Useful to
 ```
 .
 ├── apps
-│   ├── blog-app
+│   ├── blog-app   (nextjs, e2e playwright)
+│   ├── remix-app
 │   ├── vite-app
-│   └── web-app
+│   └── web-app    (nextjs, i18n, ssr, e2e playwright)
 └── packages
     ├── core-lib
     ├── db-main-prisma
-    └── ui-lib
+    └── ui-lib     (emotion, storybook)
 ```
 
 #### Example apps
 
-- [apps/web-app](./apps/web-app): SSR, i18n, GraphQL, Rest. [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
-- [apps/blog-app](./apps/blog-app): SSG. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
+- [apps/web-app](./apps/web-app): SSR, i18n, tailwind v3, emotion, graphQL, rest... [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
+- [apps/blog-app](./apps/blog-app): Simple nextjs. [README](./apps/blog-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-blog-app.vercel.app) | [CHANGELOG](./apps/blog-app/CHANGELOG.md)
+- [apps/remix-app](./apps/remix-app): Remix. [README](./apps/remix-app/README.md) | [~~DEMO/Vercel~~] | [CHANGELOG](./apps/remix-app/CHANGELOG.md)
 - [apps/vite-app](./apps/vite-app): Basic vite-app. [README](./apps/vite-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-vite-app.vercel.app) | [CHANGELOG](./apps/vite-app/CHANGELOG.md)
 
 > Apps should not depend on apps, they can depend on packages
@@ -97,12 +99,18 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   ├── package.json         (define package workspace:package deps)
 │   │   └── tsconfig.json        (define path to packages)
 │   │
+│   ├── remix-app                (Remix.run app as an example)
+│   │   ├── app/
+│   │   ├── package.json         (define package workspace:package deps)
+│   │   └── tsconfig.json        (define path to packages)
+│   │
 │   ├── vite-app                 (Vite app as an example)
 │   │   ├── src/
 │   │   ├── package.json         (define package workspace:package deps)
 │   │   └── tsconfig.json        (define path to packages)
 │   │
 │   └── web-app                  (NextJS app with api-routes)
+│       ├── e2e/                 (E2E tests with playwright)
 │       ├── public/
 │       │   ├── shared-assets/   (possible symlink to global assets)
 │       │   └── shared-locales/  (possible symlink to global locales)
@@ -122,6 +130,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   └── tsconfig.json
 │   │
 │   ├── db-main-prisma          (basic db layer with prisma)
+│   │   ├── e2e/                (E2E tests)
 │   │   ├── prisma/
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
@@ -138,7 +147,10 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   ├── assets
 │   └── locales
 ├── .yarnrc.yml
-├── docker-compose.yml           (database service for now)
+├── .dockerignore
+├── docker-compose.web-app.yml   (compose specific for web-app)
+├── docker-compose.yml           (general services like postgresql...)
+├── Dockerfile                   (multistage build for web-app)
 ├── package.json                 (the workspace config)
 └── tsconfig.base.json           (base typescript config)
 ```
@@ -419,10 +431,12 @@ call their counterparts defined in packages and apps.
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "docker:up": "docker-compose up -d",
+    // If needed  docker multistage build and development mode is available
+    "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",
+    "docker:web-app:build": "docker buildx bake -f ./docker-compose.web-app.yml --progress=tty runner",
+    "docker:web-app:serve": "docker-compose ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
-    "docker:clean": "docker container rm -f $(docker container ls -qa) && docker image rm -f $(docker image ls -q)",
   },
 }
 ```
@@ -495,13 +509,13 @@ To ensure decent performance, those features are present in the example actions:
   >    - ".eslintrc.base.json"
   >    - ".eslintignore"
   > ```
-                        
+
 ## 6. Editor support
-                        
+
 ### 6.1 VSCode
 
 The ESLint plugin requires that the `eslint.workingDirectories` setting is set:
-                        
+
 ```
 "eslint.workingDirectories": [
     {
@@ -512,15 +526,20 @@ The ESLint plugin requires that the `eslint.workingDirectories` setting is set:
     }
 ],
 ```
+
 More info [here](https://github.com/microsoft/vscode-eslint#mono-repository-setup)
 
 ## 7. Deploy
 
-#### Vercel
+### Vercel
 
 Vercel support natively monorepos, see the [vercel-monorepo-deploy](./docs/deploy/deploy-vercel.md) document.
 
-#### Others
+### Docker
+
+There's a basic example for building a docker image, read the [docker doc](./docs/docker/docker.md).
+
+### Others
 
 Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in the future. PR's welcome too.
 
@@ -544,10 +563,10 @@ Netlify, aws-amplify, k8s-docker, serverless-nextjs recipes might be added in th
 
 #### Drawbacks
 
-- [x] **~~Increased build time~~**. Generally a concern but not relevant in this context thanks to the combination of
+- [x] **Increased build time**. Generally a concern but not relevant in this context thanks to the combination of
       nextjs/webpack5, typescript path aliases and yarn. Deps does
       not need to be build... modified files are included as needed and properly cached (nextjs webpack5, ci, deploy, docker/buildkit...).
-- [x] **~~Versioning and publishing~~**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
+- [x] **Versioning and publishing**. Sometimes a concern when you want to use the shared libraries outside of the monorepo.
       See the notes about [atlassian changeset](https://github.com/atlassian/changesets). Not relevant here.
 - [x] **Git repo size**. All packages and apps and history will fit in the same git repository increasing its size and
       checkout time. Generally when you reach size problems, check for assets like images first and extract

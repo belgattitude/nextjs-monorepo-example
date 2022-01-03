@@ -1,5 +1,42 @@
 # web-app
 
+## 3.38.0
+
+### Minor Changes
+
+- [#508](https://github.com/belgattitude/nextjs-monorepo-example/pull/508) [`cb336eca`](https://github.com/belgattitude/nextjs-monorepo-example/commit/cb336eca54004d6117d004820c95055ffc655f3e) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved docker example
+
+## 3.37.0
+
+### Minor Changes
+
+- [#975](https://github.com/belgattitude/nextjs-monorepo-example/pull/975) [`17582dd0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/17582dd09d1176311a2f2c8fd94bebaaf31fc0cf) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to tailwind V3
+
+## 3.36.0
+
+### Minor Changes
+
+- [#963](https://github.com/belgattitude/nextjs-monorepo-example/pull/963) [`5e25fab2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5e25fab2f0d620e999f536a1fb8e0ef45d56fd64) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgraded to react 18.0.0-rc.0
+
+### Patch Changes
+
+- Updated dependencies [[`5e25fab2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5e25fab2f0d620e999f536a1fb8e0ef45d56fd64)]:
+  - @your-org/core-lib@3.9.0
+  - @your-org/ui-lib@3.8.0
+
+## 3.35.1
+
+### Patch Changes
+
+- Updated dependencies [[`cfcab664`](https://github.com/belgattitude/nextjs-monorepo-example/commit/cfcab66479a8b28468f67748abb559c4eb2fb10a)]:
+  - @your-org/ui-lib@3.7.0
+
+## 3.35.0
+
+### Minor Changes
+
+- [#890](https://github.com/belgattitude/nextjs-monorepo-example/pull/890) [`4e16294`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4e1629403e4de5e847e27bb11cc81a0eac9165c5) Thanks [@belgattitude](https://github.com/belgattitude)! - E2E test example with playwright + github action
+
 ## 3.34.1
 
 ### Patch Changes

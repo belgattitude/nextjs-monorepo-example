@@ -1,14 +1,21 @@
 # All node_modules directories
+node_modules
 **/node_modules
 
 # All secrets
 **/.env.local
 **/.env.*.local
 
-# By default all dot files (.env, .git, ...)
-.*
+# By default all git files
+.git
+.gitignore
+.gitattributes
+.github
 
-# Exception to dot files
+# Tools caches
+.cache/*
+tsconfig.tsbuildinfo
+.eslintcache
 
 # Yarn
 !.yarnrc.yml
@@ -24,13 +31,12 @@
 # npm
 !.npmrc
 
-
 # Docker related
+.dockerignore
 Dockerfile
 docker-compose.*.yml
 docker-compose.yml
 docker
-
 
 # Log files
 logs
@@ -40,4 +46,7 @@ logs
 tmp
 *.tmp
 
+# IDE related
 
+.idea
+.vscode

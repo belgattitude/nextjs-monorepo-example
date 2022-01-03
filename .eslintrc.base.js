@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  ignorePatterns: ['node_modules/*', '.eslintrc.js'],
+  ignorePatterns: ['**/node_modules', '**/dist', '**/build'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -13,6 +13,7 @@ module.exports = {
     },
     ecmaVersion: 2020,
     project: ['tsconfig.json'],
+    sourceType: 'module',
   },
   settings: {
     react: {
@@ -23,10 +24,9 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:regexp/recommended',
     'plugin:prettier/recommended',
   ],
@@ -68,6 +68,58 @@ module.exports = {
     ],
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'default',
+        format: ['camelCase'],
+        leadingUnderscore: 'forbid',
+        trailingUnderscore: 'forbid',
+      },
+      {
+        selector: 'variable',
+        format: ['camelCase'],
+      },
+      {
+        selector: ['function'],
+        format: ['camelCase'],
+      },
+      {
+        selector: 'parameter',
+        format: ['camelCase'],
+        leadingUnderscore: 'allow',
+      },
+      {
+        selector: 'class',
+        format: ['PascalCase'],
+      },
+      {
+        selector: 'classProperty',
+        format: ['camelCase'],
+      },
+      {
+        selector: 'objectLiteralProperty',
+        format: [
+          'camelCase',
+          // Some external libraries use snake_case for params
+          'snake_case',
+          // Env variables are generally uppercase
+          'UPPER_CASE',
+        ],
+      },
+      {
+        selector: ['typeAlias', 'interface'],
+        format: ['PascalCase'],
+      },
+      {
+        selector: ['typeProperty'],
+        format: ['camelCase'],
+      },
+      {
+        selector: ['typeParameter'],
+        format: ['PascalCase'],
+      },
+    ],
   },
   overrides: [
     {
@@ -81,7 +133,7 @@ module.exports = {
     },
     {
       // For performance run jest/recommended on test files, not regular code
-      files: ['**/?(*.)+(test|spec).{js,jsx,ts,tsx}'],
+      files: ['**/?(*.)+(test).{js,jsx,ts,tsx}'],
       extends: ['plugin:jest/recommended'],
       rules: {
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -90,8 +142,45 @@ module.exports = {
       },
     },
     {
-      files: ['*.js'],
+      // To disambiguate unit from e2e (playwright) test files, the *.spec.ts
+      // is used across this repo, so we can apply a different ruleset.
+      files: ['*.spec.ts'],
       rules: {
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+    // Fine-tune naming convention graphql resolvers
+    {
+      files: ['*.tsx'],
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'warn',
+          {
+            selector: 'variable',
+            format: ['camelCase', 'PascalCase'],
+          },
+          {
+            selector: ['function'],
+            format: ['camelCase', 'PascalCase'],
+          },
+          {
+            selector: 'parameter',
+            format: ['camelCase', 'PascalCase'],
+            leadingUnderscore: 'allow',
+          },
+        ],
+      },
+    },
+    {
+      files: ['*.js'],
+      parser: 'espree',
+      parserOptions: {
+        ecmaVersion: 2020,
+      },
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',

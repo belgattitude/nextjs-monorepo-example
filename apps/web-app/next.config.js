@@ -88,6 +88,12 @@ const nextConfig = {
   swcMinify: true,
 
   experimental: {
+    // React 18 related
+    // @link https://nextjs.org/docs/advanced-features/react-18
+    reactRoot: true,
+    concurrentFeatures: false, // buggy with sentry
+    serverComponents: false, // buggy with sentry
+
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
@@ -99,7 +105,7 @@ const nextConfig = {
   },
   future: {
     // @link https://github.com/vercel/next.js/pull/20914
-    strictPostcssConfiguration: true,
+    //strictPostcssConfiguration: true,
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
@@ -129,7 +135,7 @@ const nextConfig = {
 
   /**
    * @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
-  async rewrites() {
+   async rewrites() {
     return [
       {
         source: `/`,
@@ -137,12 +143,18 @@ const nextConfig = {
       },
     ];
   },
-  */
+   */
 
   webpack: (config, { isServer }) => {
     if (!isServer) {
       // Swap sentry/node by sentry/browser
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
+    }
+
+    if (isServer) {
+      // Till undici 4 haven't landed in prisma, we need this for docker/alpine
+      // @see https://github.com/prisma/prisma/issues/6925#issuecomment-905935585
+      config.externals.push('_http_common');
     }
 
     config.module.rules.push({

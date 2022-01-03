@@ -45,29 +45,40 @@
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
     "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "postinstall": "is-ci || yarn husky install",
-    "docker:up": "docker-compose up -d",
+    "docker:prune-cache": "docker buildx prune",
+    "docker:web-app:install": "docker buildx bake -f ./docker-compose.web-app.yml --progress=tty deps",
+    "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",
+    "docker:web-app:develop:reinstall": "cross-env DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty --no-cache --force-rm develop",
+    "docker:web-app:build": "cross-env DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty runner",
+    "docker:web-app:serve": "docker-compose ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
-    "docker:nuke:all": "yarn docker:nuke:containers && yarn docker:nuke:images && yarn docker:nuke:volumes",
+    "docker:nuke-all": "npm-run-all --sequential --continue-on-error --print-label \"docker:nuke:*\"",
     "docker:nuke:images": "docker image rm -f $(docker image ls -q)",
     "docker:nuke:containers": "docker container rm -f $(docker container ls -qa)",
     "docker:nuke:volumes": "docker volume rm $(docker volume ls -q)",
-    "?nuke:node_modules": "remove all node_modules folders present under the root",
+    "docker:nuke:prune-cachemount": "docker builder prune --filter type=exec.cachemount",
+    "docker:nuke:prune-buildx": "docker buildx prune",
     "nuke:node_modules": "rimraf '**/node_modules'",
-    "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator"
+    "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator",
+    "postinstall": "is-ci || yarn husky install"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.4.1",
-    "@changesets/cli": "2.18.0",
-    "@commitlint/cli": "15.0.0",
-    "@commitlint/config-conventional": "15.0.0",
-    "eslint": "7.32.0",
+    "@changesets/changelog-github": "0.4.2",
+    "@changesets/cli": "2.19.0",
+    "@commitlint/cli": "16.0.1",
+    "@commitlint/config-conventional": "16.0.0",
+    "@types/eslint": "8.2.1",
+    "@types/shell-quote": "1.7.1",
+    "eslint": "8.6.0",
     "husky": "7.0.4",
     "is-ci": "3.0.1",
-    "lint-staged": "12.1.2",
+    "lint-staged": "12.1.5",
     "npm-run-all": "4.1.5",
-    "prettier": "2.4.1",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
     "shell-quote": "1.7.3"
   },
@@ -76,5 +87,5 @@
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
   },
-  "packageManager": "yarn@3.2.0-rc.5"
+  "packageManager": "yarn@3.2.0-rc.9"
 }
