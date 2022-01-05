@@ -103,7 +103,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.16.7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.8, @babel/core@npm:^7.15.5, @babel/core@npm:^7.16.5, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.16.7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.8, @babel/core@npm:^7.15.5, @babel/core@npm:^7.16.5, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
   version: 7.16.7
   resolution: "@babel/core@npm:7.16.7"
   dependencies:
@@ -2636,9 +2636,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/core@npm:^27.4.6":
-  version: 27.4.6
-  resolution: "@jest/core@npm:27.4.6"
+"@jest/core@npm:^27.4.7":
+  version: 27.4.7
+  resolution: "@jest/core@npm:27.4.7"
   dependencies:
     "@jest/console": ^27.4.6
     "@jest/reporters": ^27.4.6
@@ -2652,7 +2652,7 @@ __metadata:
     exit: ^0.1.2
     graceful-fs: ^4.2.4
     jest-changed-files: ^27.4.2
-    jest-config: ^27.4.6
+    jest-config: ^27.4.7
     jest-haste-map: ^27.4.6
     jest-message-util: ^27.4.6
     jest-regex-util: ^27.4.0
@@ -2673,7 +2673,7 @@ __metadata:
   peerDependenciesMeta:
     node-notifier:
       optional: true
-  checksum: 903c2c45e74a276795453a743b6ca8344e3bad8d8b169760286ca4cc828c1d51e903f67971b9e244ebf9b88286a99bccc587a23a28fea23fd80ae846113b3834
+  checksum: 24ed123ef1819fa8c6069706760efac9904ee8824b22c346259be2017d820b5e578a4d444339448a576a0158e6fec91d18fdedb201bc97d7390b105d665f3642
   languageName: node
   linkType: hard
 
@@ -6671,7 +6671,7 @@ __metadata:
     eslint-plugin-regexp: 1.5.1
     eslint-plugin-sonarjs: 0.11.0
     eslint-plugin-testing-library: 5.0.1
-    jest: 27.4.6
+    jest: 27.4.7
     microbundle: 0.14.2
     npm-run-all: 4.1.5
     prettier: 2.5.1
@@ -6717,7 +6717,7 @@ __metadata:
     eslint-plugin-sonarjs: 0.11.0
     execa: 5.1.1
     is-port-reachable: 3.1.0
-    jest: 27.4.6
+    jest: 27.4.7
     keyword-extractor: 0.0.20
     npm-run-all: 4.1.5
     picocolors: 1.0.0
@@ -6780,7 +6780,7 @@ __metadata:
     eslint-plugin-sonarjs: 0.11.0
     eslint-plugin-storybook: 0.5.5
     eslint-plugin-testing-library: 5.0.1
-    jest: 27.4.6
+    jest: 27.4.7
     microbundle: 0.14.2
     npm-run-all: 4.1.5
     postcss: 8.4.5
@@ -8218,7 +8218,7 @@ __metadata:
     eslint-plugin-regexp: 1.5.1
     eslint-plugin-sonarjs: 0.11.0
     eslint-plugin-testing-library: 5.0.1
-    jest: 27.4.6
+    jest: 27.4.7
     jest-css-modules-transform: 4.3.0
     next: 12.0.7
     next-secure-headers: 2.2.0
@@ -15285,18 +15285,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-cli@npm:^27.4.6":
-  version: 27.4.6
-  resolution: "jest-cli@npm:27.4.6"
+"jest-cli@npm:^27.4.7":
+  version: 27.4.7
+  resolution: "jest-cli@npm:27.4.7"
   dependencies:
-    "@jest/core": ^27.4.6
+    "@jest/core": ^27.4.7
     "@jest/test-result": ^27.4.6
     "@jest/types": ^27.4.2
     chalk: ^4.0.0
     exit: ^0.1.2
     graceful-fs: ^4.2.4
     import-local: ^3.0.2
-    jest-config: ^27.4.6
+    jest-config: ^27.4.7
     jest-util: ^27.4.2
     jest-validate: ^27.4.6
     prompts: ^2.0.1
@@ -15308,14 +15308,15 @@ __metadata:
       optional: true
   bin:
     jest: bin/jest.js
-  checksum: 924dd24b74f33f79fa8cbc577d4c13aa8645b41d53c4678b6f999dd02d7fe027c397db1898e4b4cda08001efb65dd29ed4492e2818d149098092df8314ed441b
+  checksum: bf301039f1c14ef3fa2b7699b7b94328faa5549e34cb1573610c894bedd036ad36e31e6af436e11b3aa85e22e409a05d1fef1624bebc2da7ed416ce969b87307
   languageName: node
   linkType: hard
 
-"jest-config@npm:^27.4.6":
-  version: 27.4.6
-  resolution: "jest-config@npm:27.4.6"
+"jest-config@npm:^27.4.7":
+  version: 27.4.7
+  resolution: "jest-config@npm:27.4.7"
   dependencies:
+    "@babel/core": ^7.8.0
     "@jest/test-sequencer": ^27.4.6
     "@jest/types": ^27.4.2
     babel-jest: ^27.4.6
@@ -15342,7 +15343,7 @@ __metadata:
   peerDependenciesMeta:
     ts-node:
       optional: true
-  checksum: 90dafbf8bcc01ffab0bc085bd8ca5f9866f6c7a13202c3031ab6a668ed4a9a21e9eb4537ea0cb575765dc3099e70f2f9089bb25a4627b05d2bde50f06bddcc33
+  checksum: 23d5bacc483b2674d6efcd6bfc66bcde7c2b428511b50d17a22a2750d85bfc23753f9e41f504411e411e848e34ec61244bdae9da8782df4ada6e284106f71a4d
   languageName: node
   linkType: hard
 
@@ -15817,13 +15818,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:27.4.6":
-  version: 27.4.6
-  resolution: "jest@npm:27.4.6"
+"jest@npm:27.4.7":
+  version: 27.4.7
+  resolution: "jest@npm:27.4.7"
   dependencies:
-    "@jest/core": ^27.4.6
+    "@jest/core": ^27.4.7
     import-local: ^3.0.2
-    jest-cli: ^27.4.6
+    jest-cli: ^27.4.7
   peerDependencies:
     node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
   peerDependenciesMeta:
@@ -15831,7 +15832,7 @@ __metadata:
       optional: true
   bin:
     jest: bin/jest.js
-  checksum: 5b7bf3d1017f96110c6197e301f0e7bf1733ab300034e4f00ef0921e5fbf2e26e167454a7637bdac46df14385b1e1386cd2ad7d9aefe5793c60f775be2043534
+  checksum: 28ce948b30c074907393f37553acac4422d0f60190776e62b3403e4c742d33dd6012e3a20748254a43e38b5b4ce52d813b13a3a5be1d43d6d12429bd08ce1a23
   languageName: node
   linkType: hard
 
@@ -21807,7 +21808,7 @@ __metadata:
     eslint-plugin-regexp: 1.5.1
     eslint-plugin-sonarjs: 0.11.0
     eslint-plugin-testing-library: 5.0.1
-    jest: 27.4.6
+    jest: 27.4.7
     jest-css-modules-transform: 4.3.0
     npm-run-all: 4.1.5
     postcss: 8.4.5
@@ -25601,7 +25602,7 @@ __metadata:
     graphql: 16.2.0
     i18next: 21.6.5
     ioredis: 4.28.2
-    jest: 27.4.6
+    jest: 27.4.7
     jest-css-modules-transform: 4.3.0
     ky: 0.28.7
     micro: 9.3.4
