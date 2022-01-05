@@ -3,12 +3,12 @@ import { AsyncMessage, Message } from '@your-org/ui-lib';
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import { DemoApiBlock } from '../blocks/demo-api.block';
-import { demoConfig } from '../demo.config';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
 import { DemoMuiBlock } from '@/features/demo/blocks/demo-mui.block';
 import { Jumbotron } from '@/features/demo/blocks/jumbotron';
+import { DemoApiBlock } from '../blocks/demo-api.block';
+import { demoConfig } from '../demo.config';
 
 type Props = {
   children?: never;

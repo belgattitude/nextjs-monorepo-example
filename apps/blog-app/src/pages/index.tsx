@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import { sayHello } from '@your-org/core-lib';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import { MainLayout } from '@/components/layout/main-layout';
 import type { Post } from '../data/blog';
 import { getPosts } from '../data/blog';
-import { MainLayout } from '@/components/layout/main-layout';
 
 type Props = {
   posts: Post[];
