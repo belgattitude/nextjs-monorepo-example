@@ -1,5 +1,14 @@
 # web-app
 
+## 3.38.1
+
+### Patch Changes
+
+- [#1104](https://github.com/belgattitude/nextjs-monorepo-example/pull/1104) [`73d03354`](https://github.com/belgattitude/nextjs-monorepo-example/commit/73d0335454487812b78b65a4f17efe79a022fb53) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency type-fest to v2.9.0
+
+- Updated dependencies [[`43fd9647`](https://github.com/belgattitude/nextjs-monorepo-example/commit/43fd964796af951d1cfff78592330bc2fa231b75)]:
+  - @your-org/ui-lib@3.8.1
+
 ## 3.38.0
 
 ### Minor Changes
