@@ -1,5 +1,11 @@
 # @your-org/ui-lib
 
+## 3.8.1
+
+### Patch Changes
+
+- [#1105](https://github.com/belgattitude/nextjs-monorepo-example/pull/1105) [`43fd9647`](https://github.com/belgattitude/nextjs-monorepo-example/commit/43fd964796af951d1cfff78592330bc2fa231b75) Thanks [@belgattitude](https://github.com/belgattitude)! - Test bug
+
 ## 3.8.0
 
 ### Minor Changes
