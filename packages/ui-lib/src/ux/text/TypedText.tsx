@@ -20,7 +20,7 @@ export const TypedText: React.FC<TypedTextProps> = (props) => {
   const [text, setText] = useState(children);
   const [currIdx, setCurrIdx] = useState(0);
 
-  const interval = useRef<number | null>();
+  const interval = useRef<number | null | undefined>();
   useEffect(() => {
     interval.current = window.setInterval(() => {
       console.log('running interval');
