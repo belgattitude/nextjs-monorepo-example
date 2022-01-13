@@ -35,7 +35,7 @@
 
 Useful to
 
-- Establish a **structure** and demonstrate a lifecycle perspective (dx, ci/cd, deployments...)
+- Establish a **structure** and present a lifecycle perspective (dx, ci/cd, deployments...)
 - How to create and consume **shared packages**, locales, assets, api types...
 - Integrate **tools & configs** (eslint, jest, playwright, storybook, changelogs, versioning, codecov, codeclimate...).
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
