@@ -6,8 +6,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
-  // By loading testing-library as a plugin, we can only enable it
-  // on test files via overrides.
+  // By loading testing-library and storybook in plugins rather than extending the recommended
+  // we keep the possibility to enable them on specific files only (*.test.ts, *.stories.ts...)
   plugins: ['testing-library', 'storybook'],
   env: {
     browser: true,
