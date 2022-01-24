@@ -1,19 +1,42 @@
 import path from 'path';
+import { Env, loadEnvConfig } from '@next/env';
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-
-const port = 3000;
-let webServerCmd = `yarn dev -p ${port}`;
-switch (process.env.E2E_PLAYWRIGHT_MODE) {
-  case 'BUILD_AND_START':
-    webServerCmd = `yarn build && yarn start -p ${port}`;
-    break;
-  case 'SKIP_BUILD_AND_START':
-    webServerCmd = `yarn start -p ${port}`;
-    break;
-}
+import pc from 'picocolors';
 
 const outputDir = path.join(__dirname, 'e2e/.out');
+
+const webServerPort = 3000;
+
+function getWebserverConfig(port = webServerPort) {
+  switch (process.env.E2E_PLAYWRIGHT_MODE) {
+    case 'BUILD_AND_START':
+      return {
+        cmd: `yarn build && yarn start -p ${port}`,
+        timeout: 120_000,
+      };
+    case 'SKIP_BUILD_AND_START':
+      return {
+        cmd: `yarn start -p ${port}`,
+        timeout: 60_000,
+      };
+    default:
+      return {
+        cmd: `yarn dev -p ${port}`,
+        timeout: 60_000,
+      };
+  }
+}
+
+function getNextJsEnv(): Env {
+  const { combinedEnv, loadedEnvFiles } = loadEnvConfig(__dirname);
+  loadedEnvFiles.forEach((file) => {
+    `${pc.green('notice')}- Loaded nextjs env ${file.path}`;
+  });
+  return combinedEnv;
+}
+
+const webServerConfig = getWebserverConfig(webServerPort);
 
 // Reference: https://playwright.dev/docs/test-configuration
 const config: PlaywrightTestConfig = {
@@ -36,16 +59,16 @@ const config: PlaywrightTestConfig = {
   ],
 
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
-
   webServer: {
-    command: webServerCmd,
-    port: 3000,
-    timeout: 120_000,
+    command: webServerConfig.cmd,
+    port: webServerPort,
+    timeout: webServerConfig.timeout,
     reuseExistingServer: !process.env.CI,
+    env: getNextJsEnv(),
   },
 
   use: {
-    // Retry a test if its failing with enabled tracing. This allows you to analyse the DOM, console logs, network traffic etc.
+    // Retry a test if it's failing with enabled tracing. This allows you to analyse the DOM, console logs, network traffic etc.
     // More information: https://playwright.dev/docs/trace-viewer
     trace: 'retry-with-trace',
 
