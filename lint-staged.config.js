@@ -1,5 +1,5 @@
 // @ts-check
-const { concatFilesForPrettier } = require("./lint-staged.common.js");
+const { concatFilesForPrettier } = require('./lint-staged.common.js');
 /**
  * This is the base lint-staged rules config. It will be overridden by any
  * valid lint-staged.config.js file in the monorepo apps and packages.
@@ -7,8 +7,12 @@ const { concatFilesForPrettier } = require("./lint-staged.common.js");
  *
  * @type {Record<string, (filenames: string[]) => string | string[] | Promise<string | string[]>>}
  */
-export default {
-  '**/*.{json,md,mdx,css,html,yml,yaml,scss,ts,js,tsx,jsx}': (filenames) => {
+const rules = {
+  '**/*.{json,md,mdx,css,html,yml,yaml,scss,ts,js,tsx,jsx,mjs}': (
+    filenames
+  ) => {
     return [`prettier --write ${concatFilesForPrettier(filenames)}`];
   },
 };
+
+module.exports = rules;
