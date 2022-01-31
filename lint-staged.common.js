@@ -1,6 +1,6 @@
 // @ts-check
 
-const path = require("node:path");
+const path = require('path');
 const escape = require('shell-quote').quote;
 
 const isWin = process.platform === 'win32';
@@ -16,11 +16,10 @@ const isWin = process.platform === 'win32';
  * @param {string[]} filenames
  * @returns {string} Return concatenated and escaped filenames
  */
-const concatFilesForPrettier = (filenames) => (
+const concatFilesForPrettier = (filenames) =>
   filenames
     .map((filename) => `"${isWin ? filename : escape([filename])}"`)
-    .join(' ')
-)
+    .join(' ');
 
 /**
  *
@@ -33,16 +32,18 @@ const getYarnCmdInWorkingDir = (cwd) => `yarn --cwd ${cwd}`;
  * Lint-staged command for running eslint in packages or apps.
  * @param {{cwd: string, files: string[], fix: boolean, cache: boolean, rules?: string[], maxWarnings?: number}} params
  */
-const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings}) => {
+const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
   const args = [
     cache ? '--cache' : '',
     fix ? '--fix' : '',
     maxWarnings !== undefined ? `--max-warnings=${maxWarnings}` : '',
-    rules !== undefined ? '--rule ' + rules.map(r => `"${r}"`).join('--rule ') : '',
+    rules !== undefined
+      ? '--rule ' + rules.map((r) => `"${r}"`).join('--rule ')
+      : '',
     files
-        .map((f) => path.relative(cwd, f))
-        .map((f) => `"${f}"`)
-      .join(' ')
+      .map((f) => path.relative(cwd, f))
+      .map((f) => `"${f}"`)
+      .join(' '),
   ].join(' ');
   return `${getYarnCmdInWorkingDir(cwd)} eslint ${args}`;
 };
@@ -50,5 +51,5 @@ const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings}) => {
 module.exports = {
   concatFilesForPrettier,
   getYarnCmdInWorkingDir,
-  getEslintFixCmd
+  getEslintFixCmd,
 };
