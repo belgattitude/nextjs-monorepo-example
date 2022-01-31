@@ -1,7 +1,9 @@
 import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
 
 type Props = {
-  children?: never;
+
+
+    children?: never;
 };
 
 export const Banner: React.FC<Props> = () => {
