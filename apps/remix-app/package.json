@@ -30,7 +30,6 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint-style": "stylelint 'app/**/*.css'",
-    "fix:staged-files": "lint-staged --allow-empty",
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "postinstall": "remix setup node"
   },
