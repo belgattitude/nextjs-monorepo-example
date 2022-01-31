@@ -1,2 +1,2 @@
-const config = require from './lint-staged.config.base';
-module.exports = config;
+import config from './lint-staged.config.base.js';
+export default config;
