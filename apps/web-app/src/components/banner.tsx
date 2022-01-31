@@ -2,7 +2,6 @@ import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
 
 type Props = {
 
-
      children?: never;
 };
 
