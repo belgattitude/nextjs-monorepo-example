@@ -79,6 +79,7 @@ module.exports = {
       {
         selector: 'variable',
         format: ['camelCase'],
+        leadingUnderscore: 'allow',
       },
       {
         selector: ['function'],
