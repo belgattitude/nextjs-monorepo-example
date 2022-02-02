@@ -1,7 +1,10 @@
 # TROUBLESHOOT
 
-## Error: ENOSPC: System limit for number of file watchers reached
+## Development
 
+### Limit of file watchers reached
+
+Error: ENOSPC: System limit for number of file watchers reached
 [Stackoverflow answer](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached)
 
 ```
