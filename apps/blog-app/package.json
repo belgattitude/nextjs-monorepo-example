@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
+    "vercel-build": "yarn share:static:hardlink && next build",
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "export": "next export",
     "start": "next start",
@@ -101,8 +101,7 @@
     "@your-org/core-lib": "workspace:*",
     "@your-org/ui-lib": "workspace:*",
     "next": "12.0.8",
-    "next-secure-headers": "2.2.0",
-    "next-seo": "5.1.0",
+    "next-seo": "5.0.0",
     "picocolors": "1.0.0",
     "react": "18.0.0-rc.0-next-fa816be7f-20220128",
     "react-dom": "18.0.0-rc.0-next-fa816be7f-20220128",
