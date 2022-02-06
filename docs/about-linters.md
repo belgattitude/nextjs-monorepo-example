@@ -26,11 +26,13 @@ Depending on the nature of the project (plain typescript, react, nextjs...), the
 | [@next/next/core-web-vitals](https://nextjs.org/docs/basic-features/eslint#eslint-plugin)                               | nextjs | NextJs specific                                                              |
 | ...                                                                                                                     | ...    | ...                                                                          |
 
+There's many more in the wild.
+
 ## Structure
 
-Often in monorepos you might want to apply different plugins or config differently for each package. There's many
+Often in monorepo you might want to apply different plugins or config differently for each package. There's many
 ways to achieve it. The [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example) uses a
-nested strategy to achieve it:
+nested approach:
 
 ```
 .
@@ -68,4 +70,67 @@ It's possible to run the linter globally from any folder of the monorepo.
 | `yarn g:lint`       | Display linter issues in all apps and packages |
 | `yarn g:lint --fix` | Run automatic fixes                            |
 
+## Lint-staged
+
+See the [specific doc](./about-lint-staged.md).
+
 ## Performance
+
+By default, all lint command will automatically enable cache.
+
+On Github CI, the cache will be persisted thx to `action/cache`.
+
+<details>
+  <summary>action/cache example</summary>
+
+```yaml
+- name: Restore packages cache
+  uses: actions/cache@v2
+  with:
+    path: |
+      ${{ github.workspace }}/.cache
+      ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+      ${{ github.workspace }}/**/.eslintcache
+
+    key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
+    restore-keys: |
+      ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+```
+
+</details>
+
+## Installation
+
+In monorepos, rathers than installing linters at the root level, a safer approach is to specify them
+per apps/packages. If you're creating a new package, here's the typical dev-dependencies to add:
+
+### Base
+
+Generic typescript project with jest
+
+```bash
+yarn add --dev prettier eslint \
+               eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jest \
+               eslint-plugin-jest-formatting eslint-plugin-prettier eslint-plugin-regexp \
+               eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+### React
+
+Generic react
+
+```bash
+yarn add --dev eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks \
+               eslint-plugin-testing-library
+```
+
+### Nextjs
+
+Specific to nextjs.
+
+```bash
+yarn add --dev eslint-config-next
+```
+
+> Note that when times come a good move is to create a ./packages/my-eslint-plugin. That
+> eases the installation and the configuration.
