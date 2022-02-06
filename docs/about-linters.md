@@ -92,3 +92,39 @@ On Github CI, the cache will be persisted thx to `action/cache`.
 ```
 
 </details>
+
+## Installation
+
+In monorepos, rathers than installing linters at the root level, a safer approach is to specify them
+per apps/packages. If you're creating a new package, here's the typical dev-dependencies to add:
+
+### Base
+
+Generic typescript project with jest
+
+```bash
+yarn add --dev prettier eslint \
+               eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jest \
+               eslint-plugin-jest-formatting eslint-plugin-prettier eslint-plugin-regexp \
+               eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+### React
+
+Generic react
+
+```bash
+yarn add --dev eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks \
+               eslint-plugin-testing-library
+```
+
+### Nextjs
+
+Specific to nextjs.
+
+```bash
+yarn add --dev eslint-config-next
+```
+
+> Note that when times come a good move is to create a ./packages/my-eslint-plugin. That
+> eases the installation and the configuration.
