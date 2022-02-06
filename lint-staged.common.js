@@ -22,13 +22,6 @@ const concatFilesForPrettier = (filenames) =>
     .join(' ');
 
 /**
- *
- * @param {string} cwd Working directory in which to run the yarn command
- * @returns {string}
- */
-const getYarnCmdInWorkingDir = (cwd) => `yarn --cwd ${cwd}`;
-
-/**
  * Lint-staged command for running eslint in packages or apps.
  * @param {{cwd: string, files: string[], fix: boolean, cache: boolean, rules?: string[], maxWarnings?: number}} params
  */
@@ -41,15 +34,15 @@ const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
       ? '--rule ' + rules.map((r) => `"${r}"`).join('--rule ')
       : '',
     files
+      // makes output cleaner by removing absolute paths from filenames
       .map((f) => path.relative(cwd, f))
       .map((f) => `"${f}"`)
       .join(' '),
   ].join(' ');
-  return `${getYarnCmdInWorkingDir(cwd)} eslint ${args}`;
+  return `eslint ${args}`;
 };
 
 module.exports = {
   concatFilesForPrettier,
-  getYarnCmdInWorkingDir,
   getEslintFixCmd,
 };
