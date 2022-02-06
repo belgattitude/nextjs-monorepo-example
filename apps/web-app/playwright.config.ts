@@ -1,5 +1,5 @@
 import path from 'path';
-import { Env, loadEnvConfig } from '@next/env';
+import { type Env, loadEnvConfig } from '@next/env';
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 import pc from 'picocolors';
