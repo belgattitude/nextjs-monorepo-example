@@ -68,6 +68,10 @@ It's possible to run the linter globally from any folder of the monorepo.
 | `yarn g:lint`       | Display linter issues in all apps and packages |
 | `yarn g:lint --fix` | Run automatic fixes                            |
 
+## Lint-staged
+
+See the [specific doc](./about-lint-staged.md).
+
 ## Performance
 
 By default, all lint command will automatically enable cache.

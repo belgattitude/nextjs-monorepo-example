@@ -5,7 +5,8 @@ run linters on commit.
 
 ## Structure
 
-See [the doc to use lint-staged in a monorepo](https://github.com/okonet/lint-staged#how-to-use-lint-staged-in-a-multi-package-monorepo).
+See [the doc to use lint-staged in a monorepo](https://github.com/okonet/lint-staged#how-to-use-lint-staged-in-a-multi-package-monorepo)
+and the [linter docs](./about-linters.md).
 
 ```
 .
