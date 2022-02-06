@@ -26,11 +26,13 @@ Depending on the nature of the project (plain typescript, react, nextjs...), the
 | [@next/next/core-web-vitals](https://nextjs.org/docs/basic-features/eslint#eslint-plugin)                               | nextjs | NextJs specific                                                              |
 | ...                                                                                                                     | ...    | ...                                                                          |
 
+There's many more in the wild.
+
 ## Structure
 
-Often in monorepos you might want to apply different plugins or config differently for each package. There's many
+Often in monorepo you might want to apply different plugins or config differently for each package. There's many
 ways to achieve it. The [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example) uses a
-nested strategy to achieve it:
+nested approach:
 
 ```
 .
