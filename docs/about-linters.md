@@ -69,3 +69,26 @@ It's possible to run the linter globally from any folder of the monorepo.
 | `yarn g:lint --fix` | Run automatic fixes                            |
 
 ## Performance
+
+By default, all lint command will automatically enable cache.
+
+On Github CI, the cache will be persisted thx to `action/cache`.
+
+<details>
+  <summary>action/cache example</summary>
+
+```yaml
+- name: Restore packages cache
+  uses: actions/cache@v2
+  with:
+    path: |
+      ${{ github.workspace }}/.cache
+      ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+      ${{ github.workspace }}/**/.eslintcache
+
+    key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
+    restore-keys: |
+      ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+```
+
+</details>
