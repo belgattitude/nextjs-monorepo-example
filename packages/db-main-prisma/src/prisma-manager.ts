@@ -1,10 +1,9 @@
 /**
- * Convenience singleton to help dealing with fast-refresh
+ * Convenience singleton to deal with fast-refresh
  * and connection limits in development mode.
  */
 import type { Prisma, PrismaClient } from '@prisma/client';
 export type PrismaClientOptions = Prisma.PrismaClientOptions;
-export type PrismaClientDbMain = PrismaClient;
 
 declare let global: {
   // eslint-disable-next-line @typescript-eslint/naming-convention

@@ -49,27 +49,6 @@ if (disableSourceMaps) {
   );
 }
 
-// Example of setting up secure headers
-// @link https://github.com/jagaapple/next-secure-headers
-const { createSecureHeaders } = require('next-secure-headers');
-const secureHeaders = createSecureHeaders({
-  contentSecurityPolicy: {
-    directives: {
-      //defaultSrc: "'self'",
-      //styleSrc: ["'self'"],
-    },
-  },
-  ...(isProd
-    ? {
-        forceHTTPSRedirect: [
-          true,
-          { maxAge: 60 * 60 * 24 * 4, includeSubDomains: true },
-        ],
-      }
-    : {}),
-  referrerPolicy: 'same-origin',
-});
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -118,17 +97,6 @@ const nextConfig = {
   },
 
   async headers() {
-    /**
-     * Buggy with concurrent features enabled
-     * @todo investigate and open an issue either
-     *       in next-secure-headers or nextjs
-     return [
-     {
-        source: '/(.*)',
-        headers: secureHeaders,
-      },
-     ];
-     */
     return [];
   },
 
