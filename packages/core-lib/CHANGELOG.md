@@ -1,5 +1,11 @@
 # @your-org/core-lib
 
+## 3.10.0
+
+### Minor Changes
+
+- [#1194](https://github.com/belgattitude/nextjs-monorepo-example/pull/1194) [`50e79d76`](https://github.com/belgattitude/nextjs-monorepo-example/commit/50e79d7659a13a0715e864c5b4aff3bf999afcfe) Thanks [@belgattitude](https://github.com/belgattitude)! - Add isIsoDateString typeguard
+
 ## 3.9.0
 
 ### Minor Changes
