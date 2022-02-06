@@ -1,10 +1,17 @@
 // @ts-check
-const { concatFilesForPrettier } = require('./lint-staged.common.js');
+
 /**
- * This is the base lint-staged rules config. It will be overridden by any
- * valid lint-staged.config.js file in the monorepo apps and packages.
- * @see https://github.com/okonet/lint-staged#how-to-use-lint-staged-in-a-multi-package-monorepo
+ * This is the base lint-staged rules config and just includes prettier by default.
+ * A good practice is to override this base configuration in each package and/or application
+ * where we are able to add customization depending on the nature of the project (eslint...).
  *
+ * {@link https://github.com/okonet/lint-staged#how-to-use-lint-staged-in-a-multi-package-monorepo}
+ * {@link https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-lint-staged.md}
+ */
+
+const { concatFilesForPrettier } = require('./lint-staged.common.js');
+
+/**
  * @type {Record<string, (filenames: string[]) => string | string[] | Promise<string | string[]>>}
  */
 const rules = {
