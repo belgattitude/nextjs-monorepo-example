@@ -1,5 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+export type HealthCheckApiPayload = {
+  status: 'ok' | 'error';
+  message: string;
+  appName: string;
+  appVersion: string;
+  timestamp: string;
+};
+
 export default async function healthCheckRoute(
   req: NextApiRequest,
   res: NextApiResponse
@@ -11,8 +19,11 @@ export default async function healthCheckRoute(
 
   res.setHeader('Content-Type', 'application/json');
 
-  const payload = {
-    success: true,
+  const payload: HealthCheckApiPayload = {
+    status: 'ok',
+    message: 'Health check successful for API route',
+    appName: process.env.APP_NAME ?? 'unknown',
+    appVersion: process.env.APP_VERSION ?? 'unknown',
     timestamp: new Date().toISOString(),
   };
 

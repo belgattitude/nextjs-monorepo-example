@@ -1,18 +1,19 @@
 import { test, expect } from '@playwright/test';
+import is from '@sindresorhus/is';
+import type { HealthCheckApiPayload } from '@/pages/api/_monitor/healthcheck';
+import packageJson from '../../../../package.json';
 
-//test.describe('Api Monitor Healthcheck route', () => {
 test('should return a success payload', async ({ request }) => {
-  const status = await request.get('/api/_monitor/healthcheck');
-  console.log(await status.body());
-  console.log(status.url());
-  console.log(await status.json());
-  expect(1).toEqual(1);
-  //expect(await status.ok()).toBeTruthy();
-  expect(await status.json()).toContainEqual(
-    expect.objectContaining({
-      success: true,
-      body: 'Bug description',
-    })
-  );
+  const resp = await request.get('/api/_monitor/healthcheck');
+  const headers = resp.headers();
+  const json = (await resp.json()) as HealthCheckApiPayload;
+  const { timestamp, ...restJson } = json;
+  expect(headers['content-type']).toEqual('application/json');
+  expect(is.date(timestamp));
+  expect(restJson).toMatchObject({
+    status: 'ok',
+    message: 'Health check successful for API route',
+    appName: packageJson.name,
+    appVersion: packageJson.version,
+  });
 });
-//});
