@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import is from '@sindresorhus/is';
+import { isIsoDateString } from '@your-org/core-lib';
 import type { HealthCheckApiPayload } from '@/pages/api/_monitor/healthcheck';
 import packageJson from '../../../../package.json';
 
@@ -9,7 +9,7 @@ test('should return a success payload', async ({ request }) => {
   const json = (await resp.json()) as HealthCheckApiPayload;
   const { timestamp, ...restJson } = json;
   expect(headers['content-type']).toEqual('application/json');
-  expect(is.date(timestamp));
+  expect(isIsoDateString(timestamp)).toBeTruthy();
   expect(restJson).toMatchObject({
     status: 'ok',
     message: 'Health check successful for API route',
