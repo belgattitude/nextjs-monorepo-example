@@ -1,4 +1,5 @@
 import {
+  isIsoDateString,
   isNonEmptyString,
   isParsableNumeric,
   isPlainObject,
@@ -41,6 +42,17 @@ describe('Typeguards tests', () => {
       [new Date(), false],
     ])('when "%p" is given should return "%b"', (value, expected) => {
       expect(isParsableNumeric(value)).toStrictEqual(expected);
+    });
+  });
+
+  describe('isIsoDateString', () => {
+    it('should return true for valid isoDate strings', () => {
+      expect(isIsoDateString('2022-02-06T15:20:19.131Z')).toBeTruthy();
+    });
+    it('should return false for invalid isDate strings', () => {
+      expect(isIsoDateString('2022-40-20T15:20:19.131Z')).toBeFalsy();
+      expect(isIsoDateString(new Date())).toBeFalsy();
+      expect(isIsoDateString(null)).toBeFalsy();
     });
   });
 
