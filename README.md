@@ -264,7 +264,7 @@ Initialize a package.json with the name of your package.
 #### Step 3.1: package.json
 
 First add the package to the app package.json. The recommended way is to
-use the [workspace protocol](https://yarnpkg.com/features/protocols) supported by
+use the [workspace protocol](https://yarnpkg.com/features/protocols#workspace) supported by
 yarn and pnpm.
 
 ```bash
