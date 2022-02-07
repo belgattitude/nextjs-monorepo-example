@@ -42,6 +42,21 @@ module.exports = {
     Cypress: 'readonly',
   },
   rules: {
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          markers: ['/'],
+          exceptions: ['-', '+'],
+        },
+        block: {
+          markers: ['!'],
+          exceptions: ['*'],
+          balanced: true,
+        },
+      },
+    ],
     'linebreak-style': ['error', 'unix'],
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': [
