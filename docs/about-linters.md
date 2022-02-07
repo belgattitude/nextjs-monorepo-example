@@ -11,6 +11,7 @@ Depending on the nature of the project (plain typescript, react, nextjs...), the
 
 | Type/Plugin                                                                                                             | Scope  | Comment                                                                      |
 | :---------------------------------------------------------------------------------------------------------------------- | :----- | :--------------------------------------------------------------------------- |
+| [eslint:recommended](https://eslint.org/docs/rules/)                                                                    | base   | The basics for code linting.                                                 |
 | [@typescript-eslint/recommended](https://typescript-eslint.io/rules/)                                                   | base   | The basics for typescript.                                                   |
 | [@typescript-eslint/consistent-type](https://typescript-eslint.io/rules/consistent-type-imports)                        | base   | Use TS 3.8+ imports/exports, helps with [esbuild](https://esbuild.github.io) |
 | [@typescript-eslint/naming-convention](https://typescript-eslint.io/rules/naming-convention)                            | base   |                                                                              |

@@ -24,6 +24,7 @@ module.exports = {
     },
   },
   extends: [
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -41,6 +42,21 @@ module.exports = {
     Cypress: 'readonly',
   },
   rules: {
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          markers: ['/'],
+          exceptions: ['-', '+'],
+        },
+        block: {
+          markers: ['!'],
+          exceptions: ['*'],
+          balanced: true,
+        },
+      },
+    ],
     'linebreak-style': ['error', 'unix'],
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': [
