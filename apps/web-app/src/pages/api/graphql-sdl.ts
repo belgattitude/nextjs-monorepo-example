@@ -14,7 +14,7 @@ const apolloServer = new ApolloServer({
   plugins: [
     process.env.NODE_ENV === 'production'
       ? ApolloServerPluginLandingPageProductionDefault({
-          //graphRef: 'graphql-sdl@nextjs-monorepo-example',
+          // graphRef: 'graphql-sdl@nextjs-monorepo-example',
           footer: false,
         })
       : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
