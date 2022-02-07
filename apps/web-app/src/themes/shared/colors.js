@@ -11,7 +11,8 @@ const tailwindV3Colors = Object.entries(
 )
   .filter(
     ([, desc]) =>
-      desc.hasOwnProperty('value') && typeof desc.value !== 'function'
+      Object.prototype.hasOwnProperty.call(desc, 'value') &&
+      typeof desc.value !== 'function'
   )
   .reduce((acc, [key]) => {
     if (
