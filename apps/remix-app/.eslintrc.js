@@ -9,9 +9,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
-  // By loading testing-library in plugins rather than extending the recommended
-  // we keep the possibility to enable it on specific files only (*.test.ts...)
-  plugins: ['testing-library'],
   env: {
     browser: true,
     es6: true,

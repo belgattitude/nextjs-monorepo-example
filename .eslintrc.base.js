@@ -31,10 +31,6 @@ module.exports = {
     'plugin:regexp/recommended',
     'plugin:prettier/recommended',
   ],
-  // By loading jest and sonarjs globally as a plugin
-  // we can load recommended on specific code base (regular / tests) through
-  // overrides.
-  plugins: ['jest', 'sonarjs'],
   globals: {
     context: 'readonly',
     cy: 'readonly',
@@ -168,7 +164,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
       },
     },
-    // Fine-tune naming convention graphql resolvers
+    // Fine-tune naming convention react typescript jsx (function components)
     {
       files: ['*.tsx'],
       rules: {
