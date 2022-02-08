@@ -164,7 +164,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
       },
     },
-    // Fine-tune naming convention graphql resolvers
+    // Fine-tune naming convention react typescript jsx (function components)
     {
       files: ['*.tsx'],
       rules: {
