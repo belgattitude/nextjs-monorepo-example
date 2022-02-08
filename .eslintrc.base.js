@@ -31,10 +31,6 @@ module.exports = {
     'plugin:regexp/recommended',
     'plugin:prettier/recommended',
   ],
-  // By loading jest and sonarjs globally as a plugin
-  // we can load recommended on specific code base (regular / tests) through
-  // overrides.
-  plugins: ['jest', 'sonarjs'],
   globals: {
     context: 'readonly',
     cy: 'readonly',
