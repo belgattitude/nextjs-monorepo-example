@@ -133,5 +133,7 @@ Specific to nextjs.
 yarn add --dev eslint-config-next
 ```
 
-> Note that when times come a good move is to create a ./packages/my-eslint-plugin. That
-> eases the installation and the configuration.
+## Future
+
+Note that when times come a good move is to create a ./packages/my-eslint-plugin. That
+eases the installation and the configuration.
