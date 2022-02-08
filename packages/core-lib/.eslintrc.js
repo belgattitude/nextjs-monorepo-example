@@ -1,7 +1,13 @@
+/**
+ * Specific eslint rules for this app/package, extends the base rules
+ * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
+ */
+
 module.exports = {
   root: true,
   // ignorePatterns: ['dist', 'build'],
   extends: [
+    // Extend the monorepo default configuration
     '../../.eslintrc.base.js',
     // Add specific rules for react
     'plugin:react/recommended',
