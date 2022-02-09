@@ -54,6 +54,15 @@ yarn docker:web-app:develop
 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db
 ```
 
+<details>
+<summary>Want to open a shell to debug ?</summary>
+
+```
+DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.web-app.yml run --rm develop sh
+```
+
+</details>
+
 ## Multistage in details
 
 See the latest [./docker-compose.web-app.yml](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.web-app.yml)
