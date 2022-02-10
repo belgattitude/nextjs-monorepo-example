@@ -81,9 +81,6 @@ const nextConfig = {
     keepAlive: true,
   },
 
-  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
-  outputFileTracing: true,
-
   // Replace terser by swc
   swcMinify: true,
 
@@ -93,6 +90,12 @@ const nextConfig = {
     reactRoot: true,
     concurrentFeatures: false, // buggy with sentry
     serverComponents: false, // buggy with sentry
+
+    // Standalone build
+    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+    outputStandalone: false,
+    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
+    // outputFileTracingRoot: path.join(__dirname, '../../'),
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}

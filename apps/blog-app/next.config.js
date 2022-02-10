@@ -62,9 +62,6 @@ const nextConfig = {
     keepAlive: true,
   },
 
-  // @link https://nextjs.org/docs/advanced-features/output-file-tracing
-  outputFileTracing: true,
-
   // Replace terser by swc
   // Vercel seems to bugs with swfMinify (logs:     [TypeError: {(intermediate value)} is not a function])
   // @link https://github.com/vercel/next.js/issues/31153
@@ -76,6 +73,12 @@ const nextConfig = {
     reactRoot: true,
     concurrentFeatures: true,
     serverComponents: false,
+
+    // Standalone build
+    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+    outputStandalone: false,
+    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
+    // outputFileTracingRoot: path.join(__dirname, '../../'),
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
