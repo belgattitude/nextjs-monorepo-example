@@ -6,16 +6,15 @@ on:
       - dev
       - main
     paths:
-      - "apps/web-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
-
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -26,15 +25,15 @@ on:
     #   Only consider those files/paths to trigger the github action
     #   to prevent unnecessary builds.
     paths:
-      - "apps/web-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
 jobs:
   e2e:
@@ -83,7 +82,7 @@ jobs:
 
           key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
           restore-keys: |
-               ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Start database
         working-directory: packages/db-main-prisma
@@ -134,4 +133,3 @@ jobs:
         with:
           name: web-app-playwright-test-results
           path: apps/web-app/e2e/.out
-
