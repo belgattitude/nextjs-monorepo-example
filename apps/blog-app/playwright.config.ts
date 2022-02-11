@@ -4,56 +4,77 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 import pc from 'picocolors';
 
-const outputDir = path.join(__dirname, 'e2e/.out');
+const webServerModes = ['DEV', 'START', 'BUILD_AND_START'] as const;
+type WebServerMode = typeof webServerModes[number];
+
+const isCI = ['true', '1'].includes(process.env?.CI ?? '');
+const webServerMode =
+  (process.env?.E2E_WEBSERVER_MODE as WebServerMode) ?? 'DEV';
 
 const webServerPort = 3000;
+const outputDir = path.join(__dirname, 'e2e/.out');
 
-function getWebserverConfig(port = webServerPort) {
-  switch (process.env.E2E_PLAYWRIGHT_MODE) {
-    case 'BUILD_AND_START':
-      return {
-        cmd: `yarn build && yarn start -p ${port}`,
-        timeout: 120_000,
-      };
-    case 'SKIP_BUILD_AND_START':
-      return {
-        cmd: `yarn start -p ${port}`,
-        timeout: 60_000,
-      };
-    default:
-      return {
-        cmd: `yarn dev -p ${port}`,
-        timeout: 60_000,
-      };
-  }
+type WebServerConfig = { cmd: string; timeout: number; retries: number };
+const webServerConfigs: Record<WebServerMode, WebServerConfig> = {
+  START: {
+    cmd: `yarn start -p ${webServerPort}`,
+    timeout: 30_000,
+    retries: isCI ? 2 : 1,
+  },
+  DEV: {
+    cmd: `yarn dev -p ${webServerPort}`,
+    timeout: 30_000,
+    retries: 1,
+  },
+  BUILD_AND_START: {
+    cmd: `yarn build --no-lint && yarn start -p ${webServerPort}`,
+    timeout: 30_000,
+    retries: 1,
+  },
+};
+
+if (typeof webServerConfigs?.[webServerMode] !== 'object') {
+  const msg = `${pc.red(
+    'error'
+  )}- Unsupported E2E_WEBSERVER_MODE must be one of './${webServerModes.join(
+    ', '
+  )}'`;
+  console.error(msg);
+  throw new Error(msg);
+} else {
+  console.log(
+    `${pc.green('notice')}- Using E2E_WEBSERVER_MODE: '${webServerMode}'`
+  );
 }
+
+const webServerConfig = webServerConfigs[webServerMode];
 
 function getNextJsEnv(): Env {
   const { combinedEnv, loadedEnvFiles } = loadEnvConfig(__dirname);
   loadedEnvFiles.forEach((file) => {
-    `${pc.green('notice')}- Loaded nextjs env ${file.path}`;
+    console.log(
+      `${pc.green('notice')}- Loaded nextjs environement file: './${file.path}'`
+    );
   });
   return combinedEnv;
 }
 
-const webServerConfig = getWebserverConfig(webServerPort);
-
 // Reference: https://playwright.dev/docs/test-configuration
 const config: PlaywrightTestConfig = {
   testDir: path.join(__dirname, 'e2e'),
-  timeout: 30_000,
-  retries: 2,
+  timeout: webServerConfig.timeout,
+  retries: webServerConfig.retries,
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: outputDir,
   preserveOutput: 'always',
   reporter: [
-    process.env.CI ? ['github'] : ['list'],
+    isCI ? ['github'] : ['list'],
     ['json', { outputFile: `${outputDir}/test-results.json` }],
     [
       'html',
       {
         outputFolder: `${outputDir}/html`,
-        open: process.env.CI ? 'never' : 'on-failure',
+        open: isCI ? 'never' : 'on-failure',
       },
     ],
   ],
@@ -63,7 +84,7 @@ const config: PlaywrightTestConfig = {
     command: webServerConfig.cmd,
     port: webServerPort,
     timeout: webServerConfig.timeout,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !isCI,
     env: getNextJsEnv(),
   },
 
@@ -85,16 +106,16 @@ const config: PlaywrightTestConfig = {
       },
     },
     // {
-    //   name: 'Desktop Firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
+    //  name: 'Desktop Firefox',
+    //  use: {
+    //    ...devices['Desktop Firefox'],
+    //  },
     // },
     // {
-    //   name: 'Desktop Safari',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
+    //  name: 'Desktop Safari',
+    //  use: {
+    //    ...devices['Desktop Safari'],
+    //  },
     // },
     // Test against mobile viewports.
     {
@@ -103,10 +124,11 @@ const config: PlaywrightTestConfig = {
         ...devices['Pixel 5'],
       },
     },
-    {
-      name: 'Mobile Safari',
-      use: devices['iPhone 12'],
-    },
+    // Mobile Safari is not supported on CI/Linux yet.
+    // {
+    //  name: 'Mobile Safari',
+    //  use: devices['iPhone 12'],
+    // },
   ],
 };
 export default config;
