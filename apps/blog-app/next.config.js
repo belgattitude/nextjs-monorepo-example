@@ -74,8 +74,9 @@ const nextConfig = {
     // React 18 related
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
-    concurrentFeatures: true,
-    serverComponents: true,
+    // Still too early
+    concurrentFeatures: false,
+    serverComponents: false,
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
