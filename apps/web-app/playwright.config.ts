@@ -18,7 +18,7 @@ type WebServerConfig = { cmd: string; timeout: number; retries: number };
 const webServerConfigs: Record<WebServerMode, WebServerConfig> = {
   START: {
     cmd: `yarn start -p ${webServerPort}`,
-    timeout: 30_000,
+    timeout: isCI ? 90_000 : 30_000,
     retries: isCI ? 2 : 1,
   },
   DEV: {
@@ -28,7 +28,7 @@ const webServerConfigs: Record<WebServerMode, WebServerConfig> = {
   },
   BUILD_AND_START: {
     cmd: `yarn build --no-lint && yarn start -p ${webServerPort}`,
-    timeout: 30_000,
+    timeout: isCI ? 180_000 : 120_000,
     retries: 1,
   },
 };
