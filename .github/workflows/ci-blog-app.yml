@@ -120,3 +120,9 @@ jobs:
         env:
           E2E_WEBSERVER_MODE: BUILD_AND_START
           CI: 1
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: web-blog-playwright-test-results
+          path: apps/blog-app/e2e/.out
