@@ -71,7 +71,7 @@ const nextConfig = {
     // React 18 related
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
-    concurrentFeatures: true,
+    concurrentFeatures: false,
     serverComponents: false,
 
     // Standalone build
