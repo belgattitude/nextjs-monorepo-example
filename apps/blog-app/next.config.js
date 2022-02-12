@@ -65,7 +65,7 @@ const nextConfig = {
   // Replace terser by swc
   // Vercel seems to bugs with swfMinify (logs:     [TypeError: {(intermediate value)} is not a function])
   // @link https://github.com/vercel/next.js/issues/31153
-  swcMinify: false,
+  swcMinify: true,
 
   experimental: {
     // React 18 related
