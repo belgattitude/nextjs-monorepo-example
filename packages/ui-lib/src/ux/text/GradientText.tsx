@@ -37,7 +37,7 @@ const gradients = {
 } as const;
 
 // type GradientTextBackgrounds = Simplify<keyof typeof gradients>;
-type GradientTextBackgrounds = keyof typeof gradients;
+export type GradientTextBackgrounds = keyof typeof gradients;
 
 type GradientTextProps = {
   /**
