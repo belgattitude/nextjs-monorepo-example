@@ -8,6 +8,23 @@ type Props = {
 };
 
 export const AsyncMessage: FC<Props> = (props) => {
+  const [data, setData] = useState<string | null>(null);
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(props.apiUrl)
+      .then((res) => res.text())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [props.apiUrl]);
+
+  return <Message message={isLoading ? '...' : data ?? 'error'} />;
+};
+
+export const AsyncMessage1: FC<Props> = (props) => {
   const [msg, setMsg] = useState<string>('...');
   useEffect(() => {
     fetch(props.apiUrl)
@@ -15,6 +32,6 @@ export const AsyncMessage: FC<Props> = (props) => {
       .then((res) => {
         setMsg(res);
       });
-  });
+  }, [props.apiUrl]);
   return <Message message={msg} />;
 };
