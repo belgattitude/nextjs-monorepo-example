@@ -51,8 +51,17 @@ and build time (taking advantage of buildx cache).
 yarn docker:web-app:develop
 
 # Or alternatively
-docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db
+DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db
 ```
+
+<details>
+  <summary>Want to open a shell to debug ?</summary>
+    
+  ```bash
+  DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.web-app.yml run --rm develop sh
+  ```
+  
+</details>
 
 ## Multistage in details
 
