@@ -70,9 +70,7 @@ const nextConfig = {
   experimental: {
     // React 18 related
     // @link https://nextjs.org/docs/advanced-features/react-18
-    reactRoot: true,
-    concurrentFeatures: false,
-    serverComponents: false,
+    reactRoot: false,
 
     // Standalone build
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
