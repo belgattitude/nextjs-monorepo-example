@@ -82,7 +82,7 @@ const nextConfig = {
   },
 
   // Replace terser by swc
-  swcMinify: true,
+  swcMinify: false,
 
   experimental: {
     // React 18 related
