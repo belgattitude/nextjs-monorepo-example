@@ -6,11 +6,33 @@ const { i18n } = require('./next-i18next.config');
 
 const packageJson = require('./package.json');
 
-const NEXTJS_IGNORE_ESLINT = process.env.NEXTJS_IGNORE_ESLINT === '1' || false;
-const NEXTJS_IGNORE_TYPECHECK =
-  process.env.NEXTJS_IGNORE_TYPECHECK === '1' || false;
+const trueEnv = ['true', '1', 'yes'];
 
 const isProd = process.env.NODE_ENV === 'production';
+
+const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
+  process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
+);
+const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
+  process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
+);
+
+/**
+ * A way to allow CI optimization when the build done there is not used
+ * to deliver an image or deploy the files.
+ * @link https://nextjs.org/docs/advanced-features/source-maps
+ */
+const disableSourceMaps = trueEnv.includes(
+  process.env?.NEXT_DISABLE_SOURCEMAPS ?? 'false'
+);
+
+if (disableSourceMaps) {
+  console.info(
+    `${pc.green(
+      'notice'
+    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
+  );
+}
 
 // Tell webpack to compile those packages
 // @link https://www.npmjs.com/package/next-transpile-modules
@@ -31,20 +53,6 @@ const tmModules = [
     // ie: newer versions of https://github.com/sindresorhus packages
   ],
 ];
-
-/**
- * A way to allow CI optimization when the build done there is not used
- * to deliver an image or deploy the files.
- * @link https://nextjs.org/docs/advanced-features/source-maps
- */
-const disableSourceMaps = process.env.NEXT_DISABLE_SOURCEMAPS === 'true';
-if (disableSourceMaps) {
-  console.info(
-    `${pc.green(
-      'notice'
-    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
-  );
-}
 
 // Example of setting up secure headers
 // @link https://github.com/jagaapple/next-secure-headers
@@ -81,15 +89,13 @@ const nextConfig = {
     keepAlive: true,
   },
 
-  // Replace terser by swc
-  swcMinify: false,
+  // @link https://nextjs.org/docs/advanced-features/compiler#minification
+  swcMinify: true,
 
   experimental: {
     // React 18 related
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
-    concurrentFeatures: false, // buggy with sentry
-    serverComponents: false, // buggy with sentry
 
     // Standalone build
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
