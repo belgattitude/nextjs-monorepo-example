@@ -79,7 +79,6 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
-  // Disabled because of https://github.com/vercel/next.js/issues/31153
   swcMinify: true,
 
   experimental: {

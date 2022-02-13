@@ -90,7 +90,7 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
-  swcMinify: false,
+  swcMinify: true,
 
   experimental: {
     // React 18 related
