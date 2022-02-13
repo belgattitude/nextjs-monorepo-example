@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
-import { Message } from './message';
 
 type Props = {
   apiUrl: string;
@@ -8,30 +7,30 @@ type Props = {
 };
 
 export const AsyncMessage: FC<Props> = (props) => {
-  const [data, setData] = useState<string | null>(null);
-  const [isLoading, setLoading] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
     fetch(props.apiUrl)
       .then((res) => res.text())
       .then((data) => {
-        setData(data);
+        setMsg(data);
+        setLoading(false);
+      })
+      .catch((err: unknown) => {
+        setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
       });
   }, [props.apiUrl]);
 
-  return <Message message={isLoading ? '...' : data ?? 'error'} />;
-};
+  if (error) {
+    return <span>Error: {error}</span>;
+  }
+  if (isLoading) {
+    return <span>Loading</span>;
+  }
 
-export const AsyncMessage1: FC<Props> = (props) => {
-  const [msg, setMsg] = useState<string>('...');
-  useEffect(() => {
-    fetch(props.apiUrl)
-      .then((res) => res.text())
-      .then((res) => {
-        setMsg(res);
-      });
-  }, [props.apiUrl]);
-  return <Message message={msg} />;
+  return <span>{msg}</span>;
 };

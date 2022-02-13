@@ -43,7 +43,7 @@ export const TypedText: React.FC<TypedTextProps> = (props) => {
         interval.current = null;
       }
     };
-  }, [children, delay, text]);
+  }, [delay, text, children]);
 
   const slice =
     currIdx - 1 > text.length
