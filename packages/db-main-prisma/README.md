@@ -16,8 +16,8 @@ Start the database with `docker-compose up database` then run
 
 ```bash
 cd packages/db-main-prisma
-yarn prisma:db:push
-yarn prisma:db:seed
+yarn prisma-db-push
+yarn prisma-db-seed
 ```
 
 > See the .env(.local|.production|.development) file to edit the connection.
@@ -59,7 +59,7 @@ PRISMA_DATABASE_URL=postgresql://postgres:[PASSWORD]@[HOST]:[PORT]/postgres?sche
 To create the database, simply run
 
 ```bash
-yarn prisma:db:push
+yarn prisma-db-push
 ```
 
 ## DB Seeding
@@ -67,7 +67,7 @@ yarn prisma:db:push
 Create and seed the database the first time or after a change.
 
 ```bash
-yarn prisma:db:seed
+yarn prisma-db-seed
 ```
 
 ## DB type generation
