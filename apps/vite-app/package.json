@@ -8,12 +8,11 @@
     "build": "tsc && vite build",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.vite",
     "serve": "vite preview",
-    "test": "run-s 'test:*'",
-    "test:unit": "echo 'No test present yet'",
-    "ci-test:unit": "echo 'No test present yet'",
+    "test": "yarn test-unit",
+    "test-unit": "echo 'No test present yet'",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@emotion/react": "11.7.1",

@@ -21,6 +21,8 @@ const concatFilesForPrettier = (filenames) =>
     .map((filename) => `"${isWin ? filename : escape([filename])}"`)
     .join(' ');
 
+const concatFilesForStylelint = concatFilesForPrettier;
+
 /**
  * Lint-staged command for running eslint in packages or apps.
  * @param {{cwd: string, files: string[], fix: boolean, cache: boolean, rules?: string[], maxWarnings?: number}} params
@@ -36,7 +38,7 @@ const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
     files
       // makes output cleaner by removing absolute paths from filenames
       .map((f) => path.relative(cwd, f))
-      .map((f) => `"${f}"`)
+      .map((f) => `"./${f}"`)
       .join(' '),
   ].join(' ');
   return `eslint ${args}`;
@@ -44,5 +46,6 @@ const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
 
 module.exports = {
   concatFilesForPrettier,
+  concatFilesForStylelint,
   getEslintFixCmd,
 };

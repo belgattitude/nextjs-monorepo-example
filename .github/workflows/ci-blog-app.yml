@@ -90,11 +90,12 @@ jobs:
         working-directory: apps/blog-app
         run: |
           yarn lint --cache
+          yarn lint-styles
 
       - name: Unit tests
         working-directory: apps/blog-app
         run: |
-          yarn ci-test:unit
+          yarn test-unit --runInBand --color
 
       - name: Build blog-app
         working-directory: apps/blog-app
@@ -110,13 +111,23 @@ jobs:
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Check bundle size
+        working-directory: apps/blog-app
+        run: |
+          yarn check-build-size
+
+      - name: Check ecmascript checks for build files
+        working-directory: apps/blog-app
+        run: |
+          yarn check-dist
+
       - name: Install Playwright
         run: npx playwright install --with-deps chromium webkit
 
       - name: E2E run blog-app playwright tests
         working-directory: apps/blog-app
         run: |
-          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test:e2e
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
         env:
           E2E_WEBSERVER_MODE: BUILD_AND_START
           CI: 1
