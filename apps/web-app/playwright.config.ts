@@ -9,7 +9,7 @@ type WebServerMode = typeof webServerModes[number];
 
 const isCI = ['true', '1'].includes(process.env?.CI ?? '');
 const webServerMode =
-  (process.env?.E2E_WEBSERVER_MODE as WebServerMode) ?? 'DEV';
+  (process.env?.E2E_WEBSERVER_MODE as WebServerMode) ?? 'NOT_SET';
 
 const webServerPort = 3000;
 const outputDir = path.join(__dirname, 'e2e/.out');
@@ -27,23 +27,22 @@ const webServerConfigs: Record<WebServerMode, WebServerConfig> = {
     retries: 1,
   },
   BUILD_AND_START: {
-    cmd: `yarn build --no-lint && yarn start -p ${webServerPort}`,
+    cmd: `NEXT_IGNORE_TYPECHECKS=1 yarn build --no-lint && yarn start -p ${webServerPort}`,
     timeout: isCI ? 180_000 : 120_000,
     retries: isCI ? 3 : 1,
   },
 };
 
 if (typeof webServerConfigs?.[webServerMode] !== 'object') {
-  const msg = `${pc.red(
-    'error'
-  )}- Unsupported E2E_WEBSERVER_MODE must be one of './${webServerModes.join(
-    ', '
-  )}'`;
-  console.error(msg);
-  throw new Error(msg);
+  console.error(
+    `${pc.red(
+      'error'
+    )} - E2E_WEBSERVER_MODE must be one of '${webServerModes.join(', ')}'`
+  );
+  process.exit(1);
 } else {
   console.log(
-    `${pc.green('notice')}- Using E2E_WEBSERVER_MODE: '${webServerMode}'`
+    `${pc.green('notice')} - Using E2E_WEBSERVER_MODE: '${webServerMode}'`
   );
 }
 
