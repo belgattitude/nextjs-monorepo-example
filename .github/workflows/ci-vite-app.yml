@@ -6,15 +6,15 @@ on:
       - dev
       - main
     paths:
-      - "apps/vite-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'apps/vite-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -22,15 +22,15 @@ on:
       - synchronize
       - reopened
     paths:
-      - "apps/vite-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'apps/vite-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
 jobs:
   test:
@@ -78,12 +78,9 @@ jobs:
       - name: Unit tests
         working-directory: apps/vite-app
         run: |
-          yarn ci-test:unit
+          yarn test-unit --runInBand --color
 
       - name: Build vite-app
         working-directory: apps/vite-app
         run: |
           yarn build
-
-
-

@@ -97,7 +97,7 @@ jobs:
       - name: Unit tests
         working-directory: apps/web-app
         run: |
-          yarn ci-test:unit
+          yarn test-unit --runInBand --color
 
       - name: Build web-app
         working-directory: apps/web-app
@@ -120,4 +120,4 @@ jobs:
       - name: Check bundle size
         working-directory: apps/web-app
         run: |
-          yarn bundle:check-size
+          yarn check-build-size

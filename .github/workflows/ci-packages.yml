@@ -6,13 +6,13 @@ on:
       - dev
       - main
     paths:
-      - "packages/**"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - '.prettier*.*'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -20,12 +20,12 @@ on:
       - synchronize
       - reopened
     paths:
-      - "packages/**"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
 jobs:
   test:
@@ -85,21 +85,20 @@ jobs:
       - name: Linter
         run: |
           yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint --cache
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint-styles
 
       # Test packages that have changed (--include & --since)
       - name: Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test:unit
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test-unit --runInBand --colors
       # to debug cache issues: ls ${{ github.workspace }}/.cache
-
       # Build packages that have changed (--include & --since), assuming that
       # apps build are done already. Otherwise --from & --since
       - name: Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run packages:build
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run build
 
       # Test storybook build on packages that have changed (--include & --since)
       - name: Run storybook build for changed packages
         run: |
           yarn workspaces foreach -tv --exclude '*-app' --since=origin/main run build-storybook
-

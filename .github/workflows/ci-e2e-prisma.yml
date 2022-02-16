@@ -6,8 +6,8 @@ on:
       - dev
       - main
     paths:
-      - "packages/db-main-prisma"
-      - ".github/workflows/**"
+      - 'packages/db-main-prisma'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -15,8 +15,8 @@ on:
       - synchronize
       - reopened
     paths:
-      - "packages/db-main-prisma"
-      - ".github/workflows/**"
+      - 'packages/db-main-prisma'
+      - '.github/workflows/**'
 
 jobs:
   e2e:
@@ -65,8 +65,6 @@ jobs:
       - name: E2E prisma
         working-directory: packages/db-main-prisma
         run: |
-          yarn test:e2e
+          yarn test-e2e
         env:
           E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
-
-

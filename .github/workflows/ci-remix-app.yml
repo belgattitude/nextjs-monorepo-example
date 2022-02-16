@@ -6,16 +6,15 @@ on:
       - dev
       - main
     paths:
-      - "apps/remix-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
-
+      - 'apps/remix-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -26,15 +25,15 @@ on:
     #   Only consider those files/paths to trigger the github action
     #   to prevent unnecessary builds.
     paths:
-      - "apps/remix-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'apps/remix-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
 
 jobs:
   test:
@@ -78,14 +77,14 @@ jobs:
         working-directory: apps/remix-app
         run: |
           yarn lint --cache
+          yarn lint-styles
 
       - name: Unit tests
         working-directory: apps/remix-app
         run: |
-          yarn ci-test:unit
+          yarn test-unit --runInBand --color
 
       - name: Build remix-app
         working-directory: apps/remix-app
         run: |
           yarn build
-
