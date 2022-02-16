@@ -11,7 +11,7 @@ module.exports = {
       },
     ],
     // 'color-function-notation': null,
+    // 'selector-class-pattern': null,
     // 'value-keyword-case': null,
-    'selector-class-pattern': null,
   },
 };
