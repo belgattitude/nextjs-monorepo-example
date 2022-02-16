@@ -1,4 +1,5 @@
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   framework: '@storybook/react',
@@ -27,6 +28,16 @@ module.exports = {
     return config;
   },
   webpackFinal: async (config) => {
+    // Typescript paths hacks (only for webpack 4)
+    // Wish next storybook versions will help us to remove this
+
+    config.resolve.plugins = config.resolve.plugins || [];
+    config.resolve.plugins.push(
+      new TsconfigPathsPlugin({
+        configFile: path.resolve(__dirname, '../tsconfig.json'),
+      })
+    );
+
     // Emotion 11 hacks
 
     const emotionReactEleven = path.dirname(
