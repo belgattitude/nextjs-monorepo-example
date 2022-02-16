@@ -30,7 +30,7 @@
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "dev": "next",
     "build": "next build",
-    "vercel-build": "yarn share:static:hardlink && next build",
+    "vercel-build": "yarn share-static-hardlink && next build",
     "start": "next start",
     "bundle-analyze": "cross-env ANALYZE=true yarn build",
     "?share-static-symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
