@@ -19,7 +19,6 @@ export const BasicCardExample: ComponentStory<typeof BasicCard> = (_args) => (
       title={'John Doe'}
       description={'The famous goat milk'}
       image={'https://picsum.photos/200/300'}
-      defaultImage={'https://picsum.photos/200/300'}
     />
   </div>
 );
