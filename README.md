@@ -403,48 +403,30 @@ with resulting semver version and generate CHANGELOGS for you.
 
 ### Monorepo scripts
 
-Some convenience global scripts are defined in the [root package.json](./package.json), they generally
-call their counterparts defined in packages and apps.
+Some convenience scripts can be run in any folder of this repo and will call their counterparts defined in packages and apps.
 
-```json5
-{
-  "scripts": {
-    "clean": "yarn workspaces foreach -ptv run clean",
-    "test": "run-s 'test:*'",
-    "test:unit": "yarn workspaces foreach -ptv run test:unit",
-    "fix:staged-files": "yarn workspaces foreach -t run fix:staged-files",
-    "fix:all-files": "yarn workspaces foreach -ptv run fix:all-files",
-    // Manage versions and releases with atlassion/changesets
-    "changeset": "changeset",
-    "release": "yarn build && changeset publish",
-    // Utility scripts to check/upgrade deps across the entire monorepo
-    // use yarn dedupe after install
-    "deps:check": "npm-check-updates --deep --dep prod,dev,optional",
-    "deps:update": "npm-check-updates -u --deep --dep prod,dev,optional",
-    "typecheck": "yarn workspaces foreach -ptv run typecheck",
-    "lint": "yarn workspaces foreach -ptv run lint",
-    "share:static:symlink": "yarn workspaces foreach -pv --include '*-app' run share:static:symlink",
-    "share:static:hardlink": "yarn workspaces foreach -pv --include '*-app' run share:static:hardlink",
-    "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
-    "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    // If needed  docker multistage build and development mode is available
-    "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",
-    "docker:web-app:build": "docker buildx bake -f ./docker-compose.web-app.yml --progress=tty runner",
-    "docker:web-app:serve": "docker-compose ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
-    "docker:up:main-db": "docker-compose up -d main-db",
-    "docker:down": "docker-compose down",
-  },
-}
-```
+| Name                         | Description                                                                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `yarn g:changeset`           | Add a changeset                                                                                                                      |
+| `yarn g:typecheck`           | Run typechecks in all apps & packages                                                                                                |
+| `yarn g:lint`                | Display linter issues in all apps & packages                                                                                         |
+| `yarn g:lint --fix`          | Attempt to run linter auto-fix in all apps & packages                                                                                |
+| `yarn g:lint-styles`         | Display css stylelint issues in all apps & packages                                                                                  |
+| `yarn g:lint-styles --fix`   | Attempt to run stylelint auto-fix issues in all apps & packages                                                                      |
+| `yarn g:test`                | Run tests in all apps & packages                                                                                                     |
+| `yarn g:test-unit`           | Run unit tests in all apps & packages                                                                                                |
+| `yarn g:test-e2e`            | Run unit tests in all apps & packages                                                                                                |
+| `yarn g:build`               | Clean every caches and dist folders in all apps & packages                                                                           |
+| `yarn g:clean`               | Add a changeset                                                                                                                      |
+| `yarn g:check-dist`          | Ensure build dist files passes es2017 (run `g:build` first).                                                                         |
+| `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/sortlist/packages/blob/main/.ncurc.yml)) |
+| `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                     |
+| `yarn check:install`         | Verify if there's no dependency missing in packages                                                                                  |
+| `yarn install:playwright`    | Install playwright for e2e                                                                                                           |
+| `yarn dedupe`                | Built-in yarn deduplication of the lock file                                                                                         |
 
-> PS:
->
-> - Convention: whatever the script name (ie: test:unit), keeps it consistent over root commands, packages and apps.
-> - The use of [yarn workspaces commands](https://yarnpkg.com/features/workspaces) can be replicated in pnpm, nmp7+lerna...
+> Why using `:` to prefix scripts names ? It's convenient in yarn 3+, we can call those scripts from any folder in the monorepo.
+> `g:` is a shortcut for `global:`. See the complete list in [root package.json](./package.json).
 
 ### Maintaining deps updated
 
