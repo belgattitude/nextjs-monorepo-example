@@ -121,3 +121,8 @@ jobs:
         working-directory: apps/web-app
         run: |
           yarn check-build-size
+
+      - name: Check ecmascript checks for build files
+        working-directory: apps/blog-app
+        run: |
+          yarn check-dist

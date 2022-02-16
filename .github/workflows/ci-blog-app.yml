@@ -116,6 +116,11 @@ jobs:
         run: |
           yarn check-build-size
 
+      - name: Check ecmascript checks for build files
+        working-directory: apps/blog-app
+        run: |
+          yarn check-dist
+
       - name: Install Playwright
         run: npx playwright install --with-deps chromium webkit
 
