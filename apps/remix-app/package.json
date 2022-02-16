@@ -3,6 +3,7 @@
   "version": "1.2.2",
   "license": "MIT",
   "private": true,
+  "sideEffects": false,
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
@@ -14,23 +15,22 @@
     "url": "https://github.com/belgattitude"
   },
   "scripts": {
-    "build": "npm run build:css && remix build",
-    "build:css": "tailwindcss -o ./app/tailwind.css",
+    "build": "npm run build-css && remix build",
+    "build-css": "tailwindcss -o ./app/tailwind.css",
     "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
     "watch-tailwind": "tailwindcss -o ./app/tailwind.css --watch",
     "remix-dev": "remix dev",
     "clean": "rimraf --no-glob ./.cache ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
-    "?share:static:symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
-    "share:static:symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
-    "?share:static:hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
-    "share:static:hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
-    "test": "run-s 'test:*'",
-    "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
-    "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
+    "?share-static-symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
+    "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
+    "?share-static-hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
+    "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
+    "test": "yarn test-unit",
+    "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint-style": "stylelint 'app/**/*.css'",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "lint-styles": "stylelint 'app/**/*.css'",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -89,7 +89,6 @@
     "typescript": "4.5.5"
   },
   "engines": {
-    "node": ">=14"
-  },
-  "sideEffects": false
+    "node": "^14.13.1 || >=16.0.0"
+  }
 }

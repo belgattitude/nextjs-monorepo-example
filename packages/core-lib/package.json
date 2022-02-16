@@ -20,15 +20,14 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
-    "build:react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
+    "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "test": "run-s 'test:*'",
-    "test:unit": "jest --config jest.config.js --maxWorkers=50% --color $@",
-    "ci-test:unit": "jest --config jest.config.js --runInBand --color $@",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "test": "run-s test-unit",
+    "test-unit": "jest --config jest.config.js",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@tsed/exceptions": "^6.102.0",

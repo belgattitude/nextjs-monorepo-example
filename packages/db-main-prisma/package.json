@@ -19,20 +19,19 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "scripts": {
-    "prisma:migrate": "dotenv-flow -- yarn prisma migrate",
-    "prisma:migrate:reset": "dotenv-flow -- yarn prisma migrate reset",
-    "prisma:db:seed": "dotenv-flow -- yarn prisma db seed",
-    "prisma:db:push": "dotenv-flow -- yarn prisma db push",
-    "prisma:studio": "dotenv-flow -- yarn prisma studio",
+    "prisma-migrate": "dotenv-flow -- yarn prisma migrate",
+    "prisma-migrate-reset": "dotenv-flow -- yarn prisma migrate reset",
+    "prisma-db-seed": "dotenv-flow -- yarn prisma db seed",
+    "prisma-db-push": "dotenv-flow -- yarn prisma db push",
+    "prisma-studio": "dotenv-flow -- yarn prisma studio",
     "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo ./.eslintcache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "test": "run-s 'test:unit'",
-    "test:unit": "echo \"No unit tests yet\"",
-    "ci-test:unit": "echo \"No unit tests yet\"",
-    "test:e2e": "jest --config e2e/jest.config.js --maxWorkers=50% --color $@",
-    "debug:test:e2e": "cross-env DEBUG=testcontainers jest --config e2e/jest.config.js --maxWorkers=50% --color $@",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "test": "run-s test:unit",
+    "test-unit": "echo \"No unit tests yet\"",
+    "test-e2e": "jest --config e2e/jest.config.js --maxWorkers=50% --color $@",
+    "debug-test-e2e": "cross-env DEBUG=testcontainers jest --config e2e/jest.config.js --maxWorkers=50% --color $@",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "devDependencies": {
     "@soluble/dsn-parser": "1.3.2",
