@@ -6807,7 +6807,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@your-org/core-lib@workspace:*, @your-org/core-lib@workspace:packages/core-lib":
+"@your-org/core-lib@workspace:*, @your-org/core-lib@workspace:^, @your-org/core-lib@workspace:packages/core-lib":
   version: 0.0.0-use.local
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
@@ -6923,6 +6923,7 @@ __metadata:
     "@types/react-dom": 17.0.11
     "@typescript-eslint/eslint-plugin": 5.12.0
     "@typescript-eslint/parser": 5.12.0
+    "@your-org/core-lib": "workspace:^"
     autoprefixer: 10.4.2
     babel-loader: 8.2.3
     babel-plugin-macros: 3.1.0
@@ -6955,6 +6956,7 @@ __metadata:
     rooks: 5.10.0
     tailwindcss: 3.0.23
     ts-jest: 27.1.3
+    tsconfig-paths-webpack-plugin: 3.5.2
     typescript: 4.5.5
     webpack: 5.69.0
   peerDependencies:
@@ -24398,6 +24400,17 @@ __metadata:
     typescript:
       optional: true
   checksum: c2a698b85d521298fe6f2435fbf2d3dc5834b423ea25abd321805ead3f399dbeedce7ca09492d7eb005b9d2c009c6b9587055bc3ab273dc6b9e40eefd7edb5b2
+  languageName: node
+  linkType: hard
+
+"tsconfig-paths-webpack-plugin@npm:3.5.2":
+  version: 3.5.2
+  resolution: "tsconfig-paths-webpack-plugin@npm:3.5.2"
+  dependencies:
+    chalk: ^4.1.0
+    enhanced-resolve: ^5.7.0
+    tsconfig-paths: ^3.9.0
+  checksum: e7872f45b10684204d4a6cbc7989073d885c99e0c9eb5222de6b2b83d2e1594bccb647f52d2f8e00c53da5b9a3084e47a2de44f41c6f7a607ec2b17330a8d9e9
   languageName: node
   linkType: hard
 
