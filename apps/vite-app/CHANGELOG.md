@@ -1,5 +1,17 @@
 # vite-app
 
+## 0.3.0
+
+### Minor Changes
+
+- [#1341](https://github.com/belgattitude/nextjs-monorepo-example/pull/1341) [`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor scripts identifiers defined in package.json. Restrict usage of ':' in apps and packages
+
+### Patch Changes
+
+- Updated dependencies [[`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177)]:
+  - @your-org/core-lib@3.11.0
+  - @your-org/ui-lib@3.9.0
+
 ## 0.2.2
 
 ### Patch Changes
