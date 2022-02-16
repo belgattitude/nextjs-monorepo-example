@@ -32,6 +32,7 @@
     "g:lint-staged-files": "lint-staged --allow-empty",
     "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
     "g:changeset": "changeset",
+    "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
     "g:release": "yarn build && changeset publish",
     "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
     "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",

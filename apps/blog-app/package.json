@@ -15,7 +15,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.3%",
+      ">1%",
       "not ie 11",
       "not dead",
       "not op_mini all"
@@ -39,6 +39,7 @@
     "?share-static-hardlink": "echo 'Use this command to link assets, locales... from shared static folder'",
     "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
     "check-build-size": "size-limit --highlight-less",
+    "check-dist": "es-check -v",
     "test": "run-s test-unit test-e2e",
     "test-unit": "jest --config jest.config.js",
     "test-e2e": "playwright test",
@@ -68,6 +69,7 @@
     "@typescript-eslint/parser": "5.11.0",
     "autoprefixer": "10.4.2",
     "cross-env": "7.0.3",
+    "es-check": "6.2.1",
     "eslint": "8.9.0",
     "eslint-config-next": "12.0.11-canary.15",
     "eslint-config-prettier": "8.3.0",
