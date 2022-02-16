@@ -1,5 +1,20 @@
 # web-app
 
+## 3.39.0
+
+### Minor Changes
+
+- [#1341](https://github.com/belgattitude/nextjs-monorepo-example/pull/1341) [`e23bdf2c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e23bdf2c96ff65a8ce946a03eeaac97d3ac991aa) Thanks [@belgattitude](https://github.com/belgattitude)! - Add es-check to ensure produced build files passes ecmascript
+
+* [#1341](https://github.com/belgattitude/nextjs-monorepo-example/pull/1341) [`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor scripts identifiers defined in package.json. Restrict usage of ':' in apps and packages
+
+### Patch Changes
+
+- Updated dependencies [[`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177)]:
+  - @your-org/core-lib@3.11.0
+  - @your-org/db-main-prisma@2.8.0
+  - @your-org/ui-lib@3.9.0
+
 ## 3.38.2
 
 ### Patch Changes
