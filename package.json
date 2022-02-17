@@ -23,7 +23,8 @@
   ],
   "scripts": {
     "g:clean": "rimraf '.cache/*' && yarn workspaces foreach -ptv run clean",
-    "g:build": "yarn workspaces foreach -ptv run build",
+    "g:build": "yarn workspaces foreach -p --topological-dev -v run build",
+    "g:build-changed": "yarn workspaces foreach --topological-dev --no-private -v --since=origin/main run build",
     "g:test-unit": "yarn workspaces foreach -ptv run test-unit",
     "g:test-e2e": "yarn workspaces foreach -tv run test-e2e",
     "g:lint": "yarn workspaces foreach -ptv run lint --color",
@@ -33,7 +34,7 @@
     "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
     "g:changeset": "changeset",
     "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
-    "g:release": "yarn build && changeset publish",
+    "g:release": "yarn g:build && changeset publish",
     "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
     "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",

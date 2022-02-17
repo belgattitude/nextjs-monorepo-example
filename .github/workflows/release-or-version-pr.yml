@@ -44,7 +44,11 @@ jobs:
         env:
           HUSKY: 0
 
+      # @link https://github.com/changesets/action
       - name: Create Release Pull Request
-        uses: changesets/action@master
+        id: changesets
+        uses: changesets/action@v1
         env:
+          # See https://github.com/changesets/action/issues/147
+          HOME: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
