@@ -1,5 +1,13 @@
 # @your-org/ui-lib
 
+## 3.10.0
+
+### Minor Changes
+
+- [#1347](https://github.com/belgattitude/nextjs-monorepo-example/pull/1347) [`e269ada4`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e269ada479151a243128612278bc0d5642e6db04) Thanks [@belgattitude](https://github.com/belgattitude)! - Example to use the core-lib as dependency
+
+* [#1347](https://github.com/belgattitude/nextjs-monorepo-example/pull/1347) [`82e77f7c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/82e77f7ce8a8fda3db16796685c817cb142114bb) Thanks [@belgattitude](https://github.com/belgattitude)! - Use and enforce workspace:^ protocol rather than workspace:\*
+
 ## 3.9.0
 
 ### Minor Changes
