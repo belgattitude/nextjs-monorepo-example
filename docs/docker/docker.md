@@ -68,7 +68,7 @@ DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web
 See the latest [./docker-compose.web-app.yml](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.web-app.yml)
 and [./Dockerfile](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.web-app.yml).
 
-PS: The goal of multistage is to reduce the size of the resulting image.
+PS: The goal of multistage is mainly to reduce the size of the resulting image, it also allows to skip deps stage (ie: install deps) when no changes are detected in your deps (lock file).
 
 ![Lazydocker multistage sizes](multistage-size.png)
 
