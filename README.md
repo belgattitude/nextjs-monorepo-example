@@ -390,7 +390,7 @@ $ yarn changeset
 ```
 
 Follow the instructions... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
-When merging it, a [github action](./.github/workflows/release.yml) will publish the packages
+When merging it, a [github action](./.github/workflows/release-or-version-pr.yml) will publish the packages
 with resulting semver version and generate CHANGELOGS for you.
 
 > PS:
