@@ -386,7 +386,7 @@ An example based on microbundle is present in each package. Versioning and publi
 and it's simple as typing:
 
 ```bash
-$ yarn changeset
+$ yarn g:changeset
 ```
 
 Follow the instructions... and commit the changeset file. A "Version Packages" P/R will appear after CI checks.
