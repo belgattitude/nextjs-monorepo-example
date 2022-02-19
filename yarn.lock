@@ -2279,7 +2279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:11.7.2, @emotion/babel-plugin@npm:^11.2.0, @emotion/babel-plugin@npm:^11.3.0":
+"@emotion/babel-plugin@npm:11.7.2, @emotion/babel-plugin@npm:^11.2.0, @emotion/babel-plugin@npm:^11.7.1":
   version: 11.7.2
   resolution: "@emotion/babel-plugin@npm:11.7.2"
   dependencies:
@@ -2383,12 +2383,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@emotion/is-prop-valid@npm:1.1.1"
+"@emotion/is-prop-valid@npm:^1.1.1, @emotion/is-prop-valid@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@emotion/is-prop-valid@npm:1.1.2"
   dependencies:
     "@emotion/memoize": ^0.7.4
-  checksum: 5816696dae6ac79537a31fe95256e0c1f55651507204676dd9903542b102f727c16a68924e6634a89b0972f0d15b0803bb9d4e14bd0fb8a49da8a2e3956e6639
+  checksum: 58b1f2d429a589f8f5bc2c33a8732cbb7bbcb17131a103511ef9a94ac754d7eeb53d627f947da480cd977f9d419fd92e244991680292f3287204159652745707
   languageName: node
   linkType: hard
 
@@ -2406,15 +2406,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:11.7.1":
-  version: 11.7.1
-  resolution: "@emotion/react@npm:11.7.1"
+"@emotion/react@npm:11.8.0":
+  version: 11.8.0
+  resolution: "@emotion/react@npm:11.8.0"
   dependencies:
     "@babel/runtime": ^7.13.10
+    "@emotion/babel-plugin": ^11.7.1
     "@emotion/cache": ^11.7.1
     "@emotion/serialize": ^1.0.2
     "@emotion/sheet": ^1.1.0
-    "@emotion/utils": ^1.0.0
+    "@emotion/utils": ^1.1.0
     "@emotion/weak-memoize": ^0.2.5
     hoist-non-react-statics: ^3.3.1
   peerDependencies:
@@ -2425,7 +2426,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 3392aa71f9c68c16022947959f7f842174e6b075b3baf58e185462411cd9b5a87557109a9225b1abaa2d7200a08b7cb9d7f21aa035f0d36b2c89e19b2a124e02
+  checksum: 363bbb68e6cec056b465f545e8d1e0a6ea54afa1861e900e17b2f45e4ab6bec4662922b1f2865e37170236f8143315254c9e73aefd6ff9c6df1f3b6bf9854a7e
   languageName: node
   linkType: hard
 
@@ -2501,15 +2502,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:11.6.0":
-  version: 11.6.0
-  resolution: "@emotion/styled@npm:11.6.0"
+"@emotion/styled@npm:11.8.0":
+  version: 11.8.0
+  resolution: "@emotion/styled@npm:11.8.0"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@emotion/babel-plugin": ^11.3.0
-    "@emotion/is-prop-valid": ^1.1.1
+    "@emotion/babel-plugin": ^11.7.1
+    "@emotion/is-prop-valid": ^1.1.2
     "@emotion/serialize": ^1.0.2
-    "@emotion/utils": ^1.0.0
+    "@emotion/utils": ^1.1.0
   peerDependencies:
     "@babel/core": ^7.0.0
     "@emotion/react": ^11.0.0-rc.0
@@ -2519,7 +2520,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 612bbf114a4ca49e5b3ec4554bea1cd5aad9eeb2371babc3e6b79eab5020bd0300b9904108b621837fe715e221ba09dd131dc29918c1fd966e082d8e74fca833
+  checksum: 21e6bad9339fb087c5214cfba861fd5db20d429a6b6981d944aa5df1da571baa9f176455588c063a274b670ecbf12d7b9100d80186e1b8f8911fa0b4502d04bd
   languageName: node
   linkType: hard
 
@@ -2557,10 +2558,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/utils@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@emotion/utils@npm:1.0.0"
-  checksum: 3ce8048441a915447d9ef51eb6d1d4cbcce8c8d1647bc7a23333ce2fb2249e74cf9471670d6f49a716e93ff633c9e7a6633517698e17391aebfc40c9d0cabcc0
+"@emotion/utils@npm:^1.0.0, @emotion/utils@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@emotion/utils@npm:1.1.0"
+  checksum: d3b681ca3a23b07033ac6c6937e71010a5549ac8ccec325eb6c91a7e48d9a73db83fa5dadc58be981bb125d7c00fedca868ea4362b1da9e02866615f96be4df1
   languageName: node
   linkType: hard
 
@@ -6954,8 +6955,8 @@ __metadata:
   dependencies:
     "@babel/core": 7.17.5
     "@emotion/babel-preset-css-prop": 11.2.0
-    "@emotion/react": 11.7.1
-    "@emotion/styled": 11.6.0
+    "@emotion/react": 11.8.0
+    "@emotion/styled": 11.8.0
     "@mdx-js/react": 2.0.0
     "@storybook/addon-actions": 6.4.19
     "@storybook/addon-docs": 6.4.19
@@ -8404,8 +8405,8 @@ __metadata:
   dependencies:
     "@babel/core": 7.17.5
     "@emotion/babel-plugin": 11.7.2
-    "@emotion/react": 11.7.1
-    "@emotion/styled": 11.6.0
+    "@emotion/react": 11.8.0
+    "@emotion/styled": 11.8.0
     "@headlessui/react": 1.5.0
     "@next/bundle-analyzer": 12.1.0
     "@next/env": 12.1.0
@@ -21771,9 +21772,9 @@ __metadata:
     "@babel/core": 7.17.5
     "@emotion/babel-plugin": 11.7.2
     "@emotion/cache": 11.7.1
-    "@emotion/react": 11.7.1
+    "@emotion/react": 11.8.0
     "@emotion/server": 11.4.0
-    "@emotion/styled": 11.6.0
+    "@emotion/styled": 11.8.0
     "@remix-run/dev": 1.2.1
     "@remix-run/react": 1.2.1
     "@remix-run/serve": 1.2.1
@@ -25408,8 +25409,8 @@ __metadata:
   dependencies:
     "@babel/core": 7.17.5
     "@emotion/babel-plugin": 11.7.2
-    "@emotion/react": 11.7.1
-    "@emotion/styled": 11.6.0
+    "@emotion/react": 11.8.0
+    "@emotion/styled": 11.8.0
     "@types/react": 17.0.39
     "@types/react-dom": 17.0.11
     "@vitejs/plugin-react": 1.2.0
@@ -25584,9 +25585,9 @@ __metadata:
     "@babel/core": 7.17.5
     "@emotion/babel-plugin": 11.7.2
     "@emotion/cache": 11.7.1
-    "@emotion/react": 11.7.1
+    "@emotion/react": 11.8.0
     "@emotion/server": 11.4.0
-    "@emotion/styled": 11.6.0
+    "@emotion/styled": 11.8.0
     "@fontsource/inter": 4.5.4
     "@headlessui/react": 1.5.0
     "@mui/icons-material": 5.4.2
