@@ -30,6 +30,7 @@
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "dev": "next",
     "build": "next build",
+    "build-no-checks": "NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 next build",
     "vercel-build": "yarn share-static-hardlink && next build",
     "export": "next export",
     "start": "next start",
