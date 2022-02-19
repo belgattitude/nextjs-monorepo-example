@@ -96,7 +96,7 @@ const nextConfig = {
     reactRoot: true,
     // React 18 streaming
     // @link https://nextjs.org/docs/advanced-features/react-18/streaming
-    runtime: 'edge',
+    runtime: undefined,
     // React 18 server components
     // @link https://nextjs.org/docs/advanced-features/react-18/server-components
     serverComponents: false,
