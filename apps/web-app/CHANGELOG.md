@@ -1,5 +1,15 @@
 # web-app
 
+## 3.41.0
+
+### Minor Changes
+
+- [#1383](https://github.com/belgattitude/nextjs-monorepo-example/pull/1383) [`9e4d041`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9e4d0414f87bf54e8630233740e843489212a93c) Thanks [@belgattitude](https://github.com/belgattitude)! - With React 18
+
+### Patch Changes
+
+- [#1383](https://github.com/belgattitude/nextjs-monorepo-example/pull/1383) [`9e4d041`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9e4d0414f87bf54e8630233740e843489212a93c) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated nextjs.config with links
+
 ## 3.40.0
 
 ### Minor Changes
