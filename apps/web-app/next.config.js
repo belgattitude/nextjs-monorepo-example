@@ -9,6 +9,7 @@ const packageJson = require('./package.json');
 const trueEnv = ['true', '1', 'yes'];
 
 const isProd = process.env.NODE_ENV === 'production';
+const isCI = trueEnv.includes(process.env?.CI ?? 'false');
 
 const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
@@ -87,6 +88,11 @@ const nextConfig = {
   httpAgentOptions: {
     // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
     keepAlive: true,
+  },
+
+  onDemandEntries: {
+    // period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: (isCI ? 3600 : 25) * 1000,
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
