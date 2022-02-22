@@ -29,7 +29,7 @@
   </a>
 </p>
 
-> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.1+](https://dev.to/arcanis/yarn-31-corepack-esm-pnpm-optional-packages--3hak)
+> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.2+](https://dev.to/arcanis/yarn-32-libc-yarn-explain-next-major--o22)
 > / [typescript path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping). Not the only way to do.
 
 Useful to
