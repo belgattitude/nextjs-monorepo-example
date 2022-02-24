@@ -1,5 +1,5 @@
+import Head from 'next/head';
 import type { FC } from 'react';
-import { MainLayout } from '@/components/layout/main-layout';
 
 type Props = {
   statusCode?: number | null;
@@ -14,12 +14,15 @@ export const ErrorPage: FC<Props> = (props) => {
 
   return (
     <>
-      <MainLayout>
+      <Head>
+        <title>Error {statusCode}</title>
+      </Head>
+      <div id="nextjs-error-page">
         <h1>Error {statusCode}</h1>
         <p>{message}</p>
         <p>Sentry id: {sentryErrorId}</p>
         <p>Error: {error?.message}</p>
-      </MainLayout>
+      </div>
     </>
   );
 };
