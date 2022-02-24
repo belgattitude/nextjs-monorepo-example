@@ -2,7 +2,7 @@
 // The config you add here will be used whenever a page is visited.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import { init as sentryInit } from '@sentry/browser';
+import { init as sentryInit } from '@sentry/nextjs';
 
 sentryInit({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
