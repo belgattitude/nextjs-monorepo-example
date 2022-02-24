@@ -10,6 +10,7 @@ import {
 import type { NextPage, NextPageContext } from 'next';
 import NextErrorComponent from 'next/error';
 import type { ErrorProps } from 'next/error';
+import { ErrorPage } from '@/features/error/pages/error.page';
 
 const sentryIgnoredStatusCodes: number[] = [404, 410];
 
@@ -18,6 +19,7 @@ type AugmentedError = NonNullable<NextPageContext['err']> | null;
 type CustomErrorProps = {
   err?: AugmentedError;
   message?: string;
+  sentryErrorId?: string;
   hasGetInitialPropsRun?: boolean;
 } & Omit<ErrorProps, 'err'>;
 
@@ -25,16 +27,54 @@ type AugmentedNextPageContext = Omit<NextPageContext, 'err'> & {
   err: AugmentedError;
 };
 
+/**
+ * The request to sentry might be blocked on the browser due to ad blockers, csrf...
+ * Alternatively a good practice is to proxy the sentry in a nextjs api route, istio...
+ * @see https://github.com/getsentry/sentry-javascript/issues/2916
+ */
+const sentryCaptureExceptionFailsafe = (err: Error): string | undefined => {
+  let browserSentryErrorId: string | undefined;
+  try {
+    browserSentryErrorId = sentryCaptureException(err);
+  } catch (e) {
+    const msg = `Couldn't send error to sentry, reason ${
+      e instanceof Error ? e.message : 'unknown'
+    }`;
+    console.error(msg);
+  }
+  return browserSentryErrorId;
+};
+
+/**
+ * Flushing the request on the browser is not required and might fail with err:BLOCKED_BY_CLIENT
+ * Possible causes vary, but the most common is that the request is blocked by ad-blockers or csrf rules.
+ */
+const sentryFlushServerSide = async (timeout: number) => {
+  if (typeof window === 'undefined') {
+    await sentryFlush(timeout);
+  }
+};
+
 const CustomError: NextPage<CustomErrorProps> = (props) => {
-  const { statusCode, err, hasGetInitialPropsRun } = props;
+  const { statusCode, err, hasGetInitialPropsRun, sentryErrorId, message } =
+    props;
+
+  let browserSentryErrorId: string | undefined;
 
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of https://github.com/vercel/next.js/issues/8592.
     // As a workaround, we pass err via _app.js so it can be captured
-    sentryCaptureException(err);
+    browserSentryErrorId = sentryCaptureExceptionFailsafe(err);
     // Flushing is not required in this case as it only happens on the client
   }
-  return <NextErrorComponent statusCode={statusCode} />;
+  return (
+    <ErrorPage
+      error={err ?? undefined}
+      message={message}
+      sentryErrorId={sentryErrorId ?? browserSentryErrorId}
+      statusCode={statusCode}
+    />
+  );
 };
 
 CustomError.getInitialProps = async ({
@@ -73,23 +113,20 @@ CustomError.getInitialProps = async ({
   //    Boundaries: https://reactjs.org/docs/error-boundaries.html
 
   if (err) {
-    sentryCaptureException(err);
-
+    errorInitialProps.sentryErrorId = sentryCaptureExceptionFailsafe(err);
     // Flushing before returning is necessary if deploying to Vercel, see
     // https://vercel.com/docs/platform/limits#streaming-responses
-    await sentryFlush(2000);
-
+    await sentryFlushServerSide(2000);
     return errorInitialProps;
   }
 
   // If this point is reached, getInitialProps was called without any
   // information about what the error might be. This is unexpected and may
   // indicate a bug introduced in Next.js, so record it in Sentry
-  sentryCaptureException(
+  errorInitialProps.sentryErrorId = sentryCaptureException(
     new Error(`_error.js getInitialProps missing data at path: ${asPath}`)
   );
-  await sentryFlush(2000);
-
+  await sentryFlushServerSide(2000);
   return errorInitialProps;
 };
 
