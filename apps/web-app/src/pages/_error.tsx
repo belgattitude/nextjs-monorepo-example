@@ -101,7 +101,7 @@ CustomError.getInitialProps = async ({
 
   // Running on the server, the response object (`res`) is available.
   //
-  // Next.js will pass an err on the server if a page's data fetching methods
+  // Next.js will pass an error on the server if a page's data fetching methods
   // threw or returned a Promise that rejected
   //
   // Running on the client (browser), Next.js will provide an error if:

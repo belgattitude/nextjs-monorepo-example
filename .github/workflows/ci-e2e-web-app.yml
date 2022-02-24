@@ -109,12 +109,11 @@ jobs:
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
           # Don't need to lint / typecheck for e2e, they're done in another workflow
-          NEXTJS_IGNORE_ESLINT: 1
-          NEXTJS_IGNORE_TYPECHECK: 1
-          NEXT_DISABLE_SOURCEMAPS: 1
-          NEXT_TELEMETRY_DISABLED: 1
-          NEXT_DISABLE_SENTRY: 0
-          NEXT_SENTRY_DRY_RUN: 1
+          NEXTJS_IGNORE_ESLINT: true
+          NEXTJS_IGNORE_TYPECHECK: true
+          NEXT_DISABLE_SOURCEMAPS: true
+          NEXT_TELEMETRY_DISABLED: true
+          NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: Install Playwright
         run: npx playwright install --with-deps chromium webkit

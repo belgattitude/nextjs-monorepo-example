@@ -19,6 +19,10 @@ const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
 );
 
+const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
+);
+
 /**
  * A way to allow CI optimization when the build done there is not used
  * to deliver an image or deploy the files.
@@ -228,6 +232,7 @@ config = withSentryConfig(config, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
   // silent: isProd, // Suppresses all logs
+  dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
 });
 
 if (process.env.ANALYZE === 'true') {
