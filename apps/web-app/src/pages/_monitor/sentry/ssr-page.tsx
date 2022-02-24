@@ -1,33 +1,33 @@
-import type { FC } from 'react';
+import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 type Props = {
   hasRunOnServer: boolean;
 };
 
-const MonitorSentrySsrPage: FC<Props> = (props) => {
-  if (!props.hasRunOnServer) {
-    throw new Error(
-      'Error purposely crafted for monitoring sentry (/pages/_monitor/sentry/ssr-page.tsx)'
-    );
-  }
+export default function MonitorSentrySsrRoute(
+  _props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
   return (
     <div>
-      <h1>Sentry SSR error</h1>
+      <h1>Unexpected error</h1>
       <p>
-        The server side error wasn't caught by the global nextjs _error.tsx
-        handler and did not propagate to sentry. See
-        /pages/_monitor/sentry/ssr-page.tsx.
+        If you see this message, it means that the an error thrown in the
+        `getServerSideProps()` function wasn't caught by the global error
+        handler (pages/_error.tsx). This is a bug in the application and may
+        affect the ability to display error pages and log errors on Sentry. See
+        the monitoring page in /pages/_monitor/sentry/ssr-page.tsx.
       </p>
     </div>
   );
-};
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      hasRunOnServer: false,
-    },
-  };
 }
 
-export default MonitorSentrySsrPage;
+/**
+ * Always throws an error on purpose for monitoring
+ */
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  _context
+) => {
+  throw new Error(
+    'Error purposely crafted for monitoring sentry (/pages/_monitor/sentry/ssr-page.tsx)'
+  );
+};

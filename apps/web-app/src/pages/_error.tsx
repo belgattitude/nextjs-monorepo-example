@@ -32,7 +32,9 @@ type AugmentedNextPageContext = Omit<NextPageContext, 'err'> & {
  * Alternatively a good practice is to proxy the sentry in a nextjs api route, istio...
  * @see https://github.com/getsentry/sentry-javascript/issues/2916
  */
-const sentryCaptureExceptionFailsafe = (err: Error): string | undefined => {
+const sentryCaptureExceptionFailsafe = (
+  err: Error | string
+): string | undefined => {
   let browserSentryErrorId: string | undefined;
   try {
     browserSentryErrorId = sentryCaptureException(err);
@@ -49,10 +51,10 @@ const sentryCaptureExceptionFailsafe = (err: Error): string | undefined => {
  * Flushing the request on the browser is not required and might fail with err:BLOCKED_BY_CLIENT
  * Possible causes vary, but the most common is that the request is blocked by ad-blockers or csrf rules.
  */
-const sentryFlushServerSide = async (timeout: number) => {
+const sentryFlushServerSide = async (flushAfter: number) => {
   if (typeof window === 'undefined') {
     try {
-      await sentryFlush(timeout);
+      await sentryFlush(flushAfter);
     } catch (e) {
       const msg = `Couldn't flush sentry, reason ${
         e instanceof Error ? e.message : 'unknown'
@@ -123,7 +125,7 @@ CustomError.getInitialProps = async ({
     errorInitialProps.sentryErrorId = sentryCaptureExceptionFailsafe(err);
     // Flushing before returning is necessary if deploying to Vercel, see
     // https://vercel.com/docs/platform/limits#streaming-responses
-    await sentryFlushServerSide(2000);
+    await sentryFlushServerSide(1_500);
     return errorInitialProps;
   }
 
@@ -133,7 +135,7 @@ CustomError.getInitialProps = async ({
   errorInitialProps.sentryErrorId = sentryCaptureException(
     new Error(`_error.js getInitialProps missing data at path: ${asPath}`)
   );
-  await sentryFlushServerSide(2000);
+  await sentryFlushServerSide(1_500);
   return errorInitialProps;
 };
 

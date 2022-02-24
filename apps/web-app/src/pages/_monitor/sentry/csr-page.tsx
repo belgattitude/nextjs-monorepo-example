@@ -7,21 +7,23 @@ const fetchAndAlwaysThrow = async () => {
   );
 };
 
-const MonitorSentryCsrPage: FC<{ children?: never }> = () => {
+const MonitorSentryCsrRoute: FC<{ children?: never }> = () => {
   const { error } = usePromise(fetchAndAlwaysThrow, {});
   if (error) {
     throw error;
   }
   return (
     <div>
-      <h1>Sentry CSR error</h1>
+      <h1>Unexpected error</h1>
       <p>
-        The server side error wasn't caught by the global nextjs _error.tsx
-        handler and did not propagate to sentry. See
-        /pages/_monitor/sentry/csr-page.tsx.
+        If you see this message, it means that an error thrown in a static
+        NextJs page wasn't caught by the global error handler
+        (pages/_error.tsx). This is a bug in the application and may affect the
+        ability to display error pages and log errors on Sentry. See the
+        monitoring page in /pages/_monitor/sentry/csr-page.tsx.
       </p>
     </div>
   );
 };
 
-export default MonitorSentryCsrPage;
+export default MonitorSentryCsrRoute;
