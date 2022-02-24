@@ -51,7 +51,14 @@ const sentryCaptureExceptionFailsafe = (err: Error): string | undefined => {
  */
 const sentryFlushServerSide = async (timeout: number) => {
   if (typeof window === 'undefined') {
-    await sentryFlush(timeout);
+    try {
+      await sentryFlush(timeout);
+    } catch (e) {
+      const msg = `Couldn't flush sentry, reason ${
+        e instanceof Error ? e.message : 'unknown'
+      }`;
+      console.error(msg);
+    }
   }
 };
 
