@@ -1,0 +1,59 @@
+name: CI-web-app-docker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+      - 'Dockerfile'
+      - '*.Dockerfile'
+      - 'docker-compose.yml'
+      - 'docker-compose.*.yml'
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
+    paths:
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+      - 'Dockerfile'
+      - '*.Dockerfile'
+      - 'docker-compose.yml'
+      - 'docker-compose.*.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build docker image
+        working-directory: apps/web-app
+        run: |
+          docker-compose -f docker-compose.web-app.yml build --progress=tty runner
+        env:
+          DOCKER_BUILDKIT: 1
