@@ -9,6 +9,8 @@ sentryInit({
 
   // Adjust this value in production, or use tracesSampler for greater control
   // @see https://develop.sentry.dev/sdk/performance/
+  // To turn it off, remove the line
+  // @see https://github.com/getsentry/sentry-javascript/discussions/4503#discussioncomment-2143116
   tracesSampleRate: 1.0,
   // ...
   // Note: if you want to override the automatic release value, do not set a
