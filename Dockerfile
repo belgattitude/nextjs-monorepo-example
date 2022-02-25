@@ -79,9 +79,9 @@ COPY --from=deps /workspace-install ./
 # Optional: if the app depends on global /static shared assets like images, locales...
 RUN yarn workspace web-app share-static-hardlink && yarn workspace web-app build
 
-RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
+RUN --mount=type=cache,target=/root/.yarn-prod-cache,rw \
     SKIP_POSTINSTALL=1 \
-    YARN_CACHE_FOLDER=/root/.yarn-cache \
+    YARN_CACHE_FOLDER=/root/.yarn-prod-cache \
     yarn workspaces focus web-app --production
 
 
