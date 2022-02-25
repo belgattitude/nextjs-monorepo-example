@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build docker image
-        working-directory: apps/web-app
+        working-directory: ./
         run: |
           docker-compose -f docker-compose.web-app.yml build --progress=tty runner
         env:
