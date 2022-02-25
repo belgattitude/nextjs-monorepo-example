@@ -51,9 +51,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build docker image
-        working-directory: ./
-        run: |
-          docker-compose -f docker-compose.web-app.yml build --progress=plain runner
-        env:
-          DOCKER_BUILDKIT: 1
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build the image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          load: true
+          tags: user/app:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      #- name: Build docker image
+      #  working-directory: ./
+      #  run: |
+      #    docker-compose -f docker-compose.web-app.yml build --progress=plain runner
+      #  env:
+      #    DOCKER_BUILDKIT: 1
