@@ -57,8 +57,11 @@ ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 #  2. To manually clear the cache
 #     > docker builder prune --filter type=exec.cachemount
 #
-#RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
-RUN YARN_CACHE_FOLDER=/root/.yarn3-cache \
+# Does not play well with buildkit on CI
+# https://github.com/moby/buildkit/issues/1673
+
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
+    YARN_CACHE_FOLDER=/root/.yarn3-cache \
     yarn install --immutable --inline-builds
 
 
@@ -79,8 +82,10 @@ COPY --from=deps /workspace-install ./
 # Optional: if the app depends on global /static shared assets like images, locales...
 RUN yarn workspace web-app share-static-hardlink && yarn workspace web-app build
 
-#RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
-RUN SKIP_POSTINSTALL=1 \
+# Does not play well with buildkit on CI
+# https://github.com/moby/buildkit/issues/1673
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
+    SKIP_POSTINSTALL=1 \
     YARN_CACHE_FOLDER=/root/.yarn3-cache \
     yarn workspaces focus web-app --production
 
