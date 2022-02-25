@@ -49,7 +49,7 @@
     "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",
     "docker:web-app:develop:reinstall": "cross-env DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty --no-cache --force-rm develop",
     "docker:web-app:build": "cross-env DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty runner",
-    "docker:web-app:serve": "docker-compose ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
+    "docker:web-app:serve": "docker-compose -f ./docker-compose.web-app.yml --env-file ./apps/web-app/.env.local up runner",
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
     "docker:nuke-all": "npm-run-all --sequential --continue-on-error --print-label \"docker:nuke:*\"",
