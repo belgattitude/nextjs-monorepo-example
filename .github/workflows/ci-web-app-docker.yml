@@ -67,10 +67,3 @@ jobs:
           tags: belgattitude/nextjs-monorepo-example-web-app:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      #- name: Build docker image
-      #  working-directory: ./
-      #  run: |
-      #    docker-compose -f docker-compose.web-app.yml build --progress=plain runner
-      #  env:
-      #    DOCKER_BUILDKIT: 1
