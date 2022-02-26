@@ -8,6 +8,7 @@ import { Message } from '@your-org/ui-lib';
 function App() {
   return (
     <div>
+      <h1 className="text-6xl font-bold text-red-700">Hello World!</h1>
       <p>
         {/*
         <GradientText
