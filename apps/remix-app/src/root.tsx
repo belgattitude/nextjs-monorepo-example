@@ -14,6 +14,7 @@ import type { MetaFunction } from 'remix';
 import { EmotionStyleClientContext } from './core/emotion/emotion-style-client.context';
 import { EmotionStyleServerContext } from './core/emotion/emotion-style-server.context';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tailwind from './tailwind.css';
 
 const Container = styled('div')`

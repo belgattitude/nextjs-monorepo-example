@@ -9,6 +9,14 @@ function App() {
   return (
     <div>
       <h1 className="text-6xl font-bold text-red-700">Hello World!</h1>
+      <h3
+        css={css`
+          font-size: 3em;
+          font-weight: 800;
+        `}
+      >
+        I'm the remix-app
+      </h3>
       <p>
         {/*
         <GradientText

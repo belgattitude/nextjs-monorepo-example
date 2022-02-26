@@ -68,6 +68,15 @@ jobs:
         run: |
           yarn install --immutable
 
+      - # Remix does not (yet) support tsconfig paths. So all packages must be build
+        name: Build all packages (remix)
+        run: yarn workspaces foreach -tv --include '@your-org/*' run build
+
+      - # Not sure about this one, but it seems to fail without
+        name: Remix setup node
+        working-directory: apps/remix-app
+        run: yarn remix setup node
+
       - name: Typecheck
         working-directory: apps/remix-app
         run: |
