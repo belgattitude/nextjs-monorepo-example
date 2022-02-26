@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
 
@@ -67,6 +67,16 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
+
+      - # Remix does not (yet) support tsconfig paths. So all packages must be build
+        name: Build all packages (remix)
+        run: yarn workspaces foreach -tv --include '@your-org/*' run build
+
+      - # Without this typecheck will fail
+        name: Remix setup node
+        working-directory: apps/remix-app
+        run: |
+          yarn remix setup node
 
       - name: Typecheck
         working-directory: apps/remix-app

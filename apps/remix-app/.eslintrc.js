@@ -13,6 +13,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
+    // Specific rules for remix
+    '@remix-run/eslint-config',
   ],
   env: {
     browser: true,
