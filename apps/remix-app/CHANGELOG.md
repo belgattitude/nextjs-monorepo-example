@@ -1,5 +1,11 @@
 # remix-app
 
+## 1.5.0
+
+### Minor Changes
+
+- [#1428](https://github.com/belgattitude/nextjs-monorepo-example/pull/1428) [`0d33150`](https://github.com/belgattitude/nextjs-monorepo-example/commit/0d33150a44d38111c475406e6aa41432b55112f3) Thanks [@belgattitude](https://github.com/belgattitude)! - Simplify install and add emotion
+
 ## 1.4.0
 
 ### Minor Changes
