@@ -9,7 +9,7 @@ import type {
 import type { DocumentContext, DocumentProps } from 'next/document';
 import Document, { Html, Main, Head, NextScript } from 'next/document';
 import { Children as ReactChildren } from 'react';
-import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
+import { createEmotionCache } from '@/core/emotion/create-emotion-cache';
 
 type Props = DocumentProps;
 
