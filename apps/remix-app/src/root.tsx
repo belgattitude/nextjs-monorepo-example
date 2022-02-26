@@ -30,6 +30,10 @@ interface DocumentProps {
   title?: string;
 }
 
+type HackEmotionTypeToAllowAccessToPrivate = {
+  _insertTag: (tag: HTMLStyleElement) => void;
+};
+
 const Document = withEmotionCache(
   ({ children, title }: DocumentProps, emotionCache) => {
     const serverStyleData = useContext(EmotionStyleServerContext);
@@ -44,7 +48,9 @@ const Document = withEmotionCache(
       const tags = emotionCache.sheet.tags;
       emotionCache.sheet.flush();
       tags.forEach((tag) => {
-        (emotionCache.sheet as any)._insertTag(tag);
+        (
+          emotionCache.sheet as unknown as HackEmotionTypeToAllowAccessToPrivate
+        )._insertTag(tag);
       });
 
       // reset cache to re-apply global styles
