@@ -16,9 +16,9 @@
   },
   "scripts": {
     "build": "npm run build-css && remix build",
-    "build-css": "tailwindcss -o ./app/tailwind.css",
+    "build-css": "tailwindcss -o ./src/tailwind.css",
     "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
-    "watch-tailwind": "tailwindcss -o ./app/tailwind.css --watch",
+    "watch-tailwind": "tailwindcss -o ./src/tailwind.css --watch",
     "remix-dev": "remix dev",
     "clean": "rimraf --no-glob ./.cache ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "?share-static-symlink": "echo 'Use this command to link assets, locales... from shared static folder'",
@@ -30,8 +30,7 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint-styles": "stylelint 'app/**/*.css'",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-    "postinstall": "remix setup node"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@emotion/cache": "11.7.1",
@@ -39,9 +38,7 @@
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.8.1",
     "@remix-run/react": "1.2.2",
-    "@remix-run/serve": "1.2.2",
     "@remix-run/vercel": "1.2.2",
-    "@vercel/node": "1.13.0",
     "@your-org/core-lib": "workspace:^",
     "@your-org/ui-lib": "workspace:^",
     "react": "18.0.0-rc.0-next-fa816be7f-20220128",
@@ -54,6 +51,7 @@
     "@babel/core": "7.17.5",
     "@emotion/babel-plugin": "11.7.2",
     "@remix-run/dev": "1.2.2",
+    "@remix-run/serve": "1.2.2",
     "@tailwindcss/aspect-ratio": "0.4.0",
     "@tailwindcss/forms": "0.4.0",
     "@tailwindcss/line-clamp": "0.3.1",
