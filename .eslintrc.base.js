@@ -61,11 +61,6 @@ module.exports = {
     ],
     'linebreak-style': ['error', 'unix'],
     'no-empty-function': 'off',
-    '@typescript-eslint/no-empty-function': [
-      'error',
-      { allow: ['private-constructors'] },
-    ],
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'import/default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
@@ -84,8 +79,28 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
+    '@typescript-eslint/ban-tslint-comment': ['error'],
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': 'allow-with-description',
+        minimumDescriptionLength: 10,
+        'ts-ignore': true,
+        'ts-nocheck': true,
+        'ts-check': false,
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: false }],
+    '@typescript-eslint/no-empty-function': [
+      'error',
+      { allow: ['private-constructors'] },
+    ],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/consistent-type-exports': 'error',
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
     '@typescript-eslint/naming-convention': [
       'error',
       {
