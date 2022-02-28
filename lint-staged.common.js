@@ -35,16 +35,13 @@ const eslintGlobalRulesForFix = [
 const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
   const cliRules = [...(rules ?? []), ...eslintGlobalRulesForFix]
     .filter((rule) => rule.trim().length > 0)
-    .map((r) => `"${r}"`)
-    .join('--rule ');
+    .map((r) => `"${r.trim()}"`);
 
   const args = [
     cache ? '--cache' : '',
     fix ? '--fix' : '',
     maxWarnings !== undefined ? `--max-warnings=${maxWarnings}` : '',
-    cliRules.length > 0
-      ? '--rule ' + rules.map((r) => `"${r}"`).join('--rule ')
-      : '',
+    cliRules.length > 0 ? `--rule ${cliRules.join('--rule ')}` : '',
     files
       // makes output cleaner by removing absolute paths from filenames
       .map((f) => path.relative(cwd, f))
