@@ -44,8 +44,7 @@ const getEslintFixCmd = ({ cwd, files, rules, fix, cache, maxWarnings }) => {
     cliRules.length > 0 ? `--rule ${cliRules.join('--rule ')}` : '',
     files
       // makes output cleaner by removing absolute paths from filenames
-      .map((f) => path.relative(cwd, f))
-      .map((f) => `"./${f}"`)
+      .map((f) => `"./${path.relative(cwd, f)}"`)
       .join(' '),
   ].join(' ');
   return `eslint ${args}`;
