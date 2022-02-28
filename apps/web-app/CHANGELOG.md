@@ -1,5 +1,15 @@
 # web-app
 
+## 3.42.0
+
+### Minor Changes
+
+- [#1421](https://github.com/belgattitude/nextjs-monorepo-example/pull/1421) [`1826dcc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/1826dcc42d1a46c7cdd4a4c7a396773f5188d7fe) Thanks [@belgattitude](https://github.com/belgattitude)! - Added example to build web-app on CI
+
+### Patch Changes
+
+- [#1421](https://github.com/belgattitude/nextjs-monorepo-example/pull/1421) [`1826dcc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/1826dcc42d1a46c7cdd4a4c7a396773f5188d7fe) Thanks [@belgattitude](https://github.com/belgattitude)! - Small docker fix for setting user and group on latest alpine
+
 ## 3.41.0
 
 ### Minor Changes
