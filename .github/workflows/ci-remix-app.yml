@@ -72,12 +72,6 @@ jobs:
         name: Build all packages (remix)
         run: yarn workspaces foreach -tv --include '@your-org/*' run build
 
-      - # Without this typecheck will fail
-        name: Remix setup node
-        working-directory: apps/remix-app
-        run: |
-          yarn remix setup node
-
       - name: Typecheck
         working-directory: apps/remix-app
         run: |
