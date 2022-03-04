@@ -136,7 +136,7 @@ jobs:
           E2E_WEBSERVER_MODE: START
           CI: 1
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: web-blog-playwright-test-results
