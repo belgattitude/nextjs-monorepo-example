@@ -42,7 +42,7 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -71,12 +71,6 @@ jobs:
       - # Remix does not (yet) support tsconfig paths. So all packages must be build
         name: Build all packages (remix)
         run: yarn workspaces foreach -tv --include '@your-org/*' run build
-
-      - # Without this typecheck will fail
-        name: Remix setup node
-        working-directory: apps/remix-app
-        run: |
-          yarn remix setup node
 
       - name: Typecheck
         working-directory: apps/remix-app

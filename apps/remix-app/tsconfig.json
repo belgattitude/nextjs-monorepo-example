@@ -18,6 +18,6 @@
       "@your-org/core-lib": ["../../packages/core-lib/src/index"]
     }
   },
-  "exclude": ["public/build", "api/build"],
+  "exclude": ["**/node_modules", "**/.*/", "public/build", "api/build"],
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]
 }
