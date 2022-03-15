@@ -15,7 +15,7 @@
     "url": "https://github.com/belgattitude"
   },
   "scripts": {
-    "postinstall": "yarn remix setup node",
+    "postinstall_disabled": "yarn remix setup node",
     "build": "npm run build-css && remix build",
     "build-css": "tailwindcss -o ./src/tailwind.css",
     "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
@@ -38,7 +38,6 @@
     "@emotion/react": "11.8.2",
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.8.1",
-    "@remix-run/dev": "1.2.3",
     "@remix-run/react": "1.2.3",
     "@remix-run/serve": "1.2.3",
     "@your-org/core-lib": "workspace:^",
@@ -50,6 +49,7 @@
   "devDependencies": {
     "@babel/core": "7.17.7",
     "@emotion/babel-plugin": "11.7.2",
+    "@remix-run/dev": "1.2.3",
     "@remix-run/eslint-config": "1.2.3",
     "@remix-run/vercel": "1.2.3",
     "@tailwindcss/aspect-ratio": "0.4.0",
