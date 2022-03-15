@@ -1,10 +1,7 @@
 import type { EmotionCache } from '@emotion/react';
-import * as Sentry from '@sentry/browser';
-import { isNonEmptyString } from '@your-org/core-lib';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
-import { sentryBrowserInitConfig } from '@/config/sentry.config';
 import { AppProviders } from '../app-providers';
 
 /**
@@ -28,13 +25,6 @@ export type AppProps = NextAppProps & {
   err?: Error;
   emotionCache?: EmotionCache;
 };
-
-if (
-  process.env.NEXT_PUBLIC_SENTRY_DSN &&
-  isNonEmptyString(process.env.NEXT_PUBLIC_SENTRY_DSN)
-) {
-  Sentry.init(sentryBrowserInitConfig);
-}
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app

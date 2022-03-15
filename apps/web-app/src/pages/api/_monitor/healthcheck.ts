@@ -8,7 +8,7 @@ export type HealthCheckApiPayload = {
   timestamp: string;
 };
 
-export default async function healthCheckRoute(
+export default async function healthCheckApiRoute(
   req: NextApiRequest,
   res: NextApiResponse
 ) {

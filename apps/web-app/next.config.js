@@ -1,10 +1,11 @@
 // @ts-check
 
+// https://nextjs.org/docs/api-reference/next.config.js/introduction
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+const { withSentryConfig } = require('@sentry/nextjs');
 const pc = require('picocolors');
-
-const { i18n } = require('./next-i18next.config');
-
 const packageJson = require('./package.json');
+const { i18n } = require('./next-i18next.config');
 
 const trueEnv = ['true', '1', 'yes'];
 
@@ -16,6 +17,10 @@ const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
 );
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
+);
+
+const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
 
 /**
@@ -96,7 +101,7 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
-  swcMinify: true,
+  swcMinify: false,
 
   experimental: {
     // React 18
@@ -161,11 +166,6 @@ const nextConfig = {
    */
 
   webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // Swap sentry/node by sentry/browser
-      config.resolve.alias['@sentry/node'] = '@sentry/browser';
-    }
-
     if (isServer) {
       // Till undici 4 haven't landed in prisma, we need this for docker/alpine
       // @see https://github.com/prisma/prisma/issues/6925#issuecomment-905935585
@@ -222,6 +222,18 @@ if (tmModules.length > 0) {
 } else {
   config = nextConfig;
 }
+
+config = withSentryConfig(config, {
+  // Additional config options for the Sentry Webpack plugin. Keep in mind that
+  // the following options are set automatically, and overriding them is not
+  // recommended:
+  //   release, url, org, project, authToken, configFile, stripPrefix,
+  //   urlPrefix, include, ignore
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options.
+  // silent: isProd, // Suppresses all logs
+  dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
+});
 
 if (process.env.ANALYZE === 'true') {
   // @ts-ignore
