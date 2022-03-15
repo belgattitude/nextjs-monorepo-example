@@ -1,5 +1,11 @@
 # web-app
 
+## 3.43.0
+
+### Minor Changes
+
+- [#1409](https://github.com/belgattitude/nextjs-monorepo-example/pull/1409) [`16121b8`](https://github.com/belgattitude/nextjs-monorepo-example/commit/16121b87b964aad903dab3deebae9827a79b54b2) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to use @sentry/nextjs rather than @sentry/\*. Added monitoring routes.
+
 ## 3.42.0
 
 ### Minor Changes
