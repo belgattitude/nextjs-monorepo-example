@@ -29,7 +29,7 @@
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache",
     "lint-styles": "stylelint 'src/**/*.css'",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
