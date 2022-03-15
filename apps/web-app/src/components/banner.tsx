@@ -1,10 +1,13 @@
 import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
+import type { FC } from 'react';
 
 type Props = {
   children?: never;
 };
 
-export const Banner: React.FC<Props> = () => {
+const regexp = /[\\()]/;
+console.log('regexp', regexp);
+export const Banner: FC<Props> = () => {
   return (
     <div className="bg-indigo-600">
       <div className="py-3 px-3 sm:px-6 lg:px-8 mx-auto max-w-7xl">
