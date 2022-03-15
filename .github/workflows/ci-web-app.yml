@@ -68,7 +68,10 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
-      # see https://github.com/vercel/next.js/pull/27362
+      # To keep the custom cache from infinitely growing
+      - id: get-week
+        run: echo ::set-output name=WEEK::$(date +%U)
+
       - name: Restore nextjs build web-app from cache
         uses: actions/cache@v2
         with:
@@ -77,10 +80,10 @@ jobs:
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
             ${{ github.workspace }}/**/.eslintcache
-
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          key: web-app-${{ runner.os }}-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+            web-app-${{ runner.os }}-${{ github.job }}-
+            web-app-${{ runner.os }}-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-
 
       - name: Install dependencies
         run: |
