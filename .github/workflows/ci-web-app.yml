@@ -69,8 +69,7 @@ jobs:
             yarn-cache-folder-
 
       # To keep the custom cache from infinitely growing
-      - name: Get week cache identifier
-        id: get-week
+      - id: get-week
         run: echo ::set-output name=WEEK::$(date +%U)
 
       - name: Restore web-app caches
@@ -81,7 +80,7 @@ jobs:
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
             ${{ github.workspace }}/**/.eslintcache
-          key: web-app-${{ runner.os }}-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-${{ github.sha }}
+          key: web-app-${{ runner.os }}-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
             web-app-${{ runner.os }}-${{ github.job }}-
             web-app-${{ runner.os }}-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-
