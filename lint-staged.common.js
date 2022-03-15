@@ -26,6 +26,7 @@ const eslintGlobalRulesForFix = [
   // @see https://reactjs.org/docs/hooks-rules.html
   // @see https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments
   'react-hooks/exhaustive-deps: off',
+  'regexp/*: off',
 ];
 
 /**
