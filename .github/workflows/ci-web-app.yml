@@ -69,10 +69,11 @@ jobs:
             yarn-cache-folder-
 
       # To keep the custom cache from infinitely growing
-      - id: get-week
+      - name: Get week cache identifier
+        id: get-week
         run: echo ::set-output name=WEEK::$(date +%U)
 
-      - name: Restore nextjs build web-app from cache
+      - name: Restore web-app caches
         uses: actions/cache@v2
         with:
           path: |
