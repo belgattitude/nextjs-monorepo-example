@@ -378,7 +378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.13.0, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.16.7, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
+"@babel/helper-plugin-utils@npm:7.16.7, @babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.13.0, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.16.7, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
   version: 7.16.7
   resolution: "@babel/helper-plugin-utils@npm:7.16.7"
   checksum: d08dd86554a186c2538547cd537552e4029f704994a9201d41d82015c10ed7f58f9036e8d1527c3760f042409163269d308b0b3706589039c5f1884619c6d4ce
@@ -1328,7 +1328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx@npm:7.16.7, @babel/plugin-transform-react-jsx@npm:^7.12.1, @babel/plugin-transform-react-jsx@npm:^7.12.11, @babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.16.7":
+"@babel/plugin-transform-react-jsx@npm:^7.12.1, @babel/plugin-transform-react-jsx@npm:^7.12.11, @babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/plugin-transform-react-jsx@npm:7.16.7"
   dependencies:
@@ -3466,12 +3466,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.19.2":
-  version: 1.19.2
-  resolution: "@playwright/test@npm:1.19.2"
+"@playwright/test@npm:1.20.0":
+  version: 1.20.0
+  resolution: "@playwright/test@npm:1.20.0"
   dependencies:
     "@babel/code-frame": 7.16.7
     "@babel/core": 7.16.12
+    "@babel/helper-plugin-utils": 7.16.7
     "@babel/plugin-proposal-class-properties": 7.16.7
     "@babel/plugin-proposal-dynamic-import": 7.16.7
     "@babel/plugin-proposal-export-namespace-from": 7.16.7
@@ -3486,31 +3487,26 @@ __metadata:
     "@babel/plugin-syntax-object-rest-spread": 7.8.3
     "@babel/plugin-syntax-optional-catch-binding": 7.8.3
     "@babel/plugin-transform-modules-commonjs": 7.16.8
-    "@babel/plugin-transform-react-jsx": 7.16.7
     "@babel/preset-typescript": 7.16.7
-    babel-plugin-module-resolver: 4.1.0
     colors: 1.4.0
     commander: 8.3.0
     debug: 4.3.3
     expect: 27.2.5
     jest-matcher-utils: 27.2.5
-    jpeg-js: 0.4.3
     json5: 2.2.0
     mime: 3.0.0
     minimatch: 3.0.4
     ms: 2.1.3
     open: 8.4.0
     pirates: 4.0.4
-    pixelmatch: 5.2.1
-    playwright-core: 1.19.2
-    pngjs: 6.0.0
+    playwright-core: 1.20.0
     rimraf: 3.0.2
     source-map-support: 0.4.18
     stack-utils: 2.0.5
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 5d69712ff05e163fe9a7be704cb0ab8d27d24a0fc5510efb01e4d5a2162525566e7e976d102d023d8c10a7515942a270af125b840f87769ad0163cd94b4e3990
+  checksum: 58c867273ac29d22bfd9432913f551c4070884e4378a5603af64794e19906cb9ad8c4489628aa3a40009a27b1159c2510774818189bc9ef90b2f5d957b0591a2
   languageName: node
   linkType: hard
 
@@ -8192,19 +8188,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-module-resolver@npm:4.1.0":
-  version: 4.1.0
-  resolution: "babel-plugin-module-resolver@npm:4.1.0"
-  dependencies:
-    find-babel-config: ^1.2.0
-    glob: ^7.1.6
-    pkg-up: ^3.1.0
-    reselect: ^4.0.0
-    resolve: ^1.13.1
-  checksum: 3907fba21ca3c66a081e01fbd16bb09c84781749db16aa57805becc376bb5ee8dc373d4b209613e1453d30ea6c836d13073e9e7b6d239ff1806dd1763a9ab18f
-  languageName: node
-  linkType: hard
-
 "babel-plugin-named-asset-import@npm:^0.3.1":
   version: 0.3.7
   resolution: "babel-plugin-named-asset-import@npm:0.3.7"
@@ -8503,7 +8486,7 @@ __metadata:
     "@headlessui/react": 1.5.0
     "@next/bundle-analyzer": 12.1.1-canary.10
     "@next/env": 12.1.1-canary.10
-    "@playwright/test": 1.19.2
+    "@playwright/test": 1.20.0
     "@size-limit/file": 7.0.8
     "@svgr/webpack": 6.2.1
     "@tailwindcss/aspect-ratio": 0.4.0
@@ -12886,16 +12869,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-babel-config@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "find-babel-config@npm:1.2.0"
-  dependencies:
-    json5: ^0.5.1
-    path-exists: ^3.0.0
-  checksum: 0a1785d3da9f38637885d9d65f183aaa072f51a834f733035e9694e4d0f6983ae8c8e75cd4e08b92af6f595b3b490ee813a1c5a9b14740685aa836fa1e878583
-  languageName: node
-  linkType: hard
-
 "find-cache-dir@npm:^2.0.0, find-cache-dir@npm:^2.1.0":
   version: 2.1.0
   resolution: "find-cache-dir@npm:2.1.0"
@@ -16215,15 +16188,6 @@ __metadata:
   bin:
     json5: lib/cli.js
   checksum: e88fc5274bb58fc99547baa777886b069d2dd96d9cfc4490b305fd16d711dabd5979e35a4f90873cefbeb552e216b041a304fe56702bedba76e19bc7845f208d
-  languageName: node
-  linkType: hard
-
-"json5@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "json5@npm:0.5.1"
-  bin:
-    json5: lib/cli.js
-  checksum: 9b85bf06955b23eaa4b7328aa8892e3887e81ca731dd27af04a5f5f1458fbc5e1de57a24442e3272f8a888dd1abe1cb68eb693324035f6b3aeba4fcab7667d62
   languageName: node
   linkType: hard
 
@@ -19594,25 +19558,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-up@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "pkg-up@npm:3.1.0"
+"playwright-core@npm:1.20.0":
+  version: 1.20.0
+  resolution: "playwright-core@npm:1.20.0"
   dependencies:
-    find-up: ^3.0.0
-  checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
-  languageName: node
-  linkType: hard
-
-"playwright-core@npm:1.19.2":
-  version: 1.19.2
-  resolution: "playwright-core@npm:1.19.2"
-  dependencies:
+    colors: 1.4.0
     commander: 8.3.0
     debug: 4.3.3
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.0
     jpeg-js: 0.4.3
     mime: 3.0.0
+    pixelmatch: 5.2.1
     pngjs: 6.0.0
     progress: 2.0.3
     proper-lockfile: 4.1.2
@@ -19625,7 +19582,7 @@ __metadata:
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 232a592e4e3f4a2253d929fd3fc63b00778daa031bf69e6d34a555e27e8e908dfb283ce8c2e05426ae8151f0a3acf6706d73f3621172917e00d28e3f67a8883d
+  checksum: 24a28715a1d9acda0fd0107b4a5b2955013bcb06b5412fa423cd7fcd8a6b35e46a6c80198d9b2d461bfe87fca3a08adb35b1b6f4eaffbe4db54d076e55f4638c
   languageName: node
   linkType: hard
 
@@ -22004,13 +21961,6 @@ __metadata:
   version: 1.2.0
   resolution: "requireindex@npm:1.2.0"
   checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
-  languageName: node
-  linkType: hard
-
-"reselect@npm:^4.0.0":
-  version: 4.1.5
-  resolution: "reselect@npm:4.1.5"
-  checksum: 54c13c1e795b2ea70cba8384138aebe78adda00cbea303cc94b64da0a70d74c896cc9a03115ae38b8bff990e7a60dcd6452ab68cbec01b0b38c1afda70714cf0
   languageName: node
   linkType: hard
 
@@ -25737,7 +25687,7 @@ __metadata:
     "@mui/material": 5.5.1
     "@next/bundle-analyzer": 12.1.1-canary.10
     "@next/env": 12.1.1-canary.10
-    "@playwright/test": 1.19.2
+    "@playwright/test": 1.20.0
     "@sentry/browser": 6.18.2
     "@sentry/node": 6.18.2
     "@size-limit/file": 7.0.8
