@@ -31,7 +31,7 @@ const eslintGlobalRulesForFix = [
 
 /**
  * Lint-staged command for running eslint in packages or apps.
- * @param {{cwd: string, files: string[], fix: boolean, fixType: ('problem'|'suggestion'|'layout'|'directive')[], cache: boolean, rules?: string[], maxWarnings?: number}} params
+ * @param {{cwd: string, files: string[], fix: boolean, fixType?: ('problem'|'suggestion'|'layout'|'directive')[], cache: boolean, rules?: string[], maxWarnings?: number}} params
  */
 const getEslintFixCmd = ({
   cwd,
