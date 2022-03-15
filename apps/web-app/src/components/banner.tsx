@@ -5,8 +5,6 @@ type Props = {
   children?: never;
 };
 
-const regexp = /[\\()]/;
-console.log('regexp', regexp);
 export const Banner: FC<Props> = () => {
   return (
     <div className="bg-indigo-600">
