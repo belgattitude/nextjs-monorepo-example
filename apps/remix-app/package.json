@@ -15,7 +15,7 @@
     "url": "https://github.com/belgattitude"
   },
   "scripts": {
-    "postinstall_disabled": "yarn remix setup node",
+    "postinstall": "yarn remix setup node",
     "build": "npm run build-css && remix build",
     "build-css": "tailwindcss -o ./src/tailwind.css",
     "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
