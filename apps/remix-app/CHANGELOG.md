@@ -1,5 +1,11 @@
 # remix-app
 
+## 1.6.0
+
+### Minor Changes
+
+- [#1538](https://github.com/belgattitude/nextjs-monorepo-example/pull/1538) [`c710496`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c71049670f00e8a1964464ba87d8fbf4e574c7eb) Thanks [@belgattitude](https://github.com/belgattitude)! - Updated to remix 1.3.2
+
 ## 1.5.0
 
 ### Minor Changes
