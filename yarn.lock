@@ -6656,14 +6656,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/node@npm:1.13.0":
-  version: 1.13.0
-  resolution: "@vercel/node@npm:1.13.0"
+"@vercel/node-bridge@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@vercel/node-bridge@npm:2.2.0"
+  checksum: 7ba972a005304d96b0c12bde62cf791b700fe726ac2c7cf83088a34912d0e79d130226502e97f71834d1182a43b504437d300075c74e8f6e786c772a79b0af90
+  languageName: node
+  linkType: hard
+
+"@vercel/node@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@vercel/node@npm:1.14.0"
   dependencies:
     "@types/node": "*"
+    "@vercel/node-bridge": 2.2.0
     ts-node: 8.9.1
     typescript: 4.3.4
-  checksum: 54ee2f1b51f658d241b049e5c698d8fb1f70f9740bbbb0e4f83c44c11f5538eabcfdde767f6b1b2311a31c8242b1e1904bf2a2800f258c98faf013bad4425fe0
+  checksum: cde225346712f2401538dcd7a988ae2d44a8c58f23eb3abb69ff2f639904077c747b48ad2b82f6a383d8270fea4453eff22f3b7d13c6a87b2bf96e322b717144
   languageName: node
   linkType: hard
 
@@ -22335,7 +22343,7 @@ __metadata:
     "@types/react-dom": 17.0.14
     "@typescript-eslint/eslint-plugin": 5.16.0
     "@typescript-eslint/parser": 5.16.0
-    "@vercel/node": 1.13.0
+    "@vercel/node": 1.14.0
     "@your-org/core-lib": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     autoprefixer: 10.4.4
