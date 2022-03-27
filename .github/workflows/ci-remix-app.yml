@@ -69,6 +69,7 @@ jobs:
           yarn install --immutable
 
       - # Remix does not (yet) support tsconfig paths. So all packages must be build
+        # Will change once https://github.com/remix-run/remix/pull/2412 is merged
         name: Build all packages (remix)
         run: yarn workspaces foreach -tv --include '@your-org/*' run build
 
