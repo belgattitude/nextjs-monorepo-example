@@ -1,6 +1,5 @@
 import { withEmotionCache } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useContext, useEffect } from 'react';
 import {
   Links,
   LiveReload,
@@ -9,8 +8,9 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
-} from 'remix';
-import type { MetaFunction } from 'remix';
+} from '@remix-run/react';
+import type { MetaFunction } from '@remix-run/react/routeModules';
+import { useContext, useEffect } from 'react';
 import { EmotionStyleClientContext } from './core/emotion/emotion-style-client.context';
 import { EmotionStyleServerContext } from './core/emotion/emotion-style-server.context';
 
