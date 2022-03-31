@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
   children?: never;
 };
 
-export const PoemCard: React.FC<Props> = (props) => {
+export const PoemCard: FC<Props> = (props) => {
   const { img, content, author, title, keywords, defaultImg } = props;
   const image = img ?? defaultImg;
   return (

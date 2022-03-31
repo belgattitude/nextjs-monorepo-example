@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-
 import {
   AccessAlarm,
   Lightbulb,
   LinearScale,
   MobileFriendly,
 } from '@mui/icons-material';
+import type { FC } from 'react';
 
 type Props = {
   children?: never;
@@ -48,7 +48,7 @@ const Ctn = styled.div`
   );
 `;
 
-export const FeaturesBlock: React.FC<Props> = () => {
+export const FeaturesBlock: FC<Props> = () => {
   return (
     <Ctn>
       <div className="py-12 bg-white" style={{ width: '100%' }}>

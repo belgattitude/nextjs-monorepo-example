@@ -3,6 +3,7 @@ import { AsyncMessage, Message } from '@your-org/ui-lib';
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import type { FC } from 'react';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
 import { DemoMuiBlock } from '@/features/demo/blocks/demo-mui.block';
@@ -14,7 +15,7 @@ type Props = {
   children?: never;
 };
 
-export const DemoPage: React.FC<Props> = () => {
+export const DemoPage: FC<Props> = () => {
   const { t } = useTranslation(demoConfig.i18nNamespaces);
 
   return (

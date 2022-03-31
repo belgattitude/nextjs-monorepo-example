@@ -1,6 +1,7 @@
+import type { FC } from 'react';
 import { MainFooter } from '@/components/layout/main-footer';
 
-export const MainLayout: React.FC = (props) => {
+export const MainLayout: FC = (props) => {
   const { children } = props;
   return (
     <div className="flex flex-col h-screen">

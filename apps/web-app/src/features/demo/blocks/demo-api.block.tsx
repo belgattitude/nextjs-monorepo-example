@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import { useQuery } from 'react-query';
 import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
 import { PoemList } from '../components/poem-grid';
@@ -6,7 +7,7 @@ type NoChildrenProps = {
   children?: never;
 };
 
-const PoemGridWithReactQueryAndKy: React.FC<NoChildrenProps> = () => {
+const PoemGridWithReactQueryAndKy: FC<NoChildrenProps> = () => {
   const { data, isLoading, error } = useQuery(
     'posts',
     () => fetchPoemsWithKy(),
@@ -21,7 +22,7 @@ const PoemGridWithReactQueryAndKy: React.FC<NoChildrenProps> = () => {
   return <>{data && <PoemList poems={data} />}</>;
 };
 
-export const DemoApiBlock: React.FC<NoChildrenProps> = () => {
+export const DemoApiBlock: FC<NoChildrenProps> = () => {
   return (
     <div>
       <div className="lg:container lg:mx-auto">
