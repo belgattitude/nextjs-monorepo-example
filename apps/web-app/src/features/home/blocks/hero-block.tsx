@@ -1,11 +1,12 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import type { FC } from 'react';
 
 type Props = {
   children?: never;
 };
 
-export const HeroBlock: React.FC<Props> = () => {
+export const HeroBlock: FC<Props> = () => {
   const { t } = useTranslation(['home', 'common']);
 
   return (

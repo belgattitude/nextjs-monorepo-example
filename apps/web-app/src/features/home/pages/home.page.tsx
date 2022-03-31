@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
+import type { FC } from 'react';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
 import { CtaBlock } from '../blocks/cta-block';
@@ -11,7 +12,7 @@ type Props = {
   children?: never;
 };
 
-export const HomePage: React.FC<Props> = () => {
+export const HomePage: FC<Props> = () => {
   const { t } = useTranslation(homeConfig.i18nNamespaces);
 
   return (

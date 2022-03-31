@@ -1,7 +1,9 @@
+import type { FC } from 'react';
+
 type Props = {
   children?: never;
 };
-export const CtaBlock: React.FC<Props> = () => {
+export const CtaBlock: FC<Props> = () => {
   return (
     <div className="bg-gray-50">
       <div className="lg:flex lg:justify-between lg:items-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">

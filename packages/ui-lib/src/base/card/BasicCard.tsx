@@ -1,5 +1,6 @@
 // To test out support for emotion-11/styled in storybook
 import { isNonEmptyString } from '@your-org/core-lib';
+import type { FC } from 'react';
 import * as S from './BasicCard.styles';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   description: string;
 };
 
-export const BasicCard: React.FC<Props> = (props) => {
+export const BasicCard: FC<Props> = (props) => {
   const { image, title, description } = props;
   const imgSrc = isNonEmptyString(image) ? image : undefined;
   return (

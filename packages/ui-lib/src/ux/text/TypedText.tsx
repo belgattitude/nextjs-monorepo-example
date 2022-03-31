@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import type { HTMLAttributes, FC } from 'react';
 
 type TypedTextProps = {
   /**
@@ -14,7 +14,7 @@ const defaultProps = {
   delay: 250,
 };
 
-export const TypedText: React.FC<TypedTextProps> = (props) => {
+export const TypedText: FC<TypedTextProps> = (props) => {
   const { children, delay, ...restProps } = { ...defaultProps, ...props };
 
   const [text, setText] = useState(children);
