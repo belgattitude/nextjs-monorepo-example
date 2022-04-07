@@ -1,5 +1,11 @@
 # remix-app
 
+## 1.7.0
+
+### Minor Changes
+
+- [#1634](https://github.com/belgattitude/nextjs-monorepo-example/pull/1634) [`9e93e90`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9e93e9062483067abbaf647a7103d174ffc26bd6) Thanks [@belgattitude](https://github.com/belgattitude)! - Remix now supports tsconfig path aliases
+
 ## 1.6.0
 
 ### Minor Changes
