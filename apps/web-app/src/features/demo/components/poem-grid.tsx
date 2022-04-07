@@ -1,6 +1,6 @@
 import { ArrayUtils } from '@your-org/core-lib';
 import type { FC } from 'react';
-import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
 import { PoemCard } from './poem-card';
 
 const waterImages = new Array(25).fill('').map((img, idx) => {
@@ -8,7 +8,9 @@ const waterImages = new Array(25).fill('').map((img, idx) => {
   return `/shared-assets/images/water/water-${index}.jpg`;
 });
 
-export const PoemList: FC<{ poems: GetPoems; children?: never }> = (props) => {
+export const PoemList: FC<{ poems: SearchPoems; children?: never }> = (
+  props
+) => {
   const { poems } = props;
   let images = waterImages;
   return (

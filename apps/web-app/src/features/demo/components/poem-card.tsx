@@ -1,12 +1,14 @@
 import type { FC } from 'react';
-import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
+
+type Poem = SearchPoems[0];
 
 type Props = {
-  img: GetPoems[0]['image'];
-  title: GetPoems[0]['title'];
-  author: GetPoems[0]['author'];
-  content: GetPoems[0]['content'];
-  keywords: GetPoems[0]['keywords'];
+  img: Poem['image'];
+  title: Poem['title'];
+  author: Poem['author'];
+  content: Poem['content'];
+  keywords: Poem['keywords'];
   defaultImg?: string;
   children?: never;
 };
