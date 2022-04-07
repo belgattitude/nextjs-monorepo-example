@@ -47,7 +47,6 @@ Useful to
 ```
 .
 ├── apps
-│   ├── remix-app
 │   ├── vite-app
 │   └── web-app    (nextjs, i18n, ssr, e2e playwright)
 └── packages
@@ -59,7 +58,6 @@ Useful to
 #### Example apps
 
 - [apps/web-app](./apps/web-app): SSR, i18n, tailwind v3, emotion, graphQL, rest... [README](./apps/web-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-web-app.vercel.app) | [CHANGELOG](./apps/web-app/CHANGELOG.md)
-- [apps/remix-app](./apps/remix-app): Remix. [README](./apps/remix-app/README.md) | [~~DEMO/Vercel~~] | [CHANGELOG](./apps/remix-app/CHANGELOG.md)
 - [apps/vite-app](./apps/vite-app): Basic vite-app. [README](./apps/vite-app/README.md) | [DEMO/Vercel](https://nextjs-monorepo-example-vite-app.vercel.app) | [CHANGELOG](./apps/vite-app/CHANGELOG.md)
 
 > Apps should not depend on apps, they can depend on packages
@@ -86,11 +84,6 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 ```
 .
 ├── apps
-│   ├── remix-app                (Remix.run app as an example)
-│   │   ├── app/
-│   │   ├── package.json         (define package workspace:package deps)
-│   │   └── tsconfig.json        (define path to packages)
-│   │
 │   ├── vite-app                 (Vite app as an example)
 │   │   ├── src/
 │   │   ├── package.json         (define package workspace:package deps)
