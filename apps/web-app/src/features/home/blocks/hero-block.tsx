@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next';
+// import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import type { FC } from 'react';
 
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const HeroBlock: FC<Props> = () => {
-  const { t } = useTranslation(['home', 'common']);
+  // const { t } = useTranslation(['home', 'common']);
 
   return (
     <section className="text-gray-600 body-font">

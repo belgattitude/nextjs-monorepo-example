@@ -165,7 +165,7 @@ const nextConfig = {
   },
    */
 
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer: _isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,

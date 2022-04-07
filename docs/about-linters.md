@@ -38,8 +38,6 @@ nested approach:
 ```
 .
 ├── apps
-│   ├── remix-app
-│   │   └── .eslintrc.js   (extends eslint.base: adds react, rtl...)
 │   └── web-app
 │       └── .eslintrc.js   (extends eslint.base: adds react, nextjs, rtl...)
 ├── packages

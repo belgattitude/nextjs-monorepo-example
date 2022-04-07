@@ -6,7 +6,6 @@ done through [atlassian/changesets](https://github.com/atlassian/changesets).
 
 Apps:
 
-- [blog-app/CHANGELOG.md](./apps/blog-app/CHANGELOG.md)
 - [web-app/CHANGELOG.md](./apps/web-app/CHANGELOG.md)
 
 Packages:
