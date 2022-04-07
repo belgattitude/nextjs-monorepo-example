@@ -26,7 +26,7 @@ export type JsonApiErrorResponse = {
 export type JsonApiResponseMeta = {
   meta?: {
     cacheHit?: boolean;
-  } & Record<string, string | number | boolean>;
+  } & Record<string, string | number | boolean | Record<string, unknown>>;
 };
 
 export type JsonApiSuccessResponse<T> = {
