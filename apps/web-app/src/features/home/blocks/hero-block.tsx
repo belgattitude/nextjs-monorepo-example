@@ -1,4 +1,6 @@
 // import { useTranslation } from 'next-i18next';
+import { Button } from '@mqs/ui-lib';
+import { Stack } from '@mui/material';
 import Image from 'next/image';
 import type { FC } from 'react';
 
@@ -24,14 +26,14 @@ export const HeroBlock: FC<Props> = () => {
             mlkshk tote bag selvage hot chicken authentic tumeric truffaut
             hexagon try-hard chambray.
           </p>
-          <div className="flex justify-center">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <Stack direction="row" spacing={1}>
+            <Button variant="contained" color="primary">
               Button
-            </button>
-            <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+            </Button>
+            <Button variant="contained" color="secondary">
               Button
-            </button>
-          </div>
+            </Button>
+          </Stack>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <Image

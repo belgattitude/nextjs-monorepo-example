@@ -1,3 +1,5 @@
+import { Button } from '@mqs/ui-lib';
+import { Stack } from '@mui/material';
 import type { FC } from 'react';
 
 type Props = {
@@ -13,24 +15,14 @@ export const CtaBlock: FC<Props> = () => {
             Start your free trial today.
           </span>
         </h2>
-        <div className="flex lg:flex-shrink-0 mt-8 lg:mt-0">
-          <div className="inline-flex rounded-md shadow">
-            <a
-              href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md border border-transparent"
-            >
-              Get started
-            </a>
-          </div>
-          <div className="inline-flex ml-3 rounded-md shadow">
-            <a
-              href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent"
-            >
-              Learn more
-            </a>
-          </div>
-        </div>
+        <Stack direction="row" spacing={1}>
+          <Button variant="contained" href="#">
+            Get started
+          </Button>
+          <Button variant="contained" href="#">
+            Learn more
+          </Button>
+        </Stack>
       </div>
     </div>
   );

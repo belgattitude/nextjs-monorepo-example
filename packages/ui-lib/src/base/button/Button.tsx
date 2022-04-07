@@ -1,54 +1,22 @@
 // To test out support for emotion-11/css prop in storybook
 
+import type { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import MuiButton from '@mui/material/Button';
 import type { FC } from 'react';
 import React from 'react';
-import { cssButtonStyle } from './Button.styles';
 
-type ButtonProps = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-  children?: never;
-};
+type ButtonProps = MuiButtonProps;
 
 /**
- * Primary UI component for user interaction
+ *
+ * Material Design:
+ * - [Button Docs](https://material.io/components/buttons)
+ *
+ * Material UI:
+ * - [Button API](https://mui.com/api/button/)
+ * - [Button Demos](https://mui.com/components/buttons/)
+ *
  */
 export const Button: FC<ButtonProps> = (props) => {
-  const {
-    primary = false,
-    size = 'medium',
-    backgroundColor,
-    label,
-    ...restProps
-  } = props;
-  const mode = primary ? 'primary' : 'secondary';
-  return (
-    <button
-      css={cssButtonStyle}
-      type="button"
-      className={[size, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...restProps}
-    >
-      {label}
-    </button>
-  );
+  return <MuiButton {...props} />;
 };

@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import { Button } from '@mqs/ui-lib';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
