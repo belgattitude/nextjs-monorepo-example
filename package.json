@@ -2,14 +2,14 @@
   "name": "nextjs-monorepo-example",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "homepage": "https://github.com/mqschwanda/nextjs-monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example"
+    "url": "https://github.com/mqschwanda/nextjs-monorepo"
   },
   "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
+    "name": "Mark Q Schwanda",
+    "url": "https://github.com/mqschwanda"
   },
   "keywords": [
     "example",
@@ -39,11 +39,11 @@
     "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:test:unit": "yarn workspaces foreach -ptv --include '@your-org/*' run test-unit",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
+    "packages:build": "yarn workspaces foreach -ptv --include '@mqs/*' run build",
+    "packages:test:unit": "yarn workspaces foreach -ptv --include '@mqs/*' run test-unit",
+    "packages:lint": "yarn workspaces foreach -ptv --include '@mqs/*' run lint",
+    "packages:typecheck": "yarn workspaces foreach -ptv --include '@mqs/*' run typecheck",
+    "packages:clean": "yarn workspaces foreach -ptv --include '@mqs/*' run clean",
     "docker:prune-cache": "docker buildx prune",
     "docker:web-app:install": "docker buildx bake -f ./docker-compose.web-app.yml --progress=tty deps",
     "docker:web-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db",

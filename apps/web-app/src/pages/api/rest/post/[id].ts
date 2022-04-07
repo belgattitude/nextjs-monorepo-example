@@ -1,8 +1,8 @@
+import { Asserts } from '@mqs/core-lib';
+import { JsonApiResponseFactory } from '@mqs/core-lib/api/json-api';
+import { JsonApiErrorFactory } from '@mqs/core-lib/api/json-api/json-api-error.factory';
+import { StringConvert } from '@mqs/core-lib/utils/string-convert';
 import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
-import { Asserts } from '@your-org/core-lib';
-import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
-import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
-import { StringConvert } from '@your-org/core-lib/utils/string-convert';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';

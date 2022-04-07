@@ -1,5 +1,5 @@
-import { Asserts } from '@your-org/core-lib';
-import { PrismaManager, PrismaClientDbMain } from '@your-org/db-main-prisma';
+import { Asserts } from '@mqs/core-lib';
+import { PrismaManager, PrismaClientDbMain } from '@mqs/db-main-prisma';
 
 const isDev = process.env?.NODE_ENV === 'development';
 

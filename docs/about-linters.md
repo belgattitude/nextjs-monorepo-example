@@ -1,7 +1,7 @@
 # About linters
 
 This doc provides tips and tricks based on [eslint](https://eslint.org) and [prettier](https://prettier.org) in the
-context of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+context of the [nextjs-monorepo-example](https://github.com/mqschwanda/nextjs-monorepo).
 It covers few popular plugins, their configurations, how to run them efficiently
 on CI and how they can be customized per apps or packages.
 
@@ -32,7 +32,7 @@ There's many more in the wild.
 ## Structure
 
 Often in monorepo you might want to apply different plugins or config differently for each package. There's many
-ways to achieve it. The [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example) uses a
+ways to achieve it. The [nextjs-monorepo-example](https://github.com/mqschwanda/nextjs-monorepo) uses a
 nested approach:
 
 ```

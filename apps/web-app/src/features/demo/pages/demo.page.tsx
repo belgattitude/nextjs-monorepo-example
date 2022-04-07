@@ -1,5 +1,5 @@
-import { sayHello } from '@your-org/core-lib';
-import { AsyncMessage, Message } from '@your-org/ui-lib';
+import { sayHello } from '@mqs/core-lib';
+import { AsyncMessage, Message } from '@mqs/ui-lib';
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
@@ -22,16 +22,16 @@ export const DemoPage: FC<Props> = () => {
     <>
       <NextSeo
         title={t('demo:page.title')}
-        description="Web-app nextjs monorepo example, https://github.com/belgattitude/nextjs-monorepo-example"
+        description="Web-app nextjs monorepo example, https://github.com/mqschwanda/nextjs-monorepo"
       />
       <MainLayout>
         <Banner />
         <h3>I'm the web-app</h3>
         <Jumbotron />
         <ul>
-          <li>{`Foo says: ${sayHello('World')} from @your-org/core-lib`}</li>
+          <li>{`Foo says: ${sayHello('World')} from @mqs/core-lib`}</li>
           <li>
-            <Message message={'Bar react component from @your-org/ui-lib'} />
+            <Message message={'Bar react component from @mqs/ui-lib'} />
           </li>
           <li>
             <AsyncMessage apiUrl={'/api/hello'} />

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import GithubIcon from '@your-org/ui-lib/icons/social/github.svg';
+import GithubIcon from '@mqs/ui-lib/icons/social/github.svg';
 import type { FC } from 'react';
 import FooterWaves from '@/public/images/layout/footer-waves.svg';
 
@@ -33,7 +33,7 @@ export const MainFooter: FC = () => {
       </div>
       <div className={'content'}>
         <a
-          href={'https://github.com/belgattitude/nextjs-monorepo-example'}
+          href={'https://github.com/mqschwanda/nextjs-monorepo'}
           target={'_blank'}
           rel={'noopener noreferrer'}
         >

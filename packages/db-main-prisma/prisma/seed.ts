@@ -6,15 +6,15 @@ const prisma = new PrismaClient();
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    firstName: 'Sébastien',
-    lastName: 'Vanvelthem',
-    nickname: 'belgattitude',
-    email: 'belgattitude@gmail.com',
+    firstName: 'Mark',
+    lastName: 'Schwanda',
+    nickname: 'mqschwanda',
+    email: 'mqschwanda@gmail.com',
     posts: {
       create: [
         {
           title: 'Nextjs monorepo example',
-          link: 'https://github.com/belgattitude/nextjs-monorepo-example',
+          link: 'https://github.com/mqschwanda/nextjs-monorepo',
           image:
             'https://images.unsplash.com/photo-1625904835711-fa25795530e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80',
           publishedAt: new Date(),
