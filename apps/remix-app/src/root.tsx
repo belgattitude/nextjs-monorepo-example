@@ -11,8 +11,10 @@ import {
 } from '@remix-run/react';
 import type { MetaFunction } from '@remix-run/react/routeModules';
 import { useContext, useEffect } from 'react';
-import { EmotionStyleClientContext } from './core/emotion/emotion-style-client.context';
-import { EmotionStyleServerContext } from './core/emotion/emotion-style-server.context';
+import {
+  EmotionStyleClientContext,
+  EmotionStyleServerContext,
+} from '@/lib/emotion';
 
 // eslint-disable-next-line import/no-unresolved, @typescript-eslint/no-unused-vars
 import tailwind from './tailwind.css';

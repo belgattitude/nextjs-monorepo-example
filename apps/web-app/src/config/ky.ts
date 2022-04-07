@@ -1,5 +1,5 @@
 import type { NormalizedOptions } from 'ky';
-import { KyFactory } from '@/core/factory/ky.factory';
+import { KyFactory } from '@/lib/factory/ky.factory';
 
 export const ky = new KyFactory({
   onAuthFailure: (
