@@ -39,13 +39,13 @@ async function main() {
   }
   // poems
   for (const poem of poemsSeed) {
+    const { keywords, ...poemWithoutKeywords } = poem;
     await prisma.poem.upsert({
       where: {
         slug: poem.slug,
       },
       update: {
-        content: poem.content,
-        keywords: poem.keywords,
+        ...poemWithoutKeywords,
       },
       create: poem,
     });
