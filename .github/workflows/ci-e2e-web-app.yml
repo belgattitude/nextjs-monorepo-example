@@ -101,8 +101,7 @@ jobs:
       - name: Create and seed test database
         working-directory: packages/db-main-prisma
         run: |
-          yarn prisma db push
-          yarn prisma db seed
+          yarn prisma migrate reset
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
