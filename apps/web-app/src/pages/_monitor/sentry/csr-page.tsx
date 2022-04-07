@@ -1,4 +1,4 @@
-import { usePromise } from '@your-org/core-lib/hooks';
+import { usePromise } from '@mqs/core-lib/hooks';
 import type { FC } from 'react';
 
 const fetchAndAlwaysThrow = async () => {

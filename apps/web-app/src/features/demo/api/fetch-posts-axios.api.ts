@@ -1,5 +1,5 @@
-import type { JsonApiResponse } from '@your-org/core-lib/api/json-api';
-import { isJsonApiSuccessResponse } from '@your-org/core-lib/api/json-api';
+import type { JsonApiResponse } from '@mqs/core-lib/api/json-api';
+import { isJsonApiSuccessResponse } from '@mqs/core-lib/api/json-api';
 import axios from 'axios';
 import type { GetPosts } from '@/backend/api/rest/post-repository.ssr';
 

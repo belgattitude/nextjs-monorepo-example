@@ -1,5 +1,5 @@
+import { isIsoDateString } from '@mqs/core-lib';
 import { test, expect } from '@playwright/test';
-import { isIsoDateString } from '@your-org/core-lib';
 import type { HealthCheckApiPayload } from '@/pages/api/_monitor/healthcheck';
 import packageJson from '../../../../package.json';
 

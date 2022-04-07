@@ -1,6 +1,6 @@
 /**
  * Specific eslint rules for this app/package, extends the base rules
- * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
+ * @see https://github.com/mqschwanda/nextjs-monorepo/blob/main/docs/about-linters.md
  */
 
 module.exports = {

@@ -1,4 +1,4 @@
-import { ArrayUtils } from '@your-org/core-lib';
+import { ArrayUtils } from '@mqs/core-lib';
 import type { FC } from 'react';
 import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 import { PoemCard } from './poem-card';
