@@ -2,22 +2,27 @@ import { MethodNotAllowed } from '@tsed/exceptions';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PoemRepositorySsr } from '@/backend/api/rest/poem-repository.ssr';
+import superjson from 'superjson';
 import { prismaClient } from '@/backend/config/container.config';
+import { SearchPoemsQuery } from '@/backend/features/poem/SearchPoems';
 
 export default async function handleListPoems(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    const poemRepo = new PoemRepositorySsr(prismaClient);
+    const searchPoem = new SearchPoemsQuery(prismaClient);
     try {
+      const { json: serializableData, meta } = superjson.serialize(
+        await searchPoem.execute({
+          limit: 100,
+        })
+      );
       return res.json(
-        JsonApiResponseFactory.fromSuccess(
-          await poemRepo.getPoems({
-            limit: 100,
-          })
-        )
+        JsonApiResponseFactory.fromSuccess(serializableData, {
+          serializer: 'superjson',
+          superjsonMeta: meta ?? {},
+        })
       );
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromCatchVariable(e);

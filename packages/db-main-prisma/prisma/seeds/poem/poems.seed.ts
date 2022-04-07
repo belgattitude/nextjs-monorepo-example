@@ -5,7 +5,8 @@ import { slugify } from 'transliteration';
 /* eslint-disable sonarjs/no-duplicate-string */
 
 // Taken from https://medium.com/@EmEmbarty/31-of-the-best-and-most-famous-short-classic-poems-of-all-time-e445986e6df
-export const poemsSeed: Prisma.PoemCreateInput[] = [
+
+const poems = [
   {
     author: 'John Donne',
     title: 'No man is an island',
@@ -114,24 +115,6 @@ export const poemsSeed: Prisma.PoemCreateInput[] = [
       When in eternal lines to Time thou grow’st.
       So long as men can breathe, or eyes can see,
       So long lives this, and this gives life to thee.
-    `,
-  },
-  {
-    author: 'Sara Teasdale',
-    title: `There Will Come Soft Rain`,
-    content: `
-      There will come soft rain and the smell of the ground,
-      And swallows circling with their shimmering sound;
-      And frogs in the pools singing at night,
-      And wild plum trees in tremulous white;
-      Robins will wear their feathery fire,
-      Whistling their whims on a low fence-wire;
-      And not one will know of the war, not one
-      Will care at last when it is done.
-      Not one would mind, neither bird nor tree,
-      If mankind perished utterly;
-      And Spring herself, when she woke at dawn
-      Would scarcely know that we were gone.
     `,
   },
   {
@@ -279,27 +262,40 @@ export const poemsSeed: Prisma.PoemCreateInput[] = [
       But only God can make a tree.
     `,
   },
-].map((partial) => {
-  const sanitizedContent = partial.content
+].map((poem) => {
+  const sanitizedContent = poem.content
     // @link http://www.unicode.org/reports/tr18/#RL1.6
     .split(/(\r\n|[\n\v\f\r\x85\u2028\u2029])/)
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
     .join('\n')
     .trim();
+  return {
+    ...poem,
+    slug: slugify(`${poem.author}-${poem.title}`),
+    content: sanitizedContent,
+  };
+});
 
-  const keywords = keywordExtractor.extract(partial.title, {
+export const poemsSeed: Prisma.PoemCreateInput[] = poems.map((poem) => {
+  const keywords = keywordExtractor.extract(poem.title, {
     language: 'english',
     remove_digits: true,
     return_changed_case: true,
     remove_duplicates: true,
   });
-
-  const poem: Prisma.PoemCreateInput = {
-    ...partial,
-    slug: slugify(`${partial.author}-${partial.title}`),
-    content: sanitizedContent,
-    keywords: keywords,
+  const poemInput: Prisma.PoemCreateInput = {
+    ...poem,
+    keywords: {
+      create: keywords.map((keyword) => ({
+        keyword: {
+          connectOrCreate: {
+            create: { name: keyword },
+            where: { name: keyword },
+          },
+        },
+      })),
+    },
   };
-  return poem;
+  return poemInput;
 });

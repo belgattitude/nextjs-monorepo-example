@@ -10,11 +10,14 @@ const userData: Prisma.UserCreateInput[] = [
     lastName: 'Vanvelthem',
     nickname: 'belgattitude',
     email: 'belgattitude@gmail.com',
-    posts: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    Post: {
       create: [
         {
           title: 'Nextjs monorepo example',
+          slug: 'first-post',
           link: 'https://github.com/belgattitude/nextjs-monorepo-example',
+          content: 'Hello world',
           image:
             'https://images.unsplash.com/photo-1625904835711-fa25795530e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80',
           publishedAt: new Date(),
@@ -37,13 +40,13 @@ async function main() {
   }
   // poems
   for (const poem of poemsSeed) {
+    const { keywords, ...poemWithoutKeywords } = poem;
     await prisma.poem.upsert({
       where: {
         slug: poem.slug,
       },
       update: {
-        content: poem.content,
-        keywords: poem.keywords,
+        ...poemWithoutKeywords,
       },
       create: poem,
     });

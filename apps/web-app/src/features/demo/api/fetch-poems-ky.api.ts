@@ -1,12 +1,12 @@
 import type { JsonApiResponse } from '@your-org/core-lib/api/json-api';
 import { isJsonApiSuccessResponse } from '@your-org/core-lib/api/json-api';
-import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
+import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
 import { ky } from '@/config/ky';
 
-export const fetchPoemsWithKy = async (): Promise<GetPoems> => {
+export const fetchPoemsWithKy = async (): Promise<SearchPoems> => {
   return ky
     .get('/api/rest/poem')
-    .json<JsonApiResponse<GetPoems>>()
+    .json<JsonApiResponse<SearchPoems>>()
     .then((resp) => {
       if (!isJsonApiSuccessResponse(resp)) {
         throw new Error(`Error fetching poems: ${resp.errors}`);

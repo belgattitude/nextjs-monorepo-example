@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-micro';
-import { PoemRepositorySsr } from '@/backend/api/rest/poem-repository.ssr';
+import { SearchPoemsQuery } from '@/backend/features/poem/SearchPoems';
 import type { GraphqlSdlContext } from './graphql-sdl-context';
 
 const typeDefs = gql`
@@ -8,15 +8,16 @@ const typeDefs = gql`
     title: String
     content: String
     author: String
+    keywords: [String]
   }
   type Query {
-    allPoems: [Poem!]!
+    searchPoems: [Poem!]!
   }
 `;
 
 const resolvers = {
   Query: {
-    allPoems: (
+    searchPoems: (
       _parent: unknown,
       _args: {
         limit?: number;
@@ -24,8 +25,8 @@ const resolvers = {
       },
       context: GraphqlSdlContext
     ) => {
-      const poemRepo = new PoemRepositorySsr(context.prisma);
-      return poemRepo.getPoems({
+      const poemQuery = new SearchPoemsQuery(context.prisma);
+      return poemQuery.execute({
         limit: _args.limit,
         offset: _args.offset,
       });
