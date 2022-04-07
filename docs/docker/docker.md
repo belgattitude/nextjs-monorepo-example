@@ -8,7 +8,6 @@ and build time (taking advantage of buildx cache).
 ```
 .
 ├── apps
-│   ├── blog-app
 │   └── web-app
 ├── packages
 │   ├── core-lib
