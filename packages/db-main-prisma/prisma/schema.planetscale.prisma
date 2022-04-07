@@ -1,13 +1,13 @@
 generator client {
   provider = "prisma-client-js"
-  // output = "../src/generated"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("PRISMA_DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
-
 model Poem {
   id        Int            @id @default(autoincrement())
   slug      String         @unique

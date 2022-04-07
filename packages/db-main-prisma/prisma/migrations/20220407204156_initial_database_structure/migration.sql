@@ -2,12 +2,12 @@
 CREATE TABLE "poem" (
     "id" SERIAL NOT NULL,
     "slug" TEXT NOT NULL,
-    "title" TEXT NOT NULL,
+    "title" VARCHAR(255) NOT NULL,
     "content" TEXT NOT NULL,
-    "locale" TEXT,
-    "author" TEXT NOT NULL,
-    "link" TEXT,
-    "image" TEXT,
+    "locale" VARCHAR(5),
+    "author" VARCHAR(120) NOT NULL,
+    "link" VARCHAR(255),
+    "image" VARCHAR(255),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -28,8 +28,8 @@ CREATE TABLE "poem_keywords" (
 -- CreateTable
 CREATE TABLE "keyword" (
     "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
-    "locale" TEXT,
+    "name" VARCHAR(120) NOT NULL,
+    "locale" VARCHAR(5),
 
     CONSTRAINT "keyword_pkey" PRIMARY KEY ("id")
 );
@@ -38,10 +38,10 @@ CREATE TABLE "keyword" (
 CREATE TABLE "post" (
     "id" SERIAL NOT NULL,
     "slug" TEXT NOT NULL,
-    "title" TEXT NOT NULL,
-    "content" TEXT,
-    "link" TEXT,
-    "image" TEXT,
+    "title" VARCHAR(300) NOT NULL,
+    "content" TEXT NOT NULL,
+    "link" VARCHAR(300),
+    "image" VARCHAR(300),
     "author_id" INTEGER,
     "published_at" TIMESTAMP(3),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -53,12 +53,12 @@ CREATE TABLE "post" (
 -- CreateTable
 CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
-    "first_name" TEXT,
-    "last_name" TEXT,
-    "nickname" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
+    "first_name" VARCHAR(80),
+    "last_name" VARCHAR(80),
+    "nickname" VARCHAR(64) NOT NULL,
+    "email" VARCHAR(150) NOT NULL,
     "email_verified" TIMESTAMP(3),
-    "avatar_url" TEXT,
+    "avatar_url" VARCHAR(255),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -95,8 +95,8 @@ CREATE TABLE "auth_sessions" (
 
 -- CreateTable
 CREATE TABLE "auth_verification_tokens" (
-    "identifier" TEXT NOT NULL,
-    "token" TEXT NOT NULL,
+    "identifier" VARCHAR(255) NOT NULL,
+    "token" VARCHAR(255) NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL
 );
 
