@@ -1,8 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import type { FC } from 'react';
-
-import { systemConfig } from '@/features/system/system.config';
 
 type Props = {
   title?: string;
@@ -10,8 +7,7 @@ type Props = {
 };
 
 export const NotFoundPage: FC<Props> = (props) => {
-  const { t } = useTranslation(systemConfig.i18nNamespaces);
-  const title = props.title ?? t('system:notFound.title');
+  const title = props.title || 'Not Found';
   return (
     <>
       <Head>
@@ -25,7 +21,7 @@ export const NotFoundPage: FC<Props> = (props) => {
           {title}
         </h1>
         <p className="text-center mt-5 no-underline hover:underline text-xl">
-          <a href={'/'}>{t('system:links.backToHome')}</a>
+          <a href={'/'}>Back to home</a>
         </p>
       </div>
     </>

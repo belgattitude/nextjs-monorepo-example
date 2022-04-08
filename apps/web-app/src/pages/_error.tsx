@@ -80,7 +80,7 @@ const CustomError: NextPage<CustomErrorProps> = (props) => {
     <ErrorPage
       error={err ?? undefined}
       message={message}
-      sentryErrorId={sentryErrorId ?? browserSentryErrorId}
+      errorId={sentryErrorId ?? browserSentryErrorId}
       statusCode={statusCode}
     />
   );
