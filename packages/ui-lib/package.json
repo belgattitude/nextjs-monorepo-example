@@ -32,13 +32,27 @@
     "build-storybook": "build-storybook --output-dir build/storybook"
   },
   "dependencies": {
-    "@your-org/core-lib": "workspace:^"
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@your-org/core-lib": "workspace:^",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.44 || ^18.0.0",
+    "@types/react-dom": "^17.0.44 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/core": "7.17.9",
     "@emotion/babel-preset-css-prop": "11.2.0",
-    "@emotion/react": "11.9.0",
-    "@emotion/styled": "11.8.1",
     "@mdx-js/react": "2.1.1",
     "@storybook/addon-actions": "6.4.20",
     "@storybook/addon-docs": "6.4.20",
@@ -85,8 +99,6 @@
     "postcss": "8.4.12",
     "postcss-flexbugs-fixes": "5.0.2",
     "prettier": "2.6.2",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
     "rimraf": "3.0.2",
     "rooks": "5.11.0",
     "tailwindcss": "3.0.23",
@@ -94,25 +106,5 @@
     "tsconfig-paths-webpack-plugin": "3.5.2",
     "typescript": "4.6.3",
     "webpack": "5.72.0"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.7.0",
-    "@emotion/styled": "^11.6.0",
-    "react": "^17.0.2 || ^18.0.0",
-    "react-dom": "^17.0.2 || ^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@emotion/react": {
-      "optional": false
-    },
-    "@emotion/styled": {
-      "optional": false
-    },
-    "react": {
-      "optional": false
-    },
-    "react-dom": {
-      "optional": false
-    }
   }
 }
