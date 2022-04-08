@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Card,
   CardContent,
@@ -13,7 +14,6 @@ import {
   LinearScale,
   MobileFriendly,
 } from '@mui/icons-material';
-import { Avatar } from '@mui/material';
 import type { FC } from 'react';
 
 type Props = {
