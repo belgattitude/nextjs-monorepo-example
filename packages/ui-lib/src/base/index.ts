@@ -5,5 +5,6 @@ export { Grid } from './grid/Grid';
 export { Stack } from './stack/Stack';
 export { Typography } from './typography/Typography';
 export { UIProvider } from './provider';
+export * from './appbar/AppBar';
 export * from './card';
 export * from './theme';
