@@ -1,6 +1,15 @@
 // import { useTranslation } from 'next-i18next';
-import { Button, Box, Container, Stack, Grid, Typography } from '@mqs/ui-lib';
-import { Card, CardActions, CardContent } from '@mui/material';
+import {
+  Button,
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  Container,
+  Stack,
+  Grid,
+  Typography,
+} from '@mqs/ui-lib';
 import Image from 'next/image';
 import type { FC } from 'react';
 

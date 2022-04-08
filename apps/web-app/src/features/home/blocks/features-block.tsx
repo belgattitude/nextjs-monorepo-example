@@ -1,11 +1,19 @@
-import { Box, Container, Stack, Grid, Typography } from '@mqs/ui-lib';
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Stack,
+  Grid,
+  Typography,
+} from '@mqs/ui-lib';
 import {
   AccessAlarm,
   Lightbulb,
   LinearScale,
   MobileFriendly,
 } from '@mui/icons-material';
-import { Avatar, Card, CardContent } from '@mui/material';
+import { Avatar } from '@mui/material';
 import type { FC } from 'react';
 
 type Props = {
@@ -53,15 +61,17 @@ export const FeaturesBlock: FC<Props> = () => {
         <Card>
           <CardContent>
             <Stack spacing={3}>
-              <Typography textAlign="center">
-                <Typography color="primary" variant="h4">
+              <span>
+                <Typography color="primary" variant="h4" textAlign="center">
                   Transactions
                 </Typography>
-                <Typography variant="body1">
+                <Typography variant="body1" textAlign="center">
                   A better way to send money
                 </Typography>
-                <Typography variant="caption">{lorem}</Typography>
-              </Typography>
+                <Typography variant="body2" textAlign="center">
+                  {lorem}
+                </Typography>
+              </span>
               <Grid container spacing={3}>
                 {features.map(({ description, icon: Icon, name }) => (
                   <Grid key={name} item xs={12} sm={6} md={6} lg={3}>
