@@ -1,11 +1,11 @@
 import type { I18nActiveNamespaces } from '@/lib/i18n';
 
-export type DemoConfig = {
+export type SystemConfig = {
   // Define installed namespaces in the type here
   // to allow full typechecking of your translation keys.
-  i18nNamespaces: Readonly<I18nActiveNamespaces<'common' | 'demo'>>;
+  i18nNamespaces: Readonly<I18nActiveNamespaces<'system'>>;
 };
 
-export const demoConfig: DemoConfig = {
-  i18nNamespaces: ['common', 'demo'],
+export const systemConfig: SystemConfig = {
+  i18nNamespaces: ['system'],
 } as const;

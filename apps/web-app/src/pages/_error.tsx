@@ -10,7 +10,7 @@ import {
 import type { NextPage, NextPageContext } from 'next';
 import NextErrorComponent from 'next/error';
 import type { ErrorProps } from 'next/error';
-import { ErrorPage } from '@/features/error/pages/error.page';
+import { ErrorPage } from '@/features/system/pages';
 
 const sentryIgnoredStatusCodes: number[] = [404, 410];
 
@@ -80,7 +80,7 @@ const CustomError: NextPage<CustomErrorProps> = (props) => {
     <ErrorPage
       error={err ?? undefined}
       message={message}
-      sentryErrorId={sentryErrorId ?? browserSentryErrorId}
+      errorId={sentryErrorId ?? browserSentryErrorId}
       statusCode={statusCode}
     />
   );

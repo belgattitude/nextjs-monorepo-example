@@ -11,8 +11,11 @@ import {
 } from '@remix-run/react';
 import type { MetaFunction } from '@remix-run/react/routeModules';
 import { useContext, useEffect } from 'react';
-import { EmotionStyleClientContext } from './core/emotion/emotion-style-client.context';
-import { EmotionStyleServerContext } from './core/emotion/emotion-style-server.context';
+import { NotFoundPage } from '@/features/system/pages';
+import {
+  EmotionStyleClientContext,
+  EmotionStyleServerContext,
+} from '@/lib/emotion';
 
 // eslint-disable-next-line import/no-unresolved, @typescript-eslint/no-unused-vars
 import tailwind from './tailwind.css';
@@ -96,15 +99,21 @@ export default function App() {
 }
 
 export function CatchBoundary() {
-  const caught = useCatch();
+  const { status, statusText, data: _data } = useCatch();
 
-  return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
+  const Content = () =>
+    status === 404 ? (
+      <NotFoundPage />
+    ) : (
       <Container>
         <p>
-          [CatchBoundary]: {caught.status} {caught.statusText}
+          [CatchBoundary]: {status} {statusText}
         </p>
       </Container>
+    );
+  return (
+    <Document title={`${status} ${statusText}`}>
+      <Content />
     </Document>
   );
 }

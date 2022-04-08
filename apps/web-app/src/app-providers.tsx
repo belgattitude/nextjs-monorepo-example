@@ -4,7 +4,7 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material';
 import type { FC } from 'react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { createEmotionCache } from '@/core/emotion/create-emotion-cache';
+import { createEmotionCache } from '@/lib/emotion';
 import { muiTheme } from '@/themes/mui/mui.theme';
 
 const queryClient = new QueryClient({
