@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Typography } from '@mqs/ui-lib';
 import {
   AccessAlarm,
   Lightbulb,
@@ -54,15 +55,11 @@ export const FeaturesBlock: FC<Props> = () => {
       <div className="py-12 bg-white" style={{ width: '100%' }}>
         <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
           <div className="lg:text-center">
-            <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase">
+            <Typography color="primary" variant="h4">
               Transactions
-            </h2>
-            <p className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight leading-8 text-gray-900">
-              A better way to send money
-            </p>
-            <p className="lg:mx-auto mt-4 max-w-2xl text-xl text-gray-500">
-              {lorem}
-            </p>
+            </Typography>
+            <Typography variant="body1">A better way to send money</Typography>
+            <Typography variant="caption">{lorem}</Typography>
           </div>
 
           <div className="mt-10">
@@ -73,12 +70,12 @@ export const FeaturesBlock: FC<Props> = () => {
                     <div className="flex absolute justify-center items-center w-12 h-12 text-white bg-indigo-500 rounded-md">
                       <feature.icon className="w-6 h-6" aria-hidden="true" />
                     </div>
-                    <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
-                      {feature.name}
-                    </p>
+                    <Typography ml="4rem">{feature.name}</Typography>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
-                    {feature.description}
+                  <dd className="mt-2 ml-16">
+                    <Typography variant="caption">
+                      {feature.description}
+                    </Typography>
                   </dd>
                 </div>
               ))}
