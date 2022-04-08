@@ -9,3 +9,4 @@ export * from './avatar/Avatar';
 export * from './appbar/AppBar';
 export * from './card';
 export * from './theme';
+export * from './icon';

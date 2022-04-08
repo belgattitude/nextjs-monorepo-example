@@ -7,13 +7,11 @@ import {
   Stack,
   Grid,
   Typography,
+  AccessAlarmIcon,
+  LightbulbIcon,
+  LinearScaleIcon,
+  MobileFriendlyIcon,
 } from '@mqs/ui-lib';
-import {
-  AccessAlarm,
-  Lightbulb,
-  LinearScale,
-  MobileFriendly,
-} from '@mui/icons-material';
 import type { FC } from 'react';
 
 type Props = {
@@ -27,22 +25,22 @@ const features = [
   {
     name: 'Competitive exchange rates',
     description: lorem,
-    icon: AccessAlarm,
+    icon: AccessAlarmIcon,
   },
   {
     name: 'No hidden fees',
     description: lorem,
-    icon: LinearScale,
+    icon: LinearScaleIcon,
   },
   {
     name: 'Transfers are instant',
     description: lorem,
-    icon: Lightbulb,
+    icon: LightbulbIcon,
   },
   {
     name: 'Mobile notifications',
     description: lorem,
-    icon: MobileFriendly,
+    icon: MobileFriendlyIcon,
   },
 ];
 

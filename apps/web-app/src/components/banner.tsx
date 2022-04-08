@@ -1,8 +1,11 @@
-import { Box, Button, AppBar, Typography } from '@mqs/ui-lib';
 import {
-  Speaker as SpeakerIcon,
-  Close as CloseIcon,
-} from '@mui/icons-material';
+  Box,
+  Button,
+  AppBar,
+  Typography,
+  SpeakerIcon,
+  CloseIcon,
+} from '@mqs/ui-lib';
 import type { FC } from 'react';
 
 type Props = {

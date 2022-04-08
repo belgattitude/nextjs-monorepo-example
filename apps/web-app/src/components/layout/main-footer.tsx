@@ -1,5 +1,4 @@
-import { Box, Container, Typography } from '@mqs/ui-lib';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { Box, Container, Typography, GitHubIcon } from '@mqs/ui-lib';
 import type { FC } from 'react';
 
 export const MainFooter: FC = () => {
