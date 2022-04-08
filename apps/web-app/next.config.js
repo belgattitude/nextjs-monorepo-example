@@ -47,6 +47,7 @@ const tmModules = [
   ...(isProd
     ? [
         // ie: '@react-google-maps/api'...
+        'ky', // does not pass es-2017 checks
       ]
     : []),
   // ESM only packages are not yet supported by NextJs if you're not
