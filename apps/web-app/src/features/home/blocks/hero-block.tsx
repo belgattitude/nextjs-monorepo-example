@@ -21,10 +21,8 @@ export const HeroBlock: FC<Props> = () => {
   // const { t } = useTranslation(['home', 'common']);
 
   return (
-    <Box component="section">
+    <Box component="section" sx={{ paddingY: 6 }}>
       <Container>
-        <br />
-        <br />
         <Grid container spacing={8}>
           <Grid
             display="flex"
@@ -50,10 +48,10 @@ export const HeroBlock: FC<Props> = () => {
               </CardContent>
               <CardActions>
                 <Stack direction="row" spacing={1}>
-                  <Button color="primary" variant="contained">
+                  <Button color="primary" variant="contained" size="large">
                     Button
                   </Button>
-                  <Button color="secondary" variant="contained">
+                  <Button color="secondary" variant="contained" size="large">
                     Button
                   </Button>
                 </Stack>
@@ -74,8 +72,6 @@ export const HeroBlock: FC<Props> = () => {
             />
           </Grid>
         </Grid>
-        <br />
-        <br />
       </Container>
     </Box>
   );

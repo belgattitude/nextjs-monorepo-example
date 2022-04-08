@@ -51,13 +51,17 @@ export const FeaturesBlock: FC<Props> = () => {
     <Box
       component="section"
       sx={{
-        background: (theme) =>
-          `linear-gradient(90deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 13%, ${theme.palette.secondary.main} 100%)`,
+        paddingY: 6,
+        background: ({
+          palette: {
+            primary: { main: primary },
+            secondary: { main: secondary },
+          },
+        }) =>
+          `linear-gradient(90deg, ${secondary} 0%, ${primary} 13%, ${secondary} 100%)`,
       }}
     >
       <Container>
-        <br />
-        <br />
         <Card>
           <CardContent>
             <Stack spacing={3}>
@@ -94,8 +98,6 @@ export const FeaturesBlock: FC<Props> = () => {
             </Stack>
           </CardContent>
         </Card>
-        <br />
-        <br />
       </Container>
     </Box>
   );

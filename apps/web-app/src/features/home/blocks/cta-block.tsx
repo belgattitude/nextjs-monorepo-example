@@ -11,11 +11,10 @@ export const CtaBlock: FC<Props> = () => {
       component="section"
       sx={{
         backgroundColor: grey.A100,
+        paddingY: 6,
       }}
     >
       <Container>
-        <br />
-        <br />
         <Grid container spacing={1}>
           <Grid item sm={12} md={6}>
             <Typography variant="h3">Ready to dive in?</Typography>
@@ -39,8 +38,6 @@ export const CtaBlock: FC<Props> = () => {
             </Stack>
           </Grid>
         </Grid>
-        <br />
-        <br />
       </Container>
     </Box>
   );
