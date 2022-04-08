@@ -198,64 +198,6 @@ Initialize a package.json with the name of your package.
 > Rather than typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
 > as a working example and edit its values.
 
-<details>
-<summary>Example of package.json</summary>
-
-```json5
-{
-  "name": "@your-org/magnificent-poney",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "clean": "rimraf --no-glob ./tsconfig.tsbuildinfo",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "test": "run-s 'test:*'",
-    "test:unit": "echo \"No tests yet\"",
-    "fix:staged-files": "lint-staged --allow-empty",
-    "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.0.0",
-    "@testing-library/react-hooks": "7.0.1",
-    "@types/node": "16.4.10",
-    "@types/react": "17.0.15",
-    "@types/react-dom": "17.0.9",
-    "@typescript-eslint/eslint-plugin": "4.29.0",
-    "@typescript-eslint/parser": "4.29.0",
-    "camelcase": "6.2.0",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.23.4",
-    "eslint-plugin-jest": "24.4.0",
-    "eslint-plugin-jest-formatting": "3.0.0",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-react": "7.24.0",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-testing-library": "4.10.1",
-    "jest": "27.0.6",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.3.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "rimraf": "3.0.2",
-    "shell-quote": "1.7.2",
-    "ts-jest": "27.0.4",
-    "typescript": "4.3.5",
-  },
-  "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.2",
-    "react-dom": "^16.14.0 || ^17.0.2",
-  },
-}
-```
-
-> _Note that as we want to be strict with dependencies, the best is to
-> define all you need (eslint, ...) per package. And not in the monorepo root.
-> That might seem weird, but on the long run it's much safer._
-
 </details>
 
 ### 3. Using the package in app
