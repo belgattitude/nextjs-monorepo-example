@@ -1,45 +1,26 @@
-import styled from '@emotion/styled';
-import GithubIcon from '@mqs/ui-lib/icons/social/github.svg';
+import { Container, Typography } from '@mqs/ui-lib';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import type { FC } from 'react';
-import FooterWaves from '@/public/images/layout/footer-waves.svg';
-
-const BgWaved = styled(FooterWaves)`
-  //background-size: cover;
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
-  object-position: center;
-  display: block;
-`;
-
-const FooterCtn = styled.footer`
-  //background-image: url('/images/layout/footer-waves.svg');
-  //background-image: url(${() => FooterWaves.url});
-  display: grid;
-  .content,
-  .bgImage {
-    grid-area: 1 / 1;
-  }
-  .bgImage {
-    z-index: -1;
-  }
-`;
 
 export const MainFooter: FC = () => {
   return (
-    <FooterCtn>
-      <div className={'bgImage'}>
-        <BgWaved />
-      </div>
-      <div className={'content'}>
+    <footer>
+      <br />
+      <br />
+      <Container>
         <a
           href={'https://github.com/mqschwanda/nextjs-monorepo'}
           target={'_blank'}
           rel={'noopener noreferrer'}
         >
-          <GithubIcon />
+          <Typography variant="caption">
+            github.com/mqschwanda/nextjs-monorepo &nbsp;
+            <GitHubIcon fontSize="inherit" />
+          </Typography>
         </a>
-      </div>
-    </FooterCtn>
+      </Container>
+      <br />
+      <br />
+    </footer>
   );
 };
