@@ -198,8 +198,6 @@ Initialize a package.json with the name of your package.
 > Rather than typing `yarn init`, prefer to take the [./packages/ui-lib/package.json](./packages/ui-lib/package.json)
 > as a working example and edit its values.
 
-</details>
-
 ### 3. Using the package in app
 
 #### Step 3.1: package.json
