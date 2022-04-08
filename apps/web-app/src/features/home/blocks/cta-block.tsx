@@ -1,5 +1,12 @@
-import { Button, Box, Container, Stack, Grid, Typography } from '@mqs/ui-lib';
-import { grey } from '@mui/material/colors';
+import {
+  Button,
+  Box,
+  Container,
+  Stack,
+  Grid,
+  Typography,
+  grey,
+} from '@mqs/ui-lib';
 import type { FC } from 'react';
 
 type Props = {
