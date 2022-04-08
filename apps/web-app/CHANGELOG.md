@@ -1,5 +1,14 @@
 # web-app
 
+## 3.43.1
+
+### Patch Changes
+
+- Updated dependencies [[`ee0a3db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ee0a3dbd664c33d7149302ae3f776951dbd50492)]:
+  - @your-org/core-lib@3.12.0
+  - @your-org/db-main-prisma@2.9.0
+  - @your-org/ui-lib@3.11.0
+
 ## 3.43.0
 
 ### Minor Changes
