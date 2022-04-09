@@ -7,9 +7,9 @@ type Props = {
 export const InfoCard: FC<Props> = (props) => {
   const { originatingAppName } = props;
   return (
-    <div className="card">
+    <div>
       <img src="img_avatar.png" alt="Avatar" style={{ width: '100%' }} />
-      <div className="container">
+      <div>
         <h4>
           <strong>John Doe</strong>
         </h4>

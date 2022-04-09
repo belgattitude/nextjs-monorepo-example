@@ -1,3 +1,4 @@
+import { Container, Typography } from '@mqs/ui-lib/components';
 import type { FC } from 'react';
 import { useQuery } from 'react-query';
 import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
@@ -24,15 +25,15 @@ const PoemGridWithReactQueryAndKy: FC<NoChildrenProps> = () => {
 
 export const DemoApiBlock: FC<NoChildrenProps> = () => {
   return (
-    <div>
-      <div className="lg:container lg:mx-auto">
-        <h1 className="mb-2 text-4xl font-bold">Poetry on the wild.</h1>
-        <h2 className="mb-2 text-xl font-bold text-indigo-600">
+    <section>
+      <Container>
+        <Typography variant="h3">Poetry on the wild.</Typography>
+        <Typography variant="h4" color="primary">
           Client fetch with ky / react-query from nextjs api, db in supabase.io,
-          connection with prisma. Ui with tailwind
-        </h2>
+          connection with prisma. Ui with material ui
+        </Typography>
         <PoemGridWithReactQueryAndKy />
-      </div>
-    </div>
+      </Container>
+    </section>
   );
 };

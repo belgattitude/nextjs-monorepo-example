@@ -1,10 +1,11 @@
 import {
+  AppBarTop,
   Box,
   Button,
-  AppBarTop,
-  Typography,
-  SpeakerIcon,
   CloseIcon,
+  SpeakerIcon,
+  Typography,
+  visuallyHidden,
 } from '@mqs/ui-lib';
 import type { FC } from 'react';
 
@@ -32,7 +33,9 @@ export const Banner: FC<Props> = () => {
           Learn more
         </Button>
         <Button variant="text" color="inherit" href="#">
-          <span className="sr-only">Dismiss</span>
+          <Box component="span" sx={visuallyHidden}>
+            Dismiss
+          </Box>
           <CloseIcon aria-hidden="true" />
         </Button>
       </Box>

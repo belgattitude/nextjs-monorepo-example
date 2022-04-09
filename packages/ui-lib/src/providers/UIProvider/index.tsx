@@ -1,6 +1,6 @@
 import type { EmotionCache } from '@emotion/react';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import type { FC, ReactNode } from 'react';
 import type { Theme } from '../../base';
 
@@ -26,7 +26,7 @@ export const UIProvider: FC<UIProviderProps> = ({ cache, children, theme }) => {
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
         {/* Mui CssBaseline disabled in this example as tailwind provides its own */}
-        {/* <CssBaseline /> */}
+        <CssBaseline />
         {children}
       </ThemeProvider>
     </CacheProvider>
