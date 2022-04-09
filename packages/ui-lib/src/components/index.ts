@@ -13,3 +13,19 @@ export {
   Toolbar,
   Typography,
 } from '@mui/material';
+
+export type {
+  AppBarProps,
+  AvatarProps,
+  BoxProps,
+  ButtonProps,
+  CardProps,
+  CardActionsProps,
+  CardContentProps,
+  CardMediaProps,
+  ContainerProps,
+  GridProps,
+  StackProps,
+  ToolbarProps,
+  TypographyProps,
+} from '@mui/material';

@@ -1,9 +1,9 @@
-import type { AppBarProps } from '@mui/material/AppBar';
 import type { FC } from 'react';
 import React from 'react';
+import type { AppBarProps } from '../../components';
 import { AppBar, Toolbar, Container } from '../../components';
 
-type AppBarTopProps = AppBarProps;
+export type AppBarTopProps = AppBarProps;
 
 /**
  *
