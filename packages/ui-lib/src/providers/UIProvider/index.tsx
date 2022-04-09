@@ -25,7 +25,6 @@ export const UIProvider: FC<UIProviderProps> = ({ cache, children, theme }) => {
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
-        {/* Mui CssBaseline disabled in this example as tailwind provides its own */}
         <CssBaseline />
         {children}
       </ThemeProvider>

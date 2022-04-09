@@ -63,7 +63,7 @@ export const HeroBlock: FC<Props> = () => {
           </Grid>
           <Grid item md={6} xs={12}>
             <Image
-              alt={'tailwind-ui-logo'}
+              alt={'ui-logo'}
               height={600}
               layout={'responsive'}
               loading={'eager'}

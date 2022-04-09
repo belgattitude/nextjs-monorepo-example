@@ -32,7 +32,6 @@ $ yarn dev
 - [x] Api routes: some api routes for rest.
 - [x] I18n: based on [next-i18next](https://github.com/isaachinman/next-i18next)
 - [x] Styling: [Emotion v11](https://emotion.sh/) support with critical path extraction enabled.
-- [x] Styling: [Tailwind v3](https://tailwindcss.com/) with JIT mode enabled and common plugins.
 - [x] Security: [next-secure-headers](https://github.com/jagaapple/next-secure-headers) with basic defaults.
 - [x] Seo: [next-seo](https://github.com/garmeeh/next-seo)
 - [x] Tests: [jest](https://jestjs.io/) + [ts-jest](https://github.com/kulshekhar/ts-jest) + [@testing-library/react](https://testing-library.com/)
@@ -117,8 +116,7 @@ The keys autocompletion and typechecks are enabled in [./src/typings/react-i18ne
 │       ├── (.env.local)*
 │       ├── next.config.js
 │       ├── next-i18next.config.js
-│       ├── tsconfig.json    (local paths enabled)
-│       └── tailwind.config.js
+│       └── tsconfig.json    (local paths enabled)
 └── packages  (monorepo's packages that this app is using)
     ├── core-lib
     ├── main-db-prisma
