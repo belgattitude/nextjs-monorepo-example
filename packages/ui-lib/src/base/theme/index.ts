@@ -1,3 +1,1 @@
-import { createTheme } from '@mui/material/styles';
-
-export { createTheme };
+export { createTheme } from '@mui/material/styles';

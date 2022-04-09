@@ -1,7 +1,7 @@
 import {
   Box,
   Button,
-  AppBar,
+  AppBarTop,
   Typography,
   SpeakerIcon,
   CloseIcon,
@@ -14,7 +14,7 @@ type Props = {
 
 export const Banner: FC<Props> = () => {
   return (
-    <AppBar position="sticky">
+    <AppBarTop position="sticky">
       <Box sx={{ flexGrow: 1, display: 'flex' }}>
         <span>
           <SpeakerIcon aria-hidden="true" />
@@ -36,6 +36,6 @@ export const Banner: FC<Props> = () => {
           <CloseIcon aria-hidden="true" />
         </Button>
       </Box>
-    </AppBar>
+    </AppBarTop>
   );
 };

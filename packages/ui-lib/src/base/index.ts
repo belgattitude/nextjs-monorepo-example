@@ -1,13 +1,2 @@
-export { Box } from './box/Box';
-export { Button } from './button/Button';
-export { Container } from './container/Container';
-export { Grid } from './grid/Grid';
-export { Stack } from './stack/Stack';
-export { Typography } from './typography/Typography';
-export { UIProvider } from './provider';
-export * from './avatar/Avatar';
-export * from './appbar/AppBar';
-export * from './card';
 export * from './theme';
-export * from './icon';
-export * from './color';
+export * from './colors';
