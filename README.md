@@ -4,7 +4,7 @@
 </div>
 <p align="center">
   <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-web-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
+    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-nextjs-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
   </a>
   <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example">
     <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=flat-quare&labelColor=000000" />
@@ -47,9 +47,9 @@ Useful to
 ```
 .
 ├── apps
-│   ├── remix-app  (remix-run)
-│   ├── vite-app   (vite-react)
-│   └── web-app    (nextjs, i18n, ssr, e2e playwright)
+│   ├── nextjs-app  (i18n, ssr, api)
+│   ├── remix-app   (api)
+│   └── vite-app
 └── packages
     ├── core-lib
     ├── db-main-prisma
@@ -96,7 +96,7 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   │   ├── package.json         (define package workspace:package deps)
 │   │   └── tsconfig.json        (define path to packages)
 │   │
-│   └── web-app                  (NextJS app with api-routes)
+│   └── nextjs-app                  (NextJS app with api-routes)
 │       ├── e2e/                 (E2E tests with playwright)
 │       ├── public/
 │       │   ├── shared-assets/   (possible symlink to global assets)
@@ -135,9 +135,9 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   └── locales
 ├── .yarnrc.yml
 ├── .dockerignore
-├── docker-compose.web-app.yml   (compose specific for web-app)
+├── docker-compose.nextjs-app.yml   (compose specific for nextjs-app)
 ├── docker-compose.yml           (general services like postgresql...)
-├── Dockerfile                   (multistage build for web-app)
+├── Dockerfile                   (multistage build for nextjs-app)
 ├── package.json                 (the workspace config)
 └── tsconfig.base.json           (base typescript config)
 ```
@@ -259,7 +259,7 @@ cd apps/my-app
 yarn add @your-org/magnificent-poney@'workspace:*'
 ```
 
-Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.json).
+Inspiration can be found in [apps/nextjs-app/package.json](./apps/nextjs-app/package.json).
 
 <details>
 <summary>package.json</summary>
@@ -280,7 +280,7 @@ Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.j
 Then add a typescript path alias in the app tsconfig.json. This
 will allow you to import it directly (no build needed)
 
-Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig.json).
+Inspiration can be found in [apps/nextjs-app/tsconfig.json](./apps/nextjs-app/tsconfig.json).
 
 <details>
   <summary>Example of tsonfig.json</summary>
@@ -430,7 +430,7 @@ They are based on the excellent [npm-check-updates](https://github.com/raineorsh
 ### 5.1 Linters
 
 An example of base eslint configuration can be found in [./.eslint.base.js](./.eslintrc.base.js), apps
-and packages extends it in their own root folder, as an example see [./apps/web-app/.eslintrc.js](./apps/web-app/.eslintrc.js).
+and packages extends it in their own root folder, as an example see [./apps/nextjs-app/.eslintrc.js](./apps/nextjs-app/.eslintrc.js).
 Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
 
 For code complexity and deeper code analysis [sonarjs plugin](https://github.com/SonarSource/eslint-plugin-sonarjs) is activated.
@@ -444,7 +444,7 @@ that lint and prettier are applied automatically on commit and/or pushes.
 
 Tests relies on ts-jest with support for typescript path aliases. React-testing-library is enabled
 whenever react is involved. Configuration lives in the root folder of each apps/packages. As an
-example see [./apps/web-app/jest.config.js](./apps/web-app/jest.config.js).
+example see [./apps/nextjs-app/jest.config.js](./apps/nextjs-app/jest.config.js).
 
 ### 5.4 CI
 
@@ -456,7 +456,7 @@ By default, they will ensure that
 - You don't have linter / code-style errors.
 - Your test suite is successful.
 - Your apps (nextjs) or packages can be successfully built.
-- Basic size-limit example in web-app.
+- Basic size-limit example in nextjs-app.
 
 Each of those steps can be opted-out.
 
@@ -468,7 +468,7 @@ To ensure decent performance, those features are present in the example actions:
 
   > ```
   >  paths:
-  >    - "apps/web-app/**"
+  >    - "apps/nextjs-app/**"
   >    - "packages/**"
   >    - "package.json"
   >    - "tsconfig.base.json"

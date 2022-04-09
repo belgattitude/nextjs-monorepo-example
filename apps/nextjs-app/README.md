@@ -8,11 +8,11 @@
 
 ## Intro
 
-Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
 
-- Homepage: [Demo/Vercel english](https://nextjs-monorepo-example-web-app.vercel.app/en/home) | [Demo/vercel french](https://nextjs-monorepo-example-web-app.vercel.app/fr/home)
-- API: [Demo rest/Vercel](https://nextjs-monorepo-example-web-app.vercel.app/api/rest/post/1)
-- [Changelog](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/apps/web-app/CHANGELOG.md)
+- Homepage: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
+- API: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/rest/post/1)
+- [Changelog](https://github.com/belgattitude/monorepo-nextjs-app/blob/main/apps/nextjs-app/CHANGELOG.md)
 
 ## Quick start
 
@@ -21,7 +21,7 @@ Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.
 
 ```bash
 $ yarn install
-$ cd apps/web-app
+$ cd apps/nextjs-app
 $ yarn dev
 ```
 
@@ -106,7 +106,7 @@ The keys autocompletion and typechecks are enabled in [./src/typings/react-i18ne
 ```
 .
 ├── apps
-│   └── web-app
+│   └── nextjs-app
 │       ├── public/
 │       │   └── locales/
 │       ├── src/

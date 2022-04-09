@@ -1,4 +1,4 @@
-name: CI-web-app
+name: CI-nextjs-app
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - dev
       - main
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
       - 'yarn.lock'
@@ -25,7 +25,7 @@ on:
     #   Only consider those files/paths to trigger the github action
     #   to prevent unnecessary builds.
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
       - 'yarn.lock'
@@ -69,18 +69,18 @@ jobs:
             yarn-cache-folder-
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs build web-app from cache
+      - name: Restore nextjs build nextjs-app from cache
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/apps/web-app/.next/cache
+            ${{ github.workspace }}/apps/nextjs-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
             ${{ github.workspace }}/**/.eslintcache
 
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          key: ${{ runner.os }}-nextjs-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
         run: |
@@ -89,22 +89,22 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Typecheck
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn typecheck
 
       - name: Linter
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn lint --cache
 
       - name: Unit tests
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn test-unit --runInBand --color
 
       - name: Build web-app
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn build
         env:
@@ -120,11 +120,11 @@ jobs:
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: Check bundle size
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn check-build-size
 
       - name: Check ecmascript checks for build files
-        working-directory: apps/web-app
+        working-directory: apps/nextjs-app
         run: |
           yarn check-dist
