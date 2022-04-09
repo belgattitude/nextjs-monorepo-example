@@ -1,5 +1,4 @@
-import { red } from '@mui/material/colors';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, red } from '@mqs/ui-lib';
 import { fontFamily } from '@/themes/tailwind/tailwind.theme';
 
 // Create a mui v5 theme instance.
