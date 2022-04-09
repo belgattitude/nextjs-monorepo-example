@@ -106,8 +106,8 @@ jobs:
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
-      - name: Build web-app
-        working-directory: apps/web-app
+      - name: Build nextjs-app
+        working-directory: apps/nextjs-app
         run: |
           yarn build
         env:
@@ -122,8 +122,8 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps chromium webkit
 
-      - name: E2E run web-app playwright tests
-        working-directory: apps/web-app
+      - name: E2E run nextjs-app playwright tests
+        working-directory: apps/nextjs-app
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
         env:
@@ -134,5 +134,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: web-app-playwright-test-results
-          path: apps/web-app/e2e/.out
+          name: nextjs-app-playwright-test-results
+          path: apps/nextjs-app/e2e/.out

@@ -1,11 +1,11 @@
-name: CI-web-app-docker
+name: CI-nextjs-app-docker
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
       - 'yarn.lock'
@@ -28,7 +28,7 @@ on:
     #   Only consider those files/paths to trigger the github action
     #   to prevent unnecessary builds.
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
       - 'yarn.lock'
@@ -63,14 +63,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Build the web-app image
+      - name: Build the nextjs-app image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: false
           file: ./Dockerfile
           target: runner
-          tags: belgattitude/nextjs-monorepo-example-web-app:latest
+          tags: belgattitude/monorepo-nextjs-app:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
