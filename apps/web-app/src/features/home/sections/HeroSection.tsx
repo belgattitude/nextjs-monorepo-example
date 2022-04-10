@@ -1,22 +1,27 @@
 import {
-  Button,
   Box,
+  Button,
   Card,
   CardActions,
   CardContent,
   Container,
-  Stack,
   Grid,
+  Stack,
   Typography,
+  useTheme,
 } from '@mqs/ui-lib';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { usePageTranslation } from '../hooks';
 
 type Props = {
   children?: never;
 };
 
 export const HeroSection: FC<Props> = () => {
+  const { t } = usePageTranslation();
+  const theme = useTheme();
+
   return (
     <Box component="section" sx={{ paddingY: 6 }}>
       <Container>
@@ -32,27 +37,17 @@ export const HeroSection: FC<Props> = () => {
             <Card elevation={0}>
               <CardContent>
                 <Typography variant="h3">
-                  Before they sold out &nbsp;
-                  <Box
-                    component="br"
-                    sx={{ display: { xs: 'nonde', lg: 'inline-block' } }}
-                  />
-                  readymade gluten
+                  {t('home:HeroSection.title')}
                 </Typography>
-                <Typography>
-                  Copper mug try-hard pitchfork pour-over freegan heirloom
-                  neutra air plant cold-pressed tacos poke beard tote bag.
-                  Heirloom echo park mlkshk tote bag selvage hot chicken
-                  authentic tumeric truffaut hexagon try-hard chambray.
-                </Typography>
+                <Typography>{t('home:HeroSection.description')}</Typography>
               </CardContent>
               <CardActions>
                 <Stack direction="row" spacing={1}>
                   <Button color="primary" variant="contained" size="large">
-                    Button
+                    {t('home:HeroSection.button')}
                   </Button>
                   <Button color="secondary" variant="contained" size="large">
-                    Button
+                    {t('home:HeroSection.button')}
                   </Button>
                 </Stack>
               </CardActions>
@@ -67,7 +62,7 @@ export const HeroSection: FC<Props> = () => {
               objectFit="cover"
               objectPosition="center"
               src={'/assets/annie-spratt-unsplash.jpg'}
-              style={{ borderRadius: '0.25rem' }}
+              style={{ borderRadius: theme.shape.borderRadius }}
               width={720}
             />
           </Grid>

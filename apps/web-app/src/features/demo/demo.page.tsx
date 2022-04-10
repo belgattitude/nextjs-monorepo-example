@@ -1,8 +1,7 @@
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import type { FC } from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
-import { demoConfig } from './demo.config';
+import { usePageTranslation } from '../home/hooks';
 import { DemoApiSection } from './sections';
 
 type Props = {
@@ -10,13 +9,13 @@ type Props = {
 };
 
 export const DemoPage: FC<Props> = () => {
-  const { t } = useTranslation(demoConfig.i18nNamespaces);
+  const { t } = usePageTranslation();
 
   return (
     <>
       <NextSeo
-        title={t('demo:page.title')}
-        description="Web-app nextjs monorepo example, https://github.com/mqschwanda/nextjs-monorepo"
+        title={t('common:pages.poems.title')}
+        description={t('common:pages.poems.title')}
       />
       <MainLayout>
         <DemoApiSection />

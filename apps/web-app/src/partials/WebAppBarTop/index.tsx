@@ -1,39 +1,63 @@
 import {
   AppBarTop,
   Box,
-  Button,
-  CloseIcon,
-  SpeakerIcon,
-  Typography,
-  visuallyHidden,
+  IconButton,
+  MenuIcon,
+  MoreVertIcon,
+  Tab,
+  Tabs,
+  useTheme,
 } from '@mqs/ui-lib';
+import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 
-export default function WebAppBarTop() {
+export type WebAppBarTopProps = {
+  pages?: Array<{
+    href: string;
+    label: string;
+  }>;
+};
+
+export default function WebAppBarTop({ pages }: WebAppBarTopProps) {
+  const router = useRouter();
+  const theme = useTheme();
+
+  const tabs = useMemo(
+    () =>
+      router &&
+      pages && (
+        <Tabs
+          indicatorColor="secondary"
+          selectionFollowsFocus={false}
+          textColor="inherit"
+          value={router.pathname}
+        >
+          {pages.map(({ label, href }) => (
+            <Tab
+              color="inherit"
+              href={href}
+              key={href}
+              label={label}
+              sx={{ ...theme.mixins.toolbar }}
+              value={href}
+            />
+          ))}
+        </Tabs>
+      ),
+    [router, pages, theme.mixins.toolbar]
+  );
+
   return (
     <AppBarTop position="sticky">
-      <Box sx={{ flexGrow: 1, display: 'flex' }}>
-        <span>
-          <SpeakerIcon aria-hidden="true" />
-          &nbsp;
-          <Typography sx={{ display: { xs: 'inline', md: 'none' } }}>
-            We announced a new product!
-          </Typography>
-          <Typography sx={{ display: { xs: 'none', md: 'inline' } }}>
-            Big news! We're excited to announce a brand new product.
-          </Typography>
-        </span>
+      <IconButton size="large" color="inherit">
+        <MenuIcon />
+      </IconButton>
+      <Box display="flex" flexGrow={1} justifyContent="end">
+        {tabs}
       </Box>
-      <Box sx={{ flexGrow: 0 }}>
-        <Button variant="text" color="inherit" href="#">
-          Learn more
-        </Button>
-        <Button variant="text" color="inherit" href="#">
-          <Box component="span" sx={visuallyHidden}>
-            Dismiss
-          </Box>
-          <CloseIcon aria-hidden="true" />
-        </Button>
-      </Box>
+      <IconButton size="large" color="inherit">
+        <MoreVertIcon />
+      </IconButton>
     </AppBarTop>
   );
 }

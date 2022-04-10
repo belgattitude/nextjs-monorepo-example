@@ -8,11 +8,14 @@ import {
   grey,
 } from '@mqs/ui-lib';
 import type { FC } from 'react';
+import { usePageTranslation } from '../hooks';
 
 type Props = {
   children?: never;
 };
 export const CtaSection: FC<Props> = () => {
+  const { t } = usePageTranslation();
+
   return (
     <Box
       component="section"
@@ -24,15 +27,15 @@ export const CtaSection: FC<Props> = () => {
       <Container>
         <Grid container spacing={1}>
           <Grid item sm={12} md={6}>
-            <Typography variant="h3">Ready to dive in?</Typography>
+            <Typography variant="h3">{t('home:CtaSection.title')}</Typography>
             <Typography variant="h5" color="primary">
-              Start your free trial today.
+              {t('home:CtaSection.subtitle')}
             </Typography>
           </Grid>
           <Grid item sm={12} md={6} alignItems="center" display="flex">
             <Stack direction="row" spacing={1}>
               <Button color="primary" href="#" variant="contained" size="large">
-                Get started
+                {t('home:CtaSection.getStarted')}
               </Button>
               <Button
                 color="secondary"
@@ -40,7 +43,7 @@ export const CtaSection: FC<Props> = () => {
                 variant="contained"
                 size="large"
               >
-                Learn more
+                {t('home:CtaSection.learnMore')}
               </Button>
             </Stack>
           </Grid>

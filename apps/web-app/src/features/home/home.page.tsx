@@ -1,8 +1,7 @@
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import type { FC } from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
-import { homeConfig } from './home.config';
+import { usePageTranslation } from './hooks';
 import { CtaSection, FeaturesSection, HeroSection } from './sections';
 
 type Props = {
@@ -10,13 +9,13 @@ type Props = {
 };
 
 export const HomePage: FC<Props> = () => {
-  const { t } = useTranslation(homeConfig.i18nNamespaces);
+  const { t } = usePageTranslation();
 
   return (
     <>
       <NextSeo
-        title={t('home:page.title')}
-        description="See https://github.com/mqschwanda/nextjs-monorepo"
+        title={t('common:pages.home.title')}
+        description={t('common:pages.home.description')}
       />
       <MainLayout>
         <HeroSection />

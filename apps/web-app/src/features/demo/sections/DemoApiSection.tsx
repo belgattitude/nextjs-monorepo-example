@@ -1,10 +1,12 @@
 import {
+  Alert,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   CardMedia,
   Chip,
+  CircularProgress,
   Container,
   Grid,
   Typography,
@@ -12,6 +14,7 @@ import {
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import { useQuery } from 'react-query';
+import { usePageTranslation } from '@/features/home/hooks';
 import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
 
 type NoChildrenProps = {
@@ -19,6 +22,7 @@ type NoChildrenProps = {
 };
 
 export const DemoApiSection: FC<NoChildrenProps> = () => {
+  const { t } = usePageTranslation();
   const {
     data: poems,
     isLoading,
@@ -27,35 +31,35 @@ export const DemoApiSection: FC<NoChildrenProps> = () => {
 
   const content = useMemo(() => {
     if (isLoading) {
-      return <div>Loading...</div>;
+      return <CircularProgress />;
     }
 
     if (error) {
-      return <div>Error {JSON.stringify(error)}</div>;
+      return (
+        <Alert severity="error" variant="outlined">
+          {JSON.stringify(error)}
+        </Alert>
+      );
     }
 
     return (
       <Grid container spacing={1}>
-        {poems?.map((poem) => {
-          const image = `https://source.unsplash.com/random/640x480?${(
-            poem.keywords ?? []
-          )
+        {poems?.map(({ id, title, author, content, keywords }) => {
+          const keywordURI = (keywords ?? [])
             .map((keyword) => encodeURIComponent(keyword))
-            .join(',')}`;
+            .join(',');
+          const image = `https://source.unsplash.com/random/640x480?${keywordURI}`;
 
           return (
-            <Grid item xs={12} md={6} lg={4} key={poem.id}>
+            <Grid item xs={12} md={6} lg={4} key={id}>
               <Card>
-                <CardHeader
-                  title={poem.title}
-                  subheader={`By ${poem.author}`}
-                />
-                <CardMedia component="img" src={image} alt={poem.title} />
+                <CardHeader title={title} subheader={`By ${author}`} />
+                <CardMedia component="img" src={image} alt={title} />
                 <CardContent>
-                  <Typography variant="caption">{poem.content}</Typography>
+                  <Typography variant="caption">{content}</Typography>
                 </CardContent>
                 <CardActions>
-                  {poem.keywords.map((keyword) => (
+                  {keywords.map((keyword) => (
                     <Chip color="primary" key={keyword} label={`#${keyword}`} />
                   ))}
                 </CardActions>
@@ -70,10 +74,9 @@ export const DemoApiSection: FC<NoChildrenProps> = () => {
   return (
     <section>
       <Container>
-        <Typography variant="h3">Poetry on the wild.</Typography>
+        <Typography variant="h3">{t('demo:DemoApiSection.title')}</Typography>
         <Typography variant="h4" color="primary">
-          Client fetch with ky / react-query from nextjs api, db in supabase.io,
-          connection with prisma. Ui with material ui
+          {t('demo:DemoApiSection.subtitle')}
         </Typography>
         {content}
       </Container>
