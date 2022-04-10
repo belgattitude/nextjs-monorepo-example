@@ -5882,6 +5882,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/react-hooks@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@testing-library/react-hooks@npm:8.0.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    react-error-boundary: ^3.1.0
+  peerDependencies:
+    "@types/react": ^16.9.0 || ^17.0.0
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+    react-test-renderer: ^16.9.0 || ^17.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react-dom:
+      optional: true
+    react-test-renderer:
+      optional: true
+  checksum: f45bd06601bf1d00e375c3d945b0e54b4d997b18402c45711deada7e8c4a8f569fe283973e6786c9ecd55e4bd01a43bd42546a2924453065880abf4b13dbafdb
+  languageName: node
+  linkType: hard
+
 "@testing-library/react@npm:13.0.0":
   version: 13.0.0
   resolution: "@testing-library/react@npm:13.0.0"
@@ -7271,6 +7293,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
+    "@testing-library/react": 13.0.0
+    "@testing-library/react-hooks": 8.0.0
     "@tsed/exceptions": ^6.100.3
     "@types/jest": 27.4.1
     "@types/node": 17.0.23
