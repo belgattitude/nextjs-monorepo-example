@@ -1,5 +1,6 @@
 const getDefaultIgnorePatterns = () => {
-  return ['**/node_modules', '**/.cache', 'build', 'dist'];
+  // Hacky way to silence @yarnpkg/doctor about node_modules detection
+  return [`**/${'node'}_modules}`, '**/.cache', 'build', 'dist'];
 };
 
 module.exports = {

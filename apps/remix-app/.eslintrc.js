@@ -32,8 +32,6 @@ module.exports = {
     es6: true,
     node: true,
   },
-  rules: {
-    'jsx-a11y/anchor-is-valid': 'off',
-  },
+  rules: {},
   overrides: [],
 };

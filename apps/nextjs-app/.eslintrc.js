@@ -31,9 +31,8 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/pages/**/*.{ts,tsx}'],
+      files: ['src/pages/\\_*.{ts,tsx}'],
       rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/display-name': 'off',
       },
     },
@@ -48,12 +47,6 @@ module.exports = {
             format: ['camelCase', 'PascalCase'],
           },
         ],
-      },
-    },
-    {
-      files: ['src/backend/api/**/*.ts'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
   ],
