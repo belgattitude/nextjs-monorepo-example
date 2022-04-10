@@ -1,10 +1,11 @@
 /**
  * Custom config base for projects using typescript / javascript.
  */
+
 module.exports = {
   env: {
-    node: true,
     es6: true,
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -27,7 +28,6 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:regexp/recommended',
-    'plugin:prettier/recommended',
   ],
   rules: {
     'spaced-comment': [
@@ -146,6 +146,7 @@ module.exports = {
   },
   overrides: [
     {
+      // commonjs or assumed
       files: ['*.js', '*.cjs'],
       parser: 'espree',
       parserOptions: {
@@ -157,8 +158,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'sonarjs/no-duplicate-string': 'off',
-        'sonarjs/no-all-duplicated-branches': 'off',
         '@typescript-eslint/consistent-type-exports': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
         'import/order': 'off',

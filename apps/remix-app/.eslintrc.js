@@ -3,18 +3,29 @@
  * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
  */
 
+const {
+  getDefaultIgnorePatterns,
+} = require('@your-org/eslint-config-bases/helpers');
+
 module.exports = {
   root: true,
-  ignorePatterns: ['public/build', 'api/build', '.cache'],
+  ignorePatterns: [
+    ...getDefaultIgnorePatterns(),
+    'public/build',
+    'api/build',
+    '.cache',
+  ],
   extends: [
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/jest',
     '@your-org/eslint-config-bases/react',
-    '@your-org/eslint-config-bases/react-testing-library',
+    '@your-org/eslint-config-bases/rtl',
     '@your-org/eslint-config-bases/graphql-schema',
     // Specific rules for remix
     '@remix-run/eslint-config',
+    // Apply prettier and disable incompatible rules
+    '@your-org/eslint-config-bases/prettier',
   ],
   env: {
     browser: true,

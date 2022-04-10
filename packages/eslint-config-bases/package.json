@@ -13,10 +13,14 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
+  "type": "commonjs",
   "main": "./index.js",
   "exports": {
     ".": {
       "require": "./src/index.js"
+    },
+    "./helpers": {
+      "require": "./src/helpers/index.js"
     },
     "./graphql-schema": {
       "require": "./src/bases/graphql-schema.js"
@@ -30,8 +34,11 @@
     "./react": {
       "require": "./src/bases/react.js"
     },
-    "./react-testing-library": {
-      "require": "./src/bases/react-testing-library.js"
+    "./prettier": {
+      "require": "./src/bases/prettier.js"
+    },
+    "./rtl": {
+      "require": "./src/bases/rtl.js"
     },
     "./sonar": {
       "require": "./src/bases/sonar.js"
@@ -45,9 +52,9 @@
   },
   "scripts": {
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
-    "lint": "eslint . --ext .ts,.js",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "lint": "eslint  --ext .ts,.js",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@graphql-eslint/eslint-plugin": "3.10.2",

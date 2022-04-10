@@ -1,7 +1,16 @@
+/**
+ * Opinionated config base for projects using react.
+ */
+
+const reactPatterns = {
+  files: ['*.tsx', '*.jsx'],
+};
+
 module.exports = {
   env: {
     browser: true,
     es6: true,
+    node: true,
   },
   settings: {
     react: {
@@ -10,7 +19,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.tsx', '*.jsx'],
+      files: reactPatterns.files,
       extends: [
         // @see https://github.com/yannickcr/eslint-plugin-react
         'plugin:react/recommended',

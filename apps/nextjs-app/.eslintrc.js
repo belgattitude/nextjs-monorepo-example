@@ -3,19 +3,24 @@
  * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
  */
 
+const {
+  getDefaultIgnorePatterns,
+} = require('@your-org/eslint-config-bases/helpers');
+
 module.exports = {
   root: true,
-  ignorePatterns: ['.next', '**/.out'],
+  ignorePatterns: [...getDefaultIgnorePatterns(), '.next', '.out'],
   extends: [
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/jest',
-    '@your-org/eslint-config-bases/storybook',
     '@your-org/eslint-config-bases/react',
-    '@your-org/eslint-config-bases/react-testing-library',
+    '@your-org/eslint-config-bases/rtl',
     '@your-org/eslint-config-bases/graphql-schema',
     // Add specific rules for nextjs
     'plugin:@next/next/core-web-vitals',
+    // Apply prettier and disable incompatible rules
+    '@your-org/eslint-config-bases/prettier',
   ],
   rules: {
     // https://github.com/vercel/next.js/discussions/16832
