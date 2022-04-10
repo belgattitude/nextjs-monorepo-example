@@ -10,15 +10,6 @@ import { AppProviders } from '../app-providers';
  */
 import '../styles/global.css';
 
-/**
- * Local fonts
- * @link https://fontsource.org/docs/guides/nextjs
- */
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/700.css';
-// @link https://fontsource.org/docs/variable-fonts
-import '@fontsource/inter/variable.css';
-
 // Workaround for https://github.com/zeit/next.js/issues/8592
 export type AppProps = NextAppProps & {
   /** Will be defined only is there was an error */

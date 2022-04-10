@@ -1,6 +1,5 @@
 // Customized postcss
 // @link https://nextjs.org/docs/advanced-features/customizing-postcss-config
-// @link https://tailwindcss.com/docs/using-with-preprocessors
 
 const isProd = process.env.NODE_ENV === 'production';
 const supportsIE11 = false;
@@ -8,7 +7,6 @@ const enableCssGrid = false;
 
 module.exports = {
   plugins: {
-    tailwindcss: {},
     ...(isProd
       ? {
           'postcss-flexbugs-fixes': {},

@@ -36,7 +36,10 @@ export const HeroBlock: FC<Props> = () => {
               <CardContent>
                 <Typography variant="h3">
                   Before they sold out &nbsp;
-                  <br className="hidden lg:inline-block" />
+                  <Box
+                    component="br"
+                    sx={{ display: { xs: 'nonde', lg: 'inline-block' } }}
+                  />
                   readymade gluten
                 </Typography>
                 <Typography>
@@ -60,7 +63,7 @@ export const HeroBlock: FC<Props> = () => {
           </Grid>
           <Grid item md={6} xs={12}>
             <Image
-              alt={'tailwind-ui-logo'}
+              alt={'ui-logo'}
               height={600}
               layout={'responsive'}
               loading={'eager'}
