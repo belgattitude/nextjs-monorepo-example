@@ -6,10 +6,14 @@
 module.exports = {
   root: true,
   ignorePatterns: ['dist', 'build', 'src/generated'],
-  extends: ['../../.eslintrc.base.js'],
-  env: {
-    browser: false,
-    es6: true,
-    node: true,
+  extends: [
+    '@your-org/eslint-config-bases/typescript',
+    '@your-org/eslint-config-bases/sonar',
+  ],
+  rules: {
+    // optional overrides per project
   },
+  overrides: [
+    // optional overrides per project file match
+  ],
 };

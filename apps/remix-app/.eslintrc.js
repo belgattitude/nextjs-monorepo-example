@@ -7,12 +7,12 @@ module.exports = {
   root: true,
   ignorePatterns: ['public/build', 'api/build', '.cache'],
   extends: [
-    // Extend the monorepo default configuration
-    '../../.eslintrc.base.js',
-    // Add specific rules for react
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
+    '@your-org/eslint-config-bases/typescript',
+    '@your-org/eslint-config-bases/sonar',
+    '@your-org/eslint-config-bases/jest',
+    '@your-org/eslint-config-bases/react',
+    '@your-org/eslint-config-bases/react-testing-library',
+    '@your-org/eslint-config-bases/graphql-schema',
     // Specific rules for remix
     '@remix-run/eslint-config',
   ],
@@ -22,23 +22,7 @@ module.exports = {
     node: true,
   },
   rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'react/no-unescaped-entities': 'off',
-    'react/jsx-no-target-blank': 'off',
   },
-  overrides: [
-    {
-      // For performance run jest/recommended on test files, not regular code
-      files: ['**/*.test.{ts,tsx}'],
-      extends: ['plugin:testing-library/react'],
-    },
-    {
-      files: ['config/jest/test-utils.tsx'],
-      rules: {
-        'import/export': 'off',
-      },
-    },
-  ],
+  overrides: [],
 };
