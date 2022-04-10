@@ -1,0 +1,98 @@
+{
+  "name": "@your-org/eslint-config-bases",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "directory": "tools/eslint-config-bases"
+  },
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "require": "./src/index.js"
+    },
+    "./graphql-schema": {
+      "require": "./src/bases/graphql-schema.js"
+    },
+    "./jest": {
+      "require": "./src/bases/jest.js"
+    },
+    "./playwright": {
+      "require": "./src/bases/playwright.js"
+    },
+    "./react": {
+      "require": "./src/bases/react.js"
+    },
+    "./react-testing-library": {
+      "require": "./src/bases/react-testing-library.js"
+    },
+    "./sonar": {
+      "require": "./src/bases/sonar.js"
+    },
+    "./storybook": {
+      "require": "./src/bases/react.js"
+    },
+    "./typescript": {
+      "require": "./src/bases/typescript.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
+    "lint": "eslint . --ext .ts,.js",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.0.0",
+    "@testing-library/react-hooks": "7.0.2",
+    "@types/jest": "27.4.1",
+    "@types/node": "17.0.23",
+    "@types/react": "17.0.44",
+    "@types/react-dom": "17.0.15",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
+    "@typescript-eslint/parser": "5.18.0",
+    "eslint": "8.13.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "26.1.4",
+    "eslint-plugin-jest-formatting": "3.1.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-playwright": "0.8.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.4.0",
+    "eslint-plugin-regexp": "1.6.0",
+    "eslint-plugin-sonarjs": "0.13.0",
+    "eslint-plugin-testing-library": "5.2.1",
+    "prettier": "2.6.2",
+    "rimraf": "3.0.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0",
+    "typescript": "^4.5.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@graphql-eslint/eslint-plugin": "3.10.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "4.6.3"
+  }
+}
