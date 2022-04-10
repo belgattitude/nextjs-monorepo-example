@@ -99,7 +99,7 @@ export default function App() {
 }
 
 export function CatchBoundary() {
-  const { status, statusText, data: _data } = useCatch();
+  const { status, statusText } = useCatch();
 
   const Content = () =>
     status === 404 ? (
