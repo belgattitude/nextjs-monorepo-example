@@ -13,13 +13,20 @@
   },
   "keywords": [
     "example",
+    "monorepo",
     "workspace",
     "nextjs",
-    "next-transpile-modules"
+    "vite",
+    "remix",
+    "eslint-plugin",
+    "playwright",
+    "storybook",
+    "prisma"
   ],
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "tools/*"
   ],
   "scripts": {
     "g:clean": "rimraf '.cache/*' && yarn workspaces foreach -ptv run clean",
