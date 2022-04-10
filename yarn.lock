@@ -7278,6 +7278,7 @@ __metadata:
     "@types/react-dom": 17.0.15
     cross-env: 7.0.3
     dequal: ^2.0.0
+    eslint: 8.13.0
     jest: 27.5.1
     microbundle: 0.14.2
     npm-run-all: 4.1.5
@@ -7342,7 +7343,6 @@ __metadata:
     "@types/react-dom": 17.0.15
     "@typescript-eslint/eslint-plugin": 5.18.0
     "@typescript-eslint/parser": 5.18.0
-    eslint: 8.13.0
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 2.7.1
     eslint-plugin-import: 2.26.0
@@ -7362,6 +7362,7 @@ __metadata:
     rimraf: 3.0.2
     typescript: 4.6.3
   peerDependencies:
+    eslint: ^8.8.0
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
     typescript: ^4.5.0
@@ -7407,6 +7408,7 @@ __metadata:
     babel-plugin-polyfill-corejs3: 0.5.2
     core-js: 3.21.1
     cross-env: 7.0.3
+    eslint: 8.13.0
     jest: 27.5.1
     microbundle: 0.14.2
     npm-run-all: 4.1.5
@@ -19484,6 +19486,7 @@ __metadata:
     dotenv-flow: 3.2.0
     dotenv-flow-cli: 1.0.0
     es-check: 6.2.1
+    eslint: 8.13.0
     eslint-config-next: 12.1.4
     graphql: 16.3.0
     i18next: 21.6.14
@@ -19519,7 +19522,6 @@ __metadata:
     sync-directory: 4.0.12
     tailwindcss: 3.0.23
     ts-jest: 27.1.4
-    ts-node: 10.7.0
     type-fest: 2.12.2
     typescript: 4.6.3
   languageName: unknown
@@ -23062,6 +23064,7 @@ __metadata:
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     autoprefixer: 10.4.4
+    eslint: 8.13.0
     jest: 27.5.1
     jest-css-modules-transform: 4.3.0
     npm-run-all: 4.1.5
@@ -25818,7 +25821,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:10.7.0, ts-node@npm:^10.4.0":
+"ts-node@npm:8.9.1":
+  version: 8.9.1
+  resolution: "ts-node@npm:8.9.1"
+  dependencies:
+    arg: ^4.1.0
+    diff: ^4.0.1
+    make-error: ^1.1.1
+    source-map-support: ^0.5.17
+    yn: 3.1.1
+  peerDependencies:
+    typescript: ">=2.7"
+  bin:
+    ts-node: dist/bin.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+    ts-script: dist/bin-script-deprecated.js
+  checksum: 59997e32cfb84323317f9fd33ff62d025b467ff36c296c3ad1ee54f08fd355c58fab37e096e2a63fd01fced929384b16b9d74bf324713a21844e527ddd5f6c17
+  languageName: node
+  linkType: hard
+
+"ts-node@npm:^10.4.0":
   version: 10.7.0
   resolution: "ts-node@npm:10.7.0"
   dependencies:
@@ -25853,26 +25876,6 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 2a379e43f7478d0b79e1e63af91fe222d83857727957df4bd3bdf3c0a884de5097b12feb9bbf530074526b8874c0338b0e6328cf334f3a5e2c49c71e837273f7
-  languageName: node
-  linkType: hard
-
-"ts-node@npm:8.9.1":
-  version: 8.9.1
-  resolution: "ts-node@npm:8.9.1"
-  dependencies:
-    arg: ^4.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    source-map-support: ^0.5.17
-    yn: 3.1.1
-  peerDependencies:
-    typescript: ">=2.7"
-  bin:
-    ts-node: dist/bin.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: 59997e32cfb84323317f9fd33ff62d025b467ff36c296c3ad1ee54f08fd355c58fab37e096e2a63fd01fced929384b16b9d74bf324713a21844e527ddd5f6c17
   languageName: node
   linkType: hard
 
@@ -26852,6 +26855,7 @@ __metadata:
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
+    eslint: 8.13.0
     prettier: 2.6.2
     react: 18.0.0
     react-dom: 18.0.0
