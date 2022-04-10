@@ -12,7 +12,7 @@ import type { FC } from 'react';
 type Props = {
   children?: never;
 };
-export const CtaBlock: FC<Props> = () => {
+export const CtaSection: FC<Props> = () => {
   return (
     <Box
       component="section"

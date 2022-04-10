@@ -44,7 +44,7 @@ const features = [
   },
 ];
 
-export const FeaturesBlock: FC<Props> = () => {
+export const FeaturesSection: FC<Props> = () => {
   return (
     <Box
       component="section"

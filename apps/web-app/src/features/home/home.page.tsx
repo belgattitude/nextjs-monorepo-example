@@ -3,10 +3,8 @@ import { NextSeo } from 'next-seo';
 import type { FC } from 'react';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
-import { CtaBlock } from '../blocks/cta-block';
-import { FeaturesBlock } from '../blocks/features-block';
-import { HeroBlock } from '../blocks/hero-block';
-import { homeConfig } from '../home.config';
+import { homeConfig } from './home.config';
+import { CtaSection, FeaturesSection, HeroSection } from './sections';
 
 type Props = {
   children?: never;
@@ -23,9 +21,9 @@ export const HomePage: FC<Props> = () => {
       />
       <MainLayout>
         <Banner />
-        <HeroBlock />
-        <FeaturesBlock />
-        <CtaBlock />
+        <HeroSection />
+        <FeaturesSection />
+        <CtaSection />
       </MainLayout>
     </>
   );

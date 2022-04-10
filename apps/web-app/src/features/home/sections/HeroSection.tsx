@@ -1,4 +1,3 @@
-// import { useTranslation } from 'next-i18next';
 import {
   Button,
   Box,
@@ -17,9 +16,7 @@ type Props = {
   children?: never;
 };
 
-export const HeroBlock: FC<Props> = () => {
-  // const { t } = useTranslation(['home', 'common']);
-
+export const HeroSection: FC<Props> = () => {
   return (
     <Box component="section" sx={{ paddingY: 6 }}>
       <Container>
