@@ -40,7 +40,7 @@ nested approach:
 ├── apps
 │   ├── remix-app
 │   │   └── .eslintrc.js   (extends eslint.base: adds react, rtl...)
-│   └── web-app
+│   └── nextjs-app
 │       └── .eslintrc.js   (extends eslint.base: adds react, nextjs, rtl...)
 ├── packages
 │   ├── db-main-prisma

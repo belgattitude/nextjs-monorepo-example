@@ -1,5 +1,11 @@
 # nextjs-app
 
+## 3.43.2
+
+### Patch Changes
+
+- [#1649](https://github.com/belgattitude/nextjs-monorepo-example/pull/1649) [`113d338`](https://github.com/belgattitude/nextjs-monorepo-example/commit/113d338172d5f7c7e1c0a7adcca1354d18bad016) Thanks [@belgattitude](https://github.com/belgattitude)! - Rename web-app into nextjs-app
+
 ## 3.43.1
 
 ### Patch Changes
