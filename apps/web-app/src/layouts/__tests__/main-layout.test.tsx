@@ -1,4 +1,4 @@
-import { MainLayout } from '@/components/layout/main-layout';
+import { MainLayout } from '@/layouts/MainLayout';
 import { render, screen } from '@/test-utils';
 
 describe('Layout tests', () => {

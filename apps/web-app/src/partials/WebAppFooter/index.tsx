@@ -1,7 +1,6 @@
 import { Box, Container, Typography, GitHubIcon } from '@mqs/ui-lib';
-import type { FC } from 'react';
 
-export const MainFooter: FC = () => {
+export default function WebAppFooter() {
   return (
     <Box component="footer" sx={{ paddingY: 6 }}>
       <Container>
@@ -18,4 +17,4 @@ export const MainFooter: FC = () => {
       </Container>
     </Box>
   );
-};
+}

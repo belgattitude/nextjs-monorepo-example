@@ -7,13 +7,8 @@ import {
   Typography,
   visuallyHidden,
 } from '@mqs/ui-lib';
-import type { FC } from 'react';
 
-type Props = {
-  children?: never;
-};
-
-export const Banner: FC<Props> = () => {
+export default function WebAppBarTop() {
   return (
     <AppBarTop position="sticky">
       <Box sx={{ flexGrow: 1, display: 'flex' }}>
@@ -41,4 +36,4 @@ export const Banner: FC<Props> = () => {
       </Box>
     </AppBarTop>
   );
-};
+}
