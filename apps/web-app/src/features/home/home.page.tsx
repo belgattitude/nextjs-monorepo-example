@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import type { FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
 import { usePageTranslation } from './hooks';
 import { CtaSection, FeaturesSection, HeroSection } from './sections';
@@ -17,11 +17,17 @@ export const HomePage: FC<Props> = () => {
         title={t('common:pages.home.title')}
         description={t('common:pages.home.description')}
       />
-      <MainLayout>
-        <HeroSection />
-        <FeaturesSection />
-        <CtaSection />
-      </MainLayout>
+      <HeroSection />
+      <FeaturesSection />
+      <CtaSection />
+    </>
+  );
+};
+
+export const getServerSideLayout = (page: ReactElement) => {
+  return (
+    <>
+      <MainLayout>{page}</MainLayout>
     </>
   );
 };

@@ -1,5 +1,6 @@
-import { Box, Container, Typography, Divider, Stack } from '@mqs/ui-lib';
+import { Box, Container, Divider, Stack, Typography } from '@mqs/ui-lib';
 import { useTranslation } from 'next-i18next';
+import { Link } from '../../components';
 
 export default function WebAppFooter() {
   const { t } = useTranslation(['common']);
@@ -11,20 +12,25 @@ export default function WebAppFooter() {
     >
       <Container>
         <Stack spacing={1}>
+          <Box maxWidth="420px">
+            <Typography variant="caption" color="#fff">
+              {t('common:loreum')}
+            </Typography>
+          </Box>
           <Divider />
           <Stack direction="row" spacing={1}>
-            <Typography variant="caption" color="white">
+            <Typography variant="body1" color="#fff" lineHeight="24px">
               {t('common:brand.name')}
             </Typography>
-            <Typography variant="caption" color="white">
+            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
               {t('common:legal.privacyPolicy')}
-            </Typography>
-            <Typography variant="caption" color="white">
+            </Link>
+            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
               {t('common:legal.termsOfService')}
-            </Typography>
-            <Typography variant="caption" color="white">
+            </Link>
+            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
               {t('common:legal.feedback')}
-            </Typography>
+            </Link>
           </Stack>
         </Stack>
       </Container>

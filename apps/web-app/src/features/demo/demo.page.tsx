@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import type { FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
 import { usePageTranslation } from '../home/hooks';
 import { DemoApiSection } from './sections';
@@ -17,9 +17,15 @@ export const DemoPage: FC<Props> = () => {
         title={t('common:pages.poems.title')}
         description={t('common:pages.poems.title')}
       />
-      <MainLayout>
-        <DemoApiSection />
-      </MainLayout>
+      <DemoApiSection />
+    </>
+  );
+};
+
+export const getServerSideLayout = (page: ReactElement) => {
+  return (
+    <>
+      <MainLayout>{page}</MainLayout>
     </>
   );
 };

@@ -1,17 +1,19 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { homeConfig, HomePage } from '@/features/home';
+import { getServerSideLayout, homeConfig, HomePage } from '@/features/home';
 
 type Props = {
   /** Add HomeRoute props here */
 };
 
-export default function HomeRoute(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
-) {
+function HomeRoute(_props: InferGetStaticPropsType<typeof getStaticProps>) {
   return <HomePage />;
 }
+
+HomeRoute.getServerSideLayout = getServerSideLayout;
+
+export default HomeRoute;
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { locale } = context;

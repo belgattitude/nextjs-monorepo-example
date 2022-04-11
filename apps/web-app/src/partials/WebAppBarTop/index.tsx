@@ -10,6 +10,7 @@ import {
 } from '@mqs/ui-lib';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
+import { Link } from '../../components';
 
 export type WebAppBarTopProps = {
   pages?: Array<{
@@ -35,6 +36,7 @@ export default function WebAppBarTop({ pages }: WebAppBarTopProps) {
           {pages.map(({ label, href }) => (
             <Tab
               color="inherit"
+              LinkComponent={Link}
               href={href}
               key={href}
               label={label}
