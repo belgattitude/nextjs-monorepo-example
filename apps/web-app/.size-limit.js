@@ -37,9 +37,9 @@ const getPageLimits = () => {
 
 module.exports = [
   ...getPageLimits(),
-  {
-    name: 'CSS',
-    path: ['.next/static/css/**/*.css'],
-    limit: '10 kB',
-  },
+  // {
+  //   name: 'CSS',
+  //   path: ['.next/static/css/**/*.css'],
+  //   limit: '10 kB',
+  // },
 ];
