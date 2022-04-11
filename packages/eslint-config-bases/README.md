@@ -63,6 +63,25 @@ module.exports = {
 };
 ```
 
+> **Tip:** "@your-org/eslint-config-bases/prettier" must be set at the end to disable any
+> conflicting rules.
+
+## Prettier integration
+
+On top level re-export the prettier base from `@your-org/eslint-config-bases`, for example
+
+```javascript
+const { getPrettierConfig } = require("@your-org/eslint-config-bases/helpers");
+module.exports = {
+  ...prettierConfig,
+  overrides: [
+    // whatever you need
+  ],
+};
+```
+
+So eslint and prettier won't confict.
+
 ## Bases
 
 You can find the bases in `./src/bases` and see how they are defined.
