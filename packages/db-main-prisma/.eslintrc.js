@@ -13,6 +13,7 @@ module.exports = {
   extends: [
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
+    '@your-org/eslint-config-bases/regexp',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier',
   ],
