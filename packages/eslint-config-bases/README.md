@@ -11,6 +11,12 @@
 Customizable eslint config bases that can be easily shared and fine-tuned by apps and
 packages that lives in the [monorepo example](https://github.com/belgattitude/nextjs-monorepo-example).
 
+## Features
+
+- **Perf:** Plugins enabled on conventional file patterns rather than all files.
+- **Customizable:** Each app can extend multiple bases and customize them.
+- **Compatible:** Compatibility with prettier.
+
 ## Install
 
 ```bash
