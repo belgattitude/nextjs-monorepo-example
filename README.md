@@ -53,7 +53,8 @@ Useful to
 └── packages
     ├── core-lib
     ├── db-main-prisma
-    └── ui-lib     (emotion, storybook)
+    ├── eslint-config-bases (to shared eslint configs)
+    └── ui-lib              (emotion, storybook)
 ```
 
 #### Example apps
@@ -68,6 +69,7 @@ Useful to
 
 - [packages/core-lib](./packages/core-lib): publishable. [README](./packages/core-lib/README.md) | [CHANGELOG](./packages/core-lib/CHANGELOG.md)
 - [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [README](./packages/db-main-prisma/README.md) | [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
+- [packages/eslint-config-bases](./packages/eslint-config-bases): [README](./packages/eslint-config-bases/README.md) | [CHANGELOG](./packages/eslint-config-bases/CHANGELOG.md)
 - [packages/ui-lib](./packages/ui-lib): publishable. [README](./packages/ui-lib/README.md) | [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
 
 > Apps can depend on packages, packages can depend on each others...
@@ -119,6 +121,12 @@ If needed static resources like **locales**, **images**,... can be shared by usi
 │   ├── db-main-prisma          (basic db layer with prisma)
 │   │   ├── e2e/                (E2E tests)
 │   │   ├── prisma/
+│   │   ├── src/
+│   │   ├── CHANGELOG.md
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── eslint-config-bases
 │   │   ├── src/
 │   │   ├── CHANGELOG.md
 │   │   ├── package.json
@@ -204,45 +212,10 @@ Initialize a package.json with the name of your package.
     "fix:all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.0.0",
-    "@testing-library/react-hooks": "7.0.1",
-    "@types/node": "16.4.10",
-    "@types/react": "17.0.15",
-    "@types/react-dom": "17.0.9",
-    "@typescript-eslint/eslint-plugin": "4.29.0",
-    "@typescript-eslint/parser": "4.29.0",
-    "camelcase": "6.2.0",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.23.4",
-    "eslint-plugin-jest": "24.4.0",
-    "eslint-plugin-jest-formatting": "3.0.0",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-react": "7.24.0",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-testing-library": "4.10.1",
-    "jest": "27.0.6",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.3.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "rimraf": "3.0.2",
-    "shell-quote": "1.7.2",
-    "ts-jest": "27.0.4",
-    "typescript": "4.3.5",
-  },
-  "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.2",
-    "react-dom": "^16.14.0 || ^17.0.2",
+    "@your-org/eslint-config-bases": "workspace:^",
   },
 }
 ```
-
-> _Note that as we want to be strict with dependencies, the best is to
-> define all you need (eslint, ...) per package. And not in the monorepo root.
-> That might seem weird, but on the long run it's much safer._
 
 </details>
 
@@ -256,7 +229,7 @@ yarn and pnpm.
 
 ```bash
 cd apps/my-app
-yarn add @your-org/magnificent-poney@'workspace:*'
+yarn add @your-org/magnificent-poney@'workspace:^'
 ```
 
 Inspiration can be found in [apps/nextjs-app/package.json](./apps/nextjs-app/package.json).
@@ -268,7 +241,7 @@ Inspiration can be found in [apps/nextjs-app/package.json](./apps/nextjs-app/pac
 {
   "name": "my-app",
   "dependencies": {
-    "@your-org/magnificient-poney": "workspace:*",
+    "@your-org/magnificient-poney": "workspace:^",
   },
 }
 ```
@@ -429,11 +402,8 @@ They are based on the excellent [npm-check-updates](https://github.com/raineorsh
 
 ### 5.1 Linters
 
-An example of base eslint configuration can be found in [./.eslint.base.js](./.eslintrc.base.js), apps
-and packages extends it in their own root folder, as an example see [./apps/nextjs-app/.eslintrc.js](./apps/nextjs-app/.eslintrc.js).
-Prettier is included in eslint configuration as well as [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) for nextjs apps.
-
-For code complexity and deeper code analysis [sonarjs plugin](https://github.com/SonarSource/eslint-plugin-sonarjs) is activated.
+See an example in [./apps/nextjs-app/.eslintrc.js](./apps/nextjs-app/.eslintrc.js) and our
+[eslint-config-bases](./packages/eslint-config-bases/README.md).
 
 ### 5.2 Hooks / Lint-staged
 
@@ -556,39 +526,6 @@ To help keeping deps up-to-date, see the `yarn deps:check && yarn deps:update` s
 > When adding a dep through yarn cli (i.e.: yarn add something), it's possible to set the save-exact behaviour automatically
 > by setting `defaultSemverRangePrefix: ""` in [yarnrc.yml](./.yarnrc.yml). But this would make the default for packages/\* as well.
 > Better to handle `yarn add something --exact` on per-case basis.
-
-#### About next-transpile-modules
-
-And why this repo example doesn't use it to support package sharing.
-
-[next-transpile-modules](https://github.com/martpie/next-transpile-modules) is one of the most installed
-packages for nextjs. It basically allows you to transpile some 3rd party packages present in your node_modules folder.
-This can be helpful for transpiling packages for legacy browser support (ie11), esm packages (till it lands in nextjs) and
-handle shared packages.
-
-In this repo, we use next-transpile-modules only for ie11 and esm. The monorepo management is done through [tsconfig path](https://github.com/vercel/next.js/pull/13542).
-It will work best when external tooling is involved (ts-jest...), but comes with some limitations if your shared package use an
-scss compiler for example. Note that future version of NextJs might improve monorepo support through [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
-
-See here a quick comparison:
-
-| Support matrix      | tsconfig paths     | next-transpile-module     |
-| ------------------- | ------------------ | ------------------------- |
-| Typescript          | ✅                 | ✅                        |
-| Javascript          | ✅                 | ✅                        |
-| NextJs Fast refresh | ✅                 | ✅                        |
-| CSS                 | custom webpack cfg | ✅                        |
-| SCSS                | custom webpack cfg | ✅                        |
-| CSS-in-JS           | ✅                 | ✅                        |
-| ts-jest             | ✅                 | custom aliases            |
-| Vercel monorepo     | ✅                 | ✅                        |
-| Yarn 2 PNP          | ✅                 | ✅                        |
-| Webpack5            | ✅                 | ✅                        |
-| Publishable (npm)   | ✅                 | ❌ (ntm relies on "main") |
-
-## See also
-
-- https://stackoverflow.com/a/69554480/5490184
 
 ## License
 
