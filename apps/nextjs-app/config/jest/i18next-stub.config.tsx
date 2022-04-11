@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
 
 /**
@@ -19,6 +19,8 @@ i18n.use(initReactI18next).init({
   resources: { en: { common: {} } },
 });
 
-export const I18nextTestStubProvider: FC = ({ children }) => {
+export const I18nextTestStubProvider: FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 };
