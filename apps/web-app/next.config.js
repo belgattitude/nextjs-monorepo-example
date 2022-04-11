@@ -85,6 +85,16 @@ const secureHeaders = createSecureHeaders({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ];
+  },
+
   reactStrictMode: true,
   productionBrowserSourceMaps: !disableSourceMaps,
   i18n,

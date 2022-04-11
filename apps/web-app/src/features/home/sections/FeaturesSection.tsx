@@ -11,78 +11,66 @@ import {
   LightbulbIcon,
   LinearScaleIcon,
   MobileFriendlyIcon,
+  uiLinearGradient,
 } from '@mqs/ui-lib';
 import type { FC } from 'react';
+import { useMemo } from 'react';
+import { usePageTranslation } from '../hooks';
 
 type Props = {
   children?: never;
 };
 
-const lorem =
-  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.';
+export const FeaturesSection: FC<Props> = () => {
+  const { t } = usePageTranslation();
+  const features = useMemo(
+    () => [
+      {
+        name: 'Competitive exchange rates',
+        description: t('common:loreum'), // eslint-disable-line sonarjs/no-duplicate-string
+        icon: AccessAlarmIcon,
+      },
+      {
+        name: 'No hidden fees',
+        description: t('common:loreum'), // eslint-disable-line sonarjs/no-duplicate-string
+        icon: LinearScaleIcon,
+      },
+      {
+        name: 'Transfers are instant',
+        description: t('common:loreum'), // eslint-disable-line sonarjs/no-duplicate-string
+        icon: LightbulbIcon,
+      },
+      {
+        name: 'Mobile notifications',
+        description: t('common:loreum'), // eslint-disable-line sonarjs/no-duplicate-string
+        icon: MobileFriendlyIcon,
+      },
+    ],
+    [t]
+  );
 
-const features = [
-  {
-    name: 'Competitive exchange rates',
-    description: lorem,
-    icon: AccessAlarmIcon,
-  },
-  {
-    name: 'No hidden fees',
-    description: lorem,
-    icon: LinearScaleIcon,
-  },
-  {
-    name: 'Transfers are instant',
-    description: lorem,
-    icon: LightbulbIcon,
-  },
-  {
-    name: 'Mobile notifications',
-    description: lorem,
-    icon: MobileFriendlyIcon,
-  },
-];
-
-export const FeaturesBlock: FC<Props> = () => {
   return (
-    <Box
-      component="section"
-      sx={{
-        paddingY: 6,
-        background: ({
-          palette: {
-            primary: { main: primary },
-            secondary: { main: secondary },
-          },
-        }) =>
-          `linear-gradient(90deg, ${secondary} 0%, ${primary} 13%, ${secondary} 100%)`,
-      }}
-    >
+    <Box component="section" sx={{ paddingY: 6, background: uiLinearGradient }}>
       <Container>
         <Card>
           <CardContent>
             <Stack spacing={3}>
               <span>
                 <Typography color="primary" variant="h4" textAlign="center">
-                  Transactions
+                  {t('home:FeaturesSection.title')}
                 </Typography>
                 <Typography variant="body1" textAlign="center">
-                  A better way to send money
+                  {t('home:FeaturesSection.subtitle')}
                 </Typography>
                 <Typography variant="body2" textAlign="center">
-                  {lorem}
+                  {t('common:loreum')}
                 </Typography>
               </span>
               <Grid container spacing={3}>
                 {features.map(({ description, icon: Icon, name }) => (
                   <Grid key={name} item xs={12} sm={6} md={6} lg={3}>
                     <Stack direction="row" spacing={1}>
-                      <Avatar
-                        sx={{
-                          backgroundColor: 'primary.main',
-                        }}
-                      >
+                      <Avatar sx={{ backgroundColor: 'primary.main' }}>
                         <Icon aria-hidden="true" />
                       </Avatar>
                       <Stack>
