@@ -3,22 +3,23 @@
 /**
  * @type {import('prettier').Config}
  */
+
+const { getPrettierConfig } = require('@your-org/eslint-config-bases/helpers');
+
+const { overrides = [], ...prettierConfig } = getPrettierConfig();
+
 module.exports = {
-  singleQuote: true,
-  semi: true,
-  tabWidth: 2,
-  bracketSpacing: true,
-  trailingComma: 'es5',
-  bracketSameLine: false,
-  useTabs: false,
-  endOfLine: 'lf',
+  ...prettierConfig,
   overrides: [
-    {
-      files: '*.md',
-      options: {
-        singleQuote: false,
-        quoteProps: 'preserve',
+    ...overrides,
+    ...[
+      {
+        files: '*.md',
+        options: {
+          singleQuote: false,
+          quoteProps: 'preserve',
+        },
       },
-    },
+    ],
   ],
 };

@@ -1,5 +1,11 @@
 # @your-org/core-lib
 
+## 3.12.0
+
+### Minor Changes
+
+- [#1644](https://github.com/belgattitude/nextjs-monorepo-example/pull/1644) [`ee0a3db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ee0a3dbd664c33d7149302ae3f776951dbd50492) Thanks [@belgattitude](https://github.com/belgattitude)! - Rework deps, peer-deps and dev-deps
+
 ## 3.11.0
 
 ### Minor Changes

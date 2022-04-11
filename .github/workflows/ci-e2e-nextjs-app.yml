@@ -1,0 +1,138 @@
+name: CI-e2e-web-app
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
+    paths:
+      - 'apps/web-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16.X]
+        database:
+          - e2e-postgres
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      # see https://github.com/vercel/next.js/pull/27362
+      - name: Restore nextjs build web-app from cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/web-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
+          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+
+      - name: Start database
+        working-directory: packages/db-main-prisma
+        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - name: Create and seed test database
+        working-directory: packages/db-main-prisma
+        run: |
+          yarn prisma db push
+          yarn prisma db seed
+        env:
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+
+      - name: Build nextjs-app
+        working-directory: apps/nextjs-app
+        run: |
+          yarn build
+        env:
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+          # Don't need to lint / typecheck for e2e, they're done in another workflow
+          NEXTJS_IGNORE_ESLINT: true
+          NEXTJS_IGNORE_TYPECHECK: true
+          NEXT_DISABLE_SOURCEMAPS: true
+          NEXT_TELEMETRY_DISABLED: true
+          NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: E2E run nextjs-app playwright tests
+        working-directory: apps/nextjs-app
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
+        env:
+          E2E_WEBSERVER_MODE: BUILD_AND_START
+          CI: 1
+          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: nextjs-app-playwright-test-results
+          path: apps/nextjs-app/e2e/.out

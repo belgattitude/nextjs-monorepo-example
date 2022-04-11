@@ -1,0 +1,130 @@
+name: CI-nextjs-app
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'apps/nextjs-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    # Optional:
+    #   Only consider those files/paths to trigger the github action
+    #   to prevent unnecessary builds.
+    paths:
+      - 'apps/nextjs-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.yarnrc.yml'
+      - '*.base.json'
+      - '*.base.js'
+      - '.prettier*.*'
+      - '.github/workflows/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v3
+
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Why not using setup-node 2.2+ cache option (yet) ?
+      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      # see https://github.com/vercel/next.js/pull/27362
+      - name: Restore nextjs build nextjs-app from cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/nextjs-app/.next/cache
+            ${{ github.workspace }}/.cache
+            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
+            ${{ github.workspace }}/**/.eslintcache
+
+          key: ${{ runner.os }}-nextjs-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
+
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - name: Typecheck
+        working-directory: apps/nextjs-app
+        run: |
+          yarn typecheck
+
+      - name: Linter
+        working-directory: apps/nextjs-app
+        run: |
+          yarn lint --cache
+
+      - name: Unit tests
+        working-directory: apps/nextjs-app
+        run: |
+          yarn test-unit --runInBand --color
+
+      - name: Build web-app
+        working-directory: apps/nextjs-app
+        run: |
+          yarn build
+        env:
+          # Speed up build: they are linted in a previous step
+          NEXTJS_IGNORE_ESLINT: true
+          # Speed up build: they are typechecked in a previous step
+          NEXTJS_IGNORE_TYPECHECK: true
+          # Speed up build: don't run if not needed, enable if it becomes needed
+          NEXT_DISABLE_SOURCEMAPS: true
+          # Don't send telemetry for ci
+          NEXT_TELEMETRY_DISABLED: true
+          # Fully disable sentry registration here (no overhead in build time)
+          NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
+
+      - name: Check bundle size
+        working-directory: apps/nextjs-app
+        run: |
+          yarn check-build-size
+
+      - name: Check ecmascript checks for build files
+        working-directory: apps/nextjs-app
+        run: |
+          yarn check-dist
