@@ -3,43 +3,37 @@
  * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
  */
 
+const {
+  getDefaultIgnorePatterns,
+} = require('@your-org/eslint-config-bases/helpers');
+
 module.exports = {
   root: true,
-  ignorePatterns: ['.next', '**/.out'],
+  ignorePatterns: [...getDefaultIgnorePatterns(), '.next', '.out'],
   extends: [
-    // Extend the monorepo default configuration
-    '../../.eslintrc.base.js',
-    // Add specific rules for react
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
+    '@your-org/eslint-config-bases/typescript',
+    '@your-org/eslint-config-bases/sonar',
+    '@your-org/eslint-config-bases/regexp',
+    '@your-org/eslint-config-bases/jest',
+    '@your-org/eslint-config-bases/react',
+    '@your-org/eslint-config-bases/rtl',
+    '@your-org/eslint-config-bases/graphql-schema',
     // Add specific rules for nextjs
     'plugin:@next/next/core-web-vitals',
+    // Apply prettier and disable incompatible rules
+    '@your-org/eslint-config-bases/prettier',
   ],
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
-  },
   rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
-    'react/no-unescaped-entities': 'off',
-    // next/image might not be yet a good move as of NextJs v11.
     // https://github.com/vercel/next.js/discussions/16832
     '@next/next/no-img-element': 'off',
+    // For the sake of example
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md
+    'jsx-a11y/anchor-is-valid': 'off',
   },
   overrides: [
     {
-      // For performance run jest/recommended on test files, not regular code
-      files: ['**/*.test.{ts,tsx}'],
-      extends: ['plugin:testing-library/react'],
-    },
-    {
-      files: ['src/pages/**/*.{ts,tsx}'],
+      files: ['src/pages/\\_*.{ts,tsx}'],
       rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/display-name': 'off',
       },
     },
@@ -54,19 +48,6 @@ module.exports = {
             format: ['camelCase', 'PascalCase'],
           },
         ],
-      },
-    },
-    {
-      files: ['src/backend/api/**/*.ts'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-      },
-    },
-    {
-      files: ['config/jest/test-utils.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'import/export': 'off',
       },
     },
   ],

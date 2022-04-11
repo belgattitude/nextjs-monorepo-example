@@ -1,16 +1,12 @@
 /**
- * Default eslint base configuration that can be extended by apps/packages
- * in the monorepo
- * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
+ * Custom config base for projects using typescript / javascript.
  */
 
 module.exports = {
-  root: true,
   env: {
-    node: true,
     es6: true,
+    node: true,
   },
-  ignorePatterns: ['**/node_modules', '**/dist', '**/build'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -22,9 +18,6 @@ module.exports = {
     sourceType: 'module',
   },
   settings: {
-    react: {
-      version: 'detect',
-    },
     'import/resolver': {
       typescript: {},
     },
@@ -34,15 +27,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:regexp/recommended',
-    'plugin:prettier/recommended',
   ],
-  globals: {
-    context: 'readonly',
-    cy: 'readonly',
-    assert: 'readonly',
-    Cypress: 'readonly',
-  },
   rules: {
     'spaced-comment': [
       'error',
@@ -160,58 +145,8 @@ module.exports = {
   },
   overrides: [
     {
-      // For performance run sonarjs/recommended on regular code, not test files.
-      files: ['**/*.{js,jsx,ts,tsx}'],
-      excludedFiles: ['**/__tests__/**/*.{js,jsx,ts,tsx}'],
-      extends: ['plugin:sonarjs/recommended'],
-      rules: {
-        'sonarjs/no-nested-template-literals': 'off',
-      },
-    },
-    {
-      // For performance run jest/recommended on test files, not regular code
-      files: ['**/?(*.)+(test).{js,jsx,ts,tsx}'],
-      extends: ['plugin:jest/recommended'],
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-object-literal-type-assertion': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
-      },
-    },
-    {
-      // To disambiguate unit from e2e (playwright) test files, the *.spec.ts
-      // is used across this repo, so we can apply a different ruleset.
-      files: ['*.spec.ts'],
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-object-literal-type-assertion': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
-      },
-    },
-    // Fine-tune naming convention react typescript jsx (function components)
-    {
-      files: ['*.tsx'],
-      rules: {
-        '@typescript-eslint/naming-convention': [
-          'warn',
-          {
-            selector: 'variable',
-            format: ['camelCase', 'PascalCase'],
-          },
-          {
-            selector: ['function'],
-            format: ['camelCase', 'PascalCase'],
-          },
-          {
-            selector: 'parameter',
-            format: ['camelCase', 'PascalCase'],
-            leadingUnderscore: 'allow',
-          },
-        ],
-      },
-    },
-    {
-      files: ['*.js'],
+      // commonjs or assumed
+      files: ['*.js', '*.cjs'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 2020,
@@ -222,8 +157,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'sonarjs/no-duplicate-string': 'off',
-        'sonarjs/no-all-duplicated-branches': 'off',
         '@typescript-eslint/consistent-type-exports': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
         'import/order': 'off',
