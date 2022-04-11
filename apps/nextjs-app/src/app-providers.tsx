@@ -1,7 +1,7 @@
 import type { EmotionCache } from '@emotion/react';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createEmotionCache } from '@/lib/emotion';
@@ -20,6 +20,7 @@ const clientSideEmotionCache = createEmotionCache();
 
 type Props = {
   emotionCache?: EmotionCache;
+  children: ReactNode;
 };
 
 export const AppProviders: FC<Props> = (props) => {

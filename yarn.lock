@@ -6424,7 +6424,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.15":
+"@types/react-dom@npm:*, @types/react-dom@npm:18.0.0":
+  version: 18.0.0
+  resolution: "@types/react-dom@npm:18.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 0d8c9cb3e72aefe0dd2b58a49845a200369f01ae92f3f11f642e04efc95dfd1c9380b6592d4273dd6113fb8707947d15b66d56c75c41f39f28bd897f0c08dfa9
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:17.0.15":
   version: 17.0.15
   resolution: "@types/react-dom@npm:17.0.15"
   dependencies:
@@ -6460,7 +6469,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.44":
+"@types/react@npm:*, @types/react@npm:18.0.1, @types/react@npm:>=16":
+  version: 18.0.1
+  resolution: "@types/react@npm:18.0.1"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: ede927ed3766fef5fec513fe75e79180bb3c97d21ca7707321e969193c596bc4a531160238546a845e4131df02ec9be7803277a268bc270156362d16b29b4ffb
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:17.0.44, @types/react@npm:^17":
   version: 17.0.44
   resolution: "@types/react@npm:17.0.44"
   dependencies:
@@ -6576,6 +6596,13 @@ __metadata:
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
+  languageName: node
+  linkType: hard
+
+"@types/use-sync-external-store@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@types/use-sync-external-store@npm:0.0.3"
+  checksum: 161ddb8eec5dbe7279ac971531217e9af6b99f7783213566d2b502e2e2378ea19cf5e5ea4595039d730aa79d3d35c6567d48599f69773a02ffcff1776ec2a44e
   languageName: node
   linkType: hard
 
@@ -7333,8 +7360,8 @@ __metadata:
     "@testing-library/react-hooks": 8.0.0
     "@types/jest": 27.4.1
     "@types/node": 17.0.23
-    "@types/react": 17.0.44
-    "@types/react-dom": 17.0.15
+    "@types/react": 18.0.1
+    "@types/react-dom": 18.0.0
     "@typescript-eslint/eslint-plugin": 5.18.0
     "@typescript-eslint/parser": 5.18.0
     eslint: 8.13.0
@@ -19468,8 +19495,8 @@ __metadata:
     "@types/ioredis": 4.28.10
     "@types/jest": 27.4.1
     "@types/node": 17.0.23
-    "@types/react": 17.0.44
-    "@types/react-dom": 17.0.15
+    "@types/react": 18.0.1
+    "@types/react-dom": 18.0.0
     "@typescript-eslint/eslint-plugin": 5.18.0
     "@typescript-eslint/parser": 5.18.0
     "@your-org/core-lib": "workspace:^"
@@ -19521,7 +19548,7 @@ __metadata:
     react: 18.0.0
     react-dom: 18.0.0
     react-i18next: 11.16.5
-    react-query: 3.34.19
+    react-query: 4.0.0-beta.2
     rimraf: 3.0.2
     rooks: 5.11.0
     sass: 1.50.0
@@ -22479,21 +22506,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-query@npm:3.34.19":
-  version: 3.34.19
-  resolution: "react-query@npm:3.34.19"
+"react-query@npm:4.0.0-beta.2":
+  version: 4.0.0-beta.2
+  resolution: "react-query@npm:4.0.0-beta.2"
   dependencies:
     "@babel/runtime": ^7.5.5
+    "@types/use-sync-external-store": ^0.0.3
     broadcast-channel: ^3.4.1
     match-sorter: ^6.0.2
+    use-sync-external-store: ^1.0.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   peerDependenciesMeta:
     react-dom:
       optional: true
     react-native:
       optional: true
-  checksum: 765bec81e521a78ef04a8feb6710041ce838ef82bf6e1d35c7e9327cc242b232b242fd89f3604adf6747dce2df055d12b15e8e4208687cc5eb493c1c0bf71d34
+  checksum: f8f5bdf877ee550c124744541a1234a9dd8fb76a926a3940be6508786fce69a46d3e58cc892be95ec8c0dc4c1bdd95f237e5ff2a391e61d15ac1d577628db136
   languageName: node
   linkType: hard
 
@@ -23070,8 +23099,8 @@ __metadata:
     "@testing-library/jest-dom": 5.16.4
     "@testing-library/react": 13.0.0
     "@testing-library/react-hooks": 8.0.0
-    "@types/react": 17.0.44
-    "@types/react-dom": 17.0.15
+    "@types/react": 18.0.1
+    "@types/react-dom": 18.0.0
     "@vercel/node": 1.14.0
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -26637,6 +26666,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "use-sync-external-store@npm:1.0.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0-rc
+  checksum: f3df10af62625169d6a8cd8d4f38942dc6817aa27398fa7f474421fd574b0c4c83679b9d15f983f482c396ee1183416eb146814c81f44241e1480acd701ef018
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -26862,8 +26900,8 @@ __metadata:
     "@emotion/babel-plugin": 11.9.2
     "@emotion/react": 11.9.0
     "@emotion/styled": 11.8.1
-    "@types/react": 17.0.44
-    "@types/react-dom": 17.0.15
+    "@types/react": 18.0.1
+    "@types/react-dom": 18.0.0
     "@vitejs/plugin-react": 1.3.0
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -26876,7 +26914,6 @@ __metadata:
     typescript: 4.6.3
     vite: 2.9.1
     vite-tsconfig-paths: 3.4.1
-    wouter: 2.8.0-alpha.2
   languageName: unknown
   linkType: soft
 
@@ -27417,15 +27454,6 @@ __metadata:
   dependencies:
     microevent.ts: ~0.1.1
   checksum: 8f8607506172f44c05490f3ccf13e5c1f430eeb9b6116a405919c186b8b17add13bbb22467a0dbcd18ec7fcb080709a15738182e0003c5fbe2144721ea00f357
-  languageName: node
-  linkType: hard
-
-"wouter@npm:2.8.0-alpha.2":
-  version: 2.8.0-alpha.2
-  resolution: "wouter@npm:2.8.0-alpha.2"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 748002712b6511ec2b93bd18966ae85ac99e66aa344b672c92f972bf4332d809d6466e831017bdf3030f4163d5cdb04a6993b27dea68993f2a3d845ed08f2b02
   languageName: node
   linkType: hard
 

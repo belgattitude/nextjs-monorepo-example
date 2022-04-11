@@ -6,11 +6,7 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { CtaBlock, FeaturesBlock, HeroBlock } from '../blocks';
 import { homeConfig } from '../home.config';
 
-type Props = {
-  children?: never;
-};
-
-export const HomePage: FC<Props> = () => {
+export const HomePage: FC = () => {
   const { t } = useTranslation(homeConfig.i18nNamespaces);
 
   return (
