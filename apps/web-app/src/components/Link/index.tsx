@@ -1,5 +1,5 @@
-import type { LinkProps as BaseLinkProps } from '@mui/material';
-import { Link as BaseLink } from '@mui/material';
+import type { LinkProps as BaseLinkProps } from '@mqs/ui-lib';
+import { Link as BaseLink } from '@mqs/ui-lib';
 import type { LinkProps as NextLinkProps } from 'next/link';
 import NextLink from 'next/link';
 import type { RefObject } from 'react';
