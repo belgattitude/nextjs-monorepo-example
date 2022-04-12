@@ -75,7 +75,7 @@ You can find the bases in [./src/bases](./src/bases).
 
 | Base                                            | Match convention                  | Scope                                                                            |
 | :---------------------------------------------- | :-------------------------------- | :------------------------------------------------------------------------------- |
-| [typescript](./src/bases/typescript.js)         | _all_                             | Recommended practices, naming conventions, consistent imports, import sorting... |
+| [typescript](./src/bases/typescript.js)         | _all_                             | Naming conventions, consistent imports, import sorting... |
 | [sonar](./src/bases/sonar.js)                   | `*.{js,jsx,ts,tsx}`               | Keep levels of code complexity sane. (excl test and stories)                     |
 | [regexp](./src/bases/regexp.js)                 | `*.{js,jsx,jsx,tsx}`              | Keep regexp consistent and safer.                                                |
 | [react](./src/bases/react.js)                   | `*.{jsx,tsx}`                     | Recommendations for react, react-hooks and jsx projects.                         |
