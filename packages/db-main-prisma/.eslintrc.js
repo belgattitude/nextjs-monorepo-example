@@ -14,6 +14,7 @@ module.exports = {
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/regexp',
+    '@your-org/eslint-config-bases/jest',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier',
   ],
