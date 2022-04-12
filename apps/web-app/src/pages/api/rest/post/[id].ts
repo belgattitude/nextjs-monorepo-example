@@ -2,12 +2,13 @@ import { Asserts } from '@mqs/core-lib';
 import { JsonApiResponseFactory } from '@mqs/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@mqs/core-lib/api/json-api/json-api-error.factory';
 import { StringConvert } from '@mqs/core-lib/utils/string-convert';
+import { withSentry } from '@sentry/nextjs';
 import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';
 
-export default async function handleGetPost(
+export default withSentry(async function handleGetPost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -38,4 +39,4 @@ export default async function handleGetPost(
         )
       );
   }
-}
+});

@@ -30,13 +30,15 @@ const MyApp = (appProps: AppProps) => {
   const { Component, pageProps, emotionCache, err } = appProps;
 
   const serverSideLayout = useMemo(
-    () =>
-      /* Workaround for https://github.com/vercel/next.js/issues/8592 */
-      Component?.getServerSideLayout ?? fallbackServerSideLayout,
+    () => Component?.getServerSideLayout ?? fallbackServerSideLayout,
     [Component?.getServerSideLayout]
   );
   const content = useMemo(
-    () => serverSideLayout(<Component {...pageProps} err={err} />),
+    () =>
+      serverSideLayout(
+        /* Workaround for https://github.com/vercel/next.js/issues/8592 */
+        <Component {...pageProps} err={err} />
+      ),
     [serverSideLayout, pageProps, Component, err]
   );
 

@@ -1,9 +1,9 @@
 import { Box, Container, Divider, Stack, Typography } from '@mqs/ui-lib';
-import { useTranslation } from 'next-i18next';
-import { Link } from '../../components';
+import { Link } from '@/components';
+import useAppTranslation from '@/hooks/useAppTranslation';
 
 export default function WebAppFooter() {
-  const { t } = useTranslation(['common']);
+  const { t } = useAppTranslation();
 
   return (
     <Box

@@ -12,7 +12,7 @@ import {
 } from '@mqs/ui-lib';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { usePageTranslation } from '../hooks';
+import { usePageTranslation } from '@/features/Home/hooks';
 
 type Props = {
   children?: never;
@@ -37,17 +37,17 @@ export const HeroSection: FC<Props> = () => {
             <Card elevation={0}>
               <CardContent>
                 <Typography variant="h3">
-                  {t('home:HeroSection.title')}
+                  {t('home:heroSection.title')}
                 </Typography>
-                <Typography>{t('home:HeroSection.description')}</Typography>
+                <Typography>{t('home:heroSection.description')}</Typography>
               </CardContent>
               <CardActions>
                 <Stack direction="row" spacing={1}>
                   <Button color="primary" variant="contained" size="large">
-                    {t('home:HeroSection.button')}
+                    {t('home:heroSection.button')}
                   </Button>
                   <Button color="secondary" variant="contained" size="large">
-                    {t('home:HeroSection.button')}
+                    {t('home:heroSection.button')}
                   </Button>
                 </Stack>
               </CardActions>

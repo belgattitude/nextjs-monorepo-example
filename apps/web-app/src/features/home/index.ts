@@ -1,2 +1,2 @@
-export * from './home.config';
-export * from './home.page';
+export * from '@/features/Home/config';
+export * from '@/features/Home/page';

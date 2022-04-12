@@ -1,2 +1,2 @@
-export * from './demo.config';
-export * from './demo.page';
+export * from '@/features/Demo/config';
+export * from '@/features/Demo/page';

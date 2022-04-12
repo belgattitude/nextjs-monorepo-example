@@ -15,8 +15,8 @@ export const MainLayout: FC = (props) => {
         label: t('common:pages.home.name'),
       },
       {
-        href: '/poems',
-        label: t('common:pages.poems.name'),
+        href: '/demo',
+        label: t('common:pages.demo.name'),
       },
     ],
     [t]

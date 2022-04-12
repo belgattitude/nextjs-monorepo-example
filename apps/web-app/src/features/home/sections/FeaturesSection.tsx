@@ -15,7 +15,7 @@ import {
 } from '@mqs/ui-lib';
 import type { FC } from 'react';
 import { useMemo } from 'react';
-import { usePageTranslation } from '../hooks';
+import { usePageTranslation } from '@/features/Home/hooks';
 
 type Props = {
   children?: never;
@@ -57,10 +57,10 @@ export const FeaturesSection: FC<Props> = () => {
             <Stack spacing={3}>
               <span>
                 <Typography color="primary" variant="h4" textAlign="center">
-                  {t('home:FeaturesSection.title')}
+                  {t('home:featuresSection.title')}
                 </Typography>
                 <Typography variant="body1" textAlign="center">
-                  {t('home:FeaturesSection.subtitle')}
+                  {t('home:featuresSection.subtitle')}
                 </Typography>
                 <Typography variant="body2" textAlign="center">
                   {t('common:loreum')}

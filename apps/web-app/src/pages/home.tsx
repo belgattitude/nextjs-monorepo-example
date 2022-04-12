@@ -1,7 +1,7 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { getServerSideLayout, homeConfig, HomePage } from '@/features/home';
+import { getServerSideLayout, homeConfig, HomePage } from '@/features/Home';
 
 type Props = {
   /** Add HomeRoute props here */
@@ -23,7 +23,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = homeConfig;
   return {
     props: {
-      // i18nNamespaces.slice() is needed here to get rid off readonly
       ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
     },
   };

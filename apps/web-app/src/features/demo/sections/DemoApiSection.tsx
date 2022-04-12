@@ -6,34 +6,23 @@ import {
   CardHeader,
   CardMedia,
   Chip,
-  CircularProgress,
-  Container,
   Grid,
+  Skeleton,
   Typography,
 } from '@mqs/ui-lib';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import { useQuery } from 'react-query';
-import { usePageTranslation } from '@/features/home/hooks';
-import { fetchPoemsWithKy } from '../api/fetch-poems-ky.api';
+import { fetchPoemsWithKy } from '@/features/Demo/api/fetch-poems-ky.api';
 
 type NoChildrenProps = {
   children?: never;
 };
 
 export const DemoApiSection: FC<NoChildrenProps> = () => {
-  const { t } = usePageTranslation();
-  const {
-    data: poems,
-    isLoading,
-    error,
-  } = useQuery('posts', () => fetchPoemsWithKy(), {});
+  const { data, error } = useQuery('posts', () => fetchPoemsWithKy(), {});
 
   const content = useMemo(() => {
-    if (isLoading) {
-      return <CircularProgress />;
-    }
-
     if (error) {
       return (
         <Alert severity="error" variant="outlined">
@@ -42,24 +31,50 @@ export const DemoApiSection: FC<NoChildrenProps> = () => {
       );
     }
 
+    const poems =
+      data ||
+      new Array(10).map(() => ({
+        keywords: null,
+        id: null,
+        author: null,
+        title: null,
+        content: null,
+      }));
+
     return (
       <Grid container spacing={1}>
-        {poems?.map(({ id, title, author, content, keywords }) => {
+        {poems?.map(({ keywords, id, author, title, content }, index) => {
           const keywordURI = (keywords ?? [])
             .map((keyword) => encodeURIComponent(keyword))
             .join(',');
           const image = `https://source.unsplash.com/random/640x480?${keywordURI}`;
 
           return (
-            <Grid item xs={12} md={6} lg={4} key={id}>
+            <Grid item xs={12} md={6} lg={4} key={id || index}>
               <Card>
-                <CardHeader title={title} subheader={`By ${author}`} />
-                <CardMedia component="img" src={image} alt={title} />
+                <CardHeader
+                  title={title ?? <Skeleton />}
+                  subheader={author ? `By ${author}` : <Skeleton />}
+                />
+                {keywords ? (
+                  <CardMedia component="img" src={image} alt={title} />
+                ) : (
+                  <Skeleton height="300px" width="100%" />
+                )}
                 <CardContent>
-                  <Typography variant="caption">{content}</Typography>
+                  <Typography variant="caption">
+                    {content ?? (
+                      <>
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                      </>
+                    )}
+                  </Typography>
                 </CardContent>
                 <CardActions>
-                  {keywords.map((keyword) => (
+                  {keywords?.map((keyword) => (
                     <Chip color="primary" key={keyword} label={`#${keyword}`} />
                   ))}
                 </CardActions>
@@ -69,17 +84,7 @@ export const DemoApiSection: FC<NoChildrenProps> = () => {
         })}
       </Grid>
     );
-  }, [isLoading, error, poems]);
+  }, [error, data]);
 
-  return (
-    <section>
-      <Container>
-        <Typography variant="h3">{t('demo:DemoApiSection.title')}</Typography>
-        <Typography variant="h4" color="primary">
-          {t('demo:DemoApiSection.subtitle')}
-        </Typography>
-        {content}
-      </Container>
-    </section>
-  );
+  return <section>{content}</section>;
 };
