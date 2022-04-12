@@ -1,5 +1,13 @@
 # remix-app
 
+## 1.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.13.0
+  - @your-org/ui-lib@3.12.2
+
 ## 1.8.1
 
 ### Patch Changes

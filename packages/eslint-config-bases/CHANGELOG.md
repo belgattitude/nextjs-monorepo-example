@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.2.0
+
+### Minor Changes
+
+- [`4b8c9db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4b8c9db72f5048f3020005928992e19c926b0761) Thanks [@belgattitude](https://github.com/belgattitude)! - Support test.js without filename
+
 ## 1.1.1
 
 ### Patch Changes
