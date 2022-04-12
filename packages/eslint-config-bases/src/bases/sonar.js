@@ -1,5 +1,6 @@
 /**
  * Opinionated config base for projects that enable sonarjs
+ * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
  */
 
 const sonarPatterns = {
