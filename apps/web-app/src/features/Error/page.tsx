@@ -21,6 +21,7 @@ export const ErrorPage: FC<Props> = (props) => {
       <Head>
         <title>{title}</title>
       </Head>
+
       <MainLayout>
         <Card>
           <CardContent>
