@@ -1,5 +1,6 @@
 /**
  * Opinionated config base for projects using graphql schemas (*.graphql)
+ * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
  */
 const graphqlSchemaPatterns = {
   files: ['*.graphql'],
