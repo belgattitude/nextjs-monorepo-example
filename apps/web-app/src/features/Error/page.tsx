@@ -14,7 +14,7 @@ type Props = {
 
 export const ErrorPage: FC<Props> = (props) => {
   const { error, sentryErrorId, message, statusCode } = props;
-  const title = props.title || statusCode;
+  const title = props.title || `Error ${statusCode}`;
 
   return (
     <>
