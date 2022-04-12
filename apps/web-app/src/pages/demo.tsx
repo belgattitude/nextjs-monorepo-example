@@ -1,10 +1,10 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { demoConfig, DemoPage, getServerSideLayout } from '@/features/demo';
+import { demoConfig, DemoPage, getServerSideLayout } from '@/features/Demo';
 
 type Props = {
-  /** Add HomeRoute props here */
+  /** Add DemoRoute props here */
 };
 
 function DemoRoute(_props: InferGetStaticPropsType<typeof getStaticProps>) {

@@ -1,30 +1,33 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'react-i18next';
-import { getServerSideTranslations } from '@/core/i18n/get-server-side-translations';
-import type { I18nActiveNamespaces } from '@/core/i18n/i18n-namespaces.type';
+import { BadRequest } from '@tsed/exceptions';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import {
+  NotFoundPage,
+  getServerSideLayout,
+  notFoundConfig,
+} from '@/features/NotFound';
 
-// To allow full typechecks in keys.
-const i18nNamespaces: I18nActiveNamespaces<'system'> = ['system'];
+type Props = {
+  /** Add NotFoundRoute props here */
+};
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const { locale = 'en' } = context;
+function NotFoundRoute(_props: InferGetStaticPropsType<typeof getStaticProps>) {
+  return <NotFoundPage />;
+}
 
-  const inlinedTranslation = await getServerSideTranslations(
-    locale,
-    i18nNamespaces
-  );
+NotFoundRoute.getServerSideLayout = getServerSideLayout;
 
+export default NotFoundRoute;
+
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const { locale } = context;
+  if (locale === undefined) {
+    throw new BadRequest('locale is missing');
+  }
+  const { i18nNamespaces } = notFoundConfig;
   return {
     props: {
-      locale: locale,
-      ...inlinedTranslation,
+      ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
     },
   };
 };
-
-export default function Custom404(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
-) {
-  const { t } = useTranslation(i18nNamespaces);
-  return <h1>{t('system:notFound.title')}</h1>;
-}

@@ -1,8 +1,9 @@
+import { Container } from '@mqs/ui-lib/components';
 import { NextSeo } from 'next-seo';
 import type { FC, ReactElement } from 'react';
+import { usePageTranslation } from '@/features/Demo/hooks';
+import { DemoApiSection } from '@/features/Demo/sections';
 import { MainLayout } from '@/layouts/MainLayout';
-import { usePageTranslation } from '../home/hooks';
-import { DemoApiSection } from './sections';
 
 type Props = {
   children?: never;
@@ -14,9 +15,10 @@ export const DemoPage: FC<Props> = () => {
   return (
     <>
       <NextSeo
-        title={t('common:pages.poems.title')}
-        description={t('common:pages.poems.title')}
+        title={t('common:pages.demo.title')}
+        description={t('common:pages.demo.description')}
       />
+
       <DemoApiSection />
     </>
   );
@@ -25,7 +27,9 @@ export const DemoPage: FC<Props> = () => {
 export const getServerSideLayout = (page: ReactElement) => {
   return (
     <>
-      <MainLayout>{page}</MainLayout>
+      <MainLayout>
+        <Container>{page}</Container>
+      </MainLayout>
     </>
   );
 };

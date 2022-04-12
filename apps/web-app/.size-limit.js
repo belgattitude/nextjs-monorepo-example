@@ -16,11 +16,11 @@ const limitCfg = {
   pages: {
     // Customize specific page limits if needed
     '/_app': '160kb',
-    '/_error': '80kb',
+    '/_error': '100kb',
     '/404': '100kb',
     '/': '105kb',
-    '/demo': '105kb',
-    '/home': '100kb',
+    '/demo': '120kb',
+    '/home': '120kb',
   },
 };
 const getPageLimits = () => {

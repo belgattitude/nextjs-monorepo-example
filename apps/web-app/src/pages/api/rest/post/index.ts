@@ -1,11 +1,12 @@
 import { JsonApiResponseFactory } from '@mqs/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@mqs/core-lib/api/json-api/json-api-error.factory';
+import { withSentry } from '@sentry/nextjs';
 import { MethodNotAllowed } from '@tsed/exceptions';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';
 
-export default async function handleListPosts(
+export default withSentry(async function handleListPosts(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -35,4 +36,4 @@ export default async function handleListPosts(
         )
       );
   }
-}
+});

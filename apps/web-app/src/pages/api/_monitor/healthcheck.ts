@@ -1,3 +1,4 @@
+import { withSentry } from '@sentry/nextjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export type HealthCheckApiPayload = {
@@ -8,7 +9,7 @@ export type HealthCheckApiPayload = {
   timestamp: string;
 };
 
-export default async function healthCheckApiRoute(
+export default withSentry(async function healthCheckApiRoute(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -29,4 +30,4 @@ export default async function healthCheckApiRoute(
 
   res.status(200).send(JSON.stringify(payload, undefined, 2));
   res.end();
-}
+});

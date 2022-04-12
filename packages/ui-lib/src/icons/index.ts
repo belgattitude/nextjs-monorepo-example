@@ -1,5 +1,6 @@
 export {
   AccessAlarm as AccessAlarmIcon,
+  ArrowBack as ArrowBackIcon,
   Close as CloseIcon,
   GitHub as GitHubIcon,
   Lightbulb as LightbulbIcon,
