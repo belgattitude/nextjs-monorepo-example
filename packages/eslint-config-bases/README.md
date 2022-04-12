@@ -25,7 +25,7 @@ packages that lives in a [monorepo](https://github.com/belgattitude/nextjs-monor
 $ yarn add --dev eslint @your-org/eslint-config-bases:"workspace:^"
 ```
 
-> **Tip** the [workspace:^]() is supported by yarn and pnpm.
+> **Tip** the [workspace:^](https://yarnpkg.com/features/workspaces#workspace-ranges-workspace) is supported by yarn and pnpm.
 
 ## Usage
 
@@ -40,8 +40,8 @@ module.exports = {
     "@your-org/eslint-config-bases/typescript",
     "@your-org/eslint-config-bases/sonar",
     "@your-org/eslint-config-bases/regexp",
-    "@your-org/eslint-config-bases/jest",
     "@your-org/eslint-config-bases/react",
+    "@your-org/eslint-config-bases/jest",
     "@your-org/eslint-config-bases/rtl",
     "@your-org/eslint-config-bases/graphql-schema",
     "@your-org/eslint-config-bases/storybook",
@@ -73,18 +73,18 @@ module.exports = {
 
 You can find the bases in [./src/bases](./src/bases).
 
-| Base                                            | Match convention            | Scope                                                                            |
-| :---------------------------------------------- | :-------------------------- | :------------------------------------------------------------------------------- |
-| [typescript](./src/bases/typescript.js)         | _all_                       | Recommended practices, naming conventions, consistent imports, import sorting... |
-| [sonar](./src/bases/sonar.js)                   | `**/*.{js,jsx,ts,tsx}`      | Keep levels of code complexity sane. (excl test and stories)                     |
-| [regexp](./src/bases/regexp.js)                 | `*.{js,jsx,jsx,tsx}`        | Keep regexp consistent and safer.                                                |
-| [jest](./src/bases/jest.js)                     | `*.test.{js,jsx,ts,tsx}`    | Catch inconsistencies or error in jest tests.                                    |
-| [react](./src/bases/react.js)                   | `*.{jsx,tsx}`               | Recommendations for react, react-hooks and jsx projects.                         |
-| [rtl](./src/bases/rtl.js)                       | `**/*.test.{jsx,tsx}`       | Potential errors / deprecations in react-testing-library tests.                  |
-| [graphql-schema](./src/bases/graphql-schema.js) | `*.graphql`                 | Ensure validity of graphql schema files.                                         |
-| [storybook](./src/bases/storybook.js)           | `**/*.stories.{ts,tsx,mdx}` | Potential errors / deprecations in stories.                                      |
-| [playwright](./src/bases/playwright.js)         | `**/e2e/**/*.test.{js,ts}`  | Post configure eslint for prettier compatibility.                                |
-| [prettier](./src/bases/prettier.js)             | _all_                       | Post configure eslint for prettier compatibility.                                |
+| Base                                            | Match convention                  | Scope                                                                            |
+| :---------------------------------------------- | :-------------------------------- | :------------------------------------------------------------------------------- |
+| [typescript](./src/bases/typescript.js)         | _all_                             | Recommended practices, naming conventions, consistent imports, import sorting... |
+| [sonar](./src/bases/sonar.js)                   | `*.{js,jsx,ts,tsx}`               | Keep levels of code complexity sane. (excl test and stories)                     |
+| [regexp](./src/bases/regexp.js)                 | `*.{js,jsx,jsx,tsx}`              | Keep regexp consistent and safer.                                                |
+| [react](./src/bases/react.js)                   | `*.{jsx,tsx}`                     | Recommendations for react, react-hooks and jsx projects.                         |
+| [jest](./src/bases/jest.js)                     | `**/?(*.)+(test).{js,jsx,ts,tsx}` | Catch inconsistencies or error in jest tests.                                    |
+| [rtl](./src/bases/rtl.js)                       | `**/?(*.)+(test).{js,jsx,ts,tsx}` | Potential errors / deprecations in react-testing-library tests.                  |
+| [graphql-schema](./src/bases/graphql-schema.js) | `*.graphql`                       | Ensure validity of graphql schema files.                                         |
+| [storybook](./src/bases/storybook.js)           | `*.stories.{ts,tsx,mdx}`          | Potential errors / deprecations in stories.                                      |
+| [playwright](./src/bases/playwright.js)         | `**/e2e/**/*.test.{js,ts}`        | Post configure eslint for prettier compatibility.                                |
+| [prettier](./src/bases/prettier.js)             | _all_                             | Post configure eslint for prettier compatibility.                                |
 
 > **Notes**:
 >

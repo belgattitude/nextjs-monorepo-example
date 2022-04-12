@@ -4,7 +4,7 @@
  */
 
 const rtlPatterns = {
-  files: ['**/*.test.{jsx,tsx}'],
+  files: ['**/?(*.)+(test).{js,jsx,ts,tsx}'],
 };
 
 module.exports = {

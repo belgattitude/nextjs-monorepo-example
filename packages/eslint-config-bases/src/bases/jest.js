@@ -4,7 +4,7 @@
  */
 
 const jestPatterns = {
-  files: ['*.test.{js,jsx,ts,tsx}'],
+  files: ['**/?(*.)+(test).{js,jsx,ts,tsx}'],
 };
 
 module.exports = {
@@ -19,6 +19,7 @@ module.exports = {
       // @see https://github.com/jest-community/eslint-plugin-jest
       extends: ['plugin:jest/recommended'],
       rules: {
+        'jest/consistent-test-it': ['error', { fn: 'it' }],
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-object-literal-type-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',
