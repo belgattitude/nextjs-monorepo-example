@@ -1,5 +1,14 @@
 # nextjs-app
 
+## 3.44.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.13.0
+  - @your-org/db-main-prisma@2.10.0
+  - @your-org/ui-lib@3.12.1
+
 ## 3.44.0
 
 ### Minor Changes

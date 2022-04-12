@@ -1,5 +1,15 @@
 # @your-org/eslint-config-bases
 
+## 1.1.1
+
+### Patch Changes
+
+- [#1673](https://github.com/belgattitude/nextjs-monorepo-example/pull/1673) [`135afc2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/135afc2118847b0710404e2b86c27d86f806323c) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve filename detection patterns
+
+* [#1673](https://github.com/belgattitude/nextjs-monorepo-example/pull/1673) [`135afc2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/135afc2118847b0710404e2b86c27d86f806323c) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve documentation
+
+- [#1673](https://github.com/belgattitude/nextjs-monorepo-example/pull/1673) [`135afc2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/135afc2118847b0710404e2b86c27d86f806323c) Thanks [@belgattitude](https://github.com/belgattitude)! - Add base prettier configuration
+
 ## 1.1.0
 
 ### Minor Changes
