@@ -38,13 +38,17 @@ class MyDocument extends Document<Props> {
     // This is important. It prevents emotion to render invalid HTML.
     // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
     const emotionStyles = extractCriticalToChunks(initialProps.html);
-    const emotionStyleTags = emotionStyles.styles.map((style) => (
-      <style
-        data-emotion={`${style.key} ${style.ids.join(' ')}`}
-        key={style.key}
-        dangerouslySetInnerHTML={{ __html: style.css }}
-      />
-    ));
+    const emotionStyleTags = emotionStyles.styles.map((style) => {
+      const key = `${style.key} ${style.ids.join(' ')}`;
+
+      return (
+        <style
+          data-emotion={key}
+          key={key}
+          dangerouslySetInnerHTML={{ __html: style.css }}
+        />
+      );
+    });
 
     return {
       ...initialProps,

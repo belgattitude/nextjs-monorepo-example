@@ -1,8 +1,13 @@
 import { Box, Container, Divider, Stack, Typography } from '@mqs/ui-lib';
 import { Link } from '@/components';
 import useAppTranslation from '@/hooks/useAppTranslation';
+import type { PageType } from 'types.d/next-pages';
 
-export default function WebAppFooter() {
+export type WebAppFooterProps = {
+  subpages?: Array<PageType>;
+};
+
+export default function WebAppFooter({ subpages }: WebAppFooterProps) {
   const { t } = useAppTranslation();
 
   return (
@@ -13,24 +18,31 @@ export default function WebAppFooter() {
       <Container>
         <Stack spacing={1}>
           <Box maxWidth="420px">
-            <Typography variant="caption" color="#fff">
+            <Typography variant="caption" color="primary.contrastText">
               {t('common:loreum')}
             </Typography>
           </Box>
           <Divider />
           <Stack direction="row" spacing={1}>
-            <Typography variant="body1" color="#fff" lineHeight="24px">
+            <Typography
+              color="primary.contrastText"
+              component="span"
+              lineHeight="24px"
+              variant="h5"
+            >
               {t('common:brand.name')}
             </Typography>
-            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
-              {t('common:legal.privacyPolicy')}
-            </Link>
-            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
-              {t('common:legal.termsOfService')}
-            </Link>
-            <Link variant="caption" color="#fff" href="#" lineHeight="24px">
-              {t('common:legal.feedback')}
-            </Link>
+            {subpages?.map(({ label, href }) => (
+              <Link
+                color="primary.contrastText"
+                href={href}
+                key={href}
+                lineHeight="24px"
+                variant="caption"
+              >
+                {label}
+              </Link>
+            ))}
           </Stack>
         </Stack>
       </Container>

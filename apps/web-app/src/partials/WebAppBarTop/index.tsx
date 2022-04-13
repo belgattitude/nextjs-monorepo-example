@@ -4,77 +4,39 @@ import {
   IconButton,
   MenuIcon,
   MoreVertIcon,
-  Tab,
-  Tabs,
   Typography,
-  useTheme,
 } from '@mqs/ui-lib';
-import { useRouter } from 'next/router';
-import { useMemo } from 'react';
-import { Link } from '@/components';
+import type { MouseEventHandler } from 'react';
 import useAppTranslation from '@/hooks/useAppTranslation';
+import type { PageType } from 'types.d/next-pages';
+import { WebAppBarTopTabs } from './partials';
 
 export type WebAppBarTopProps = {
-  pages?: Array<{
-    href: string;
-    label: string;
-  }>;
+  pages?: Array<PageType>;
+  onClickNavigationIcon?: MouseEventHandler<HTMLButtonElement>;
 };
 
-export default function WebAppBarTop({ pages }: WebAppBarTopProps) {
-  const router = useRouter();
-  const theme = useTheme();
+export default function WebAppBarTop({
+  pages,
+  onClickNavigationIcon,
+}: WebAppBarTopProps) {
   const { t } = useAppTranslation();
-
-  const tabValue = useMemo(() => {
-    if (
-      pages &&
-      router &&
-      pages.reduce(
-        (current, page) => current || page.href == router.asPath,
-        false
-      )
-    ) {
-      return router.asPath;
-    }
-
-    return false;
-  }, [router, pages]);
-
-  const tabs = useMemo(
-    () =>
-      router &&
-      pages && (
-        <Tabs
-          indicatorColor="secondary"
-          selectionFollowsFocus={false}
-          textColor="inherit"
-          value={tabValue}
-        >
-          {pages.map(({ label, href }) => (
-            <Tab
-              color="inherit"
-              LinkComponent={Link}
-              href={href}
-              key={href}
-              label={label}
-              sx={{ ...theme.mixins.toolbar }}
-              value={href}
-            />
-          ))}
-        </Tabs>
-      ),
-    [router, pages, theme.mixins.toolbar, tabValue]
-  );
 
   return (
     <AppBarTop position="sticky">
-      <IconButton size="large" color="inherit" sx={{ display: 'none' }}>
+      <IconButton
+        color="inherit"
+        onClick={onClickNavigationIcon}
+        size="large"
+        sx={{ display: { md: 'none' } }}
+      >
         <MenuIcon />
       </IconButton>
-      <Typography>{t('common:brand.name')}</Typography>
+      <Typography variant="h5" component="span">
+        {t('common:brand.name')}
+      </Typography>
       <Box display="flex" flexGrow={1} justifyContent="end">
-        {tabs}
+        {pages && <WebAppBarTopTabs pages={pages} />}
       </Box>
       <IconButton size="large" color="inherit" sx={{ display: 'none' }}>
         <MoreVertIcon />

@@ -1,8 +1,11 @@
 export {
   AccessAlarm as AccessAlarmIcon,
   ArrowBack as ArrowBackIcon,
+  ChevronLeft as ChevronLeftIcon,
   Close as CloseIcon,
+  Dashboard as DashboardIcon,
   GitHub as GitHubIcon,
+  Home as HomeIcon,
   Lightbulb as LightbulbIcon,
   LinearScale as LinearScaleIcon,
   Menu as MenuIcon,
