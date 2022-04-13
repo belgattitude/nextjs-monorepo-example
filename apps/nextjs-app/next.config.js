@@ -4,6 +4,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 const { withSentryConfig } = require('@sentry/nextjs');
 const pc = require('picocolors');
+const path = require('path');
 const packageJson = require('./package.json');
 const { i18n } = require('./next-i18next.config');
 
@@ -116,9 +117,9 @@ const nextConfig = {
     serverComponents: false,
     // Standalone build
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-    outputStandalone: false,
+    outputStandalone: true,
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: undefined, // ,path.join(__dirname, '../../'),
+    outputFileTracingRoot: path.join(__dirname, '../../'),
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
