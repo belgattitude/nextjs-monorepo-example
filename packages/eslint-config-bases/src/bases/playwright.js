@@ -1,5 +1,6 @@
 /**
  * Opinionated config base for projects using playwright.
+ * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
  */
 
 const playwrightPatterns = {
@@ -7,10 +8,6 @@ const playwrightPatterns = {
 };
 
 module.exports = {
-  env: {
-    es6: true,
-    node: true,
-  },
   overrides: [
     {
       // To ensure best performance enable only on e2e test files

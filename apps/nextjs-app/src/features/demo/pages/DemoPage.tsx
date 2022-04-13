@@ -9,11 +9,7 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { DemoMuiBlock, Jumbotron, PoetryBlock } from '../blocks';
 import { demoConfig } from '../demo.config';
 
-type Props = {
-  children?: never;
-};
-
-export const DemoPage: FC<Props> = () => {
+export const DemoPage: FC = () => {
   const { t } = useTranslation(demoConfig.i18nNamespaces);
 
   return (
