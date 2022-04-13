@@ -2,7 +2,7 @@ import { Box, DashboardIcon, HomeIcon } from '@mqs/ui-lib';
 import type { FC } from 'react';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import useWebAppUi from '@/hooks/useWebAppUi';
+import useWebAppUiContext from '@/hooks/useWebAppUiContext';
 import WebAppBarTop from '@/partials/WebAppBarTop/loadable';
 import WebAppFooter from '@/partials/WebAppFooter/loadable';
 import WebAppNavigationDrawer from '@/partials/WebAppNavigationDrawer/loadable';
@@ -13,7 +13,7 @@ export const MainLayout: FC = (props) => {
   const { children } = props;
   const { t } = useTranslation(['common']);
   const { webAppDrawerOpen, setWebAppDrawerOpen, isWebAppDrawerPermanent } =
-    useWebAppUi();
+    useWebAppUiContext();
   const handleClickNavigationIcon = useCallback(
     () => setWebAppDrawerOpen((current) => !current),
     [setWebAppDrawerOpen]

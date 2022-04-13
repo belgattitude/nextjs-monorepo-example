@@ -12,7 +12,7 @@ import {
 import type { DrawerProps } from '@mqs/ui-lib';
 import { useRouter } from 'next/router';
 import { ListItemButton } from '@/components/ListItemButton';
-import useWebAppUi from '@/hooks/useWebAppUi';
+import useWebAppUiContext from '@/hooks/useWebAppUiContext';
 import type { PageType } from 'types.d/next-pages';
 
 export type WebAppNavigationDrawerProps = DrawerProps & {
@@ -32,7 +32,7 @@ export default function WebAppNavigationDrawer({
   ...props
 }: WebAppNavigationDrawerProps) {
   const router = useRouter();
-  const { isWebAppDrawerPermanent } = useWebAppUi();
+  const { isWebAppDrawerPermanent } = useWebAppUiContext();
 
   return (
     <Drawer

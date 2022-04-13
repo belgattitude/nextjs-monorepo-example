@@ -5,6 +5,7 @@ import type { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createEmotionCache } from '@/core/emotion/create-emotion-cache';
 import { muiTheme } from '@/themes/mui/mui.theme';
+import WebAppUiContextProvider from './hooks/useWebAppUiContext/provider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +27,7 @@ export const AppProviders: FC<Props> = (props) => {
   return (
     <UIProvider cache={emotionCache} theme={muiTheme}>
       <QueryClientProvider client={queryClient}>
-        {props.children}
+        <WebAppUiContextProvider>{props.children}</WebAppUiContextProvider>
       </QueryClientProvider>
     </UIProvider>
   );
