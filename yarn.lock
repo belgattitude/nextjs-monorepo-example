@@ -4029,6 +4029,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/node@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@remix-run/node@npm:1.4.0"
+  dependencies:
+    "@remix-run/server-runtime": 1.4.0
+    "@types/busboy": ^0.3.1
+    "@types/node-fetch": ^2.5.12
+    "@web-std/file": ^3.0.0
+    abort-controller: ^3.0.0
+    blob-stream: ^0.1.3
+    busboy: ^0.3.1
+    cookie-signature: ^1.1.0
+    form-data: ^4.0.0
+    node-fetch: ^2.6.1
+    source-map-support: ^0.5.21
+  checksum: 13850bc960f335666a67b0e41debb1d52ac20721df78aafd6b8e2e70fba74d2c3937bbc5d3dd15d922e433f1c9456c5fd913ce316ae634b25f582eb07fe8dd49
+  languageName: node
+  linkType: hard
+
 "@remix-run/react@npm:1.3.5":
   version: 1.3.5
   resolution: "@remix-run/react@npm:1.3.5"
@@ -4073,14 +4092,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/vercel@npm:1.3.5":
-  version: 1.3.5
-  resolution: "@remix-run/vercel@npm:1.3.5"
+"@remix-run/server-runtime@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@remix-run/server-runtime@npm:1.4.0"
   dependencies:
-    "@remix-run/node": 1.3.5
+    "@types/cookie": ^0.4.0
+    cookie: ^0.4.1
+    jsesc: ^3.0.1
+    react-router-dom: ^6.2.2
+    set-cookie-parser: ^2.4.8
+    source-map: ^0.7.3
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: b08a28933cd509f0e9e6ea97aef12d8eb7de35db018132604d403cdf265a3491957d6861e17cd57bcfbd995517517426a371f33d2344c727e623812416d1faef
+  languageName: node
+  linkType: hard
+
+"@remix-run/vercel@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@remix-run/vercel@npm:1.4.0"
+  dependencies:
+    "@remix-run/node": 1.4.0
   peerDependencies:
     "@vercel/node": ^1.8.3
-  checksum: 104bbae205c1bb31b5622a6063c9d5b4d21f5ba003f2aab078678d6187a2ba8c8229ba485ad2a261c0cff2c585e9e0ae7e381b8d244214765e7f7a8d765ec337
+  checksum: a8d807ffe6769ee5d73466bc4f18325a35c6da837bd0fc10cb5c8cd88d8907d92de06a11faa93a7fb15e4433974927559b1f17f991c70d031d60066859ed7a36
   languageName: node
   linkType: hard
 
@@ -23097,7 +23133,7 @@ __metadata:
     "@remix-run/eslint-config": 1.3.5
     "@remix-run/react": 1.3.5
     "@remix-run/serve": 1.3.5
-    "@remix-run/vercel": 1.3.5
+    "@remix-run/vercel": 1.4.0
     "@tailwindcss/aspect-ratio": 0.4.0
     "@tailwindcss/forms": 0.5.0
     "@tailwindcss/line-clamp": 0.3.1
