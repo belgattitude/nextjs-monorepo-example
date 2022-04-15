@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v3
 
@@ -33,10 +33,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
 
       # Why not using setup-node 2.2+ cache option (yet) ?
       # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369

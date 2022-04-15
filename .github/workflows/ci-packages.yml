@@ -8,10 +8,10 @@ on:
     paths:
       - 'packages/**'
       - '.yarnrc.yml'
-      - '.prettier*.*'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'yarn.lock'
+      - '.prettier*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
   pull_request:
@@ -22,9 +22,10 @@ on:
     paths:
       - 'packages/**'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'yarn.lock'
+      - '.prettier*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
 jobs:
@@ -39,10 +40,6 @@ jobs:
           # Fetch all git history so that yarn workspaces --since can compare with the correct commits
           # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
           fetch-depth: 0
-
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
