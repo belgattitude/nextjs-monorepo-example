@@ -5,15 +5,11 @@ on:
     branches:
       - dev
       - main
+    # Only consider those paths to trigger the action
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
       - '.github/workflows/**'
 
   pull_request:
@@ -21,18 +17,11 @@ on:
       - opened
       - synchronize
       - reopened
-    # Optional:
-    #   Only consider those files/paths to trigger the github action
-    #   to prevent unnecessary builds.
+    # Only consider those paths to trigger the action
     paths:
-      - 'apps/web-app/**'
+      - 'apps/nextjs-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
       - '.github/workflows/**'
 
 jobs:
@@ -54,10 +43,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
 
       # Why not using setup-node 2.2+ cache option (yet) ?
       # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
