@@ -4411,35 +4411,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@soluble/cache-interop@npm:^0.8.4":
-  version: 0.8.4
-  resolution: "@soluble/cache-interop@npm:0.8.4"
-  checksum: ecb4fa904482002805da4725e06f792ce6c88bf8072a6834b4822b4464174a63d43cbb3707acd9644ec45fd07048f2a5b7dfdde700722be8bc272a4c4f8141ba
+"@soluble/cache-interop@npm:0.9.1, @soluble/cache-interop@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "@soluble/cache-interop@npm:0.9.1"
+  checksum: a3208a522b498c918eb73703e5c710f5689e22cf4f35570364721aae852bf204f39ea58f23228d74d85f371191d1d7d12435d0a2f90e3648c45cd6ce609a4023
   languageName: node
   linkType: hard
 
-"@soluble/cache-ioredis@npm:0.8.6":
-  version: 0.8.6
-  resolution: "@soluble/cache-ioredis@npm:0.8.6"
+"@soluble/cache-ioredis@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@soluble/cache-ioredis@npm:0.10.0"
   dependencies:
-    "@soluble/cache-interop": ^0.8.4
-    "@soluble/dsn-parser": ^1.3.5
-  peerDependencies:
-    "@types/ioredis": ^4.17.11
-    ioredis: ^4.17.0
-  peerDependenciesMeta:
-    "@types/ioredis":
-      optional: true
-    ioredis:
-      optional: false
-  checksum: fd9c356b999c37a48ab8a3b3b3ad576a3a841b1802a3262f031536bb3a0b27d21d413e0d20b326317d867f5d3af8fbb687216ed8de927b6cec141f32625c14a4
+    "@soluble/cache-interop": ^0.9.1
+    "@soluble/dsn-parser": ^1.4.1
+    ioredis: ^5.0.3
+  checksum: a1039c64f86804d544fe30c3b04bcb4c6cc6cbb43bfe296e535a5d84520489ac124e9ba722f5cd07b6e02bababb4e26acbfb36ad18427c2fcdde29be0a28b9b9
   languageName: node
   linkType: hard
 
-"@soluble/dsn-parser@npm:1.3.5, @soluble/dsn-parser@npm:^1.3.5":
+"@soluble/dsn-parser@npm:1.3.5":
   version: 1.3.5
   resolution: "@soluble/dsn-parser@npm:1.3.5"
   checksum: f173a1f6cfa9c2979ffd6ea84887b3f1416a517d1274755ec21a08319d59069b1efe50e9a86efe79cdf11212e9ffebcf62faf58c0a3600c8a1656eb7ed69fe9b
+  languageName: node
+  linkType: hard
+
+"@soluble/dsn-parser@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@soluble/dsn-parser@npm:1.4.1"
+  checksum: eae27c358224561da91ffae158ee94dc730f74ad991451eccc9ddcffafdfa2a20013a0ae597580a936fddb51282f30b96d9ddafd5ebdb1ecbc39add10c1cc94c
   languageName: node
   linkType: hard
 
@@ -6183,15 +6183,6 @@ __metadata:
   version: 4.0.1
   resolution: "@types/http-cache-semantics@npm:4.0.1"
   checksum: 1048aacf627829f0d5f00184e16548205cd9f964bf0841c29b36bc504509230c40bc57c39778703a1c965a6f5b416ae2cbf4c1d4589c889d2838dd9dbfccf6e9
-  languageName: node
-  linkType: hard
-
-"@types/ioredis@npm:4.28.10":
-  version: 4.28.10
-  resolution: "@types/ioredis@npm:4.28.10"
-  dependencies:
-    "@types/node": "*"
-  checksum: 0f2788cf25f490d3b345db8c5f8b8ce3f6c92cc99abcf744c8f974f02b9b3875233b3d22098614c462a0d6c41c523bd655509418ea88eb6249db6652290ce7cf
   languageName: node
   linkType: hard
 
@@ -15440,9 +15431,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:5.0.1":
-  version: 5.0.1
-  resolution: "ioredis@npm:5.0.1"
+"ioredis@npm:^5.0.3":
+  version: 5.0.4
+  resolution: "ioredis@npm:5.0.4"
   dependencies:
     "@ioredis/commands": ^1.1.1
     cluster-key-slot: ^1.1.0
@@ -15453,7 +15444,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 51a78587a7b9c4bfaee29a35e40a537b47483a1e89e45141681c14140bee1f8cfa6831deb401b16f9fe909f911d933bf49389071b443459941e16eb70ca3de34
+  checksum: ad247478f2965400cfa37c655441718f8684fbfbc23b174b584583d7e8247fb036eca97f9862bb3c3a05d2d6c1fdaf6eac4ec2af2bc9166b8620f402ce52a61f
   languageName: node
   linkType: hard
 
@@ -19477,7 +19468,8 @@ __metadata:
     "@sentry/nextjs": 6.19.6
     "@sentry/react": 6.19.6
     "@size-limit/file": 7.0.8
-    "@soluble/cache-ioredis": 0.8.6
+    "@soluble/cache-interop": 0.9.1
+    "@soluble/cache-ioredis": 0.10.0
     "@svgr/webpack": 6.2.1
     "@tailwindcss/aspect-ratio": 0.4.0
     "@tailwindcss/forms": 0.5.0
@@ -19488,7 +19480,6 @@ __metadata:
     "@testing-library/react-hooks": 8.0.0
     "@tsed/exceptions": 6.113.0
     "@types/cors": 2.8.12
-    "@types/ioredis": 4.28.10
     "@types/jest": 27.4.1
     "@types/node": 17.0.24
     "@types/react": 18.0.5
@@ -19523,7 +19514,6 @@ __metadata:
     eslint-plugin-testing-library: 5.3.1
     graphql: 16.3.0
     i18next: 21.6.16
-    ioredis: 5.0.1
     jest: 27.5.1
     jest-css-modules-transform: 4.3.0
     ky: 0.30.0
