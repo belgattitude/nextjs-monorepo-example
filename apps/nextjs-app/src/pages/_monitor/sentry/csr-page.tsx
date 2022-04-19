@@ -1,14 +1,19 @@
-import { usePromise } from '@your-org/core-lib/hooks';
 import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 
-const fetchAndAlwaysThrow = async () => {
+const getAsyncError = async (): Promise<void> => {
   throw new Error(
     'Error purposely crafted for monitoring sentry (/pages/_monitor/sentry/csr-page.tsx)'
   );
 };
 
-const MonitorSentryCsrRoute: FC<{ children?: never }> = () => {
-  const { error } = usePromise(fetchAndAlwaysThrow, {});
+const MonitorSentryCsrRoute: FC = () => {
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    getAsyncError().catch((err) => setError(err));
+  }, []);
+
   if (error) {
     throw error;
   }
