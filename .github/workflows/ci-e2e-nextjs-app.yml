@@ -104,7 +104,7 @@ jobs:
           NEXT_TELEMETRY_DISABLED: true
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
-      # playwright recommends if you cache the binaries to keep it tied to the version of playwright you are using.
+      # Keep cached playwright binaries to required version
       # https://playwright.dev/docs/ci#caching-browsers
       - name: Get current Playwright version
         id: playwright-version
