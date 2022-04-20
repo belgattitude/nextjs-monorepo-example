@@ -104,7 +104,24 @@ jobs:
           NEXT_TELEMETRY_DISABLED: true
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
+      # playwright recommends if you cache the binaries to keep it tied to the version of playwright you are using.
+      # https://playwright.dev/docs/ci#caching-browsers
+      - name: Get current Playwright version
+        id: playwright-version
+        run: |
+          playwright_version=$(npm --json list @playwright/test | jq -r .dependencies[].version)
+          echo "::set-output name=version::${playwright_version}"
+
+      - name: Cache Playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: cache-playwright-${{ steps.playwright-version.outputs.version }}
+
       - name: Install Playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium webkit
 
       - name: E2E run nextjs-app playwright tests
