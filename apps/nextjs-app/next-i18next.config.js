@@ -8,5 +8,5 @@ module.exports = {
   react: {
     useSuspense: true,
   },
-  localePath: path.resolve('./public/locales'),
+  localePath: path.resolve('../../packages/common-i18n/src/locales'),
 };
