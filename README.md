@@ -51,6 +51,7 @@ Useful to
 │   ├── remix-app   (api)
 │   └── vite-app
 └── packages
+    ├── common-i18n         (locales...)
     ├── core-lib
     ├── db-main-prisma
     ├── eslint-config-bases (to shared eslint configs)
@@ -71,12 +72,13 @@ Useful to
 - [packages/db-main-prisma](./packages/db-main-prisma): used by web-app. [README](./packages/db-main-prisma/README.md) | [CHANGELOG](./packages/db-main-prisma/CHANGELOG.md)
 - [packages/eslint-config-bases](./packages/eslint-config-bases): [README](./packages/eslint-config-bases/README.md) | [CHANGELOG](./packages/eslint-config-bases/CHANGELOG.md)
 - [packages/ui-lib](./packages/ui-lib): publishable. [README](./packages/ui-lib/README.md) | [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
+- [packages/common-i18n](./packages/common-i18n): [README](./packages/common-i18n/README.md) | [CHANGELOG](./packages/common-i18n/CHANGELOG.md)
 
 > Apps can depend on packages, packages can depend on each others...
 
 #### Shared static assets
 
-If needed static resources like **locales**, **images**,... can be shared by using symlinks in the repo.
+If needed static resources like **images**,... can be shared by using symlinks in the repo.
 
 - See the global [static](./static) folder.
 

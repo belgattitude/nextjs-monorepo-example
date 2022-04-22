@@ -18,7 +18,10 @@
       "@/pages/*": ["./pages/*"],
       "@/public/*": ["../public/*"],
       "@/themes/*": ["./themes/*"],
-      "@your-org/common-i18n/*": ["../../../packages/common-i18n/src/*"],
+      "@your-org/common-i18n": ["../../../packages/common-i18n/src/index"],
+      "@your-org/common-i18n/locales/*": [
+        "../../../packages/common-i18n/src/locales/*"
+      ],
       "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
       "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
       "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
