@@ -5,19 +5,16 @@
  * @link https://react.i18next.com/latest/typescript
  */
 import 'react-i18next';
-import type common from '../../public/locales/en/common.json';
-import type demo from '../../public/locales/en/demo.json';
-import type home from '../../public/locales/en/home.json';
-import type system from '../../public/locales/en/system.json';
+import type { I18nNamespaces } from '@your-org/common-i18n';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
     defaultNS: 'common';
     resources: {
-      common: typeof common;
-      home: typeof home;
-      demo: typeof demo;
-      system: typeof system;
+      common: I18nNamespaces['common'];
+      home: I18nNamespaces['home'];
+      demo: I18nNamespaces['demo'];
+      system: I18nNamespaces['system'];
     };
   }
 }

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import systemJsonEn from '@/public/locales/en/system.json';
-import systemJsonFR from '@/public/locales/fr/system.json';
+import systemJsonEn from '@your-org/common-i18n/locales/en/system.json';
+import systemJsonFr from '@your-org/common-i18n/locales/fr/system.json';
 
 const pageSlug = 'this-page-does-not-exist';
 
@@ -13,6 +13,6 @@ test.describe('404 not found page', () => {
   test('should have the title in french', async ({ page }) => {
     await page.goto(`/fr/${pageSlug}`);
     const title = await page.title();
-    expect(title).toBe(systemJsonFR.notFound.title);
+    expect(title).toBe(systemJsonFr.notFound.title);
   });
 });
