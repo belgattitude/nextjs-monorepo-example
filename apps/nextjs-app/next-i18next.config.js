@@ -2,7 +2,7 @@ const path = require('path');
 
 const defaultLocale = 'en';
 const debugI18n = ['true', 1].includes(
-  process.env?.NEXTJS_DEBUG_I18N ?? 'false'
+  process?.env?.NEXTJS_DEBUG_I18N ?? 'false'
 );
 
 /**
