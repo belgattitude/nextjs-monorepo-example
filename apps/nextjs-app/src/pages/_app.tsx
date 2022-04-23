@@ -2,6 +2,7 @@ import type { EmotionCache } from '@emotion/react';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
+import nextI18nextConfig from '../../next-i18next.config';
 import { AppProviders } from '../app-providers';
 
 /**
@@ -54,4 +55,6 @@ MyApp.getInitialProps = async appContext => {
 }
 */
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, {
+  ...nextI18nextConfig,
+});
