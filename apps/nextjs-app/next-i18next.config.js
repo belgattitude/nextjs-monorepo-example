@@ -14,7 +14,8 @@ module.exports = {
     locales: ['en', 'fr'],
   },
   strictMode: true,
-  reloadOnPrerender: process.env.NODE_ENV === 'development',
+  serializeConfig: false,
+  reloadOnPrerender: process?.env?.NODE_ENV === 'development',
   react: {
     useSuspense: false,
   },
