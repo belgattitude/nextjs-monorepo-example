@@ -129,6 +129,8 @@ module.exports = {
           'snake_case',
           // Env variables are generally uppercase
           'UPPER_CASE',
+          // DB / Graphql might use PascalCase for relationships
+          'PascalCase',
         ],
       },
       {
