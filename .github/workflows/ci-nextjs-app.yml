@@ -5,15 +5,13 @@ on:
     branches:
       - dev
       - main
+    # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
   pull_request:
@@ -21,18 +19,13 @@ on:
       - opened
       - synchronize
       - reopened
-    # Optional:
-    #   Only consider those files/paths to trigger the github action
-    #   to prevent unnecessary builds.
+    # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
 jobs:
@@ -40,13 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v3
-
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

@@ -8,12 +8,9 @@ on:
     paths:
       - 'apps/remix-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
   pull_request:
@@ -21,18 +18,12 @@ on:
       - opened
       - synchronize
       - reopened
-    # Optional:
-    #   Only consider those files/paths to trigger the github action
-    #   to prevent unnecessary builds.
     paths:
       - 'apps/remix-app/**'
       - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
       - '.yarnrc.yml'
-      - '*.base.json'
-      - '*.base.js'
-      - '.prettier*.*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/workflows/**'
 
 jobs:
@@ -67,11 +58,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-
-      - # Remix does not (yet) support tsconfig paths. So all packages must be build
-        # Will change once https://github.com/remix-run/remix/pull/2412 is merged
-        name: Build all packages (remix)
-        run: yarn workspaces foreach -tv --include '@your-org/*' run build
 
       - name: Typecheck
         working-directory: apps/remix-app

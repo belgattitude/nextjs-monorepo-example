@@ -1,12 +1,11 @@
-# Will be merged to root .ncyrc.yml.
+# Will override root ncurc.yml
 # @link https://github.com/raineorshine/npm-check-updates
 
 reject: [
-    # prevent upgrade of package dependencies
+    # Ignore package direct deps for npm-check-updates. That way we declare a less
+    # restrictive range if the consuming app lock its deps to exact versions
     '@emotion/react',
     '@emotion/styled',
     'react',
     'react-dom',
-    '@types/react',
-    '@types/react-dom',
   ]

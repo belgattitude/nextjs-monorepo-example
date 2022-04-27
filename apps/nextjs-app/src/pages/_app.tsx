@@ -1,4 +1,3 @@
-import type { EmotionCache } from '@emotion/react';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
@@ -23,16 +22,15 @@ import '@fontsource/inter/variable.css';
 export type AppProps = NextAppProps & {
   /** Will be defined only is there was an error */
   err?: Error;
-  emotionCache?: EmotionCache;
 };
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
 const MyApp = (appProps: AppProps) => {
-  const { Component, pageProps, emotionCache, err } = appProps;
+  const { Component, pageProps, err } = appProps;
   return (
-    <AppProviders emotionCache={emotionCache}>
+    <AppProviders>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>

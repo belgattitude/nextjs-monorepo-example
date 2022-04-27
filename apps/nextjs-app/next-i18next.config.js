@@ -5,10 +5,8 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
   },
-  // By default set suspense to false to prevent timeouts on vercel
-  // when using getServerSideTranslations
   react: {
-    useSuspense: false,
+    useSuspense: true,
   },
-  localePath: path.resolve('./public/locales'),
+  localePath: path.resolve('../../packages/common-i18n/src/locales'),
 };

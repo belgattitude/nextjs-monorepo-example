@@ -67,7 +67,7 @@
     "nuke:node_modules": "rimraf '**/node_modules'",
     "deps:check": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
-    "check:install": "yarn dlx @yarnpkg/doctor@latest .",
+    "check:install": "yarn dlx @yarnpkg/doctor@3.1 .",
     "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator",
     "install:playwright": "npx playwright install",
     "postinstall": "is-ci || yarn husky install"
@@ -83,10 +83,10 @@
     "@types/prettier": "2.6.0",
     "@types/shell-quote": "1.7.1",
     "@your-org/eslint-config-bases": "workspace:^",
-    "eslint": "8.13.0",
+    "eslint": "8.14.0",
     "husky": "7.0.4",
     "is-ci": "3.0.1",
-    "lint-staged": "12.3.7",
+    "lint-staged": "12.4.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
@@ -98,5 +98,5 @@
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
   },
-  "packageManager": "yarn@4.0.0-rc.2"
+  "packageManager": "yarn@4.0.0-rc.3"
 }

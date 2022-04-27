@@ -1,5 +1,27 @@
 # nextjs-app
 
+## 3.46.0
+
+### Minor Changes
+
+- [#1741](https://github.com/belgattitude/nextjs-monorepo-example/pull/1741) [`70a76e7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/70a76e747a425a0c975a8f80249421470efec0ce) Thanks [@belgattitude](https://github.com/belgattitude)! - Use emotion native ssr critical extraction
+
+  Since React 18, latest nextjs and emotion the critical path extraction
+  works out of the box. No flash of unstyled content anymore. Removes the
+  double rendering too, expect better lighthouse and initial page rendering
+  (to be measured).
+
+## 3.45.0
+
+### Minor Changes
+
+- [#1727](https://github.com/belgattitude/nextjs-monorepo-example/pull/1727) [`a844907`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a8449073efa6d1311ab9c51f9cacd451fafff3f4) Thanks [@belgattitude](https://github.com/belgattitude)! - Example and howto consume shared locales from @your-org/common-i18n
+
+### Patch Changes
+
+- Updated dependencies [[`a844907`](https://github.com/belgattitude/nextjs-monorepo-example/commit/a8449073efa6d1311ab9c51f9cacd451fafff3f4)]:
+  - @your-org/common-i18n@1.0.0
+
 ## 3.44.2
 
 ### Patch Changes

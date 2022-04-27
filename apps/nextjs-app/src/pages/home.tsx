@@ -1,4 +1,5 @@
 import { BadRequest } from '@tsed/exceptions';
+
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { homeConfig } from '@/features/home/home.config';
