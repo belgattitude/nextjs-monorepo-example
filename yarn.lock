@@ -7295,7 +7295,7 @@ __metadata:
     dequal: ^2.0.0
     eslint: 8.14.0
     jest: 27.5.1
-    microbundle: 0.14.2
+    microbundle: 0.15.0
     npm-run-all: 4.1.5
     prettier: 2.6.2
     react: 18.0.0
@@ -7433,7 +7433,7 @@ __metadata:
     cross-env: 7.0.3
     eslint: 8.14.0
     jest: 27.5.1
-    microbundle: 0.14.2
+    microbundle: 0.15.0
     npm-run-all: 4.1.5
     postcss: 8.4.12
     postcss-flexbugs-fixes: 5.0.2
@@ -18281,9 +18281,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"microbundle@npm:0.14.2":
-  version: 0.14.2
-  resolution: "microbundle@npm:0.14.2"
+"microbundle@npm:0.15.0":
+  version: 0.15.0
+  resolution: "microbundle@npm:0.15.0"
   dependencies:
     "@babel/core": ^7.12.10
     "@babel/plugin-proposal-class-properties": 7.12.1
@@ -18321,6 +18321,7 @@ __metadata:
     rollup-plugin-postcss: ^4.0.0
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-typescript2: ^0.29.0
+    rollup-plugin-visualizer: ^5.6.0
     sade: ^1.7.4
     terser: ^5.7.0
     tiny-glob: ^0.2.8
@@ -18328,7 +18329,7 @@ __metadata:
     typescript: ^4.1.3
   bin:
     microbundle: dist/cli.js
-  checksum: 8d6d5ba123b0500e96c6fe897183ab4955619f0a52762bfc61772305c5c4b14b045de9ea425661fbcc2227c1f9fa872921614b61b353fd69e98ed0f20d07bbb5
+  checksum: d5264c74e61b05cba4a3373f86dcad4253f9e60ace1cd5f2541c0589f0e6409c988036dddb77e4c33f49af12362427890936c3f81429837951f62b34a954ad07
   languageName: node
   linkType: hard
 
@@ -19138,12 +19139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.23, nanoid@npm:^3.1.30, nanoid@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "nanoid@npm:3.3.1"
+"nanoid@npm:^3.1.23, nanoid@npm:^3.1.30, nanoid@npm:^3.1.32, nanoid@npm:^3.3.1":
+  version: 3.3.3
+  resolution: "nanoid@npm:3.3.3"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 4ef0969e1bbe866fc223eb32276cbccb0961900bfe79104fa5abe34361979dead8d0e061410a5c03bc3d47455685adf32c09d6f27790f4a6898fb51f7df7ec86
+  checksum: ada019402a07464a694553c61d2dca8a4353645a7d92f2830f0d487fedff403678a0bee5323a46522752b2eab95a0bc3da98b6cccaa7c0c55cd9975130e6d6f0
   languageName: node
   linkType: hard
 
@@ -20000,7 +20001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:8.4.0":
+"open@npm:8.4.0, open@npm:^8.4.0":
   version: 8.4.0
   resolution: "open@npm:8.4.0"
   dependencies:
@@ -23397,6 +23398,22 @@ __metadata:
     rollup: ">=1.26.3"
     typescript: ">=2.4.0"
   checksum: a99181072d3f8333f5ba171b0429436eb1ccd53520bff9681d9f83d56868ccf86d7311e368c1d7b364cac341cd5ca40e9bb2cc4074a7a3c8a33ce79a78dd27ef
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-visualizer@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "rollup-plugin-visualizer@npm:5.6.0"
+  dependencies:
+    nanoid: ^3.1.32
+    open: ^8.4.0
+    source-map: ^0.7.3
+    yargs: ^17.3.1
+  peerDependencies:
+    rollup: ^2.0.0
+  bin:
+    rollup-plugin-visualizer: dist/bin/cli.js
+  checksum: 1036a3873f3b6a0c46d692538aaac5dc9f7a7b2a5aec9e7ab816aaf8a31576ae750f415e1019e401707d18490b634a982fbe8c22d9761cafbd9b12c756e7fd99
   languageName: node
   linkType: hard
 
@@ -27551,6 +27568,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^21.0.0":
+  version: 21.0.1
+  resolution: "yargs-parser@npm:21.0.1"
+  checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
+  languageName: node
+  linkType: hard
+
 "yargs@npm:^15.1.0":
   version: 15.4.1
   resolution: "yargs@npm:15.4.1"
@@ -27585,18 +27609,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0":
-  version: 17.2.1
-  resolution: "yargs@npm:17.2.1"
+"yargs@npm:^17.0.0, yargs@npm:^17.3.1":
+  version: 17.4.1
+  resolution: "yargs@npm:17.4.1"
   dependencies:
     cliui: ^7.0.2
     escalade: ^3.1.1
     get-caller-file: ^2.0.5
     require-directory: ^2.1.1
-    string-width: ^4.2.0
+    string-width: ^4.2.3
     y18n: ^5.0.5
-    yargs-parser: ^20.2.2
-  checksum: 451aac46f82da776f436018feed0244bc0e7b4355f7e397bcb53d34c691b177c0d71db3dda9653760e1bc240254d8b763a252ff918ef9e235a8d202e2909c4eb
+    yargs-parser: ^21.0.0
+  checksum: e9012322870d7e4e912a6ae1f63b203e365f911c0cf158be92c36edefddfb3bd38ce17eb9ef0d18858a4777f047c50589ea22dacb44bd949169ba37dc6d34bee
   languageName: node
   linkType: hard
 
