@@ -10,7 +10,6 @@ const userData: Prisma.UserCreateInput[] = [
     lastName: 'Vanvelthem',
     nickname: 'belgattitude',
     email: 'belgattitude@gmail.com',
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     Post: {
       create: [
         {
