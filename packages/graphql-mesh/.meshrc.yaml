@@ -1,0 +1,9 @@
+cache:
+  inmemoryLRU:
+    max: 10
+sources:
+  - name: CatFacts
+    handler:
+      newOpenapi:
+        baseUrl: https://catfact.ninja
+        oasFilePath: https://catfact.ninja/docs/api-docs.json

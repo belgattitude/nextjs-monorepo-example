@@ -55,6 +55,7 @@ Useful to
     ├── core-lib
     ├── db-main-prisma
     ├── eslint-config-bases (to shared eslint configs)
+    ├── graphql-mesh        (api gateway)
     └── ui-lib              (emotion, storybook)
 ```
 
@@ -73,6 +74,7 @@ Useful to
 - [packages/eslint-config-bases](./packages/eslint-config-bases): [README](./packages/eslint-config-bases/README.md) | [CHANGELOG](./packages/eslint-config-bases/CHANGELOG.md)
 - [packages/ui-lib](./packages/ui-lib): publishable. [README](./packages/ui-lib/README.md) | [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
 - [packages/common-i18n](./packages/common-i18n): [README](./packages/common-i18n/README.md) | [CHANGELOG](./packages/common-i18n/CHANGELOG.md)
+- [packages/graphql-mesh](./packages/graphql-mesh): [README](./packages/graphql-mesh/README.md) | [CHANGELOG](./packages/graphql-mesh/CHANGELOG.md)
 
 > Apps can depend on packages, packages can depend on each others...
 

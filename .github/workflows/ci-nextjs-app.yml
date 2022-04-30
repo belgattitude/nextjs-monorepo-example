@@ -105,7 +105,9 @@ jobs:
           NEXT_DISABLE_SOURCEMAPS: true
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: true
-          # Fully disable sentry registration here (no overhead in build time)
+          # Fully disable sentry
+          NEXTJS_DISABLE_SENTRY: true
+          # Fully disable sentry upload
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: Check bundle size

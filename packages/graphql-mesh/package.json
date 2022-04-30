@@ -1,13 +1,13 @@
 {
-  "name": "@your-org/core-lib",
-  "version": "3.13.0",
+  "name": "@your-org/graphql-mesh",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
-    "directory": "packages/core-lib"
+    "directory": "packages/graphql-mesh"
   },
   "author": {
     "name": "Vanvelthem Sébastien",
@@ -19,48 +19,34 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
-    "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
-    "dev": "microbundle watch",
+    "build-graphql-mesh": "mesh build",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "test": "run-s test-unit",
-    "test-unit": "jest --config jest.config.js",
+    "test": "jest --config jest.config.js --passWithNoTests",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
-  "dependencies": {
-    "@tsed/exceptions": "^6.100.3",
-    "dequal": "^2.0.0"
-  },
   "peerDependencies": {
-    "react": "^17.0.2 || ^18.0.0",
-    "react-dom": "^17.0.2 || ^18.0.0"
+    "graphql": "^16.4.0"
   },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
+  "dependencies": {
+    "@graphql-mesh/cache-inmemory-lru": "0.6.18",
+    "@graphql-mesh/config": "0.36.0",
+    "@graphql-mesh/graphql": "0.25.1",
+    "@graphql-mesh/new-openapi": "0.4.15",
+    "@graphql-mesh/runtime": "0.34.5"
   },
   "devDependencies": {
-    "@testing-library/react": "13.1.1",
-    "@testing-library/react-hooks": "8.0.0",
+    "@graphql-mesh/cli": "0.69.1",
     "@types/jest": "27.4.1",
     "@types/node": "17.0.30",
-    "@types/react": "18.0.8",
-    "@types/react-dom": "18.0.3",
     "@your-org/eslint-config-bases": "workspace:^",
     "cross-env": "7.0.3",
     "eslint": "8.14.0",
+    "graphql": "16.4.0",
     "jest": "27.5.1",
-    "microbundle": "0.15.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.6.2",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
     "rimraf": "3.0.2",
     "ts-jest": "27.1.4",
     "typescript": "4.6.4"

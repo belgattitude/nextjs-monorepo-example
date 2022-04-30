@@ -129,6 +129,8 @@ module.exports = {
           'snake_case',
           // Env variables are generally uppercase
           'UPPER_CASE',
+          // DB / Graphql might use PascalCase for relationships
+          'PascalCase',
         ],
       },
       {
@@ -138,6 +140,8 @@ module.exports = {
       {
         selector: ['typeProperty'],
         format: ['camelCase'],
+        // For graphql __typename
+        leadingUnderscore: 'allowDouble',
       },
       {
         selector: ['typeParameter'],
