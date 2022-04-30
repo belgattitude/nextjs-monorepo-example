@@ -25,8 +25,7 @@
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "test": "run-s test-unit",
-    "test-unit": "jest --config jest.config.js",
+    "test": "jest --config jest.config.js --passWithNoTests",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "peerDependencies": {
