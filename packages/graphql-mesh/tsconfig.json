@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "noEmit": false,
+    "incremental": true,
+    "paths": {}
+  },
+  "exclude": ["**/node_modules", "**/.*/", "dist", "build"]
+}
