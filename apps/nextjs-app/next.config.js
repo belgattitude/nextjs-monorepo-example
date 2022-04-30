@@ -18,7 +18,9 @@ const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
 );
-
+const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
+  process.env?.NEXTJS_DISABLE_SENTRY ?? 'false'
+);
 const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
@@ -102,9 +104,22 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
-  swcMinify: false,
+  swcMinify: true,
 
   experimental: {
+    // Still buggy as of nextjs 12.1.5
+    /**
+    emotion: {
+      sourceMap: process.env.NODE_ENV === 'development',
+      autoLabel: 'dev-only',
+      // Allowed values: `[local]` `[filename]` and `[dirname]`
+      // This option only works when autoLabel is set to 'dev-only' or 'always'.
+      // It allows you to define the format of the resulting label.
+      // The format is defined via string where variable parts are enclosed in square brackets [].
+      // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
+      labelFormat: '[local]',
+    },
+    */
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
@@ -167,6 +182,10 @@ const nextConfig = {
    */
 
   webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
+    config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+
     config.module.rules.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)x?$/,
