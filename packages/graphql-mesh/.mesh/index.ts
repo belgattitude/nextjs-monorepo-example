@@ -327,14 +327,14 @@ import { getMesh, ExecuteMeshFn, SubscribeMeshFn } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { path as pathModule } from '@graphql-mesh/cross-helpers';
 import { fileURLToPath } from '@graphql-mesh/utils';
-import * as ExternalModule_0 from '@graphql-mesh/cache-inmemory-lru';
+import * as ExternalModule_0 from '@graphql-mesh/cache-localforage';
 import * as ExternalModule_1 from '@graphql-mesh/new-openapi';
 import * as ExternalModule_2 from '@graphql-mesh/merger-bare';
 import * as ExternalModule_3 from './sources/CatFacts/jsonSchemaBundle';
 
 const importedModules: Record<string, any> = {
   // @ts-ignore
-  ["@graphql-mesh/cache-inmemory-lru"]: ExternalModule_0,
+  ["@graphql-mesh/cache-localforage"]: ExternalModule_0,
   // @ts-ignore
   ["@graphql-mesh/new-openapi"]: ExternalModule_1,
   // @ts-ignore
@@ -366,13 +366,13 @@ import { GetMeshOptions } from '@graphql-mesh/runtime';
 import { YamlConfig } from '@graphql-mesh/types';
 import { parse } from 'graphql';
 import { PubSub } from '@graphql-mesh/utils';
-import MeshCache from '@graphql-mesh/cache-inmemory-lru';
+import MeshCache from '@graphql-mesh/cache-localforage';
 import { DefaultLogger } from '@graphql-mesh/utils';
 import NewOpenapiHandler from '@graphql-mesh/new-openapi'
 import BareMerger from '@graphql-mesh/merger-bare';
 import { resolveAdditionalResolvers } from '@graphql-mesh/utils';
 import { parseWithCache } from '@graphql-mesh/utils';
-export const rawConfig: YamlConfig.Config = {"cache":{"inmemoryLRU":{"max":10}},"sources":[{"name":"CatFacts","handler":{"newOpenapi":{"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"}}}]} as any
+export const rawConfig: YamlConfig.Config = {"sources":[{"name":"CatFacts","handler":{"newOpenapi":{"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"}}}]} as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
 const cache = new (MeshCache as any)({
