@@ -5,16 +5,16 @@
  * @link https://react.i18next.com/latest/typescript
  */
 import 'react-i18next';
-import type { I18nNamespaces } from '@your-org/common-i18n';
+import type { LocalesTypes } from '@your-org/common-i18n';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
     defaultNS: 'common';
     resources: {
-      common: I18nNamespaces['common'];
-      home: I18nNamespaces['home'];
-      demo: I18nNamespaces['demo'];
-      system: I18nNamespaces['system'];
+      common: LocalesTypes['common'];
+      home: LocalesTypes['home'];
+      demo: LocalesTypes['demo'];
+      system: LocalesTypes['system'];
     };
   }
 }
