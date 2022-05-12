@@ -18,10 +18,9 @@ const getTsConfigBasePaths = () => {
     : {};
 };
 
-/** @typedef {import('ts-jest/dist/types')} */
-/** @type {import('@jest/types').Config.InitialOptions} */
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 const config = {
-  name: `${packageJson.name}:unit`,
+  displayName: `${packageJson.name}:unit`,
   cacheDirectory: getJestCachePath(packageJson.name),
   testEnvironment: 'jsdom',
   verbose: true,
@@ -44,7 +43,7 @@ const config = {
   collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
   globals: {
     'ts-jest': {
-      diagnostics: true,
+      diagnostics: false,
       tsconfig: './tsconfig.jest.json',
     },
   },
