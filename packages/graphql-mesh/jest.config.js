@@ -41,7 +41,7 @@ const config = {
   collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
   globals: {
     'ts-jest': {
-      diagnostics: true,
+      diagnostics: false,
       tsconfig: './tsconfig.jest.json',
     },
   },
