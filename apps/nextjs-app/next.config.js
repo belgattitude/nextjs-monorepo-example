@@ -237,17 +237,19 @@ if (tmModules.length > 0) {
   config = nextConfig;
 }
 
-config = withSentryConfig(config, {
-  // Additional config options for the Sentry Webpack plugin. Keep in mind that
-  // the following options are set automatically, and overriding them is not
-  // recommended:
-  //   release, url, org, project, authToken, configFile, stripPrefix,
-  //   urlPrefix, include, ignore
-  // For all available options, see:
-  // https://github.com/getsentry/sentry-webpack-plugin#options.
-  // silent: isProd, // Suppresses all logs
-  dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
-});
+if (!NEXTJS_DISABLE_SENTRY) {
+  config = withSentryConfig(config, {
+    // Additional config options for the Sentry Webpack plugin. Keep in mind that
+    // the following options are set automatically, and overriding them is not
+    // recommended:
+    //   release, url, org, project, authToken, configFile, stripPrefix,
+    //   urlPrefix, include, ignore
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options.
+    // silent: isProd, // Suppresses all logs
+    dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
+  });
+}
 
 if (process.env.ANALYZE === 'true') {
   // @ts-ignore
