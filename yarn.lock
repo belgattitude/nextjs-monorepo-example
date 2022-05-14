@@ -8055,6 +8055,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@your-org/api-gateway@workspace:^, @your-org/api-gateway@workspace:packages/api-gateway":
+  version: 0.0.0-use.local
+  resolution: "@your-org/api-gateway@workspace:packages/api-gateway"
+  dependencies:
+    "@graphql-mesh/cache-inmemory-lru": "npm:0.6.18"
+    "@graphql-mesh/cli": "npm:0.70.2"
+    "@graphql-mesh/config": "npm:0.36.3"
+    "@graphql-mesh/graphql": "npm:0.25.4"
+    "@graphql-mesh/new-openapi": "npm:0.4.18"
+    "@graphql-mesh/runtime": "npm:0.34.8"
+    "@types/jest": "npm:27.5.1"
+    "@types/node": "npm:17.0.33"
+    "@your-org/eslint-config-bases": "workspace:^"
+    cross-env: "npm:7.0.3"
+    eslint: "npm:8.15.0"
+    graphql: "npm:16.5.0"
+    jest: "npm:28.1.0"
+    npm-run-all: "npm:4.1.5"
+    prettier: "npm:2.6.2"
+    rimraf: "npm:3.0.2"
+    ts-jest: "npm:28.0.2"
+    typescript: "npm:4.6.4"
+  peerDependencies:
+    graphql: ^16.4.0
+  languageName: unknown
+  linkType: soft
+
 "@your-org/common-i18n@workspace:^, @your-org/common-i18n@workspace:packages/common-i18n":
   version: 0.0.0-use.local
   resolution: "@your-org/common-i18n@workspace:packages/common-i18n"
@@ -8186,33 +8213,6 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  languageName: unknown
-  linkType: soft
-
-"@your-org/graphql-mesh@workspace:^, @your-org/graphql-mesh@workspace:packages/graphql-mesh":
-  version: 0.0.0-use.local
-  resolution: "@your-org/graphql-mesh@workspace:packages/graphql-mesh"
-  dependencies:
-    "@graphql-mesh/cache-inmemory-lru": "npm:0.6.18"
-    "@graphql-mesh/cli": "npm:0.70.2"
-    "@graphql-mesh/config": "npm:0.36.3"
-    "@graphql-mesh/graphql": "npm:0.25.4"
-    "@graphql-mesh/new-openapi": "npm:0.4.18"
-    "@graphql-mesh/runtime": "npm:0.34.8"
-    "@types/jest": "npm:27.5.1"
-    "@types/node": "npm:17.0.33"
-    "@your-org/eslint-config-bases": "workspace:^"
-    cross-env: "npm:7.0.3"
-    eslint: "npm:8.15.0"
-    graphql: "npm:16.5.0"
-    jest: "npm:28.1.0"
-    npm-run-all: "npm:4.1.5"
-    prettier: "npm:2.6.2"
-    rimraf: "npm:3.0.2"
-    ts-jest: "npm:28.0.2"
-    typescript: "npm:4.6.4"
-  peerDependencies:
-    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 
@@ -20612,10 +20612,10 @@ __metadata:
     "@types/react-dom": "npm:18.0.4"
     "@typescript-eslint/eslint-plugin": "npm:5.23.0"
     "@typescript-eslint/parser": "npm:5.23.0"
+    "@your-org/api-gateway": "workspace:^"
     "@your-org/common-i18n": "workspace:^"
     "@your-org/core-lib": "workspace:^"
     "@your-org/db-main-prisma": "workspace:^"
-    "@your-org/graphql-mesh": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     apollo-server-core: "npm:3.7.0"
     apollo-server-micro: "npm:3.7.0"

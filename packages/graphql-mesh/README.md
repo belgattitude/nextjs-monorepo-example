@@ -1,1 +1,0 @@
-# @your-org/graphql-mesh
