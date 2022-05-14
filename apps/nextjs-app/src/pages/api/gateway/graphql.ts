@@ -1,5 +1,5 @@
 import { createServer } from '@graphql-yoga/node';
-import { getBuiltMesh } from '@your-org/graphql-mesh';
+import { getBuiltMesh } from '@your-org/api-gateway';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 async function buildServer() {
