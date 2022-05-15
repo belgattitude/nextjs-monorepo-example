@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+/// <reference types="vite/client" />
 
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
@@ -27,6 +28,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     passWithNoTests: false,
+    // include: ['**/*.{test}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['**/e2e/**'],
+    setupFiles: './config/vitest/setup.ts',
   },
 });
