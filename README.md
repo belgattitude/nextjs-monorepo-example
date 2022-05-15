@@ -47,8 +47,8 @@ Useful to
 ```
 .
 ├── apps
-│   ├── nextjs-app  (i18n, ssr, api)
-│   ├── remix-app   (api)
+│   ├── nextjs-app  (i18n, ssr, api, vitest)
+│   ├── remix-app   (csr, ssr, api, jest)
 │   └── vite-app
 └── packages
     ├── api-gateway         (graphql mesh)
@@ -110,10 +110,10 @@ If needed static resources like **images**,... can be shared by using symlinks i
 │       ├── src/
 │       │   └── pages/api        (api routes)
 │       ├── CHANGELOG.md
-│       ├── jest.config.js
 │       ├── next.config.js
 │       ├── package.json         (define package workspace:package deps)
-│       └── tsconfig.json        (define path to packages)
+│       ├── tsconfig.json        (define path to packages)
+│       └── vitest.config.ts
 │
 ├── packages
 │   ├── core-lib                 (basic ts libs)
@@ -416,9 +416,14 @@ that lint and prettier are applied automatically on commit and/or pushes.
 
 ### 5.3 Tests
 
-Tests relies on ts-jest with support for typescript path aliases. React-testing-library is enabled
-whenever react is involved. Configuration lives in the root folder of each apps/packages. As an
-example see [./apps/nextjs-app/jest.config.js](./apps/nextjs-app/jest.config.js).
+Tests relies on ts-jest or vitest depending on the app. All setups supports typescript path aliases.
+React-testing-library is enabled whenever react is involved.
+
+Configuration lives in the root folder of each apps/packages. As an
+example see
+
+- [./apps/nextjs-app/vitest.config.ts](./apps/nextjs-app/vitest.config.ts).
+- [./apps/remix-app/jest.config.js](./apps/remix-app/jest.config.js).
 
 ### 5.4 CI
 

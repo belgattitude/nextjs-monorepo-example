@@ -1,4 +1,4 @@
-# @your-org/graphql-mesh
+# @your-org/api-gateway
 
 ## 1.1.1
 
