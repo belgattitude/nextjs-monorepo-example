@@ -90,7 +90,7 @@ jobs:
       - name: Unit tests
         working-directory: apps/nextjs-app
         run: |
-          yarn test-unit --runInBand --color
+          yarn test-unit
 
       - name: Build web-app
         working-directory: apps/nextjs-app
