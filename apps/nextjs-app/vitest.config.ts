@@ -26,10 +26,9 @@ export default defineConfig({
   ],
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     passWithNoTests: false,
-    // include: ['**/*.{test}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['**/e2e/**'],
-    setupFiles: './config/vitest/setup.ts',
+    setupFiles: './config/tests/setupVitest.ts',
   },
 });
