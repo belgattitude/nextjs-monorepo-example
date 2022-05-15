@@ -107,8 +107,7 @@ const nextConfig = {
   swcMinify: true,
 
   experimental: {
-    // Still buggy as of nextjs 12.1.5
-    /**
+    // Can be buggy, feel free to re-add babel.config.js
     emotion: {
       sourceMap: process.env.NODE_ENV === 'development',
       autoLabel: 'dev-only',
@@ -119,7 +118,6 @@ const nextConfig = {
       // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
       labelFormat: '[local]',
     },
-    */
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
