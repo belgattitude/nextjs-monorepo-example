@@ -1,5 +1,13 @@
 # nextjs-app
 
+## 3.48.0
+
+### Minor Changes
+
+- [#1846](https://github.com/belgattitude/nextjs-monorepo-example/pull/1846) [`f3b8320`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f3b832052a47c7b508892d3bb5b5546b4b61816d) Thanks [@belgattitude](https://github.com/belgattitude)! - Example using vitest/happy-dom instead of jest
+
+  Current basic unit test suite went from +/-12s to +/-5s on github action.
+
 ## 3.47.1
 
 ### Patch Changes
