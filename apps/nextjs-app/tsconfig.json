@@ -9,7 +9,7 @@
     "jsxImportSource": "@emotion/react",
     "incremental": true,
     "paths": {
-      "@/test-utils": ["../config/jest/test-utils"],
+      "@/test-utils": ["../config/tests/test-utils"],
       "@/config/*": ["./config/*"],
       "@/lib/*": ["./lib/*"],
       "@/components/*": ["./components/*"],
@@ -30,14 +30,16 @@
       "@your-org/db-main-prisma": ["../../../packages/db-main-prisma/src/index"]
     }
   },
-  "exclude": ["**/node_modules", "**/.*/", ".next", ".out"],
+  "exclude": ["**/node_modules", "**/.*/"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.mts",
     "**/*.js",
-    "**/*.jsx",
+    "**/*.cjs",
     "**/*.mjs",
+    "**/*.jsx",
     "**/*.json"
   ]
 }
