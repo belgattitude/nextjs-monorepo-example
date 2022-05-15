@@ -5,5 +5,5 @@ module.exports = {
   appDirectory: 'src',
   browserBuildDirectory: 'public/build',
   publicPath: '/build/',
-  serverBuildDirectory: 'api/build',
+  serverBuildDirectory: 'api/_build',
 };

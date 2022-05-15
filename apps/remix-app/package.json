@@ -20,7 +20,7 @@
     "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
     "watch-tailwind": "tailwindcss -o ./src/tailwind.css --watch",
     "remix-dev": "remix dev",
-    "clean": "rimraf --no-glob ./.cache ./coverage ./src/tailwind.css ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
+    "clean": "rimraf --no-glob ./.cache ./coverage ./src/tailwind.css ./tsconfig.tsbuildinfo ./api/_build ./public/build ./.eslintcache && jest --clear-cache",
     "?share-static-symlink": "echo 'Use this command to link assets... from shared static folder'",
     "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
