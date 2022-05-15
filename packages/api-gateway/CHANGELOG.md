@@ -1,5 +1,11 @@
 # @your-org/graphql-mesh
 
+## 1.1.1
+
+### Patch Changes
+
+- [#1843](https://github.com/belgattitude/nextjs-monorepo-example/pull/1843) [`9804111`](https://github.com/belgattitude/nextjs-monorepo-example/commit/98041113ca05d96142b751b8d86aa2c54f06db10) Thanks [@belgattitude](https://github.com/belgattitude)! - Rename package graphql-mesh to api-gateway
+
 ## 1.1.0
 
 ### Minor Changes
