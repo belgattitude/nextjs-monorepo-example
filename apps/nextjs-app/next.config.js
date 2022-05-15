@@ -157,7 +157,9 @@ const nextConfig = {
   },
 
   typescript: {
+    /** Do not run TypeScript during production builds (`next build`). */
     ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
+    tsconfigPath: './tsconfig.json',
   },
 
   eslint: {
