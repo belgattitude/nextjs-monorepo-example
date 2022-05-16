@@ -3778,7 +3778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@istanbuljs/schema@npm:^0.1.2":
+"@istanbuljs/schema@npm:^0.1.2, @istanbuljs/schema@npm:^0.1.3":
   version: 0.1.3
   resolution: "@istanbuljs/schema@npm:0.1.3"
   checksum: 1f6fd298c4d287b8c1ba55ab0cec14b4006c3f7aa032fe09a82f3322d943fd8aa9aa5691ad2e1c0c8693d42546c2cfa6adb45d09e2131fb5b975f7caab6aa5d8
@@ -10176,25 +10176,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.6.0":
-  version: 7.10.0
-  resolution: "c8@npm:7.10.0"
+"c8@npm:7.11.3, c8@npm:^7.6.0":
+  version: 7.11.3
+  resolution: "c8@npm:7.11.3"
   dependencies:
     "@bcoe/v8-coverage": "npm:^0.2.3"
-    "@istanbuljs/schema": "npm:^0.1.2"
+    "@istanbuljs/schema": "npm:^0.1.3"
     find-up: "npm:^5.0.0"
     foreground-child: "npm:^2.0.0"
-    istanbul-lib-coverage: "npm:^3.0.1"
+    istanbul-lib-coverage: "npm:^3.2.0"
     istanbul-lib-report: "npm:^3.0.0"
-    istanbul-reports: "npm:^3.0.2"
-    rimraf: "npm:^3.0.0"
+    istanbul-reports: "npm:^3.1.4"
+    rimraf: "npm:^3.0.2"
     test-exclude: "npm:^6.0.0"
-    v8-to-istanbul: "npm:^8.0.0"
+    v8-to-istanbul: "npm:^9.0.0"
     yargs: "npm:^16.2.0"
-    yargs-parser: "npm:^20.2.7"
+    yargs-parser: "npm:^20.2.9"
   bin:
     c8: bin/c8.js
-  checksum: 69cdc175ba7592f7aab3e1e16454e56c8fa33a90969aa8cce4ded730868d19ccbd205987a0c771916042eaa84f2424d2cd982909d9f9ed492511aea0daa8c629
+  checksum: f94d3ab30928396493db9d423b746375816a553ba9f4f4655c57a9b7312d0916474baf289ec7b6c49410faee2e1794acee6e4c91ee065c25fb71de898cf5b421
   languageName: node
   linkType: hard
 
@@ -17516,7 +17516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.0.1, istanbul-lib-coverage@npm:^3.2.0":
+"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.2.0":
   version: 3.2.0
   resolution: "istanbul-lib-coverage@npm:3.2.0"
   checksum: a763d8be15991de6b4c4e99727126a0fd4da3a3d87577a1e42c8856674f361472196f8db7307801b35a294f48ffcf66c6cc45f34086ca58015f16a9fc9fc04f6
@@ -17558,13 +17558,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-reports@npm:^3.0.2, istanbul-reports@npm:^3.1.3":
-  version: 3.1.3
-  resolution: "istanbul-reports@npm:3.1.3"
+"istanbul-reports@npm:^3.1.3, istanbul-reports@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "istanbul-reports@npm:3.1.4"
   dependencies:
     html-escaper: "npm:^2.0.0"
     istanbul-lib-report: "npm:^3.0.0"
-  checksum: 66c3db4053f59667bc23da5a6c78595ce88cbed4fd9890343e45f560c15b552a7f68c69aeb1a4b0174157fb0b40a1f82c408429895c5a3d8fee3a43a91c1a843
+  checksum: ae06b17bfe5bb447855b7cb5dea581f3918f495d55c81c63204078b567af5e9121e629bd7a221bc6f01772dde977876bb51dc69889731e8f86d8ec9e59f39508
   languageName: node
   linkType: hard
 
@@ -20811,6 +20811,7 @@ __metadata:
     apollo-server-micro: "npm:3.7.0"
     autoprefixer: "npm:10.4.7"
     axios: "npm:0.27.2"
+    c8: "npm:7.11.3"
     cors: "npm:2.8.5"
     cross-env: "npm:7.0.3"
     dotenv-flow: "npm:3.2.0"
@@ -28375,17 +28376,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"v8-to-istanbul@npm:^8.0.0":
-  version: 8.1.0
-  resolution: "v8-to-istanbul@npm:8.1.0"
-  dependencies:
-    "@types/istanbul-lib-coverage": "npm:^2.0.1"
-    convert-source-map: "npm:^1.6.0"
-    source-map: "npm:^0.7.3"
-  checksum: 9b4f4d684d7ad4703c1652f9d5bb483fa414affaa0aa7d89d1ab356542b4efe00aad17b22859370fef3ac75a933c0c1c3e01bb7f3544a23f71bd1d737047a2cd
-  languageName: node
-  linkType: hard
-
 "v8-to-istanbul@npm:^9.0.0":
   version: 9.0.0
   resolution: "v8-to-istanbul@npm:9.0.0"
@@ -29308,7 +29298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^20.2.2, yargs-parser@npm:^20.2.3, yargs-parser@npm:^20.2.7, yargs-parser@npm:^20.x":
+"yargs-parser@npm:^20.2.2, yargs-parser@npm:^20.2.3, yargs-parser@npm:^20.2.9, yargs-parser@npm:^20.x":
   version: 20.2.9
   resolution: "yargs-parser@npm:20.2.9"
   checksum: fd739a429b7cde755b8e9d28520619fb8adb94c686b2d75d3c93a6ec199fbc8bf120af6d2be144f8d3075f3d675b09893f8894a362548107aa90bb97ad662c7a
