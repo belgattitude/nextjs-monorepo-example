@@ -30,7 +30,7 @@
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache",
     "dev": "next",
     "build": "next build",
-    "build-no-checks": "cross-env NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 NEXTJS_SENTRY_UPLOAD_DRY_RUN=1 next build",
+    "build-fast": "cross-env NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 NEXTJS_SENTRY_UPLOAD_DRY_RUN=1 next build",
     "vercel-build": "yarn share-static-hardlink && next build",
     "start": "next start",
     "bundle-analyze": "cross-env ANALYZE=true NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 NEXTJS_SENTRY_UPLOAD_DRY_RUN=1 yarn build",
