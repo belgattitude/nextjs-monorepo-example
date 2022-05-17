@@ -3,6 +3,7 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 const { withSentryConfig } = require('@sentry/nextjs');
+const { DefinePlugin } = require('webpack');
 const pc = require('picocolors');
 const packageJson = require('./package.json');
 const { i18n } = require('./next-i18next.config');
@@ -23,6 +24,10 @@ const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
 );
 const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
+);
+
+const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
 );
 
 /**
@@ -109,7 +114,7 @@ const nextConfig = {
   experimental: {
     // Still buggy as of nextjs 12.1.5
     /**
-    emotion: {
+     emotion: {
       sourceMap: process.env.NODE_ENV === 'development',
       autoLabel: 'dev-only',
       // Allowed values: `[local]` `[filename]` and `[dirname]`
@@ -119,7 +124,7 @@ const nextConfig = {
       // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
       labelFormat: '[local]',
     },
-    */
+     */
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
@@ -187,6 +192,13 @@ const nextConfig = {
     // Fixes npm packages that depend on `fs` module
     // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
     config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/tree-shaking/
+    config.plugins.push(
+      new DefinePlugin({
+        __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
+      })
+    );
 
     config.module.rules.push({
       test: /\.svg$/,
