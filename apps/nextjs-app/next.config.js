@@ -25,6 +25,10 @@ const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
 
+const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
+);
+
 /**
  * A way to allow CI optimization when the build done there is not used
  * to deliver an image or deploy the files.
@@ -35,10 +39,18 @@ const disableSourceMaps = trueEnv.includes(
 );
 
 if (disableSourceMaps) {
-  console.info(
-    `${pc.green(
+  console.warn(
+    `${pc.yellow(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
+  );
+}
+
+if (NEXTJS_SENTRY_DEBUG) {
+  console.warn(
+    `${pc.yellow(
+      'notice'
+    )}- Build won't use sentry treeshaking (NEXTJS_SENTRY_DEBUG)`
   );
 }
 
@@ -109,7 +121,7 @@ const nextConfig = {
   experimental: {
     // Still buggy as of nextjs 12.1.5
     /**
-    emotion: {
+     emotion: {
       sourceMap: process.env.NODE_ENV === 'development',
       autoLabel: 'dev-only',
       // Allowed values: `[local]` `[filename]` and `[dirname]`
@@ -119,7 +131,7 @@ const nextConfig = {
       // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
       labelFormat: '[local]',
     },
-    */
+     */
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
@@ -183,10 +195,19 @@ const nextConfig = {
   },
    */
 
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
-    config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+  webpack: (config, { webpack, isServer }) => {
+    if (!isServer) {
+      // Fixes npm packages that depend on `fs` module
+      // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
+      config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+    }
+
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/tree-shaking/
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
+      })
+    );
 
     config.module.rules.push({
       test: /\.svg$/,
