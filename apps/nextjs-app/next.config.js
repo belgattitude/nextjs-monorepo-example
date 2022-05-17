@@ -3,7 +3,6 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 const { withSentryConfig } = require('@sentry/nextjs');
-const { DefinePlugin } = require('webpack');
 const pc = require('picocolors');
 const packageJson = require('./package.json');
 const { i18n } = require('./next-i18next.config');
@@ -40,10 +39,18 @@ const disableSourceMaps = trueEnv.includes(
 );
 
 if (disableSourceMaps) {
-  console.info(
-    `${pc.green(
+  console.warn(
+    `${pc.yellow(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
+  );
+}
+
+if (NEXTJS_SENTRY_DEBUG) {
+  console.warn(
+    `${pc.yellow(
+      'notice'
+    )}- Build won't use sentry treeshaking (NEXTJS_SENTRY_DEBUG)`
   );
 }
 
@@ -188,14 +195,16 @@ const nextConfig = {
   },
    */
 
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
-    config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+  webpack: (config, { webpack, isServer }) => {
+    if (!isServer) {
+      // Fixes npm packages that depend on `fs` module
+      // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
+      config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+    }
 
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/tree-shaking/
     config.plugins.push(
-      new DefinePlugin({
+      new webpack.DefinePlugin({
         __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
       })
     );
