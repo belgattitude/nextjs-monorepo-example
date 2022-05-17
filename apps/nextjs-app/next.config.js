@@ -245,22 +245,10 @@ const nextConfig = {
   },
 };
 
-let config;
-
-if (tmModules.length > 0) {
-  const withNextTranspileModules = require('next-transpile-modules')(
-    tmModules,
-    {
-      resolveSymlinks: true,
-      debug: false,
-    }
-  );
-  config = withNextTranspileModules(nextConfig);
-} else {
-  config = nextConfig;
-}
+let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
+  // @ts-ignore because sentry does not match nextjs current definitions
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
     // the following options are set automatically, and overriding them is not
@@ -272,6 +260,21 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // silent: isProd, // Suppresses all logs
     dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
   });
+}
+
+if (tmModules.length > 0) {
+  console.info(
+    `${pc.green('notice')}- Will transpile [${tmModules.join(',')}]`
+  );
+
+  const withNextTranspileModules = require('next-transpile-modules')(
+    tmModules,
+    {
+      resolveSymlinks: true,
+      debug: false,
+    }
+  );
+  config = withNextTranspileModules(config);
 }
 
 if (process.env.ANALYZE === 'true') {
