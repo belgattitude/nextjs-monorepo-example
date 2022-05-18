@@ -48,6 +48,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'no-empty-function': 'off',
     'import/default': 'off',
+    'import/no-duplicates': ['error', { considerQueryString: true }],
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
     'import/order': [
