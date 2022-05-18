@@ -3,7 +3,13 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   framework: '@storybook/react',
+  // Keep react 17 render, till mdx 2 is fully supported
+  // - https://github.com/mdx-js/mdx/issues/1945
+  // - https://github.com/storybookjs/storybook/issues/18094
+  // @link https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#react18-new-root-api
+  reactOptions: { legacyRootApi: true },
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(ts|tsx|js|jsx)'],
+  /** Not needed as per sb 6.5
   typescript: {
     check: false,
     checkOptions: {},
@@ -14,8 +20,11 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-
+  */
   features: {
+    // Still issues with mdx2 and react 18
+    // @link https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#opt-in-mdx2-support
+    previewMdx2: false,
     // @link https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#using-the-v7-store
     storyStoreV7: false,
     // @link https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#emotion11-quasi-compatibility
@@ -64,7 +73,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    /*
+
     {
       name: '@storybook/addon-storysource',
       options: {
@@ -72,7 +81,7 @@ module.exports = {
           injectStoryParameters: true,
         },
       },
-    },*/
+    },
     {
       name: '@storybook/addon-postcss',
       options: {
