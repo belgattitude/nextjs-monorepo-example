@@ -8,5 +8,8 @@ reject: [
     '@emotion/styled',
     'react',
     'react-dom',
-    'jest',
+    # Till mdx2 is well supported in react 18
+    # - https://github.com/mdx-js/mdx/issues/1945
+    # - https://github.com/storybookjs/storybook/issues/18094
+    '@mdx-js/react',
   ]
