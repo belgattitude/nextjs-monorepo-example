@@ -75,7 +75,7 @@ yarn prisma-db-seed
 ## DB type generation
 
 Create or update the types. This is generally automatically done in
-a postinstall from any app, see script section of [../../apps/web-app/package.json](../../apps/web-app/package.json)
+a postinstall from any app, see script section of [../../apps/nextjs-app/package.json](../../apps/nextjs-app/package.json)
 or try it out with `yarn workspace web-app postinstall`
 
 ```bash

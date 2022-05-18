@@ -10,7 +10,8 @@
 
 Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
 
-- Homepage: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
+- Home: [Demo/Vercel](https://monorepo-nextjs-app.vercel.app)
+- SSR-I18n: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
 - API: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/rest/post/1)
 - [Changelog](https://github.com/belgattitude/monorepo-nextjs-app/blob/main/apps/nextjs-app/CHANGELOG.md)
 
