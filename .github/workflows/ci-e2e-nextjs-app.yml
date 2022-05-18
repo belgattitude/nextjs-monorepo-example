@@ -1,4 +1,4 @@
-name: CI-e2e-web-app
+name: CI-e2e-nextjs-app
 
 on:
   push:
@@ -65,18 +65,18 @@ jobs:
             yarn-cache-folder-
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs build web-app from cache
+      - name: Restore nextjs build nextjs-app from cache
         uses: actions/cache@v3
         with:
           path: |
-            ${{ github.workspace }}/apps/web-app/.next/cache
+            ${{ github.workspace }}/apps/nextjs-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
             ${{ github.workspace }}/**/.eslintcache
 
-          key: ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/web-app/src/**.[jt]sx?', 'apps/web-app/src/**.json') }}
+          key: ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-web-app-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Start database
         working-directory: packages/db-main-prisma
