@@ -6,14 +6,14 @@ type Props = {
 export const CtaBlock: FC<Props> = () => {
   return (
     <div className="bg-gray-50">
-      <div className="lg:flex lg:justify-between lg:items-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+      <div className="py-12 px-4 mx-auto max-w-7xl sm:px-6 lg:flex lg:justify-between lg:items-center lg:py-16 lg:px-8">
+        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           <span className="block">Ready to dive in?</span>
           <span className="block text-indigo-600">
             Start your free trial today.
           </span>
         </h2>
-        <div className="flex lg:flex-shrink-0 mt-8 lg:mt-0">
+        <div className="flex mt-8 lg:shrink-0 lg:mt-0">
           <div className="inline-flex rounded-md shadow">
             <a
               href="#"

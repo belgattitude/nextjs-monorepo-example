@@ -65,7 +65,6 @@ jobs:
             ${{ github.workspace }}/apps/nextjs-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-            ${{ github.workspace }}/**/.eslintcache
 
           key: ${{ runner.os }}-nextjs-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
           restore-keys: |
@@ -85,7 +84,7 @@ jobs:
       - name: Linter
         working-directory: apps/nextjs-app
         run: |
-          yarn lint --cache
+          yarn lint
 
       - name: Unit tests
         working-directory: apps/nextjs-app

@@ -381,8 +381,9 @@ Some convenience scripts can be run in any folder of this repo and will call the
 | `yarn g:test-unit`           | Run unit tests in all apps & packages                                                                                                |
 | `yarn g:test-e2e`            | Run unit tests in all apps & packages                                                                                                |
 | `yarn g:build`               | Clean every caches and dist folders in all apps & packages                                                                           |
-| `yarn g:clean`               | Add a changeset                                                                                                                      |
+| `yarn g:clean`               | Clean apps/packages builds                                                                                                           |
 | `yarn g:check-dist`          | Ensure build dist files passes es2017 (run `g:build` first).                                                                         |
+| `yarn clean:global-cache`    | Clean tooling caches (eslint, jest...)                                                                                               |
 | `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/sortlist/packages/blob/main/.ncurc.yml)) |
 | `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                     |
 | `yarn check:install`         | Verify if there's no dependency missing in packages                                                                                  |

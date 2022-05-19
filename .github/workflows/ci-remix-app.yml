@@ -67,7 +67,7 @@ jobs:
       - name: Linter
         working-directory: apps/remix-app
         run: |
-          yarn lint --cache
+          yarn lint
           yarn lint-styles
 
       - name: Unit tests

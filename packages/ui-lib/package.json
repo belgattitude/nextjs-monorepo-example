@@ -23,7 +23,7 @@
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
     "test-unit": "echo \"No unit tests yet\"",

@@ -49,13 +49,16 @@
     "./storybook": {
       "require": "./src/bases/react.js"
     },
+    "./tailwind": {
+      "require": "./src/bases/tailwind.js"
+    },
     "./typescript": {
       "require": "./src/bases/typescript.js"
     }
   },
   "scripts": {
-    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache",
-    "lint": "eslint  --ext .ts,.js",
+    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "lint": "eslint  --ext .ts,.js --cache --cache-location ../../.cache/eslint/eslint-config-bases.eslintcache",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx --fix"
   },
@@ -82,6 +85,7 @@
     "eslint-plugin-react-hooks": "4.5.0",
     "eslint-plugin-regexp": "1.7.0",
     "eslint-plugin-sonarjs": "0.13.0",
+    "eslint-plugin-tailwindcss": "3.5.0",
     "eslint-plugin-testing-library": "5.5.0",
     "prettier": "2.6.2",
     "rimraf": "3.0.2"

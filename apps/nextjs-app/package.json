@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache",
+    "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo",
     "dev": "next",
     "build": "next build",
     "build-fast": "cross-env NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 NEXTJS_DISABLE_SENTRY=1 NEXTJS_SENTRY_UPLOAD_DRY_RUN=1 next build",
@@ -45,7 +45,7 @@
     "test-unit-watch": "vitest watch --ui",
     "test-e2e": "cross-env E2E_WEBSERVER_MODE=BUILD_AND_START playwright test",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mdx,.graphql --cache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mdx,.graphql --cache --cache-location ../../.cache/eslint/nextjs-app.eslintcache",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.mdx,.graphql --fix",
     "?postinstall": "@todo: the prisma generate seems to be required, but is installed at the root",
     "postinstall": "test -n \"$SKIP_POSTINSTALL\" || yarn workspace @your-org/db-main-prisma run prisma generate"

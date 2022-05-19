@@ -11,7 +11,7 @@
     "test": "yarn test-unit",
     "test-unit": "echo 'No test present yet'",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/vite-app.eslintcache",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
