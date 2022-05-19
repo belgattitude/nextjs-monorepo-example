@@ -1,5 +1,16 @@
 # @your-org/ui-lib
 
+## 3.13.0
+
+### Minor Changes
+
+- [#1876](https://github.com/belgattitude/nextjs-monorepo-example/pull/1876) [`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable eslint global cache
+
+### Patch Changes
+
+- Updated dependencies [[`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85)]:
+  - @your-org/core-lib@3.14.0
+
 ## 3.12.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @your-org/eslint-config-bases
 
+## 1.3.0
+
+### Minor Changes
+
+- [#1876](https://github.com/belgattitude/nextjs-monorepo-example/pull/1876) [`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85) Thanks [@belgattitude](https://github.com/belgattitude)! - Add support for eslint-plugin-tailwind
+
+* [#1876](https://github.com/belgattitude/nextjs-monorepo-example/pull/1876) [`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable eslint global cache
+
 ## 1.2.0
 
 ### Minor Changes
