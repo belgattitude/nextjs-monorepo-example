@@ -52,21 +52,21 @@ export const FeaturesBlock: FC<Props> = () => {
   return (
     <Ctn>
       <div className="py-12 bg-white" style={{ width: '100%' }}>
-        <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase">
               Transactions
             </h2>
-            <p className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight leading-8 text-gray-900">
+            <p className="mt-2 text-3xl font-extrabold tracking-tight leading-8 text-gray-900 sm:text-4xl">
               A better way to send money
             </p>
-            <p className="lg:mx-auto mt-4 max-w-2xl text-xl text-gray-500">
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
               {lorem}
             </p>
           </div>
 
           <div className="mt-10">
-            <dl className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 space-y-10 md:space-y-0">
+            <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
               {features.map((feature) => (
                 <div key={feature.name} className="relative">
                   <dt>
