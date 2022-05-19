@@ -20,8 +20,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build-graphql-mesh": "mesh build",
-    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "jest --config jest.config.js --passWithNoTests",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
