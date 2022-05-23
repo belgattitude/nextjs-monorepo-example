@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -326,37 +325,34 @@ export type MeshContext = CatFactsContext & BaseMeshContext;
 import { getMesh, ExecuteMeshFn, SubscribeMeshFn } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { path as pathModule } from '@graphql-mesh/cross-helpers';
+
 import { fileURLToPath } from '@graphql-mesh/utils';
-import * as ExternalModule_0 from '@graphql-mesh/cache-localforage';
-import * as ExternalModule_1 from '@graphql-mesh/new-openapi';
-import * as ExternalModule_2 from '@graphql-mesh/merger-bare';
-import * as ExternalModule_3 from './sources/CatFacts/jsonSchemaBundle';
-
-const importedModules: Record<string, any> = {
-  // @ts-ignore
-  ["@graphql-mesh/cache-localforage"]: ExternalModule_0,
-  // @ts-ignore
-  ["@graphql-mesh/new-openapi"]: ExternalModule_1,
-  // @ts-ignore
-  ["@graphql-mesh/merger-bare"]: ExternalModule_2,
-  // @ts-ignore
-  [".mesh/sources/CatFacts/jsonSchemaBundle"]: ExternalModule_3
-};
-
 const baseDir = pathModule.join(pathModule.dirname(fileURLToPath(import.meta.url)), '..');
 
 const importFn = (moduleId: string) => {
   const relativeModuleId = (pathModule.isAbsolute(moduleId) ? pathModule.relative(baseDir, moduleId) : moduleId).split('\\').join('/').replace(baseDir + '/', '');
-  if (!(relativeModuleId in importedModules)) {
-    return Promise.reject(new Error(`Cannot find module '${relativeModuleId}'.`));
+  switch(relativeModuleId) {
+    case "@graphql-mesh/cache-localforage":
+      return import("@graphql-mesh/cache-localforage");
+    
+    case "@graphql-mesh/new-openapi":
+      return import("@graphql-mesh/new-openapi");
+    
+    case "@graphql-mesh/merger-bare":
+      return import("@graphql-mesh/merger-bare");
+    
+    case ".mesh/sources/CatFacts/jsonSchemaBundle":
+      return import("./sources/CatFacts/jsonSchemaBundle");
+    
+    default:
+      return Promise.reject(new Error(`Cannot find module '${relativeModuleId}'.`));
   }
-  return Promise.resolve(importedModules[relativeModuleId]);
 };
 
 const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
   cwd: baseDir,
   importFn,
-  fileType: 'ts',
+  fileType: "ts",
 }), {
   readonly: true,
   validate: false
@@ -364,7 +360,6 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
 
 import { GetMeshOptions } from '@graphql-mesh/runtime';
 import { YamlConfig } from '@graphql-mesh/types';
-import { parse } from 'graphql';
 import { PubSub } from '@graphql-mesh/utils';
 import MeshCache from '@graphql-mesh/cache-localforage';
 import { DefaultLogger } from '@graphql-mesh/utils';
@@ -458,16 +453,3 @@ export function getBuiltMesh(): Promise<MeshInstance<MeshContext>> {
 export const execute: ExecuteMeshFn = (...args) => getBuiltMesh().then(({ execute }) => execute(...args));
 
 export const subscribe: SubscribeMeshFn = (...args) => getBuiltMesh().then(({ subscribe }) => subscribe(...args));
-
-export function getMeshSDK<TGlobalContext = any, TOperationContext = any>(globalContext?: TGlobalContext) {
-  const sdkRequester$ = getBuiltMesh().then(({ sdkRequesterFactory }) => sdkRequesterFactory(globalContext));
-  return getSdk<TOperationContext>((...args) => sdkRequester$.then(sdkRequester => sdkRequester(...args)));
-}
-
-export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
-export function getSdk<C>(requester: Requester<C>) {
-  return {
-
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;
