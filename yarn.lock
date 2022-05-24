@@ -38,10 +38,73 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@apollo/utils.dropunuseddefinitions@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@apollo/utils.dropunuseddefinitions@npm:1.1.0"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: a2f8ba344e3ae698abd09a7386b087896d09bb85ab24e63aa4157b5f1c7952224e4f23fbca7624a8fa3e3d655c692a9ea3b7065322ca5a866d7459c065d84c02
+  languageName: node
+  linkType: hard
+
 "@apollo/utils.logger@npm:^1.0.0":
   version: 1.0.0
   resolution: "@apollo/utils.logger@npm:1.0.0"
   checksum: beff3fe1058a300fbccdf50d3798b128fa319294a4a1da5257993962105f8268d3eea6cb850613cbba35b72852b25a11fd118a6f6efb61f88d1f0d66a7808a01
+  languageName: node
+  linkType: hard
+
+"@apollo/utils.printwithreducedwhitespace@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@apollo/utils.printwithreducedwhitespace@npm:1.1.0"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: 8a9f627de328be99443d435358ac2a5aac309e256e63f39dfc5e64a31e20a95a60fcc5794521a350420c7c149264f05b354780beda1692765604196df2f861ad
+  languageName: node
+  linkType: hard
+
+"@apollo/utils.removealiases@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@apollo/utils.removealiases@npm:1.0.0"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: 859e33e4574497ea7448af8300d3b39278f64f5e019f485a0b817b679d9dd796ce3b32a97f68030000c2509cb070a8d0f5ca8a91e2bf0cbf942c1ce0833e1bea
+  languageName: node
+  linkType: hard
+
+"@apollo/utils.sortast@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@apollo/utils.sortast@npm:1.1.0"
+  dependencies:
+    lodash.sortby: "npm:^4.7.0"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: 6ed02f9bf615736690a7d9e127bde11a18c0b0349ef6aaddff5e27d5de1a50ac41f84d70e4febfb00f7214dfecf8ef55695886cda454e4c1d1622bc3a72ede3b
+  languageName: node
+  linkType: hard
+
+"@apollo/utils.stripsensitiveliterals@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@apollo/utils.stripsensitiveliterals@npm:1.2.0"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: 8159a4c36e31c9b865c41fe838eb94e03bd8de13a95b5279eaa329f796c139d5f7e41d448d65b81324d346de446d08f225b597f7dbdc14b12dd6d1332ecb5172
+  languageName: node
+  linkType: hard
+
+"@apollo/utils.usagereporting@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@apollo/utils.usagereporting@npm:1.0.0"
+  dependencies:
+    "@apollo/utils.dropunuseddefinitions": "npm:^1.1.0"
+    "@apollo/utils.printwithreducedwhitespace": "npm:^1.1.0"
+    "@apollo/utils.removealiases": "npm:1.0.0"
+    "@apollo/utils.sortast": "npm:^1.1.0"
+    "@apollo/utils.stripsensitiveliterals": "npm:^1.2.0"
+    apollo-reporting-protobuf: "npm:^3.3.1"
+  peerDependencies:
+    graphql: 14.x || 15.x || 16.x
+  checksum: 8b0cd572789510b18fa1ca3bef19af272e94ee2e5458d8c03c8bc8c2acb18d062467140cc97790468b357afb7013329295fe820af53b6dbdd4baa362818991a5
   languageName: node
   linkType: hard
 
@@ -8602,11 +8665,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:3.7.0, apollo-server-core@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "apollo-server-core@npm:3.7.0"
+"apollo-server-core@npm:3.8.1, apollo-server-core@npm:^3.7.0":
+  version: 3.8.1
+  resolution: "apollo-server-core@npm:3.8.1"
   dependencies:
     "@apollo/utils.logger": "npm:^1.0.0"
+    "@apollo/utils.usagereporting": "npm:^1.0.0"
     "@apollographql/apollo-tools": "npm:^0.5.3"
     "@apollographql/graphql-playground-html": "npm:1.6.29"
     "@graphql-tools/mock": "npm:^8.1.2"
@@ -8617,12 +8681,11 @@ __metadata:
     apollo-server-caching: "npm:^3.3.0"
     apollo-server-env: "npm:^4.2.1"
     apollo-server-errors: "npm:^3.3.1"
-    apollo-server-plugin-base: "npm:^3.5.3"
-    apollo-server-types: "npm:^3.5.3"
+    apollo-server-plugin-base: "npm:^3.6.0"
+    apollo-server-types: "npm:^3.6.0"
     async-retry: "npm:^1.2.1"
     fast-json-stable-stringify: "npm:^2.1.0"
     graphql-tag: "npm:^2.11.0"
-    lodash.sortby: "npm:^4.7.0"
     loglevel: "npm:^1.6.8"
     lru-cache: "npm:^6.0.0"
     sha.js: "npm:^2.4.11"
@@ -8630,7 +8693,7 @@ __metadata:
     whatwg-mimetype: "npm:^3.0.0"
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: f23fa281113d340f3275c82e9d21bbd7a5f2175f9ea26fe5f7ee7658a9a8bfc0964db381a992a801f868e51365650f44ae79d9b42ee1852401f3d6383657b82f
+  checksum: a0f17f9e62c8abc9b5b64e84f1a1f2b8bea2c0c8cc86a555a2a5190916248f70a2101e094394e824c4c0f118c24d7741d34539a950a5577a52b8fabf5fe6ba0d
   languageName: node
   linkType: hard
 
@@ -8666,27 +8729,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-plugin-base@npm:^3.5.3":
-  version: 3.5.3
-  resolution: "apollo-server-plugin-base@npm:3.5.3"
+"apollo-server-plugin-base@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "apollo-server-plugin-base@npm:3.6.0"
   dependencies:
-    apollo-server-types: "npm:^3.5.3"
+    apollo-server-types: "npm:^3.6.0"
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: 4610c187d7751a4beac411537faf06cb0418563fb6c95535c10829460f68f5aa49ec1c64b37667e20a90f03fe4c696c115ae4b4363c2425778780f7dca51a30a
+  checksum: fb4a51c705b8bdc1740a341828113d859aa51e573894c3e47ced17ee573734cfcbac43ee97e956b675b1e444843f0ef11ae63e921960bf625d1c3d14fee3282c
   languageName: node
   linkType: hard
 
-"apollo-server-types@npm:^3.5.3":
-  version: 3.5.3
-  resolution: "apollo-server-types@npm:3.5.3"
+"apollo-server-types@npm:^3.5.3, apollo-server-types@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "apollo-server-types@npm:3.6.0"
   dependencies:
+    "@apollo/utils.logger": "npm:^1.0.0"
     apollo-reporting-protobuf: "npm:^3.3.1"
     apollo-server-caching: "npm:^3.3.0"
     apollo-server-env: "npm:^4.2.1"
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: a21d9ae5404fe5f7f71a1b3896e54e796d2f6dc0e6480ed85e3b67aac815ff54dda8746dad6bb0bfe97df76cd030b1d32e0cd565c96d5634dcc41492fe5c6dd6
+  checksum: 811f0d995e8dad324d6d115658f55ae92e6779d377da1e42a69a0d8ed0a9592f1ba5898341051bcdd7910ed555fa77102612c6c5af4004538f48a7e594a98cfa
   languageName: node
   linkType: hard
 
@@ -20582,7 +20646,7 @@ __metadata:
     "@your-org/core-lib": "workspace:^"
     "@your-org/db-main-prisma": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
-    apollo-server-core: "npm:3.7.0"
+    apollo-server-core: "npm:3.8.1"
     apollo-server-micro: "npm:3.7.0"
     autoprefixer: "npm:10.4.7"
     axios: "npm:0.27.2"
