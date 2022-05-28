@@ -1,6 +1,6 @@
 import { StringConvert } from '../string-convert';
 
-describe('StringConvert tests', () => {
+describe('stringConvert tests', () => {
   describe('.toSafeInteger', () => {
     it('should work as expected', () => {
       expect(StringConvert.toSafeInteger('')).toStrictEqual(null);

@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { usePromise } from '../use-promise';
 
 describe('usePromise', () => {
-  describe('Hook', () => {
+  describe('hook', () => {
     it('should load, return the promise response and rerender', async () => {
       const deps = { slug: 'b' };
       const expected = { value: 'cool' };
@@ -90,8 +90,8 @@ describe('usePromise', () => {
     });
   });
 
-  describe('Component', () => {
-    describe('React.FC usage', () => {
+  describe('component', () => {
+    describe('react.FC usage', () => {
       type Params = { query: string };
       type LoaderPromise = (params: Params) => Promise<string>;
       type Props = {
