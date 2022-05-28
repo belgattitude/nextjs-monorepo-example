@@ -332,15 +332,6 @@ const baseDir = pathModule.join(pathModule.dirname(fileURLToPath(import.meta.url
 const importFn = (moduleId: string) => {
   const relativeModuleId = (pathModule.isAbsolute(moduleId) ? pathModule.relative(baseDir, moduleId) : moduleId).split('\\').join('/').replace(baseDir + '/', '');
   switch(relativeModuleId) {
-    case "@graphql-mesh/cache-localforage":
-      return import("@graphql-mesh/cache-localforage");
-    
-    case "@graphql-mesh/new-openapi":
-      return import("@graphql-mesh/new-openapi");
-    
-    case "@graphql-mesh/merger-bare":
-      return import("@graphql-mesh/merger-bare");
-    
     case ".mesh/sources/CatFacts/jsonSchemaBundle":
       return import("./sources/CatFacts/jsonSchemaBundle");
     
@@ -358,20 +349,19 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
   validate: false
 });
 
-import { GetMeshOptions } from '@graphql-mesh/runtime';
-import { YamlConfig } from '@graphql-mesh/types';
+import type { GetMeshOptions } from '@graphql-mesh/runtime';
+import type { YamlConfig } from '@graphql-mesh/types';
 import { PubSub } from '@graphql-mesh/utils';
-import MeshCache from '@graphql-mesh/cache-localforage';
+import MeshCache from "@graphql-mesh/cache-localforage";
 import { DefaultLogger } from '@graphql-mesh/utils';
-import NewOpenapiHandler from '@graphql-mesh/new-openapi'
-import BareMerger from '@graphql-mesh/merger-bare';
-import { resolveAdditionalResolvers } from '@graphql-mesh/utils';
-import { parseWithCache } from '@graphql-mesh/utils';
-export const rawConfig: YamlConfig.Config = {"sources":[{"name":"CatFacts","handler":{"newOpenapi":{"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"}}}]} as any
+import NewOpenapiHandler from "@graphql-mesh/new-openapi"
+import BareMerger from "@graphql-mesh/merger-bare";
+import { printWithCache } from '@graphql-mesh/utils';
+export const rawServeConfig: YamlConfig.Config['serve'] = undefined as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
 const cache = new (MeshCache as any)({
-      ...(rawConfig.cache || {}),
+      ...({} as any),
       importFn,
       store: rootStore.child('cache'),
       pubsub,
@@ -380,16 +370,17 @@ const sourcesStore = rootStore.child('sources');
 const logger = new DefaultLogger('🕸️  Mesh');
 const sources = [];
 const transforms = [];
+const additionalEnvelopPlugins = [];
 const catFactsTransforms = [];
 const additionalTypeDefs = [] as any[];
 const catFactsHandler = new NewOpenapiHandler({
-              name: rawConfig.sources[0].name,
-              config: rawConfig.sources[0].handler["newOpenapi"],
+              name: "CatFacts",
+              config: {"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"},
               baseDir,
               cache,
               pubsub,
-              store: sourcesStore.child(rawConfig.sources[0].name),
-              logger: logger.child(rawConfig.sources[0].name),
+              store: sourcesStore.child("CatFacts"),
+              logger: logger.child("CatFacts"),
               importFn
             });
 sources.push({
@@ -400,23 +391,10 @@ sources.push({
 const merger = new(BareMerger as any)({
         cache,
         pubsub,
-        logger: logger.child('BareMerger'),
+        logger: logger.child('bareMerger'),
         store: rootStore.child('bareMerger')
       })
-const additionalResolversRawConfig = [];
-const additionalResolvers = await resolveAdditionalResolvers(
-      baseDir,
-      additionalResolversRawConfig,
-      importFn,
-      pubsub
-  )
-const liveQueryInvalidations = rawConfig.liveQueryInvalidations;
-const additionalEnvelopPlugins = [];
-const documents = documentsInSDL.map((documentSdl: string, i: number) => ({
-              rawSDL: documentSdl,
-              document: parseWithCache(documentSdl),
-              location: `document_${i}.graphql`,
-            }))
+const additionalResolvers = [] as any[]
 
   return {
     sources,
@@ -427,13 +405,14 @@ const documents = documentsInSDL.map((documentSdl: string, i: number) => ({
     pubsub,
     merger,
     logger,
-    liveQueryInvalidations,
     additionalEnvelopPlugins,
-    documents,
+    get documents() {
+      return [
+      
+    ];
+    },
   };
 }
-
-export const documentsInSDL = /*#__PURE__*/ [];
 
 let meshInstance$: Promise<MeshInstance<MeshContext>>;
 
