@@ -1,5 +1,14 @@
 # vite-app
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/common-i18n@1.1.0
+  - @your-org/core-lib@3.14.0
+  - @your-org/ui-lib@3.13.1
+
 ## 0.6.0
 
 ### Minor Changes
