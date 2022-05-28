@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.3.1
+
+### Patch Changes
+
+- [#1934](https://github.com/belgattitude/nextjs-monorepo-example/pull/1934) [`fbfe651`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fbfe6516cb257f3f9076c738254ba53352e2ec19) Thanks [@renovate](https://github.com/apps/renovate)! - Improve typescript and jest bases
+
 ## 1.3.0
 
 ### Minor Changes
