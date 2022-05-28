@@ -23,7 +23,6 @@ module.exports = {
         'jest/prefer-hooks-on-top': 'error',
         'jest/no-duplicate-hooks': 'error',
         'jest/no-test-return-statement': 'error',
-        'jest/prefer-lowercase-title': 'error',
         'jest/prefer-strict-equal': 'error',
         'jest/prefer-to-have-length': 'error',
         'jest/consistent-test-it': ['error', { fn: 'it' }],
