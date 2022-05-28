@@ -19,6 +19,13 @@ module.exports = {
       // @see https://github.com/jest-community/eslint-plugin-jest
       extends: ['plugin:jest/recommended'],
       rules: {
+        'jest/prefer-hooks-in-order': 'error',
+        'jest/prefer-hooks-on-top': 'error',
+        'jest/no-duplicate-hooks': 'error',
+        'jest/no-test-return-statement': 'error',
+        'jest/prefer-lowercase-title': 'error',
+        'jest/prefer-strict-equal': 'error',
+        'jest/prefer-to-have-length': 'error',
         'jest/consistent-test-it': ['error', { fn: 'it' }],
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-object-literal-type-assertion': 'off',
