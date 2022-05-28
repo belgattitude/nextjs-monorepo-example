@@ -5,7 +5,7 @@ import {
   isPlainObject,
 } from '../typeguards';
 
-describe('Typeguards tests', () => {
+describe('typeguards tests', () => {
   describe('isNonEmptyString', () => {
     it('should trim by default', () => {
       expect(isNonEmptyString('  ')).toStrictEqual(isNonEmptyString(''));
