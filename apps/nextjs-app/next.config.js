@@ -118,8 +118,9 @@ const nextConfig = {
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
   swcMinify: true,
 
-  experimental: {
-    // Still buggy as of nextjs 12.1.5
+  compiler: {
+    // emotion via swc will increase browser bundle as there's not
+    // yet support for browserlist (in other words, complied js will be es5)
     /**
      emotion: {
       sourceMap: process.env.NODE_ENV === 'development',
@@ -131,7 +132,10 @@ const nextConfig = {
       // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
       labelFormat: '[local]',
     },
-     */
+    */
+  },
+
+  experimental: {
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
