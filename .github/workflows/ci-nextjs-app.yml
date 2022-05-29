@@ -104,8 +104,8 @@ jobs:
           NEXT_DISABLE_SOURCEMAPS: true
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: true
-          # Fully disable sentry
-          NEXTJS_DISABLE_SENTRY: true
+          # To allow checking size-limits
+          NEXTJS_DISABLE_SENTRY: false
           # Fully disable sentry upload
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
