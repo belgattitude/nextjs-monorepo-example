@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -326,57 +325,43 @@ export type MeshContext = CatFactsContext & BaseMeshContext;
 import { getMesh, ExecuteMeshFn, SubscribeMeshFn } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { path as pathModule } from '@graphql-mesh/cross-helpers';
+
 import { fileURLToPath } from '@graphql-mesh/utils';
-import * as ExternalModule_0 from '@graphql-mesh/cache-localforage';
-import * as ExternalModule_1 from '@graphql-mesh/new-openapi';
-import * as ExternalModule_2 from '@graphql-mesh/merger-bare';
-import * as ExternalModule_3 from './sources/CatFacts/jsonSchemaBundle';
-
-const importedModules: Record<string, any> = {
-  // @ts-ignore
-  ["@graphql-mesh/cache-localforage"]: ExternalModule_0,
-  // @ts-ignore
-  ["@graphql-mesh/new-openapi"]: ExternalModule_1,
-  // @ts-ignore
-  ["@graphql-mesh/merger-bare"]: ExternalModule_2,
-  // @ts-ignore
-  [".mesh/sources/CatFacts/jsonSchemaBundle"]: ExternalModule_3
-};
-
 const baseDir = pathModule.join(pathModule.dirname(fileURLToPath(import.meta.url)), '..');
 
 const importFn = (moduleId: string) => {
   const relativeModuleId = (pathModule.isAbsolute(moduleId) ? pathModule.relative(baseDir, moduleId) : moduleId).split('\\').join('/').replace(baseDir + '/', '');
-  if (!(relativeModuleId in importedModules)) {
-    return Promise.reject(new Error(`Cannot find module '${relativeModuleId}'.`));
+  switch(relativeModuleId) {
+    case ".mesh/sources/CatFacts/jsonSchemaBundle":
+      return import("./sources/CatFacts/jsonSchemaBundle");
+    
+    default:
+      return Promise.reject(new Error(`Cannot find module '${relativeModuleId}'.`));
   }
-  return Promise.resolve(importedModules[relativeModuleId]);
 };
 
 const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
   cwd: baseDir,
   importFn,
-  fileType: 'ts',
+  fileType: "ts",
 }), {
   readonly: true,
   validate: false
 });
 
-import { GetMeshOptions } from '@graphql-mesh/runtime';
-import { YamlConfig } from '@graphql-mesh/types';
-import { parse } from 'graphql';
+import type { GetMeshOptions } from '@graphql-mesh/runtime';
+import type { YamlConfig } from '@graphql-mesh/types';
 import { PubSub } from '@graphql-mesh/utils';
-import MeshCache from '@graphql-mesh/cache-localforage';
+import MeshCache from "@graphql-mesh/cache-localforage";
 import { DefaultLogger } from '@graphql-mesh/utils';
-import NewOpenapiHandler from '@graphql-mesh/new-openapi'
-import BareMerger from '@graphql-mesh/merger-bare';
-import { resolveAdditionalResolvers } from '@graphql-mesh/utils';
-import { parseWithCache } from '@graphql-mesh/utils';
-export const rawConfig: YamlConfig.Config = {"sources":[{"name":"CatFacts","handler":{"newOpenapi":{"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"}}}]} as any
+import NewOpenapiHandler from "@graphql-mesh/new-openapi"
+import BareMerger from "@graphql-mesh/merger-bare";
+import { printWithCache } from '@graphql-mesh/utils';
+export const rawServeConfig: YamlConfig.Config['serve'] = undefined as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
 const cache = new (MeshCache as any)({
-      ...(rawConfig.cache || {}),
+      ...({} as any),
       importFn,
       store: rootStore.child('cache'),
       pubsub,
@@ -385,16 +370,17 @@ const sourcesStore = rootStore.child('sources');
 const logger = new DefaultLogger('🕸️  Mesh');
 const sources = [];
 const transforms = [];
+const additionalEnvelopPlugins = [];
 const catFactsTransforms = [];
 const additionalTypeDefs = [] as any[];
 const catFactsHandler = new NewOpenapiHandler({
-              name: rawConfig.sources[0].name,
-              config: rawConfig.sources[0].handler["newOpenapi"],
+              name: "CatFacts",
+              config: {"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"},
               baseDir,
               cache,
               pubsub,
-              store: sourcesStore.child(rawConfig.sources[0].name),
-              logger: logger.child(rawConfig.sources[0].name),
+              store: sourcesStore.child("CatFacts"),
+              logger: logger.child("CatFacts"),
               importFn
             });
 sources.push({
@@ -405,23 +391,10 @@ sources.push({
 const merger = new(BareMerger as any)({
         cache,
         pubsub,
-        logger: logger.child('BareMerger'),
+        logger: logger.child('bareMerger'),
         store: rootStore.child('bareMerger')
       })
-const additionalResolversRawConfig = [];
-const additionalResolvers = await resolveAdditionalResolvers(
-      baseDir,
-      additionalResolversRawConfig,
-      importFn,
-      pubsub
-  )
-const liveQueryInvalidations = rawConfig.liveQueryInvalidations;
-const additionalEnvelopPlugins = [];
-const documents = documentsInSDL.map((documentSdl: string, i: number) => ({
-              rawSDL: documentSdl,
-              document: parseWithCache(documentSdl),
-              location: `document_${i}.graphql`,
-            }))
+const additionalResolvers = [] as any[]
 
   return {
     sources,
@@ -432,13 +405,14 @@ const documents = documentsInSDL.map((documentSdl: string, i: number) => ({
     pubsub,
     merger,
     logger,
-    liveQueryInvalidations,
     additionalEnvelopPlugins,
-    documents,
+    get documents() {
+      return [
+      
+    ];
+    },
   };
 }
-
-export const documentsInSDL = /*#__PURE__*/ [];
 
 let meshInstance$: Promise<MeshInstance<MeshContext>>;
 
@@ -458,16 +432,3 @@ export function getBuiltMesh(): Promise<MeshInstance<MeshContext>> {
 export const execute: ExecuteMeshFn = (...args) => getBuiltMesh().then(({ execute }) => execute(...args));
 
 export const subscribe: SubscribeMeshFn = (...args) => getBuiltMesh().then(({ subscribe }) => subscribe(...args));
-
-export function getMeshSDK<TGlobalContext = any, TOperationContext = any>(globalContext?: TGlobalContext) {
-  const sdkRequester$ = getBuiltMesh().then(({ sdkRequesterFactory }) => sdkRequesterFactory(globalContext));
-  return getSdk<TOperationContext>((...args) => sdkRequester$.then(sdkRequester => sdkRequester(...args)));
-}
-
-export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
-export function getSdk<C>(requester: Requester<C>) {
-  return {
-
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;

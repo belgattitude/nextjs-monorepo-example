@@ -25,6 +25,10 @@ const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
 
+const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
+);
+
 /**
  * A way to allow CI optimization when the build done there is not used
  * to deliver an image or deploy the files.
@@ -35,10 +39,18 @@ const disableSourceMaps = trueEnv.includes(
 );
 
 if (disableSourceMaps) {
-  console.info(
-    `${pc.green(
+  console.warn(
+    `${pc.yellow(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
+  );
+}
+
+if (NEXTJS_SENTRY_DEBUG) {
+  console.warn(
+    `${pc.yellow(
+      'notice'
+    )}- Build won't use sentry treeshaking (NEXTJS_SENTRY_DEBUG)`
   );
 }
 
@@ -106,10 +118,11 @@ const nextConfig = {
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
   swcMinify: true,
 
-  experimental: {
-    // Still buggy as of nextjs 12.1.5
+  compiler: {
+    // emotion via swc will increase browser bundle as there's not
+    // yet support for browserlist (in other words, complied js will be es5)
     /**
-    emotion: {
+     emotion: {
       sourceMap: process.env.NODE_ENV === 'development',
       autoLabel: 'dev-only',
       // Allowed values: `[local]` `[filename]` and `[dirname]`
@@ -120,6 +133,9 @@ const nextConfig = {
       labelFormat: '[local]',
     },
     */
+  },
+
+  experimental: {
     // React 18
     // @link https://nextjs.org/docs/advanced-features/react-18
     reactRoot: true,
@@ -183,10 +199,19 @@ const nextConfig = {
   },
    */
 
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
-    config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+  webpack: (config, { webpack, isServer }) => {
+    if (!isServer) {
+      // Fixes npm packages that depend on `fs` module
+      // @link https://github.com/vercel/next.js/issues/36514#issuecomment-1112074589
+      config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+    }
+
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/tree-shaking/
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
+      })
+    );
 
     config.module.rules.push({
       test: /\.svg$/,
@@ -224,22 +249,10 @@ const nextConfig = {
   },
 };
 
-let config;
-
-if (tmModules.length > 0) {
-  const withNextTranspileModules = require('next-transpile-modules')(
-    tmModules,
-    {
-      resolveSymlinks: true,
-      debug: false,
-    }
-  );
-  config = withNextTranspileModules(nextConfig);
-} else {
-  config = nextConfig;
-}
+let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
+  // @ts-ignore because sentry does not match nextjs current definitions
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
     // the following options are set automatically, and overriding them is not
@@ -251,6 +264,21 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // silent: isProd, // Suppresses all logs
     dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
   });
+}
+
+if (tmModules.length > 0) {
+  console.info(
+    `${pc.green('notice')}- Will transpile [${tmModules.join(',')}]`
+  );
+
+  const withNextTranspileModules = require('next-transpile-modules')(
+    tmModules,
+    {
+      resolveSymlinks: true,
+      debug: false,
+    }
+  );
+  config = withNextTranspileModules(config);
 }
 
 if (process.env.ANALYZE === 'true') {

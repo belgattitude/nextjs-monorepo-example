@@ -11,9 +11,9 @@ export const HeroBlock: FC<Props> = () => {
 
   return (
     <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+      <div className="container flex flex-col items-center py-24 px-5 mx-auto md:flex-row">
+        <div className="flex flex-col items-center mb-16 text-center md:items-start md:pr-16 md:mb-0 md:w-1/2 md:text-left lg:grow lg:pr-24">
+          <h1 className="mb-4 text-3xl font-medium text-gray-900 sm:text-4xl title-font">
             Before they sold out&nbsp;
             <br className="hidden lg:inline-block" />
             readymade gluten
@@ -25,15 +25,15 @@ export const HeroBlock: FC<Props> = () => {
             hexagon try-hard chambray.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <button className="inline-flex py-2 px-6 text-lg text-white bg-indigo-500 hover:bg-indigo-600 rounded border-0 focus:outline-none">
               Button
             </button>
-            <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+            <button className="inline-flex py-2 px-6 ml-4 text-lg text-gray-700 bg-gray-100 hover:bg-gray-200 rounded border-0 focus:outline-none">
               Button
             </button>
           </div>
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <div className="w-5/6 md:w-1/2 lg:w-full lg:max-w-lg">
           <Image
             width={720}
             height={600}

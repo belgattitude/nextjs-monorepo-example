@@ -65,7 +65,6 @@ jobs:
             ${{ github.workspace }}/apps/nextjs-app/.next/cache
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-            ${{ github.workspace }}/**/.eslintcache
 
           key: ${{ runner.os }}-nextjs-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
           restore-keys: |
@@ -85,7 +84,7 @@ jobs:
       - name: Linter
         working-directory: apps/nextjs-app
         run: |
-          yarn lint --cache
+          yarn lint
 
       - name: Unit tests
         working-directory: apps/nextjs-app
@@ -105,15 +104,15 @@ jobs:
           NEXT_DISABLE_SOURCEMAPS: true
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: true
-          # Fully disable sentry
-          NEXTJS_DISABLE_SENTRY: true
+          # To allow checking size-limits
+          NEXTJS_DISABLE_SENTRY: false
           # Fully disable sentry upload
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
-      - name: Check bundle size
+      - name: Check browser bundle size limits
         working-directory: apps/nextjs-app
         run: |
-          yarn check-build-size
+          yarn check-size-limit
 
       - name: Check ecmascript checks for build files
         working-directory: apps/nextjs-app

@@ -1,7 +1,7 @@
 import { MainLayout } from '@/components/layout/MainLayout';
 import { render, screen } from '@/test-utils';
 
-describe('Main layout tests', () => {
+describe('main layout tests', () => {
   it('should render children', async () => {
     render(
       <MainLayout>
