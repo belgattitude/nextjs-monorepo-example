@@ -14,22 +14,20 @@ const pages = manifest.pages;
 const limitCfg = {
   defaultSize: '80kb',
   pages: {
-    // Customize specific page limits if needed
+    '/': '105kb',
+    '/404': '70kb',
     '/_app': '145kb',
     '/_error': '80kb',
-    '/404': '70kb',
-    '/': '105kb',
-    '/demo': '105kb',
-    '/home': '100kb',
-    '/_monitor/sentry/csr-page': '80kb',
-    '/_monitor/sentry/ssr-page': '80kb',
+    '/_monitor/sentry/csr-page': '75kb',
+    '/_monitor/sentry/ssr-page': '75kb',
+    '/home': '95kb',
   },
 };
 const getPageLimits = () => {
   let pageLimits = [];
   for (const [uri, paths] of Object.entries(pages)) {
     pageLimits.push({
-      name: `Browser page '${uri}'`,
+      name: `Page '${uri}'`,
       limit: limitCfg.pages?.[uri] ?? limitCfg.defaultSize,
       path: paths.map((p) => `.next/${p}`),
     });
