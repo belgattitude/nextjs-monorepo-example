@@ -1,0 +1,10 @@
+# disabled till this is solved https://github.com/Urigo/graphql-mesh/issues/3900
+#cache:
+# inmemoryLRU:
+#    max: 10
+sources:
+  - name: CatFacts
+    handler:
+      newOpenapi:
+        baseUrl: https://catfact.ninja
+        oasFilePath: https://catfact.ninja/docs/api-docs.json

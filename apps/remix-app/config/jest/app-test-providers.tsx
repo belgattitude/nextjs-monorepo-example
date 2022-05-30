@@ -1,5 +1,5 @@
-import React from 'react';
+import type { FC, ReactNode } from 'react';
 
-export const AppTestProviders: React.FC = ({ children }) => {
+export const AppTestProviders: FC<{ children: ReactNode }> = ({ children }) => {
   return <>{children}</>;
 };

@@ -6,6 +6,10 @@
 .env.local
 .env.*.local
 
+# security: atlassian/changeset
+
+**/.netrc
+
 # dependencies
 node_modules
 .yarn/*
@@ -41,8 +45,9 @@ yarn-error.log*
 
 
 # IDE
-
-.idea
+.idea/*
+!.idea/modules.xml
+!.idea/nextjs-monorepo-example.iml
 .project
 .classpath
 *.launch

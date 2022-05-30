@@ -13,7 +13,7 @@ describe('prisma cli commands', () => {
       const dsn = databaseDsn;
 
       const options: ExecaOptions = {
-        //encoding: 'utf-8',
+        // encoding: 'utf-8',
         shell: true,
         env: {
           ...process.env,

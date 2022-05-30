@@ -1,5 +1,79 @@
 # @your-org/ui-lib
 
+## 3.13.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.14.0
+
+## 3.13.0
+
+### Minor Changes
+
+- [#1876](https://github.com/belgattitude/nextjs-monorepo-example/pull/1876) [`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable eslint global cache
+
+### Patch Changes
+
+- Updated dependencies [[`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85)]:
+  - @your-org/core-lib@3.14.0
+
+## 3.12.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.13.0
+
+## 3.12.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.13.0
+
+## 3.12.0
+
+### Minor Changes
+
+- [#1656](https://github.com/belgattitude/nextjs-monorepo-example/pull/1656) [`9f2c2d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9f2c2d049cfb87a3023a38b096f07f998862e3f6) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved linter configs
+
+### Patch Changes
+
+- Updated dependencies [[`9f2c2d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9f2c2d049cfb87a3023a38b096f07f998862e3f6)]:
+  - @your-org/core-lib@3.13.0
+
+## 3.11.0
+
+### Minor Changes
+
+- [#1644](https://github.com/belgattitude/nextjs-monorepo-example/pull/1644) [`ee0a3db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ee0a3dbd664c33d7149302ae3f776951dbd50492) Thanks [@belgattitude](https://github.com/belgattitude)! - Rework deps, peer-deps and dev-deps
+
+### Patch Changes
+
+- Updated dependencies [[`ee0a3db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ee0a3dbd664c33d7149302ae3f776951dbd50492)]:
+  - @your-org/core-lib@3.12.0
+
+## 3.10.0
+
+### Minor Changes
+
+- [#1347](https://github.com/belgattitude/nextjs-monorepo-example/pull/1347) [`e269ada4`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e269ada479151a243128612278bc0d5642e6db04) Thanks [@belgattitude](https://github.com/belgattitude)! - Example to use the core-lib as dependency
+
+* [#1347](https://github.com/belgattitude/nextjs-monorepo-example/pull/1347) [`82e77f7c`](https://github.com/belgattitude/nextjs-monorepo-example/commit/82e77f7ce8a8fda3db16796685c817cb142114bb) Thanks [@belgattitude](https://github.com/belgattitude)! - Use and enforce workspace:^ protocol rather than workspace:\*
+
+## 3.9.0
+
+### Minor Changes
+
+- [#1341](https://github.com/belgattitude/nextjs-monorepo-example/pull/1341) [`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor scripts identifiers defined in package.json. Restrict usage of ':' in apps and packages
+
+## 3.8.1
+
+### Patch Changes
+
+- [#1105](https://github.com/belgattitude/nextjs-monorepo-example/pull/1105) [`43fd9647`](https://github.com/belgattitude/nextjs-monorepo-example/commit/43fd964796af951d1cfff78592330bc2fa231b75) Thanks [@belgattitude](https://github.com/belgattitude)! - Test bug
+
 ## 3.8.0
 
 ### Minor Changes

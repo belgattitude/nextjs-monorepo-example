@@ -6,8 +6,9 @@ on:
       - dev
       - main
     paths:
-      - "packages/db-main-prisma"
-      - ".github/workflows/**"
+      - 'packages/db-main-prisma'
+      - '.yarnrc.yml'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -15,8 +16,9 @@ on:
       - synchronize
       - reopened
     paths:
-      - "packages/db-main-prisma"
-      - ".github/workflows/**"
+      - 'packages/db-main-prisma'
+      - '.yarnrc.yml'
+      - '.github/workflows/**'
 
 jobs:
   e2e:
@@ -32,10 +34,10 @@ jobs:
         node-version: [16.X]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -46,7 +48,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -65,8 +67,6 @@ jobs:
       - name: E2E prisma
         working-directory: packages/db-main-prisma
         run: |
-          yarn test:e2e
+          yarn test-e2e
         env:
           E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
-
-

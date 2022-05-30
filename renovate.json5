@@ -15,12 +15,22 @@
   ],
   "packageRules": [
     {
+      // Disabled packages, see why in .ncurc.yml
+      "enabled": false,
       "matchPackageNames": [
-        // see why in .ncurc.yml
         "is-port-reachable",
-        "execa"
+        "execa",
       ],
-      "enabled": false
+    },
+    {
+      "groupName": "Remix packages",
+      "groupSlug": "remix",
+      "matchPackageNames": [
+        "remix",
+      ],
+      "matchPackagePrefixes": [
+        "@remix-run/"
+      ]
     },
     {
       // Root package.json

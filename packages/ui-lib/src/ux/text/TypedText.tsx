@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import type { HTMLAttributes, FC } from 'react';
 
 type TypedTextProps = {
   /**
@@ -14,13 +14,13 @@ const defaultProps = {
   delay: 250,
 };
 
-export const TypedText: React.FC<TypedTextProps> = (props) => {
+export const TypedText: FC<TypedTextProps> = (props) => {
   const { children, delay, ...restProps } = { ...defaultProps, ...props };
 
   const [text, setText] = useState(children);
   const [currIdx, setCurrIdx] = useState(0);
 
-  const interval = useRef<number | null>();
+  const interval = useRef<number | null | undefined>();
   useEffect(() => {
     interval.current = window.setInterval(() => {
       console.log('running interval');
@@ -43,7 +43,7 @@ export const TypedText: React.FC<TypedTextProps> = (props) => {
         interval.current = null;
       }
     };
-  }, [delay, text]);
+  }, [delay, text, children]);
 
   const slice =
     currIdx - 1 > text.length

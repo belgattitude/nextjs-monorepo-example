@@ -2,21 +2,40 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "target": "ES2019",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
     "paths": {
-      "@/*": ["./app/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/routes/*": ["./src/routes/*"],
       "@/test-utils": ["./config/jest/test-utils"],
+      "@your-org/common-i18n": ["../../../packages/common-i18n/src/index"],
+      "@your-org/common-i18n/locales/*": [
+        "../../../packages/common-i18n/src/locales/*"
+      ],
       "@your-org/ui-lib/*": ["../../packages/ui-lib/src/*"],
       "@your-org/ui-lib": ["../../packages/ui-lib/src/index"],
       "@your-org/core-lib/*": ["../../packages/core-lib/src/*"],
       "@your-org/core-lib": ["../../packages/core-lib/src/index"]
     }
   },
-  "exclude": ["public/build", "api/build"],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/",
+    "public/build",
+    "src/server/api/build"
+  ],
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]
 }

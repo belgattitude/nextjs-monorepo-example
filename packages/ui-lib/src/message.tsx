@@ -5,4 +5,4 @@ type Props = {
   children?: never;
 };
 
-export const Message: FC<Props> = (props) => <span>{props.message}</span>;
+export const Message: FC<Props> = ({ message }) => <span>{message}</span>;

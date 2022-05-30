@@ -4,7 +4,7 @@
 export type JsonApiError = {
   /** a short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization. */
   title: string;
-  /** a unique identifier for this particular occurrence of the problem.*/
+  /** a unique identifier for this particular occurrence of the problem. */
   id?: string | number;
   /** the HTTP status code applicable to this problem, expressed as a string value. */
   status?: number;
@@ -26,7 +26,7 @@ export type JsonApiErrorResponse = {
 export type JsonApiResponseMeta = {
   meta?: {
     cacheHit?: boolean;
-  } & Record<string, string | number | boolean>;
+  } & Record<string, string | number | boolean | Record<string, unknown>>;
 };
 
 export type JsonApiSuccessResponse<T> = {

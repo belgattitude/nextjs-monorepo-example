@@ -15,7 +15,7 @@
 ###################################################################
 
 ARG NODE_VERSION=16
-ARG ALPINE_VERSION=3.14
+ARG ALPINE_VERSION=3.15
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS deps
 RUN apk add --no-cache rsync
@@ -57,8 +57,11 @@ ENV PRISMA_CLI_BINARY_TARGETS=linux-musl
 #  2. To manually clear the cache
 #     > docker builder prune --filter type=exec.cachemount
 #
-RUN --mount=type=cache,target=/root/.yarn-cache \
-    YARN_CACHE_FOLDER=/root/.yarn-cache \
+# Does not play well with buildkit on CI
+# https://github.com/moby/buildkit/issues/1673
+
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
+    YARN_CACHE_FOLDER=/root/.yarn3-cache \
     yarn install --immutable --inline-builds
 
 
@@ -77,13 +80,14 @@ COPY . .
 COPY --from=deps /workspace-install ./
 
 # Optional: if the app depends on global /static shared assets like images, locales...
-RUN yarn workspace web-app share:static:hardlink &&yarn workspace web-app build
+RUN yarn workspace nextjs-app share-static-hardlink && yarn workspace nextjs-app build
 
-RUN --mount=type=cache,target=/root/.yarn-cache,id=workspace-install,rw \
+# Does not play well with buildkit on CI
+# https://github.com/moby/buildkit/issues/1673
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
     SKIP_POSTINSTALL=1 \
-    YARN_CACHE_FOLDER=/root/.yarn-cache \
-    yarn workspaces focus web-app --production
-
+    YARN_CACHE_FOLDER=/root/.yarn3-cache \
+    yarn workspaces focus nextjs-app --production
 
 ###################################################################
 # Stage 3: Extract a minimal image from the build                 #
@@ -95,25 +99,24 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
-RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/apps/web-app/next.config.js \
-                    /app/apps/web-app/next-i18next.config.js \
-                    /app/apps/web-app/next-i18next.config.js \
-                    /app/apps/web-app/package.json \
-                    ./apps/web-app/
-COPY --from=builder /app/apps/web-app/public ./apps/web-app/public
-COPY --from=builder --chown=nextjs:nodejs /app/apps/web-app/.next ./apps/web-app/.next
+COPY --from=builder /app/apps/nextjs-app/next.config.js \
+                    /app/apps/nextjs-app/next-i18next.config.js \
+                    /app/apps/nextjs-app/package.json \
+                    ./apps/nextjs-app/
+COPY --from=builder /app/apps/nextjs-app/public ./apps/nextjs-app/public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs-app/.next ./apps/nextjs-app/.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
 
-EXPOSE ${WEB_APP_PORT:-3000}
+EXPOSE ${NEXTJS_APP_PORT:-3000}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD ["./node_modules/.bin/next", "start", "apps/web-app/", "-p", "${WEB_APP_PORT:-3000}"]
+CMD ["./node_modules/.bin/next", "start", "apps/nextjs-app/", "-p", "${NEXTJS_APP_PORT:-3000}"]
 
 
 ###################################################################
@@ -127,9 +130,9 @@ WORKDIR /app
 
 COPY --from=deps /workspace-install ./
 
-EXPOSE ${WEB_APP_PORT:-3000}
+EXPOSE ${NEXTJS_APP_PORT:-3000}
 
-WORKDIR /app/apps/web-app
+WORKDIR /app/apps/nextjs-app
 
-CMD ["yarn", "dev", "-p", "${WEB_APP_PORT:-3000}"]
+CMD ["yarn", "dev", "-p", "${NEXTJS_APP_PORT:-3000}"]
 

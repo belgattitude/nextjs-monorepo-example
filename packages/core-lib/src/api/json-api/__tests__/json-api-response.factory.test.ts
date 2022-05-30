@@ -1,8 +1,8 @@
 import { JsonApiResponseFactory } from '../json-api-response.factory';
 import type { JsonApiError } from '../json-api-response.types';
 
-describe('JsonApiResponseFactory tests', () => {
-  describe('When creating a success from a string', () => {
+describe('jsonApiResponseFactory tests', () => {
+  describe('when creating a success from a string', () => {
     it('should decode the json', () => {
       const data = [
         {
@@ -22,7 +22,7 @@ describe('JsonApiResponseFactory tests', () => {
     });
   });
 
-  describe('When creating an error from a string', () => {
+  describe('when creating an error from a string', () => {
     it('should set the string in the detail', () => {
       const resp = JsonApiResponseFactory.fromError('error');
       expect(resp.errors?.[0]).toMatchObject({
@@ -36,7 +36,7 @@ describe('JsonApiResponseFactory tests', () => {
       });
     });
   });
-  describe('When creating an error from a JsonApiError', () => {
+  describe('when creating an error from a JsonApiError', () => {
     it('should set create the same payload', () => {
       const err: JsonApiError = {
         code: 'whatever',
@@ -49,7 +49,7 @@ describe('JsonApiResponseFactory tests', () => {
     });
   });
 
-  describe('When creating an error from a Array<JsonApiError>', () => {
+  describe('when creating an error from a Array<JsonApiError>', () => {
     it('should set create the same payload', () => {
       const errs: JsonApiError[] = [
         {

@@ -6,47 +6,37 @@ on:
       - dev
       - main
     paths:
-      - "apps/remix-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
-
+      - 'apps/remix-app/**'
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
       - opened
       - synchronize
       - reopened
-    # Optional:
-    #   Only consider those files/paths to trigger the github action
-    #   to prevent unnecessary builds.
     paths:
-      - "apps/remix-app/**"
-      - "packages/**"
-      - "package.json"
-      - "yarn.lock"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'apps/remix-app/**'
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/workflows/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -57,7 +47,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -77,15 +67,15 @@ jobs:
       - name: Linter
         working-directory: apps/remix-app
         run: |
-          yarn lint --cache
+          yarn lint
+          yarn lint-styles
 
       - name: Unit tests
         working-directory: apps/remix-app
         run: |
-          yarn ci-test:unit
+          yarn test-unit --runInBand --color
 
       - name: Build remix-app
         working-directory: apps/remix-app
         run: |
           yarn build
-

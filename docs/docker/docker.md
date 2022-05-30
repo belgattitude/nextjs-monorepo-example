@@ -8,8 +8,7 @@ and build time (taking advantage of buildx cache).
 ```
 .
 ├── apps
-│   ├── blog-app
-│   └── web-app
+│   └── nextjs-app
 ├── packages
 │   ├── core-lib
 │   ├── db-main-prisma
@@ -18,9 +17,9 @@ and build time (taking advantage of buildx cache).
 │   ├── assets
 │   └── locales
 ├── .dockerignore
-├── docker-compose.web-app.yml  (specific for web-app)
-├── docker-compose.yml          (general services like postgresql...)
-└── Dockerfile                  (multistage build for web-app)
+├── docker-compose.nextjs-app.yml  (specific for nextjs-app)
+├── docker-compose.yml             (general services like postgresql...)
+└── Dockerfile                     (multistage build for nextjs-app)
 ```
 
 ## Requirements
@@ -35,31 +34,40 @@ and build time (taking advantage of buildx cache).
 
 ## Ready made commands
 
-| Yarn script                   | Description                                  |
-| ----------------------------- | -------------------------------------------- |
-| `yarn docker:web-app:develop` | Run apps/web-app in development mode         |
-| `yarn docker:web-app:install` | Install dependencies in cache mount          |
-| `yarn docker:web-app:build`   | Create a production build                    |
-| `yarn docker:web-app:serve`   | Serve production build on localhost:3000,    |
-| `yarn docker:prune-cache`     | **Run this regularly if using in local !!!** |
+| Yarn script                      | Description                                  |
+| -------------------------------- | -------------------------------------------- |
+| `yarn docker:nextjs-app:develop` | Run apps/nextjs-app in development mode      |
+| `yarn docker:nextjs-app:install` | Install dependencies in cache mount          |
+| `yarn docker:nextjs-app:build`   | Create a production build                    |
+| `yarn docker:nextjs-app:serve`   | Serve production build on localhost:3000,    |
+| `yarn docker:prune-cache`        | **Run this regularly if using in local !!!** |
 
-> Build and serve commands requires to have a `./apps/web-app/.env.local` present.
+> Build and serve commands requires to have a `./apps/nextjs-app/.env.local` present.
 
 ## Develop
 
 ```bash
-yarn docker:web-app:develop
+yarn docker:nextjs-app:develop
 
 # Or alternatively
-docker-compose -f ./docker-compose.yml -f ./docker-compose.web-app.yml up develop main-db
+DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f ./docker-compose.nextjs-app.yml up develop main-db
 ```
+
+<details>
+  <summary>Want to open a shell to debug ?</summary>
+    
+  ```bash
+  DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.nextjs-app.yml run --rm develop sh
+  ```
+  
+</details>
 
 ## Multistage in details
 
-See the latest [./docker-compose.web-app.yml](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.web-app.yml)
-and [./Dockerfile](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.web-app.yml).
+See the latest [./docker-compose.nextjs-app.yml](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.nextjs-app.yml)
+and [./Dockerfile](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docker-compose.nextjs-app.yml).
 
-PS: The goal of multistage is to reduce the size of the resulting image.
+PS: The goal of multistage is mainly to reduce the size of the resulting image, it also allows to skip deps stage (ie: install deps) when no changes are detected in your deps (lock file).
 
 ![Lazydocker multistage sizes](multistage-size.png)
 
@@ -74,20 +82,20 @@ stages.
   To build it independently
     
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty deps
-  # docker buildx bake -f docker-compose.web-app.yml --progress=tty deps
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --progress=tty deps
+  # docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty deps
   ```
     
   To force a rebuild
     
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --no-cache --force-rm --progress=tty deps
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --no-cache --force-rm --progress=tty deps
   ```
     
   Want to open a shell into it ?
     
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml run --rm deps sh
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml run --rm deps sh
   ```
 
 </details>
@@ -104,20 +112,20 @@ Then build the thing and remove devDependencies.
   To build it independently
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty builder
-  # docker buildx bake -f docker-compose.web-app.yml --progress=tty builder
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --progress=tty builder
+  # docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty builder
   ```
   
   To force a rebuild
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --no-cache --force-rm --progress=tty builder
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --no-cache --force-rm --progress=tty builder
   ```
   
   Want to open a shell into it ?
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml run --rm builder sh
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml run --rm builder sh
   ```
 
 </details>
@@ -127,7 +135,7 @@ Then build the thing and remove devDependencies.
 Launch a production build and listen by default to http://localhost:3000.
 
 ```bash
-DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml --env-file .env.secret up runner
+DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml --env-file .env.secret up runner
 ```
 
 > PS: you'll have to provide your own .env with required runtime variables.
@@ -137,20 +145,20 @@ DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml --env-file .env.s
   To build it independently
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --progress=tty runner
-  # docker buildx bake -f docker-compose.web-app.yml --progress=tty runner
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --progress=tty runner
+  # docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty runner
   ```
   
   To force a rebuild
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml build --no-cache --force-rm --progress=tty runner
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml build --no-cache --force-rm --progress=tty runner
   ```
   
   Want to open a shell into it ?
   
   ```bash
-  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.web-app.yml run --rm runner sh
+  DOCKER_BUILDKIT=1 docker-compose -f docker-compose.nextjs-app.yml run --rm runner sh
   ```
   
 </details>

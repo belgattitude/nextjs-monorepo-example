@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { useState } from 'react';
-import { useIntervalWhen } from 'rooks';
+import React from 'react';
 import { TypedText } from './TypedText';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

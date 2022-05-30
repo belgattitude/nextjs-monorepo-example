@@ -1,0 +1,46 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
+    "incremental": true,
+    "paths": {
+      "@/test-utils": ["../config/tests/test-utils"],
+      "@/config/*": ["./config/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/components/*": ["./components/*"],
+      "@/backend/*": ["./backend/*"],
+      "@/features/*": ["./features/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/public/*": ["../public/*"],
+      "@/themes/*": ["./themes/*"],
+      "@your-org/common-i18n": ["../../../packages/common-i18n/src/index"],
+      "@your-org/common-i18n/locales/*": [
+        "../../../packages/common-i18n/src/locales/*"
+      ],
+      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@your-org/core-lib": ["../../../packages/core-lib/src/index"],
+      "@your-org/api-gateway": ["../../../packages/api-gateway/src/index"],
+      "@your-org/db-main-prisma": ["../../../packages/db-main-prisma/src/index"]
+    }
+  },
+  "exclude": ["**/node_modules", "**/.*/"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.json"
+  ],
+  "types": ["vitest/globals"]
+}

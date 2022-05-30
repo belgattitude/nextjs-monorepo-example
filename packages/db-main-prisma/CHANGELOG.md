@@ -1,5 +1,29 @@
 # @your-org/db-main-prisma
 
+## 2.11.0
+
+### Minor Changes
+
+- [#1876](https://github.com/belgattitude/nextjs-monorepo-example/pull/1876) [`5ad462a`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5ad462a9a621564366c7a0ef0a77899fc855de85) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable eslint global cache
+
+## 2.10.0
+
+### Minor Changes
+
+- [#1656](https://github.com/belgattitude/nextjs-monorepo-example/pull/1656) [`9f2c2d0`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9f2c2d049cfb87a3023a38b096f07f998862e3f6) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved linter configs
+
+## 2.9.0
+
+### Minor Changes
+
+- [#1644](https://github.com/belgattitude/nextjs-monorepo-example/pull/1644) [`ee0a3db`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ee0a3dbd664c33d7149302ae3f776951dbd50492) Thanks [@belgattitude](https://github.com/belgattitude)! - Rework deps, peer-deps and dev-deps
+
+## 2.8.0
+
+### Minor Changes
+
+- [#1341](https://github.com/belgattitude/nextjs-monorepo-example/pull/1341) [`05291de7`](https://github.com/belgattitude/nextjs-monorepo-example/commit/05291de7deeed720e8b7271d339050116b448177) Thanks [@belgattitude](https://github.com/belgattitude)! - Refactor scripts identifiers defined in package.json. Restrict usage of ':' in apps and packages
+
 ## 2.7.0
 
 ### Minor Changes

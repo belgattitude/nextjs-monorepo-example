@@ -6,13 +6,13 @@ on:
       - dev
       - main
     paths:
-      - "packages/**"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - 'yarn.lock'
+      - '.prettier*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/workflows/**'
 
   pull_request:
     types:
@@ -20,12 +20,13 @@ on:
       - synchronize
       - reopened
     paths:
-      - "packages/**"
-      - ".yarnrc.yml"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
-      - ".github/workflows/**"
+      - 'packages/**'
+      - '.yarnrc.yml'
+      - 'yarn.lock'
+      - '.prettier*'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/workflows/**'
 
 jobs:
   test:
@@ -34,13 +35,14 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          # fetch all git history so that yarn worskpaces --since can compare with the correct commits
+          # Fetch all git history so that yarn workspaces --since can compare with the correct commits
+          # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
           fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -51,7 +53,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -60,12 +62,11 @@ jobs:
             yarn-cache-folder-
 
       - name: Restore packages cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-            ${{ github.workspace }}/**/.eslintcache
 
           key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
           restore-keys: |
@@ -84,22 +85,21 @@ jobs:
       # Lint packages that have changed (--include & --since)
       - name: Linter
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint --cache
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint-styles
 
       # Test packages that have changed (--include & --since)
       - name: Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test:unit
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test-unit --runInBand --colors
       # to debug cache issues: ls ${{ github.workspace }}/.cache
-
       # Build packages that have changed (--include & --since), assuming that
       # apps build are done already. Otherwise --from & --since
       - name: Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run packages:build
+          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run build
 
       # Test storybook build on packages that have changed (--include & --since)
       - name: Run storybook build for changed packages
         run: |
           yarn workspaces foreach -tv --exclude '*-app' --since=origin/main run build-storybook
-

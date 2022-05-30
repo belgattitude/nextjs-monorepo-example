@@ -1,31 +1,29 @@
+/**
+ * Specific eslint rules for this app/package, extends the base rules
+ * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
+ */
+
+const {
+  getDefaultIgnorePatterns,
+} = require('@your-org/eslint-config-bases/helpers');
+
 module.exports = {
   root: true,
-  //ignorePatterns: ['dist', 'build'],
+  ignorePatterns: [...getDefaultIgnorePatterns()],
   extends: [
-    '../../.eslintrc.base.js',
-    // Add specific rules for react and nextjs
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
+    '@your-org/eslint-config-bases/typescript',
+    '@your-org/eslint-config-bases/sonar',
+    '@your-org/eslint-config-bases/regexp',
+    '@your-org/eslint-config-bases/jest',
+    '@your-org/eslint-config-bases/rtl',
+    '@your-org/eslint-config-bases/react',
+    // Apply prettier and disable incompatible rules
+    '@your-org/eslint-config-bases/prettier',
   ],
-  // By loading testing-library as a plugin, we can only enable it
-  // on test files via overrides.
-  plugins: ['testing-library'],
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
-  },
   rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
+    // optional overrides per project
   },
   overrides: [
-    {
-      // For performance run jest/recommended on test files, not regular code
-      files: ['**/__tests__/**/*.{ts,tsx}'],
-      extends: ['plugin:testing-library/react'],
-    },
+    // optional overrides per project file match
   ],
 };

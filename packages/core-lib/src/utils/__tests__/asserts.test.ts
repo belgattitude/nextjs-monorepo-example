@@ -1,7 +1,7 @@
 import { Asserts } from '../asserts';
 
-describe('Asserts test', () => {
-  describe('Asserts.nonEmptyString', () => {
+describe('asserts test', () => {
+  describe('asserts.nonEmptyString', () => {
     it('should work as expected', () => {
       expect(() => {
         Asserts.nonEmptyString('cool');

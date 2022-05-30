@@ -1,13 +1,13 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@1.6.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "belgattitude/nextjs-monorepo-example" }],
-  "commit": false,
+  "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "belgattitude/nextjs-monorepo-example" }
+  ],
+  "commit": true,
   "linked": [],
-  "access": "private",
+  "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [],
-  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
-    "updateInternalDependents": "out-of-range"
-  }
+  "ignore": []
 }
