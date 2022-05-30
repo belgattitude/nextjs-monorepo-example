@@ -3,6 +3,14 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   framework: '@storybook/react',
+  core: {
+    builder: {
+      name: 'webpack5',
+      options: {
+        fsCache: true,
+      },
+    },
+  },
   // Keep react 17 render, till mdx 2 is fully supported
   // - https://github.com/mdx-js/mdx/issues/1945
   // - https://github.com/storybookjs/storybook/issues/18094
