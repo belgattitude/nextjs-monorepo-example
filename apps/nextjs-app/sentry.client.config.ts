@@ -9,8 +9,11 @@ sentryInit({
 
   // Adjust this value in production, or use tracesSampler for greater control
   // @see https://develop.sentry.dev/sdk/performance/
-  tracesSampleRate:
-    process.env.NEXTJS_SENTRY_TRACING === 'false' ? undefined : 1.0,
+  tracesSampleRate: ['false', '0'].includes(
+    process.env.NEXTJS_SENTRY_TRACING ?? ''
+  )
+    ? undefined
+    : 1.0,
 
   // ...
   // Note: if you want to override the automatic release value, do not set a
