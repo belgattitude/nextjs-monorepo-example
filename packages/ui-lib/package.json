@@ -22,7 +22,7 @@
     "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
-    "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
+    "clean": "rimraf --no-glob ./dist ./build ./tsconfig.tsbuildinfo ./node_modules/.cache",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
