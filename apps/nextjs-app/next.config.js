@@ -24,9 +24,11 @@ const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
 const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
-
 const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
+);
+const NEXTJS_SENTRY_TRACING = trueEnv.includes(
+  process.env?.NEXTJS_SENTRY_TRACING ?? 'false'
 );
 
 /**
@@ -211,7 +213,7 @@ const nextConfig = {
       new webpack.DefinePlugin({
         __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
         // Should tree-shake sentry BrowserTracing.
-        __SENTRY_TRACING__: false,
+        __SENTRY_TRACING__: NEXTJS_SENTRY_TRACING,
       })
     );
 
