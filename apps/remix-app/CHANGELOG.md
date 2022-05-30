@@ -1,5 +1,14 @@
 # remix-app
 
+## 1.10.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/common-i18n@1.1.0
+  - @your-org/core-lib@3.14.0
+  - @your-org/ui-lib@3.13.1
+
 ## 1.10.0
 
 ### Minor Changes

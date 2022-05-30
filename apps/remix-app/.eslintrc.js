@@ -12,7 +12,7 @@ module.exports = {
   ignorePatterns: [
     ...getDefaultIgnorePatterns(),
     'public/build',
-    'api/build',
+    'api/_build',
     '.cache',
   ],
   extends: [
