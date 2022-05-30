@@ -7,14 +7,10 @@ import { init as sentryInit } from '@sentry/nextjs';
 sentryInit({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
-  // Tracing will be tree-shaken from sentry ^7.0.0.rc.0
-  // see https://github.com/getsentry/sentry-javascript/pull/5166
-
   // Adjust this value in production, or use tracesSampler for greater control
   // @see https://develop.sentry.dev/sdk/performance/
-  // To turn it off, remove the line
-  // @see https://github.com/getsentry/sentry-javascript/discussions/4503#discussioncomment-2143116
-  // tracesSampleRate: 1.0,
+  tracesSampleRate:
+    process.env.NEXTJS_SENTRY_TRACING === 'false' ? undefined : 1.0,
 
   // ...
   // Note: if you want to override the automatic release value, do not set a

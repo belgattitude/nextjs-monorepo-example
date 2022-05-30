@@ -212,7 +212,6 @@ const nextConfig = {
     config.plugins.push(
       new webpack.DefinePlugin({
         __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
-        // Should tree-shake sentry BrowserTracing.
         __SENTRY_TRACING__: NEXTJS_SENTRY_TRACING,
       })
     );
