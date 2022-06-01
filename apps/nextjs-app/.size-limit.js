@@ -15,7 +15,7 @@ const limitCfg = {
   defaultSize: '80kb',
   pages: {
     '/': '105kb',
-    '/404': '70kb',
+    '/404': '80kb',
     '/_app': '145kb',
     '/_error': '80kb',
     '/_monitor/sentry/csr-page': '75kb',
