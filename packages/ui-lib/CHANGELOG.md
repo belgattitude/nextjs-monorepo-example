@@ -1,5 +1,11 @@
 # @your-org/ui-lib
 
+## 3.14.0
+
+### Minor Changes
+
+- [#1959](https://github.com/belgattitude/nextjs-monorepo-example/pull/1959) [`31ac0da`](https://github.com/belgattitude/nextjs-monorepo-example/commit/31ac0da08875ece918777fa54379e7b2e4c4286f) Thanks [@belgattitude](https://github.com/belgattitude)! - Simplify storybook according to new defaults in 6.5+
+
 ## 3.13.1
 
 ### Patch Changes
