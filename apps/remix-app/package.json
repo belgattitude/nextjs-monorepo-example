@@ -28,9 +28,9 @@
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
     "lint-styles": "stylelint 'src/**/*.css'",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.mdx,.graphql --fix"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --fix"
   },
   "dependencies": {
     "@emotion/cache": "11.7.1",
