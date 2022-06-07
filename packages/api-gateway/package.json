@@ -21,10 +21,10 @@
   "scripts": {
     "build-graphql-mesh": "mesh build",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "jest --config jest.config.js --passWithNoTests",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
   },
   "peerDependencies": {
     "graphql": "^16.4.0"
