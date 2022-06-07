@@ -23,11 +23,11 @@
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/core-lib.eslintcache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/core-lib.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
     "test-unit": "jest --config jest.config.js",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
   },
   "dependencies": {
     "@tsed/exceptions": "^6.100.3",
@@ -55,7 +55,7 @@
     "@your-org/eslint-config-bases": "workspace:^",
     "cross-env": "7.0.3",
     "eslint": "8.17.0",
-    "jest": "28.1.0",
+    "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "microbundle": "0.15.0",
     "npm-run-all": "4.1.5",

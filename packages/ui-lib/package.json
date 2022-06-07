@@ -23,11 +23,11 @@
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
     "clean": "rimraf --no-glob ./dist ./build ./tsconfig.tsbuildinfo ./node_modules/.cache",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
     "test-unit": "echo \"No unit tests yet\"",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --output-dir build/storybook",
     "serve-storybook": "sirv build/storybook --cors --port 8888"
