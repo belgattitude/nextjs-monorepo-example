@@ -9,15 +9,14 @@ const {
 
 module.exports = {
   root: true,
-  ignorePatterns: [...getDefaultIgnorePatterns(), '/storybook-static'],
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: 'tsconfig.json',
+  },
+  ignorePatterns: [...getDefaultIgnorePatterns()],
   extends: [
     '@your-org/eslint-config-bases/typescript',
-    '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/sonar',
-    '@your-org/eslint-config-bases/jest',
-    '@your-org/eslint-config-bases/rtl',
-    '@your-org/eslint-config-bases/storybook',
-    '@your-org/eslint-config-bases/react',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier',
   ],

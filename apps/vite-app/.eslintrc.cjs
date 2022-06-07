@@ -9,31 +9,23 @@ const {
 
 module.exports = {
   root: true,
-  ignorePatterns: [
-    ...getDefaultIgnorePatterns(),
-    'public/build',
-    'api/_build',
-    '.cache',
-  ],
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: 'tsconfig.json',
+  },
+  ignorePatterns: [...getDefaultIgnorePatterns()],
   extends: [
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/jest',
     '@your-org/eslint-config-bases/react',
-    '@your-org/eslint-config-bases/tailwind',
     '@your-org/eslint-config-bases/rtl',
-    '@your-org/eslint-config-bases/graphql-schema',
-    // Specific rules for remix
-    '@remix-run/eslint-config',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier',
   ],
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
+  rules: {
+    'jsx-a11y/anchor-is-valid': 'off',
   },
-  rules: {},
   overrides: [],
 };
