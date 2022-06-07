@@ -16,8 +16,8 @@ module.exports = {
   ignorePatterns: [
     ...getDefaultIgnorePatterns(),
     'public/build',
-    "api/index.js",
-    "api/index.js.map",
+    'api/index.js',
+    'api/index.js.map',
     '.cache',
   ],
   extends: [
