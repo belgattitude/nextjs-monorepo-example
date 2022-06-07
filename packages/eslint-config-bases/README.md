@@ -34,7 +34,13 @@ existing base configs. For example:
 
 ```javascript
 module.exports = {
-  root: true, // Be sure to set root to true in monorepo.
+  // Be sure to set root to true in monorepo.
+  root: true,
+  // Will help typescript extended rules.
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: "tsconfig.json",
+  },
   ignorePatterns: ["**/node_modules", "**/.cache", "build", ".next"],
   extends: [
     "@your-org/eslint-config-bases/typescript",

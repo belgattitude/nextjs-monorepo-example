@@ -9,10 +9,15 @@ const {
 
 module.exports = {
   root: true,
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: 'tsconfig.json',
+  },
   ignorePatterns: [
     ...getDefaultIgnorePatterns(),
     'public/build',
-    'api/_build',
+    'api/index.js',
+    'api/index.js.map',
     '.cache',
   ],
   extends: [

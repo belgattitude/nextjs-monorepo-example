@@ -2,21 +2,18 @@
 // The config you add here will be used whenever a page is visited.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-// Bundle size optimization
-//  - To avoid bundling @sentry/tracing (17Kb), it's possible to
-//    import '@sentry/react' rather than '@sentry/nextjs'.
-//
-// import { init as sentryInit } from '@sentry/nextjs';
-import { init as sentryInit } from '@sentry/react';
+import { init as sentryInit } from '@sentry/nextjs';
 
 sentryInit({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
   // @see https://develop.sentry.dev/sdk/performance/
-  // To turn it off, remove the line
-  // @see https://github.com/getsentry/sentry-javascript/discussions/4503#discussioncomment-2143116
-  // tracesSampleRate: 1.0,
+  tracesSampleRate: ['false', '0'].includes(
+    process.env.NEXTJS_SENTRY_TRACING ?? ''
+  )
+    ? undefined
+    : 1.0,
 
   // ...
   // Note: if you want to override the automatic release value, do not set a

@@ -9,6 +9,10 @@ const {
 
 module.exports = {
   root: true,
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: 'tsconfig.json',
+  },
   ignorePatterns: [...getDefaultIgnorePatterns(), '.next', '.out'],
   extends: [
     '@your-org/eslint-config-bases/typescript',
