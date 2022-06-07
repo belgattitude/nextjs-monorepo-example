@@ -1,4 +1,4 @@
-import { HomePage } from '../features/home/pages';
+import { HomePage } from '@/features/home/pages';
 
 export default function IndexRoute() {
   return (
