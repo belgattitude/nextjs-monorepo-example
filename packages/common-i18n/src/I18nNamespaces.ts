@@ -3,7 +3,7 @@ import type demo from './locales/en/demo.json';
 import type home from './locales/en/home.json';
 import type system from './locales/en/system.json';
 
-export interface LocalesTypes {
+export interface I18nNamespaces {
   home: typeof home;
   demo: typeof demo;
   common: typeof common;
