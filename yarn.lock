@@ -8204,7 +8204,7 @@ __metadata:
     rooks: "npm:5.11.2"
     sirv: "npm:2.0.2"
     sirv-cli: "npm:2.0.2"
-    tailwindcss: "npm:3.0.24"
+    tailwindcss: "npm:3.1.1"
     ts-jest: "npm:28.0.4"
     tsconfig-paths-webpack-plugin: "npm:3.5.2"
     typescript: "npm:4.7.3"
@@ -8307,7 +8307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-node@npm:^1.6.1":
+"acorn-node@npm:^1.8.2":
   version: 1.8.2
   resolution: "acorn-node@npm:1.8.2"
   dependencies:
@@ -12202,16 +12202,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detective@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "detective@npm:5.2.0"
+"detective@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "detective@npm:5.2.1"
   dependencies:
-    acorn-node: "npm:^1.6.1"
+    acorn-node: "npm:^1.8.2"
     defined: "npm:^1.0.0"
-    minimist: "npm:^1.1.1"
+    minimist: "npm:^1.2.6"
   bin:
     detective: bin/detective.js
-  checksum: 0ab92985196cd2f3722479ede14464cfc813ac92daf7612372c5c9884a1e9636ce63dc674b3c74620e4260c87c187aaef715b30a28ee21310560bf43ef970174
+  checksum: f4b2ee2f850f9f7ffc9dada9e09ea86827f1127e223528d20706ed7ac10876e18f590452db12070717dc5c1c7f4a310051150a6796259aa288be90ebceb5f419
   languageName: node
   linkType: hard
 
@@ -20807,7 +20807,7 @@ __metadata:
     superjson: "npm:1.9.1"
     symlink-dir: "npm:5.0.1"
     sync-directory: "npm:5.1.3"
-    tailwindcss: "npm:3.0.24"
+    tailwindcss: "npm:3.1.1"
     type-fest: "npm:2.13.0"
     typescript: "npm:4.7.3"
     vite-plugin-svgr: "npm:2.1.0"
@@ -22084,7 +22084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pify@npm:^2.0.0":
+"pify@npm:^2.0.0, pify@npm:^2.3.0":
   version: 2.3.0
   resolution: "pify@npm:2.3.0"
   checksum: 9a3b2aa18d26ed79db45dee98f52675750ad11ced96b45b4884f4d4368217046137e35481146bfc94698f5709fd838d86f1d2d80d958f5f88767e426d29cbc66
@@ -22455,6 +22455,19 @@ __metadata:
   peerDependencies:
     postcss: ^8.4
   checksum: c8fa43517442caabd60aa0c3487ddcfda6d85ec5aa83e281620939af2cc67bac72078ab241b6154bfe375cef3dee59dec885097bc00544ebd768d948f929ce13
+  languageName: node
+  linkType: hard
+
+"postcss-import@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "postcss-import@npm:14.1.0"
+  dependencies:
+    postcss-value-parser: "npm:^4.0.0"
+    read-cache: "npm:^1.0.0"
+    resolve: "npm:^1.1.7"
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 28f4fd918ad819b77c5585c3211439a50b4c1005b33640e2183790e7501fb5257b0aa3dcef54c546deba713dc1a05fd42651483e4d1defae4dd840f4e3e34b71
   languageName: node
   linkType: hard
 
@@ -23068,14 +23081,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-value-parser@npm:^4.0.2, postcss-value-parser@npm:^4.1.0, postcss-value-parser@npm:^4.2.0":
+"postcss-value-parser@npm:^4.0.0, postcss-value-parser@npm:^4.0.2, postcss-value-parser@npm:^4.1.0, postcss-value-parser@npm:^4.2.0":
   version: 4.2.0
   resolution: "postcss-value-parser@npm:4.2.0"
   checksum: edc490e9f11336a2efb136d8a52350b5c680ca9a91ee64285732e796177eb888f559a4eafc94cdbf7ce065a388e65b3cc21a32c92458a90efc445f30e8a679dc
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.14, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.4.12, postcss@npm:^8.4.13, postcss@npm:^8.4.14, postcss@npm:^8.4.4":
+"postcss@npm:8.4.14, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.4.13, postcss@npm:^8.4.14, postcss@npm:^8.4.4":
   version: 8.4.14
   resolution: "postcss@npm:8.4.14"
   dependencies:
@@ -23973,6 +23986,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"read-cache@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "read-cache@npm:1.0.0"
+  dependencies:
+    pify: "npm:^2.3.0"
+  checksum: ee62858265511c3796841f8c305caf66f1468f7ea0686b17bf862c67f9e42b1d4d67bc6facfbac1dc0a3582de4595fcae189366b9f15b88b8ad66a6ef2f6d572
+  languageName: node
+  linkType: hard
+
 "read-pkg-up@npm:^1.0.1":
   version: 1.0.1
   resolution: "read-pkg-up@npm:1.0.1"
@@ -24524,7 +24546,7 @@ __metadata:
     stylelint: "npm:14.9.0"
     stylelint-config-prettier: "npm:9.0.3"
     stylelint-config-standard: "npm:25.0.0"
-    tailwindcss: "npm:3.0.24"
+    tailwindcss: "npm:3.1.1"
     ts-jest: "npm:28.0.4"
     typescript: "npm:4.7.3"
   languageName: unknown
@@ -24699,7 +24721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.3.2":
+"resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.3.2":
   version: 1.22.0
   resolution: "resolve@npm:1.22.0"
   dependencies:
@@ -24731,7 +24753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.2#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.2#optional!builtin<compat/resolve>":
   version: 1.22.0
   resolution: "resolve@patch:resolve@npm%3A1.22.0#optional!builtin<compat/resolve>::version=1.22.0&hash=07638b"
   dependencies:
@@ -26821,14 +26843,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:3.0.24, tailwindcss@npm:^3.0.7":
-  version: 3.0.24
-  resolution: "tailwindcss@npm:3.0.24"
+"tailwindcss@npm:3.1.1, tailwindcss@npm:^3.0.7":
+  version: 3.1.1
+  resolution: "tailwindcss@npm:3.1.1"
   dependencies:
     arg: "npm:^5.0.1"
     chokidar: "npm:^3.5.3"
     color-name: "npm:^1.1.4"
-    detective: "npm:^5.2.0"
+    detective: "npm:^5.2.1"
     didyoumean: "npm:^1.2.2"
     dlv: "npm:^1.1.3"
     fast-glob: "npm:^3.2.11"
@@ -26838,7 +26860,8 @@ __metadata:
     normalize-path: "npm:^3.0.0"
     object-hash: "npm:^3.0.0"
     picocolors: "npm:^1.0.0"
-    postcss: "npm:^8.4.12"
+    postcss: "npm:^8.4.14"
+    postcss-import: "npm:^14.1.0"
     postcss-js: "npm:^4.0.0"
     postcss-load-config: "npm:^3.1.4"
     postcss-nested: "npm:5.0.6"
@@ -26851,7 +26874,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: bb623bd2d958a9dea98c36199e48ef26da6785d89970e52c959a2adc3eefd8c266f38aca3714e90ac486cb392b04a88ef1961a37a83de34d273592c34d034da1
+  checksum: fa077d194605b9f1dfa01a5fdeab30b65c22004ca08dae4f7bfb576435fbfd8025525de9a3a2411dc3b5c0eaf35f4e1b2903ca51c0e3c1133fc4969ef1e2508a
   languageName: node
   linkType: hard
 
