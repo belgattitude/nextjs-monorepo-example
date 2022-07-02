@@ -25,8 +25,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const { i18nNamespaces } = homeConfig;
   return {
     props: {
-      // i18nNamespaces.slice() is needed here to get rid off readonly
-      ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
+      ...(await serverSideTranslations(locale, i18nNamespaces)),
     },
   };
 };
