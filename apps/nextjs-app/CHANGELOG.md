@@ -1,5 +1,16 @@
 # nextjs-app
 
+## 3.49.3
+
+### Patch Changes
+
+- Updated dependencies [[`0279cc2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/0279cc2598c0ffbc83219dda893e303a38af6bfd)]:
+  - @your-org/db-main-prisma@2.12.0
+  - @your-org/api-gateway@1.2.0
+  - @your-org/common-i18n@1.1.0
+  - @your-org/core-lib@3.14.0
+  - @your-org/ui-lib@3.14.1
+
 ## 3.49.2
 
 ### Patch Changes

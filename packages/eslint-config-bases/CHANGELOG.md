@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.4.0
+
+### Minor Changes
+
+- [#2135](https://github.com/belgattitude/nextjs-monorepo-example/pull/2135) [`5c1547b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/5c1547b6267ca3c5121c72c21b755d19711d52aa) Thanks [@renovate](https://github.com/apps/renovate)! - Upgrade to eslint-plugin-resolver-typescript v3
+
 ## 1.3.1
 
 ### Patch Changes
