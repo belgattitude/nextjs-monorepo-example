@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.12.0
+
+### Minor Changes
+
+- [#2184](https://github.com/belgattitude/nextjs-monorepo-example/pull/2184) [`0279cc2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/0279cc2598c0ffbc83219dda893e303a38af6bfd) Thanks [@belgattitude](https://github.com/belgattitude)! - Use tsx for prisma seeds (esbuild)
+
 ## 2.11.0
 
 ### Minor Changes
