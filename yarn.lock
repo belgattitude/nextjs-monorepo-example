@@ -4610,9 +4610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/dev@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/dev@npm:1.6.1"
+"@remix-run/dev@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/dev@npm:1.6.3"
   dependencies:
     "@babel/core": "npm:^7.18.2"
     "@babel/plugin-syntax-jsx": "npm:^7.17.12"
@@ -4620,7 +4620,8 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.17.12"
     "@esbuild-plugins/node-modules-polyfill": "npm:^0.1.4"
     "@npmcli/package-json": "npm:^2.0.0"
-    "@remix-run/server-runtime": "npm:1.6.1"
+    "@remix-run/server-runtime": "npm:1.6.3"
+    "@yarnpkg/esbuild-plugin-pnp": "npm:^2.0.0"
     cacache: "npm:^15.0.5"
     chalk: "npm:^4.1.2"
     chokidar: "npm:^3.5.1"
@@ -4652,15 +4653,20 @@ __metadata:
     tsconfig-paths: "npm:^4.0.0"
     ws: "npm:^7.4.5"
     xdm: "npm:^2.0.0"
+  peerDependencies:
+    "@remix-run/serve": 1.6.3
+  peerDependenciesMeta:
+    "@remix-run/serve":
+      optional: true
   bin:
-    remix: cli.js
-  checksum: 1f0b0efa29345f2edcdb60a2c84009ecfadfae7b920df30ad9fb36f76a0422ac16e3bc7f42110483492fc6a276d7c461049d5d1efde01658eeaff8047c212d77
+    remix: dist/cli.js
+  checksum: 397fa3f0029ab9917220eb8a76a5ccac713d07d02e6c97a4684f3da576791edd91983b5440f9ac81700df2204c722af4ecb260af85aab6532dfc7530066d5463
   languageName: node
   linkType: hard
 
-"@remix-run/eslint-config@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/eslint-config@npm:1.6.1"
+"@remix-run/eslint-config@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/eslint-config@npm:1.6.3"
   dependencies:
     "@babel/core": "npm:^7.17.5"
     "@babel/eslint-parser": "npm:^7.17.0"
@@ -4686,26 +4692,26 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 71b0d45b7670e74847b885dcf122df7594c66333eecd3cd745abd4520db8d002fdab3d374aa1290a536b4637b8fa0fabf5068e389595a6133981539c54c2e433
+  checksum: aae3e296695b8c6de6e3e318aedd1f499273197cb4f4d056ca655bcd14b30ab003f648f8b12300b70026f90b7a5147eed1d6f2f18f7e1b518f40eccd3bafd7f8
   languageName: node
   linkType: hard
 
-"@remix-run/express@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/express@npm:1.6.1"
+"@remix-run/express@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/express@npm:1.6.3"
   dependencies:
-    "@remix-run/node": "npm:1.6.1"
+    "@remix-run/node": "npm:1.6.3"
   peerDependencies:
     express: ^4.17.1
-  checksum: ad8123da9974ce0cd7ce09eba7182305c017aa23c1976149a677df3a07537fd3d3d31564432eba89530008baaa2fe185194f722f745e495a3a8a8299ff107f7a
+  checksum: 194802a0d36f223f0dc75313cd6098116161ded5df93fed40a137aa760f51ed0ee1afd20cb4dff39efe4c7d658ce9b2a15e95a4c9da520bcc0b174c8d891fd4b
   languageName: node
   linkType: hard
 
-"@remix-run/node@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/node@npm:1.6.1"
+"@remix-run/node@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/node@npm:1.6.3"
   dependencies:
-    "@remix-run/server-runtime": "npm:1.6.1"
+    "@remix-run/server-runtime": "npm:1.6.3"
     "@remix-run/web-fetch": "npm:^4.1.3"
     "@remix-run/web-file": "npm:^3.0.2"
     "@remix-run/web-stream": "npm:^1.0.3"
@@ -4714,40 +4720,40 @@ __metadata:
     cookie-signature: "npm:^1.1.0"
     source-map-support: "npm:^0.5.21"
     stream-slice: "npm:^0.1.2"
-  checksum: 5a258b8edebc53cf41068ca2eff6eb18fe9829e6bd49857ca6f6a7c13862059e96647436eacdcd760d6fca10bb2f02d5542a84c7da9c2037d72bf81d5747d108
+  checksum: afde99feecc047a314d6fbc15f1f484cbadb1a8ce8e24942186d543b018c85a1254a3c60565c1d0de962f9994672db6b1094bb35674f658ca55fac33937c512d
   languageName: node
   linkType: hard
 
-"@remix-run/react@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/react@npm:1.6.1"
+"@remix-run/react@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/react@npm:1.6.3"
   dependencies:
     history: "npm:^5.3.0"
     react-router-dom: "npm:^6.2.2"
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 657dafb8c35faa6d3b13fecb6ea02122e9060fdd667af522c0a3d00b4d5ce9a16238261c9a139b930a43c77f64b3d97e671bdd51c08ed21c69793c38e810db31
+  checksum: e1211cb9630213de3dcfeab50b594c0d559fb618e9faa5aa9548f948af5881de68209480feb84e2c65ecac70a0de3acdf05ca4bd308a49ff1205395d0d01a533
   languageName: node
   linkType: hard
 
-"@remix-run/serve@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/serve@npm:1.6.1"
+"@remix-run/serve@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/serve@npm:1.6.3"
   dependencies:
-    "@remix-run/express": "npm:1.6.1"
+    "@remix-run/express": "npm:1.6.3"
     compression: "npm:^1.7.4"
     express: "npm:^4.17.1"
     morgan: "npm:^1.10.0"
   bin:
-    remix-serve: cli.js
-  checksum: 86d832ec7e84e026f96ff64858ae7d8e55bb1313214dd5570301ab042928b28097abc00f48f239e6ab6bc91b7fdd988f765a21ae863a831298f8e8944deaaaa5
+    remix-serve: dist/cli.js
+  checksum: bffe9125a3b7c78d5ba61c35e366fd28330bf7d9e613ab53ea3f88f55c9de6f68057612e75c863bc4182b584700ef974f6ea77597bee19903ef41f7291e02ef5
   languageName: node
   linkType: hard
 
-"@remix-run/server-runtime@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/server-runtime@npm:1.6.1"
+"@remix-run/server-runtime@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/server-runtime@npm:1.6.3"
   dependencies:
     "@types/cookie": "npm:^0.4.0"
     "@web3-storage/multipart-parser": "npm:^1.0.0"
@@ -4759,18 +4765,18 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 0a44ee08fcf345985572080c0b60b787423ebf1e14c2746d05dfebccf9fdd6311d47f8613ff92a672c8a51bf61651256fd2250ae0d80297d81f9a8157666012c
+  checksum: 9a0291d3b91aacdc9dccb850728a375c91c339188d299d3497c6a03a56fdf144fad7f9797ba1c8b1031410767f4b65c6709eecd66870812be3f534a4413242b7
   languageName: node
   linkType: hard
 
-"@remix-run/vercel@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@remix-run/vercel@npm:1.6.1"
+"@remix-run/vercel@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/vercel@npm:1.6.3"
   dependencies:
-    "@remix-run/node": "npm:1.6.1"
+    "@remix-run/node": "npm:1.6.3"
   peerDependencies:
     "@vercel/node": ^1.8.3
-  checksum: bb9df6c9f3993d09c74ebc7d408a8587d7650c9700e4b134d15bda645a5c39c811f5d051f962ecba96ef17bff97ae4fce40fe4c99f70f7777f3374ac2c41235c
+  checksum: eb698894a8d4b4facfeaa93e0b3bf0570004a4ef7b78f74da1bb8ade901e2d94516762b1dd95d30fc467aa10decbad60009324940ae5cd55764fc53fb4cb1999
   languageName: node
   linkType: hard
 
@@ -8007,6 +8013,17 @@ __metadata:
   version: 4.2.2
   resolution: "@xtuc/long@npm:4.2.2"
   checksum: 48078981fd16688328aeedc04b1ae3a016ee5ee2a81dff709bf7313a0e8b21494e39b959f8e800e00ba361d74e9a9ce3be365ee369e079c23c8e257f103f8604
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/esbuild-plugin-pnp@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "@yarnpkg/esbuild-plugin-pnp@npm:2.0.2"
+  dependencies:
+    tslib: "npm:^1.13.0"
+  peerDependencies:
+    esbuild: ">=0.10.0"
+  checksum: 4eee6b9833a88652131944261a4ecfe7b1202c520e01c1507680d1e79174b443182d2ec90ff679c445f1003f1a439ac573c3c906129c20b659863e994d4448d6
   languageName: node
   linkType: hard
 
@@ -24418,12 +24435,12 @@ __metadata:
     "@emotion/react": "npm:11.9.3"
     "@emotion/server": "npm:11.4.0"
     "@emotion/styled": "npm:11.9.3"
-    "@remix-run/dev": "npm:1.6.1"
-    "@remix-run/eslint-config": "npm:1.6.1"
-    "@remix-run/node": "npm:1.6.1"
-    "@remix-run/react": "npm:1.6.1"
-    "@remix-run/serve": "npm:1.6.1"
-    "@remix-run/vercel": "npm:1.6.1"
+    "@remix-run/dev": "npm:1.6.3"
+    "@remix-run/eslint-config": "npm:1.6.3"
+    "@remix-run/node": "npm:1.6.3"
+    "@remix-run/react": "npm:1.6.3"
+    "@remix-run/serve": "npm:1.6.3"
+    "@remix-run/vercel": "npm:1.6.3"
     "@tailwindcss/aspect-ratio": "npm:0.4.0"
     "@tailwindcss/forms": "npm:0.5.2"
     "@tailwindcss/line-clamp": "npm:0.4.0"
@@ -24446,7 +24463,7 @@ __metadata:
     prettier: "npm:2.7.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-    remix: "npm:1.6.1"
+    remix: "npm:1.6.3"
     stylelint: "npm:14.9.1"
     stylelint-config-prettier: "npm:9.0.3"
     stylelint-config-standard: "npm:26.0.0"
@@ -24456,10 +24473,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"remix@npm:1.6.1":
-  version: 1.6.1
-  resolution: "remix@npm:1.6.1"
-  checksum: 70e9acfecca8fd39d55d72946b4d2b8a5d2604fd8b109acafe10e23a5ddf44b54a38a7a6841e90ebee1de42bc6fd465ad6e5bf1eb00763a08ed441406d7d0051
+"remix@npm:1.6.3":
+  version: 1.6.3
+  resolution: "remix@npm:1.6.3"
+  checksum: 08725805d12cc1d4b17a09e23a336f9e770d8212be5aa9a4e0f253566db7ad3486d6aafc4df06d3f17cb90f4e85cb3755718464d67e7411a1b13221d629c40f4
   languageName: node
   linkType: hard
 
@@ -27537,7 +27554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
+"tslib@npm:^1.13.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: 441af59dc42ad4ae57140e62cb362369620c6076845c2c2b0ecc863c1d719ce24fdbc301e9053433fef43075e061bf84b702318ff1204b496a5bba10baf9eb9f
