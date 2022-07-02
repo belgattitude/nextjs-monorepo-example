@@ -1,5 +1,11 @@
 # nextjs-app
 
+## 3.50.0
+
+### Minor Changes
+
+- [#2187](https://github.com/belgattitude/nextjs-monorepo-example/pull/2187) [`d6efad3`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d6efad3c967b65dd74e8df3898f95c847fb2515c) Thanks [@belgattitude](https://github.com/belgattitude)! - Enable SWC compiler
+
 ## 3.49.3
 
 ### Patch Changes
