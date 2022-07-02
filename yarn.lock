@@ -4474,6 +4474,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pkgr/utils@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@pkgr/utils@npm:2.2.0"
+  dependencies:
+    cross-spawn: "npm:^7.0.3"
+    is-glob: "npm:^4.0.3"
+    open: "npm:^8.4.0"
+    picocolors: "npm:^1.0.0"
+    tiny-glob: "npm:^0.2.9"
+    tslib: "npm:^2.4.0"
+  checksum: 6545f25df12b1b46050fc6220ff9bf604a49cf00b3f300da316ec293b3dd66f43687d26aa3f4bf726df425b22667b7ebba2c28999c8c40128003b6c572e732ff
+  languageName: node
+  linkType: hard
+
 "@playwright/test@npm:1.23.1":
   version: 1.23.1
   resolution: "@playwright/test@npm:1.23.1"
@@ -8181,7 +8195,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:5.30.3"
     eslint: "npm:8.19.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:2.7.1"
+    eslint-import-resolver-typescript: "npm:3.1.5"
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-jest: "npm:26.5.3"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -12683,13 +12697,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.7.0, enhanced-resolve@npm:^5.9.3":
-  version: 5.9.3
-  resolution: "enhanced-resolve@npm:5.9.3"
+"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.7.0, enhanced-resolve@npm:^5.9.3":
+  version: 5.10.0
+  resolution: "enhanced-resolve@npm:5.10.0"
   dependencies:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
-  checksum: cecc1d044c3216df18cd2c64a897c1f91df76ef7be8d0c44c072e8c34e68aaed4c14f1046dc7f40fac59e2c52a205cae3131635bd726be751540237537730221
+  checksum: 97f2cb6318920931b84ea1209b220b7f0324581eef434f16c1df95d1997a4bbd80cceabd6be81465cf450060dee84b265d317ac23276369756b2d8a3ca68e9d6
   languageName: node
   linkType: hard
 
@@ -13398,7 +13412,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:2.7.1, eslint-import-resolver-typescript@npm:^2.5.0, eslint-import-resolver-typescript@npm:^2.7.1":
+"eslint-import-resolver-typescript@npm:3.1.5":
+  version: 3.1.5
+  resolution: "eslint-import-resolver-typescript@npm:3.1.5"
+  dependencies:
+    debug: "npm:^4.3.4"
+    enhanced-resolve: "npm:^5.10.0"
+    get-tsconfig: "npm:^4.1.0"
+    globby: "npm:^13.1.2"
+    is-core-module: "npm:^2.9.0"
+    is-glob: "npm:^4.0.3"
+    synckit: "npm:^0.7.1"
+  peerDependencies:
+    eslint: "*"
+    eslint-plugin-import: "*"
+  checksum: 2e72ea7bff330f8068f9174de994adb60765ab80c690a98973e2b254a0d048d707bdb5cff377596b64075f60eb46af1a306e4974f39848600d46c4159919894b
+  languageName: node
+  linkType: hard
+
+"eslint-import-resolver-typescript@npm:^2.5.0, eslint-import-resolver-typescript@npm:^2.7.1":
   version: 2.7.1
   resolution: "eslint-import-resolver-typescript@npm:2.7.1"
   dependencies:
@@ -15365,6 +15397,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globby@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "globby@npm:13.1.2"
+  dependencies:
+    dir-glob: "npm:^3.0.1"
+    fast-glob: "npm:^3.2.11"
+    ignore: "npm:^5.2.0"
+    merge2: "npm:^1.4.1"
+    slash: "npm:^4.0.0"
+  checksum: 9b418983d4b2dab9599cf9b2d1535c547d206e96796a699086e7a6b0e5d8ba63ee7653b1e3e3afa1747e1accf70fdc58fcb246dec282b3235a23a0b03fe14a7c
+  languageName: node
+  linkType: hard
+
 "globby@npm:^9.2.0":
   version: 9.2.0
   resolution: "globby@npm:9.2.0"
@@ -16741,12 +16786,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.2.0, is-core-module@npm:^2.5.0, is-core-module@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "is-core-module@npm:2.8.1"
+"is-core-module@npm:^2.2.0, is-core-module@npm:^2.5.0, is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
+  version: 2.9.0
+  resolution: "is-core-module@npm:2.9.0"
   dependencies:
     has: "npm:^1.0.3"
-  checksum: 003c0336aa71e7fad300bfdf20debaf1a9d39e06a3406b63841756208937c66d40ec624d7d3c3a2e4975f480e045177e4c26571b241f17f0a06efa374cab5a17
+  checksum: ac7e79bde4fe529a7281a2f7e8e7f8128c26a2fe660d248ff91def539c35c4353a5f9ff65c7d61565c4943f2614b0fc9310447680d397e7ca2564f0729ca6429
   languageName: node
   linkType: hard
 
@@ -20751,7 +20796,7 @@ __metadata:
     eslint: "npm:8.19.0"
     eslint-config-next: "npm:12.2.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:2.7.1"
+    eslint-import-resolver-typescript: "npm:3.1.5"
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-jest: "npm:26.5.3"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -25619,6 +25664,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"slash@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "slash@npm:4.0.0"
+  checksum: 0327fcda20ceb59983f59b6016ecc1d8a0c750a66af0205cdb0d0b92b857586c847515d3098a7538816c61a145d3822aec5509b0fe5c9ccff14789e0603c8ea1
+  languageName: node
+  linkType: hard
+
 "slice-ansi@npm:^2.1.0":
   version: 2.1.0
   resolution: "slice-ansi@npm:2.1.0"
@@ -26763,6 +26815,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"synckit@npm:^0.7.1":
+  version: 0.7.2
+  resolution: "synckit@npm:0.7.2"
+  dependencies:
+    "@pkgr/utils": "npm:^2.2.0"
+    tslib: "npm:^2.4.0"
+  checksum: b8d223afd4abe61e9e7663652b049a34bf5b059208fd64d5f1a44dca9840e58239eae71b8675be3acb837cb8f1dd95b723814bf14c49e7f1dd4d0e9b64b1150c
+  languageName: node
+  linkType: hard
+
 "table@npm:5.4.6":
   version: 5.4.6
   resolution: "table@npm:5.4.6"
@@ -27129,7 +27191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-glob@npm:^0.2.8":
+"tiny-glob@npm:^0.2.8, tiny-glob@npm:^0.2.9":
   version: 0.2.9
   resolution: "tiny-glob@npm:0.2.9"
   dependencies:
