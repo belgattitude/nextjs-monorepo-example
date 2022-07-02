@@ -24,9 +24,7 @@ describe('prisma cli commands', () => {
       const createResult = await execa('yarn prisma db push', options);
 
       expect(createResult.exitCode).toStrictEqual(0);
-      expect(createResult.stdout).toMatch(
-        /your database is now in sync with your schema/i
-      );
+      expect(createResult.stdout).toMatch(/your database is now in sync/i);
 
       const seedResult = await execa('yarn prisma db seed', options);
 

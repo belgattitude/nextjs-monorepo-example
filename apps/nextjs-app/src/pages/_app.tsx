@@ -2,7 +2,7 @@ import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
 import nextI18nextConfig from '../../next-i18next.config';
-import { AppProviders } from '../app-providers';
+import { AppProviders } from '../AppProviders';
 
 /**
  * Import global styles, global css or polyfills here

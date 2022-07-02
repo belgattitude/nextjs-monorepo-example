@@ -17,15 +17,15 @@ export const PoemCard: FC<Props> = (props) => {
   const { img, content, author, title, keywords, defaultImg } = props;
   const image = img ?? defaultImg;
   return (
-    <div className="overflow-hidden max-w-sm rounded shadow-lg">
-      <div className="h-56 aspect-w-16 aspect-h-9 lg:aspect-none">
+    <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <div className="aspect-w-16 aspect-h-9 h-56 lg:aspect-none">
         <img
-          className="object-cover object-center w-full h-full lg:w-full lg:h-full"
+          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
           src={image ?? ''}
           alt={title}
         />
       </div>
-      <article className="py-4 px-6 prose">
+      <article className="prose py-4 px-6">
         <div className="mb-2 text-xl font-bold">{title}</div>
         <p className="text-indigo-600">By {author}</p>
         <p className="text-base text-gray-700 line-clamp-4">{content}</p>
@@ -35,7 +35,7 @@ export const PoemCard: FC<Props> = (props) => {
           return (
             <span
               key={keyword}
-              className="inline-block py-1 px-3 mr-2 mb-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
+              className="mr-2 mb-2 inline-block rounded-full bg-gray-200 py-1 px-3 text-sm font-semibold text-gray-700"
             >
               #{keyword}
             </span>
