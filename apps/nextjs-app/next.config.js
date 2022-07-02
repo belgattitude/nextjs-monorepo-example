@@ -7,6 +7,7 @@ const pc = require('picocolors');
 const packageJson = require('./package.json');
 const { i18n } = require('./next-i18next.config');
 
+const enableCSP = true;
 const trueEnv = ['true', '1', 'yes'];
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -82,12 +83,45 @@ const tmModules = [
 const { createSecureHeaders } = require('next-secure-headers');
 const secureHeaders = createSecureHeaders({
   contentSecurityPolicy: {
-    directives: {
-      // defaultSrc: "'self'",
-      // styleSrc: ["'self'"],
-    },
+    directives: enableCSP
+      ? {
+          defaultSrc: "'self'",
+          styleSrc: [
+            "'self'",
+            "'unsafe-inline'",
+            'https://unpkg.com/@graphql-yoga/graphiql/dist/style.css',
+            'https://meet.jitsi.si',
+            // 'https://8x8.vc',
+          ],
+          scriptSrc: [
+            "'self'",
+            "'unsafe-eval'",
+            "'unsafe-inline'",
+            'https://unpkg.com/@graphql-yoga/graphiql',
+            'https://meet.jit.si/external_api.js',
+            // 'https://8x8.vc/external_api.js',
+            // 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js',
+          ],
+          frameSrc: [
+            'https://meet.jit.si',
+            // 'https://8x8.vc',
+            // 'https://meetings.hubspot.com',
+          ],
+          connectSrc: [
+            "'self'",
+            'https://vitals.vercel-insights.com',
+            'https://*.sentry.io',
+            // 'wss://ws.pusherapp.com',
+            // 'wss://ws-eu.pusher.com',
+            // 'https://sockjs.pusher.com',
+            // 'https://sockjs-eu.pusher.com',
+          ],
+          imgSrc: ["'self'", 'https:', 'http:', 'data:'],
+          workerSrc: ['blob:'],
+        }
+      : {},
   },
-  ...(isProd
+  ...(enableCSP && process.env.NODE_ENV === 'production'
     ? {
         forceHTTPSRedirect: [
           true,
@@ -184,7 +218,17 @@ const nextConfig = {
   },
 
   async headers() {
-    return [{ source: '/(.*)', headers: secureHeaders }];
+    return [
+      {
+        // All page routes, not the api ones
+        source: '/:path((?!api).*)*',
+        headers: [
+          ...secureHeaders,
+          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
+          { key: 'Cross-Origin-Embedder-Policy', value: 'same-origin' },
+        ],
+      },
+    ];
   },
 
   /**
