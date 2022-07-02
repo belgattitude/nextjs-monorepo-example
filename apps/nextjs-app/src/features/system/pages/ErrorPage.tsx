@@ -17,14 +17,14 @@ export const ErrorPage: FC<Props> = (props) => {
       <Head>
         <title>Error {statusCode}</title>
       </Head>
-      <div className="container text-2xl bg-white md:text-xl">
-        <div className="flex flex-col justify-center items-center w-screen h-screen">
+      <div className="container bg-white text-2xl md:text-xl">
+        <div className="flex h-screen w-screen flex-col items-center justify-center">
           <h1 className="m-5 text-5xl text-black md:text-4xl">Woops !</h1>
           <p className="text-2xl text-black md:text-2xl">
             Something went wrong. Please try again later.
           </p>
         </div>
-        <div className="absolute right-0 bottom-0 p-5 m-5 text-sm text-left text-gray-700 rounded-lg border-2 border-indigo-400 border-solid">
+        <div className="absolute right-0 bottom-0 m-5 rounded-lg border-2 border-solid border-indigo-400 p-5 text-left text-sm text-gray-700">
           <p data-testid="error-status-code">Code: {statusCode}</p>
           <p>Message: {message}</p>
           <p>Error id: {errorId}</p>

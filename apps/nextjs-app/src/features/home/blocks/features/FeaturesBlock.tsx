@@ -51,13 +51,13 @@ const Ctn = styled.div`
 export const FeaturesBlock: FC<Props> = () => {
   return (
     <Ctn>
-      <div className="py-12 bg-white" style={{ width: '100%' }}>
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="bg-white py-12" style={{ width: '100%' }}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase">
+            <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">
               Transactions
             </h2>
-            <p className="mt-2 text-3xl font-extrabold tracking-tight leading-8 text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               A better way to send money
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
@@ -70,8 +70,8 @@ export const FeaturesBlock: FC<Props> = () => {
               {features.map((feature) => (
                 <div key={feature.name} className="relative">
                   <dt>
-                    <div className="flex absolute justify-center items-center w-12 h-12 text-white bg-indigo-500 rounded-md">
-                      <feature.icon className="w-6 h-6" aria-hidden="true" />
+                    <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                      <feature.icon className="h-6 w-6" aria-hidden="true" />
                     </div>
                     <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
                       {feature.name}

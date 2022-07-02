@@ -10,10 +10,10 @@ export const HeroBlock: FC<Props> = () => {
   const { t } = useTranslation(['home', 'common']);
 
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container flex flex-col items-center py-24 px-5 mx-auto md:flex-row">
-        <div className="flex flex-col items-center mb-16 text-center md:items-start md:pr-16 md:mb-0 md:w-1/2 md:text-left lg:grow lg:pr-24">
-          <h1 className="mb-4 text-3xl font-medium text-gray-900 sm:text-4xl title-font">
+    <section className="body-font text-gray-600">
+      <div className="container mx-auto flex flex-col items-center py-24 px-5 md:flex-row">
+        <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:grow lg:pr-24">
+          <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">
             Before they sold out&nbsp;
             <br className="hidden lg:inline-block" />
             readymade gluten
@@ -25,10 +25,10 @@ export const HeroBlock: FC<Props> = () => {
             hexagon try-hard chambray.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex py-2 px-6 text-lg text-white bg-indigo-500 hover:bg-indigo-600 rounded border-0 focus:outline-none">
+            <button className="inline-flex rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none">
               Button
             </button>
-            <button className="inline-flex py-2 px-6 ml-4 text-lg text-gray-700 bg-gray-100 hover:bg-gray-200 rounded border-0 focus:outline-none">
+            <button className="ml-4 inline-flex rounded border-0 bg-gray-100 py-2 px-6 text-lg text-gray-700 hover:bg-gray-200 focus:outline-none">
               Button
             </button>
           </div>
@@ -40,7 +40,7 @@ export const HeroBlock: FC<Props> = () => {
             loading={'eager'}
             src={'/assets/annie-spratt-unsplash.jpg'}
             alt={'tailwind-ui-logo'}
-            className="object-cover object-center rounded"
+            className="rounded object-cover object-center"
             layout={'responsive'}
           />
         </div>
