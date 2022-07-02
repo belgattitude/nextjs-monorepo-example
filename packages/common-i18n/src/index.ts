@@ -1,1 +1,1 @@
-export type { LocalesTypes } from './LocalesTypes';
+export type { I18nNamespaces } from './I18nNamespaces';

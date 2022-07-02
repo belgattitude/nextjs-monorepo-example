@@ -26,6 +26,7 @@ const tailwindV3Colors = Object.entries(
     return acc;
   }, {});
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {

@@ -14,13 +14,13 @@ const pages = manifest.pages;
 const limitCfg = {
   defaultSize: '80kb',
   pages: {
-    '/': '105kb',
+    '/': '120kb',
     '/404': '80kb',
-    '/_app': '145kb',
-    '/_error': '80kb',
-    '/_monitor/sentry/csr-page': '75kb',
-    '/_monitor/sentry/ssr-page': '75kb',
-    '/home': '95kb',
+    '/_app': '160kb',
+    '/_error': '85kb',
+    '/_monitor/sentry/csr-page': '80kb',
+    '/_monitor/sentry/ssr-page': '80kb',
+    '/home': '100kb',
   },
 };
 const getPageLimits = () => {

@@ -1,60 +1,54 @@
+schema {
+  query: Query
+}
+
 type Query {
-  """Returns a a list of breeds"""
+  "Returns a a list of breeds"
   getBreeds(input: getBreeds_request_Input): [Breed_model]
-
-  """Returns a random fact"""
+  "Returns a random fact"
   getRandomFact(input: getRandomFact_request_Input): CatFact_model
-
-  """Returns a a list of facts"""
+  "Returns a a list of facts"
   getFacts(input: getFacts_request_Input): [CatFact_model]
 }
 
-"""Breed"""
+"Breed"
 type Breed_model {
-  """Breed"""
+  "Breed"
   breed: String
-
-  """Country"""
+  "Country"
   country: String
-
-  """Origin"""
+  "Origin"
   origin: String
-
-  """Coat"""
+  "Coat"
   coat: String
-
-  """Pattern"""
+  "Pattern"
   pattern: String
 }
 
 input getBreeds_request_Input {
-  """limit the amount of results returned"""
+  "limit the amount of results returned"
   limit: BigInt
 }
 
-"""
-The `BigInt` scalar type represents non-fractional signed whole numeric values.
-"""
+"The `BigInt` scalar type represents non-fractional signed whole numeric values."
 scalar BigInt
 
-"""CatFact"""
+"CatFact"
 type CatFact_model {
-  """Fact"""
+  "Fact"
   fact: String
-
-  """Length"""
+  "Length"
   length: Int
 }
 
 input getRandomFact_request_Input {
-  """maximum length of returned fact"""
+  "maximum length of returned fact"
   max_length: BigInt
 }
 
 input getFacts_request_Input {
-  """maximum length of returned fact"""
+  "maximum length of returned fact"
   max_length: BigInt
-
-  """limit the amount of results returned"""
+  "limit the amount of results returned"
   limit: BigInt
 }

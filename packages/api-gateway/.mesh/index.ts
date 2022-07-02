@@ -317,6 +317,7 @@ export type SubscriptionCatFactsSdk = {
 
 export type CatFactsContext = {
       ["CatFacts"]: { Query: QueryCatFactsSdk, Mutation: MutationCatFactsSdk, Subscription: SubscriptionCatFactsSdk },
+      
     };
 
 export type MeshContext = CatFactsContext & BaseMeshContext;
@@ -367,7 +368,7 @@ const cache = new (MeshCache as any)({
       pubsub,
     } as any)
 const sourcesStore = rootStore.child('sources');
-const logger = new DefaultLogger('🕸️  Mesh');
+const logger = new DefaultLogger("🕸️  Mesh");
 const sources = [];
 const transforms = [];
 const additionalEnvelopPlugins = [];
@@ -383,11 +384,11 @@ const catFactsHandler = new NewOpenapiHandler({
               logger: logger.child("CatFacts"),
               importFn
             });
-sources.push({
+sources[0] = {
           name: 'CatFacts',
           handler: catFactsHandler,
           transforms: catFactsTransforms
-        })
+        }
 const merger = new(BareMerger as any)({
         cache,
         pubsub,
