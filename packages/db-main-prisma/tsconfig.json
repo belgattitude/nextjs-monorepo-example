@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": "./src",
@@ -12,17 +13,5 @@
       "@your-org/core-lib": ["../../../packages/core-lib/src/index"]
     }
   },
-  "exclude": ["**/node_modules", "**/.*/", "dist", "build"],
-  // Prisma seed requires to use commonjs
-  // @link https://github.com/TypeStrong/ts-node#via-tsconfigjson-recommended
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "compilerOptions": {
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "allowJs": true
-    }
-  }
+  "exclude": ["**/node_modules", "**/.*/", "dist", "build"]
 }
