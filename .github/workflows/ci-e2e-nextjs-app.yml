@@ -122,7 +122,7 @@ jobs:
         id: playwright-cache
         with:
           path: ${{ matrix.playwright_binary_path }}
-          key: ${{ runner.os }}-cache-playwright-${{ steps.playwright-version.outputs.version }}
+          key: ${{ runner.os }}-cache-playwright-2-${{ steps.playwright-version.outputs.version }}
 
       - name: Playwright debug
         shell: bash
@@ -135,7 +135,7 @@ jobs:
 
       - name: Install Playwright
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium webkit
+        run: yarn playwright install --with-deps chromium webkit
 
       - name: E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app

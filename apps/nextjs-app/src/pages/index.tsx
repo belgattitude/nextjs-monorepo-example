@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = demoConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces.slice())),
+      ...(await serverSideTranslations(locale, i18nNamespaces)),
     },
   };
 };
