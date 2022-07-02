@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
   useCatch,
 } from '@remix-run/react';
-import type { MetaFunction } from '@remix-run/react/routeModules';
+import type { MetaFunction } from '@remix-run/react/dist/routeModules';
 import { useContext, useEffect } from 'react';
 import { NotFoundPage } from '@/features/system/pages';
 import {
