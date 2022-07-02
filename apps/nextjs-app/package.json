@@ -39,7 +39,7 @@
     "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
     "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
     "check-dist": "es-check -v",
-    "check-size-limit": "size-limit --highlight-less",
+    "check-size": "size-limit --highlight-less",
     "test": "yarn test-unit",
     "test-unit": "vitest run",
     "test-unit-watch": "vitest watch --ui",
