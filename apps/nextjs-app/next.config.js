@@ -121,32 +121,21 @@ const nextConfig = {
   swcMinify: true,
 
   compiler: {
-    // emotion via swc will increase browser bundle as there's not
-    // yet support for browserlist (in other words, complied js will be es5)
-    /**
-     emotion: {
-      sourceMap: process.env.NODE_ENV === 'development',
-      autoLabel: 'dev-only',
-      // Allowed values: `[local]` `[filename]` and `[dirname]`
-      // This option only works when autoLabel is set to 'dev-only' or 'always'.
-      // It allows you to define the format of the resulting label.
-      // The format is defined via string where variable parts are enclosed in square brackets [].
-      // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
-      labelFormat: '[local]',
-    },
-    */
+    // emotion: true, - by default since 12.2.0
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
   images: {
-    loader: 'default',
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    domains: ['avatars.githubusercontent.com'],
+    path: '/_next/image',
+    loader: 'default',
     disableStaticImages: false,
-    // https://nextjs.org/docs/api-reference/next/image#caching-behavior
     minimumCacheTTL: 60,
-    // Allowed domains for next/image
-    domains: ['source.unsplash.com'],
+    formats: ['image/webp'],
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Standalone build
@@ -154,6 +143,20 @@ const nextConfig = {
   output: 'standalone',
 
   experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+    images: {
+      allowFutureImage: true,
+      layoutRaw: true,
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'avatars.githubusercontent.com',
+        },
+      ],
+      unoptimized: false,
+    },
+
     // React 18 server components
     // @link https://nextjs.org/docs/advanced-features/react-18/server-components
     serverComponents: false,

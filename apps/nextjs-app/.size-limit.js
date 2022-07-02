@@ -12,15 +12,15 @@ try {
 const pages = manifest.pages;
 
 const limitCfg = {
-  defaultSize: '80kb',
+  defaultSize: '85kb',
   pages: {
     '/': '120kb',
-    '/404': '80kb',
+    '/404': '90kb',
     '/_app': '160kb',
-    '/_error': '85kb',
-    '/_monitor/sentry/csr-page': '80kb',
-    '/_monitor/sentry/ssr-page': '80kb',
-    '/home': '100kb',
+    '/_error': '90kb',
+    '/_monitor/sentry/csr-page': '90kb',
+    '/_monitor/sentry/ssr-page': '90kb',
+    '/home': '105kb',
   },
 };
 const getPageLimits = () => {
