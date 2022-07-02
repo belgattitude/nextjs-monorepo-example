@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import { AppProviders } from '../../src/app-providers';
+import { AppProviders } from '../../src/AppProviders';
 import { I18nextTestStubProvider } from './I18nextTestStubProvider';
 
 export const AppTestProviders: FC<{ children: ReactNode }> = ({ children }) => {
