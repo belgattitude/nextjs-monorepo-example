@@ -383,7 +383,7 @@ Some convenience scripts can be run in any folder of this repo and will call the
 | `yarn g:build`               | Run build in all workspaces                                                                                                          |
 | `yarn g:clean`               | Clean builds in all workspaces                                                                                                       |
 | `yarn g:check-dist`          | Ensure build dist files passes es2017 (run `g:build` first).                                                                         |
-| `yarn g:check-size-limit`    | Ensure build files are within size limit (run `g:build` first).                                                                      |
+| `yarn g:check-size`          | Ensure browser dist files are within size limit (run `g:build` first).                                                               |
 | `yarn clean:global-cache`    | Clean tooling caches (eslint, jest...)                                                                                               |
 | `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/sortlist/packages/blob/main/.ncurc.yml)) |
 | `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                     |
@@ -437,7 +437,7 @@ By default, they will ensure that
 - You don't have linter / code-style errors.
 - Your test suite is successful.
 - Your apps (nextjs) or packages can be successfully built.
-- Basic check-size-limit example in nextjs-app.
+- Basic check-size example in nextjs-app.
 
 Each of those steps can be opted-out.
 
