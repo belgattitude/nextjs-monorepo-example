@@ -112,7 +112,7 @@ jobs:
       - name: Check browser bundle size limits
         working-directory: apps/nextjs-app
         run: |
-          yarn check-size-limit
+          yarn check-size
 
       - name: Check ecmascript checks for build files
         working-directory: apps/nextjs-app
