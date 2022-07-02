@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
     escapeValue: false, // not needed for react!!
   },
   // Let empty so you can test on translation keys rather than translated strings
-  resources: { en: { common: {} } },
+  resources: { en: { common: {}, agency: {} } },
 });
 
 export const I18nextTestStubProvider: FC<{ children: ReactNode }> = ({

@@ -4,7 +4,7 @@
  */
 import { render } from '@testing-library/react';
 import type React from 'react';
-import { AppTestProviders } from './app-test-providers';
+import { AppTestProviders } from './AppTestProviders';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const customRender = (ui: React.ReactElement, options?: any) =>
