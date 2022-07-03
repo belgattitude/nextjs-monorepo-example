@@ -1,5 +1,11 @@
 # nextjs-app
 
+## 3.51.0
+
+### Minor Changes
+
+- [#2189](https://github.com/belgattitude/nextjs-monorepo-example/pull/2189) [`9d43ef2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/9d43ef26c4385bed2010aff563807a6b4088f37c) Thanks [@belgattitude](https://github.com/belgattitude)! - Example of CSP configuration
+
 ## 3.50.0
 
 ### Minor Changes
