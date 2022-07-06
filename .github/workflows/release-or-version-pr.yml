@@ -39,9 +39,12 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
-      - name: Install Dependencies
-        run: yarn install --immutable
+      - name: Install dependencies
+        run: |
+          yarn install --immutable --inline-builds
         env:
+          PRISMA_SKIP_POSTINSTALL_GENERATE: true
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
           HUSKY: 0
 
       # @link https://github.com/changesets/action
