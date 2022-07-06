@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.4.1
+
+### Patch Changes
+
+- [#2214](https://github.com/belgattitude/nextjs-monorepo-example/pull/2214) [`62818ba`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62818badff67ce032a209fe9217c319271833ddc) Thanks [@belgattitude](https://github.com/belgattitude)! - Speedup and clean yarn install on CI
+
 ## 1.4.0
 
 ### Minor Changes

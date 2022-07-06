@@ -1,5 +1,16 @@
 # vite-app
 
+## 0.6.4
+
+### Patch Changes
+
+- [#2214](https://github.com/belgattitude/nextjs-monorepo-example/pull/2214) [`62818ba`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62818badff67ce032a209fe9217c319271833ddc) Thanks [@belgattitude](https://github.com/belgattitude)! - Speedup and clean yarn install on CI
+
+- Updated dependencies [[`62818ba`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62818badff67ce032a209fe9217c319271833ddc)]:
+  - @your-org/common-i18n@1.1.1
+  - @your-org/core-lib@3.14.1
+  - @your-org/ui-lib@3.14.2
+
 ## 0.6.3
 
 ### Patch Changes
