@@ -1,5 +1,14 @@
 # @your-org/ui-lib
 
+## 3.14.2
+
+### Patch Changes
+
+- [#2214](https://github.com/belgattitude/nextjs-monorepo-example/pull/2214) [`62818ba`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62818badff67ce032a209fe9217c319271833ddc) Thanks [@belgattitude](https://github.com/belgattitude)! - Speedup and clean yarn install on CI
+
+- Updated dependencies [[`62818ba`](https://github.com/belgattitude/nextjs-monorepo-example/commit/62818badff67ce032a209fe9217c319271833ddc)]:
+  - @your-org/core-lib@3.14.1
+
 ## 3.14.1
 
 ### Patch Changes
