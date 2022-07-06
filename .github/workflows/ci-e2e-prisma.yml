@@ -63,6 +63,10 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
+        env:
+          PRISMA_SKIP_POSTINSTALL_GENERATE: true
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          HUSKY: 0
 
       - name: E2E prisma
         working-directory: packages/db-main-prisma

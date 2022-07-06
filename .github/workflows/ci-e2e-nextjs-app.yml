@@ -85,7 +85,9 @@ jobs:
         run: |
           yarn install --immutable
         env:
+          PRISMA_SKIP_POSTINSTALL_GENERATE: true
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          HUSKY: 0
 
       - name: Create and seed test database
         working-directory: packages/db-main-prisma

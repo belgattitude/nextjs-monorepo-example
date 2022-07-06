@@ -75,6 +75,10 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
+        env:
+          PRISMA_SKIP_POSTINSTALL_GENERATE: true
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          HUSKY: 0
 
       # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
       # That allows to see if we're introducing "surface" regressions (just the types)
