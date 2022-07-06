@@ -51,7 +51,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --immutable
+          yarn install --immutable --inline-builds
+        env:
+          PRISMA_SKIP_POSTINSTALL_GENERATE: true
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          HUSKY: 0
 
       - name: Check for duplicate dependencies in lock file
         run: |
