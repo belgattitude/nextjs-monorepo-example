@@ -8196,7 +8196,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:5.30.5"
     eslint: "npm:8.19.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:3.2.1"
+    eslint-import-resolver-typescript: "npm:3.2.4"
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-jest: "npm:26.5.3"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -13413,21 +13413,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:3.2.1":
-  version: 3.2.1
-  resolution: "eslint-import-resolver-typescript@npm:3.2.1"
+"eslint-import-resolver-typescript@npm:3.2.4":
+  version: 3.2.4
+  resolution: "eslint-import-resolver-typescript@npm:3.2.4"
   dependencies:
     debug: "npm:^4.3.4"
     enhanced-resolve: "npm:^5.10.0"
-    get-tsconfig: "npm:^4.1.0"
+    get-tsconfig: "npm:@unts/get-tsconfig@^4.1.1"
     globby: "npm:^13.1.2"
     is-core-module: "npm:^2.9.0"
     is-glob: "npm:^4.0.3"
-    synckit: "npm:^0.7.1"
+    synckit: "npm:^0.7.2"
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
-  checksum: 9268d7645ced29380f610df3821209944c8e2a57e9f0d8ec27dea6d7697a7c1153fffab5482b6c7acc6def8905b7c4bc9f77746784f69103ecf27756d549a27f
+  dependenciesMeta:
+    "@1stg/babel-preset@3.1.2":
+      unplugged: true
+    "@1stg/commitlint-config@3.1.2":
+      unplugged: true
+    "@1stg/common-config@5.2.4":
+      unplugged: true
+    "@1stg/eslint-config@5.2.4":
+      unplugged: true
+    "@1stg/lib-config@7.2.5":
+      unplugged: true
+    "@1stg/lint-staged@3.1.3":
+      unplugged: true
+    "@1stg/markuplint-config@2.1.2":
+      unplugged: true
+    "@1stg/prettier-config@3.4.2":
+      unplugged: true
+    "@1stg/remark-config@4.0.2":
+      unplugged: true
+    "@1stg/simple-git-hooks@0.1.4":
+      unplugged: true
+    "@1stg/tsconfig@2.2.2":
+      unplugged: true
+    "@changesets/changelog-github@0.4.5":
+      unplugged: true
+    "@changesets/cli@2.23.0":
+      unplugged: true
+  checksum: 7533fdf84c682446b8977db95f9cb14f9d83cfdd1694b76935863654608b3eb51cf61c220f012e3b879ccb5bbfc63e37fe77f82b37114227796c9739f8666db3
   languageName: node
   linkType: hard
 
@@ -15156,6 +15183,13 @@ __metadata:
     call-bind: "npm:^1.0.2"
     get-intrinsic: "npm:^1.1.1"
   checksum: 81648604501445f5eb384d0193ff821f0c593c8d231205c3e03054dee679cb9aa4a04fb2cb1a44cd9bc81877e1f3677147a430f7203c851122112b48e12435f6
+  languageName: node
+  linkType: hard
+
+"get-tsconfig@npm:@unts/get-tsconfig@^4.1.1":
+  version: 4.1.1
+  resolution: "@unts/get-tsconfig@npm:4.1.1"
+  checksum: a2b750077da46d1fc3397c2d0b8a760fbed8054f7f4cbe0f0bd3654d3e82e61514c4808eacae1786ddd41a0a7ef8ca55a02827c245a99632020c4d9199fc0149
   languageName: node
   linkType: hard
 
@@ -20797,7 +20831,7 @@ __metadata:
     eslint: "npm:8.19.0"
     eslint-config-next: "npm:12.2.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:3.2.1"
+    eslint-import-resolver-typescript: "npm:3.2.4"
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-jest: "npm:26.5.3"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -26816,7 +26850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.7.1":
+"synckit@npm:^0.7.2":
   version: 0.7.2
   resolution: "synckit@npm:0.7.2"
   dependencies:
