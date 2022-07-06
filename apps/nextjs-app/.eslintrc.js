@@ -35,7 +35,7 @@ module.exports = {
   ],
   rules: {
     // https://github.com/vercel/next.js/discussions/16832
-    // '@next/next/no-img-element': 'off',
+    '@next/next/no-img-element': 'off',
     // For the sake of example
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md
     'jsx-a11y/anchor-is-valid': 'off',
