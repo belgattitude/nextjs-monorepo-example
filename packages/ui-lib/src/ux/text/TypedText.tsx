@@ -2,11 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, FC } from 'react';
 
 type TypedTextProps = {
-  /**
-   * Animation speed in milliseconds
-   */
+  /** Animation speed in milliseconds */
   delay: number;
-
   children: string;
 } & HTMLAttributes<HTMLSpanElement>;
 
