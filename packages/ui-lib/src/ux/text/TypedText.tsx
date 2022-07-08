@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, FC } from 'react';
 
 type TypedTextProps = {
-  /**
-   * Animation speed in milliseconds
-   */
+  /** Animation speed in milliseconds */
   delay: number;
 
   children: string;
@@ -23,7 +21,7 @@ export const TypedText: FC<TypedTextProps> = (props) => {
   const interval = useRef<number | null | undefined>();
   useEffect(() => {
     interval.current = window.setInterval(() => {
-      console.log('running interval');
+      // console.log('running interval');
       setCurrIdx((currIdx) => {
         if (currIdx > text.length) {
           if (interval.current) {
