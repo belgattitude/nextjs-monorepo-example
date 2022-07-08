@@ -1,5 +1,11 @@
 # nextjs-app
 
+## 3.52.0
+
+### Minor Changes
+
+- [#2222](https://github.com/belgattitude/nextjs-monorepo-example/pull/2222) [`4ca97be`](https://github.com/belgattitude/nextjs-monorepo-example/commit/4ca97becf32c0f8bdb990ab8d6b8c8990d42fe17) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with graceful shutdown
+
 ## 3.51.1
 
 ### Patch Changes
