@@ -19,6 +19,9 @@
     ".": {
       "require": "./src/index.js"
     },
+    "./patch/modern-module-resolution": {
+      "require": "./src/patch/modern-module-resolution.js"
+    },
     "./helpers": {
       "require": "./src/helpers/index.js"
     },
@@ -63,32 +66,28 @@
     "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
-    "@graphql-eslint/eslint-plugin": "3.10.4",
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.3.0",
-    "@testing-library/react-hooks": "8.0.1",
-    "@types/jest": "28.1.4",
-    "@types/node": "18.0.0",
-    "@types/react": "18.0.15",
-    "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.30.5",
-    "@typescript-eslint/parser": "5.30.5",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "3.2.5",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jest": "26.5.3",
-    "eslint-plugin-jest-formatting": "3.1.0",
-    "eslint-plugin-jsx-a11y": "6.6.0",
-    "eslint-plugin-playwright": "0.9.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.30.1",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-regexp": "1.7.0",
-    "eslint-plugin-sonarjs": "0.13.0",
-    "eslint-plugin-tailwindcss": "3.6.0",
-    "eslint-plugin-testing-library": "5.5.1",
-    "prettier": "2.7.1",
-    "rimraf": "3.0.2"
+    "@graphql-eslint/eslint-plugin": "^3.10.4",
+    "@rushstack/eslint-patch": "^1.1.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.2.5",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-playwright": "^0.9.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-regexp": "^1.7.0",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-tailwindcss": "^3.6.0",
+    "eslint-plugin-testing-library": "^5.5.1",
+    "prettier": "^2.7.1"
   },
   "peerDependencies": {
     "eslint": "^8.0.0",
@@ -112,11 +111,16 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "28.1.4",
+    "@types/node": "18.0.0",
     "@types/prettier": "2.6.3",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
     "eslint": "8.19.0",
     "graphql": "16.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rimraf": "3.0.2",
     "typescript": "4.7.4"
   }
 }

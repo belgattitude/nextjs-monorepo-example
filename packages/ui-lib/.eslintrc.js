@@ -3,6 +3,9 @@
  * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
  */
 
+// Workaround for https://github.com/eslint/eslint/issues/3458 (re-export of @rushstack/eslint-patch)
+require('@your-org/eslint-config-bases/patch/modern-module-resolution');
+
 const {
   getDefaultIgnorePatterns,
 } = require('@your-org/eslint-config-bases/helpers');
