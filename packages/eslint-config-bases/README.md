@@ -18,6 +18,7 @@ packages that lives in a [monorepo](https://github.com/belgattitude/nextjs-monor
 - **Monorepo friendly:** Each workspace can have its own config.
 - **Composable:** Compose your workspace eslint config from pre-defined bases.
 - **Peace of mind:** Plugins does not need to be installed per workspaces, thx to [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch).
+- **Extensible:** Easily add additional plugins per workspaces (ie: nextjs, remix...)
 - **Performance:** Plugins enabled on file conventions patterns to increase perf.
 
 ## Install
