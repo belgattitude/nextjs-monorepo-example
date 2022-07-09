@@ -1,5 +1,16 @@
 # nextjs-app
 
+## 3.52.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/api-gateway@1.2.1
+  - @your-org/common-i18n@1.1.1
+  - @your-org/core-lib@3.14.1
+  - @your-org/db-main-prisma@2.12.1
+  - @your-org/ui-lib@3.14.3
+
 ## 3.52.0
 
 ### Minor Changes
