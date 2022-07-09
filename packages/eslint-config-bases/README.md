@@ -13,16 +13,20 @@ packages that lives in a [monorepo](https://github.com/belgattitude/nextjs-monor
 
 ## Features
 
-- **Customizable:** Simply extends the bases and fine-tune them.
-- **Composable:** Add only what you need. Less unwanted side effects, increase perf.
-- **Conventions:** Plugins enabled on file conventions patterns to increase perf.
-- **Ease:** No need to install all the plugins in consuming apps/packages.
-- **Monorepo:** Change detection aware.
+## Features
+
+- **Monorepo friendly:** Each workspace can have its own config.
+- **Composable:** Compose your workspace eslint config from pre-defined bases.
+- **Peace of mind:** Plugins does not need to be installed per workspaces, thx to [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch).
+- **Performance:** Plugins enabled on file conventions patterns to increase perf.
 
 ## Install
 
+Add the following devDependencies to workspace (apps/packages in monorepo) or main project package.json.
+
 ```bash
-$ yarn add --dev eslint @your-org/eslint-config-bases:"workspace:^"
+$ yarn add --dev eslint
+$ yarn add --dev @your-org/eslint-config-bases:"workspace:^"
 ```
 
 > **Tip** the [workspace:^](https://yarnpkg.com/features/workspaces#workspace-ranges-workspace) is supported by yarn and pnpm.
@@ -33,6 +37,9 @@ In your app or package, create an `./apps/my-app/.eslintrc.js` file that extends
 existing base configs. For example:
 
 ```javascript
+// Workaround for https://github.com/eslint/eslint/issues/3458 (re-export of @rushstack/eslint-patch)
+require("@your-org/eslint-config-bases/patch/modern-module-resolution");
+
 module.exports = {
   // Be sure to set root to true in monorepo.
   root: true,

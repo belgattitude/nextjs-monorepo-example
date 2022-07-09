@@ -2903,7 +2903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-eslint/eslint-plugin@npm:3.10.4":
+"@graphql-eslint/eslint-plugin@npm:^3.10.4":
   version: 3.10.4
   resolution: "@graphql-eslint/eslint-plugin@npm:3.10.4"
   dependencies:
@@ -6707,7 +6707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:5.16.4":
+"@testing-library/jest-dom@npm:5.16.4, @testing-library/jest-dom@npm:^5.16.4":
   version: 5.16.4
   resolution: "@testing-library/jest-dom@npm:5.16.4"
   dependencies:
@@ -6724,7 +6724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:8.0.1":
+"@testing-library/react-hooks@npm:8.0.1, @testing-library/react-hooks@npm:^8.0.1":
   version: 8.0.1
   resolution: "@testing-library/react-hooks@npm:8.0.1"
   dependencies:
@@ -6746,7 +6746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:13.3.0":
+"@testing-library/react@npm:13.3.0, @testing-library/react@npm:^13.3.0":
   version: 13.3.0
   resolution: "@testing-library/react@npm:13.3.0"
   dependencies:
@@ -7564,7 +7564,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:5.30.5, @typescript-eslint/eslint-plugin@npm:^5.12.1":
+"@typescript-eslint/eslint-plugin@npm:5.30.5, @typescript-eslint/eslint-plugin@npm:^5.12.1, @typescript-eslint/eslint-plugin@npm:^5.30.5":
   version: 5.30.5
   resolution: "@typescript-eslint/eslint-plugin@npm:5.30.5"
   dependencies:
@@ -7587,7 +7587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:5.30.5, @typescript-eslint/parser@npm:^5.12.1, @typescript-eslint/parser@npm:^5.21.0":
+"@typescript-eslint/parser@npm:5.30.5, @typescript-eslint/parser@npm:^5.12.1, @typescript-eslint/parser@npm:^5.21.0, @typescript-eslint/parser@npm:^5.30.5":
   version: 5.30.5
   resolution: "@typescript-eslint/parser@npm:5.30.5"
   dependencies:
@@ -8181,34 +8181,35 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/eslint-config-bases@workspace:packages/eslint-config-bases"
   dependencies:
-    "@graphql-eslint/eslint-plugin": "npm:3.10.4"
-    "@testing-library/jest-dom": "npm:5.16.4"
-    "@testing-library/react": "npm:13.3.0"
-    "@testing-library/react-hooks": "npm:8.0.1"
+    "@graphql-eslint/eslint-plugin": "npm:^3.10.4"
+    "@rushstack/eslint-patch": "npm:^1.1.0"
+    "@testing-library/jest-dom": "npm:^5.16.4"
+    "@testing-library/react": "npm:^13.3.0"
+    "@testing-library/react-hooks": "npm:^8.0.1"
     "@types/jest": "npm:28.1.4"
     "@types/node": "npm:18.0.0"
     "@types/prettier": "npm:2.6.3"
     "@types/react": "npm:18.0.15"
     "@types/react-dom": "npm:18.0.6"
-    "@typescript-eslint/eslint-plugin": "npm:5.30.5"
-    "@typescript-eslint/parser": "npm:5.30.5"
+    "@typescript-eslint/eslint-plugin": "npm:^5.30.5"
+    "@typescript-eslint/parser": "npm:^5.30.5"
     eslint: "npm:8.19.0"
-    eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:3.2.5"
-    eslint-plugin-import: "npm:2.26.0"
-    eslint-plugin-jest: "npm:26.5.3"
-    eslint-plugin-jest-formatting: "npm:3.1.0"
-    eslint-plugin-jsx-a11y: "npm:6.6.0"
-    eslint-plugin-playwright: "npm:0.9.0"
-    eslint-plugin-prettier: "npm:4.2.1"
-    eslint-plugin-react: "npm:7.30.1"
-    eslint-plugin-react-hooks: "npm:4.6.0"
-    eslint-plugin-regexp: "npm:1.7.0"
-    eslint-plugin-sonarjs: "npm:0.13.0"
-    eslint-plugin-tailwindcss: "npm:3.6.0"
-    eslint-plugin-testing-library: "npm:5.5.1"
+    eslint-config-prettier: "npm:^8.5.0"
+    eslint-import-resolver-typescript: "npm:^3.2.5"
+    eslint-plugin-import: "npm:^2.26.0"
+    eslint-plugin-jest: "npm:^26.5.3"
+    eslint-plugin-jest-formatting: "npm:^3.1.0"
+    eslint-plugin-jsx-a11y: "npm:^6.6.0"
+    eslint-plugin-playwright: "npm:^0.9.0"
+    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-react: "npm:^7.30.1"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-regexp: "npm:^1.7.0"
+    eslint-plugin-sonarjs: "npm:^0.13.0"
+    eslint-plugin-tailwindcss: "npm:^3.6.0"
+    eslint-plugin-testing-library: "npm:^5.5.1"
     graphql: "npm:16.5.0"
-    prettier: "npm:2.7.1"
+    prettier: "npm:^2.7.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:3.0.2"
@@ -13390,7 +13391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:8.5.0":
+"eslint-config-prettier@npm:8.5.0, eslint-config-prettier@npm:^8.5.0":
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
@@ -13411,7 +13412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:3.2.5":
+"eslint-import-resolver-typescript@npm:3.2.5, eslint-import-resolver-typescript@npm:^3.2.5":
   version: 3.2.5
   resolution: "eslint-import-resolver-typescript@npm:3.2.5"
   dependencies:
@@ -13503,7 +13504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest-formatting@npm:3.1.0":
+"eslint-plugin-jest-formatting@npm:3.1.0, eslint-plugin-jest-formatting@npm:^3.1.0":
   version: 3.1.0
   resolution: "eslint-plugin-jest-formatting@npm:3.1.0"
   peerDependencies:
@@ -13512,7 +13513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:26.5.3, eslint-plugin-jest@npm:^26.1.1":
+"eslint-plugin-jest@npm:26.5.3, eslint-plugin-jest@npm:^26.1.1, eslint-plugin-jest@npm:^26.5.3":
   version: 26.5.3
   resolution: "eslint-plugin-jest@npm:26.5.3"
   dependencies:
@@ -13529,7 +13530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:6.6.0, eslint-plugin-jsx-a11y@npm:^6.5.1":
+"eslint-plugin-jsx-a11y@npm:6.6.0, eslint-plugin-jsx-a11y@npm:^6.5.1, eslint-plugin-jsx-a11y@npm:^6.6.0":
   version: 6.6.0
   resolution: "eslint-plugin-jsx-a11y@npm:6.6.0"
   dependencies:
@@ -13568,7 +13569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-playwright@npm:0.9.0":
+"eslint-plugin-playwright@npm:^0.9.0":
   version: 0.9.0
   resolution: "eslint-plugin-playwright@npm:0.9.0"
   peerDependencies:
@@ -13581,7 +13582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:4.2.1":
+"eslint-plugin-prettier@npm:4.2.1, eslint-plugin-prettier@npm:^4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
@@ -13596,7 +13597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:4.6.0, eslint-plugin-react-hooks@npm:^4.3.0, eslint-plugin-react-hooks@npm:^4.5.0":
+"eslint-plugin-react-hooks@npm:4.6.0, eslint-plugin-react-hooks@npm:^4.3.0, eslint-plugin-react-hooks@npm:^4.5.0, eslint-plugin-react-hooks@npm:^4.6.0":
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
@@ -13605,7 +13606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:7.30.1, eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.4":
+"eslint-plugin-react@npm:7.30.1, eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.4, eslint-plugin-react@npm:^7.30.1":
   version: 7.30.1
   resolution: "eslint-plugin-react@npm:7.30.1"
   dependencies:
@@ -13629,7 +13630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:1.7.0":
+"eslint-plugin-regexp@npm:1.7.0, eslint-plugin-regexp@npm:^1.7.0":
   version: 1.7.0
   resolution: "eslint-plugin-regexp@npm:1.7.0"
   dependencies:
@@ -13647,7 +13648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:0.13.0":
+"eslint-plugin-sonarjs@npm:0.13.0, eslint-plugin-sonarjs@npm:^0.13.0":
   version: 0.13.0
   resolution: "eslint-plugin-sonarjs@npm:0.13.0"
   peerDependencies:
@@ -13656,7 +13657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tailwindcss@npm:3.6.0":
+"eslint-plugin-tailwindcss@npm:^3.6.0":
   version: 3.6.0
   resolution: "eslint-plugin-tailwindcss@npm:3.6.0"
   dependencies:
@@ -13667,7 +13668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:5.5.1, eslint-plugin-testing-library@npm:^5.0.5":
+"eslint-plugin-testing-library@npm:5.5.1, eslint-plugin-testing-library@npm:^5.0.5, eslint-plugin-testing-library@npm:^5.5.1":
   version: 5.5.1
   resolution: "eslint-plugin-testing-library@npm:5.5.1"
   dependencies:
@@ -23242,7 +23243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.7.1":
+"prettier@npm:2.7.1, prettier@npm:^2.7.1":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
