@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.5.0
+
+### Minor Changes
+
+- [#2239](https://github.com/belgattitude/nextjs-monorepo-example/pull/2239) [`98ca6d6`](https://github.com/belgattitude/nextjs-monorepo-example/commit/98ca6d6a3dc11aee8fdf4eba28f600d6820eb520) Thanks [@belgattitude](https://github.com/belgattitude)! - Export '/patch/modern-module-resolution' based on @rushstack/eslint-patch
+
 ## 1.4.1
 
 ### Patch Changes
