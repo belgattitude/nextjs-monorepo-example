@@ -42,10 +42,7 @@
     }
   ],
   "extensions": {
-    "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "esbenp.prettier-vscode",
-    ]
+    "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
   },
   "settings": {
     "editor.formatOnSave": true,
@@ -56,7 +53,7 @@
     // Disable vscode formatting for js,jsx,ts,tsx files
     // to allow dbaeumer.vscode-eslint to format them
     "[javascript]": {
-      "editor.formatOnSave": false,
+      "editor.formatOnSave": false
     },
     "eslint.alwaysShowStatus": true,
     // https://github.com/Microsoft/vscode-eslint#mono-repository-setup
@@ -70,6 +67,9 @@
       "./packages/db-main-prisma",
       "./packages/eslint-config-bases",
       "./packages/ui-lib"
-    ]
+    ],
+    "[ignore]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
+    }
   }
 }
