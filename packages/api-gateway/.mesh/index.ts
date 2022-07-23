@@ -231,7 +231,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  BigInt: bigint;
+  BigInt: any;
 };
 
 export type Query = {
@@ -353,22 +353,27 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
 import type { GetMeshOptions } from '@graphql-mesh/runtime';
 import type { YamlConfig } from '@graphql-mesh/types';
 import { PubSub } from '@graphql-mesh/utils';
-import MeshCache from "@graphql-mesh/cache-localforage";
 import { DefaultLogger } from '@graphql-mesh/utils';
+import MeshCache from "@graphql-mesh/cache-localforage";
+import { fetchFactory } from 'fetchache';
+import { fetch, Request, Response } from '@whatwg-node/fetch';
+
 import NewOpenapiHandler from "@graphql-mesh/new-openapi"
 import BareMerger from "@graphql-mesh/merger-bare";
 import { printWithCache } from '@graphql-mesh/utils';
 export const rawServeConfig: YamlConfig.Config['serve'] = undefined as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
+const sourcesStore = rootStore.child('sources');
+const logger = new DefaultLogger("🕸️  Mesh");
 const cache = new (MeshCache as any)({
       ...({} as any),
       importFn,
       store: rootStore.child('cache'),
       pubsub,
+      logger,
     } as any)
-const sourcesStore = rootStore.child('sources');
-const logger = new DefaultLogger("🕸️  Mesh");
+const fetchFn = fetchFactory({ cache, fetch, Request, Response });
 const sources = [];
 const transforms = [];
 const additionalEnvelopPlugins = [];
@@ -382,20 +387,21 @@ const catFactsHandler = new NewOpenapiHandler({
               pubsub,
               store: sourcesStore.child("CatFacts"),
               logger: logger.child("CatFacts"),
-              importFn
+              importFn,
+              fetchFn,
             });
 sources[0] = {
           name: 'CatFacts',
           handler: catFactsHandler,
           transforms: catFactsTransforms
         }
+const additionalResolvers = [] as any[]
 const merger = new(BareMerger as any)({
         cache,
         pubsub,
         logger: logger.child('bareMerger'),
         store: rootStore.child('bareMerger')
       })
-const additionalResolvers = [] as any[]
 
   return {
     sources,
