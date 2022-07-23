@@ -1,3 +1,5 @@
+// @ts-check
+
 import path from 'path';
 import { type Env, loadEnvConfig } from '@next/env';
 import type { PlaywrightTestConfig } from '@playwright/test';
@@ -59,20 +61,26 @@ function getNextJsEnv(): Env {
 }
 
 // Reference: https://playwright.dev/docs/test-configuration
+/**
+ * @type {Partial<import('@playwright/test').PlaywrightTestConfig>}
+ */
 const config: PlaywrightTestConfig = {
   testDir: path.join(__dirname, 'e2e'),
+  /* Maximum time one test can run for. */
   timeout: webServerConfig.timeout,
   retries: webServerConfig.retries,
+  /* Opt out of parallel tests on CI. */
+  workers: process.env.CI ? 1 : undefined,
   // Artifacts folder where screenshots, videos, and traces are stored.
-  outputDir: outputDir,
+  outputDir: `${outputDir}/output`,
   preserveOutput: 'always',
   reporter: [
     isCI ? ['github'] : ['list'],
-    ['json', { outputFile: `${outputDir}/test-results.json` }],
+    ['json', { outputFile: `${outputDir}/reports/test-results.json` }],
     [
       'html',
       {
-        outputFolder: `${outputDir}/html`,
+        outputFolder: `${outputDir}/reports/html`,
         open: isCI ? 'never' : 'on-failure',
       },
     ],
