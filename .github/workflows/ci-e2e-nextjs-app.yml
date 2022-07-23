@@ -137,7 +137,7 @@ jobs:
         run: |
           echo "OS: ${{ matrix.os }}"
           echo "Playwright version: ${{ steps.playwright-version.outputs.version }}"
-          echo "Playwright install dir: ${{ matrix.playwright_binary_path }}"        
+          echo "Playwright install dir: ${{ matrix.playwright_binary_path }}" 
           echo "Cache key: ${{ steps.playwright-cache-key.outputs.key }}"
           echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
 
