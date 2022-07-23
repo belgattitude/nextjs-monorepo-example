@@ -137,13 +137,16 @@ jobs:
         run: |
           echo "OS: ${{ matrix.os }}"
           echo "Playwright version: ${{ steps.playwright-version.outputs.version }}"
-          echo "Playwright install dir: ${{ matrix.playwright_binary_path }}" 
+          echo "Playwright install dir: ${{ matrix.playwright_binary_path }}"
           echo "Cache key: ${{ steps.playwright-cache-key.outputs.key }}"
           echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
 
-      - name: Install Playwright
+      - name: Install Playwright OS Deps
+        run: yarn playwright install-deps
+
+      - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: yarn playwright install --with-deps chromium webkit
+        run: yarn playwright install chromium webkit
 
       - name: E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app
