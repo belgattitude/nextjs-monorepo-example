@@ -6060,6 +6060,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@storybook/csf@npm:0.0.1"
+  dependencies:
+    lodash: "npm:^4.17.15"
+  checksum: 95653a459baf6b6195142bc2ff64d2d5b9343396c530bf8d167c492d37a6d3cfde9877bdd0c2a66d47c72bb13af107ea924a3fef4047a2f161266ae767189351
+  languageName: node
+  linkType: hard
+
 "@storybook/docs-tools@npm:6.5.9":
   version: 6.5.9
   resolution: "@storybook/docs-tools@npm:6.5.9"
@@ -7540,6 +7549,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/experimental-utils@npm:^5.3.0":
+  version: 5.31.0
+  resolution: "@typescript-eslint/experimental-utils@npm:5.31.0"
+  dependencies:
+    "@typescript-eslint/utils": "npm:5.31.0"
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: f2888d1d5f296e5afa5b611c34b0f27a4ef2ca6d6f717e1a8e4ad99c91a175cf0262a6108510ebbe3de570dab10952009e798f4a29d538452e400cc78d5ef15f
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/parser@npm:5.31.0, @typescript-eslint/parser@npm:^5.12.1, @typescript-eslint/parser@npm:^5.21.0, @typescript-eslint/parser@npm:^5.30.7":
   version: 5.31.0
   resolution: "@typescript-eslint/parser@npm:5.31.0"
@@ -8175,6 +8195,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-regexp: "npm:^1.7.0"
     eslint-plugin-sonarjs: "npm:^0.14.0"
+    eslint-plugin-storybook: "npm:^0.6.1"
     eslint-plugin-tailwindcss: "npm:^3.6.0"
     eslint-plugin-testing-library: "npm:^5.5.1"
     graphql: "npm:16.5.0"
@@ -13520,6 +13541,19 @@ __metadata:
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: 26dbf258f338af1fac16c0a0617c0e8b9f8028bd7ac5ed1dc7a719a3056d208a09f239459cc2d54cf704c090cc04249e528022307b52fba0c85c207e4fe24b25
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-storybook@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "eslint-plugin-storybook@npm:0.6.1"
+  dependencies:
+    "@storybook/csf": "npm:^0.0.1"
+    "@typescript-eslint/experimental-utils": "npm:^5.3.0"
+    requireindex: "npm:^1.1.0"
+  peerDependencies:
+    eslint: ">=6"
+  checksum: 71c3ba511a028fcc1e143e3acd002422106766ea91326db8f29e915b7bad8698f46a21cc4f02b08f4b5247327830acab6d4ce10659d81a305ab55af6e336e515
   languageName: node
   linkType: hard
 
@@ -24338,7 +24372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"requireindex@npm:^1.2.0":
+"requireindex@npm:^1.1.0, requireindex@npm:^1.2.0":
   version: 1.2.0
   resolution: "requireindex@npm:1.2.0"
   checksum: 14ca7427fea875f9741bd21d226dbc767c11ec18d9f8bfe84abaf9c78be1d01160397c875bcf1cd1042b63f6517ffb5fa05b28c2a707b84b07bce23673e6bf3f
