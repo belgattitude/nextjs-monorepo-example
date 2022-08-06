@@ -3117,18 +3117,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/new-openapi@npm:0.5.10":
-  version: 0.5.10
-  resolution: "@graphql-mesh/new-openapi@npm:0.5.10"
+"@graphql-mesh/new-openapi@npm:0.5.11":
+  version: 0.5.11
+  resolution: "@graphql-mesh/new-openapi@npm:0.5.11"
   dependencies:
     "@graphql-mesh/store": "npm:0.8.26"
     "@graphql-mesh/types": "npm:0.78.6"
     "@graphql-mesh/utils": "npm:0.37.7"
-    "@omnigraph/openapi": "npm:0.7.10"
+    "@omnigraph/openapi": "npm:0.7.11"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: "*"
-  checksum: 2689cd1dc745fb4fd3dc82789c1a492a1c4a2d234f61b345d6645a164b61c3310095dbc1d925e81423176eaaa97b71f83fd06199dcba17a3a7b2b0fba49a3a68
+  checksum: 6121ad22ee93925304401e0880f41fbda2536913986664e97ca47f5d8c3c71e7d32b779d7695451de46cad0a03276a560e315ecfe9e12e4e4183739ad1ea968b
   languageName: node
   linkType: hard
 
@@ -4452,9 +4452,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@omnigraph/json-schema@npm:0.24.6":
-  version: 0.24.6
-  resolution: "@omnigraph/json-schema@npm:0.24.6"
+"@omnigraph/json-schema@npm:0.25.0":
+  version: 0.25.0
+  resolution: "@omnigraph/json-schema@npm:0.25.0"
   dependencies:
     "@graphql-mesh/cross-helpers": "npm:0.2.0"
     "@graphql-mesh/string-interpolation": "npm:0.3.0"
@@ -4467,7 +4467,7 @@ __metadata:
     ajv-formats: "npm:2.1.1"
     graphql-compose: "npm:9.0.8"
     graphql-scalars: "npm:1.17.0"
-    json-machete: "npm:0.10.6"
+    json-machete: "npm:0.11.0"
     lodash.set: "npm:4.3.2"
     pascal-case: "npm:3.1.2"
     qs: "npm:6.11.0"
@@ -4476,26 +4476,26 @@ __metadata:
     url-join: "npm:4.0.1"
   peerDependencies:
     graphql: "*"
-  checksum: e807cb8db9046d4b45302eb674610ab2a33f88f874ca43b341beabea9563916dd509366e9479eead66f4dd37b873c329c92abec53a26eb6fb3b26f1c57eeacc1
+  checksum: c1743f167a613a784e1b0219c8652594dd8311690034b9f782f2c91f0635cd640b26886d42de5452b35eaa6c9cc8c5da163c9aad41976ee9c8a39dd38c7e98c3
   languageName: node
   linkType: hard
 
-"@omnigraph/openapi@npm:0.7.10":
-  version: 0.7.10
-  resolution: "@omnigraph/openapi@npm:0.7.10"
+"@omnigraph/openapi@npm:0.7.11":
+  version: 0.7.11
+  resolution: "@omnigraph/openapi@npm:0.7.11"
   dependencies:
     "@graphql-mesh/cross-helpers": "npm:0.2.0"
     "@graphql-mesh/string-interpolation": "npm:0.3.0"
     "@graphql-mesh/types": "npm:0.78.6"
     "@graphql-mesh/utils": "npm:0.37.7"
-    "@omnigraph/json-schema": "npm:0.24.6"
+    "@omnigraph/json-schema": "npm:0.25.0"
     change-case: "npm:4.1.2"
-    json-machete: "npm:0.10.6"
+    json-machete: "npm:0.11.0"
     openapi-types: "npm:12.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: "*"
-  checksum: be2fc09351c7adfc1dd63fb8b1adf2b10d8b00e6a2cd4a1ef9399a78bf33105e5f75921ca0672b3e922a1b90284d5f3e53723bedb22a183979ea2d1ee851212c
+  checksum: cbee744388a645f55e3ed348e4ce0c06d775dcf6d1b873d1909af84f4b72afeb4c470b1472b440d45fce0b8d3a7a8a36aeb421b9c6bdf05680589d6eceaee777
   languageName: node
   linkType: hard
 
@@ -8195,7 +8195,7 @@ __metadata:
     "@graphql-mesh/cli": "npm:0.75.5"
     "@graphql-mesh/config": "npm:5.1.5"
     "@graphql-mesh/graphql": "npm:0.29.7"
-    "@graphql-mesh/new-openapi": "npm:0.5.10"
+    "@graphql-mesh/new-openapi": "npm:0.5.11"
     "@graphql-mesh/runtime": "npm:0.41.6"
     "@types/jest": "npm:28.1.6"
     "@types/node": "npm:18.0.6"
@@ -18171,11 +18171,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-machete@npm:0.10.6":
-  version: 0.10.6
-  resolution: "json-machete@npm:0.10.6"
+"json-machete@npm:0.11.0":
+  version: 0.11.0
+  resolution: "json-machete@npm:0.11.0"
   dependencies:
     "@graphql-mesh/cross-helpers": "npm:0.2.0"
+    "@graphql-mesh/types": "npm:0.78.6"
     "@graphql-mesh/utils": "npm:0.37.7"
     "@graphql-tools/utils": "npm:8.9.0"
     "@json-schema-tools/meta-schema": "npm:1.6.19"
@@ -18184,7 +18185,7 @@ __metadata:
     to-json-schema: "npm:0.2.5"
     tslib: "npm:^2.4.0"
     url-join: "npm:4.0.1"
-  checksum: 1b829f56b329d6ddd698dd91f6c8ccc96db96ea238e8e3ea19586e1a0911c66087eb7dc76bcdc66808e6be9c887e50631d6bd55a89e9fc65bbfb7f64bc59f761
+  checksum: 6167c010ef89088d57e3e8dbfcc207cb7b70ec61b91bef46be7ace908572969daa37dad4c8d961785f1546cf5fde05f46de0dc333119402ea5a1e6c26dabd40d
   languageName: node
   linkType: hard
 
