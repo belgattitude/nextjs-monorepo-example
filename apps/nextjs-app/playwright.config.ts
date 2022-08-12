@@ -50,14 +50,18 @@ if (typeof webServerConfigs?.[webServerMode] !== 'object') {
 
 const webServerConfig = webServerConfigs[webServerMode];
 
-function getNextJsEnv(): Env {
+function getNextJsEnv(): Record<string, string> {
   const { combinedEnv, loadedEnvFiles } = loadEnvConfig(__dirname);
   loadedEnvFiles.forEach((file) => {
     console.log(
-      `${pc.green('notice')}- Loaded nextjs environement file: './${file.path}'`
+      `${pc.green('notice')}- Loaded nextjs environment file: './${file.path}'`
     );
   });
-  return combinedEnv;
+  return Object.keys(combinedEnv).reduce<Record<string, string>>((acc, key) => {
+    const v = combinedEnv[key];
+    if (v !== undefined) acc[key] = v;
+    return acc;
+  }, {});
 }
 
 // Reference: https://playwright.dev/docs/test-configuration
