@@ -7867,6 +7867,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/coverage-istanbul@npm:0.22.0":
+  version: 0.22.0
+  resolution: "@vitest/coverage-istanbul@npm:0.22.0"
+  dependencies:
+    istanbul-lib-coverage: "npm:^3.2.0"
+    istanbul-lib-instrument: "npm:^5.2.0"
+    istanbul-lib-report: "npm:^3.0.0"
+    istanbul-lib-source-maps: "npm:^4.0.1"
+    istanbul-reports: "npm:^3.1.5"
+    test-exclude: "npm:^6.0.0"
+    vitest: "npm:0.22.0"
+  checksum: d537818c9329b9fba47f23e41b79861c498ef77272fa641610e2e8e4037ccce7de1feb6a01837f02cc62c531929c73c2f99d4a95bd583c0df14bd672b4d07676
+  languageName: node
+  linkType: hard
+
 "@vitest/ui@npm:0.22.0":
   version: 0.22.0
   resolution: "@vitest/ui@npm:0.22.0"
@@ -8309,10 +8324,13 @@ __metadata:
     "@types/node": "npm:18.7.3"
     "@types/react": "npm:18.0.17"
     "@types/react-dom": "npm:18.0.6"
+    "@vitest/coverage-istanbul": "npm:0.22.0"
+    "@vitest/ui": "npm:0.22.0"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
     dequal: "npm:^2.0.0"
     eslint: "npm:8.22.0"
+    happy-dom: "npm:6.0.4"
     jest: "npm:28.1.3"
     jest-environment-jsdom: "npm:28.1.3"
     microbundle: "npm:0.15.1"
@@ -8323,6 +8341,7 @@ __metadata:
     rimraf: "npm:3.0.2"
     ts-jest: "npm:28.0.8"
     typescript: "npm:4.7.4"
+    vitest: "npm:0.22.0"
   peerDependencies:
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
@@ -10227,7 +10246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:7.12.0, c8@npm:^7.6.0":
+"c8@npm:^7.6.0":
   version: 7.12.0
   resolution: "c8@npm:7.12.0"
   dependencies:
@@ -17417,16 +17436,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-instrument@npm:^5.0.4, istanbul-lib-instrument@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "istanbul-lib-instrument@npm:5.1.0"
+"istanbul-lib-instrument@npm:^5.0.4, istanbul-lib-instrument@npm:^5.1.0, istanbul-lib-instrument@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "istanbul-lib-instrument@npm:5.2.0"
   dependencies:
     "@babel/core": "npm:^7.12.3"
     "@babel/parser": "npm:^7.14.7"
     "@istanbuljs/schema": "npm:^0.1.2"
     istanbul-lib-coverage: "npm:^3.2.0"
     semver: "npm:^6.3.0"
-  checksum: 2380880c90388512d27180b16c15897ed7f00f1131a2bfe31142c980832ea2504a938abfa102d508eb792c5238db9c9d488aafe632cc437b293e23ccf1eca05a
+  checksum: d45f8fbd3b850af6d6d71c4ba0c6de206c7ab2fd82dec9f50624df8a08fad0df5175d04803ab0373370d714dc0eb8e6d93853e301b4a15dbaebdcb3120847935
   languageName: node
   linkType: hard
 
@@ -17441,7 +17460,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-source-maps@npm:^4.0.0":
+"istanbul-lib-source-maps@npm:^4.0.0, istanbul-lib-source-maps@npm:^4.0.1":
   version: 4.0.1
   resolution: "istanbul-lib-source-maps@npm:4.0.1"
   dependencies:
@@ -17452,13 +17471,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-reports@npm:^3.1.3, istanbul-reports@npm:^3.1.4":
-  version: 3.1.4
-  resolution: "istanbul-reports@npm:3.1.4"
+"istanbul-reports@npm:^3.1.3, istanbul-reports@npm:^3.1.4, istanbul-reports@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "istanbul-reports@npm:3.1.5"
   dependencies:
     html-escaper: "npm:^2.0.0"
     istanbul-lib-report: "npm:^3.0.0"
-  checksum: ae06b17bfe5bb447855b7cb5dea581f3918f495d55c81c63204078b567af5e9121e629bd7a221bc6f01772dde977876bb51dc69889731e8f86d8ec9e59f39508
+  checksum: 1dbb467f79cdc6498b27b4579a00f0faeea03678af0f92f4705e8877095043b258e8022e036cae8ee524dbf1eb5615281c92da1fb5b88706642ab865eea71b8a
   languageName: node
   linkType: hard
 
@@ -20701,6 +20720,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.33.1"
     "@typescript-eslint/parser": "npm:5.33.1"
     "@vitejs/plugin-react": "npm:2.0.1"
+    "@vitest/coverage-istanbul": "npm:0.22.0"
     "@vitest/ui": "npm:0.22.0"
     "@your-org/api-gateway": "workspace:^"
     "@your-org/common-i18n": "workspace:^"
@@ -20711,7 +20731,6 @@ __metadata:
     apollo-server-micro: "npm:3.10.1"
     autoprefixer: "npm:10.4.8"
     axios: "npm:0.27.2"
-    c8: "npm:7.12.0"
     cors: "npm:2.8.5"
     cross-env: "npm:7.0.3"
     dotenv-flow: "npm:3.2.0"
@@ -28271,18 +28290,23 @@ __metadata:
     "@types/react": "npm:18.0.17"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.0.1"
+    "@vitest/coverage-istanbul": "npm:0.22.0"
+    "@vitest/ui": "npm:0.22.0"
     "@your-org/common-i18n": "workspace:^"
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     eslint: "npm:8.22.0"
+    happy-dom: "npm:6.0.4"
     prettier: "npm:2.7.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:3.0.2"
     typescript: "npm:4.7.4"
     vite: "npm:3.0.8"
+    vite-plugin-svgr: "npm:2.2.1"
     vite-tsconfig-paths: "npm:3.5.0"
+    vitest: "npm:0.22.0"
   languageName: unknown
   linkType: soft
 
