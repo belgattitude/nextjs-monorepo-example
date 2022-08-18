@@ -2988,9 +2988,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/cli@npm:0.75.10":
-  version: 0.75.10
-  resolution: "@graphql-mesh/cli@npm:0.75.10"
+"@graphql-mesh/cli@npm:0.75.11":
+  version: 0.75.11
+  resolution: "@graphql-mesh/cli@npm:0.75.11"
   dependencies:
     "@graphql-codegen/core": "npm:2.6.2"
     "@graphql-codegen/typed-document-node": "npm:2.3.3"
@@ -2998,9 +2998,9 @@ __metadata:
     "@graphql-codegen/typescript-generic-sdk": "npm:3.0.0"
     "@graphql-codegen/typescript-operations": "npm:2.5.3"
     "@graphql-codegen/typescript-resolvers": "npm:2.7.3"
-    "@graphql-mesh/config": "npm:5.1.8"
+    "@graphql-mesh/config": "npm:6.0.0"
     "@graphql-mesh/cross-helpers": "npm:0.2.2"
-    "@graphql-mesh/runtime": "npm:0.41.10"
+    "@graphql-mesh/runtime": "npm:0.42.0"
     "@graphql-mesh/store": "npm:0.8.29"
     "@graphql-mesh/types": "npm:0.79.0"
     "@graphql-mesh/utils": "npm:0.38.0"
@@ -3038,7 +3038,7 @@ __metadata:
     gql-mesh: bin.js
     graphql-mesh: bin.js
     mesh: bin.js
-  checksum: 9d89eef3b403f1da5233926c6d0c4ba6aee7684fcaa80e753970a51a7cd734822d664645f259ea820e57eef5eea870a1c80c89220f6d8f67affb055a40de2ce4
+  checksum: 1c30f3b3d2501b1b9d1580a21628a666f5ac1f8fc114264df938e7485c1d217ad9871956e855e448879218f3852440960074a876cf84a4eabe3079568b3d309f
   languageName: node
   linkType: hard
 
@@ -3068,6 +3068,35 @@ __metadata:
     "@graphql-mesh/runtime": ^0.41.10
     graphql: "*"
   checksum: bd4363a01d4f971b50ed4a53c20d63b391a21cc11049e6b40ba413292b96d483c608b37b0fac8f6f45c34b8009639eec0d8f1cb12395ee03e5cc445c4437b81c
+  languageName: node
+  linkType: hard
+
+"@graphql-mesh/config@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@graphql-mesh/config@npm:6.0.0"
+  dependencies:
+    "@envelop/core": "npm:2.5.0"
+    "@graphql-mesh/cache-localforage": "npm:0.6.26"
+    "@graphql-mesh/cross-helpers": "npm:0.2.2"
+    "@graphql-mesh/merger-bare": "npm:0.15.10"
+    "@graphql-mesh/merger-stitching": "npm:0.16.9"
+    "@graphql-mesh/store": "npm:0.8.29"
+    "@graphql-mesh/types": "npm:0.79.0"
+    "@graphql-mesh/utils": "npm:0.38.0"
+    "@graphql-tools/code-file-loader": "npm:7.3.3"
+    "@graphql-tools/graphql-file-loader": "npm:7.5.2"
+    "@graphql-tools/load": "npm:7.7.4"
+    "@graphql-tools/utils": "npm:8.10.0"
+    "@whatwg-node/fetch": "npm:^0.2.7"
+    camel-case: "npm:4.1.2"
+    fetchache: "npm:0.1.2"
+    param-case: "npm:3.0.4"
+    pascal-case: "npm:3.1.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@graphql-mesh/runtime": ^0.42.0
+    graphql: "*"
+  checksum: 0caae6d92ced2688635696db2ab7a8dac6676fe29afacb53449516fe903c81f0059e13c8dbc16e67d388329cc12434f880e8c63355fc9e8306c7ae853eb14776
   languageName: node
   linkType: hard
 
@@ -3154,9 +3183,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/runtime@npm:0.41.10":
-  version: 0.41.10
-  resolution: "@graphql-mesh/runtime@npm:0.41.10"
+"@graphql-mesh/runtime@npm:0.42.0":
+  version: 0.42.0
+  resolution: "@graphql-mesh/runtime@npm:0.42.0"
   dependencies:
     "@envelop/core": "npm:2.5.0"
     "@envelop/extended-validation": "npm:1.8.0"
@@ -3164,13 +3193,14 @@ __metadata:
     "@graphql-mesh/types": "npm:0.79.0"
     "@graphql-mesh/utils": "npm:0.38.0"
     "@graphql-tools/batch-delegate": "npm:8.3.6"
+    "@graphql-tools/batch-execute": "npm:8.5.3"
     "@graphql-tools/delegate": "npm:9.0.3"
     "@graphql-tools/utils": "npm:8.10.0"
     "@graphql-tools/wrap": "npm:9.0.4"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: "*"
-  checksum: f1fca52fba1f6ef5f700010b3b12c6942e14bebf7a36d4b6a36795492db22070bea50a043416aebe981688fc4f929fc331c8c4b880900a70eccd295f32bbec05
+  checksum: 40806fde19c8129baba61045773cc729c66d203049a9f8d58b3487d50b26068a09dcdc8ad215231e1d06891c26bc9f4b7c8c86daadf05dc2d538188f7dd409f0
   languageName: node
   linkType: hard
 
@@ -8261,11 +8291,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/api-gateway@workspace:packages/api-gateway"
   dependencies:
-    "@graphql-mesh/cli": "npm:0.75.10"
+    "@graphql-mesh/cli": "npm:0.75.11"
     "@graphql-mesh/config": "npm:5.1.8"
     "@graphql-mesh/graphql": "npm:0.29.10"
     "@graphql-mesh/new-openapi": "npm:0.7.0"
-    "@graphql-mesh/runtime": "npm:0.41.10"
+    "@graphql-mesh/runtime": "npm:0.42.0"
     "@types/jest": "npm:28.1.7"
     "@types/node": "npm:18.7.3"
     "@your-org/eslint-config-bases": "workspace:^"
