@@ -26,7 +26,9 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/core-lib.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
-    "test-unit": "jest --config jest.config.js",
+    "test-unit": "vitest run",
+    "test-unit-watch": "vitest watch --ui",
+    "test-unit-jest": "jest --config jest.config.js",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
   },
   "dependencies": {
@@ -52,6 +54,9 @@
     "@types/node": "18.7.3",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "@vitejs/plugin-react": "2.0.1",
+    "@vitest/coverage-istanbul": "0.22.1",
+    "@vitest/ui": "0.22.1",
     "@your-org/eslint-config-bases": "workspace:^",
     "cross-env": "7.0.3",
     "eslint": "8.23.0",
@@ -64,6 +69,9 @@
     "react-dom": "18.2.0",
     "rimraf": "3.0.2",
     "ts-jest": "28.0.8",
-    "typescript": "4.8.2"
+    "typescript": "4.8.2",
+    "vite": "3.0.9",
+    "vite-tsconfig-paths": "3.5.0",
+    "vitest": "0.22.1"
   }
 }
