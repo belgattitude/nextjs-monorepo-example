@@ -5,7 +5,7 @@ describe('asserts test', () => {
     it('should work as expected', () => {
       expect(() => {
         Asserts.nonEmptyString('cool');
-      }).not.toThrowError('');
+      }).not.toThrow();
       expect(() => {
         Asserts.nonEmptyString(' ', 'message');
       }).toThrow('message');
@@ -13,7 +13,7 @@ describe('asserts test', () => {
         Asserts.nonEmptyString(true, () => {
           return new Error('message2');
         });
-      }).toThrowError('message2');
+      }).toThrow('message2');
     });
   });
 });

@@ -8614,7 +8614,7 @@ __metadata:
     eslint-config-prettier: "npm:^8.5.0"
     eslint-import-resolver-typescript: "npm:^3.5.0"
     eslint-plugin-import: "npm:^2.26.0"
-    eslint-plugin-jest: "npm:^26.8.7"
+    eslint-plugin-jest: "npm:^27.0.0"
     eslint-plugin-jest-formatting: "npm:^3.1.0"
     eslint-plugin-jsx-a11y: "npm:^6.6.1"
     eslint-plugin-playwright: "npm:^0.11.1"
@@ -13732,7 +13732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0":
+"eslint-config-prettier@npm:8.5.0, eslint-config-prettier@npm:^8.5.0":
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
@@ -13753,23 +13753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^2.5.0, eslint-import-resolver-typescript@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "eslint-import-resolver-typescript@npm:2.7.1"
-  dependencies:
-    debug: "npm:^4.3.4"
-    glob: "npm:^7.2.0"
-    is-glob: "npm:^4.0.3"
-    resolve: "npm:^1.22.0"
-    tsconfig-paths: "npm:^3.14.1"
-  peerDependencies:
-    eslint: "*"
-    eslint-plugin-import: "*"
-  checksum: 6c0c8ec3cf8f52190e66ea068196fd587644070eea2dd5e692541d36b1f2210a01c96c8f2f71bdb12b20e85e9085dfe150b9a7f0eef81be0cb7bccc17539846d
-  languageName: node
-  linkType: hard
-
-"eslint-import-resolver-typescript@npm:^3.5.0":
+"eslint-import-resolver-typescript@npm:3.5.0, eslint-import-resolver-typescript@npm:^3.5.0":
   version: 3.5.0
   resolution: "eslint-import-resolver-typescript@npm:3.5.0"
   dependencies:
@@ -13784,6 +13768,22 @@ __metadata:
     eslint: "*"
     eslint-plugin-import: "*"
   checksum: f4a9882810141ea1ee6d2777fb938140431c5a4aa4b1868a2ae1c5e4eac3341157059ab8ead24ca4233425add6ce6b960805f38e78c558bbcd299bde8f7bcb15
+  languageName: node
+  linkType: hard
+
+"eslint-import-resolver-typescript@npm:^2.5.0, eslint-import-resolver-typescript@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "eslint-import-resolver-typescript@npm:2.7.1"
+  dependencies:
+    debug: "npm:^4.3.4"
+    glob: "npm:^7.2.0"
+    is-glob: "npm:^4.0.3"
+    resolve: "npm:^1.22.0"
+    tsconfig-paths: "npm:^3.14.1"
+  peerDependencies:
+    eslint: "*"
+    eslint-plugin-import: "*"
+  checksum: 6c0c8ec3cf8f52190e66ea068196fd587644070eea2dd5e692541d36b1f2210a01c96c8f2f71bdb12b20e85e9085dfe150b9a7f0eef81be0cb7bccc17539846d
   languageName: node
   linkType: hard
 
@@ -13809,7 +13809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.25.4, eslint-plugin-import@npm:^2.26.0":
+"eslint-plugin-import@npm:2.26.0, eslint-plugin-import@npm:^2.25.4, eslint-plugin-import@npm:^2.26.0":
   version: 2.26.0
   resolution: "eslint-plugin-import@npm:2.26.0"
   dependencies:
@@ -13845,7 +13845,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest-formatting@npm:^3.1.0":
+"eslint-plugin-jest-formatting@npm:3.1.0, eslint-plugin-jest-formatting@npm:^3.1.0":
   version: 3.1.0
   resolution: "eslint-plugin-jest-formatting@npm:3.1.0"
   peerDependencies:
@@ -13854,7 +13854,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.1.1, eslint-plugin-jest@npm:^26.8.7":
+"eslint-plugin-jest@npm:27.0.1, eslint-plugin-jest@npm:^27.0.0":
+  version: 27.0.1
+  resolution: "eslint-plugin-jest@npm:27.0.1"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^5.10.0"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^5.0.0
+    eslint: ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+    jest:
+      optional: true
+  checksum: cdfc70706983d33aa23da936d5e7c53418234529356d898ea4b7a38b9ea48e03f846f0c6623f7b076391dd942dc5260079b9914fbede8432071416df34909689
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-jest@npm:^26.1.1":
   version: 26.9.0
   resolution: "eslint-plugin-jest@npm:26.9.0"
   dependencies:
@@ -13871,7 +13888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.5.1, eslint-plugin-jsx-a11y@npm:^6.6.1":
+"eslint-plugin-jsx-a11y@npm:6.6.1, eslint-plugin-jsx-a11y@npm:^6.5.1, eslint-plugin-jsx-a11y@npm:^6.6.1":
   version: 6.6.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.6.1"
   dependencies:
@@ -13923,7 +13940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^4.2.1":
+"eslint-plugin-prettier@npm:4.2.1, eslint-plugin-prettier@npm:^4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
@@ -13938,7 +13955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.3.0, eslint-plugin-react-hooks@npm:^4.5.0, eslint-plugin-react-hooks@npm:^4.6.0":
+"eslint-plugin-react-hooks@npm:4.6.0, eslint-plugin-react-hooks@npm:^4.3.0, eslint-plugin-react-hooks@npm:^4.5.0, eslint-plugin-react-hooks@npm:^4.6.0":
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
@@ -13947,7 +13964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.4, eslint-plugin-react@npm:^7.31.0":
+"eslint-plugin-react@npm:7.31.1, eslint-plugin-react@npm:^7.28.0, eslint-plugin-react@npm:^7.29.4, eslint-plugin-react@npm:^7.31.0":
   version: 7.31.1
   resolution: "eslint-plugin-react@npm:7.31.1"
   dependencies:
@@ -13971,7 +13988,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:^1.9.0":
+"eslint-plugin-regexp@npm:1.9.0, eslint-plugin-regexp@npm:^1.9.0":
   version: 1.9.0
   resolution: "eslint-plugin-regexp@npm:1.9.0"
   dependencies:
@@ -13989,7 +14006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.15.0":
+"eslint-plugin-sonarjs@npm:0.15.0, eslint-plugin-sonarjs@npm:^0.15.0":
   version: 0.15.0
   resolution: "eslint-plugin-sonarjs@npm:0.15.0"
   peerDependencies:
@@ -14023,7 +14040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:^5.0.5, eslint-plugin-testing-library@npm:^5.6.0":
+"eslint-plugin-testing-library@npm:5.6.0, eslint-plugin-testing-library@npm:^5.0.5, eslint-plugin-testing-library@npm:^5.6.0":
   version: 5.6.0
   resolution: "eslint-plugin-testing-library@npm:5.6.0"
   dependencies:
@@ -21102,6 +21119,18 @@ __metadata:
     es-check: "npm:7.0.0"
     eslint: "npm:8.23.0"
     eslint-config-next: "npm:12.2.5"
+    eslint-config-prettier: "npm:8.5.0"
+    eslint-import-resolver-typescript: "npm:3.5.0"
+    eslint-plugin-import: "npm:2.26.0"
+    eslint-plugin-jest: "npm:27.0.1"
+    eslint-plugin-jest-formatting: "npm:3.1.0"
+    eslint-plugin-jsx-a11y: "npm:6.6.1"
+    eslint-plugin-prettier: "npm:4.2.1"
+    eslint-plugin-react: "npm:7.31.1"
+    eslint-plugin-react-hooks: "npm:4.6.0"
+    eslint-plugin-regexp: "npm:1.9.0"
+    eslint-plugin-sonarjs: "npm:0.15.0"
+    eslint-plugin-testing-library: "npm:5.6.0"
     graphql: "npm:16.6.0"
     happy-dom: "npm:6.0.4"
     i18next: "npm:21.9.1"
