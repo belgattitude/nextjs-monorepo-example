@@ -11,26 +11,25 @@ export default {
       "description": "Returns a a list of breeds",
       "responseByStatusCode": {
         "200": {
-          "responseSchema": "https://catfact.ninja/docs/api-docs.json#/paths/~1breeds/get/responses/200/content/application~1json/schema"
+          "responseSchema": {
+            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1breeds/get/responses/200/content/application~1json/schema",
+            "title": "getBreeds_200_response"
+          }
         }
       },
-      "requestSchema": {
-        "type": "object",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "format": "int64",
-            "name": "limit",
-            "description": "limit the amount of results returned"
-          }
-        },
-        "title": "getBreeds_request"
-      },
       "argTypeMap": {
-        "limit": "Int"
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "name": "limit",
+          "description": "limit the amount of results returned"
+        }
+      },
+      "queryParamArgMap": {
+        "limit": "limit"
       },
       "headers": {
-        "Accept": "application/json"
+        "accept": "application/json"
       }
     },
     {
@@ -41,26 +40,25 @@ export default {
       "description": "Returns a random fact",
       "responseByStatusCode": {
         "200": {
-          "responseSchema": "https://catfact.ninja/docs/api-docs.json#/paths/~1fact/get/responses/200/content/application~1json/schema"
+          "responseSchema": {
+            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1fact/get/responses/200/content/application~1json/schema",
+            "title": "getRandomFact_200_response"
+          }
         }
       },
-      "requestSchema": {
-        "type": "object",
-        "properties": {
-          "max_length": {
-            "type": "integer",
-            "format": "int64",
-            "name": "max_length",
-            "description": "maximum length of returned fact"
-          }
-        },
-        "title": "getRandomFact_request"
-      },
       "argTypeMap": {
-        "max_length": "Int"
+        "max_length": {
+          "type": "integer",
+          "format": "int64",
+          "name": "max_length",
+          "description": "maximum length of returned fact"
+        }
+      },
+      "queryParamArgMap": {
+        "max_length": "max_length"
       },
       "headers": {
-        "Accept": "application/json"
+        "accept": "application/json"
       }
     },
     {
@@ -71,33 +69,32 @@ export default {
       "description": "Returns a a list of facts",
       "responseByStatusCode": {
         "200": {
-          "responseSchema": "https://catfact.ninja/docs/api-docs.json#/paths/~1facts/get/responses/200/content/application~1json/schema"
+          "responseSchema": {
+            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1facts/get/responses/200/content/application~1json/schema",
+            "title": "getFacts_200_response"
+          }
         }
       },
-      "requestSchema": {
-        "type": "object",
-        "properties": {
-          "max_length": {
-            "type": "integer",
-            "format": "int64",
-            "name": "max_length",
-            "description": "maximum length of returned fact"
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int64",
-            "name": "limit",
-            "description": "limit the amount of results returned"
-          }
-        },
-        "title": "getFacts_request"
-      },
       "argTypeMap": {
-        "max_length": "Int",
-        "limit": "Int"
+        "max_length": {
+          "type": "integer",
+          "format": "int64",
+          "name": "max_length",
+          "description": "maximum length of returned fact"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "name": "limit",
+          "description": "limit the amount of results returned"
+        }
+      },
+      "queryParamArgMap": {
+        "max_length": "max_length",
+        "limit": "limit"
       },
       "headers": {
-        "Accept": "application/json"
+        "accept": "application/json"
       }
     }
   ],
@@ -260,17 +257,18 @@ export default {
         "title": "QueryInput",
         "properties": {
           "getBreeds": {
-            "$ref": "#/definitions/getBreeds_request"
+            "$ref": "#/definitions/queryInput_getBreeds"
           },
           "getRandomFact": {
-            "$ref": "#/definitions/getRandomFact_request"
+            "$ref": "#/definitions/queryInput_getRandomFact"
           },
           "getFacts": {
-            "$ref": "#/definitions/getFacts_request"
+            "$ref": "#/definitions/queryInput_getFacts"
           }
         }
       },
-      "getBreeds_request": {
+      "queryInput_getBreeds": {
+        "title": "queryInput_getBreeds",
         "type": "object",
         "properties": {
           "limit": {
@@ -279,10 +277,10 @@ export default {
             "name": "limit",
             "description": "limit the amount of results returned"
           }
-        },
-        "title": "getBreeds_request"
+        }
       },
-      "getRandomFact_request": {
+      "queryInput_getRandomFact": {
+        "title": "queryInput_getRandomFact",
         "type": "object",
         "properties": {
           "max_length": {
@@ -291,10 +289,10 @@ export default {
             "name": "max_length",
             "description": "maximum length of returned fact"
           }
-        },
-        "title": "getRandomFact_request"
+        }
       },
-      "getFacts_request": {
+      "queryInput_getFacts": {
+        "title": "queryInput_getFacts",
         "type": "object",
         "properties": {
           "max_length": {
@@ -309,8 +307,7 @@ export default {
             "name": "limit",
             "description": "limit the amount of results returned"
           }
-        },
-        "title": "getFacts_request"
+        }
       }
     }
   }

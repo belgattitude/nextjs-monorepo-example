@@ -29,17 +29,18 @@ export type Query = {
 
 
 export type QuerygetBreedsArgs = {
-  input?: InputMaybe<getBreeds_request_Input>;
+  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
 
 export type QuerygetRandomFactArgs = {
-  input?: InputMaybe<getRandomFact_request_Input>;
+  max_length?: InputMaybe<Scalars['BigInt']>;
 };
 
 
 export type QuerygetFactsArgs = {
-  input?: InputMaybe<getFacts_request_Input>;
+  max_length?: InputMaybe<Scalars['BigInt']>;
+  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
 /** Breed */
@@ -56,29 +57,12 @@ export type Breed_model = {
   pattern?: Maybe<Scalars['String']>;
 };
 
-export type getBreeds_request_Input = {
-  /** limit the amount of results returned */
-  limit?: InputMaybe<Scalars['BigInt']>;
-};
-
 /** CatFact */
 export type CatFact_model = {
   /** Fact */
   fact?: Maybe<Scalars['String']>;
   /** Length */
   length?: Maybe<Scalars['Int']>;
-};
-
-export type getRandomFact_request_Input = {
-  /** maximum length of returned fact */
-  max_length?: InputMaybe<Scalars['BigInt']>;
-};
-
-export type getFacts_request_Input = {
-  /** maximum length of returned fact */
-  max_length?: InputMaybe<Scalars['BigInt']>;
-  /** limit the amount of results returned */
-  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -154,12 +138,9 @@ export type ResolversTypes = ResolversObject<{
   Query: ResolverTypeWrapper<{}>;
   Breed_model: ResolverTypeWrapper<Breed_model>;
   String: ResolverTypeWrapper<Scalars['String']>;
-  getBreeds_request_Input: getBreeds_request_Input;
   BigInt: ResolverTypeWrapper<Scalars['BigInt']>;
   CatFact_model: ResolverTypeWrapper<CatFact_model>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
-  getRandomFact_request_Input: getRandomFact_request_Input;
-  getFacts_request_Input: getFacts_request_Input;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 }>;
 
@@ -168,12 +149,9 @@ export type ResolversParentTypes = ResolversObject<{
   Query: {};
   Breed_model: Breed_model;
   String: Scalars['String'];
-  getBreeds_request_Input: getBreeds_request_Input;
   BigInt: Scalars['BigInt'];
   CatFact_model: CatFact_model;
   Int: Scalars['Int'];
-  getRandomFact_request_Input: getRandomFact_request_Input;
-  getFacts_request_Input: getFacts_request_Input;
   Boolean: Scalars['Boolean'];
 }>;
 
@@ -245,17 +223,18 @@ export type Query = {
 
 
 export type QuerygetBreedsArgs = {
-  input?: InputMaybe<getBreeds_request_Input>;
+  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
 
 export type QuerygetRandomFactArgs = {
-  input?: InputMaybe<getRandomFact_request_Input>;
+  max_length?: InputMaybe<Scalars['BigInt']>;
 };
 
 
 export type QuerygetFactsArgs = {
-  input?: InputMaybe<getFacts_request_Input>;
+  max_length?: InputMaybe<Scalars['BigInt']>;
+  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
 /** Breed */
@@ -272,29 +251,12 @@ export type Breed_model = {
   pattern?: Maybe<Scalars['String']>;
 };
 
-export type getBreeds_request_Input = {
-  /** limit the amount of results returned */
-  limit?: InputMaybe<Scalars['BigInt']>;
-};
-
 /** CatFact */
 export type CatFact_model = {
   /** Fact */
   fact?: Maybe<Scalars['String']>;
   /** Length */
   length?: Maybe<Scalars['Int']>;
-};
-
-export type getRandomFact_request_Input = {
-  /** maximum length of returned fact */
-  max_length?: InputMaybe<Scalars['BigInt']>;
-};
-
-export type getFacts_request_Input = {
-  /** maximum length of returned fact */
-  max_length?: InputMaybe<Scalars['BigInt']>;
-  /** limit the amount of results returned */
-  limit?: InputMaybe<Scalars['BigInt']>;
 };
 
     }
@@ -355,8 +317,7 @@ import type { YamlConfig } from '@graphql-mesh/types';
 import { PubSub } from '@graphql-mesh/utils';
 import { DefaultLogger } from '@graphql-mesh/utils';
 import MeshCache from "@graphql-mesh/cache-localforage";
-import { fetchFactory } from 'fetchache';
-import { fetch, Request, Response } from '@whatwg-node/fetch';
+import { createDefaultMeshFetch } from '@graphql-mesh/utils';
 
 import NewOpenapiHandler from "@graphql-mesh/new-openapi"
 import BareMerger from "@graphql-mesh/merger-bare";
@@ -373,7 +334,7 @@ const cache = new (MeshCache as any)({
       pubsub,
       logger,
     } as any)
-const fetchFn = fetchFactory({ cache, fetch, Request, Response });
+const fetchFn = createDefaultMeshFetch(cache);
 const sources = [];
 const transforms = [];
 const additionalEnvelopPlugins = [];
