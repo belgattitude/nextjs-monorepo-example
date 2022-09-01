@@ -1,7 +1,6 @@
 // @ts-nocheck
 export default {
   "name": "CatFacts",
-  "baseUrl": "https://catfact.ninja",
   "operations": [
     {
       "method": "GET",
@@ -12,7 +11,30 @@ export default {
       "responseByStatusCode": {
         "200": {
           "responseSchema": {
-            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1breeds/get/responses/200/content/application~1json/schema",
+            "type": "array",
+            "items": {
+              "title": "Breed model",
+              "description": "Breed",
+              "properties": {
+                "breed": {
+                  "$ref": "#/definitions/Breed"
+                },
+                "country": {
+                  "$ref": "#/definitions/Country"
+                },
+                "origin": {
+                  "$ref": "#/definitions/Origin"
+                },
+                "coat": {
+                  "$ref": "#/definitions/Coat"
+                },
+                "pattern": {
+                  "$ref": "#/definitions/Pattern"
+                }
+              },
+              "type": "object",
+              "$resolvedRef": "/components/schemas/Breed"
+            },
             "title": "getBreeds_200_response"
           }
         }
@@ -41,8 +63,18 @@ export default {
       "responseByStatusCode": {
         "200": {
           "responseSchema": {
-            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1fact/get/responses/200/content/application~1json/schema",
-            "title": "getRandomFact_200_response"
+            "title": "CatFact model",
+            "description": "CatFact",
+            "properties": {
+              "fact": {
+                "$ref": "#/definitions/Fact"
+              },
+              "length": {
+                "$ref": "#/definitions/Length"
+              }
+            },
+            "type": "object",
+            "$resolvedRef": "/components/schemas/CatFact"
           }
         }
       },
@@ -70,7 +102,21 @@ export default {
       "responseByStatusCode": {
         "200": {
           "responseSchema": {
-            "$ref": "https://catfact.ninja/docs/api-docs.json#/paths/~1facts/get/responses/200/content/application~1json/schema",
+            "type": "array",
+            "items": {
+              "title": "CatFact model",
+              "description": "CatFact",
+              "properties": {
+                "fact": {
+                  "$ref": "#/definitions/Fact"
+                },
+                "length": {
+                  "$ref": "#/definitions/Length"
+                }
+              },
+              "type": "object",
+              "$resolvedRef": "/components/schemas/CatFact"
+            },
             "title": "getFacts_200_response"
           }
         }
@@ -130,7 +176,8 @@ export default {
           "getFacts": {
             "$ref": "#/definitions/getFacts_200_response"
           }
-        }
+        },
+        "readOnly": true
       },
       "getBreeds_200_response": {
         "type": "array",
@@ -157,7 +204,6 @@ export default {
           "type": "object",
           "$resolvedRef": "/components/schemas/Breed"
         },
-        "$resolvedRef": "/paths/~1breeds/get/responses/200/content/application~1json/schema",
         "title": "getBreeds_200_response"
       },
       "Breed_SPACE_model": {
@@ -249,7 +295,6 @@ export default {
           "type": "object",
           "$resolvedRef": "/components/schemas/CatFact"
         },
-        "$resolvedRef": "/paths/~1facts/get/responses/200/content/application~1json/schema",
         "title": "getFacts_200_response"
       },
       "QueryInput": {
@@ -265,7 +310,8 @@ export default {
           "getFacts": {
             "$ref": "#/definitions/queryInput_getFacts"
           }
-        }
+        },
+        "writeOnly": true
       },
       "queryInput_getBreeds": {
         "title": "queryInput_getBreeds",
