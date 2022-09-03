@@ -1,6 +1,7 @@
 // @ts-nocheck
 export default {
   "name": "CatFacts",
+  "baseUrl": "https://catfact.ninja/",
   "operations": [
     {
       "method": "GET",

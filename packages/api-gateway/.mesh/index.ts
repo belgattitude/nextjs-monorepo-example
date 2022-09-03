@@ -251,7 +251,7 @@ const catFactsTransforms = [];
 const additionalTypeDefs = [] as any[];
 const catFactsHandler = new OpenapiHandler({
               name: "CatFacts",
-              config: {"source":"https://catfact.ninja/docs/api-docs.json"},
+              config: {"source":"https://catfact.ninja/docs/api-docs.json","baseUrl":"https://catfact.ninja/"},
               baseDir,
               cache,
               pubsub,
