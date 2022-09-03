@@ -1,10 +1,27 @@
 // @ts-nocheck
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import type { GetMeshOptions } from '@graphql-mesh/runtime';
+import type { YamlConfig } from '@graphql-mesh/types';
+import { PubSub } from '@graphql-mesh/utils';
+import { DefaultLogger } from '@graphql-mesh/utils';
+import MeshCache from "@graphql-mesh/cache-localforage";
+import { fetch as fetchFn } from '@whatwg-node/fetch';
+
+import OpenapiHandler from "@graphql-mesh/openapi"
+import BareMerger from "@graphql-mesh/merger-bare";
+import { printWithCache } from '@graphql-mesh/utils';
+import { getMesh, ExecuteMeshFn, SubscribeMeshFn, MeshContext as BaseMeshContext, MeshInstance } from '@graphql-mesh/runtime';
+import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
+import { path as pathModule } from '@graphql-mesh/cross-helpers';
+import type { CatFactsContext } from './sources/CatFacts/types';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+
+
+
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -188,106 +205,8 @@ export type Resolvers<ContextType = MeshContext> = ResolversObject<{
 }>;
 
 
-import { MeshContext as BaseMeshContext, MeshInstance } from '@graphql-mesh/runtime';
-
-import { InContextSdkMethod } from '@graphql-mesh/types';
-
-
-    export namespace CatFactsTypes {
-      export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-/** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
-  ID: string;
-  /** The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text. */
-  String: string;
-  Boolean: boolean;
-  /** The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. */
-  Int: number;
-  Float: number;
-  /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  BigInt: any;
-};
-
-export type Query = {
-  /** Returns a a list of breeds */
-  getBreeds?: Maybe<Array<Maybe<Breed_model>>>;
-  /** Returns a random fact */
-  getRandomFact?: Maybe<CatFact_model>;
-  /** Returns a a list of facts */
-  getFacts?: Maybe<Array<Maybe<CatFact_model>>>;
-};
-
-
-export type QuerygetBreedsArgs = {
-  limit?: InputMaybe<Scalars['BigInt']>;
-};
-
-
-export type QuerygetRandomFactArgs = {
-  max_length?: InputMaybe<Scalars['BigInt']>;
-};
-
-
-export type QuerygetFactsArgs = {
-  max_length?: InputMaybe<Scalars['BigInt']>;
-  limit?: InputMaybe<Scalars['BigInt']>;
-};
-
-/** Breed */
-export type Breed_model = {
-  /** Breed */
-  breed?: Maybe<Scalars['String']>;
-  /** Country */
-  country?: Maybe<Scalars['String']>;
-  /** Origin */
-  origin?: Maybe<Scalars['String']>;
-  /** Coat */
-  coat?: Maybe<Scalars['String']>;
-  /** Pattern */
-  pattern?: Maybe<Scalars['String']>;
-};
-
-/** CatFact */
-export type CatFact_model = {
-  /** Fact */
-  fact?: Maybe<Scalars['String']>;
-  /** Length */
-  length?: Maybe<Scalars['Int']>;
-};
-
-    }
-    export type QueryCatFactsSdk = {
-  /** Returns a a list of breeds **/
-  getBreeds: InContextSdkMethod<CatFactsTypes.Query['getBreeds'], CatFactsTypes.QuerygetBreedsArgs, MeshContext>,
-  /** Returns a random fact **/
-  getRandomFact: InContextSdkMethod<CatFactsTypes.Query['getRandomFact'], CatFactsTypes.QuerygetRandomFactArgs, MeshContext>,
-  /** Returns a a list of facts **/
-  getFacts: InContextSdkMethod<CatFactsTypes.Query['getFacts'], CatFactsTypes.QuerygetFactsArgs, MeshContext>
-};
-
-export type MutationCatFactsSdk = {
-
-};
-
-export type SubscriptionCatFactsSdk = {
-
-};
-
-export type CatFactsContext = {
-      ["CatFacts"]: { Query: QueryCatFactsSdk, Mutation: MutationCatFactsSdk, Subscription: SubscriptionCatFactsSdk },
-      
-    };
-
 export type MeshContext = CatFactsContext & BaseMeshContext;
 
-
-import { getMesh, ExecuteMeshFn, SubscribeMeshFn } from '@graphql-mesh/runtime';
-import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
-import { path as pathModule } from '@graphql-mesh/cross-helpers';
 
 import { fileURLToPath } from '@graphql-mesh/utils';
 const baseDir = pathModule.join(pathModule.dirname(fileURLToPath(import.meta.url)), '..');
@@ -312,16 +231,6 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
   validate: false
 });
 
-import type { GetMeshOptions } from '@graphql-mesh/runtime';
-import type { YamlConfig } from '@graphql-mesh/types';
-import { PubSub } from '@graphql-mesh/utils';
-import { DefaultLogger } from '@graphql-mesh/utils';
-import MeshCache from "@graphql-mesh/cache-localforage";
-import { createDefaultMeshFetch } from '@graphql-mesh/utils';
-
-import NewOpenapiHandler from "@graphql-mesh/new-openapi"
-import BareMerger from "@graphql-mesh/merger-bare";
-import { printWithCache } from '@graphql-mesh/utils';
 export const rawServeConfig: YamlConfig.Config['serve'] = undefined as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
@@ -334,22 +243,21 @@ const cache = new (MeshCache as any)({
       pubsub,
       logger,
     } as any)
-const fetchFn = createDefaultMeshFetch(cache);
+
 const sources = [];
 const transforms = [];
 const additionalEnvelopPlugins = [];
 const catFactsTransforms = [];
 const additionalTypeDefs = [] as any[];
-const catFactsHandler = new NewOpenapiHandler({
+const catFactsHandler = new OpenapiHandler({
               name: "CatFacts",
-              config: {"baseUrl":"https://catfact.ninja","oasFilePath":"https://catfact.ninja/docs/api-docs.json"},
+              config: {"source":"https://catfact.ninja/docs/api-docs.json","baseUrl":"https://catfact.ninja/"},
               baseDir,
               cache,
               pubsub,
               store: sourcesStore.child("CatFacts"),
               logger: logger.child("CatFacts"),
               importFn,
-              fetchFn,
             });
 sources[0] = {
           name: 'CatFacts',
@@ -379,6 +287,7 @@ const merger = new(BareMerger as any)({
       
     ];
     },
+    fetchFn,
   };
 }
 
