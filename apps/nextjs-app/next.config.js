@@ -159,7 +159,7 @@ const nextConfig = {
   },
 
   sentry: {
-    hideSourceMaps: !disableSourceMaps,
+    hideSourceMaps: true,
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
