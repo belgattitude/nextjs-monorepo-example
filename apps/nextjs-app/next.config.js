@@ -158,6 +158,10 @@ const nextConfig = {
     // emotion: true, - by default since 12.2.0
   },
 
+  sentry: {
+    hideSourceMaps: !disableSourceMaps,
+  },
+
   // @link https://nextjs.org/docs/basic-features/image-optimization
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
