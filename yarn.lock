@@ -8024,9 +8024,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:0.23.1":
-  version: 0.23.1
-  resolution: "@vitest/coverage-istanbul@npm:0.23.1"
+"@vitest/coverage-istanbul@npm:0.23.2":
+  version: 0.23.2
+  resolution: "@vitest/coverage-istanbul@npm:0.23.2"
   dependencies:
     istanbul-lib-coverage: "npm:^3.2.0"
     istanbul-lib-instrument: "npm:^5.2.0"
@@ -8034,8 +8034,8 @@ __metadata:
     istanbul-lib-source-maps: "npm:^4.0.1"
     istanbul-reports: "npm:^3.1.5"
     test-exclude: "npm:^6.0.0"
-    vitest: "npm:0.23.1"
-  checksum: a7777abb1fe9500cf63db7ab5804eee0010c8377e94a1e3be6dc60f50289d71e66be141016a2cb1bd773a12ab10c678ed9c04e1d59d6cbf15e243e2a8c8df51d
+    vitest: "npm:0.23.2"
+  checksum: 3a1ee3881aa80b75b5b0880f6a9e319bf2af61b5f729389f76ff2713846920fa620a7515bc286b50b567a7c79457485b01007b6b3969195931961059fb3e8ffd
   languageName: node
   linkType: hard
 
@@ -8523,7 +8523,7 @@ __metadata:
     "@types/react": "npm:18.0.18"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.1"
+    "@vitest/coverage-istanbul": "npm:0.23.2"
     "@vitest/ui": "npm:0.23.1"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
@@ -21275,7 +21275,7 @@ __metadata:
     "@types/react": "npm:18.0.18"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.1"
+    "@vitest/coverage-istanbul": "npm:0.23.2"
     "@vitest/ui": "npm:0.23.1"
     "@your-org/api-gateway": "workspace:^"
     "@your-org/common-i18n": "workspace:^"
@@ -27604,10 +27604,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinybench@npm:^2.1.3":
-  version: 2.1.4
-  resolution: "tinybench@npm:2.1.4"
-  checksum: 0577a0eeb5c8dc0a4efa9540a53f1bfa189e81d84ebfc927d04411895e2119b4640afedfe22c7e11293f7d6b136f797a2fac85a69adfb10f59da56f638453a8b
+"tinybench@npm:^2.1.3, tinybench@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "tinybench@npm:2.1.5"
+  checksum: c74e63ca01615305b3cd6e2ac4903287ebec3c4c2b8ed33bf07a61e9e4fbdf8596341c285431538b49df499a99e720bf4b007e3e26ca69bc3d93f8a0a1f71b8f
   languageName: node
   linkType: hard
 
@@ -27622,6 +27622,13 @@ __metadata:
   version: 0.2.4
   resolution: "tinypool@npm:0.2.4"
   checksum: 604b22c714a84162f710ac4ed950d18e5161d194777ef45d90611cabc8fb59acccd28de7f78d98e00568fdeb9c41c6f96756e53cf19f3a5e37ff26b80a6edfb2
+  languageName: node
+  linkType: hard
+
+"tinypool@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "tinypool@npm:0.3.0"
+  checksum: ff72e9f9c180315f21eb45fd59a2ac59940b5e7fc674352bd684bf46c47cc590340894c5a4b143e066408d8b3ef67443366bfe7d320473d346d46969f7b5f73d
   languageName: node
   linkType: hard
 
@@ -28976,7 +28983,7 @@ __metadata:
     "@types/react": "npm:18.0.18"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.1"
+    "@vitest/coverage-istanbul": "npm:0.23.2"
     "@vitest/ui": "npm:0.23.1"
     "@your-org/common-i18n": "workspace:^"
     "@your-org/core-lib": "workspace:^"
@@ -29089,6 +29096,44 @@ __metadata:
   bin:
     vitest: vitest.mjs
   checksum: d75ef6537fe875d1ba565abf55ba5c58710df1ef013667345e323a43e9ea44d8d663be2d0ef045dda4432bec316b12cb2cf37ffde8aa80150429d658e1d8e822
+  languageName: node
+  linkType: hard
+
+"vitest@npm:0.23.2":
+  version: 0.23.2
+  resolution: "vitest@npm:0.23.2"
+  dependencies:
+    "@types/chai": "npm:^4.3.3"
+    "@types/chai-subset": "npm:^1.3.3"
+    "@types/node": "npm:*"
+    chai: "npm:^4.3.6"
+    debug: "npm:^4.3.4"
+    local-pkg: "npm:^0.4.2"
+    strip-literal: "npm:^0.4.0"
+    tinybench: "npm:^2.1.5"
+    tinypool: "npm:^0.3.0"
+    tinyspy: "npm:^1.0.2"
+    vite: "npm:^2.9.12 || ^3.0.0-0"
+  peerDependencies:
+    "@edge-runtime/vm": "*"
+    "@vitest/browser": "*"
+    "@vitest/ui": "*"
+    happy-dom: "*"
+    jsdom: "*"
+  peerDependenciesMeta:
+    "@edge-runtime/vm":
+      optional: true
+    "@vitest/browser":
+      optional: true
+    "@vitest/ui":
+      optional: true
+    happy-dom:
+      optional: true
+    jsdom:
+      optional: true
+  bin:
+    vitest: vitest.mjs
+  checksum: 5c3a489e963dc410d88675aca332bc0ad1b3457902607549a310f76310c4b105cf8b370291228931cfe45bad019b3259889bd0ab0dec2ee85a507d4c98e8c5f0
   languageName: node
   linkType: hard
 
