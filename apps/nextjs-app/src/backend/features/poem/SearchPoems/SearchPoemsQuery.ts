@@ -1,4 +1,4 @@
-import { InternalServerError } from '@tsed/exceptions';
+import { HttpInternalServerError } from '@belgattitude/http-exception';
 import type { UnPromisify } from '@your-org/core-lib';
 import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
 import type { SearchPoemsParams } from './SearchPoems.types';
@@ -43,7 +43,10 @@ export class SearchPoemsQuery {
         orderBy: { author: 'desc' },
       });
     } catch (e) {
-      throw new InternalServerError(`Poems can't be retrieved`, e);
+      throw new HttpInternalServerError({
+        message: `Poems can't be retrieved`,
+        cause: e instanceof Error ? e : undefined,
+      });
     }
   };
 }

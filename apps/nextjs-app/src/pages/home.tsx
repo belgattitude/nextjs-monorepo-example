@@ -1,5 +1,4 @@
-import { BadRequest } from '@tsed/exceptions';
-
+import { HttpBadRequest } from '@belgattitude/http-exception';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { homeConfig } from '@/features/home/home.config';
@@ -20,7 +19,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 ) => {
   const { locale } = context;
   if (locale === undefined) {
-    throw new BadRequest('locale is missing');
+    throw new HttpBadRequest('locale is missing');
   }
   const { i18nNamespaces } = homeConfig;
   return {

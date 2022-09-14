@@ -1,4 +1,7 @@
-import { InternalServerError, NotFound } from '@tsed/exceptions';
+import {
+  HttpInternalServerError,
+  HttpNotFound,
+} from '@belgattitude/http-exception';
 import type { UnPromisify } from '@your-org/core-lib';
 import { Asserts } from '@your-org/core-lib';
 import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
@@ -21,11 +24,14 @@ export class PostRepositorySsr {
       });
       Asserts.isPresent(
         post,
-        () => new NotFound(`Post ${postId} can't be found`)
+        () => new HttpNotFound(`Post ${postId} can't be found`)
       );
       return post;
     } catch (e) {
-      throw new InternalServerError(`Post ${postId} can't be retrieved`, e);
+      throw new HttpInternalServerError({
+        message: `Post ${postId} can't be retrieved`,
+        cause: e instanceof Error ? e : undefined,
+      });
     }
   };
 
@@ -55,7 +61,10 @@ export class PostRepositorySsr {
         orderBy: { publishedAt: 'desc' },
       });
     } catch (e) {
-      throw new InternalServerError(`Posts can't be retrieved`, e);
+      throw new HttpInternalServerError({
+        message: `Posts can't be retrieved`,
+        cause: e instanceof Error ? e : undefined,
+      });
     }
   };
 }

@@ -1,4 +1,7 @@
-import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
+import {
+  HttpBadRequest,
+  HttpMethodNotAllowed,
+} from '@belgattitude/http-exception';
 import { Asserts } from '@your-org/core-lib';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
@@ -17,7 +20,7 @@ export default async function handleGetPost(
     const postRepo = new PostRepositorySsr(prismaClient);
 
     try {
-      Asserts.safeInteger(postId, () => new BadRequest('Wrong param id'));
+      Asserts.safeInteger(postId, () => new HttpBadRequest('Wrong param id'));
 
       return res.json(
         JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))
@@ -30,11 +33,11 @@ export default async function handleGetPost(
     }
   } else {
     return res
-      .status(MethodNotAllowed.STATUS)
+      .status(HttpMethodNotAllowed.STATUS)
       .json(
         JsonApiResponseFactory.fromError(
           `The HTTP ${req.method} method is not supported at this route.`,
-          MethodNotAllowed.STATUS
+          HttpMethodNotAllowed.STATUS
         )
       );
   }
