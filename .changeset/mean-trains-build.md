@@ -4,3 +4,5 @@
 ---
 
 Move from @tsed/exceptions to @belgattitude/http-exception
+
+See https://github.com/belgattitude/http-exception
