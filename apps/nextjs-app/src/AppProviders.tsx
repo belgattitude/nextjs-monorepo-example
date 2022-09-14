@@ -1,8 +1,8 @@
 import type { EmotionCache } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { FC, ReactNode } from 'react';
 
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { muiTheme } from '@/themes/mui/mui.theme';
 
 const queryClient = new QueryClient({

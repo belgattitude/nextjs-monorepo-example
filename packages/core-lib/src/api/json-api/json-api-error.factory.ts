@@ -1,4 +1,5 @@
-import type { Exception } from '@tsed/exceptions';
+import type { HttpException } from '@belgattitude/http-exception';
+import { isHttpException } from '@belgattitude/http-exception';
 import type { JsonApiError } from './json-api-response.types';
 
 export class JsonApiErrorFactory {
@@ -10,25 +11,33 @@ export class JsonApiErrorFactory {
       typeof error === 'string' || error instanceof Error
         ? error
         : `Unknown error (type of catched variable: ${typeof error}`;
-    return JsonApiErrorFactory.fromTsedException(e, defaultHttpStatus);
+    return JsonApiErrorFactory.fromHttpException(e, defaultHttpStatus);
   };
 
-  static fromTsedException = (
-    exception: Exception | Error | string,
+  static fromHttpException = (
+    exception: HttpException | Error | string,
     /** fallback http status if it can't be inferred from exception */
     defaultHttpStatus = 500
   ): JsonApiError => {
-    let title: string, status: number;
     if (typeof exception === 'string') {
-      title = exception;
-      status = defaultHttpStatus;
-    } else {
-      title = exception.message;
-      status = 'status' in exception ? exception.status : defaultHttpStatus;
+      return {
+        title: exception,
+        status: defaultHttpStatus,
+      };
     }
+    if (isHttpException(exception)) {
+      return {
+        title: exception.message,
+        status: exception.statusCode,
+      };
+    }
+    const { message, status, statusCode } = {
+      ...{ status: null, statusCode: null },
+      ...exception,
+    };
     return {
-      title,
-      status,
+      title: message,
+      status: status ?? statusCode ?? defaultHttpStatus,
     };
   };
 }

@@ -1,4 +1,4 @@
-import { MethodNotAllowed } from '@tsed/exceptions';
+import { HttpMethodNotAllowed } from '@belgattitude/http-exception';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -27,11 +27,11 @@ export default async function handleListPosts(
     }
   } else {
     return res
-      .status(MethodNotAllowed.STATUS)
+      .status(HttpMethodNotAllowed.STATUS)
       .json(
         JsonApiResponseFactory.fromError(
           `The HTTP ${req.method} method is not supported at this route.`,
-          MethodNotAllowed.STATUS
+          HttpMethodNotAllowed.STATUS
         )
       );
   }

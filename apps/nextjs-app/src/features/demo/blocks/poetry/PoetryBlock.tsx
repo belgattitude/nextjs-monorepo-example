@@ -1,5 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
 import type { FC } from 'react';
-import { useQuery } from 'react-query';
 import { fetchPoemsWithKy } from '../../api/fetch-poems-ky.api';
 import { PoemGrid } from '../../components/PoemGrid';
 
