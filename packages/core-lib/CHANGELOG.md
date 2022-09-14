@@ -1,5 +1,13 @@
 # @your-org/core-lib
 
+## 3.14.2
+
+### Patch Changes
+
+- [#2602](https://github.com/belgattitude/nextjs-monorepo-example/pull/2602) [`2fc498cc`](https://github.com/belgattitude/nextjs-monorepo-example/commit/2fc498cc928c9a577fa4c4a0112f910e0c24f176) Thanks [@belgattitude](https://github.com/belgattitude)! - Move from @tsed/exceptions to @belgattitude/http-exception
+
+  See https://github.com/belgattitude/http-exception
+
 ## 3.14.1
 
 ### Patch Changes
