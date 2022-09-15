@@ -1,5 +1,12 @@
 # @your-org/ui-lib
 
+## 3.14.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @your-org/core-lib@3.14.2
+
 ## 3.14.4
 
 ### Patch Changes

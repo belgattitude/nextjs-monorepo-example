@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.5.1
+
+### Patch Changes
+
+- [#2611](https://github.com/belgattitude/nextjs-monorepo-example/pull/2611) [`ebe883ae`](https://github.com/belgattitude/nextjs-monorepo-example/commit/ebe883aed91f5a0b41262516846094b40dd5efb5) Thanks [@belgattitude](https://github.com/belgattitude)! - Support mjs files
+
 ## 1.5.0
 
 ### Minor Changes
