@@ -17,7 +17,7 @@ const {
  * @type {Record<string, (filenames: string[]) => string | string[] | Promise<string | string[]>>}
  */
 const rules = {
-  '**/*.{js,jsx,ts,tsx}': (filenames) => {
+  '**/*.{js,jsx,ts,tsx,mjs,cjs}': (filenames) => {
     return getEslintFixCmd({
       cwd: __dirname,
       fix: true,

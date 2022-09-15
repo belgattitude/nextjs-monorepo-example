@@ -114,7 +114,7 @@ If needed static resources like **images**,... can be shared by using symlinks i
 │       ├── src/
 │       │   └── pages/api        (api routes)
 │       ├── CHANGELOG.md
-│       ├── next.config.js
+│       ├── next.config.mjs
 │       ├── package.json         (define package workspace:package deps)
 │       ├── tsconfig.json        (define path to packages)
 │       └── vitest.config.ts
@@ -296,7 +296,7 @@ Inspiration can be found in [apps/nextjs-app/tsconfig.json](./apps/nextjs-app/ts
 
 #### Step 3.3: Next config
 
-Edit your `next.config.js` and enable the [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
+Edit your `next.config.mjs` and enable the [experimental.externalDir option](https://github.com/vercel/next.js/pull/22867).
 Feedbacks [here](https://github.com/vercel/next.js/discussions/26420).
 
 ```js
@@ -305,7 +305,6 @@ const nextConfig = {
     externalDir: true,
   },
 };
-export default nextConfig;
 ```
 
 <details>

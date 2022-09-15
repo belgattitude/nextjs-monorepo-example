@@ -37,7 +37,7 @@ module.exports = {
     },
     {
       // relax javascript code as it often contains obscure configs
-      files: ['*.js', '*.cjs', '*.mjs'],
+      files: ['*.js', '*.cjs'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 2020,

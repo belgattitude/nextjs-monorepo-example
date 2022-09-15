@@ -118,7 +118,7 @@ The keys autocompletion and typechecks are enabled in [./src/typings/react-i18ne
 │       ├── .env
 │       ├── .env.development
 │       ├── (.env.local)*
-│       ├── next.config.js
+│       ├── next.config.mjs
 │       ├── next-i18next.config.js
 │       ├── tsconfig.json    (local paths enabled)
 │       └── tailwind.config.js
