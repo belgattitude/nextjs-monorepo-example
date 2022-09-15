@@ -9,6 +9,8 @@ on:
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
@@ -23,11 +25,12 @@ on:
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
       - '.github/workflows/**'
-
 jobs:
   test:
     runs-on: ubuntu-latest

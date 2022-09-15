@@ -6,7 +6,8 @@ on:
       - dev
       - main
     paths:
-      - 'yarn.lock'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - '.github/workflows/**'
 
@@ -16,7 +17,8 @@ on:
       - synchronize
       - reopened
     paths:
-      - 'yarn.lock'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - '.github/workflows/**'
 
