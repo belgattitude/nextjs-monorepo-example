@@ -1,15 +1,22 @@
 // @ts-check
 
-// https://nextjs.org/docs/api-reference/next.config.js/introduction
-// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+import { readFileSync } from 'fs';
 import withBundleAnalyzer from '@next/bundle-analyzer';
-import { withSentryConfig } from '@sentry/nextjs';
+import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import { createSecureHeaders } from 'next-secure-headers';
 import withNextTranspileModules from 'next-transpile-modules';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.js';
-import packageJson from './package.json' assert { type: 'json' };
+
+/**
+ * Once supported replace by node / eslint / ts and out of experimental, replace by
+ * `import packageJson from './package.json' assert { type: 'json' };`
+ * @type {import('type-fest').PackageJson}
+ */
+const packageJson = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url)).toString('utf-8')
+);
 
 const trueEnv = ['true', '1', 'yes'];
 
@@ -275,8 +282,8 @@ const nextConfig = {
     return config;
   },
   env: {
-    APP_NAME: packageJson.name,
-    APP_VERSION: packageJson.version,
+    APP_NAME: packageJson.name ?? 'not-in-package.json',
+    APP_VERSION: packageJson.version ?? 'not-in-package.json',
     BUILD_TIME: new Date().toISOString(),
   },
 };
@@ -284,6 +291,7 @@ const nextConfig = {
 let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore because sentry does not match nextjs current definitions
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
