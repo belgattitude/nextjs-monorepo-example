@@ -1,5 +1,18 @@
 # nextjs-app
 
+## 3.52.3
+
+### Patch Changes
+
+- [#2611](https://github.com/belgattitude/nextjs-monorepo-example/pull/2611) [`de010ed2`](https://github.com/belgattitude/nextjs-monorepo-example/commit/de010ed28f21443bb1e1dbeea6c3c935a83365b3) Thanks [@belgattitude](https://github.com/belgattitude)! - Example with nextjs config in mjs (next.config.mjs)
+
+- Updated dependencies []:
+  - @your-org/api-gateway@1.2.1
+  - @your-org/common-i18n@1.1.1
+  - @your-org/core-lib@3.14.2
+  - @your-org/db-main-prisma@2.12.1
+  - @your-org/ui-lib@3.14.5
+
 ## 3.52.2
 
 ### Patch Changes
