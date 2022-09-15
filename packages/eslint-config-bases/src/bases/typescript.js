@@ -157,6 +157,7 @@ module.exports = {
       files: ['*.mjs'],
       parserOptions: {
         ecmaVersion: 'latest',
+        sourceType: 'module',
       },
       rules: {
         '@typescript-eslint/naming-convention': 'off',
