@@ -6,8 +6,9 @@ on:
       - dev
       - main
     paths:
-      - 'apps/remix-app/**'
-      - 'packages/**'
+      - 'apps/remix-app/*'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
@@ -19,8 +20,9 @@ on:
       - synchronize
       - reopened
     paths:
-      - 'apps/remix-app/**'
-      - 'packages/**'
+      - 'apps/remix-app/*'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'

@@ -7,7 +7,8 @@ on:
       - main
     paths:
       - 'apps/vite-app/**'
-      - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
@@ -20,7 +21,8 @@ on:
       - reopened
     paths:
       - 'apps/vite-app/**'
-      - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
