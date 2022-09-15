@@ -67,7 +67,7 @@ const tmModules = [
   // for legacy browsers support (only in prod)
   ...(isProd
     ? [
-        'ky' // dist folder contains '??', not es2017 compliant
+        'ky', // dist folder contains '??', not es2017 compliant
       ]
     : []),
   // ESM only packages are not yet supported by NextJs if you're not
