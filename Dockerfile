@@ -101,7 +101,7 @@ ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/apps/nextjs-app/next.config.js \
+COPY --from=builder /app/apps/nextjs-app/next.config.mjs \
                     /app/apps/nextjs-app/next-i18next.config.js \
                     /app/apps/nextjs-app/package.json \
                     ./apps/nextjs-app/
