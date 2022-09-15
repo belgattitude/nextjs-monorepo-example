@@ -2,16 +2,20 @@
 
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
-const { withSentryConfig } = require('@sentry/nextjs');
-const pc = require('picocolors');
-const packageJson = require('./package.json');
-const { i18n } = require('./next-i18next.config');
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import { withSentryConfig } from '@sentry/nextjs';
 
-const enableCSP = true;
+import { createSecureHeaders } from 'next-secure-headers';
+import withNextTranspileModules from 'next-transpile-modules';
+import pc from 'picocolors';
+import nextI18nConfig from './next-i18next.config.js';
+import packageJson from './package.json' assert { type: 'json' };
+
 const trueEnv = ['true', '1', 'yes'];
 
 const isProd = process.env.NODE_ENV === 'production';
 const isCI = trueEnv.includes(process.env?.CI ?? 'false');
+const enableCSP = true;
 
 const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
@@ -19,12 +23,13 @@ const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
 );
-const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
-  process.env?.NEXTJS_DISABLE_SENTRY ?? 'false'
-);
 const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
 );
+const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
+  process.env?.NEXTJS_DISABLE_SENTRY ?? 'false'
+);
+
 const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
   process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
 );
@@ -43,17 +48,9 @@ const disableSourceMaps = trueEnv.includes(
 
 if (disableSourceMaps) {
   console.warn(
-    `${pc.yellow(
+    `${pc.green(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
-  );
-}
-
-if (NEXTJS_SENTRY_DEBUG) {
-  console.warn(
-    `${pc.yellow(
-      'notice'
-    )}- Build won't use sentry treeshaking (NEXTJS_SENTRY_DEBUG)`
   );
 }
 
@@ -64,11 +61,10 @@ const tmModules = [
   ...(isProd
     ? [
         // ie: '@react-google-maps/api'...
-        'ky', // does not pass es-2017 checks
       ]
     : []),
   // ESM only packages are not yet supported by NextJs if you're not
-  // using experimental experimental esmExternals
+  // using experimental esmExternals
   // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
   // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
   // @link https://github.com/vercel/next.js/issues/23725
@@ -78,9 +74,7 @@ const tmModules = [
   ],
 ];
 
-// Example of setting up secure headers
 // @link https://github.com/jagaapple/next-secure-headers
-const { createSecureHeaders } = require('next-secure-headers');
 const secureHeaders = createSecureHeaders({
   contentSecurityPolicy: {
     directives: enableCSP
@@ -91,30 +85,29 @@ const secureHeaders = createSecureHeaders({
             "'unsafe-inline'",
             'https://unpkg.com/@graphql-yoga/graphiql/dist/style.css',
             'https://meet.jitsi.si',
-            // 'https://8x8.vc',
+            'https://8x8.vc',
           ],
           scriptSrc: [
             "'self'",
             "'unsafe-eval'",
             "'unsafe-inline'",
             'https://unpkg.com/@graphql-yoga/graphiql',
-            'https://meet.jit.si/external_api.js',
+            // 'https://meet.jit.si/external_api.js',
             // 'https://8x8.vc/external_api.js',
-            // 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js',
           ],
           frameSrc: [
-            'https://meet.jit.si',
+            "'self'",
+            // 'https://meet.jit.si',
             // 'https://8x8.vc',
-            // 'https://meetings.hubspot.com',
           ],
           connectSrc: [
             "'self'",
             'https://vitals.vercel-insights.com',
             'https://*.sentry.io',
-            // 'wss://ws.pusherapp.com',
-            // 'wss://ws-eu.pusher.com',
-            // 'https://sockjs.pusher.com',
-            // 'https://sockjs-eu.pusher.com',
+            'wss://ws.pusherapp.com',
+            'wss://ws-eu.pusher.com',
+            'https://sockjs.pusher.com',
+            'https://sockjs-eu.pusher.com',
           ],
           imgSrc: ["'self'", 'https:', 'http:', 'data:'],
           workerSrc: ['blob:'],
@@ -138,7 +131,7 @@ const secureHeaders = createSecureHeaders({
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: !disableSourceMaps,
-  i18n,
+  i18n: nextI18nConfig.i18n,
   optimizeFonts: true,
 
   httpAgentOptions: {
@@ -152,11 +145,16 @@ const nextConfig = {
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
+  // Sometimes buggy so enable/disable when debugging.
   swcMinify: true,
 
   compiler: {
-    // emotion: true, - by default since 12.2.0
+    // emotion: true,
   },
+
+  // Standalone build
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+  output: 'standalone',
 
   sentry: {
     hideSourceMaps: true,
@@ -166,6 +164,12 @@ const nextConfig = {
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60,
+    formats: ['image/webp'],
+    loader: 'default',
+    dangerouslyAllowSVG: false,
+    disableStaticImages: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
@@ -173,28 +177,18 @@ const nextConfig = {
       },
     ],
     unoptimized: false,
-    path: '/_next/image',
-    loader: 'default',
-    disableStaticImages: false,
-    minimumCacheTTL: 60,
-    formats: ['image/webp'],
-    dangerouslyAllowSVG: false,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-
-  // Standalone build
-  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  output: 'standalone',
 
   experimental: {
     browsersListForSwc: true,
     legacyBrowsers: false,
 
+    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
+    outputFileTracingRoot: undefined, // ,path.join(__dirname, '../../'),
+
     // React 18 server components
     // @link https://nextjs.org/docs/advanced-features/react-18/server-components
     serverComponents: false,
-    // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: undefined, // ,path.join(__dirname, '../../'),
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
@@ -206,14 +200,12 @@ const nextConfig = {
   },
 
   typescript: {
-    /** Do not run TypeScript during production builds (`next build`). */
     ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
-    tsconfigPath: './tsconfig.json',
   },
 
   eslint: {
     ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
-    dirs: ['src'],
+    // dirs: [`${__dirname}/src`],
   },
 
   async headers() {
@@ -230,17 +222,17 @@ const nextConfig = {
     ];
   },
 
-  /**
-   * @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
-   async rewrites() {
+  // @link https://nextjs.org/docs/api-reference/next.config.js/rewrites
+  async rewrites() {
     return [
+      /*
       {
-        source: `/`,
-        destination: '/demo',
+        source: `/about-us`,
+        destination: '/about',
       },
+      */
     ];
   },
-   */
 
   webpack: (config, { webpack, isServer }) => {
     if (!isServer) {
@@ -287,10 +279,6 @@ const nextConfig = {
     APP_VERSION: packageJson.version,
     BUILD_TIME: new Date().toISOString(),
   },
-  serverRuntimeConfig: {
-    // to bypass https://github.com/zeit/next.js/issues/8251
-    PROJECT_ROOT: __dirname,
-  },
 };
 
 let config = nextConfig;
@@ -315,22 +303,16 @@ if (tmModules.length > 0) {
     `${pc.green('notice')}- Will transpile [${tmModules.join(',')}]`
   );
 
-  const withNextTranspileModules = require('next-transpile-modules')(
-    tmModules,
-    {
-      resolveSymlinks: true,
-      debug: false,
-    }
-  );
-  config = withNextTranspileModules(config);
+  config = withNextTranspileModules(tmModules, {
+    resolveSymlinks: true,
+    debug: false,
+  })(config);
 }
 
 if (process.env.ANALYZE === 'true') {
-  // @ts-ignore
-  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  config = withBundleAnalyzer({
     enabled: true,
-  });
-  config = withBundleAnalyzer(config);
+  })(config);
 }
 
-module.exports = config;
+export default config;
