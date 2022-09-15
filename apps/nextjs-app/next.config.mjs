@@ -67,7 +67,7 @@ const tmModules = [
   // for legacy browsers support (only in prod)
   ...(isProd
     ? [
-        // ie: '@react-google-maps/api'...
+        'ky' // dist folder contains '??', not es2017 compliant
       ]
     : []),
   // ESM only packages are not yet supported by NextJs if you're not
