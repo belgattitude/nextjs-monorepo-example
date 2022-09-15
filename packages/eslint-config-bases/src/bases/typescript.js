@@ -154,6 +154,18 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['*.mjs'],
+      parserOptions: {
+        ecmaVersion: 'latest',
+      },
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/consistent-type-exports': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
+      },
+    },
+    {
       // commonjs or assumed
       files: ['*.js', '*.cjs'],
       parser: 'espree',
