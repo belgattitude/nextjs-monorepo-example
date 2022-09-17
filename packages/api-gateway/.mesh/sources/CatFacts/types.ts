@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import { InContextSdkMethod } from '@graphql-mesh/types';
 import { MeshContext } from '@graphql-mesh/runtime';
@@ -18,7 +19,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  BigInt: any;
+  BigInt: bigint;
 };
 
 export type Query = {
@@ -68,24 +69,25 @@ export type CatFact_model = {
   length?: Maybe<Scalars['Int']>;
 };
 
-}
-export type QueryCatFactsSdk = {
-  /** Returns a a list of breeds **/
-  getBreeds: InContextSdkMethod<CatFactsTypes.Query['getBreeds'], CatFactsTypes.QuerygetBreedsArgs, MeshContext>,
+  export type QuerySdk = {
+      /** Returns a a list of breeds **/
+  getBreeds: InContextSdkMethod<Query['getBreeds'], QuerygetBreedsArgs, MeshContext>,
   /** Returns a random fact **/
-  getRandomFact: InContextSdkMethod<CatFactsTypes.Query['getRandomFact'], CatFactsTypes.QuerygetRandomFactArgs, MeshContext>,
+  getRandomFact: InContextSdkMethod<Query['getRandomFact'], QuerygetRandomFactArgs, MeshContext>,
   /** Returns a a list of facts **/
-  getFacts: InContextSdkMethod<CatFactsTypes.Query['getFacts'], CatFactsTypes.QuerygetFactsArgs, MeshContext>
-};
+  getFacts: InContextSdkMethod<Query['getFacts'], QuerygetFactsArgs, MeshContext>
+  };
 
-export type MutationCatFactsSdk = {
+  export type MutationSdk = {
+    
+  };
 
-};
+  export type SubscriptionSdk = {
+    
+  };
 
-export type SubscriptionCatFactsSdk = {
-
-};
-export type CatFactsContext = {
-      ["CatFacts"]: { Query: QueryCatFactsSdk, Mutation: MutationCatFactsSdk, Subscription: SubscriptionCatFactsSdk },
+  export type Context = {
+      ["CatFacts"]: { Query: QuerySdk, Mutation: MutationSdk, Subscription: SubscriptionSdk },
       
     };
+}

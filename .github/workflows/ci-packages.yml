@@ -7,9 +7,9 @@ on:
       - main
     paths:
       - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
-      - 'yarn.lock'
-      - '.prettier*'
       - 'tsconfig.base.json'
       - '.prettier*'
       - '.github/workflows/**'
@@ -21,9 +21,9 @@ on:
       - reopened
     paths:
       - 'packages/**'
+      - 'package.json'
+      - '*.lock'
       - '.yarnrc.yml'
-      - 'yarn.lock'
-      - '.prettier*'
       - 'tsconfig.base.json'
       - '.prettier*'
       - '.github/workflows/**'

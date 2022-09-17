@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo, SelectionSetNode, FieldNode, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import type { GetMeshOptions } from '@graphql-mesh/runtime';
 import type { YamlConfig } from '@graphql-mesh/types';
 import { PubSub } from '@graphql-mesh/utils';
@@ -7,13 +7,17 @@ import { DefaultLogger } from '@graphql-mesh/utils';
 import MeshCache from "@graphql-mesh/cache-localforage";
 import { fetch as fetchFn } from '@whatwg-node/fetch';
 
+import { MeshResolvedSource } from '@graphql-mesh/runtime';
+import { MeshTransform, MeshPlugin } from '@graphql-mesh/types';
 import OpenapiHandler from "@graphql-mesh/openapi"
 import BareMerger from "@graphql-mesh/merger-bare";
 import { printWithCache } from '@graphql-mesh/utils';
+import { createMeshHTTPHandler } from '@graphql-mesh/http';
 import { getMesh, ExecuteMeshFn, SubscribeMeshFn, MeshContext as BaseMeshContext, MeshInstance } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { path as pathModule } from '@graphql-mesh/cross-helpers';
-import type { CatFactsContext } from './sources/CatFacts/types';
+import { ImportFn } from '@graphql-mesh/types';
+import type { CatFactsTypes } from './sources/CatFacts/types';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -91,7 +95,21 @@ export type ResolverTypeWrapper<T> = Promise<T> | T;
 export type ResolverWithResolve<TResult, TParent, TContext, TArgs> = {
   resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
 };
-export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> = ResolverFn<TResult, TParent, TContext, TArgs> | ResolverWithResolve<TResult, TParent, TContext, TArgs>;
+
+export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
+  fragment: string;
+  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
+};
+
+export type NewStitchingResolver<TResult, TParent, TContext, TArgs> = {
+  selectionSet: string | ((fieldNode: FieldNode) => SelectionSetNode);
+  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
+};
+export type StitchingResolver<TResult, TParent, TContext, TArgs> = LegacyStitchingResolver<TResult, TParent, TContext, TArgs> | NewStitchingResolver<TResult, TParent, TContext, TArgs>;
+export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> =
+  | ResolverFn<TResult, TParent, TContext, TArgs>
+  | ResolverWithResolve<TResult, TParent, TContext, TArgs>
+  | StitchingResolver<TResult, TParent, TContext, TArgs>;
 
 export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   parent: TParent,
@@ -205,17 +223,17 @@ export type Resolvers<ContextType = MeshContext> = ResolversObject<{
 }>;
 
 
-export type MeshContext = CatFactsContext & BaseMeshContext;
+export type MeshContext = CatFactsTypes.Context & BaseMeshContext;
 
 
 import { fileURLToPath } from '@graphql-mesh/utils';
 const baseDir = pathModule.join(pathModule.dirname(fileURLToPath(import.meta.url)), '..');
 
-const importFn = (moduleId: string) => {
+const importFn: ImportFn = <T>(moduleId: string) => {
   const relativeModuleId = (pathModule.isAbsolute(moduleId) ? pathModule.relative(baseDir, moduleId) : moduleId).split('\\').join('/').replace(baseDir + '/', '');
   switch(relativeModuleId) {
     case ".mesh/sources/CatFacts/jsonSchemaBundle":
-      return import("./sources/CatFacts/jsonSchemaBundle");
+      return import("./sources/CatFacts/jsonSchemaBundle") as T;
     
     default:
       return Promise.reject(new Error(`Cannot find module '${relativeModuleId}'.`));
@@ -244,9 +262,9 @@ const cache = new (MeshCache as any)({
       logger,
     } as any)
 
-const sources = [];
-const transforms = [];
-const additionalEnvelopPlugins = [];
+const sources: MeshResolvedSource[] = [];
+const transforms: MeshTransform[] = [];
+const additionalEnvelopPlugins: MeshPlugin<any>[] = [];
 const catFactsTransforms = [];
 const additionalTypeDefs = [] as any[];
 const catFactsHandler = new OpenapiHandler({
@@ -291,14 +309,23 @@ const merger = new(BareMerger as any)({
   };
 }
 
-let meshInstance$: Promise<MeshInstance<MeshContext>>;
+export function createBuiltMeshHTTPHandler() {
+  return createMeshHTTPHandler({
+    baseDir,
+    getBuiltMesh: getBuiltMesh,
+    rawServeConfig: undefined,
+  })
+}
 
-export function getBuiltMesh(): Promise<MeshInstance<MeshContext>> {
+
+let meshInstance$: Promise<MeshInstance> | undefined;
+
+export function getBuiltMesh(): Promise<MeshInstance> {
   if (meshInstance$ == null) {
-    meshInstance$ = getMeshOptions().then(meshOptions => getMesh<MeshContext>(meshOptions)).then(mesh => {
-      const id$ = mesh.pubsub.subscribe('destroy', () => {
+    meshInstance$ = getMeshOptions().then(meshOptions => getMesh(meshOptions)).then(mesh => {
+      const id = mesh.pubsub.subscribe('destroy', () => {
         meshInstance$ = undefined;
-        id$.then(id => mesh.pubsub.unsubscribe(id)).catch(err => console.error(err));
+        mesh.pubsub.unsubscribe(id);
       });
       return mesh;
     });
