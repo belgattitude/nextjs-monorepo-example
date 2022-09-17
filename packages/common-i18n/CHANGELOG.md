@@ -1,5 +1,11 @@
 # @your-org/common-i18n
 
+## 1.2.0
+
+### Minor Changes
+
+- [#2622](https://github.com/belgattitude/nextjs-monorepo-example/pull/2622) [`f2339d6e`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f2339d6e62d844a1267c416d09110198e4f2af59) Thanks [@belgattitude](https://github.com/belgattitude)! - Add auth namespace and move to esm module (type='module' in package.json)
+
 ## 1.1.1
 
 ### Patch Changes
