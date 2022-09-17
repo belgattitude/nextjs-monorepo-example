@@ -2291,14 +2291,14 @@ __metadata:
   linkType: hard
 
 "@csstools/postcss-cascade-layers@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@csstools/postcss-cascade-layers@npm:1.1.0"
+  version: 1.1.1
+  resolution: "@csstools/postcss-cascade-layers@npm:1.1.1"
   dependencies:
     "@csstools/selector-specificity": "npm:^2.0.2"
     postcss-selector-parser: "npm:^6.0.10"
   peerDependencies:
     postcss: ^8.2
-  checksum: 9853e50cdeafa027b1def0ffaa4039176eb117171e790049b23baca922b017e20f1d0d55dbe0fbad6f9729ff924e99787d96502b81456c5b636d13d0b1c473c1
+  checksum: 0a8d20b4f395e8d9175c5fbb1520b9fe644e58ce68d45d6b2d2e115cf89809162378067ee82afb5118573d8f0b8c5aabb084c4fb48882feb082833271898d29b
   languageName: node
   linkType: hard
 
@@ -3768,6 +3768,15 @@ __metadata:
     react: ^16 || ^17 || ^18
     react-dom: ^16 || ^17 || ^18
   checksum: 19874d5e9414904b94686d68491f340e9b466c668cf525c7c03a24d1fd877772a07e1d1538f10cd986f367b8e74a4da21b99ac0b3b84b6c83574b577e6dc19e0
+  languageName: node
+  linkType: hard
+
+"@hookform/resolvers@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@hookform/resolvers@npm:2.9.8"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: e7905c5bacd3c3ddf7f4da2269d47a4904694e1700a357fc7e2dd37bd9a1619001452c4be3ce5ce521348e92a5569230e3019bba0a3a26e5820207a25735aa57
   languageName: node
   linkType: hard
 
@@ -11139,7 +11148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.2.1":
+"clsx@npm:1.2.1, clsx@npm:^1.2.1":
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: cae17fd0fd5ea449d000c681169a8a6f7add4929b369cae3e2d5b604fba2798b39334121e467dbf6ac752562c28a6894a443f30761b004317c0668eb031af52d
@@ -18579,10 +18588,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^4.1.4, jose@npm:^4.3.7":
-  version: 4.3.7
-  resolution: "jose@npm:4.3.7"
-  checksum: 586ada002ac807998e9df29c6a613dd53300bc88f54b4379d071aab689f14f74959fe6c3b5349fe309f4c88ea831606cf5af5bfe318669273f306a144f2f4dcb
+"jose@npm:4.9.3, jose@npm:^4.1.4, jose@npm:^4.3.7":
+  version: 4.9.3
+  resolution: "jose@npm:4.9.3"
+  checksum: d37fcba85447a42d4cdcac3b269d5ada3505afb6a966866963f34f54077269fe2957058e44f7798efbb002e4f2b1c9ed63c916f316434857e8c912bbc0353ec2
   languageName: node
   linkType: hard
 
@@ -21222,6 +21231,7 @@ __metadata:
     "@fontsource/inter": "npm:4.5.12"
     "@graphql-yoga/node": "npm:2.13.13"
     "@headlessui/react": "npm:1.7.2"
+    "@hookform/resolvers": "npm:2.9.8"
     "@mui/icons-material": "npm:5.10.3"
     "@mui/material": "npm:5.10.5"
     "@next/bundle-analyzer": "npm:12.3.0"
@@ -21259,6 +21269,7 @@ __metadata:
     apollo-server-micro: "npm:3.10.2"
     autoprefixer: "npm:10.4.11"
     axios: "npm:0.27.2"
+    clsx: "npm:1.2.1"
     cors: "npm:2.8.5"
     cross-env: "npm:7.0.3"
     dotenv-flow: "npm:3.2.0"
@@ -21281,6 +21292,7 @@ __metadata:
     graphql: "npm:16.6.0"
     happy-dom: "npm:6.0.4"
     i18next: "npm:21.9.1"
+    jose: "npm:4.9.3"
     ky: "npm:0.31.3"
     micro: "npm:9.4.1"
     next: "npm:12.3.0"
@@ -21298,6 +21310,7 @@ __metadata:
     prettier: "npm:2.7.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
+    react-hook-form: "npm:7.35.0"
     react-i18next: "npm:11.18.6"
     rimraf: "npm:3.0.2"
     rooks: "npm:7.1.2"
@@ -21314,6 +21327,7 @@ __metadata:
     vite-plugin-svgr: "npm:2.2.1"
     vite-tsconfig-paths: "npm:3.5.0"
     vitest: "npm:0.23.2"
+    zod: "npm:3.19.1"
   languageName: unknown
   linkType: soft
 
@@ -24290,6 +24304,15 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: 5cba2ccd474e15a54b970700653c157c58f0da8e9067510d91ea8bbb6dbc06c8e1e76f9e3601eea0f278ff0280fc0dbfd970ed1c0b0400256b4fc6e57ca923b8
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:7.35.0":
+  version: 7.35.0
+  resolution: "react-hook-form@npm:7.35.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 2087ecd30f625f442db9a3910f4fb529d41c541370c07cb09033d753935b521a71610ea100d51b95cc2d1b6b2756fc7938015cdab5257726dbbe02aef3662d65
   languageName: node
   linkType: hard
 
@@ -29829,6 +29852,13 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: 63eceacd482622afd71290541a9823a0e5eed88a6b58a5d136a5fb8151ed4d1549c80f28d74d4ad351582f9890635d49e6cf70f8d3cc64948640f839f6a37c70
+  languageName: node
+  linkType: hard
+
+"zod@npm:3.19.1":
+  version: 3.19.1
+  resolution: "zod@npm:3.19.1"
+  checksum: 67b0f6d39002e19d56a55daf78ab278f1c958f76cb09602f810090162fbc179f40725b1a1bae22a6b08cc9691d81227b8ea94a21ae6a221e997fa537384f71f5
   languageName: node
   linkType: hard
 

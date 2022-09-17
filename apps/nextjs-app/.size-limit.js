@@ -20,6 +20,8 @@ const limitCfg = {
     '/_error': '90kb',
     '/_monitor/sentry/csr-page': '90kb',
     '/_monitor/sentry/ssr-page': '90kb',
+    '/admin': '100kb',
+    '/auth/login': '120kb',
     '/home': '105kb',
   },
 };
