@@ -19,7 +19,8 @@
     "./locales/*.json": {
       "require": "./src/locales/*.json",
       "import": "./src/locales/*.json"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
