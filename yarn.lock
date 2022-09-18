@@ -8550,7 +8550,7 @@ __metadata:
     typescript: "npm:4.8.3"
     vite: "npm:3.1.2"
     vite-tsconfig-paths: "npm:3.5.0"
-    vitest: "npm:0.23.2"
+    vitest: "npm:0.23.4"
   peerDependencies:
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
@@ -21326,7 +21326,7 @@ __metadata:
     vite: "npm:3.1.2"
     vite-plugin-svgr: "npm:2.2.1"
     vite-tsconfig-paths: "npm:3.5.0"
-    vitest: "npm:0.23.2"
+    vitest: "npm:0.23.4"
     zod: "npm:3.19.1"
   languageName: unknown
   linkType: soft
@@ -26797,12 +26797,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-literal@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "strip-literal@npm:0.4.0"
+"strip-literal@npm:^0.4.0, strip-literal@npm:^0.4.1":
+  version: 0.4.2
+  resolution: "strip-literal@npm:0.4.2"
   dependencies:
-    acorn: "npm:^8.7.1"
-  checksum: 064c51b978577d979faf1e404b72bb63fde9478480f1f6047061fd339d34f0a5a90dbbd98255cfdcfa92900ba0b1327055b947bfb4ef3432ca4a46c829fb220e
+    acorn: "npm:^8.8.0"
+  checksum: 952e0b3779335f702fc8dfebed9eb5a73065085bcc5400dbaa3db3dc005d578ac52e1a6a56176c2a4c55953473084756dcfebe420a88866a1a7a0018a2eaf93c
   languageName: node
   linkType: hard
 
@@ -28921,7 +28921,7 @@ __metadata:
     vite: "npm:3.1.2"
     vite-plugin-svgr: "npm:2.2.1"
     vite-tsconfig-paths: "npm:3.5.0"
-    vitest: "npm:0.23.2"
+    vitest: "npm:0.23.4"
   languageName: unknown
   linkType: soft
 
@@ -29018,6 +29018,44 @@ __metadata:
   bin:
     vitest: vitest.mjs
   checksum: 5c3a489e963dc410d88675aca332bc0ad1b3457902607549a310f76310c4b105cf8b370291228931cfe45bad019b3259889bd0ab0dec2ee85a507d4c98e8c5f0
+  languageName: node
+  linkType: hard
+
+"vitest@npm:0.23.4":
+  version: 0.23.4
+  resolution: "vitest@npm:0.23.4"
+  dependencies:
+    "@types/chai": "npm:^4.3.3"
+    "@types/chai-subset": "npm:^1.3.3"
+    "@types/node": "npm:*"
+    chai: "npm:^4.3.6"
+    debug: "npm:^4.3.4"
+    local-pkg: "npm:^0.4.2"
+    strip-literal: "npm:^0.4.1"
+    tinybench: "npm:^2.1.5"
+    tinypool: "npm:^0.3.0"
+    tinyspy: "npm:^1.0.2"
+    vite: "npm:^2.9.12 || ^3.0.0-0"
+  peerDependencies:
+    "@edge-runtime/vm": "*"
+    "@vitest/browser": "*"
+    "@vitest/ui": "*"
+    happy-dom: "*"
+    jsdom: "*"
+  peerDependenciesMeta:
+    "@edge-runtime/vm":
+      optional: true
+    "@vitest/browser":
+      optional: true
+    "@vitest/ui":
+      optional: true
+    happy-dom:
+      optional: true
+    jsdom:
+      optional: true
+  bin:
+    vitest: vitest.mjs
+  checksum: 5a5b9fe99a03e2aa68ef3c9799ec4f3ee32ba3a2cf03fa9a806762abd02d6b4bf17ab4aff7263de3a92048dbff83252a40038ee7234854b00dac5ea0ce39a863
   languageName: node
   linkType: hard
 
