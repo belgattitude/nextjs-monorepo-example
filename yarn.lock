@@ -8045,9 +8045,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:0.23.2":
-  version: 0.23.2
-  resolution: "@vitest/coverage-istanbul@npm:0.23.2"
+"@vitest/coverage-istanbul@npm:0.23.4":
+  version: 0.23.4
+  resolution: "@vitest/coverage-istanbul@npm:0.23.4"
   dependencies:
     istanbul-lib-coverage: "npm:^3.2.0"
     istanbul-lib-instrument: "npm:^5.2.0"
@@ -8055,8 +8055,8 @@ __metadata:
     istanbul-lib-source-maps: "npm:^4.0.1"
     istanbul-reports: "npm:^3.1.5"
     test-exclude: "npm:^6.0.0"
-    vitest: "npm:0.23.2"
-  checksum: 3a1ee3881aa80b75b5b0880f6a9e319bf2af61b5f729389f76ff2713846920fa620a7515bc286b50b567a7c79457485b01007b6b3969195931961059fb3e8ffd
+    vitest: "npm:0.23.4"
+  checksum: 0d421741d71d093866e88291b7fde14f56a30cb5df412e0bd08caf3aa69df5b44a869787985cfb6d677d4869e3da30835581b383ce4cd301b05e5aa8c894f5f5
   languageName: node
   linkType: hard
 
@@ -8532,7 +8532,7 @@ __metadata:
     "@types/react": "npm:18.0.20"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.2"
+    "@vitest/coverage-istanbul": "npm:0.23.4"
     "@vitest/ui": "npm:0.23.2"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
@@ -21258,7 +21258,7 @@ __metadata:
     "@types/react": "npm:18.0.20"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.2"
+    "@vitest/coverage-istanbul": "npm:0.23.4"
     "@vitest/ui": "npm:0.23.2"
     "@your-org/api-gateway": "workspace:^"
     "@your-org/common-i18n": "workspace:^"
@@ -26797,12 +26797,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-literal@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "strip-literal@npm:0.4.0"
+"strip-literal@npm:^0.4.0, strip-literal@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "strip-literal@npm:0.4.1"
   dependencies:
-    acorn: "npm:^8.7.1"
-  checksum: 064c51b978577d979faf1e404b72bb63fde9478480f1f6047061fd339d34f0a5a90dbbd98255cfdcfa92900ba0b1327055b947bfb4ef3432ca4a46c829fb220e
+    acorn: "npm:^8.8.0"
+  checksum: f1266805dfa6051d7062bf1876379a82027cd46bd53fa993cda31dcf59a8b6a47601506927ba1e7c6d34c1bb0e3be76b246e011d2c70ad7e5407ade5841cf1fa
   languageName: node
   linkType: hard
 
@@ -28905,7 +28905,7 @@ __metadata:
     "@types/react": "npm:18.0.20"
     "@types/react-dom": "npm:18.0.6"
     "@vitejs/plugin-react": "npm:2.1.0"
-    "@vitest/coverage-istanbul": "npm:0.23.2"
+    "@vitest/coverage-istanbul": "npm:0.23.4"
     "@vitest/ui": "npm:0.23.2"
     "@your-org/common-i18n": "workspace:^"
     "@your-org/core-lib": "workspace:^"
@@ -29018,6 +29018,44 @@ __metadata:
   bin:
     vitest: vitest.mjs
   checksum: 5c3a489e963dc410d88675aca332bc0ad1b3457902607549a310f76310c4b105cf8b370291228931cfe45bad019b3259889bd0ab0dec2ee85a507d4c98e8c5f0
+  languageName: node
+  linkType: hard
+
+"vitest@npm:0.23.4":
+  version: 0.23.4
+  resolution: "vitest@npm:0.23.4"
+  dependencies:
+    "@types/chai": "npm:^4.3.3"
+    "@types/chai-subset": "npm:^1.3.3"
+    "@types/node": "npm:*"
+    chai: "npm:^4.3.6"
+    debug: "npm:^4.3.4"
+    local-pkg: "npm:^0.4.2"
+    strip-literal: "npm:^0.4.1"
+    tinybench: "npm:^2.1.5"
+    tinypool: "npm:^0.3.0"
+    tinyspy: "npm:^1.0.2"
+    vite: "npm:^2.9.12 || ^3.0.0-0"
+  peerDependencies:
+    "@edge-runtime/vm": "*"
+    "@vitest/browser": "*"
+    "@vitest/ui": "*"
+    happy-dom: "*"
+    jsdom: "*"
+  peerDependenciesMeta:
+    "@edge-runtime/vm":
+      optional: true
+    "@vitest/browser":
+      optional: true
+    "@vitest/ui":
+      optional: true
+    happy-dom:
+      optional: true
+    jsdom:
+      optional: true
+  bin:
+    vitest: vitest.mjs
+  checksum: 5a5b9fe99a03e2aa68ef3c9799ec4f3ee32ba3a2cf03fa9a806762abd02d6b4bf17ab4aff7263de3a92048dbff83252a40038ee7234854b00dac5ea0ce39a863
   languageName: node
   linkType: hard
 
