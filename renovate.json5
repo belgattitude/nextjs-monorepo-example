@@ -23,7 +23,17 @@
       ],
     },
     {
-      "groupName": "Remix packages",
+      "groupName": "vitest monorepo",
+      "groupSlug": "vitest",
+      "matchPackageNames": [
+        "vitest",
+      ],
+      "matchPackagePrefixes": [
+        "@vitest/"
+      ]
+    },
+    {
+      "groupName": "remix monorepo",
       "groupSlug": "remix",
       "matchPackageNames": [
         "remix",
@@ -33,29 +43,32 @@
       ]
     },
     {
-      "groupName": "Pothos graphql",
+      "groupName": "pothos monorepo",
       "groupSlug": "pothos",
       "matchPackagePrefixes": [
         "@pothos/"
       ]
     },
     {
-      "groupName": "Tailwind",
+      "groupName": "tailwind monorepo",
       "groupSlug": "tailwind",
+      "matchPackageNames": [
+        "remix",
+      ],
       "matchPackagePrefixes": [
         "@tailwindcss/"
       ]
     },
     {
-      "groupName": "Graphql mesh",
+      "groupName": "graphql-mesh monorepo",
       "groupSlug": "graphql-mesh",
       "matchPackagePrefixes": [
         "@graphql-mesh/"
       ]
     },
     {
-      "groupName": "Soluble cache-interop",
-      "groupSlug": "soluble-cache-interop",
+      "groupName": "cache-interop monorepo",
+      "groupSlug": "cache-interop",
       "matchPackageNames": [
         "@soluble/dsn-parser",
         "@soluble/cache-ioredis",
