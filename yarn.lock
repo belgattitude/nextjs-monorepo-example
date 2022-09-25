@@ -11635,7 +11635,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.5.0":
+"cookie@npm:0.5.0, cookie@npm:^0.5.0":
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: 23bd6dd64f025869373c6f3c72a870b9bd0e0e6a0ffe734229c032d7aca51972ba584b39100c09141b18043e790862425aae4a60d7449fca565b21cdae0cb3c3
@@ -18628,7 +18628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:4.9.3, jose@npm:^4.1.4, jose@npm:^4.3.7":
+"jose@npm:4.9.3, jose@npm:^4.1.4, jose@npm:^4.9.3":
   version: 4.9.3
   resolution: "jose@npm:4.9.3"
   checksum: d37fcba85447a42d4cdcac3b269d5ada3505afb6a966866963f34f54077269fe2957058e44f7798efbb002e4f2b1c9ed63c916f316434857e8c912bbc0353ec2
@@ -21099,27 +21099,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:4.10.3":
-  version: 4.10.3
-  resolution: "next-auth@npm:4.10.3"
+"next-auth@npm:4.12.0":
+  version: 4.12.0
+  resolution: "next-auth@npm:4.12.0"
   dependencies:
     "@babel/runtime": "npm:^7.16.3"
     "@panva/hkdf": "npm:^1.0.1"
-    cookie: "npm:^0.4.1"
-    jose: "npm:^4.3.7"
+    cookie: "npm:^0.5.0"
+    jose: "npm:^4.9.3"
     oauth: "npm:^0.9.15"
     openid-client: "npm:^5.1.0"
     preact: "npm:^10.6.3"
     preact-render-to-string: "npm:^5.1.19"
     uuid: "npm:^8.3.2"
   peerDependencies:
+    next: 12.2.5
     nodemailer: ^6.6.5
     react: ^17.0.2 || ^18
     react-dom: ^17.0.2 || ^18
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: e76e309976efda7322951e4f6ec8cf578e765a6f1ded462e832aa49aab90047b333525fdce88ac4e1c6000d6c0d12c7333b82b3bfce65dbec4c608d111b0769c
+  checksum: d88fb927428ebb87f5f4d2c8e4393c07db1d8ea61721f43d74db2192aa8c30ca87b243da982d06a1f74167f6076daa043ce17e15e5330fd71ce477fff0e482ac
   languageName: node
   linkType: hard
 
@@ -21336,7 +21337,7 @@ __metadata:
     ky: "npm:0.31.3"
     micro: "npm:9.4.1"
     next: "npm:12.3.1"
-    next-auth: "npm:4.10.3"
+    next-auth: "npm:4.12.0"
     next-connect: "npm:0.13.0"
     next-i18next: "npm:12.0.1"
     next-secure-headers: "npm:2.2.0"
