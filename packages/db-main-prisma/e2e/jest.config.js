@@ -1,6 +1,6 @@
 // @ts-check
 
-const tsConfigFile = './tsconfig.e2e.json';
+const tsConfigFile = './e2e/tsconfig.e2e.json';
 const { getJestCachePath } = require('../../../cache.config');
 
 const packageJson = require('../package.json');
@@ -10,6 +10,7 @@ const config = {
   displayName: `${packageJson.name}:e2e`,
   cacheDirectory: getJestCachePath(`${packageJson.name}:e2e`),
   testEnvironment: 'node',
+  rootDir: '../',
   setupFilesAfterEnv: ['<rootDir>/e2e/jest.setup.ts'],
   verbose: true,
   transform: {
@@ -20,7 +21,6 @@ const config = {
       },
     ],
   },
-  rootDir: '../',
   testMatch: ['<rootDir>/e2e/suites/**/*.test.ts'],
 };
 module.exports = config;
