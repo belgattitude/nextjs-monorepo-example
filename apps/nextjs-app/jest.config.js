@@ -1,5 +1,4 @@
 // @ts-check
-
 const { pathsToModuleNameMapper } = require('ts-jest');
 
 const tsConfigFile = './tsconfig.jest.json';
@@ -13,7 +12,7 @@ const { compilerOptions: baseTsConfig } = require('./tsconfig.json');
 const getTsConfigBasePaths = () => {
   return baseTsConfig.paths
     ? pathsToModuleNameMapper(baseTsConfig.paths, {
-        prefix: '<rootDir>/',
+        prefix: '<rootDir>/src',
       })
     : {};
 };
@@ -24,8 +23,9 @@ const config = {
   cacheDirectory: getJestCachePath(packageJson.name),
   testEnvironment: 'jsdom',
   verbose: true,
-  rootDir: './src',
+  rootDir: './',
   transform: {
+    '^.+\\.svg$': 'jest-transformer-svg',
     '^.+\\.m?[tj]sx?$': [
       'ts-jest',
       {
@@ -34,16 +34,14 @@ const config = {
     ],
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  testMatch: ['<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}'],
+  testMatch: ['<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   moduleNameMapper: {
-    // For @testing-library/react
-    '^@/test-utils$': '<rootDir>/../config/jest/test-utils',
     ...getTsConfigBasePaths(),
   },
   // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true
   collectCoverage: false,
-  coverageDirectory: '<rootDir>/../coverage',
-  collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
+  coverageDirectory: '<rootDir>/coverage',
+  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
 };
 
 module.exports = config;

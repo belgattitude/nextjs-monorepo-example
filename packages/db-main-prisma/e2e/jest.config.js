@@ -1,11 +1,11 @@
 // @ts-check
 
-const { defaults: tsjPreset } = require('ts-jest/presets');
-
+const tsConfigFile = './tsconfig.e2e.json';
 const { getJestCachePath } = require('../../../cache.config');
+
 const packageJson = require('../package.json');
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   displayName: `${packageJson.name}:e2e`,
   cacheDirectory: getJestCachePath(`${packageJson.name}:e2e`),
@@ -13,15 +13,14 @@ const config = {
   setupFilesAfterEnv: ['<rootDir>/e2e/jest.setup.ts'],
   verbose: true,
   transform: {
-    ...tsjPreset.transform,
+    '^.+\\.m?[tj]sx?$': [
+      'ts-jest',
+      {
+        tsconfig: tsConfigFile,
+      },
+    ],
   },
   rootDir: '../',
   testMatch: ['<rootDir>/e2e/suites/**/*.test.ts'],
-  globals: {
-    'ts-jest': {
-      diagnostics: true,
-      tsconfig: './e2e/tsconfig.e2e.json',
-    },
-  },
 };
 module.exports = config;
