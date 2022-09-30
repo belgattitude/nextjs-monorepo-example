@@ -12,7 +12,7 @@ import { MeshTransform, MeshPlugin } from '@graphql-mesh/types';
 import OpenapiHandler from "@graphql-mesh/openapi"
 import BareMerger from "@graphql-mesh/merger-bare";
 import { printWithCache } from '@graphql-mesh/utils';
-import { createMeshHTTPHandler } from '@graphql-mesh/http';
+import { createMeshHTTPHandler, MeshHTTPHandler } from '@graphql-mesh/http';
 import { getMesh, ExecuteMeshFn, SubscribeMeshFn, MeshContext as BaseMeshContext, MeshInstance } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { path as pathModule } from '@graphql-mesh/cross-helpers';
@@ -309,8 +309,8 @@ const merger = new(BareMerger as any)({
   };
 }
 
-export function createBuiltMeshHTTPHandler() {
-  return createMeshHTTPHandler({
+export function createBuiltMeshHTTPHandler(): MeshHTTPHandler<MeshContext> {
+  return createMeshHTTPHandler<MeshContext>({
     baseDir,
     getBuiltMesh: getBuiltMesh,
     rawServeConfig: undefined,

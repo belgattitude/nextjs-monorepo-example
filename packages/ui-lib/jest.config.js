@@ -1,7 +1,7 @@
 // @ts-check
-const { defaults: tsjPreset } = require('ts-jest/presets');
 const { pathsToModuleNameMapper } = require('ts-jest');
 
+const tsConfigFile = './tsconfig.jest.json';
 const { getJestCachePath } = require('../../cache.config');
 
 const packageJson = require('./package.json');
@@ -17,7 +17,7 @@ const getTsConfigBasePaths = () => {
     : {};
 };
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   displayName: `${packageJson.name}:unit`,
   cacheDirectory: getJestCachePath(packageJson.name),
@@ -25,7 +25,12 @@ const config = {
   verbose: true,
   rootDir: './src',
   transform: {
-    ...tsjPreset.transform,
+    '^.+\\.m?[tj]sx?$': [
+      'ts-jest',
+      {
+        tsconfig: tsConfigFile,
+      },
+    ],
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   testMatch: ['<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}'],
@@ -38,12 +43,6 @@ const config = {
   collectCoverage: false,
   coverageDirectory: '<rootDir>/../coverage',
   collectCoverageFrom: ['<rootDir>/**/*.{ts,tsx,js,jsx}', '!**/*.test.ts'],
-  globals: {
-    'ts-jest': {
-      diagnostics: true,
-      tsconfig: './tsconfig.jest.json',
-    },
-  },
 };
 
 module.exports = config;

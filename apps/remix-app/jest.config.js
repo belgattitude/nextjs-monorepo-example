@@ -18,7 +18,7 @@ const getTsConfigBasePaths = () => {
     : {};
 };
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   displayName: `${packageJson.name}:unit`,
   cacheDirectory: getJestCachePath(packageJson.name),

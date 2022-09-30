@@ -31,7 +31,6 @@ module.exports = {
     '@your-org/eslint-config-bases/react',
     '@your-org/eslint-config-bases/tailwind',
     '@your-org/eslint-config-bases/rtl',
-    '@your-org/eslint-config-bases/graphql-schema',
     // Specific rules for remix
     '@remix-run/eslint-config',
     // Apply prettier and disable incompatible rules
