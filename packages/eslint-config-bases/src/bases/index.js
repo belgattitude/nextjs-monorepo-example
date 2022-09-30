@@ -1,5 +1,4 @@
 module.exports = {
-  graphqlSchema: require('./graphql-schema'),
   jest: require('./jest'),
   playwright: require('./playwright'),
   react: require('./react'),
