@@ -6826,9 +6826,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/babel-preset@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@svgr/babel-preset@npm:6.3.1"
+"@svgr/babel-preset@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@svgr/babel-preset@npm:6.4.0"
   dependencies:
     "@svgr/babel-plugin-add-jsx-attribute": "npm:^6.3.1"
     "@svgr/babel-plugin-remove-jsx-attribute": "npm:^6.3.1"
@@ -6840,42 +6840,43 @@ __metadata:
     "@svgr/babel-plugin-transform-svg-component": "npm:^6.3.1"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 682e7487c9f2b19db942c5d4daa597b081bcc2218badb4d0fb3b9e9ad67aec4acd06a55d29374b6c2cfcfc760b0af37185dfeb8c461eb650f9e450c885bbd936
+  checksum: 1418d2f50384c0056bc3d537a153f7ae4a3de8de5698b706c42cf77486c0b88cf9c363d1a30b084c290124e17828f0c6ae93b91a636f5d6bb078881f8612405d
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@svgr/core@npm:6.3.1"
+"@svgr/core@npm:^6.3.1, @svgr/core@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@svgr/core@npm:6.4.0"
   dependencies:
-    "@svgr/plugin-jsx": "npm:^6.3.1"
+    "@svgr/babel-preset": "npm:^6.4.0"
+    "@svgr/plugin-jsx": "npm:^6.4.0"
     camelcase: "npm:^6.2.0"
     cosmiconfig: "npm:^7.0.1"
-  checksum: 5aa31fd6de4b01fd575aa1bd7454e7eac6f7127a5a2255b94145beb4e94484f3765727c145adc970d39b42b0c84bb2d6b43e58ac2a79ffc1ecc5d16fd192fdfc
+  checksum: 93f5dbe597e703b6538033a57873e36f8cf197ff1c661a5ad3c51f01b7e6fe36032a47310538c248b532ed6d1ced44c03a5e11df2e2472c361ada66f2ead621d
   languageName: node
   linkType: hard
 
-"@svgr/hast-util-to-babel-ast@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@svgr/hast-util-to-babel-ast@npm:6.3.1"
+"@svgr/hast-util-to-babel-ast@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@svgr/hast-util-to-babel-ast@npm:6.4.0"
   dependencies:
     "@babel/types": "npm:^7.18.4"
     entities: "npm:^4.3.0"
-  checksum: 7bb50c9138c94876601b132825816380e84bed13616db2b8b3edd4f50608725f19f7cf2e69e33b5e9408617e1d97a79142c049363fca5c7e9cbb993202376f61
+  checksum: 41885b38707e78197f44ab516b1674343a5876eaf7689fe97c51d77b11cadee3f0cf8f861a735845ae9d642e2624129fb50f212ada5b7988b7a45b081e8c3a19
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@svgr/plugin-jsx@npm:6.3.1"
+"@svgr/plugin-jsx@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@svgr/plugin-jsx@npm:6.4.0"
   dependencies:
     "@babel/core": "npm:^7.18.5"
-    "@svgr/babel-preset": "npm:^6.3.1"
-    "@svgr/hast-util-to-babel-ast": "npm:^6.3.1"
+    "@svgr/babel-preset": "npm:^6.4.0"
+    "@svgr/hast-util-to-babel-ast": "npm:^6.4.0"
     svg-parser: "npm:^2.0.4"
   peerDependencies:
     "@svgr/core": ^6.0.0
-  checksum: d429b404f1f5a7bfe319891454bb8cca2fecfd9371f92c7195babbd8daa21890de38ff22d3481c747547a110d575b2c398973fd874c24867521f65959379fc8b
+  checksum: 54a3996edb184f3d4c6a5f111618ce9b657fe804f3d1fbac71f83faae7b81c57335633fab6a45844142aa7cfeb696e84de302d8d92ff59b9434aed1daf05f0b7
   languageName: node
   linkType: hard
 
@@ -6892,19 +6893,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/webpack@npm:6.3.1":
-  version: 6.3.1
-  resolution: "@svgr/webpack@npm:6.3.1"
+"@svgr/webpack@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@svgr/webpack@npm:6.4.0"
   dependencies:
     "@babel/core": "npm:^7.18.5"
     "@babel/plugin-transform-react-constant-elements": "npm:^7.17.12"
     "@babel/preset-env": "npm:^7.18.2"
     "@babel/preset-react": "npm:^7.17.12"
     "@babel/preset-typescript": "npm:^7.17.12"
-    "@svgr/core": "npm:^6.3.1"
-    "@svgr/plugin-jsx": "npm:^6.3.1"
+    "@svgr/core": "npm:^6.4.0"
+    "@svgr/plugin-jsx": "npm:^6.4.0"
     "@svgr/plugin-svgo": "npm:^6.3.1"
-  checksum: 7e15101a22c275dedbf308466338206be4c76e6e28172f803632a5610692876e75fe262b6d21c9d620bb4aecf60bcc01ad921b08e8f3871556d74eb0a1a5c77f
+  checksum: dd3fedadb23098c67595436e5971f8b2b99f8bd69429a3bce6a621e766d8748562b0808e18cdb656bf33882abe67fdd7f8c389a828ce633435252f54ab1c858a
   languageName: node
   linkType: hard
 
@@ -21276,7 +21277,7 @@ __metadata:
     "@size-limit/file": "npm:8.1.0"
     "@soluble/cache-interop": "npm:0.11.1"
     "@soluble/cache-ioredis": "npm:0.12.1"
-    "@svgr/webpack": "npm:6.3.1"
+    "@svgr/webpack": "npm:6.4.0"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.3"
     "@tailwindcss/line-clamp": "npm:0.4.2"
