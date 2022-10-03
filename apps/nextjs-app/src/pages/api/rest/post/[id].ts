@@ -2,10 +2,9 @@ import {
   HttpBadRequest,
   HttpMethodNotAllowed,
 } from '@belgattitude/http-exception';
-import { Asserts } from '@your-org/core-lib';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
-import { StringConvert } from '@your-org/core-lib/utils/string-convert';
+import { assertSafeInteger, stringToSafeInteger } from '@your-org/ts-utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';
@@ -16,11 +15,11 @@ export default async function handleGetPost(
 ) {
   if (req.method === 'GET') {
     const { id } = req.query;
-    const postId = StringConvert.toSafeInteger(id);
+    const postId = stringToSafeInteger(id);
     const postRepo = new PostRepositorySsr(prismaClient);
 
     try {
-      Asserts.safeInteger(postId, () => new HttpBadRequest('Wrong param id'));
+      assertSafeInteger(postId, () => new HttpBadRequest('Wrong param id'));
 
       return res.json(
         JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))

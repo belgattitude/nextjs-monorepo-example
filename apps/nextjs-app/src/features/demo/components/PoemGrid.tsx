@@ -1,4 +1,4 @@
-import { ArrayUtils } from '@your-org/core-lib';
+import { ArrayUtils } from '@your-org/ts-utils';
 import type { FC } from 'react';
 import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
 import { PoemCard } from './PoemCard';

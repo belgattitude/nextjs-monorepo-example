@@ -1,4 +1,4 @@
-import { isPlainObject } from '../../utils/typeguards';
+import { isPlainObject } from '@your-org/ts-utils';
 import type {
   JsonApiErrorResponse,
   JsonApiResponse,
