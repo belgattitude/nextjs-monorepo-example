@@ -54,3 +54,10 @@ export const isParsableSafeInteger = (v: unknown): v is number | string => {
 export const isHttpStatusCode = (v: unknown): v is number => {
   return isSafeInteger(v) && v < 600 && v >= 100;
 };
+
+/**
+ * Check whether a variable is not null and not undefined
+ */
+export function isPresent<T>(v: T): v is NonNullable<T> {
+  return v !== undefined && v !== null;
+}

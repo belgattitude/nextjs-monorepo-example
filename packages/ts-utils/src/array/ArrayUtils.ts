@@ -1,8 +1,8 @@
-import { RandomUtils } from './random-utils';
+import { getRandomInt } from '../random';
 
 export class ArrayUtils {
   static getRandom<T>(items: T[]): T {
-    return items[RandomUtils.getRandomInt(0, items.length - 1)];
+    return items[getRandomInt(0, items.length - 1)];
   }
 
   static removeItem<T>(arr: T[], item: T): T[] {

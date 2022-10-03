@@ -1,6 +1,6 @@
-import { ArrayUtils } from '../array-utils';
+import { ArrayUtils } from '../ArrayUtils';
 
-describe('arrayUtils', () => {
+describe('ArrayUtils', () => {
   describe('removeItem', () => {
     it('should return remove the first item', () => {
       expect(ArrayUtils.removeItem([1, 2, 2], 2)).toStrictEqual([1, 2]);
