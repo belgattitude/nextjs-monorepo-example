@@ -1,5 +1,16 @@
 # @your-org/ui-lib
 
+## 3.15.0
+
+### Minor Changes
+
+- [#2713](https://github.com/belgattitude/nextjs-monorepo-example/pull/2713) [`e279d984`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e279d984d01937264b077a111863b38d15fcb1d0) Thanks [@belgattitude](https://github.com/belgattitude)! - Move typescript utils to @your-org/ts-utils
+
+### Patch Changes
+
+- Updated dependencies [[`e279d984`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e279d984d01937264b077a111863b38d15fcb1d0), [`e279d984`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e279d984d01937264b077a111863b38d15fcb1d0)]:
+  - @your-org/ts-utils@1.1.0
+
 ## 3.14.5
 
 ### Patch Changes
