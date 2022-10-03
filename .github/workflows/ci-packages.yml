@@ -46,20 +46,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Why not using setup-node 2.2+ cache option (yet) ?
-      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          restore-keys: |
-            yarn-cache-folder-
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/monorepo-install
 
       - name: Restore packages cache
         uses: actions/cache@v3
@@ -71,14 +59,6 @@ jobs:
           key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
           restore-keys: |
             ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
-
-      - name: Install dependencies
-        run: |
-          yarn install --immutable --inline-builds
-        env:
-          PRISMA_SKIP_POSTINSTALL_GENERATE: true
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-          HUSKY: 0
 
       # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
       # That allows to see if we're introducing "surface" regressions (just the types)
