@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { isNonEmptyString, isParsableNumeric } from '@your-org/core-lib';
+import { isNonEmptyString, isParsableNumeric } from '@your-org/ts-utils';
 
 test('should call the mesh for random cats', async ({ request }) => {
   const resp = await request.post('/api/gateway/graphql', {

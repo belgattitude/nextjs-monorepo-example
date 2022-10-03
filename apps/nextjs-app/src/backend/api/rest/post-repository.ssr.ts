@@ -2,9 +2,9 @@ import {
   HttpInternalServerError,
   HttpNotFound,
 } from '@belgattitude/http-exception';
-import type { UnPromisify } from '@your-org/core-lib';
-import { Asserts } from '@your-org/core-lib';
 import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
+import type { UnPromisify } from '@your-org/ts-utils';
+import { assertNonEmptyString } from '@your-org/ts-utils';
 
 export type GetPosts = UnPromisify<
   ReturnType<typeof PostRepositorySsr['prototype']['getPosts']>
@@ -22,7 +22,7 @@ export class PostRepositorySsr {
         where: { id: postId },
         include: { author: true },
       });
-      Asserts.isPresent(
+      assertNonEmptyString(
         post,
         () => new HttpNotFound(`Post ${postId} can't be found`)
       );
