@@ -45,32 +45,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Why not using setup-node 2.2+ cache option (yet) ?
-      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          restore-keys: |
-            yarn-cache-folder-
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/monorepo-install
 
       - name: Start postgresql
         working-directory: packages/db-main-prisma
         run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
-
-      - name: Install dependencies
-        run: |
-          yarn install --immutable --inline-builds
-        env:
-          PRISMA_SKIP_POSTINSTALL_GENERATE: true
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-          HUSKY: 0
 
       - name: E2E prisma
         working-directory: packages/db-main-prisma
