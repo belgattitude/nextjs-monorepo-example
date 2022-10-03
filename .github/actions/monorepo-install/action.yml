@@ -1,0 +1,45 @@
+# This action installs the monorepo deps with yarn. It can be reused across the different workflows.
+name: 'Monorepo install (yarn)'
+description: 'Installs the monorepo with yarn (cache)'
+inputs:
+  skip-prisma-postinstall-generate:
+    description: 'Avoid prisma to automatically generate schema on postinstall'
+    required: false
+    default: 'true'
+  playwright-skip-browser-download:
+    description: 'Avoid playwright to download browsers automatically'
+    required: false
+    default: 1
+
+runs:
+  using: 'composite'
+  steps:
+    # Yarn 2+ is able to prune its cache which allows to re-use it even
+    # when the yarn.lock is modified. This allows to download only changed
+    # packages from the npm repo. Gives slightly faster installs but more importantly
+    # the installation becomes resilient to npm downtimes (in most situations).
+    #
+    # @see https://github.com/actions/setup-node/issues/325
+    #
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      shell: bash
+      run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+    - name: Restore yarn cache
+      uses: actions/cache@v3
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        restore-keys: |
+          yarn-cache-folder-
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        yarn install --immutable --inline-builds
+      env:
+        PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
+        HUSKY: 0
