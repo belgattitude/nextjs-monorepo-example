@@ -40,6 +40,7 @@ runs:
       run: |
         yarn install --immutable --inline-builds
       env:
+        YARN_NM_MODE: 'hardlinks-global'
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
         HUSKY: 0
