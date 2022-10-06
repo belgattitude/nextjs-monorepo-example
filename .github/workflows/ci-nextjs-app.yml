@@ -14,7 +14,7 @@ on:
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
-      - '.github/workflows/**'
+      - '.github/**'
 
   pull_request:
     types:
@@ -30,7 +30,7 @@ on:
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
       - '.prettier*'
-      - '.github/workflows/**'
+      - '.github/**'
 jobs:
   test:
     runs-on: ubuntu-latest
