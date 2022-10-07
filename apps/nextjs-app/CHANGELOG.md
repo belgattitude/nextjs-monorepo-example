@@ -1,5 +1,56 @@
 # nextjs-app
 
+## 3.55.0
+
+### Minor Changes
+
+- [#2739](https://github.com/belgattitude/nextjs-monorepo-example/pull/2739) [`b7182753`](https://github.com/belgattitude/nextjs-monorepo-example/commit/b71827533118907feb6bc30b95bae8c5c969d9c2) Thanks [@belgattitude](https://github.com/belgattitude)! - Add flamegraph command to debug performance issue on homepage
+
+  ```
+  npm i --global autocannon
+  cd ./apps/nextjs-app
+  yarn flamegraph-home
+  ```
+
+  Example output:
+
+  ```
+  ┌─────────┬───────┬───────┬───────┬───────┬──────────┬───────────┬─────────┐
+  │ Stat    │ 2.5%  │ 50%   │ 97.5% │ 99%   │ Avg      │ Stdev     │ Max     │
+  ├─────────┼───────┼───────┼───────┼───────┼──────────┼───────────┼─────────┤
+  │ Latency │ 11 ms │ 15 ms │ 46 ms │ 82 ms │ 35.46 ms │ 276.28 ms │ 4632 ms │
+  └─────────┴───────┴───────┴───────┴───────┴──────────┴───────────┴─────────┘
+  ┌───────────┬─────┬──────┬─────┬─────────┬─────────┬────────┬─────────┐
+  │ Stat      │ 1%  │ 2.5% │ 50% │ 97.5%   │ Avg     │ Stdev  │ Min     │
+  ├───────────┼─────┼──────┼─────┼─────────┼─────────┼────────┼─────────┤
+  │ Req/Sec   │ 0   │ 0    │ 0   │ 669     │ 139.06  │ 232.54 │ 148     │
+  ├───────────┼─────┼──────┼─────┼─────────┼─────────┼────────┼─────────┤
+  │ Bytes/Sec │ 0 B │ 0 B  │ 0 B │ 14.1 MB │ 2.93 MB │ 4.9 MB │ 3.12 MB │
+  └───────────┴─────┴──────┴─────┴─────────┴─────────┴────────┴─────────┘
+
+  Req/Bytes counts sampled once per second.
+  # of samples: 20
+
+  3k requests in 20.04s, 58.6 MB read
+  ```
+
+  Open the visual flamegraph from the provided url.
+
+### Patch Changes
+
+- [#2740](https://github.com/belgattitude/nextjs-monorepo-example/pull/2740) [`e0b03b05`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b03b059ea2b75272c2a86139f7ff8b0af874a9) Thanks [@belgattitude](https://github.com/belgattitude)! - Changesets: by default will tag and version private packages
+
+  Doc: https://github.com/changesets/changesets/blob/main/docs/versioning-apps.md
+  Ref: [changesets@2.25.0](https://github.com/changesets/changesets/releases/tag/%40changesets%2Fcli%402.25.0) & [#662](https://github.com/changesets/changesets/pull/662).
+
+- Updated dependencies [[`e0b03b05`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b03b059ea2b75272c2a86139f7ff8b0af874a9)]:
+  - @your-org/api-gateway@1.2.2
+  - @your-org/common-i18n@1.2.1
+  - @your-org/core-lib@3.15.1
+  - @your-org/db-main-prisma@2.12.2
+  - @your-org/ts-utils@1.1.1
+  - @your-org/ui-lib@3.15.1
+
 ## 3.54.0
 
 ### Minor Changes
