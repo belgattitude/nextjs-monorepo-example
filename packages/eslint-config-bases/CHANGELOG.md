@@ -1,5 +1,14 @@
 # @your-org/eslint-config-bases
 
+## 1.5.2
+
+### Patch Changes
+
+- [#2740](https://github.com/belgattitude/nextjs-monorepo-example/pull/2740) [`e0b03b05`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b03b059ea2b75272c2a86139f7ff8b0af874a9) Thanks [@belgattitude](https://github.com/belgattitude)! - Changesets: by default will tag and version private packages
+
+  Doc: https://github.com/changesets/changesets/blob/main/docs/versioning-apps.md
+  Ref: [changesets@2.25.0](https://github.com/changesets/changesets/releases/tag/%40changesets%2Fcli%402.25.0) & [#662](https://github.com/changesets/changesets/pull/662).
+
 ## 1.5.1
 
 ### Patch Changes
