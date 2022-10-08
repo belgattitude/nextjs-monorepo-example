@@ -13,6 +13,14 @@ inputs:
 
 runs:
   using: 'composite'
+  env:
+    YARN_NM_MODE: 'hardlinks-global'
+    YARN_INSTALL_STATE_PATH: .ci-cache/yarn-install-state.gz
+    YARN_GLOBAL_FOLDER: .ci-cache/yarn-global
+    PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
+    HUSKY: 0
+
   steps:
     # Yarn 2+ is able to prune its cache which allows to re-use it even
     # when the yarn.lock is modified. This allows to download only changed
@@ -26,23 +34,25 @@ runs:
       shell: bash
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
+    # Not invalidated on yarn.lock changes (yarn downloaded zip cache)
     - name: Restore yarn cache
       uses: actions/cache@v3
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      id: yarn-download-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        key: yarn-download-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
         restore-keys: |
-          yarn-cache-
+          yarn-download-cache-
 
-    # invalidated on yarn.lock changes
-    - name: Restore install state and global store
+    # Invalidated on yarn.lock changes
+    - name: Restore yarn install state and global store
+      id: yarn-state-cache
       uses: actions/cache@v3
       with:
         path: |
-          .ci-cache/yarn-install-state.gz
+          .ci-cache/yarn-state
           .ci-cache/yarn-global/store
-        key: ${{ runner.os }}-yarn-cache-state-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        key: ${{ runner.os }}-yarn-state-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
 
     - name: Install dependencies
       shell: bash
@@ -50,7 +60,7 @@ runs:
         yarn install --immutable --inline-builds
       env:
         YARN_NM_MODE: 'hardlinks-global'
-        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-install-state.gz
+        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz
         YARN_GLOBAL_FOLDER: .ci-cache/yarn-global
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
