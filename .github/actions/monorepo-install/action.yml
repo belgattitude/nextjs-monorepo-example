@@ -13,13 +13,6 @@ inputs:
 
 runs:
   using: 'composite'
-  env:
-    YARN_NM_MODE: 'hardlinks-global'
-    YARN_INSTALL_STATE_PATH: .ci-cache/yarn-install-state.gz
-    YARN_GLOBAL_FOLDER: .ci-cache/yarn-global
-    PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
-    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
-    HUSKY: 0
 
   steps:
     # Yarn 2+ is able to prune its cache which allows to re-use it even
