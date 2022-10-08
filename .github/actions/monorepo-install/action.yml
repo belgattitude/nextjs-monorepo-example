@@ -31,9 +31,9 @@ runs:
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
         restore-keys: |
-          yarn-cache-folder-
+          yarn-cache-
 
     # invalidated on yarn.lock changes
     - name: Restore install state and global store
@@ -42,7 +42,7 @@ runs:
         path: |
           ~/.ci-cache/install-state.gz
           ~/.ci-cache/global/store
-        key: ${{ runner.os }}-${{ hashFiles('yarn.lock', '.yarnrc.yml) }}
+        key: ${{ runner.os }}-yarn-cache-state-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
 
     - name: Install dependencies
       shell: bash
