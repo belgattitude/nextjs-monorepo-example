@@ -43,6 +43,9 @@ runs:
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: yarn-download-cache-${{ inputs.yarn-download-cache-key }}
+        #key: yarn-download-cache-${{ hashFiles('**/yarn.lock') }}
+        #restore-keys: |
+        #  yarn-download-cache-
 
     # Invalidated on yarn.lock changes
     - name: Restore yarn install state
