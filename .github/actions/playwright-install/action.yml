@@ -15,6 +15,7 @@ runs:
 
     - name: Get playwright cache-key
       id: playwright-cache-key
+      shell: bash
       run: |
         playwright_cache_key="${{ runner.os }}-playwright-cache-${{ steps.playwright-version.outputs.version }}-2"
         echo "::set-output name=key::${playwright_cache_key}"
@@ -36,8 +37,10 @@ runs:
         echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
 
     - name: Install Playwright OS Deps
+      shell: bash
       run: yarn playwright install-deps
 
     - name: Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
+      shell: bash
       run: yarn playwright install chromium webkit
