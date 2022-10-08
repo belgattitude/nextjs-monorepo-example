@@ -19,7 +19,11 @@ inputs:
   playwright-skip-browser-download:
     description: 'Avoid playwright to download browsers automatically'
     required: false
-    default: 1
+    default: '1'
+  yarn-download-cache-key:
+    description: 'Yarn rotates downloaded cache archives. In case of issue you can update the key.'
+    required: false
+    default: 'v1'
 
 runs:
   using: 'composite'
@@ -30,15 +34,18 @@ runs:
       shell: bash
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-    # Not invalidated on yarn.lock changes (yarn downloaded zip cache)
+    # Yarn rotates the downloaded cache archives. Two possibilities
+    # - Default: keep one global cache-entry through action/cache
+    # - Commented: Use restore keys like / hash on yarn.lock see https://github.com/actions/setup-node/issues/325
     - name: Restore yarn cache
       uses: actions/cache@v3
       id: yarn-download-cache
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: yarn-download-cache-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          yarn-download-cache-
+        key: yarn-download-cache-${{ inputs.yarn-download-cache-key }}
+        #key: yarn-download-cache-${{ hashFiles('**/yarn.lock') }}
+        #restore-keys: |
+        #  yarn-download-cache-
 
     # Invalidated on yarn.lock changes
     - name: Restore yarn install state
@@ -47,7 +54,7 @@ runs:
       with:
         path: |
           .ci-cache/yarn-state
-        key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: Install dependencies
       shell: bash
@@ -56,7 +63,7 @@ runs:
       env:
         # CI optimizations. Overrides yarnrc.yml options (or their defaults) in the CI action.
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-local reduces io / node_modules size (hardlinks-global is still slower)
+        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-local reduces io / node_modules size
         YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz # Small speedup when lock does not change
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
