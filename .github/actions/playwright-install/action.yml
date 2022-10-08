@@ -1,0 +1,46 @@
+name: 'Playwright install'
+description: 'Installs the playwrigth with deps'
+
+runs:
+  using: 'composite'
+  steps:
+    # Keep cached playwright binaries to required version
+    # https://playwright.dev/docs/ci#caching-browsers
+    - name: Get current Playwright version
+      id: playwright-version
+      shell: bash
+      run: |
+        playwright_version=$(npm info @playwright/test version)
+        echo "::set-output name=version::${playwright_version}"
+
+    - name: Get playwright cache-key
+      id: playwright-cache-key
+      shell: bash
+      run: |
+        playwright_cache_key="${{ runner.os }}-playwright-cache-${{ steps.playwright-version.outputs.version }}-2"
+        echo "::set-output name=key::${playwright_cache_key}"
+
+    - name: Cache Playwright binaries
+      uses: actions/cache@v3
+      id: playwright-cache
+      with:
+        path: ${{ matrix.playwright_binary_path }}
+        key: ${{ steps.playwright-cache-key.outputs.key }}
+
+    - name: Playwright debug
+      shell: bash
+      run: |
+        echo "OS: ${{ matrix.os }}"
+        echo "Playwright version: ${{ steps.playwright-version.outputs.version }}"
+        echo "Playwright install dir: ${{ matrix.playwright_binary_path }}"
+        echo "Cache key: ${{ steps.playwright-cache-key.outputs.key }}"
+        echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
+
+    - name: Install Playwright OS Deps
+      shell: bash
+      run: yarn playwright install-deps
+
+    - name: Install Playwright Browsers
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: yarn playwright install chromium webkit
