@@ -23,35 +23,26 @@
     "storybook",
     "prisma"
   ],
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "g:clean": "yarn clean:global-cache && yarn workspaces foreach -ptv run clean",
-    "g:build": "yarn workspaces foreach -p --topological-dev -v run build",
+    "g:clean": "pnpm run clean:global-cache && pnpm run -F '*' clean",
+    "g:build": "pnpm run -F '*' build",
     "g:build-changed": "yarn workspaces foreach --topological-dev --no-private -v --since=origin/main run build",
-    "g:test-unit": "yarn workspaces foreach -ptv run test-unit",
-    "g:test-unit-jest": "yarn workspaces foreach -ptv run test-unit-jest",
-    "g:test-e2e": "yarn workspaces foreach -tv run test-e2e",
-    "g:lint": "yarn workspaces foreach -ptv run lint --color",
-    "g:lint-styles": "yarn workspaces foreach -ptv run lint-styles --color",
-    "g:typecheck": "yarn workspaces foreach -ptv run typecheck",
+    "g:test-unit": "pnpm run -F '*' test-unit",
+    "g:test-unit-jest": "pnpm run -F '*' test-unit-jest",
+    "g:test-e2e": "pnpm run -F '*' test-e2e",
+    "g:lint": "pnpm run -F '*' lint --color",
+    "g:lint-styles": "pnpm run -F '*' lint-styles --color",
+    "g:typecheck": "pnpm run -F '*' typecheck",
     "g:lint-staged-files": "lint-staged --allow-empty",
-    "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
+    "g:fix-all-files": "pnpm run -F '*' fix-all-files",
     "g:changeset": "changeset",
-    "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
-    "g:release": "yarn g:build && changeset publish",
-    "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
-    "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
+    "g:check-dist": "pnpm run -F '*' check-dist",
+    "g:release": "pnpm run g:build && pnpm changeset publish",
+    "g:share-static-symlink": "pnpm run -F './apps/**' share-static-symlink",
+    "g:share-static-hardlink": "pnpm run -F './apps/**' share-static-hardlink",
     "clean:global-cache": "rimraf --no-glob ./.cache",
-    "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
-    "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:test:unit": "yarn workspaces foreach -ptv --include '@your-org/*' run test-unit",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
+    "apps:build": "pnpm run -F './apps/**' build",
+    "packages:build": "pnpm run -F './packages/**' build",
     "docker:prune-cache": "docker buildx prune",
     "docker:nextjs-app:install": "docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty deps",
     "docker:nextjs-app:develop": "cross-env DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml -f docker-compose.nextjs-app.yml up develop main-db",
@@ -70,9 +61,16 @@
     "deps:check": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "check:install": "yarn dlx @yarnpkg/doctor@3.1.4 .",
-    "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator",
     "install:playwright": "playwright install",
-    "postinstall": "is-ci || yarn husky install"
+    "postinstall": "is-ci || pnpm exec husky install"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react-native",
+        "graphql-tag"
+      ]
+    }
   },
   "helpResolutions": {
     "@graphql-inspector/core": "https://github.com/kamilkisiela/graphql-inspector/issues/2175"
@@ -107,5 +105,5 @@
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
   },
-  "packageManager": "yarn@4.0.0-rc.23"
+  "packageManager": "pnpm@7.13.2"
 }

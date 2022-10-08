@@ -43,25 +43,25 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       - name: Typecheck
         working-directory: apps/remix-app
         run: |
-          yarn typecheck
+          pnpm run typecheck
 
       - name: Linter
         working-directory: apps/remix-app
         run: |
-          yarn lint
-          yarn lint-styles
+          pnpm run lint
+          pnpm run lint-styles
 
       - name: Unit tests
         working-directory: apps/remix-app
         run: |
-          yarn test-unit --runInBand --color
+          pnpm run test-unit
 
       - name: Build remix-app
         working-directory: apps/remix-app
         run: |
-          yarn build
+          pnpm run build
