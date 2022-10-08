@@ -46,7 +46,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/pnpm-install
+        uses: ./.github/actions/yarn-nm-install
 
       - name: Start postgresql
         working-directory: packages/db-main-prisma
@@ -55,6 +55,6 @@ jobs:
       - name: E2E prisma
         working-directory: packages/db-main-prisma
         run: |
-          pnpm run test-e2e
+          yarn test-e2e
         env:
           E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
