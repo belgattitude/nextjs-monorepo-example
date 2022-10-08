@@ -35,11 +35,23 @@ runs:
         restore-keys: |
           yarn-cache-folder-
 
+    # invalidated on yarn.lock changes
+    - name: Restore install state and global store
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.ci-cache/install-state.gz
+          ~/.ci-cache/global/store
+        key: ${{ runner.os }}-${{ hashFiles('yarn.lock', '.yarnrc.yml) }}
+
     - name: Install dependencies
       shell: bash
       run: |
         yarn install --immutable --inline-builds
       env:
+        YARN_NM_MODE: 'hardlinks-global'
+        YARN_INSTALL_STATE_PATH: ~/.ci-cache/install-state.gz
+        YARN_GLOBAL_FOLDER: ~/.ci-cache/global
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
         HUSKY: 0
