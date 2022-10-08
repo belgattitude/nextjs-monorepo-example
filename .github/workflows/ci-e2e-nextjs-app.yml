@@ -10,8 +10,8 @@ on:
       - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
+      - '*lock*'
+      - '*pnpm*'
       - '.github/**'
 
   pull_request:
@@ -24,8 +24,8 @@ on:
       - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
+      - '*lock*'
+      - '*pnpm*'
       - '.github/**'
 
 jobs:
