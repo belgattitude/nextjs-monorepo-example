@@ -44,8 +44,8 @@ runs:
       with:
         path: |
           .ci-cache/yarn-state
-          .ci-cache/yarn-global/store
-        key: ${{ runner.os }}-yarn-state-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          .ci-cache/yarn-global
+        key: ${{ runner.os }}-yarn-2state-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
 
     - name: Install dependencies
       shell: bash
@@ -53,7 +53,7 @@ runs:
         yarn install --immutable --inline-builds
       env:
         YARN_NM_MODE: 'hardlinks-global'
-        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz
+        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-2state/install-state.gz
         YARN_GLOBAL_FOLDER: .ci-cache/yarn-global
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
