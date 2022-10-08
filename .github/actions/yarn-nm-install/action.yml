@@ -10,7 +10,7 @@
 ########################################################################################
 
 name: 'Monorepo install (yarn)'
-description: 'Run yarn install with node_modules linked and cache enabled'
+description: 'Run yarn install with node_modules linker and cache enabled'
 inputs:
   skip-prisma-postinstall-generate:
     description: 'Avoid prisma to automatically generate schema on postinstall'
@@ -21,7 +21,7 @@ inputs:
     required: false
     default: '1'
   yarn-download-cache-key:
-    description: 'Yarn rotates downloaded cache archives. In case of issue you can update the key.'
+    description: 'Yarn rotates downloaded cache archives. In some circumtances update the key.'
     required: false
     default: 'v1'
 
@@ -35,8 +35,10 @@ runs:
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
     # Yarn rotates the downloaded cache archives. Two possibilities
-    # - Default: keep one global cache-entry through action/cache
-    # - Commented: Use restore keys like / hash on yarn.lock see https://github.com/actions/setup-node/issues/325
+    # - First(illustrated): keep one global cache-entry through action/cache (default)
+    # - Second(commented): use restore keys + hash on yarn.lock, see https://github.com/actions/setup-node/issues/325
+    # The second option will create multiple cache entries on yarn.lock changes. The first keeps only one
+    # so yarn will download updated deps for each P/R (but not the already downloaded ones)
     - name: Restore yarn cache
       uses: actions/cache@v3
       id: yarn-download-cache
@@ -63,8 +65,8 @@ runs:
       env:
         # CI optimizations. Overrides yarnrc.yml options (or their defaults) in the CI action.
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-local reduces io / node_modules size
-        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz # Small speedup when lock does not change
+        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
+        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz # Very small speedup when lock does not change
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
