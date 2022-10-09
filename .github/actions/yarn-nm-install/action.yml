@@ -20,10 +20,6 @@ inputs:
     description: 'Avoid playwright to download browsers automatically'
     required: false
     default: '1'
-  yarn-download-cache-key:
-    description: 'Yarn rotates downloaded cache archives. In some circumtances update the key.'
-    required: false
-    default: 'v1'
 
 runs:
   using: 'composite'
@@ -34,20 +30,16 @@ runs:
       shell: bash
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-    # Yarn rotates the downloaded cache archives. Two possibilities
-    # - First(illustrated): keep one global cache-entry through action/cache (default)
-    # - Second(commented): use restore keys + hash on yarn.lock, see https://github.com/actions/setup-node/issues/325
-    # The second option will create multiple cache entries on yarn.lock changes. The first keeps only one
-    # so yarn will download updated deps for each P/R (but not the already downloaded ones)
+    # Yarn rotates the downloaded cache archives.
+    # @see https://github.com/actions/setup-node/issues/325
     - name: Restore yarn cache
       uses: actions/cache@v3
       id: yarn-download-cache
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: yarn-download-cache-${{ inputs.yarn-download-cache-key }}
-        #key: yarn-download-cache-${{ hashFiles('**/yarn.lock') }}
-        #restore-keys: |
-        #  yarn-download-cache-
+        key: yarn-download-cache-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          yarn-download-cache-
 
     # Invalidated on yarn.lock changes
     - name: Restore yarn install state
