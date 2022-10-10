@@ -43,8 +43,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: |
-        pnpm install --frozen-lockfile
+      run: pnpm install --frozen-lockfile
       env:
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
