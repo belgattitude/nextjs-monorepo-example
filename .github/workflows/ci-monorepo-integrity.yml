@@ -39,7 +39,7 @@ jobs:
 
       - name: 🔎 Check for duplicates
         run: |
-          pnpm exec pnpm-deduplicate
+          pnpm exec pnpm-deduplicate --list
 
       - name: 🦺 Audit prod deps for known vulnerabilities
         run: |
