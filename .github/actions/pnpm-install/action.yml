@@ -1,0 +1,32 @@
+#######################################################################################
+# "pnpm install" composite action                                                      #
+#--------------------------------------------------------------------------------------#
+#   - bench: https://gist.github.com/belgattitude/0ecd26155b47e7be1be6163ecfbb0f0b     #
+########################################################################################
+
+name: 'Monorepo install (pnpm)'
+description: 'Run pnpm install'
+inputs:
+  skip-prisma-postinstall-generate:
+    description: 'Avoid prisma to automatically generate schema on postinstall'
+    required: false
+    default: 'true'
+  playwright-skip-browser-download:
+    description: 'Avoid playwright to download browsers automatically'
+    required: false
+    default: '1'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - uses: pnpm/action-setup@v2.2.2
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pnpm install
+      env:
+        # Other environment variables
+        HUSKY: '0' # By default do not run HUSKY install
+        PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}

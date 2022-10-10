@@ -54,10 +54,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs build nextjs-app from cache
+      - name: Restore nextjs-app build from cache
         uses: actions/cache@v3
         with:
           path: |
@@ -65,9 +65,9 @@ jobs:
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
 
-          key: ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
+          key: ${{ runner.os }}-nextjs-app-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('apps/nextjs-app/src/**.[jt]sx?', 'apps/nextjs-app/src/**.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-app-${{ hashFiles('pnpm-lock.yaml') }}-
 
       - name: Start database
         working-directory: packages/db-main-prisma
@@ -76,15 +76,15 @@ jobs:
       - name: Create and seed test database
         working-directory: packages/db-main-prisma
         run: |
-          yarn prisma db push
-          yarn prisma db seed
+          pnpm prisma db push
+          pnpm prisma db seed
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
       - name: Build nextjs-app
         working-directory: apps/nextjs-app
         run: |
-          yarn build
+          pnpm build
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
           # Don't need to lint / typecheck for e2e, they're done in another workflow
@@ -100,7 +100,7 @@ jobs:
       - name: E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app
         run: |
-          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- pnpm run test-e2e
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- pnpm test-e2e
         env:
           E2E_WEBSERVER_MODE: BUILD_AND_START
           CI: 1

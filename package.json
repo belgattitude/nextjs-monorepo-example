@@ -103,9 +103,15 @@
     "typescript": "4.8.4"
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0",
-    "yarn": ">=1.22.0",
-    "npm": "please-use-yarn"
+    "node": "^14.13.1 || >=16.0.0"
   },
-  "packageManager": "yarn@4.0.0-rc.24"
+  "packageManager": "pnpm@7.13.3",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react-native",
+        "graphql-tag"
+      ]
+    }
+  }
 }
