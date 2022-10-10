@@ -44,7 +44,14 @@ pnpm i
 
 Be sure to add those envs to vercel
 
-- PRISMA_SKIP_POSTINSTALL_GENERATE=true
-- HUSKY=0
+- `PRISMA_SKIP_POSTINSTALL_GENERATE`: true
+- `HUSKY`: 0
 
-You don't need anymore to override install command. if you want to: `pnpm i`
+You don't need anymore to override install command, but if you want to keep
+the same cache optimizations, replace the command
+
+`YARN_CACHE_FOLDER=./.next/cache/yarn yarn install --immutable --inline-builds`
+
+By
+
+`pnpm config set store-dir "./.next/cache/pnpm-store" && pnpm install && pnpm prune store`
