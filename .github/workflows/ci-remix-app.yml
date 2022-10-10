@@ -8,10 +8,7 @@ on:
     paths:
       - 'apps/remix-app/*'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
   pull_request:
@@ -23,9 +20,7 @@ on:
       - 'apps/remix-app/*'
       - 'package.json'
       - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
 jobs:
@@ -43,25 +38,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       - name: Typecheck
         working-directory: apps/remix-app
         run: |
-          yarn typecheck
+          pnpm typecheck
 
       - name: Linter
-        working-directory: apps/remix-app
         run: |
-          yarn lint
-          yarn lint-styles
+          pnpm run lint
+          pnpm run lint-styles
+        env:
+          TIMING: '1' # Allows to get output for eslint
 
       - name: Unit tests
         working-directory: apps/remix-app
         run: |
-          yarn test-unit --runInBand --color
+          pnpm test-unit --color
 
       - name: Build remix-app
         working-directory: apps/remix-app
         run: |
-          yarn build
+          pnpm build
