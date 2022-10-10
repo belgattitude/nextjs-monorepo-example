@@ -1,53 +1,60 @@
 {
   "folders": [
     {
-      "name": "nextjs-app",
+        "name": "🌳 root",
+        "path": "."
+    },
+    {
+      "name": "🍂 nextjs-app",
       "path": "apps/nextjs-app"
     },
     {
-      "name": "remix-app",
+      "name": "🍂 remix-app",
       "path": "apps/remix-app"
     },
     {
-      "name": "vite-app",
+      "name": "🍂 vite-app",
       "path": "apps/vite-app"
     },
     {
-      "name": "api-gateway",
+      "name": "📦 api-gateway",
       "path": "packages/api-gateway"
     },
     {
-      "name": "common-i18n",
+      "name": "📦 common-i18n",
       "path": "packages/common-i18n"
     },
     {
-      "name": "core-lib",
+      "name": "📦 core-lib",
       "path": "packages/core-lib"
     },
     {
-      "name": "db-main-prisma",
+      "name": "📦 db-main-prisma",
       "path": "packages/db-main-prisma"
     },
     {
-      "name": "eslint-config-bases",
+      "name": "📦 eslint-config-bases",
       "path": "packages/eslint-config-bases"
     },
     {
-      "name": "ui-lib",
-      "path": "packages/ui-lib"
+      "name": "📦 ts-utils",
+      "path": "packages/ts-utils"
     },
     {
-      "name": "root",
-      "path": "."
-    }
+      "name": "📦 ui-lib",
+      "path": "packages/ui-lib"
+    },
   ],
   "extensions": {
     "recommendations": [
+      "folke.vscode-monorepo-workspace",
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
     ]
   },
   "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
@@ -69,6 +76,7 @@
       "./packages/core-lib",
       "./packages/db-main-prisma",
       "./packages/eslint-config-bases",
+      "./packages/ts-utils",
       "./packages/ui-lib"
     ]
   }

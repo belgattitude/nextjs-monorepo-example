@@ -25,7 +25,7 @@ jobs:
           node-version: 16.x
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       # @link https://github.com/changesets/action
       - name: Create Release Pull Request or Publish to npm

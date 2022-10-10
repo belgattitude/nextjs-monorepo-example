@@ -23,7 +23,7 @@ on:
       - '.github/**'
 
 jobs:
-  test:
+  monoreporepo-checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,16 +37,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
-      - name: Check for duplicate dependencies in lock file
+      - name: Check for duplicates
         run: |
-          yarn dedupe --check
+          pnpm exec pnpm-deduplicate
 
-      - name: Check for yarn constraints.pro
+      - name: Audit production deps for vulnerabilities
         run: |
-          yarn constraints
-
-      - name: Check monorepo dependency graph
-        run: |
-          yarn check:install
+          pnpm audit --prod
