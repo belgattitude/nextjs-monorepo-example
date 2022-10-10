@@ -37,7 +37,7 @@ runs:
           ${{ runner.os }}-pnpm-store-cache-
 
     # Prevent store to grow over time (not needed with yarn)
-    - name: Pnp prune store
+    - name: Prune pnpm store
       shell: bash
       run: pnpm prune store
 

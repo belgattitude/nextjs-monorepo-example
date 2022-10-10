@@ -56,23 +56,23 @@ jobs:
 
       - name: Typecheck
         run: |
-          pnpm run -F "./packages/**[origin/main]" typecheck
+          pnpm -F "./packages/**[origin/main]" typecheck
 
       - name: Linter
         run: |
-          pnpm run -F "./packages/**[origin/main]" lint
-          pnpm run -F "./packages/**[origin/main]" lint-styles
+          pnpm -F "./packages/**[origin/main]" lint
+          pnpm -F "./packages/**[origin/main]" lint-styles
         env:
           TIMING: '1' # Allows to get output for eslint
 
       - name: Unit tests changed packages
         run: |
-          pnpm run -F "./packages/**[origin/main]" test-unit
+          pnpm -F "./packages/**[origin/main]" test-unit
 
       - name: Run build for changed packages
         run: |
-          pnpm run -F "./packages/**[origin/main]" build
+          pnpm -F "./packages/**[origin/main]" build
 
       - name: Run storybook build for changed packages
         run: |
-          pnpm run -F "./packages/**[origin/main]" build-storybook
+          pnpm -F "./packages/**[origin/main]" build-storybook
