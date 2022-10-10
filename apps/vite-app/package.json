@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.vite",
     "serve": "vite preview",
-    "test": "yarn test-unit",
+    "test": "pnpm test-unit",
     "test-unit": "echo 'No test present yet'",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/vite-app.eslintcache",

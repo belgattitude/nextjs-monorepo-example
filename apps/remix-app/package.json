@@ -25,7 +25,7 @@
     "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
     "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
-    "test": "yarn test-unit",
+    "test": "pnpm test-unit",
     "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
