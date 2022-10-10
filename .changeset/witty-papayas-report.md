@@ -36,3 +36,12 @@ npm i -g pnpm
 rm -rf .yarn
 pnpm i
 ```
+
+#### Deployment
+
+> **Note**
+> Only applicable if you were using the [yarn optimized installation command](https://github.com/belgattitude/nextjs-monorepo-example/blob/84e2d7a71f773f68c9d325775ae0633dc7001466/docs/deploy/deploy-vercel.md) to deploy to vercel.
+
+```
+PRISMA_SKIP_POSTINSTALL_GENERATE=true HUSKY=0 pnpm i
+```
