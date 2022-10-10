@@ -7,8 +7,7 @@ on:
       - main
     paths:
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
+      - '*pnpm*'
       - '.github/**'
 
   pull_request:
@@ -18,8 +17,7 @@ on:
       - reopened
     paths:
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
+      - '*pnpm*'
       - '.github/**'
 
 jobs:
@@ -39,10 +37,10 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/pnpm-install
 
-      - name: Check for duplicates
+      - name: 🔎 Check for duplicates
         run: |
           pnpm exec pnpm-deduplicate
 
-      - name: Audit production deps for vulnerabilities
+      - name: 🦺 Audit prod deps for known vulnerabilities
         run: |
           pnpm audit --prod

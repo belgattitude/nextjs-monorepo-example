@@ -88,12 +88,12 @@ jobs:
           # Fully disable sentry upload
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
-      - name: Check browser bundle size limits
+      - name: 📉 Check browser bundle size limits
         working-directory: apps/nextjs-app
         run: |
           pnpm check-size
 
-      - name: Check ecmascript checks for build files
+      - name: 🌐 Check ecmascript checks for build files
         working-directory: apps/nextjs-app
         run: |
           pnpm check-dist
