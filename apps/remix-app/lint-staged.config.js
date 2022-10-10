@@ -31,7 +31,7 @@ const rules = {
   },
   '**/*.{css,scss}': (filenames) => {
     return [
-      `yarn stylelint --allow-empty-input --ignore-disables --config ./stylelint.config.js --max-warnings 25 --color ${concatFilesForStylelint(
+      `pnpm stylelint --allow-empty-input --ignore-disables --config ./stylelint.config.js --max-warnings 25 --color ${concatFilesForStylelint(
         filenames
       )}`,
       `prettier --write ${concatFilesForPrettier(filenames)}`,

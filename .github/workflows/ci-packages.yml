@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          # Fetch all git history so that yarn workspaces --since can compare with the correct commits
+          # Fetch all git history to allow running "yarn workspaces --since"/"pnpm -F '[origin/main]'"
           # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
           fetch-depth: 0
 

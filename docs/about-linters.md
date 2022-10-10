@@ -61,17 +61,17 @@ module.exports = {
 
 If you are in a specific package, you can run the linter from the package directory.
 
-| Name              | Description            |
-| ----------------- | ---------------------- |
-| `yarn lint`       | Display linter issues. |
-| `yarn lint --fix` | Run automatic fixes.   |
+| Name         | Description            |
+| ------------ | ---------------------- |
+| `lint`       | Display linter issues. |
+| `lint --fix` | Run automatic fixes.   |
 
 It's possible to run the linter globally from any folder of the monorepo.
 
-| Name                | Description                                    |
-| ------------------- | ---------------------------------------------- |
-| `yarn g:lint`       | Display linter issues in all apps and packages |
-| `yarn g:lint --fix` | Run automatic fixes                            |
+| Name           | Description                                    |
+| -------------- | ---------------------------------------------- |
+| `g:lint`       | Display linter issues in all apps and packages |
+| `g:lint --fix` | Run automatic fixes                            |
 
 ## Lint-staged
 

@@ -3,12 +3,14 @@ import type { Options as ExecaOptions } from 'execa';
 import { PrismaManager, PrismaClientDbMain } from '../../src';
 import { getAndCheckDatabaseDsn } from '../e2e-dsn-services.util';
 
+const pm: 'yarn' | 'pnpm' = 'pnpm';
+
 describe('prisma cli commands', () => {
   let databaseDsn = '';
   beforeAll(async () => {
     databaseDsn = await getAndCheckDatabaseDsn();
   });
-  describe('yarn prisma db create and seed', () => {
+  describe('prisma db create and seed', () => {
     it('should load seed data in a newly created db', async () => {
       const dsn = databaseDsn;
 
@@ -21,12 +23,12 @@ describe('prisma cli commands', () => {
         },
       };
 
-      const createResult = await execa('yarn prisma db push', options);
+      const createResult = await execa(`${pm} prisma db push`, options);
 
       expect(createResult.exitCode).toStrictEqual(0);
       expect(createResult.stdout).toMatch(/your database is now in sync/i);
 
-      const seedResult = await execa('yarn prisma db seed', options);
+      const seedResult = await execa(`${pm} prisma db seed`, options);
 
       expect(seedResult.exitCode).toStrictEqual(0);
       expect(seedResult.stdout).toMatch(/seeding finished/i);

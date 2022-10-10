@@ -26,8 +26,8 @@ packages that lives in a [monorepo](https://github.com/belgattitude/nextjs-monor
 Add the following devDependencies to workspace (apps/packages in monorepo) or main project package.json.
 
 ```bash
-$ yarn add --dev eslint
-$ yarn add --dev @your-org/eslint-config-bases:"workspace:^"
+$ pnpm add --save-dev eslint @your-org/eslint-config-bases:"workspace:^"
+$ # yarn add --dev eslint @your-org/eslint-config-bases:"workspace:^"
 ```
 
 > **Tip** the [workspace:^](https://yarnpkg.com/features/workspaces#workspace-ranges-workspace) is supported by yarn and pnpm.

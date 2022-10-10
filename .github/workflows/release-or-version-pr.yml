@@ -32,7 +32,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          # publish: yarn g:release
+          # publish: pnpm g:release
           cwd: ${{ github.workspace }}
           title: '[Release] Version packages'
           # Optional, might be used in conjunction with GITHUB_TOKEN to

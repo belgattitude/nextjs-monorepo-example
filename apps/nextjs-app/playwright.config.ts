@@ -6,6 +6,8 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 import pc from 'picocolors';
 
+const pm: 'yarn' | 'pnpm' = 'pnpm';
+
 const webServerModes = ['DEV', 'START', 'BUILD_AND_START'] as const;
 type WebServerMode = typeof webServerModes[number];
 
@@ -19,17 +21,17 @@ const outputDir = path.join(__dirname, 'e2e/.out');
 type WebServerConfig = { cmd: string; timeout: number; retries: number };
 const webServerConfigs: Record<WebServerMode, WebServerConfig> = {
   START: {
-    cmd: `yarn start -p ${webServerPort}`,
+    cmd: `${pm} start -p ${webServerPort}`,
     timeout: isCI ? 90_000 : 30_000,
     retries: isCI ? 3 : 1,
   },
   DEV: {
-    cmd: `yarn dev -p ${webServerPort}`,
+    cmd: `${pm} dev -p ${webServerPort}`,
     timeout: 30_000,
     retries: 1,
   },
   BUILD_AND_START: {
-    cmd: `NEXT_IGNORE_TYPECHECKS=1 yarn build --no-lint && yarn start -p ${webServerPort}`,
+    cmd: `NEXT_IGNORE_TYPECHECKS=1 ${pm} build --no-lint && ${pm} start -p ${webServerPort}`,
     timeout: isCI ? 180_000 : 120_000,
     retries: isCI ? 3 : 1,
   },
