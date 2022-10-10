@@ -47,8 +47,4 @@ Be sure to add those envs to vercel
 - PRISMA_SKIP_POSTINSTALL_GENERATE=true
 - HUSKY=0
 
-You don't need anymore to override install command. if you want to:
-
-```
- pnpm i
-```
+You don't need anymore to override install command. if you want to: `pnpm i`
