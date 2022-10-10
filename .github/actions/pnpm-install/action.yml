@@ -36,6 +36,11 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-cache-
 
+    # Prevent store to grow over time (not needed with yarn)
+    - name: Pnp prune store
+      shell: bash
+      run: pnpm prune store
+
     - name: Install dependencies
       shell: bash
       run: |
