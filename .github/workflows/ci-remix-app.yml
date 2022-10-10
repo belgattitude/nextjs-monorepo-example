@@ -46,9 +46,10 @@ jobs:
           pnpm typecheck
 
       - name: Linter
+        working-directory: apps/remix-app
         run: |
-          pnpm run lint
-          pnpm run lint-styles
+          pnpm lint
+          pnpm lint-styles
         env:
           TIMING: '1' # Allows to get output for eslint
 
