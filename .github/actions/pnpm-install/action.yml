@@ -23,6 +23,7 @@ runs:
     - uses: pnpm/action-setup@v2.2.2
 
     - name: Get pnpm store directory
+      shell: bash
       id: pnpm-cache
       run: |
         echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
