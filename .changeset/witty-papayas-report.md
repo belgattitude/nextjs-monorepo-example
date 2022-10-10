@@ -54,4 +54,4 @@ the same cache optimizations, replace the command
 
 By
 
-`pnpm config set store-dir "./.next/cache/pnpm-store" && pnpm install && pnpm prune store`
+`pnpm install --frozen-lockfile --strict-peer-dependencies --no-optional --prefer-offline`
