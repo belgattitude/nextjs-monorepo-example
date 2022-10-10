@@ -92,7 +92,7 @@ jobs:
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: 📥 Playwright install
-        uses: ./.github/actions/playwright-install
+        uses: ./.github/actions/playwright-install-pnpm
 
       - name: E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app

@@ -38,9 +38,9 @@ runs:
 
     - name: Install Playwright OS Deps
       shell: bash
-      run: pnpm playwright install-deps
+      run: yarn playwright install-deps
 
     - name: Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: pnpm playwright install chromium webkit
+      run: yarn playwright install chromium webkit
