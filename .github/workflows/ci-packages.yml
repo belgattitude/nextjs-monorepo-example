@@ -62,6 +62,8 @@ jobs:
         run: |
           pnpm run -F "./packages/**[origin/main]" lint
           pnpm run -F "./packages/**[origin/main]" lint-styles
+        env:
+          TIMING: '1' # Allows to get output for eslint
 
       - name: Unit tests changed packages
         run: |
