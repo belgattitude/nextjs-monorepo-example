@@ -21,11 +21,12 @@ that both package managers are awesome. There's few reasons behind the move:
    that were made on the nextjs-monorepo-example. From ±1m15s -> ±45s.
 2. Future integration with turbo/docker have some more possibles.
 
-## Notes
+## Disadvantages
 
-- Differently from yarn, pnpm version is not committed within the repo. There's some extra work
-  to do when updating pnpm version (in ci, docker, locally...). This will probably be solved
-  when [corepack](https://nodejs.org/api/corepack.html) is out of experimental status.
+1. Vercel preview are slower, lambdas sizes bigger (https://gist.github.com/belgattitude/38bc4b779d14d17793316c936879f06e)
+2. Differently from yarn, pnpm version is not committed within the repo. There's some extra work
+   to do when updating pnpm version (in ci, docker, locally...). This will probably be solved
+   when [corepack](https://nodejs.org/api/corepack.html) is out of experimental status.
 
 ### Upgrade
 
@@ -54,4 +55,10 @@ the same cache optimizations, replace the command
 
 By
 
-`pnpm install --frozen-lockfile --strict-peer-dependencies --no-optional --prefer-offline`
+`pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline`
+
+Vercel will use by default the latest pnpm version 7 available (in reality few versions behind)...
+If you like you can enable the experimental corepack option ENABLE_EXPERIMENTAL_COREPACK=1 in the vercel env.
+That way it will help reproducibility
+
+See https://vercel.com/docs/concepts/deployments/configure-a-build#corepack
