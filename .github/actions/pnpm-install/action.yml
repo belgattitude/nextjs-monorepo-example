@@ -11,10 +11,6 @@ inputs:
     description: 'Avoid prisma to automatically generate schema on postinstall'
     required: false
     default: 'true'
-  playwright-skip-browser-download:
-    description: 'Avoid playwright to download browsers automatically'
-    required: false
-    default: '1'
 
 runs:
   using: 'composite'
@@ -43,7 +39,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: pnpm install --frozen-lockfile
+      run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
       env:
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
