@@ -8,10 +8,7 @@ on:
     paths:
       - 'apps/vite-app/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
   pull_request:
@@ -22,10 +19,7 @@ on:
     paths:
       - 'apps/vite-app/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
 jobs:
@@ -43,24 +37,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       - name: Typecheck
         working-directory: apps/vite-app
         run: |
-          yarn typecheck
+          pnpm typecheck
 
       - name: Linter
         working-directory: apps/vite-app
         run: |
-          yarn lint
+          pnpm lint
+        env:
+          TIMING: '1'
 
       - name: Unit tests
         working-directory: apps/vite-app
         run: |
-          yarn test-unit --runInBand --color
+          pnpm test-unit --color
 
       - name: Build vite-app
         working-directory: apps/vite-app
         run: |
-          yarn build
+          pnpm build
