@@ -14,14 +14,16 @@
 Examples moved from yarn to pnpm.
 
 The example repo is now managed by [pnpm7](https://pnpm.io/) rather than [yarn4](). Note
-that both package managers are awesome. There's few reasons behind the move:
+that both package managers are awesome. There's few benefits behind the move:
+
+### Advantages
 
 1. CI install time is ±30% faster (considering package manager install + action cache). See
    [benchmarks](https://gist.github.com/belgattitude/0ecd26155b47e7be1be6163ecfbb0f0b)
    that were made on the nextjs-monorepo-example. From ±1m15s -> ±45s.
 2. Future integration with turbo/docker have some more possibles.
 
-## Disadvantages
+### Disadvantages
 
 1. Vercel preview are slower, lambdas sizes bigger (https://gist.github.com/belgattitude/38bc4b779d14d17793316c936879f06e)
 2. Differently from yarn, pnpm version is not committed within the repo. There's some extra work
