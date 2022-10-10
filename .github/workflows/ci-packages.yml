@@ -8,10 +8,7 @@ on:
     paths:
       - 'packages/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
   pull_request:
@@ -22,10 +19,7 @@ on:
     paths:
       - 'packages/**'
       - 'package.json'
-      - '*.lock'
-      - '.yarnrc.yml'
-      - 'tsconfig.base.json'
-      - '.prettier*'
+      - 'pnpm*'
       - '.github/**'
 
 jobs:
@@ -47,7 +41,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/yarn-nm-install
+        uses: ./.github/actions/pnpm-install
 
       - name: Restore packages cache
         uses: actions/cache@v3
@@ -56,34 +50,27 @@ jobs:
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
 
-          key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
+          key: ${{ runner.os }}-packages-cache-${{ hashFiles('pnpm*.yaml') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
           restore-keys: |
-            ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-packages-cache-${{ hashFiles('pnpm*.yaml') }}-
 
-      # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
-      # That allows to see if we're introducing "surface" regressions (just the types)
       - name: Typecheck
         run: |
-          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main --recursive run typecheck
+          pnpm run -F "./packages/**[origin/main]" typecheck
 
-      # Lint packages that have changed (--include & --since)
       - name: Linter
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint-styles
+          pnpm run -F "./packages/**[origin/main]" lint
+          pnpm run -F "./packages/**[origin/main]" lint-styles
 
-      # Test packages that have changed (--include & --since)
       - name: Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test-unit
-      # to debug cache issues: ls ${{ github.workspace }}/.cache
-      # Build packages that have changed (--include & --since), assuming that
-      # apps build are done already. Otherwise --from & --since
+          pnpm run -F "./packages/**[origin/main]" test-unit
+
       - name: Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run build
+          pnpm run -F "./packages/**[origin/main]" build
 
-      # Test storybook build on packages that have changed (--include & --since)
       - name: Run storybook build for changed packages
         run: |
-          yarn workspaces foreach -tv --exclude '*-app' --since=origin/main run build-storybook
+          pnpm run -F "./packages/**[origin/main]" build-storybook
