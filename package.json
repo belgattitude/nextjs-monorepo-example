@@ -45,6 +45,7 @@
     "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
     "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
     "clean:global-cache": "rimraf --no-glob ./.cache",
+    "commit": "cz",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
     "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
@@ -83,6 +84,11 @@
   "dependencies": {
     "cross-env": "7.0.3"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.7",
     "@changesets/cli": "2.25.0",
@@ -92,6 +98,8 @@
     "@types/prettier": "2.7.1",
     "@types/shell-quote": "1.7.1",
     "@your-org/eslint-config-bases": "workspace:^",
+    "commitizen": "4.2.5",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "8.25.0",
     "husky": "8.0.1",
     "is-ci": "3.0.1",
