@@ -5,7 +5,7 @@ The base branch is **`main`**.
 ## Workflow
 
 > **Note**
-> Please feature/fix/update... into individual PRs (not one changin everything)
+> Please feature/fix/update... into individual PRs (not one changing everything)
 
 - Fork this repo on github.
 - Create a branch, make the changes, push and create a P/R via github
