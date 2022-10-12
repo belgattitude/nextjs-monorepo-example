@@ -25,7 +25,7 @@ that both package managers are awesome. There's few benefits behind the move:
 
 ### Disadvantages
 
-1. Vercel preview are slower, lambdas sizes bigger (https://gist.github.com/belgattitude/38bc4b779d14d17793316c936879f06e)
+1. Vercel previews seems slower, lambdas sizes bigger (https://gist.github.com/belgattitude/38bc4b779d14d17793316c936879f06e)
 2. Differently from yarn, pnpm version is not committed within the repo. There's some extra work
    to do when updating pnpm version (in ci, docker, locally...). This will probably be solved
    when [corepack](https://nodejs.org/api/corepack.html) is out of experimental status.
