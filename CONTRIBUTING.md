@@ -4,8 +4,11 @@ The base branch is **`main`**.
 
 ## Workflow
 
-- Make changes, push and create a P/R on github.
-- Please split feature/fix/update... into isolated PR
+> **Note**
+> Please feature/fix/update... into individual PRs (not one changin everything)
+
+- Fork this repo on github.
+- Create a branch, make the changes, push and create a P/R via github
 
 ## Checklist
 
