@@ -46,7 +46,7 @@ runs:
     #  run: pnpm prune store
 
     # Storing node_modules speeds up overall installation (even considering (de)compression)
-    # but needs to be invalidated on lock changes
+    # but needs to be invalidated on lock changes (test)
     - uses: actions/cache@v3
       name: Setup node-modules cache
       with:
