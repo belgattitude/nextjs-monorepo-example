@@ -45,6 +45,14 @@ runs:
     #  shell: bash
     #  run: pnpm prune store
 
+    # Storing node_modules speeds up overall installation (even considering (de)compression)
+    # but needs to be invalidated on lock changes
+    - uses: actions/cache@v3
+      name: Setup node-modules cache
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-node-modules-cache-${{ hashFiles('**/pnpm-lock.yaml') }}
+
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
