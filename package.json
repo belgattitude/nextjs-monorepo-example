@@ -70,6 +70,7 @@
     "deps:check": "npx -y npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "npx -y npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "install:playwright": "playwright install",
+    "deduplicate": "pnpm-deduplicate",
     "postinstall": "is-ci || pnpm husky install"
   },
   "helpResolutions": {
