@@ -19,13 +19,13 @@ runs:
     - uses: pnpm/action-setup@v2.2.2
 
     - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
-      id: pnp-config
+      id: pnpm-config
       shell: bash
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - name: Get Date
-      id: get-date
+    - name: Cache rotation keys
+      id: cache-rotation
       shell: bash
       run: |
         echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
@@ -34,13 +34,13 @@ runs:
       name: Setup pnpm cache
       with:
         path: ${{ steps.pnpm-config.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-cache-${{ steps.get-date.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-cache-${{ steps.get-date.outputs.YEAR_MONTH }}-
+          ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
 
     # Prevent store to grow over time (not needed with yarn)
     # Note: not perfect as it prune too much in monorepos so the idea
-    #       is to use get-date as above. In the future this would work better
+    #       is to use cache-rotation as above. In the future this might work better.
     #- name: Prune pnpm store
     #  shell: bash
     #  run: pnpm prune store
