@@ -18,24 +18,32 @@ runs:
   steps:
     - uses: pnpm/action-setup@v2.2.2
 
-    - name: Get pnpm store directory
+    - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
+      id: pnp-config
       shell: bash
-      id: pnpm-cache
       run: |
-        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+    - name: Get Date
+      id: get-date
+      shell: bash
+      run: |
+        echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
 
     - uses: actions/cache@v3
       name: Setup pnpm cache
       with:
-        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-        key: ${{ runner.os }}-pnpm-store-cache-${{ hashFiles('**/pnpm-lock.yaml') }}
+        path: ${{ steps.pnpm-config.outputs.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-cache-${{ steps.get-date.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-cache-
+          ${{ runner.os }}-pnpm-store-cache-${{ steps.get-date.outputs.YEAR_MONTH }}-
 
     # Prevent store to grow over time (not needed with yarn)
-    - name: Prune pnpm store
-      shell: bash
-      run: pnpm prune store
+    # Note: not perfect as it prune too much in monorepos so the idea
+    #       is to use get-date as above. In the future this would work better
+    #- name: Prune pnpm store
+    #  shell: bash
+    #  run: pnpm prune store
 
     - name: Install dependencies
       shell: bash
@@ -44,4 +52,3 @@ runs:
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.playwright-skip-browser-download }}
