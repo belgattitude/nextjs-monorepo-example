@@ -1,5 +1,11 @@
 # @your-org/eslint-config-bases
 
+## 1.5.3
+
+### Patch Changes
+
+- [#2774](https://github.com/belgattitude/nextjs-monorepo-example/pull/2774) [`d940ab6b`](https://github.com/belgattitude/nextjs-monorepo-example/commit/d940ab6bd38cb585a1b73f078cb86396481a099a) Thanks [@tianyingchun](https://github.com/tianyingchun)! - fix wrong package json `main` configuration
+
 ## 1.5.2
 
 ### Patch Changes
