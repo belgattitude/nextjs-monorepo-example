@@ -1,46 +1,58 @@
 name: 'Playwright install'
-description: 'Installs the playwrigth with deps'
+description: 'Installs the playwright with deps'
+inputs:
+  playwright-cache-folder:
+    description: 'Set playwright cache folder'
+    required: false
+    default: '~/.cache/ms-playwright'
+  cache-prefix:
+    description: 'Used to invalidate cache in case of issue'
+    required: false
+    default: 'key1'
+  browsers:
+    description: 'Set browsers to install (ie: "chromium webkit")'
+    required: false
+    default: 'chromium webkit'
 
 runs:
   using: 'composite'
   steps:
-    # Keep cached playwright binaries to required version
-    # https://playwright.dev/docs/ci#caching-browsers
-    - name: Get current Playwright version
-      id: playwright-version
+    - name: Expose playwright config
+      id: playwright-config
       shell: bash
       run: |
-        playwright_version=$(npm info @playwright/test version)
-        echo "::set-output name=version::${playwright_version}"
+        echo "CURRENT_VERSION=$(npm info @playwright/test version)" >> $GITHUB_OUTPUT
+        echo "CACHE_KEY=$(npm info @playwright/test version)" >> $GITHUB_OUTPUT
 
-    - name: Get playwright cache-key
-      id: playwright-cache-key
+    - name: Compute cache config
+      id: playwright-cache-config
       shell: bash
       run: |
-        playwright_cache_key="${{ runner.os }}-playwright-cache-${{ steps.playwright-version.outputs.version }}-2"
-        echo "::set-output name=key::${playwright_cache_key}"
+        echo "CACHE_KEY=${{ runner.os }}-playwright-cache-${{ inputs.cache-prefix }}-${{ steps.playwright-config.outputs.CURRENT_VERSION }}" >> $GITHUB_OUTPUT
 
-    - name: Cache Playwright binaries
+    - name: Restore playwright install
       uses: actions/cache@v3
       id: playwright-cache
       with:
-        path: ${{ matrix.playwright_binary_path }}
-        key: ${{ steps.playwright-cache-key.outputs.key }}
+        path: |
+          ${{ inputs.playwright-cache-folder }}
+        key: ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}
 
     - name: Playwright debug
       shell: bash
       run: |
         echo "OS: ${{ matrix.os }}"
         echo "Playwright version: ${{ steps.playwright-version.outputs.version }}"
-        echo "Playwright install dir: ${{ matrix.playwright_binary_path }}"
-        echo "Cache key: ${{ steps.playwright-cache-key.outputs.key }}"
+        echo "Playwright cache folder: ${{ inputs.playwright-cache-folder }}"
+        echo "Browsers: ${{ inputs.browsers }}"
+        echo "Cache key: ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}"
         echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
 
-    - name: Install Playwright OS Deps
-      shell: bash
-      run: yarn playwright install-deps
+    #- name: Install Playwright OS Deps
+    #  shell: bash
+    #  run: npx playwright install-deps
 
     - name: Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: yarn playwright install chromium webkit
+      run: npx playwright install chromium webkit
