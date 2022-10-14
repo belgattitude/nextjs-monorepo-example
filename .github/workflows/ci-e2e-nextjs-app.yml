@@ -52,7 +52,7 @@ jobs:
         uses: ./.github/actions/pnpm-install
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs-app build from cache
+      - name: ♻️Restore nextjs-app build from cache
         uses: actions/cache@v3
         with:
           path: |
@@ -91,7 +91,7 @@ jobs:
       - name: 📥 Playwright install
         uses: ./.github/actions/playwright-install
 
-      - name: E2E run nextjs-app playwright tests
+      - name: 🎭 E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- pnpm test-e2e
