@@ -16,7 +16,7 @@ declare module 'next-auth' {
    */
   // interface Account {}
   /** The OAuth profile returned from your provider */
-    // interface Profile {}
+  // interface Profile {}
 
   interface Session {
     user: {
