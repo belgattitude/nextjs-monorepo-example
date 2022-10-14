@@ -1,36 +1,17 @@
-<div align="center">
-  <h1 align="center"><a aria-label="NextJs Monorepo" href="https://github.com/belgattitude/nextjs-monorepo-example">NextJs Monorepo</a></h1>
-  <p align="center"><strong>Monorepo concepts, tips and tricks oriented around NextJs</strong></p>
-</div>
-<p align="center">
-  <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-nextjs-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example">
-    <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="CodeClimate maintainability" href="https://codeclimate.com/github/belgattitude/nextjs-monorepo-example">
-    <img alt="Maintainability" src="https://img.shields.io/codeclimate/maintainability/belgattitude/nextjs-monorepo-example?label=Maintainability&logo=code-climate&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="CodeClimate technical debt" href="https://codeclimate.com/github/belgattitude/nextjs-monorepo-example">
-    <img alt="Techdebt" src="https://img.shields.io/codeclimate/tech-debt/belgattitude/nextjs-monorepo-example?label=TechDebt&logo=code-climate&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="Codacy grade" href="https://www.codacy.com/gh/belgattitude/nextjs-monorepo-example/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=belgattitude/nextjs-monorepo-example&amp;utm_campaign=Badge_Grade">
-    <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=flat-square&labelColor=000&label=Codacy">
-  </a>
-  <a aria-label="LoC">  
-    <img alt="LoC" src="https://img.shields.io/tokei/lines/github/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="Top language" href="https://github.com/belgattitude/nextjs-monorepo-example/search?l=typescript">
-    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/belgattitude/nextjs-monorepo-example?style=flat-square&labelColor=000&color=blue">
-  </a>
-  <a aria-label="Licence" href="https://github.com/belgattitude/nextjs-monorepo-example/blob/main/LICENSE">
-    <img alt="Licence" src="https://img.shields.io/github/license/belgattitude/nextjs-monorepo-example?style=flat-quare&labelColor=000000" />
-  </a>
-</p>
+# Monorepo guide
 
-> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.2+](https://dev.to/arcanis/yarn-32-libc-yarn-explain-next-major--o22)
-> / [typescript path aliases](https://www.typescriptlang.org/tsconfig#paths). Not the only way to do.
+> Fair monorepo starter with modern tooling 🔹 Not a boilerplate 🔹 Pick your recipes🔹 Nextjs oriented
+> but not limited to 🔹 Tuned for greener CI 🔹 PNPM based 🔹
+> Easy DX based on typescript [path aliases](https://www.typescriptlang.org/tsconfig#paths) (scalable later) 🔹
+> Why ? See here.
+
+[![ci](https://img.shields.io/github/checks-status/belgattitude/nextjs-monorepo-example/main?label=CI&logo=github&style=for-the-badge&labelColor=333)](https://github.com/belgattitude/nextjs-monorepo-example/actions?query=branch%3Amain)
+[![maintainability](https://img.shields.io/codeclimate/maintainability/belgattitude/nextjs-monorepo-example?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=333)](https://codeclimate.com/github/belgattitude/nextjs-monorepo-example)
+[![techdebt](https://img.shields.io/codeclimate/tech-debt/belgattitude/nextjs-monorepo-example?label=TechDebt&logo=code-climate&style=for-the-badge&labelColor=333)](https://codeclimate.com/github/belgattitude/nextjs-monorepo-example)
+[![codefactor](https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=for-the-badge&labelColor=333)](https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example)
+[![codacy](https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=for-the-badge&label=Codacy&labelColor=333)](https://www.codacy.com/gh/belgattitude/nextjs-monorepo-example/dashboard?utm_source=github.com&utm_medium=referral&utm_content=belgattitude/nextjs-monorepo-example&utm_campaign=Badge_Grade)
+![GitHub contributors](https://img.shields.io/github/contributors/belgattitude/nextjs-monorepo-example?style=for-the-badge&labelColor=333)
+[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
 Useful to
 
@@ -42,25 +23,24 @@ Useful to
 
 ## Sponsors :heart:
 
-If you are enjoying some this guide in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude), a [coffee](https://ko-fi.com/belgattitude) or a dropped star.
-That gives me some more time to improve it to the next level.
+If you are enjoying this guide in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude),
+a [coffee](https://ko-fi.com/belgattitude) or a dropped ⭐. That gives me some more time to improve it to the next level.
 
 ## Structure
-
-[![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
 
 ```
 .
 ├── apps
-│   ├── nextjs-app  (i18n, ssr, api, vitest)
-│   ├── remix-app   (csr, ssr, api, jest)
+│   ├── nextjs-app  (i18n, ssr, api, next-auth, ts-jest/vitest)
+│   ├── remix-app
 │   └── vite-app
 └── packages
     ├── api-gateway         (graphql mesh)
-    ├── common-i18n         (locales...)
+    ├── common-i18n         (shared locales)
     ├── core-lib
-    ├── db-main-prisma
-    ├── eslint-config-bases (to shared eslint configs)
+    ├── db-main-prisma      (example db based on prisma)
+    ├── eslint-config-bases (to share and compose eslint configs)
+    ├── ts-utils            (common typescript utilities)
     └── ui-lib              (emotion, storybook)
 ```
 
@@ -80,6 +60,7 @@ That gives me some more time to improve it to the next level.
 - [packages/ui-lib](./packages/ui-lib): publishable. [README](./packages/ui-lib/README.md) | [CHANGELOG](./packages/ui-lib/CHANGELOG.md)
 - [packages/common-i18n](./packages/common-i18n): [README](./packages/common-i18n/README.md) | [CHANGELOG](./packages/common-i18n/CHANGELOG.md)
 - [packages/api-gateway](./packages/api-gateway): [README](./packages/api-gateway/README.md) | [CHANGELOG](./packages/api-gateway/CHANGELOG.md)
+- [packages/ts-utils](./packages/ts-utils): [README](./packages/ts-utils/README.md) | [CHANGELOG](./packages/ts-utils/CHANGELOG.md)
 
 > Apps can depend on packages, packages can depend on each others...
 
