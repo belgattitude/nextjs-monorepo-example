@@ -44,7 +44,7 @@ jobs:
         uses: ./.github/actions/pnpm-install
 
       - name: 👀 List changed packages
-        run: pnpm list -F "{packages}[origin/main]" --changed-files-ignore-pattern="**/*.md" -r --depth=-1 --json | jq --raw-output ".[].name"
+        run: pnpm list -F "{./packages/**}[origin/main]" --changed-files-ignore-pattern="**/*.md" --depth=-1 --json | jq --raw-output ".[].name"
 
       - name: Restore packages cache
         uses: actions/cache@v3
@@ -59,20 +59,20 @@ jobs:
 
       - name: Typecheck
         run: |
-          pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" typecheck
+          pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" typecheck
 
       - name: Linter
         run: |
-          pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" lint
-          pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" lint-styles
+          pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" lint
+          pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" lint-styles
         env:
           TIMING: '1' # Allows to get output for eslint
 
       - name: Unit tests changed packages
-        run: pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" test-unit
+        run: pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" test-unit
 
       - name: Run build for changed packages
-        run: pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" build
+        run: pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" build
 
       - name: Run storybook build for changed packages
-        run: pnpm -F "{packages}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" build-storybook
+        run: pnpm -F "{./packages/**}[origin/main]" -r --changed-files-ignore-pattern="**/*.md" build-storybook
