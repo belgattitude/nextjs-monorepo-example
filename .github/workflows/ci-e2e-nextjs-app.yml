@@ -38,9 +38,6 @@ jobs:
           - e2e-postgres
         os:
           - ubuntu-latest
-        include:
-          - os: ubuntu-latest
-            playwright_binary_path: ~/.cache/ms-playwright
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -92,7 +89,7 @@ jobs:
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: 📥 Playwright install
-        uses: ./.github/actions/playwright-install-pnpm
+        uses: ./.github/actions/playwright-install
 
       - name: E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app
