@@ -11,19 +11,19 @@
 "@your-org/ui-lib": major
 ---
 
-Examples moved from yarn to pnpm.
+Use pnpm to manager the nextjs-monorepo-example.
 
 The example repo is now managed by [pnpm7](https://pnpm.io/) rather than [yarn4](). Note
 that both package managers are awesome. There's few benefits behind the move:
 
 ### Advantages
 
-1. CI install time is ±30% faster (considering package manager install + action cache). See
+1. CI install time is 30% to 50% faster (considering package manager install + action cache). See
    [benchmarks](https://gist.github.com/belgattitude/0ecd26155b47e7be1be6163ecfbb0f0b)
    that were made on the nextjs-monorepo-example. From ±1m15s -> ±45s.
-2. Future integration with turbo/docker have some more possibles.
+2. Pave the way for integration with turbo/docker (pnpm have more tricks)
 
-### For future
+### Kept for a later iteration
 
 1. Vercel previews seems slower, lambdas sizes bigger (https://gist.github.com/belgattitude/38bc4b779d14d17793316c936879f06e)
 2. Differently from yarn, pnpm version is not committed within the repo. There's some extra work
@@ -36,7 +36,7 @@ that both package managers are awesome. There's few benefits behind the move:
 
 ```bash
 npm i -g pnpm
-rm -rf .yarn
+rm -rf .yarn # only when you upgrade from yarn
 pnpm i
 ```
 
@@ -59,8 +59,8 @@ By
 
 `pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline`
 
-Vercel will use by default the latest pnpm version 7 available (in reality few versions behind)...
-If you like you can enable the experimental corepack option ENABLE_EXPERIMENTAL_COREPACK=1 in the vercel env.
+Vercel will use by default the latest pnpm version available (in reality few versions behind)... If
+you like you can enable corepack with `ENABLE_EXPERIMENTAL_COREPACK=1 in the vercel env.
 That way it will help reproducibility
 
 See https://vercel.com/docs/concepts/deployments/configure-a-build#corepack
