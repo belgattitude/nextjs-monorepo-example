@@ -25,7 +25,7 @@ export const nextAuthConfig: NextAuthOptions = {
         const { username, password } = credentials ?? {};
         if (username === 'admin' && password === 'demo') {
           return {
-            id: 1,
+            id: '1',
             name: 'admin',
             email: 'admin@example.com',
             role: 'admin',

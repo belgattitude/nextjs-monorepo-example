@@ -24,7 +24,8 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "jest --config jest.config.js --passWithNoTests",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
+    "postinstall": "mesh build"
   },
   "peerDependencies": {
     "graphql": "^16.4.0"
@@ -38,7 +39,7 @@
   "devDependencies": {
     "@graphql-mesh/cli": "0.78.33",
     "@types/jest": "29.1.2",
-    "@types/node": "18.8.4",
+    "@types/node": "18.8.5",
     "@your-org/eslint-config-bases": "workspace:^",
     "cross-env": "7.0.3",
     "eslint": "8.25.0",

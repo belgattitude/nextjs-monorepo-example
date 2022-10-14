@@ -16,7 +16,13 @@ const queryClient = new QueryClient({
 });
 
 type Props = PropsWithChildren<{
+  /**
+   * next-auth session
+   */
   session?: Session | null;
+  /**
+   * Optional emotion/cache to use
+   */
   emotionCache?: EmotionCache;
 }>;
 
