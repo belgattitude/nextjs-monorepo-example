@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nextjs-monorepor-example docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Collection of monorepo tips & tricks" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <script src="//cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"
+    />
+    <style>
+      .markdown-section pre {
+        background-color: #2d2b2b;
+      }
+      .markdown-section pre > code {
+        background-color: #2d2323;
+        color: #aaaaaa;
+      }
+      .markdown-section
+        > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
+        code {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      var num = 0;
+      mermaid.initialize({ startOnLoad: false });
+      window.$docsify = {
+        name: 'nextjs-monorepo-example',
+        repo: 'https://github.com/belgattitude/nextjs-monorepo-example',
+        loadSidebar: false,
+        coverpage: false,
+        maxLevel: 3,
+        requestHeaders: {
+          'cache-control': 'max-age=60',
+        },
+        markdown: {
+          renderer: {
+            code: function (code, lang) {
+              if (lang === 'mermaid') {
+                return (
+                  '<div class="mermaid">' +
+                  mermaid.render('mermaid-svg-' + num++, code) +
+                  '</div>'
+                );
+              }
+              return this.origin.code.apply(this, arguments);
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  </body>
+</html>

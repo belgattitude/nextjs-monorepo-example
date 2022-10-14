@@ -71,6 +71,7 @@
     "deps:update": "npx -y npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "install:playwright": "playwright install",
     "deduplicate": "pnpm-deduplicate",
+    "docs:serve": "docsify serve ./docs",
     "postinstall": "is-ci || pnpm husky install"
   },
   "helpResolutions": {
@@ -91,7 +92,8 @@
     "@types/prettier": "2.7.1",
     "@types/shell-quote": "1.7.1",
     "@your-org/eslint-config-bases": "workspace:^",
-    "docsify": "^4.12.2",
+    "docsify": "4.12.2",
+    "docsify-cli": "4.4.4",
     "eslint": "8.25.0",
     "husky": "8.0.1",
     "is-ci": "3.0.1",

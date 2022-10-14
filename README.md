@@ -1,6 +1,6 @@
 # Monorepo guide
 
-> Fair monorepo starter with modern tooling 🔹 Not a boilerplate 🔹 Pick your recipes🔹 Nextjs oriented
+> Fair monorepo example with modern tooling 🔹 Not a boilerplate 🔹 Pick your recipes🔹 Nextjs oriented
 > but not limited to 🔹 Tuned for greener CI 🔹 PNPM based 🔹
 > Easy DX based on typescript [path aliases](https://www.typescriptlang.org/tsconfig#paths) (scalable later) 🔹
 > Why ? See here.
@@ -21,10 +21,10 @@ Useful to
 - Clarify some **advantages** of monorepos (team cohesion, consistency, duplication, refactorings, atomic commits...).
 - Create nextjs/vercel/prisma... bug reports with **reproducible examples** _(initial goal of this repo)_.
 
-## Sponsors :heart:
+## Sponsors ♥
 
 If you are enjoying this guide in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude),
-a [coffee](https://ko-fi.com/belgattitude) or a dropped ⭐. That gives me some more time to improve it to the next level.
+a [coffee](https://ko-fi.com/belgattitude) or a dropped ⭐. That gives time to improve it to the next level.
 
 ## Structure
 
@@ -131,12 +131,12 @@ If needed static resources like **images**,... can be shared by using symlinks i
 ├── static                       (no code: images, json, locales,...)
 │   ├── assets
 │   └── locales
-├── .yarnrc.yml
 ├── .dockerignore
 ├── docker-compose.nextjs-app.yml   (compose specific for nextjs-app)
 ├── docker-compose.yml           (general services like postgresql...)
 ├── Dockerfile                   (multistage build for nextjs-app)
 ├── package.json                 (the workspace config)
+├── pnpm-workspace.yml
 └── tsconfig.base.json           (base typescript config)
 ```
 
@@ -149,12 +149,15 @@ If needed static resources like **images**,... can be shared by using symlinks i
 <details>
 <summary>Root package.json with workspace directories</summary>
 
+```yaml
+packages:
+  - "apps/*"
+  - "packages/*"
+```
+
 ```json5
 {
-  "name": "nextjs-monorepo-example",
-  // Set the directories where your apps, packages will be placed
   "workspaces": ["apps/*", "packages/*"],
-  //...
 }
 ```
 
