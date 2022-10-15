@@ -37,7 +37,7 @@ jobs:
 
       - name: Install dependencies (mixed-compress)
         run: |
-          mv yarn.lock yarn.lock.backup
+          mv yarn.lock yarn.lock.mixed-compress.backup
           yarn install --inline-builds --mode=skip-build
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
@@ -48,7 +48,7 @@ jobs:
 
       - name: Install dependencies (no-compress)
         run: |
-          mv yarn.lock yarn.lock.backup
+          mv yarn.lock yarn.lock.no-compress.backup
           yarn install --inline-builds --mode=skip-build
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
