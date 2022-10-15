@@ -1,17 +1,7 @@
 name: 'Yarn benchmark'
 description: 'Bench yarn with compression vs without + action/cache'
 
-on:
-  push:
-    branches:
-      - dev
-      - main
-
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+on: [push, pull_request]
 
 runs:
   steps:
