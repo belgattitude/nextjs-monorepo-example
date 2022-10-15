@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Restore yarn cache (no-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-no-compress
@@ -21,6 +22,7 @@ jobs:
           key: yarn-benchmark-cache-no-compress-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             yarn-benchmark-cache-no-compress
+
       - name: Restore yarn cache (mixed-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-mixed-compress
@@ -29,7 +31,32 @@ jobs:
           key: yarn-benchmark-cache-mixed-compress-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             yarn-benchmark-cache-mixed-compress
-      - name: Install dependencies (mixed-compress)
+
+      # PNPM does not rotate the cache (store) like Yarn. When the lock change new packages will
+      # be added, older won't be removed and so the action/cache storage will grow over time.
+      # The cache-rotation.YEAR_MONTH allows to invalidate after a period.
+      - name: Cache rotation keys for pnpm (yarn does not need it as it rotates the cache)
+        id: cache-rotation
+        run: echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
+
+      - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
+        id: pnpm-config
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Restore pnpm cache
+        uses: actions/cache@v3
+        id: pnpm-benchmark-store-cache
+        with:
+          path: ${{ steps.pnpm-config.outputs.STORE_PATH }}
+          # PNPM store seems OS / Architecture dependent while Yarn cache isn't. IE if the action runs on Win/Mac/Linux
+          # You'll have 3 caches.
+          key: ${{ runner.os }}-pnpm-benchmark-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-benchmark-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
+
+      - name: Yarn install dependencies  (mixed-compress)
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -39,9 +66,13 @@ jobs:
           YARN_COMPRESSION_LEVEL: 'mixed'
           YARN_LOCKFILE_FILENAME: 'yarn.mixed-compress.lock'
           YARN_INSTALL_STATE_PATH: .yarn/install-state-mixed-compress.gz
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
-      - name: Install dependencies (no-compress)
+
+      - name: Yarn install dependencies (no-compress)
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -51,3 +82,17 @@ jobs:
           YARN_LOCKFILE_FILENAME: 'yarn.no-compress.lock'
           YARN_COMPRESSION_LEVEL: '0'
           YARN_INSTALL_STATE_PATH: .yarn/install-state-no-compress.gz
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+
+      - name: Remove node_modules
+        run: npx -y rimraf "**/node_modules"
+
+      - uses: pnpm/action-setup@v2.2.2
+
+      - name: PNPM install dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile --prefer-offline
+        env:
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
