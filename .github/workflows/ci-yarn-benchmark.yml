@@ -30,22 +30,20 @@ jobs:
           restore-keys: |
             yarn-benchmark-cache-mixed-compress
       - name: Install dependencies (mixed-compress)
-        run: |
-          mv yarn.lock yarn.lock.mixed-compress.backup
-          yarn install --inline-builds --refresh-lockfile --mode=skip-build
+        run: yarn install --immutable --inline-builds --mode=skip-build
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
           YARN_NM_MODE: 'hardlinks-local'
-          YARN_CACHE_FOLDER: './.yarn/benchmark-cache/mixed-compress'
+          YARN_CACHE_FOLDER: '.yarn/benchmark-cache/mixed-compress'
           YARN_COMPRESSION_LEVEL: 'mixed'
+          YARN_LOCKFILE_FILENAME: 'yarn.mixed-compress.lock'
           YARN_INSTALL_STATE_PATH: .yarn/install-state-mixed-compress.gz
       - name: Install dependencies (no-compress)
-        run: |
-          mv yarn.lock yarn.lock.no-compress.backup
-          yarn install --inline-builds --refresh-lockfile --mode=skip-build
+        run: yarn install --immutable --inline-builds --mode=skip-build
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
           YARN_NM_MODE: 'hardlinks-local'
-          YARN_CACHE_FOLDER: './.yarn/benchmark-cache/no-compress'
+          YARN_CACHE_FOLDER: '.yarn/benchmark-cache/no-compress'
+          YARN_LOCKFILE_FILENAME: 'yarn.no-compress.lock'
           YARN_COMPRESSION_LEVEL: '0'
-          YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state-no-compress.gz
+          YARN_INSTALL_STATE_PATH: .yarn/install-state-no-compress.gz
