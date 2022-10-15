@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             yarn-benchmark-cache-mixed-compress
       - name: Install dependencies (mixed-compress)
-        run: yarn install --immutable --inline-builds --mode=skip-build
+        run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
           YARN_NM_MODE: 'hardlinks-local'
@@ -42,7 +42,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
       - name: Install dependencies (no-compress)
-        run: yarn install --immutable --inline-builds --mode=skip-build
+        run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
           YARN_NM_MODE: 'hardlinks-local'
