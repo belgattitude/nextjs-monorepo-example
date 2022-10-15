@@ -39,20 +39,25 @@ jobs:
         id: cache-rotation
         run: echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
 
+      - name: Install pnpm
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.13.4
+
       - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
         id: pnpm-config
         run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
+      # PNPM store seems OS / Architecture dependent while Yarn cache isn't. If the action runs on Win/Mac/Linux
+      # you'll have 3 caches
       - name: Restore pnpm cache
         uses: actions/cache@v3
         id: pnpm-benchmark-store-cache
         with:
           path: ${{ steps.pnpm-config.outputs.PNPM_STORE_PATH }}
-          # PNPM store seems OS / Architecture dependent while Yarn cache isn't. If the action runs on Win/Mac/Linux
-          # You'll have 3 caches.
           key: ${{ runner.os }}-pnpm-benchmark-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-benchmark-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
+            ${{ runner.os }}-pnpm-benchmark-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
 
       - name: Yarn install dependencies  (mixed-compress)
         run: yarn install --immutable --inline-builds
@@ -85,8 +90,6 @@ jobs:
 
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
-
-      - uses: pnpm/action-setup@v2.2.2
 
       - name: PNPM install dependencies
         shell: bash
