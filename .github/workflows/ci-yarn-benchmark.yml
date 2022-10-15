@@ -3,44 +3,56 @@ description: 'Bench yarn with compression vs without + action/cache'
 
 on: [push, pull_request]
 
-runs:
-  steps:
-    - name: Restore yarn cache (no-compress)
-      uses: actions/cache@v3
-      id: yarn-benchmark-cache-no-compress
-      with:
-        path: ./.yarn/benchmark-cache/no-compress
-        key: yarn-benchmark-cache-no-compress-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          yarn-benchmark-cache-no-compress
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Restore yarn cache (mixed-compress)
-      uses: actions/cache@v3
-      id: yarn-benchmark-cache-mixed-compress
-      with:
-        path: ./.yarn/benchmark-cache/mixed-compress
-        key: yarn-benchmark-cache-mixed-compress-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          yarn-benchmark-cache-mixed-compress
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies (mixed-compress)
-      run: |
-        mv yarn.lock yarn.lock.backup
-        yarn install --inline-builds --mode=skip-build
-      env:
-        YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
-        YARN_CACHE_DIR: './.yarn/benchmark-cache/mixed-compress'
-        YARN_COMPRESSION_LEVEL: 'mixed'
-        YARN_INSTALL_STATE_PATH: .yarn/install-state-mixed-compress.gz
+      - name: Restore yarn cache (no-compress)
+        uses: actions/cache@v3
+        id: yarn-benchmark-cache-no-compress
+        with:
+          path: ./.yarn/benchmark-cache/no-compress
+          key: yarn-benchmark-cache-no-compress-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-benchmark-cache-no-compress
 
-    - name: Install dependencies (no-compress)
-      run: |
-        mv yarn.lock yarn.lock.backup
-        yarn install --inline-builds --mode=skip-build
-      env:
-        YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
-        YARN_CACHE_DIR: './.yarn/benchmark-cache/no-compress'
-        YARN_COMPRESSION_LEVEL: '0'
-        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state-no-compress.gz
+      - name: Restore yarn cache (mixed-compress)
+        uses: actions/cache@v3
+        id: yarn-benchmark-cache-mixed-compress
+        with:
+          path: ./.yarn/benchmark-cache/mixed-compress
+          key: yarn-benchmark-cache-mixed-compress-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-benchmark-cache-mixed-compress
+
+      - name: Install dependencies (mixed-compress)
+        run: |
+          mv yarn.lock yarn.lock.backup
+          yarn install --inline-builds --mode=skip-build
+        env:
+          YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
+          YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
+          YARN_CACHE_DIR: './.yarn/benchmark-cache/mixed-compress'
+          YARN_COMPRESSION_LEVEL: 'mixed'
+          YARN_INSTALL_STATE_PATH: .yarn/install-state-mixed-compress.gz
+
+      - name: Install dependencies (no-compress)
+        run: |
+          mv yarn.lock yarn.lock.backup
+          yarn install --inline-builds --mode=skip-build
+        env:
+          YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
+          YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
+          YARN_CACHE_DIR: './.yarn/benchmark-cache/no-compress'
+          YARN_COMPRESSION_LEVEL: '0'
+          YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state-no-compress.gz
