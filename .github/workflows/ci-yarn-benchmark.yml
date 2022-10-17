@@ -9,6 +9,7 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -123,3 +124,17 @@ jobs:
         env:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+
+      - name: Remove node_modules
+        run: npx -y rimraf "**/node_modules"
+
+      # NPM does not support workspace:^ protocol
+      #- name: Install NPM
+      #  run: npm i -g npm@8.19.2
+
+      #- name: NPM install no-cache
+      #  shell: bash
+      #  run: npm install --frozen-lockfile
+      #  env:
+      #    HUSKY: '0'
+      #    PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
