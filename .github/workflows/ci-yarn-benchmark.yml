@@ -91,7 +91,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: Yarn no-cache
+      - name: Yarn install no-cache
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -104,13 +104,22 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
+      - name: Remove node_modules
+        run: npx -y rimraf "**/node_modules"
+
+      - name: PNPM install
+        shell: bash
+        run: pnpm install --frozen-lockfile --prefer-offline
+        env:
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: PNPM install dependencies
+      - name: PNPM install no-cache
         shell: bash
-        run: pnpm install --frozen-lockfile --prefer-offline
+        run: pnpm install --store-dir ./node_modules/.pnpm-global-store --frozen-lockfile --prefer-offline
         env:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
