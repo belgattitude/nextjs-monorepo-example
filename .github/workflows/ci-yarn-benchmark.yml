@@ -15,21 +15,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Restore yarn cache (no-compress)
+      - name: ♻️Setup yarn cache (no-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-no-compress
         with:
           path: ./.yarn/benchmark-cache/no-compress
-          key: yarn-benchmark-cache-no-compress-${{ hashFiles('yarn.lock') }}
+          key: yarn-benchmark-cache-no-compress-${{ hashFiles('yarn.no-compress.lock') }}
           restore-keys: |
             yarn-benchmark-cache-no-compress
 
-      - name: Restore yarn cache (mixed-compress)
+      - name: ♻️Setup yarn cache (mixed-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-mixed-compress
         with:
           path: ./.yarn/benchmark-cache/mixed-compress
-          key: yarn-benchmark-cache-mixed-compress-${{ hashFiles('yarn.lock') }}
+          key: yarn-benchmark-cache-mixed-compress-${{ hashFiles('yarn.mixed-compress.lock') }}
           restore-keys: |
             yarn-benchmark-cache-mixed-compress
 
@@ -51,7 +51,7 @@ jobs:
 
       # PNPM store seems OS / Architecture dependent while Yarn cache isn't. If the action runs on Win/Mac/Linux
       # you'll have 3 caches
-      - name: Restore pnpm cache
+      - name: ♻️Setup pnpm cache
         uses: actions/cache@v3
         id: pnpm-benchmark-store-cache
         with:
@@ -60,7 +60,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-benchmark-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
 
-      - name: Yarn install dependencies  (mixed-compress)
+      - name: 📥 Yarn install dependencies  (mixed-compress)
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -76,7 +76,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: Yarn install dependencies (no-compress)
+      - name: 📥 Yarn install dependencies (no-compress)
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -92,7 +92,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: Yarn install no-cache
+      - name: 📥 Yarn install no-cache
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
@@ -108,7 +108,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: PNPM install
+      - name: 📥 PNPM install
         shell: bash
         run: pnpm install --frozen-lockfile --prefer-offline
         env:
@@ -118,7 +118,7 @@ jobs:
       - name: Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: PNPM install no-cache
+      - name: 📥 PNPM install no-cache
         shell: bash
         run: pnpm install --store-dir ./node_modules/.pnpm-global-store --frozen-lockfile --prefer-offline
         env:
