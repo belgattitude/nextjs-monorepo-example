@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: ♻️Setup yarn cache (no-compress)
+      - name: ♻ Setup yarn cache (no-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-no-compress
         with:
@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             yarn-benchmark-cache-no-compress
 
-      - name: ♻️Setup yarn cache (mixed-compress)
+      - name: ♻ Setup yarn cache (mixed-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-mixed-compress
         with:
@@ -36,22 +36,22 @@ jobs:
       # PNPM does not rotate the cache (store) like Yarn. When the lock change new packages will
       # be added, older won't be removed and so the action/cache storage will grow over time.
       # The cache-rotation.YEAR_MONTH allows to invalidate after a period.
-      - name: Cache rotation keys for pnpm (yarn does not need it as it rotates the cache)
+      - name: ⚙ Cache rotation keys for pnpm (yarn does not need it as it rotates the cache)
         id: cache-rotation
         run: echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
 
-      - name: Install pnpm
+      - name: ⚙ Install pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.13.5
 
-      - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
+      - name: ⚙ Expose pnpm config(s) through "$GITHUB_OUTPUT"
         id: pnpm-config
         run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       # PNPM store seems OS / Architecture dependent while Yarn cache isn't. If the action runs on Win/Mac/Linux
       # you'll have 3 caches
-      - name: ♻️Setup pnpm cache
+      - name: ♻ Setup pnpm cache
         uses: actions/cache@v3
         id: pnpm-benchmark-store-cache
         with:
@@ -73,7 +73,7 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
-      - name: Remove node_modules
+      - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
       - name: 📥 Yarn install dependencies (no-compress)
@@ -89,7 +89,7 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
-      - name: Remove node_modules
+      - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
       - name: 📥 Yarn install no-cache
@@ -105,7 +105,7 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
-      - name: Remove node_modules
+      - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
       - name: 📥 PNPM install
@@ -115,7 +115,7 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
-      - name: Remove node_modules
+      - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
       - name: 📥 PNPM install no-cache
@@ -125,7 +125,7 @@ jobs:
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
 
-      - name: Remove node_modules
+      - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
       # NPM does not support workspace:^ protocol
