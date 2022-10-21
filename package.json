@@ -75,10 +75,12 @@
     "postinstall": "is-ci || pnpm husky install"
   },
   "helpResolutions": {
+    "i18next": "https://github.com/i18next/next-i18next/pull/1966",
     "@graphql-inspector/core": "https://github.com/kamilkisiela/graphql-inspector/issues/2175"
   },
   "resolutions": {
-    "@graphql-inspector/core": "3.3.0"
+    "@graphql-inspector/core": "3.3.0",
+    "i18next": "^22.0.0"
   },
   "dependencies": {
     "cross-env": "7.0.3"
@@ -108,7 +110,7 @@
   "engines": {
     "node": "^14.13.1 || >=16.0.0"
   },
-  "packageManager": "pnpm@7.13.5",
+  "packageManager": "pnpm@7.13.6",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
