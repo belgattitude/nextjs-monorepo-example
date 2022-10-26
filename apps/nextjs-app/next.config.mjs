@@ -1,6 +1,8 @@
 // @ts-check
 
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
@@ -9,6 +11,11 @@ import withNextTranspileModules from 'next-transpile-modules';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.js';
 
+const workspaceRoot = path.resolve(
+  path.dirname(url.fileURLToPath(import.meta.url)),
+  '..',
+  '..'
+);
 /**
  * Once supported replace by node / eslint / ts and out of experimental, replace by
  * `import packageJson from './package.json' assert { type: 'json' };`
@@ -54,7 +61,7 @@ const disableSourceMaps = trueEnv.includes(
 );
 
 if (disableSourceMaps) {
-  console.warn(
+  console.log(
     `${pc.green(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
@@ -187,15 +194,9 @@ const nextConfig = {
   },
 
   experimental: {
-    browsersListForSwc: true,
-    legacyBrowsers: false,
-
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: undefined, // ,path.join(__dirname, '../../'),
+    outputFileTracingRoot: workspaceRoot,
 
-    // React 18 server components
-    // @link https://nextjs.org/docs/advanced-features/react-18/server-components
-    serverComponents: false,
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
