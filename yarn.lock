@@ -8624,7 +8624,7 @@ __metadata:
     rimraf: "npm:3.0.2"
     ts-jest: "npm:29.0.3"
     typescript: "npm:4.8.4"
-    vite: "npm:3.1.8"
+    vite: "npm:3.2.0"
     vite-tsconfig-paths: "npm:3.5.2"
     vitest: "npm:0.24.3"
   peerDependencies:
@@ -8735,7 +8735,7 @@ __metadata:
     tslib: "npm:2.4.0"
     tsup: "npm:6.3.0"
     typescript: "npm:4.8.4"
-    vite: "npm:3.1.8"
+    vite: "npm:3.2.0"
     vite-tsconfig-paths: "npm:3.5.2"
     vitest: "npm:0.24.3"
   languageName: unknown
@@ -21481,7 +21481,7 @@ __metadata:
     ts-jest: "npm:29.0.3"
     type-fest: "npm:3.1.0"
     typescript: "npm:4.8.4"
-    vite: "npm:3.1.8"
+    vite: "npm:3.2.0"
     vite-plugin-svgr: "npm:2.2.2"
     vite-tsconfig-paths: "npm:3.5.2"
     vitest: "npm:0.24.3"
@@ -23813,7 +23813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.18, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.4.16, postcss@npm:^8.4.17, postcss@npm:^8.4.4":
+"postcss@npm:8.4.18, postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.4.17, postcss@npm:^8.4.18, postcss@npm:^8.4.4":
   version: 8.4.18
   resolution: "postcss@npm:8.4.18"
   dependencies:
@@ -25655,7 +25655,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.35.1, rollup@npm:^2.74.1":
+"rollup@npm:^2.35.1, rollup@npm:^2.74.1, rollup@npm:^2.79.1":
   version: 2.79.1
   resolution: "rollup@npm:2.79.1"
   dependencies:
@@ -25666,20 +25666,6 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: b91c27c3b5234af864f282ffa2c13891d9caf25cad8ba7ad11f5201bdb6516f10c90a8c3402a5f72eafc74a555b1c685b6b04d107a6d6866195812a82f4aa308
-  languageName: node
-  linkType: hard
-
-"rollup@npm:~2.78.0":
-  version: 2.78.1
-  resolution: "rollup@npm:2.78.1"
-  dependencies:
-    fsevents: "npm:~2.3.2"
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 4f708e7e81585cd37d635930b9c5d6d4417320035ab8401a8dc59f179c3b081bc7befea403a39969615e9231cbece627e95136b0118e403791b2eac6d2577e09
   languageName: node
   linkType: hard
 
@@ -29225,7 +29211,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     rimraf: "npm:3.0.2"
     typescript: "npm:4.8.4"
-    vite: "npm:3.1.8"
+    vite: "npm:3.2.0"
     vite-plugin-svgr: "npm:2.2.2"
     vite-tsconfig-paths: "npm:3.5.2"
     vitest: "npm:0.24.3"
@@ -29258,19 +29244,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:3.1.8, vite@npm:^3.0.0":
-  version: 3.1.8
-  resolution: "vite@npm:3.1.8"
+"vite@npm:3.2.0, vite@npm:^3.0.0":
+  version: 3.2.0
+  resolution: "vite@npm:3.2.0"
   dependencies:
     esbuild: "npm:^0.15.9"
     fsevents: "npm:~2.3.2"
-    postcss: "npm:^8.4.16"
+    postcss: "npm:^8.4.18"
     resolve: "npm:^1.22.1"
-    rollup: "npm:~2.78.0"
+    rollup: "npm:^2.79.1"
   peerDependencies:
     less: "*"
     sass: "*"
     stylus: "*"
+    sugarss: "*"
     terser: ^5.4.0
   dependenciesMeta:
     fsevents:
@@ -29282,11 +29269,13 @@ __metadata:
       optional: true
     stylus:
       optional: true
+    sugarss:
+      optional: true
     terser:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 1a5b8a172e07090558108fd39da68c3167d5016651a22df841338061c92585fab27f6e10011031bee73498e4f3a71f8840bfd09c03d4cd24ceb3536ddf4ef438
+  checksum: ea96242b42854ca07b39de519a77bf2ae9247c8cf85d071efe16baaf79971093f2b17904429d4fcd3e4b324768d6cbf4a0a30f91e482b1f2a1264e7759a24319
   languageName: node
   linkType: hard
 
