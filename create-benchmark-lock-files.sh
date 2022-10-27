@@ -4,3 +4,10 @@ YARN_COMPRESSION_LEVEL=mixed YARN_LOCKFILE_FILENAME=yarn.mixed-compress.lock yar
 
 YARN_COMPRESSION_LEVEL=0 YARN_LOCKFILE_FILENAME=yarn.no-compress.lock yarn install
 YARN_COMPRESSION_LEVEL=0 YARN_LOCKFILE_FILENAME=yarn.no-compress.lock yarn dedupe
+
+YARN_NODE_LINKER=pnp YARN_COMPRESSION_LEVEL=0 yarn install
+YARN_NODE_LINKER=pnp YARN_COMPRESSION_LEVEL=0 yarn install
+
+rm ./pnpm-lock.yaml
+
+pnpm i

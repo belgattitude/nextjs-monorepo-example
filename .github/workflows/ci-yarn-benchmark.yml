@@ -24,6 +24,15 @@ jobs:
           restore-keys: |
             yarn-benchmark-cache-no-compress
 
+      #- name: ♻ Setup yarn pnp cache (no-compress)
+      #  uses: actions/cache@v3
+      #  id: yarn-pnp-benchmark-cache-no-compress
+      #  with:
+      #    path: ./.yarn/benchmark-pnp-cache/no-compress
+      #    key: yarn-pnp-benchmark-cache-no-compress-${{ hashFiles('yarn.no-compress.lock') }}
+      #    restore-keys: |
+      #      yarn-pnp-benchmark-cache-no-compress
+
       - name: ♻ Setup yarn cache (mixed-compress)
         uses: actions/cache@v3
         id: yarn-benchmark-cache-mixed-compress
@@ -43,7 +52,7 @@ jobs:
       - name: ⚙ Install pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7.13.5
+          version: 7.14.0
 
       - name: ⚙ Expose pnpm config(s) through "$GITHUB_OUTPUT"
         id: pnpm-config
@@ -92,6 +101,21 @@ jobs:
       - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
+      - name: 📥 Yarn PNP install
+        run: yarn install --immutable --inline-builds
+        env:
+          YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
+          YARN_NODE_LINKER: 'pnp-loose'
+          YARN_GLOBAL_FOLDER: '.yarn/global-no-cache/'
+          YARN_CACHE_FOLDER: '.yarn/benchmark-pnp-cache/no-compress'
+          YARN_COMPRESSION_LEVEL: '0'
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+
+      - name: 🧹 Remove node_modules
+        run: npx -y rimraf "**/node_modules"
+
+
       - name: 📥 Yarn install no-cache
         run: yarn install --immutable --inline-builds
         env:
@@ -108,15 +132,14 @@ jobs:
       - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      - name: 📥 PNPM install
-        shell: bash
-        run: pnpm install --frozen-lockfile --prefer-offline
-        env:
-          HUSKY: '0'
-          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
-
-      - name: 🧹 Remove node_modules
-        run: npx -y rimraf "**/node_modules"
+      #- name: 📥 PNPM install
+      #  shell: bash
+      #  run: pnpm install --frozen-lockfile --prefer-offline
+      #  env:
+      #    HUSKY: '0'
+      #    PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+      #- name: 🧹 Remove node_modules
+      #  run: npx -y rimraf "**/node_modules"
 
       - name: 📥 PNPM install no-cache
         shell: bash

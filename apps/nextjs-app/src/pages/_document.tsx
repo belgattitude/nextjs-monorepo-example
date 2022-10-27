@@ -1,11 +1,12 @@
 import type { DocumentProps } from 'next/document';
 import Document, { Html, Main, Head, NextScript } from 'next/document';
+import { i18n } from '../../next-i18next.config';
 
 type Props = DocumentProps;
 
 class MyDocument extends Document<Props> {
   render() {
-    const { locale } = this.props.__NEXT_DATA__;
+    const locale = this.props.__NEXT_DATA__.locale ?? i18n.defaultLocale;
 
     return (
       <Html lang={locale}>
