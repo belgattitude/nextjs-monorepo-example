@@ -24,14 +24,14 @@ jobs:
           restore-keys: |
             yarn-benchmark-cache-no-compress
 
-      #- name: ♻ Setup yarn pnp cache (no-compress)
-      #  uses: actions/cache@v3
-      #  id: yarn-pnp-benchmark-cache-no-compress
-      #  with:
-      #    path: ./.yarn/benchmark-pnp-cache/no-compress
-      #    key: yarn-pnp-benchmark-cache-no-compress-${{ hashFiles('yarn.no-compress.lock') }}
-      #    restore-keys: |
-      #      yarn-pnp-benchmark-cache-no-compress
+      - name: ♻ Setup yarn pnp cache (no-compress)
+        uses: actions/cache@v3
+        id: yarn-pnp-benchmark-cache-no-compress
+        with:
+          path: ./.yarn/benchmark-pnp-cache/no-compress
+          key: yarn-pnp-benchmark-cache-no-compress-${{ hashFiles('yarn.pnp.lock', '.pnp*') }}
+          restore-keys: |
+            yarn-pnp-benchmark-cache-no-compress
 
       - name: ♻ Setup yarn cache (mixed-compress)
         uses: actions/cache@v3
@@ -116,7 +116,6 @@ jobs:
       - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-
       - name: 📥 Yarn install no-cache
         run: yarn install --immutable --inline-builds
         env:
@@ -133,14 +132,15 @@ jobs:
       - name: 🧹 Remove node_modules
         run: npx -y rimraf "**/node_modules"
 
-      #- name: 📥 PNPM install
-      #  shell: bash
-      #  run: pnpm install --frozen-lockfile --prefer-offline
-      #  env:
-      #    HUSKY: '0'
-      #    PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
-      #- name: 🧹 Remove node_modules
-      #  run: npx -y rimraf "**/node_modules"
+      - name: 📥 PNPM install
+        shell: bash
+        run: pnpm install --frozen-lockfile --prefer-offline
+        env:
+          HUSKY: '0'
+          PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+
+      - name: 🧹 Remove node_modules
+        run: npx -y rimraf "**/node_modules"
 
       - name: 📥 PNPM install no-cache
         shell: bash
