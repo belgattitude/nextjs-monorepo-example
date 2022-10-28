@@ -105,9 +105,10 @@ jobs:
         run: yarn install --immutable --inline-builds
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false' # Prune cache (yarn.lock changes)
-          YARN_NODE_LINKER: 'pnp-loose'
+          YARN_NODE_LINKER: 'pnp'
           YARN_GLOBAL_FOLDER: '.yarn/global-no-cache/'
           YARN_CACHE_FOLDER: '.yarn/benchmark-pnp-cache/no-compress'
+          YARN_LOCKFILE_FILENAME: 'yarn.pnp.lock'
           YARN_COMPRESSION_LEVEL: '0'
           HUSKY: '0'
           PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
