@@ -8441,6 +8441,7 @@ __metadata:
     dotenv-flow-cli: "npm:1.0.0"
     eslint: "npm:8.26.0"
     execa: "npm:6.1.0"
+    graphql: "npm:16.6.0"
     is-port-reachable: "npm:4.0.0"
     keyword-extractor: "npm:0.0.23"
     npm-run-all: "npm:4.1.5"
@@ -8458,6 +8459,7 @@ __metadata:
   peerDependencies:
     "@pothos/plugin-prisma": ^3.35.8
     "@prisma/client": ^4.5.0
+    graphql: ^16.6.0
   languageName: unknown
   linkType: soft
 
@@ -9079,13 +9081,6 @@ __metadata:
     delegates: "npm:^1.0.0"
     readable-stream: "npm:^2.0.6"
   checksum: 4be69d954d6b091a7fddfe7c7b29ad8cb0a6c06afce95938e2fb2d27ea6edbc667095147e16d76ee774a45153f56a81b82c798855a9745c322a9f05947647353
-  languageName: node
-  linkType: hard
-
-"arg@npm:4.1.0":
-  version: 4.1.0
-  resolution: "arg@npm:4.1.0"
-  checksum: 428eddda2a01b367edea0467352ef2e47bdaff54b792006a28a04634aff875d4ebdcf035b19531d5b07e9505d4aee86ba84360c505e2b976e448599e1e1272a9
   languageName: node
   linkType: hard
 
@@ -10266,13 +10261,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bytes@npm:3.1.0":
-  version: 3.1.0
-  resolution: "bytes@npm:3.1.0"
-  checksum: 81a2c51cae7c9ce28b0affb050debf683b9b8afadddef41994543e745f75fa95ad65883fd3910ee8d64bfe154d0cd5f02c61a96b039204b01464cdcaeebd9a13
-  languageName: node
-  linkType: hard
-
 "bytes@npm:3.1.2":
   version: 3.1.2
   resolution: "bytes@npm:3.1.2"
@@ -11360,7 +11348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-type@npm:1.0.4, content-type@npm:~1.0.4":
+"content-type@npm:~1.0.4":
   version: 1.0.4
   resolution: "content-type@npm:1.0.4"
   checksum: 20bda9bccfb0086d4e4b35cc5c6073b693d4a8ff0a0da0b68cf283c34a649a5d07068fd240c1ed503a7696dbbf4c875cecb708ea219db1880fbfa40e8fb02620
@@ -12312,7 +12300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:^1.1.2, depd@npm:~1.1.2":
+"depd@npm:^1.1.2":
   version: 1.1.2
   resolution: "depd@npm:1.1.2"
   checksum: e9fb93771e7cf3d88c4e38ca95742f7c58cae31928eb5e67a1a14d970325a02755451bb7fafc2db72333a5cf7fc14e07e4f8d709c0df70143355e77e8d090bac
@@ -16494,19 +16482,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:1.7.3":
-  version: 1.7.3
-  resolution: "http-errors@npm:1.7.3"
-  dependencies:
-    depd: "npm:~1.1.2"
-    inherits: "npm:2.0.4"
-    setprototypeof: "npm:1.1.1"
-    statuses: "npm:>= 1.5.0 < 2"
-    toidentifier: "npm:1.0.0"
-  checksum: c71557ce7f6409efb984a6eed229aa621c3d6036ad5e500355ba37b14e16e667e1e1806bb234c02e6024664f1f44e46af5b2271e2240f27b781806062ba621f8
-  languageName: node
-  linkType: hard
-
 "http-errors@npm:2.0.0":
   version: 2.0.0
   resolution: "http-errors@npm:2.0.0"
@@ -19975,19 +19950,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micro@npm:9.4.1":
-  version: 9.4.1
-  resolution: "micro@npm:9.4.1"
-  dependencies:
-    arg: "npm:4.1.0"
-    content-type: "npm:1.0.4"
-    raw-body: "npm:2.4.1"
-  bin:
-    micro: bin/micro.js
-  checksum: 38049cffe43ed6d266ccc570ccc96e2410ede4a4112ee71591f259b57b6fdc71bc25d33f2b0be0195c6a74e1aea9ae96b61c4268d0de6703634877f72b40ebaf
-  languageName: node
-  linkType: hard
-
 "microbundle@npm:0.15.1":
   version: 0.15.1
   resolution: "microbundle@npm:0.15.1"
@@ -21071,6 +21033,7 @@ __metadata:
     "@pothos/core": "npm:3.22.9"
     "@pothos/plugin-errors": "npm:3.8.7"
     "@pothos/plugin-prisma": "npm:3.35.8"
+    "@prisma/client": "npm:4.5.0"
     "@sentry/nextjs": "npm:7.17.4"
     "@sentry/react": "npm:7.17.4"
     "@size-limit/file": "npm:8.1.0"
@@ -21119,7 +21082,6 @@ __metadata:
     jest-css-modules-transform: "npm:4.4.2"
     jose: "npm:4.10.4"
     ky: "npm:0.32.2"
-    micro: "npm:9.4.1"
     next: "npm:13.0.2"
     next-auth: "npm:4.15.1"
     next-connect: "npm:0.13.0"
@@ -24072,18 +24034,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"raw-body@npm:2.4.1":
-  version: 2.4.1
-  resolution: "raw-body@npm:2.4.1"
-  dependencies:
-    bytes: "npm:3.1.0"
-    http-errors: "npm:1.7.3"
-    iconv-lite: "npm:0.4.24"
-    unpipe: "npm:1.0.0"
-  checksum: cbba022d387589eaa4601afd54d942bea2720361f95771d1de9d93998d858b1a1a427638575ede315db3deac11217d8f6ffa5720d21940d0c914e4d38689be96
-  languageName: node
-  linkType: hard
-
 "raw-body@npm:2.5.1, raw-body@npm:^2.2.0":
   version: 2.5.1
   resolution: "raw-body@npm:2.5.1"
@@ -25738,13 +25688,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"setprototypeof@npm:1.1.1":
-  version: 1.1.1
-  resolution: "setprototypeof@npm:1.1.1"
-  checksum: 258b73c50ddf040f724cc0fb0549b3ed611629696545d6000db89023fb71f780d06f63b66ba2b56f3c29e83c29462fd3941083e4714bcdd033dcf27562b32baa
-  languageName: node
-  linkType: hard
-
 "setprototypeof@npm:1.2.0":
   version: 1.2.0
   resolution: "setprototypeof@npm:1.2.0"
@@ -26382,13 +26325,6 @@ __metadata:
   version: 2.0.1
   resolution: "statuses@npm:2.0.1"
   checksum: a7e9d41901245a442e77b339f715d77ac113c03ab9434d9f81ae45d75ed3437d9824e601ae1a834ad3e471ae3fc78d3c00decec5e826c91552a58d4c38833ecf
-  languageName: node
-  linkType: hard
-
-"statuses@npm:>= 1.5.0 < 2":
-  version: 1.5.0
-  resolution: "statuses@npm:1.5.0"
-  checksum: 9d6802be15e8e10700dcb86e2cd7e86eba497e8b7b37db1fe340062bfcb64a63b1e5fa8c3d3737678d87b2d6e3a803023a3a49582b2f66b4fef1df8b5a3ee1e2
   languageName: node
   linkType: hard
 
@@ -27595,13 +27531,6 @@ __metadata:
     regex-not: "npm:^1.0.2"
     safe-regex: "npm:^1.1.0"
   checksum: c1fa63f38c3fcfb9b5c0a50ca57cb29e46069ffd4428b6e32ad20e60b0c7af5dc8044641a554ad0a50ba9f262aacf9f9a3c290bdccb7c0bc0d47fc484f2a1c5b
-  languageName: node
-  linkType: hard
-
-"toidentifier@npm:1.0.0":
-  version: 1.0.0
-  resolution: "toidentifier@npm:1.0.0"
-  checksum: 512931a31d36ed19f73770eb47fff0b4f7a93d1fa70bda2991ecde13b3f3db144594d3a30441ce57a1fbb7a3b172ebdaebbcaf8eeae39021f49069923961b0ff
   languageName: node
   linkType: hard
 
