@@ -1,9 +1,9 @@
 /**
- * Specific eslint rules for this app/package, extends the base rules
- * @see https://github.com/belgattitude/nextjs-monorepo-example/blob/main/docs/about-linters.md
+ * Specific eslint rules for this workspace, learn how to compose
+ * @link https://github.com/belgattitude/perso/tree/main/packages/eslint-config-bases
  */
 
-// Workaround for https://github.com/eslint/eslint/issues/3458 (re-export of @rushstack/eslint-patch)
+// Workaround for https://github.com/eslint/eslint/issues/3458
 require('@your-org/eslint-config-bases/patch/modern-module-resolution');
 
 const {
@@ -21,14 +21,16 @@ module.exports = {
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/regexp',
-    '@your-org/eslint-config-bases/jest',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier',
   ],
-  rules: {
-    // optional overrides per project
-  },
   overrides: [
     // optional overrides per project file match
+    {
+      files: ['**/*seed.ts'],
+      rules: {
+        'sonarjs/no-duplicate-string': 'off',
+      },
+    },
   ],
 };

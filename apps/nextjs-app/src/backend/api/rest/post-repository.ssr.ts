@@ -54,7 +54,7 @@ export class PostRepositorySsr {
             select: {
               firstName: true,
               lastName: true,
-              nickname: true,
+              username: true,
             },
           },
         },

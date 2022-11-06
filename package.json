@@ -69,7 +69,7 @@
     "nuke:node_modules": "rimraf '**/node_modules'",
     "deps:check": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
-    "check:install": "yarn dlx @yarnpkg/doctor@3.1.4 .",
+    "check:install": "yarn dlx @yarnpkg/doctor@4.0.0-rc.27 .",
     "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator",
     "install:playwright": "playwright install",
     "postinstall": "is-ci || yarn husky install"
@@ -87,14 +87,14 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.7",
-    "@changesets/cli": "2.25.0",
-    "@commitlint/cli": "17.1.2",
-    "@commitlint/config-conventional": "17.1.0",
+    "@changesets/cli": "2.25.2",
+    "@commitlint/cli": "17.2.0",
+    "@commitlint/config-conventional": "17.2.0",
     "@playwright/test": "1.27.1",
     "@types/prettier": "2.7.1",
     "@types/shell-quote": "1.7.1",
     "@your-org/eslint-config-bases": "workspace:^",
-    "eslint": "8.26.0",
+    "eslint": "8.27.0",
     "husky": "8.0.1",
     "is-ci": "3.0.1",
     "lint-staged": "13.0.3",
@@ -109,5 +109,5 @@
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
   },
-  "packageManager": "yarn@4.0.0-rc.26"
+  "packageManager": "yarn@4.0.0-rc.27"
 }

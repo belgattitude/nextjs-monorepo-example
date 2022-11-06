@@ -3,6 +3,12 @@ generator client {
   // output = "../src/generated"
 }
 
+generator pothos {
+  provider     = "prisma-pothos-types"
+  clientOutput = "@prisma/client"
+  output       = "../src/generated/prisma-pothos-types.ts"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("PRISMA_DATABASE_URL")
@@ -62,29 +68,37 @@ model Post {
   @@map(name: "post")
 }
 
+enum UserPermissionRole {
+  ADMIN @map("admin")
+  USER  @map("user")
+}
+
 model User {
-  id            Int       @id @default(autoincrement())
-  firstName     String?   @map(name: "first_name") @db.VarChar(80)
-  lastName      String?   @map(name: "last_name") @db.VarChar(80)
-  nickname      String    @unique @db.VarChar(64)
-  email         String    @unique @db.VarChar(150)
-  emailVerified DateTime? @map("email_verified")
-  avatarUrl     String?   @map("avatar_url") @db.VarChar(255)
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  id            Int                @id @default(autoincrement())
+  username      String             @unique @db.Text
+  firstName     String?            @db.Text
+  lastName      String?            @db.Text
+  email         String             @unique @db.Text
+  emailVerified DateTime?
+  role          UserPermissionRole @default(USER)
+  password      String?            @db.Text
+  avatarUrl     String?            @db.Text
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
   accounts      Account[]
   sessions      Session[]
 
   Post Post[]
+
   @@map("users")
 }
 
 model Account {
   id                String  @id @default(cuid())
-  userId            Int     @map("user_id")
+  userId            Int
   type              String
   provider          String
-  providerAccountId String  @map("provider_account_id")
+  providerAccountId String
   refresh_token     String? @db.Text
   access_token      String? @db.Text
   expires_at        Int?
@@ -101,8 +115,8 @@ model Account {
 
 model Session {
   id           String   @id @default(cuid())
-  sessionToken String   @unique @map("session_token")
-  userId       Int      @map("user_id")
+  sessionToken String   @unique @db.Text
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -110,8 +124,9 @@ model Session {
 }
 
 model VerificationToken {
-  identifier String   @db.VarChar(255)
-  token      String   @unique @db.VarChar(255)
+  id         Int      @id @default(autoincrement())
+  identifier String   @db.Text
+  token      String   @unique @db.Text
   expires    DateTime
 
   @@unique([identifier, token])
