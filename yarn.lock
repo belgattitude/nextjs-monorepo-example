@@ -1623,12 +1623,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.19.0, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
-  version: 7.19.0
-  resolution: "@babel/runtime@npm:7.19.0"
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.19.0, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+  version: 7.20.1
+  resolution: "@babel/runtime@npm:7.20.1"
   dependencies:
-    regenerator-runtime: "npm:^0.13.4"
-  checksum: 1f8c11a414674a3c30884c9f8d625e69ee63df3c23da854786e9566638371f6395e0839a8dfa6e159e7b30d6333d280fba70710e3379cc42036fe2b97ab9e4f0
+    regenerator-runtime: "npm:^0.13.10"
+  checksum: dab09323346ef2e0db0571a8d9af3bf01d290f0e97100da0874106e4aff794292755716745b593153b9436dc7471e059391cc0bd7ec9e2ec55f03c462247391e
   languageName: node
   linkType: hard
 
@@ -16599,19 +16599,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-fs-backend@npm:^1.1.5":
-  version: 1.1.5
-  resolution: "i18next-fs-backend@npm:1.1.5"
-  checksum: 135836099cbef0b63cddf7c4a91d85bc149beebbd17e0d6c80647e5664411138e26b32d827dcfd254697cf5c0921abec9f5e7972289196c8da6385fd86d03fc0
+"i18next-fs-backend@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "i18next-fs-backend@npm:2.0.0"
+  checksum: 0254572bb3f8750d3bfa7c5d8ac0db19f664706d19f80fe4b1a26665af731bd979d6791ef7a73794ba50af76ba12c1f71f5ea859af9a40677ce6beb1a2631bfd
   languageName: node
   linkType: hard
 
-"i18next@npm:^22.0.0":
-  version: 22.0.0
-  resolution: "i18next@npm:22.0.0"
+"i18next@npm:22.0.4":
+  version: 22.0.4
+  resolution: "i18next@npm:22.0.4"
   dependencies:
     "@babel/runtime": "npm:^7.17.2"
-  checksum: 3d389b2cf147430b928b30f3e6967c455d428b5a84276167490cfa4f66c73db5f6e24789b032cde2f4252c0a0a93896aa96f47925d000a87fa1d6efa4e4aad35
+  checksum: 5802b9d9cd6b159f202d9c3a4086aaec1c98b2da8817b7d847a15b9878194f94101c9096e10571a3e60e34576408f8d157a99ee5d7edec1563d0a896dbe32431
   languageName: node
   linkType: hard
 
@@ -20896,23 +20896,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-i18next@npm:12.1.0":
-  version: 12.1.0
-  resolution: "next-i18next@npm:12.1.0"
+"next-i18next@workspace:*, next-i18next@workspace:packages/next-i18next":
+  version: 0.0.0-use.local
+  resolution: "next-i18next@workspace:packages/next-i18next"
   dependencies:
-    "@babel/runtime": "npm:^7.18.9"
+    "@babel/runtime": "npm:^7.20.1"
     "@types/hoist-non-react-statics": "npm:^3.3.1"
     core-js: "npm:^3"
     hoist-non-react-statics: "npm:^3.3.2"
-    i18next: "npm:^21.9.1"
-    i18next-fs-backend: "npm:^1.1.5"
-    react-i18next: "npm:^11.18.4"
+    i18next-fs-backend: "npm:^2.0.0"
   peerDependencies:
-    next: ">= 10.0.0"
-    react: ">= 16.8.0"
-  checksum: 560e1e0d938afd633271eb82f3f3b6cedc70eab742cc49d308e7aaaf91fe58ae7753e68452e7179c5f23fb7cdf70935dbe952505eede490f83526937def80a74
-  languageName: node
-  linkType: hard
+    i18next: ^22.0.3
+    next: ">= 12.0.0"
+    react: ">= 17.0.2"
+    react-i18next: ^12.0.0
+  languageName: unknown
+  linkType: soft
 
 "next-secure-headers@npm:2.2.0":
   version: 2.2.0
@@ -21077,7 +21076,7 @@ __metadata:
     get-tsconfig: "npm:4.2.0"
     graphql: "npm:16.6.0"
     happy-dom: "npm:7.6.6"
-    i18next: "npm:21.10.0"
+    i18next: "npm:22.0.4"
     jest: "npm:29.2.2"
     jest-css-modules-transform: "npm:4.4.2"
     jose: "npm:4.10.4"
@@ -21085,7 +21084,7 @@ __metadata:
     next: "npm:13.0.2"
     next-auth: "npm:4.16.2"
     next-connect: "npm:0.13.0"
-    next-i18next: "npm:12.1.0"
+    next-i18next: "workspace:*"
     next-secure-headers: "npm:2.2.0"
     next-seo: "npm:5.14.0"
     next-transpile-modules: "npm:10.0.0"
@@ -21098,7 +21097,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-hook-form: "npm:7.39.1"
-    react-i18next: "npm:11.18.6"
+    react-i18next: "npm:12.0.0"
     rimraf: "npm:3.0.2"
     rooks: "npm:7.4.1"
     sass: "npm:1.56.0"
@@ -24147,9 +24146,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:11.18.6, react-i18next@npm:^11.18.4":
-  version: 11.18.6
-  resolution: "react-i18next@npm:11.18.6"
+"react-i18next@npm:12.0.0":
+  version: 12.0.0
+  resolution: "react-i18next@npm:12.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.14.5"
     html-parse-stringify: "npm:^3.0.1"
@@ -24161,7 +24160,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 068a6d20e1e2a41a2fad2f47a31039695c84445eebf4687ac31bb985c4204fcbc7d862ae6d89bfee69e7325b730f49ad42f193f83102363a83c3f6ed14753079
+  checksum: 1a33bff70a903b8278bf64f8a9c41268084e4c2f7fa538e80d9a3de7b57c313f28080f5f2546416a525ea28902efe84390c362b8008c606f327a54188d6cba59
   languageName: node
   linkType: hard
 
@@ -24552,10 +24551,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
-  version: 0.13.9
-  resolution: "regenerator-runtime@npm:0.13.9"
-  checksum: db060af0b2ca8bb7f12aea9dcf7416ff80259b39c2ddd38e0bd705b0a7acd9f07be133e543bbf54af1e86253b6fd553e3050fd6b30c3282731dd27560427f065
+"regenerator-runtime@npm:^0.13.10, regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
+  version: 0.13.10
+  resolution: "regenerator-runtime@npm:0.13.10"
+  checksum: ac83ab4691a061519703e622ee817a0a517a80235d0c76a49ef32848c0d0946d97797d244806490f8f94e05a4b180a295869299b2e44c6f1c625b835703666a6
   languageName: node
   linkType: hard
 
