@@ -1,1 +1,1 @@
-export { serverSideTranslations } from './dist/types/serverSideTranslations';
+export { serverSideTranslations } from './dist/types/serverSideTranslations'
