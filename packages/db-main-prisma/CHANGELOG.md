@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.13.0
+
+### Minor Changes
+
+- [#2862](https://github.com/belgattitude/nextjs-monorepo-example/pull/2862) [`fab08286`](https://github.com/belgattitude/nextjs-monorepo-example/commit/fab08286695522571506f4a65db7f8683f3a09bd) Thanks [@belgattitude](https://github.com/belgattitude)! - Rework seeds, move to es module and use vitest
+
 ## 2.12.2
 
 ### Patch Changes
