@@ -23,7 +23,7 @@ export const Banner: FC<Props> = () => {
           </div>
           <div className="order-3 mt-2 w-full shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
             <a
-              href="#"
+              href="@/components/banner/Banner#"
               className="flex items-center justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"
             >
               Learn more
