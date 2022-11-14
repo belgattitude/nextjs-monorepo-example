@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { Banner } from '@/components/Banner';
+import { Banner } from '@/components/banner/Banner';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { DemoMuiBlock, Jumbotron, PoetryBlock } from '../blocks';
 import { demoConfig } from '../demo.config';
