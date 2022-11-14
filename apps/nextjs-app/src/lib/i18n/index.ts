@@ -1,4 +1,4 @@
-export { getServerSideTranslations } from './getServerSideTranslations';
+export { getServerTranslations } from './getServerTranslations';
 export type {
   I18nActiveNamespaces,
   I18nNamespace,
