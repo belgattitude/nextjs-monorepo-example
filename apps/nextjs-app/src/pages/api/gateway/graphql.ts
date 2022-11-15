@@ -1,14 +1,15 @@
-import { createServer } from '@graphql-yoga/node';
 import { getBuiltMesh } from '@your-org/api-gateway';
+import { createYoga } from 'graphql-yoga';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 async function buildServer() {
   const mesh = await getBuiltMesh();
-  return createServer({
+  return createYoga({
     plugins: mesh.plugins,
+    // schema: mesh.schema,
+    graphqlEndpoint: '/api/gateway/graphql',
     graphiql: {
-      endpoint: '/api/gateway/graphql',
-      title: 'GraphQL Gateway',
+      title: 'GraphQL ApiGateway',
     },
   });
 }
