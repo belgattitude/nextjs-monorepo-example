@@ -1,7 +1,7 @@
 // @ts-check
 import { getTsconfig } from 'get-tsconfig';
 import { pathsToModuleNameMapper } from 'ts-jest';
-import { getJestCachePath } from '../../cache.config.js';
+import { getJestCachePath } from '../../cache.config';
 
 const tsConfigFile = new URL('./tsconfig.json', import.meta.url).pathname;
 
