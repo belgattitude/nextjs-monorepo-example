@@ -64,24 +64,24 @@ jobs:
       # That allows to see if we're introducing "surface" regressions (just the types)
       - name: Typecheck
         run: |
-          yarn workspaces foreach -tv --from '@your-org/*' --since=origin/main --recursive run typecheck
+          yarn workspaces foreach -tv --from '@your-org/*' --exclude '*-app' --since=origin/main --recursive run typecheck
 
       # Lint packages that have changed (--include & --since)
       - name: Linter
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run lint-styles
+          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run lint
+          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run lint-styles
 
       # Test packages that have changed (--include & --since)
       - name: Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main --recursive run test-unit
+          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run test-unit
       # to debug cache issues: ls ${{ github.workspace }}/.cache
       # Build packages that have changed (--include & --since), assuming that
       # apps build are done already. Otherwise --from & --since
       - name: Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --since=origin/main run build
+          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main run build
 
       # Test storybook build on packages that have changed (--include & --since)
       - name: Run storybook build for changed packages
