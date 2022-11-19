@@ -1,5 +1,13 @@
 # nextjs-app
 
+## 3.57.0
+
+### Minor Changes
+
+- [#2932](https://github.com/belgattitude/nextjs-monorepo-example/pull/2932) [`f7507455`](https://github.com/belgattitude/nextjs-monorepo-example/commit/f7507455f2ad5b9f4496a758651007557971a694) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrade to next-i18next v13.0.0
+
+  https://github.com/i18next/next-i18next/releases/tag/v13.0.0
+
 ## 3.56.0
 
 ### Minor Changes
