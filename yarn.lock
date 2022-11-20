@@ -8588,10 +8588,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zkochan/rimraf@npm:^2.1.0":
-  version: 2.1.1
-  resolution: "@zkochan/rimraf@npm:2.1.1"
-  checksum: 486a7593b9b0d1d5ea810796ed620b1ca3d21173f39e80e8b3850054a3b46e1cb3dd665b05b9c1e5ab8ba4f785878388a81cc8f1ec544e8da48a4e62af835f74
+"@zkochan/rimraf@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@zkochan/rimraf@npm:2.1.2"
+  dependencies:
+    rimraf: "npm:^3.0.2"
+  checksum: 109bef16fb89d8dbb00f7aa67463fd2a21021f4ce92828e710040b405171eb105da088975311e57381b6051b9b2037117e0b9b2bce790dc960b59228800c5ad9
   languageName: node
   linkType: hard
 
@@ -15155,6 +15157,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:10.1.0, fs-extra@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "fs-extra@npm:10.1.0"
+  dependencies:
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: c397c1bfbb8976afb6758a96b9d5781c179b01ec843caa9f6613b8d95d95e17229d1ba7132dd811e112df5f2537bce1f68a3c0a722decc345947f133921fa3b3
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^0.30.0":
   version: 0.30.0
   resolution: "fs-extra@npm:0.30.0"
@@ -15165,17 +15178,6 @@ __metadata:
     path-is-absolute: "npm:^1.0.0"
     rimraf: "npm:^2.2.8"
   checksum: 29ffbf077eace7938ace5d44174f12064e722c54d99004af53733f31fad446fafa2001bdf27f8475aff4f353dae0d16ef44d9a465afcecdb9226734d30f1a357
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "fs-extra@npm:10.0.0"
-  dependencies:
-    graceful-fs: "npm:^4.2.0"
-    jsonfile: "npm:^6.0.1"
-    universalify: "npm:^2.0.0"
-  checksum: 768d137af1a607d59985b063b632031406a40d3ea528e7e720a9f36ed8f48c951aad025b03f491074869d25f53c2a56a4b331b1fe49519b40154228553abc7eb
   languageName: node
   linkType: hard
 
@@ -21090,7 +21092,7 @@ __metadata:
     sharp: "npm:0.31.2"
     size-limit: "npm:8.1.0"
     superjson: "npm:1.11.0"
-    symlink-dir: "npm:5.0.1"
+    symlink-dir: "npm:5.1.0"
     sync-directory: "npm:5.1.9"
     tailwindcss: "npm:3.2.4"
     ts-jest: "npm:29.0.3"
@@ -24878,12 +24880,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rename-overwrite@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "rename-overwrite@npm:4.0.0"
+"rename-overwrite@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "rename-overwrite@npm:4.0.3"
   dependencies:
-    "@zkochan/rimraf": "npm:^2.1.0"
-  checksum: cd851e238429d1871172b63d1876dc8fe257cfa049e3952c8c65ef87de36337d27cd7a106fa8e945fe0271ce0ccf335e5de45d930a2c3808b1f8482361c629e2
+    "@zkochan/rimraf": "npm:^2.1.2"
+    fs-extra: "npm:10.1.0"
+  checksum: c0627b69bb379fc0b096a34a702dafa5ee60e01b93b7b8283e9d95e6d1a12881c853e02b360f1edee49479f93007e61393a518efca260a10d9b8f41eff57f043
   languageName: node
   linkType: hard
 
@@ -26991,15 +26994,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"symlink-dir@npm:5.0.1":
-  version: 5.0.1
-  resolution: "symlink-dir@npm:5.0.1"
+"symlink-dir@npm:5.1.0":
+  version: 5.1.0
+  resolution: "symlink-dir@npm:5.1.0"
   dependencies:
     better-path-resolve: "npm:^1.0.0"
-    rename-overwrite: "npm:^4.0.0"
+    rename-overwrite: "npm:^4.0.3"
   bin:
     symlink-dir: dist/cli.js
-  checksum: 2525dac041458c1d55891ed841fdd152503a84d7a88bc3b23e712d2526d7e2a83fc1581f2ca3afb8a2add6d12e77ac8e12cae02d73830095543c207835252d84
+  checksum: 43352f1407f428357835325702be856395652a5cfc8826727112e90c85e67de666d13672f224b67a93fa5bce120a539ff1ef160e21d5da8c1660d6bb95abbbec
   languageName: node
   linkType: hard
 
