@@ -1,5 +1,11 @@
 # @your-org/core-lib
 
+## 3.15.2
+
+### Patch Changes
+
+- [#2941](https://github.com/belgattitude/nextjs-monorepo-example/pull/2941) [`e0b79462`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b7946254b8b65a8b2bf0932350753397236ea8) Thanks [@belgattitude](https://github.com/belgattitude)! - Use https://belgattitude.github.io/httpx / https://github.com/belgattitude/httpx
+
 ## 3.15.1
 
 ### Patch Changes

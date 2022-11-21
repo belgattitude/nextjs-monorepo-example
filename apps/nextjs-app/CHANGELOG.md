@@ -1,5 +1,20 @@
 # nextjs-app
 
+## 3.58.0
+
+### Minor Changes
+
+- [#2941](https://github.com/belgattitude/nextjs-monorepo-example/pull/2941) [`e0b79462`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b7946254b8b65a8b2bf0932350753397236ea8) Thanks [@belgattitude](https://github.com/belgattitude)! - Initial support for @nextvalid/zod-request
+
+  https://github.com/belgattitude/nextvalid/tree/main/packages/zod-request#install
+
+### Patch Changes
+
+- [#2941](https://github.com/belgattitude/nextjs-monorepo-example/pull/2941) [`e0b79462`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b7946254b8b65a8b2bf0932350753397236ea8) Thanks [@belgattitude](https://github.com/belgattitude)! - Use https://belgattitude.github.io/httpx / https://github.com/belgattitude/httpx
+
+- Updated dependencies [[`e0b79462`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b7946254b8b65a8b2bf0932350753397236ea8)]:
+  - @your-org/core-lib@3.15.2
+
 ## 3.57.0
 
 ### Minor Changes
