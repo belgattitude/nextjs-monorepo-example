@@ -1686,13 +1686,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@belgattitude/http-exception@npm:1.4.0, @belgattitude/http-exception@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@belgattitude/http-exception@npm:1.4.0"
-  checksum: 9c9b45cd65f72a292400f23ae1c4bc4bee246e29224a1797ddac03909d5056e6cff1c5af1c90dc33a09a830dddea0a02cc03005331205fa47b9222305d59cff7
-  languageName: node
-  linkType: hard
-
 "@changesets/apply-release-plan@npm:^6.1.2":
   version: 6.1.2
   resolution: "@changesets/apply-release-plan@npm:6.1.2"
@@ -3590,6 +3583,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@httpx/exception@npm:1.6.0, @httpx/exception@npm:^1.4.0, @httpx/exception@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@httpx/exception@npm:1.6.0"
+  checksum: e0923cfd798fd7629aece1e8a82c5b2e9ac18c5cea0b47cb38cb98ac28b71bb7c42c085dfb14787afd320d18d0592a06dcdb216795a6d11f9614075220042522
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.6":
   version: 0.11.6
   resolution: "@humanwhocodes/config-array@npm:0.11.6"
@@ -4356,11 +4356,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextvalid/zod-request@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@nextvalid/zod-request@npm:0.2.0"
+"@nextvalid/zod-request@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@nextvalid/zod-request@npm:0.3.0"
   dependencies:
-    "@belgattitude/http-exception": "npm:^1.4.0"
+    "@httpx/exception": "npm:^1.6.0"
     zod: "npm:^3.19.1"
   peerDependencies:
     "@types/node": "*"
@@ -4377,7 +4377,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 3821b4b944842052201dc5dd4ea1413e8ad7fdcdc59a8e1f21cdc37d157f1dfa442abd99e00e5a957b1de980794a2045c54de8c789fd954c7cb09cf59000014b
+  checksum: 877fdce57f050b97667b26230db9271e1b3f4dd55e7e845facebc9eb3c5b4ccdc74cac79c0f6a610769a4d9c8c9698235517651442f9fdc6be643bc950b37378
   languageName: node
   linkType: hard
 
@@ -8392,7 +8392,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
-    "@belgattitude/http-exception": "npm:^1.4.0"
+    "@httpx/exception": "npm:^1.4.0"
     "@testing-library/react": "npm:13.4.0"
     "@testing-library/react-hooks": "npm:8.0.1"
     "@types/jest": "npm:29.2.3"
@@ -21023,7 +21023,6 @@ __metadata:
   resolution: "nextjs-app@workspace:apps/nextjs-app"
   dependencies:
     "@babel/core": "npm:7.20.2"
-    "@belgattitude/http-exception": "npm:1.4.0"
     "@emotion/babel-plugin": "npm:11.10.5"
     "@emotion/cache": "npm:11.10.5"
     "@emotion/react": "npm:11.10.5"
@@ -21032,11 +21031,12 @@ __metadata:
     "@fontsource/inter": "npm:4.5.14"
     "@headlessui/react": "npm:1.7.4"
     "@hookform/resolvers": "npm:2.9.10"
+    "@httpx/exception": "npm:1.6.0"
     "@mui/icons-material": "npm:5.10.14"
     "@mui/material": "npm:5.10.14"
     "@next/bundle-analyzer": "npm:13.0.4"
     "@next/env": "npm:13.0.4"
-    "@nextvalid/zod-request": "npm:0.2.0"
+    "@nextvalid/zod-request": "npm:0.3.0"
     "@playwright/test": "npm:1.28.0"
     "@pothos/core": "npm:3.22.9"
     "@pothos/plugin-errors": "npm:3.8.7"

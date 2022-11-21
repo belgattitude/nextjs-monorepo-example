@@ -1,4 +1,4 @@
-import { HttpBadRequest } from '@belgattitude/http-exception';
+import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { demoConfig } from '@/features/demo/demo.config';
 import { DemoPage } from '@/features/demo/pages';

@@ -1,4 +1,4 @@
-import { HttpBadRequest } from '@belgattitude/http-exception';
+import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { ReactElement } from 'react';

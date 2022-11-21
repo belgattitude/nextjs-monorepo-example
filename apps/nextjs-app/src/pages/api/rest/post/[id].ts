@@ -3,7 +3,7 @@ import {
   HttpException,
   HttpMethodNotAllowed,
   HttpNotFound,
-} from '@belgattitude/http-exception';
+} from '@httpx/exception';
 import { zodReq } from '@nextvalid/zod-request';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
