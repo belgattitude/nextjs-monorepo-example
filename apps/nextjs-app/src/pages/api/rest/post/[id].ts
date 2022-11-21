@@ -1,43 +1,44 @@
-import {
-  HttpBadRequest,
-  HttpMethodNotAllowed,
-} from '@belgattitude/http-exception';
+import { HttpException, HttpNotFound } from '@httpx/exception';
+import { zodReq } from '@nextvalid/zod-request';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
-import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
-import { assertSafeInteger, stringToSafeInteger } from '@your-org/ts-utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';
+
+const schema = zodReq({
+  method: 'GET',
+  query: {
+    id: z.preprocess((input) => {
+      const processed = z
+        .string()
+        .regex(/^\d+$/)
+        .transform(Number)
+        .safeParse(input);
+      return processed.success ? processed.data : input;
+    }, z.number().min(0)),
+  },
+});
 
 export default async function handleGetPost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === 'GET') {
-    const { id } = req.query;
-    const postId = stringToSafeInteger(id);
+  try {
+    const { id } = schema.parse(req).query;
     const postRepo = new PostRepositorySsr(prismaClient);
-
-    try {
-      assertSafeInteger(postId, () => new HttpBadRequest('Wrong param id'));
-
-      return res.json(
-        JsonApiResponseFactory.fromSuccess(await postRepo.getPost(postId))
-      );
-    } catch (e) {
-      const apiError = JsonApiErrorFactory.fromCatchVariable(e);
-      return res
-        .status(apiError.status ?? 500)
-        .json(JsonApiResponseFactory.fromError(apiError));
+    const post = await postRepo.getPost(id);
+    if (!post) {
+      throw new HttpNotFound(`Post ${id} not found`);
     }
-  } else {
+    return res.json(JsonApiResponseFactory.fromSuccess(post));
+  } catch (e) {
+    const { statusCode, message } =
+      e instanceof HttpException
+        ? e
+        : { statusCode: 500, message: 'Unknown error' };
     return res
-      .status(HttpMethodNotAllowed.STATUS)
-      .json(
-        JsonApiResponseFactory.fromError(
-          `The HTTP ${req.method} method is not supported at this route.`,
-          HttpMethodNotAllowed.STATUS
-        )
-      );
+      .status(statusCode)
+      .json(JsonApiResponseFactory.fromError(message, statusCode));
   }
 }

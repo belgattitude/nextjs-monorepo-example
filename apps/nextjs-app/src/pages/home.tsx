@@ -1,4 +1,4 @@
-import { HttpBadRequest } from '@belgattitude/http-exception';
+import { HttpBadRequest } from '@httpx/exception';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { homeConfig } from '@/features/home/home.config';
 import { HomePage } from '@/features/home/pages';

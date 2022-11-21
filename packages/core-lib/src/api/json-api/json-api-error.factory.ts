@@ -1,5 +1,5 @@
-import type { HttpException } from '@belgattitude/http-exception';
-import { isHttpException } from '@belgattitude/http-exception';
+import type { HttpException } from '@httpx/exception';
+import { isHttpException } from '@httpx/exception';
 import type { JsonApiError } from './json-api-response.types';
 
 export class JsonApiErrorFactory {
