@@ -1,9 +1,4 @@
-import {
-  HttpBadRequest,
-  HttpException,
-  HttpMethodNotAllowed,
-  HttpNotFound,
-} from '@httpx/exception';
+import { HttpException, HttpNotFound } from '@httpx/exception';
 import { zodReq } from '@nextvalid/zod-request';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
