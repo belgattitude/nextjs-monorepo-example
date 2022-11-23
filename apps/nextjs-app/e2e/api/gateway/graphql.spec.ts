@@ -9,9 +9,7 @@ test('should call the mesh for random cats', async ({ request }) => {
   });
   expect(resp).toBeOK();
   const headers = resp.headers();
-  expect(headers['content-type']).toEqual(
-    'application/graphql-response+json; charset=utf-8'
-  );
+  expect(headers['content-type']).toEqual('application/json');
   const json = await resp.json();
   const { fact, length } = json?.data?.getRandomFact ?? {};
   expect(isNonEmptyString(fact)).toBeTruthy();
