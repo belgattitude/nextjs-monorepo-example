@@ -2589,6 +2589,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@envelop/core@npm:3.0.4":
+  version: 3.0.4
+  resolution: "@envelop/core@npm:3.0.4"
+  dependencies:
+    "@envelop/types": "npm:3.0.1"
+    tslib: "npm:2.4.0"
+  checksum: 2080b828b7e27cb65d96dd92af69ea064a8dc973bea10d24d159695755b2efba0277b55991d4167e9e27b80e52ba540ec00a9189257a71bdcda3eef215f92f8c
+  languageName: node
+  linkType: hard
+
 "@envelop/extended-validation@npm:2.0.3":
   version: 2.0.3
   resolution: "@envelop/extended-validation@npm:2.0.3"
@@ -2615,12 +2625,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@envelop/parser-cache@npm:5.0.4":
+  version: 5.0.4
+  resolution: "@envelop/parser-cache@npm:5.0.4"
+  dependencies:
+    lru-cache: "npm:^6.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@envelop/core": ^3.0.4
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: c0c3cde1433c6916c61cc15e99fd2a7ae11898fe761737b4fbdede3a591ee5b5bc58af0f37114e528d900bba41bf8b62ddf99831b94043047028885f8073d673
+  languageName: node
+  linkType: hard
+
 "@envelop/types@npm:3.0.0":
   version: 3.0.0
   resolution: "@envelop/types@npm:3.0.0"
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: 3c037959944fa48d78bc5ad6f6571e1c4a5d1b0f2856815bd2e37d4dcbedb9bef61537be6cd9f99b6bd0ea0f3a7a88702640a4d0ff2f43f0b01438aa2b536b5b
+  languageName: node
+  linkType: hard
+
+"@envelop/types@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@envelop/types@npm:3.0.1"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: a1e26351098c47c5ea10f2c6bca992d583dc823a36aadc6d87cb9496a5ce2e9df3d7c8dde66082e732f64693e6c21f4873b11b444e20966a70393368eb1a1074
   languageName: node
   linkType: hard
 
@@ -2634,6 +2666,19 @@ __metadata:
     "@envelop/core": ^3.0.3
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 340cd4a4bbbd50840781c592a768191e11b72a48141ce067cb7497950de4198e05449fb34a54d3d287a5f646e222ea78a2743756d3e5003e455da481ac69de19
+  languageName: node
+  linkType: hard
+
+"@envelop/validation-cache@npm:5.0.4":
+  version: 5.0.4
+  resolution: "@envelop/validation-cache@npm:5.0.4"
+  dependencies:
+    lru-cache: "npm:^6.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@envelop/core": ^3.0.4
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: fd5cfe78cf88f3667c098f78862ce87adb4a4529d1c141732d47b9b2d62ea381bb09315717f0b1ff3ebcbd9b6d8f18ac337462f367e397a47a07729d426254b4
   languageName: node
   linkType: hard
 
@@ -15917,13 +15962,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-yoga@npm:3.0.2":
-  version: 3.0.2
-  resolution: "graphql-yoga@npm:3.0.2"
+"graphql-yoga@npm:3.0.3":
+  version: 3.0.3
+  resolution: "graphql-yoga@npm:3.0.3"
   dependencies:
-    "@envelop/core": "npm:3.0.3"
-    "@envelop/parser-cache": "npm:5.0.3"
-    "@envelop/validation-cache": "npm:5.0.3"
+    "@envelop/core": "npm:3.0.4"
+    "@envelop/parser-cache": "npm:5.0.4"
+    "@envelop/validation-cache": "npm:5.0.4"
     "@graphql-tools/executor": "npm:0.0.9"
     "@graphql-tools/schema": "npm:^9.0.0"
     "@graphql-tools/utils": "npm:^9.0.1"
@@ -15934,7 +15979,7 @@ __metadata:
     tslib: "npm:^2.3.1"
   peerDependencies:
     graphql: ^15.2.0 || ^16.0.0
-  checksum: b8d727365cc81eb14e820b482a50cb7b140a40bf8b1893a1c14d917eeaf02706c86a1136eaeb329a476d60c1240fcab61a8ddd45a033beb1c39a183524cc8a94
+  checksum: 53844da1823c963b8d2ccbf8061cb9debdaa05a9fd86cac5e0a9b0aa81b1bf0cc5c31b2c434dad0fea3873d00d9b7be481b2c130a2c2df3a902de3933362397d
   languageName: node
   linkType: hard
 
@@ -21127,7 +21172,7 @@ __metadata:
     eslint-config-next: "npm:13.0.5"
     get-tsconfig: "npm:4.2.0"
     graphql: "npm:16.6.0"
-    graphql-yoga: "npm:3.0.2"
+    graphql-yoga: "npm:3.0.3"
     happy-dom: "npm:7.7.0"
     i18next: "npm:22.0.6"
     jest: "npm:29.3.1"
