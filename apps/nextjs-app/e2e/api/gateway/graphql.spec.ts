@@ -9,7 +9,7 @@ test('should call the mesh for random cats', async ({ request }) => {
   });
   expect(resp).toBeOK();
   const headers = resp.headers();
-  expect(headers['content-type']).toEqual('application/json');
+  expect(headers['content-type']).toEqual('application/json; charset=utf-8');
   const json = await resp.json();
   const { fact, length } = json?.data?.getRandomFact ?? {};
   expect(isNonEmptyString(fact)).toBeTruthy();
