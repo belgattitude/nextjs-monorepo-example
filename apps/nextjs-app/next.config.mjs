@@ -305,6 +305,9 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // silent: isProd, // Suppresses all logs
     dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
   });
+} else {
+  const { sentry, ...rest } = config;
+  config = rest;
 }
 
 if (tmModules.length > 0) {
