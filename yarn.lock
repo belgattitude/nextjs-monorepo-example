@@ -2334,13 +2334,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cush/relative@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@cush/relative@npm:1.0.0"
-  checksum: a4aeb4fd1bf46ee509e0314f72bac4329b39a1e8a2331b1451fa2fb32e0915f87f7bd5d891f3f35cd3c5cea323062c9f1b070eafe9207f4144e0894330d3267b
-  languageName: node
-  linkType: hard
-
 "@dabh/diagnostics@npm:^2.0.2":
   version: 2.0.3
   resolution: "@dabh/diagnostics@npm:2.0.3"
@@ -8353,7 +8346,7 @@ __metadata:
     ts-jest: "npm:29.0.3"
     typescript: "npm:4.9.3"
     vite: "npm:3.2.5"
-    vite-tsconfig-paths: "npm:3.6.0"
+    vite-tsconfig-paths: "npm:4.0.1"
     vitest: "npm:0.25.5"
   peerDependencies:
     react: ^18.0.0
@@ -8392,7 +8385,7 @@ __metadata:
     tsx: "npm:3.12.1"
     typescript: "npm:4.9.3"
     vite: "npm:3.2.5"
-    vite-tsconfig-paths: "npm:3.6.0"
+    vite-tsconfig-paths: "npm:4.0.1"
     vitest: "npm:0.25.5"
   peerDependencies:
     "@pothos/plugin-prisma": ^3.35.8
@@ -8473,7 +8466,7 @@ __metadata:
     tsup: "npm:6.5.0"
     typescript: "npm:4.9.3"
     vite: "npm:3.2.5"
-    vite-tsconfig-paths: "npm:3.6.0"
+    vite-tsconfig-paths: "npm:4.0.1"
     vitest: "npm:0.25.5"
   languageName: unknown
   linkType: soft
@@ -15333,13 +15326,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-regex@npm:^0.3.0":
-  version: 0.3.2
-  resolution: "glob-regex@npm:0.3.2"
-  checksum: c76c405ea21a61d88a6a0d9a6eef3495393547ad179eed390cfb770678049c51f5165cbabf85e4e2ab818ea3feb639dab744e7e3d5a2caedd8268d78be4ded38
-  languageName: node
-  linkType: hard
-
 "glob-to-regexp@npm:^0.3.0":
   version: 0.3.0
   resolution: "glob-to-regexp@npm:0.3.0"
@@ -20872,7 +20858,7 @@ __metadata:
     typescript: "npm:4.9.3"
     vite: "npm:3.2.5"
     vite-plugin-svgr: "npm:2.2.2"
-    vite-tsconfig-paths: "npm:3.6.0"
+    vite-tsconfig-paths: "npm:4.0.1"
     vitest: "npm:0.25.5"
     zod: "npm:3.19.1"
   languageName: unknown
@@ -24267,18 +24253,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recrawl-sync@npm:^2.0.3":
-  version: 2.2.1
-  resolution: "recrawl-sync@npm:2.2.1"
-  dependencies:
-    "@cush/relative": "npm:^1.0.0"
-    glob-regex: "npm:^0.3.0"
-    slash: "npm:^3.0.0"
-    tslib: "npm:^1.9.3"
-  checksum: 23fee03194de37d50e376e57f53aa006570d9d3224992e3f1c68004dd1c9f8a495e8f5fab8d419c95605eb322908339d404827327f46a8923abb9dc15fb62c6e
-  languageName: node
-  linkType: hard
-
 "redent@npm:^1.0.0":
   version: 1.0.0
   resolution: "redent@npm:1.0.0"
@@ -27588,6 +27562,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "tsconfck@npm:2.0.1"
+  peerDependencies:
+    typescript: ^4.3.5
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: e1ec83f3009eb380f4b7fdd3c4601b79be77fafd3e7ebea1279bc90fab546ee3632dc10aae0d2fc935d5ea8e9fd89711ad7eb5b3611c9dbf887ef12df742a713
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths-webpack-plugin@npm:4.0.0":
   version: 4.0.0
   resolution: "tsconfig-paths-webpack-plugin@npm:4.0.0"
@@ -28610,7 +28598,7 @@ __metadata:
     typescript: "npm:4.9.3"
     vite: "npm:3.2.5"
     vite-plugin-svgr: "npm:2.2.2"
-    vite-tsconfig-paths: "npm:3.6.0"
+    vite-tsconfig-paths: "npm:4.0.1"
     vitest: "npm:0.25.5"
   languageName: unknown
   linkType: soft
@@ -28627,17 +28615,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:3.6.0":
-  version: 3.6.0
-  resolution: "vite-tsconfig-paths@npm:3.6.0"
+"vite-tsconfig-paths@npm:4.0.1":
+  version: 4.0.1
+  resolution: "vite-tsconfig-paths@npm:4.0.1"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
-    recrawl-sync: "npm:^2.0.3"
-    tsconfig-paths: "npm:^4.0.0"
+    tsconfck: "npm:^2.0.1"
   peerDependencies:
     vite: ">2.0.0-0"
-  checksum: f80b86a64604a06feaf96c1d7a5caf92b08bcc723c5e1d42864b29376ed3530c2d8831d180980fe865707f7d79050f66163c2275fa0b6beacd87989d69e76a27
+  checksum: 4adf4a9f0be078dae8865d890e33d4548f896a64e240f3c58a8d1a78cc4e99e734fc134f1199b84d1768958fb4c8c85a174c2167b20b3dc5e4e8be222016a921
   languageName: node
   linkType: hard
 
