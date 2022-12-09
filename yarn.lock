@@ -99,7 +99,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.20.5, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.14.0, @babel/core@npm:^7.18.6, @babel/core@npm:^7.19.1, @babel/core@npm:^7.19.6, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.20.5, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.14.0, @babel/core@npm:^7.18.6, @babel/core@npm:^7.19.1, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.5, @babel/core@npm:^7.7.5":
   version: 7.20.5
   resolution: "@babel/core@npm:7.20.5"
   dependencies:
@@ -1314,7 +1314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx@npm:^7.0.0, @babel/plugin-transform-react-jsx@npm:^7.12.11, @babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.17.12, @babel/plugin-transform-react-jsx@npm:^7.18.6, @babel/plugin-transform-react-jsx@npm:^7.19.0":
+"@babel/plugin-transform-react-jsx@npm:^7.0.0, @babel/plugin-transform-react-jsx@npm:^7.12.11, @babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.17.12, @babel/plugin-transform-react-jsx@npm:^7.18.6":
   version: 7.19.0
   resolution: "@babel/plugin-transform-react-jsx@npm:7.19.0"
   dependencies:
@@ -3917,10 +3917,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.10":
-  version: 1.4.11
-  resolution: "@jridgewell/sourcemap-codec@npm:1.4.11"
-  checksum: 5bd15cc6458188c73426e1262d0042891e99c212d9e7eab93c0b5bed77bef9fb0ace12cf854e53acac80c1d7df034f4739e960ebd167559e0d3635d374b99b60
+"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13":
+  version: 1.4.14
+  resolution: "@jridgewell/sourcemap-codec@npm:1.4.14"
+  checksum: 2147ea75c966fed8a7d9ed6679b7e8c380fa790a9bea5a64f4ec1c26d24e44b461aa60fc3b228cea03a46708d9d1bcf19508035bf27ad5e8f63d0998ed1d1117
   languageName: node
   linkType: hard
 
@@ -7846,20 +7846,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@vitejs/plugin-react@npm:2.2.0"
+"@vitejs/plugin-react@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@vitejs/plugin-react@npm:3.0.0"
   dependencies:
-    "@babel/core": "npm:^7.19.6"
-    "@babel/plugin-transform-react-jsx": "npm:^7.19.0"
-    "@babel/plugin-transform-react-jsx-development": "npm:^7.18.6"
+    "@babel/core": "npm:^7.20.5"
     "@babel/plugin-transform-react-jsx-self": "npm:^7.18.6"
     "@babel/plugin-transform-react-jsx-source": "npm:^7.19.6"
-    magic-string: "npm:^0.26.7"
+    magic-string: "npm:^0.27.0"
     react-refresh: "npm:^0.14.0"
   peerDependencies:
-    vite: ^3.0.0
-  checksum: eabb23b58f25a992d10d83c96986b933985c1beea7b53e79717dfbbe845e67217b13121f6685a0f23e2b70f6eb0efe5ec670e032806ce3536c4fc4c38923ed19
+    vite: ^4.0.0
+  checksum: 1cea2847daa68dd50f7cc1935646afa4107acd6ca32f7c5b88e0589f2c449e20fd317f66fac9e8cfdc39ac9283840eadf467ce3a730474d7be51b097f6315267
   languageName: node
   linkType: hard
 
@@ -8327,7 +8325,7 @@ __metadata:
     "@types/node": "npm:18.11.12"
     "@types/react": "npm:18.0.26"
     "@types/react-dom": "npm:18.0.9"
-    "@vitejs/plugin-react": "npm:2.2.0"
+    "@vitejs/plugin-react": "npm:3.0.0"
     "@vitest/coverage-istanbul": "npm:0.25.6"
     "@vitest/ui": "npm:0.25.6"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -19176,12 +19174,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.26.7":
-  version: 0.26.7
-  resolution: "magic-string@npm:0.26.7"
+"magic-string@npm:^0.27.0":
+  version: 0.27.0
+  resolution: "magic-string@npm:0.27.0"
   dependencies:
-    sourcemap-codec: "npm:^1.4.8"
-  checksum: c32d85ae488a66f9dd604199d41f7f4335c9db2adc3c5e24555a3f75551de9a81cb1ba9ce16941e4fa9af9908e832a25a796b27d744a707a4343cecf20d75e54
+    "@jridgewell/sourcemap-codec": "npm:^1.4.13"
+  checksum: 3b7ea05374ce06a1f4726a752959af578d5cd864b00321f2ffa131b5256776d47b87fbcf569b42abe6e70f53708dec91996776ce942bc68c21f91b205356cd57
   languageName: node
   linkType: hard
 
@@ -20798,7 +20796,7 @@ __metadata:
     "@types/react-dom": "npm:18.0.9"
     "@types/react-test-renderer": "npm:18.0.0"
     "@types/testing-library__jest-dom": "npm:5.14.5"
-    "@vitejs/plugin-react": "npm:2.2.0"
+    "@vitejs/plugin-react": "npm:3.0.0"
     "@vitest/coverage-istanbul": "npm:0.25.6"
     "@vitest/ui": "npm:0.25.6"
     "@your-org/api-gateway": "workspace:^"
@@ -25935,7 +25933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sourcemap-codec@npm:^1.4.4, sourcemap-codec@npm:^1.4.8":
+"sourcemap-codec@npm:^1.4.4":
   version: 1.4.8
   resolution: "sourcemap-codec@npm:1.4.8"
   checksum: 16bd825c262a260854606ce89d836312a36a9b7d70fba54f17c2d9c395ad99a61b4f6b333f3f830ce09a37c234668ff6a7ece172b9964a2d78f9d433bf0e1e93
@@ -28602,7 +28600,7 @@ __metadata:
     "@emotion/styled": "npm:11.10.5"
     "@types/react": "npm:18.0.26"
     "@types/react-dom": "npm:18.0.9"
-    "@vitejs/plugin-react": "npm:2.2.0"
+    "@vitejs/plugin-react": "npm:3.0.0"
     "@vitest/coverage-istanbul": "npm:0.25.6"
     "@vitest/ui": "npm:0.25.6"
     "@your-org/common-i18n": "workspace:^"
