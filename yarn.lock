@@ -5037,10 +5037,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@rollup/pluginutils@npm:5.0.0"
+"@rollup/pluginutils@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
   dependencies:
+    "@types/estree": "npm:^1.0.0"
     estree-walker: "npm:^2.0.2"
     picomatch: "npm:^2.3.1"
   peerDependencies:
@@ -5048,7 +5049,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 74e949497af3cce9b02968fb786b03244aed99891e7aaf8a110ec342a0a45505c8f0d29b37d53e1cd5b3a05861ed2eab85afb9a5d70a62c45efc36c9fea8fc37
+  checksum: c8e01caaf5d63c23f82ad6a1402cd8878718b298c29e09e57592dfffa18e01c389242610c41cb608f429828d13ef0848ff83fa474bbfe568966a9a8b2e93d25a
   languageName: node
   linkType: hard
 
@@ -6641,7 +6642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:^6.4.0, @svgr/core@npm:^6.5.1":
+"@svgr/core@npm:^6.5.1":
   version: 6.5.1
   resolution: "@svgr/core@npm:6.5.1"
   dependencies:
@@ -7081,10 +7082,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*, @types/estree@npm:^0.0.51":
-  version: 0.0.51
-  resolution: "@types/estree@npm:0.0.51"
-  checksum: a5fbdddce8a2b79477d0cb92d9998e42d5ae096d98ed0245983551423fd849c0e34a9877a2bb503dbd6716265d03f520155c2047996460872f82f25e1811e0c7
+"@types/estree@npm:*, @types/estree@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/estree@npm:1.0.0"
+  checksum: 474df434e3a469cb7a68d44c8b7ac3a21bca344fa3b49651c3451d0f3662ff0c3b2ba52149cbc5b9c9a9f3f1ac37958c163ef29b65a8b36fccb5ccb2acfc9b08
   languageName: node
   linkType: hard
 
@@ -7106,6 +7107,13 @@ __metadata:
   version: 0.0.50
   resolution: "@types/estree@npm:0.0.50"
   checksum: 545795447fd7718307957917ddf418e8a040e3175d07e89f6949705824d1df77735d44fd6e0d9f05ad65a1c155c4a1a78791bdda49277d18ca5918968f654332
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:^0.0.51":
+  version: 0.0.51
+  resolution: "@types/estree@npm:0.0.51"
+  checksum: a5fbdddce8a2b79477d0cb92d9998e42d5ae096d98ed0245983551423fd849c0e34a9877a2bb503dbd6716265d03f520155c2047996460872f82f25e1811e0c7
   languageName: node
   linkType: hard
 
@@ -20855,7 +20863,7 @@ __metadata:
     type-fest: "npm:3.3.0"
     typescript: "npm:4.9.4"
     vite: "npm:3.2.5"
-    vite-plugin-svgr: "npm:2.2.2"
+    vite-plugin-svgr: "npm:2.3.0"
     vite-tsconfig-paths: "npm:4.0.2"
     vitest: "npm:0.25.6"
     zod: "npm:3.19.1"
@@ -28615,21 +28623,21 @@ __metadata:
     rimraf: "npm:3.0.2"
     typescript: "npm:4.9.4"
     vite: "npm:3.2.5"
-    vite-plugin-svgr: "npm:2.2.2"
+    vite-plugin-svgr: "npm:2.3.0"
     vite-tsconfig-paths: "npm:4.0.2"
     vitest: "npm:0.25.6"
   languageName: unknown
   linkType: soft
 
-"vite-plugin-svgr@npm:2.2.2":
-  version: 2.2.2
-  resolution: "vite-plugin-svgr@npm:2.2.2"
+"vite-plugin-svgr@npm:2.3.0":
+  version: 2.3.0
+  resolution: "vite-plugin-svgr@npm:2.3.0"
   dependencies:
-    "@rollup/pluginutils": "npm:^5.0.0"
-    "@svgr/core": "npm:^6.4.0"
+    "@rollup/pluginutils": "npm:^5.0.2"
+    "@svgr/core": "npm:^6.5.1"
   peerDependencies:
-    vite: ^2.6.0 || 3
-  checksum: 7c1bca3ace66ce7275579146171a4c206be7d481e1df49c54594561ac8beaf3bbc8045e066e9a25a4df92025e06782b30d89c79443e05bd2fec66782431270e9
+    vite: ^2.6.0 || 3 || 4
+  checksum: 305c97e69f928a48efd3ad5d627d15381007567a6913d554c742031f3d5574610fe6aa0412a8c62127bd69bdd38a04047903b7feb4f19e0bf46c46b96fb945e9
   languageName: node
   linkType: hard
 
