@@ -4,7 +4,8 @@
 </div>
 <p align="center">
   <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-nextjs-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
+    <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/belgattitude/nextjs-monorepo-example/main?label=CI&logo=github&style=flat-square">
+    
   </a>
   <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/belgattitude/nextjs-monorepo-example">
     <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/belgattitude/nextjs-monorepo-example?label=Codefactor&logo=codefactor&style=flat-quare&labelColor=000000" />
