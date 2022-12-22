@@ -2596,7 +2596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@envelop/parser-cache@npm:5.0.4":
+"@envelop/parser-cache@npm:5.0.4, @envelop/parser-cache@npm:^5.0.4":
   version: 5.0.4
   resolution: "@envelop/parser-cache@npm:5.0.4"
   dependencies:
@@ -2628,6 +2628,19 @@ __metadata:
     "@envelop/core": ^3.0.4
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: fd5cfe78cf88f3667c098f78862ce87adb4a4529d1c141732d47b9b2d62ea381bb09315717f0b1ff3ebcbd9b6d8f18ac337462f367e397a47a07729d426254b4
+  languageName: node
+  linkType: hard
+
+"@envelop/validation-cache@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "@envelop/validation-cache@npm:5.0.5"
+  dependencies:
+    lru-cache: "npm:^6.0.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@envelop/core": ^3.0.4
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: f30058e2ba00d7dfea625a3e4fba53d252b2e8af128544c7722ea960d799d28bb8f0883c21be1e7b442c7318609f4f5b7929652928ebce5e8b75d9a13fefcc3b
   languageName: node
   linkType: hard
 
@@ -16098,6 +16111,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-yoga@npm:3.1.2":
+  version: 3.1.2
+  resolution: "graphql-yoga@npm:3.1.2"
+  dependencies:
+    "@envelop/core": "npm:3.0.4"
+    "@envelop/parser-cache": "npm:^5.0.4"
+    "@envelop/validation-cache": "npm:^5.0.5"
+    "@graphql-tools/executor": "npm:0.0.9"
+    "@graphql-tools/schema": "npm:^9.0.0"
+    "@graphql-tools/utils": "npm:^9.0.1"
+    "@graphql-yoga/subscription": "npm:^3.0.0"
+    "@whatwg-node/fetch": "npm:0.5.3"
+    "@whatwg-node/server": "npm:0.4.17"
+    dset: "npm:^3.1.1"
+    tslib: "npm:^2.3.1"
+  peerDependencies:
+    graphql: ^15.2.0 || ^16.0.0
+  checksum: e88b53f3c73e0f659494fb9091664e7100ba418e3c7cbeeafc4f695456cc6901d7ba4dd0b83780ef178d4d5abdfaacdb3250d656f101ffc141d86438c0c0d657
+  languageName: node
+  linkType: hard
+
 "graphql@npm:16.6.0":
   version: 16.6.0
   resolution: "graphql@npm:16.6.0"
@@ -21268,7 +21302,7 @@ __metadata:
     eslint-config-next: "npm:13.1.0"
     get-tsconfig: "npm:4.2.0"
     graphql: "npm:16.6.0"
-    graphql-yoga: "npm:3.1.1"
+    graphql-yoga: "npm:3.1.2"
     happy-dom: "npm:8.1.1"
     i18next: "npm:22.4.6"
     jest: "npm:29.3.1"
