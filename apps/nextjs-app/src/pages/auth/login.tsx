@@ -1,8 +1,8 @@
-import { HttpBadRequest } from '@belgattitude/http-exception';
+import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { authConfig } from '@/features/auth/auth.config';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
+import { getServerTranslations } from '@/lib/i18n';
 
 type Props = {
   /** Add props here */
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = authConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces)),
+      ...(await getServerTranslations(locale, i18nNamespaces)),
     },
   };
 };

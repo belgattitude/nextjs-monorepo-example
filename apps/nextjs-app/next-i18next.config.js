@@ -1,9 +1,9 @@
-const path = require('path');
-
 const defaultLocale = 'en';
 const debugI18n = ['true', 1].includes(
   process?.env?.NEXTJS_DEBUG_I18N ?? 'false'
 );
+
+const localePublicFolder = undefined;
 
 /**
  * @type {import('next-i18next').UserConfig}
@@ -28,6 +28,6 @@ module.exports = {
   */
   localePath:
     typeof window === 'undefined'
-      ? path.resolve('../../packages/common-i18n/src/locales')
-      : undefined,
+      ? require('path').resolve('../../packages/common-i18n/src/locales')
+      : localePublicFolder,
 };

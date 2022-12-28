@@ -1,4 +1,4 @@
-import { HttpMethodNotAllowed } from '@belgattitude/http-exception';
+import { HttpMethodNotAllowed } from '@httpx/exception';
 import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
 import type { NextApiRequest, NextApiResponse } from 'next';

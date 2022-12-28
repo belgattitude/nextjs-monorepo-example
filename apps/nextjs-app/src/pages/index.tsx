@@ -1,8 +1,8 @@
-import { HttpBadRequest } from '@belgattitude/http-exception';
+import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { demoConfig } from '@/features/demo/demo.config';
 import { DemoPage } from '@/features/demo/pages';
+import { getServerTranslations } from '@/lib/i18n';
 
 type Props = {
   /** Add HomeRoute props here */
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = demoConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces)),
+      ...(await getServerTranslations(locale, i18nNamespaces)),
     },
   };
 };

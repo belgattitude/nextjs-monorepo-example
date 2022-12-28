@@ -1,5 +1,12 @@
 # remix-app
 
+## 1.10.11
+
+### Patch Changes
+
+- Updated dependencies [[`e0b79462`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e0b7946254b8b65a8b2bf0932350753397236ea8)]:
+  - @your-org/core-lib@3.15.2
+
 ## 1.10.10
 
 ### Patch Changes

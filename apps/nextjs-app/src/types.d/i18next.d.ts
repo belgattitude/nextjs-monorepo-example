@@ -7,7 +7,7 @@
 import 'react-i18next';
 import type { I18nNamespaces } from '@your-org/common-i18n';
 
-declare module 'react-i18next' {
+declare module 'i18next' {
   interface CustomTypeOptions {
     defaultNS: 'common';
     resources: I18nNamespaces;

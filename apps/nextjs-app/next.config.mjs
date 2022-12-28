@@ -1,14 +1,20 @@
 // @ts-check
 
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import { createSecureHeaders } from 'next-secure-headers';
-import withNextTranspileModules from 'next-transpile-modules';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.js';
 
+const workspaceRoot = path.resolve(
+  path.dirname(url.fileURLToPath(import.meta.url)),
+  '..',
+  '..'
+);
 /**
  * Once supported replace by node / eslint / ts and out of experimental, replace by
  * `import packageJson from './package.json' assert { type: 'json' };`
@@ -54,32 +60,12 @@ const disableSourceMaps = trueEnv.includes(
 );
 
 if (disableSourceMaps) {
-  console.warn(
+  console.log(
     `${pc.green(
       'notice'
     )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
   );
 }
-
-// Tell webpack to compile those packages
-// @link https://www.npmjs.com/package/next-transpile-modules
-const tmModules = [
-  // for legacy browsers support (only in prod)
-  ...(isProd
-    ? [
-        'ky', // dist folder contains '??', not es2017 compliant
-      ]
-    : []),
-  // ESM only packages are not yet supported by NextJs if you're not
-  // using experimental esmExternals
-  // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
-  // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
-  // @link https://github.com/vercel/next.js/issues/23725
-  // @link https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-  ...[
-    // ie: newer versions of https://github.com/sindresorhus packages
-  ],
-];
 
 // @link https://github.com/jagaapple/next-secure-headers
 const secureHeaders = createSecureHeaders({
@@ -186,16 +172,15 @@ const nextConfig = {
     unoptimized: false,
   },
 
+  // Packages to be transpiled part of nextjs build to follow nextjs/browserslist compatibility.
+  // This replaces next-transpile-modules starting from nextjs 13.1, if you're relying on css
+  // please see https://github.com/vercel/next.js/issues/42837
+  transpilePackages: isProd ? ['ky'] : [],
+
   experimental: {
-    browsersListForSwc: true,
-    legacyBrowsers: false,
-
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: undefined, // ,path.join(__dirname, '../../'),
+    outputFileTracingRoot: workspaceRoot,
 
-    // React 18 server components
-    // @link https://nextjs.org/docs/advanced-features/react-18/server-components
-    serverComponents: false,
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
@@ -304,17 +289,9 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // silent: isProd, // Suppresses all logs
     dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
   });
-}
-
-if (tmModules.length > 0) {
-  console.info(
-    `${pc.green('notice')}- Will transpile [${tmModules.join(',')}]`
-  );
-
-  config = withNextTranspileModules(tmModules, {
-    resolveSymlinks: true,
-    debug: false,
-  })(config);
+} else {
+  const { sentry, ...rest } = config;
+  config = rest;
 }
 
 if (process.env.ANALYZE === 'true') {

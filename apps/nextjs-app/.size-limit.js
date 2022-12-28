@@ -15,14 +15,14 @@ const limitCfg = {
   defaultSize: '85kb',
   pages: {
     '/': '120kb',
-    '/404': '90kb',
-    '/_app': '160kb',
+    '/404': '85kb',
+    '/_app': '159kb',
     '/_error': '90kb',
-    '/_monitor/sentry/csr-page': '90kb',
-    '/_monitor/sentry/ssr-page': '90kb',
+    '/_monitor/sentry/csr-page': '85kb',
+    '/_monitor/sentry/ssr-page': '85kb',
     '/admin': '100kb',
     '/auth/login': '120kb',
-    '/home': '105kb',
+    '/home': '100kb',
   },
 };
 const getPageLimits = () => {

@@ -37,7 +37,7 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/pnpm-install
 
-      - name: 🔎 Check for duplicates
+      - name: Check for duplicate dependencies in lock file
         run: |
           pnpm exec pnpm-deduplicate --list
 

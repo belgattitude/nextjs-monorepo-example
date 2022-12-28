@@ -1,7 +1,4 @@
-import {
-  HttpInternalServerError,
-  HttpNotFound,
-} from '@belgattitude/http-exception';
+import { HttpInternalServerError, HttpNotFound } from '@httpx/exception';
 import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
 import type { UnPromisify } from '@your-org/ts-utils';
 import { assertNonEmptyString } from '@your-org/ts-utils';
@@ -54,7 +51,7 @@ export class PostRepositorySsr {
             select: {
               firstName: true,
               lastName: true,
-              nickname: true,
+              username: true,
             },
           },
         },

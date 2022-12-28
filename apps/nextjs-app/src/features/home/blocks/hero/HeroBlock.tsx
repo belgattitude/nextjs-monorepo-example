@@ -41,7 +41,6 @@ export const HeroBlock: FC<Props> = () => {
             src={'/assets/annie-spratt-unsplash.jpg'}
             alt={'tailwind-ui-logo'}
             className="rounded object-cover object-center"
-            layout={'responsive'}
           />
         </div>
       </div>

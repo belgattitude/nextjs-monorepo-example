@@ -4,8 +4,7 @@
 
 # Add here exclusions on packages if any
 reject: [
-    # execa (6.0.0 is esm and does not work with ts-jest)
-    'execa',
-    # Too early cause in esm
-    'is-port-reachable',
+    # see https://github.com/belgattitude/nextjs-monorepo-example/pull/2970#issuecomment-1359385267
+    '@sentry/react',
+    '@sentry/nextjs',
   ]

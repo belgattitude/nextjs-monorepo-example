@@ -17,10 +17,16 @@ nodeLinker: node-modules
 
 npmRegistryServer: 'https://registry.npmjs.org/'
 
+packageExtensions:
+  '@pothos/plugin-prisma@*':
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
 supportedArchitectures:
   cpu:
     - current
   os:
     - current
 
-yarnPath: .yarn/releases/yarn-4.0.0-rc.26.cjs
+yarnPath: .yarn/releases/yarn-4.0.0-rc.34.cjs
