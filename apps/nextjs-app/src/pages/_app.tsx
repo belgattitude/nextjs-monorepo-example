@@ -2,7 +2,6 @@ import type { EmotionCache } from '@emotion/cache';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { createEmotionCache } from '@/lib/emotion';
 import nextI18nextConfig from '../../next-i18next.config';
 import { AppProviders } from '../AppProviders';
 
@@ -28,19 +27,11 @@ export type MyAppProps = AppProps & {
   emotionCache?: EmotionCache;
 };
 
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
 const MyApp = (appProps: MyAppProps) => {
-  const {
-    Component,
-    pageProps,
-    err,
-    emotionCache = clientSideEmotionCache,
-  } = appProps;
+  const { Component, pageProps, err, emotionCache } = appProps;
   return (
     <AppProviders emotionCache={emotionCache}>
       <Head>
