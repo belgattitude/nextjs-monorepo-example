@@ -1,5 +1,6 @@
+import type { EmotionCache } from '@emotion/cache';
 import { appWithTranslation } from 'next-i18next';
-import type { AppProps as NextAppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import nextI18nextConfig from '../../next-i18next.config';
 import { AppProviders } from '../AppProviders';
@@ -20,18 +21,19 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/variable.css';
 
 // Workaround for https://github.com/zeit/next.js/issues/8592
-export type AppProps = NextAppProps & {
+export type MyAppProps = AppProps & {
   /** Will be defined only is there was an error */
   err?: Error;
+  emotionCache?: EmotionCache;
 };
 
 /**
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
-const MyApp = (appProps: AppProps) => {
-  const { Component, pageProps, err } = appProps;
+const MyApp = (appProps: MyAppProps) => {
+  const { Component, pageProps, err, emotionCache } = appProps;
   return (
-    <AppProviders>
+    <AppProviders emotionCache={emotionCache}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
