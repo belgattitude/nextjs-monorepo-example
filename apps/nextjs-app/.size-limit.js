@@ -16,7 +16,7 @@ const limitCfg = {
   pages: {
     '/': '120kb',
     '/404': '85kb',
-    '/_app': '159kb',
+    '/_app': '162kb',
     '/_error': '90kb',
     '/_monitor/sentry/csr-page': '85kb',
     '/_monitor/sentry/ssr-page': '85kb',
