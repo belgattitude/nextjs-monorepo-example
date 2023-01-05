@@ -1,6 +1,6 @@
 import type { EmotionCache } from '@emotion/react';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
