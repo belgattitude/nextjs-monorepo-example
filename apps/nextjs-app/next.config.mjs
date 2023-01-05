@@ -177,6 +177,12 @@ const nextConfig = {
   // please see https://github.com/vercel/next.js/issues/42837
   transpilePackages: isProd ? ['ky'] : [],
 
+  modularizeImports: {
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
+  },
+
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
