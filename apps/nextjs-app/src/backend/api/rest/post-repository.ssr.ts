@@ -4,7 +4,7 @@ import type { UnPromisify } from '@your-org/ts-utils';
 import { assertNonEmptyString } from '@your-org/ts-utils';
 
 export type GetPosts = UnPromisify<
-  ReturnType<typeof PostRepositorySsr['prototype']['getPosts']>
+  ReturnType<(typeof PostRepositorySsr)['prototype']['getPosts']>
 >;
 
 export class PostRepositorySsr {

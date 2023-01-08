@@ -98,7 +98,7 @@ export const Jumbotron: FC = () => {
           line-height: 1.1em;
           @media (min-width: 600px) {
             font-size: 4em;
-          } ;
+          }
         `}
       >
         One of many possibles
