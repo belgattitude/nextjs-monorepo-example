@@ -1,8 +1,8 @@
 import { sayHello } from '@your-org/core-lib';
 import { AsyncMessage, Message } from '@your-org/ui-lib';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
-import Image from 'next/image';
 import type { FC } from 'react';
 import { Banner } from '@/components/banner/Banner';
 import { MainLayout } from '@/components/layout/MainLayout';
