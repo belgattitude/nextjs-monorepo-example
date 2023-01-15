@@ -184,6 +184,13 @@ const nextConfig = {
     '@mui/icons-material': {
       transform: '@mui/icons-material/{{member}}',
     },
+    '@mui/styles': {
+      transform: '@mui/styles/{{member}}',
+    },
+    /* if needed
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}"
+    } */
   },
 
   experimental: {
