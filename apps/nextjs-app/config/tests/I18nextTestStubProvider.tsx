@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 import type { FC, ReactNode } from 'react';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
 import type { I18nNamespace } from '@/lib/i18n';
@@ -7,7 +7,8 @@ import type { I18nNamespace } from '@/lib/i18n';
  * Fully wrapped strategy for i18next, you can use stub/mocks as well
  * @link {https://react.i18next.com/misc/testing}
  */
-i18n.use(initReactI18next).init({
+// eslint-disable-next-line import/no-named-as-default-member
+i18next.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
   ns: ['common'],
@@ -28,5 +29,5 @@ i18n.use(initReactI18next).init({
 export const I18nextTestStubProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
+  return <I18nextProvider i18n={i18next}>{children}</I18nextProvider>;
 };

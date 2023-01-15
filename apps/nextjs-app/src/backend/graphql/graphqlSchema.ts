@@ -1,6 +1,6 @@
 import SchemaBuilder from '@pothos/core';
-import ErrorsPlugin from '@pothos/plugin-errors';
-import PrismaPlugin from '@pothos/plugin-prisma';
+import PluginErrors from '@pothos/plugin-errors';
+import PluginPrisma from '@pothos/plugin-prisma';
 import type { DbMainPrismaTypes } from '@your-org/db-main-prisma';
 import { prismaDbMain } from '@/backend/config';
 
@@ -8,7 +8,7 @@ const builder = new SchemaBuilder<{
   // eslint-disable-next-line @typescript-eslint/naming-convention
   PrismaTypes: DbMainPrismaTypes;
 }>({
-  plugins: [ErrorsPlugin, PrismaPlugin],
+  plugins: [PluginErrors, PluginPrisma],
   prisma: {
     client: prismaDbMain,
     // defaults to false, uses /// comments from prisma schema as descriptions

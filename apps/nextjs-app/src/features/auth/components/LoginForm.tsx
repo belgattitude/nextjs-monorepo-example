@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import type { FC } from 'react';
