@@ -26,6 +26,12 @@ module.exports = {
         'jest/prefer-strict-equal': 'error',
         'jest/prefer-to-have-length': 'error',
         'jest/consistent-test-it': ['error', { fn: 'it' }],
+        // Relax rules that are known to be slow and less useful in a test context
+        'import/namespace': 'off',
+        'import/default': 'off',
+        'import/no-duplicates': 'off',
+        // Relax rules that makes writing tests easier
+        'import/no-named-as-default-member': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-object-literal-type-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',

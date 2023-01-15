@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo",
+    "clean": "rimraf ./.next ./out ./coverage ./tsconfig.tsbuildinfo",
     "dev": "next",
     "build": "next build",
     "build-fast": "cross-env NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_ESLINT=1 NEXTJS_DISABLE_SENTRY=1 NEXTJS_SENTRY_UPLOAD_DRY_RUN=1 next build",
@@ -91,7 +91,7 @@
     "postcss-preset-env": "7.8.3",
     "prettier": "2.8.3",
     "react-test-renderer": "18.2.0",
-    "rimraf": "3.0.2",
+    "rimraf": "4.0.5",
     "sass": "1.57.1",
     "size-limit": "8.1.1",
     "symlink-dir": "5.1.0",

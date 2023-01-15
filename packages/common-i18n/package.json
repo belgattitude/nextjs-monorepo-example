@@ -23,7 +23,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/common-i18n.eslintcache",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
@@ -34,7 +34,7 @@
     "cross-env": "7.0.3",
     "eslint": "8.32.0",
     "prettier": "2.8.3",
-    "rimraf": "3.0.2",
+    "rimraf": "4.0.5",
     "typescript": "4.9.4"
   }
 }
