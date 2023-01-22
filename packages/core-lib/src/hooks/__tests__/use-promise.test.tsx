@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import type { FC } from 'react';
 import { usePromise } from '../use-promise';
 
@@ -15,16 +15,19 @@ describe('usePromise', () => {
         return expected;
       };
 
-      const { result, waitForNextUpdate, rerender } = renderHook(() =>
+      const { result, rerender } = renderHook(() =>
         usePromise(promiseFn, deps)
       );
       // initial data
+      const initialValue = result.current;
       expect(result.current.data).toBeNull();
       expect(result.current.isLoading).toStrictEqual(true);
       expect(result.current.error).toBeNull();
 
       // resolved data
-      await waitForNextUpdate();
+      await waitFor(() => {
+        expect(result.current).not.toBe(initialValue);
+      });
 
       expect(callback).toHaveBeenCalledTimes(1);
 
@@ -46,16 +49,18 @@ describe('usePromise', () => {
         throw new Error('cool');
       };
 
-      const { result, waitForNextUpdate } = renderHook(() =>
-        usePromise(promiseFn, {})
-      );
+      const { result } = renderHook(() => usePromise(promiseFn, {}));
+
       // initial data
+      const initialValue = result.current;
       expect(result.current.data).toBeNull();
       expect(result.current.isLoading).toStrictEqual(true);
       expect(result.current.error).toBeNull();
 
       // resolved data
-      await waitForNextUpdate();
+      await waitFor(() => {
+        expect(result.current).not.toBe(initialValue);
+      });
 
       expect(callback).toHaveBeenCalledTimes(1);
       expect(result.current.error).toBeInstanceOf(Error);
@@ -69,23 +74,28 @@ describe('usePromise', () => {
         callback();
       };
 
-      const { result, waitForNextUpdate } = renderHook(() =>
-        usePromise(promiseFn, {})
-      );
+      const { result } = renderHook(() => usePromise(promiseFn, {}));
       // initial data
+      const initialValue = result.current;
       expect(result.current.data).toBeNull();
       expect(result.current.isLoading).toStrictEqual(true);
       expect(result.current.error).toBeNull();
 
       // resolved data
-      await waitForNextUpdate();
+      await waitFor(() => {
+        expect(result.current).not.toBe(initialValue);
+      });
+
       expect(callback).toHaveBeenCalledTimes(1);
 
       act(() => {
         result.current.reload();
       });
 
-      await waitForNextUpdate();
+      await waitFor(() => {
+        expect(result.current).not.toBe(initialValue);
+      });
+
       expect(callback).toHaveBeenCalledTimes(2);
     });
   });

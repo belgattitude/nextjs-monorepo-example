@@ -7184,28 +7184,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:8.0.1":
-  version: 8.0.1
-  resolution: "@testing-library/react-hooks@npm:8.0.1"
-  dependencies:
-    "@babel/runtime": "npm:^7.12.5"
-    react-error-boundary: "npm:^3.1.0"
-  peerDependencies:
-    "@types/react": ^16.9.0 || ^17.0.0
-    react: ^16.9.0 || ^17.0.0
-    react-dom: ^16.9.0 || ^17.0.0
-    react-test-renderer: ^16.9.0 || ^17.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    react-dom:
-      optional: true
-    react-test-renderer:
-      optional: true
-  checksum: f560f15fcfa42e1cd424f9d94f6e8f56560cc125e6e3eaebc10f8a49a4443a3e943982674d3a6a28e9829ec117890131abdaa7f07e9de1ccacc4774be80b38ee
-  languageName: node
-  linkType: hard
-
 "@testing-library/react@npm:13.4.0, @testing-library/react@npm:^13.4.0":
   version: 13.4.0
   resolution: "@testing-library/react@npm:13.4.0"
@@ -8708,7 +8686,6 @@ __metadata:
   dependencies:
     "@httpx/exception": "npm:^1.7.0"
     "@testing-library/react": "npm:13.4.0"
-    "@testing-library/react-hooks": "npm:8.0.1"
     "@types/jest": "npm:29.2.6"
     "@types/node": "npm:18.11.18"
     "@types/react": "npm:18.0.27"
@@ -8817,10 +8794,13 @@ __metadata:
     typescript: "npm:4.9.4"
   peerDependencies:
     eslint: ^8.22.0
+    prettier: ^2.7.0
     react: ^18.0.0
     react-dom: ^18.0.0
     typescript: ^4.7.4
   peerDependenciesMeta:
+    prettier:
+      optional: true
     react:
       optional: true
     react-dom:
@@ -24608,17 +24588,6 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
   checksum: 3496149348a186b84f11d5d519d07d82597f8d60525a984e96428d0744c3dc155b67f39787791c5987ed6b1feed5b42a1ef8e1c6dcf64f610e5cfa1a41cfc861
-  languageName: node
-  linkType: hard
-
-"react-error-boundary@npm:^3.1.0":
-  version: 3.1.4
-  resolution: "react-error-boundary@npm:3.1.4"
-  dependencies:
-    "@babel/runtime": "npm:^7.12.5"
-  peerDependencies:
-    react: ">=16.13.1"
-  checksum: 7dbf53e15f0fd208b23521b96743c70166ca3a16aad8bcad7632b1da80f19035dfe91813fa65ee7ff7b7c826a15071e08b8e9270dc96392262ea8b1ab0ceedfa
   languageName: node
   linkType: hard
 
