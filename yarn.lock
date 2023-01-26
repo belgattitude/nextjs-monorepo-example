@@ -8982,7 +8982,7 @@ __metadata:
     "@vitest/ui": "npm:0.28.2"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
-    es-check: "npm:7.0.1"
+    es-check: "npm:7.1.0"
     eslint: "npm:8.32.0"
     get-tsconfig: "npm:4.3.0"
     jest: "npm:29.4.0"
@@ -9182,6 +9182,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"acorn@npm:8.8.2, acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.7.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0, acorn@npm:^8.8.1":
+  version: 8.8.2
+  resolution: "acorn@npm:8.8.2"
+  bin:
+    acorn: bin/acorn
+  checksum: 5a47325f0aa08202080cb167d5b8103720d8a1d199f57988afa48bdfbc3c9973270b00e38c2c874240a49929625beaaae8c4ec683f5272b5f07f1119a457e5d0
+  languageName: node
+  linkType: hard
+
 "acorn@npm:^6.4.1":
   version: 6.4.2
   resolution: "acorn@npm:6.4.2"
@@ -9197,15 +9206,6 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: a7cebd1811f1dd177a6e684184f2608ded8a1783f126c8b2f794d70275e1a1e02c64fdd77eb84298d9754a295d507769033385b049d04f033b424110a02656ef
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.7.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0, acorn@npm:^8.8.1":
-  version: 8.8.1
-  resolution: "acorn@npm:8.8.1"
-  bin:
-    acorn: bin/acorn
-  checksum: f8a84cf59173c5c07cb6b8097c716370f799244189b23d58358eadf9729e0d62660bc11339e03f08517fa33d1ef4b69b84b0bdebe0c0d783acaa8d2c44a66345
   languageName: node
   linkType: hard
 
@@ -11657,6 +11657,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:10.0.0":
+  version: 10.0.0
+  resolution: "commander@npm:10.0.0"
+  checksum: 1b6c9c0a4bbb4b8aa1f123445f74972c5ddd1b83e7c3fc70a74e7fa679b685dccb7a230f56c1a951e5906da1db4accc61be99884ab6a28a50898906f652efc4d
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -11692,7 +11699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^9.4.0, commander@npm:^9.4.1":
+"commander@npm:^9.4.1":
   version: 9.4.1
   resolution: "commander@npm:9.4.1"
   checksum: 7d4c1f3bd4ad451f43fce51b9c73dc2d61fca00a9249196aa2d3d66fc46f2460c917c73ea9221c278fb8d35f496384f5125806e69108581a8e8bc673752c94e6
@@ -13485,18 +13492,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-check@npm:7.0.1":
-  version: 7.0.1
-  resolution: "es-check@npm:7.0.1"
+"es-check@npm:7.1.0":
+  version: 7.1.0
+  resolution: "es-check@npm:7.1.0"
   dependencies:
-    acorn: "npm:^8.7.0"
-    commander: "npm:^9.4.0"
-    fast-glob: "npm:^3.2.11"
+    acorn: "npm:8.8.2"
+    commander: "npm:10.0.0"
+    fast-glob: "npm:^3.2.12"
     supports-color: "npm:^8.1.1"
-    winston: "npm:^3.2.1"
+    winston: "npm:^3.8.2"
   bin:
     es-check: index.js
-  checksum: 76109414de6419c5089513a992fe393f43f3021cdec72a1e4c377e72c1cb010d3511fba2085e0f598a03bc87666c9c1a2cb8837beac440d6f40f92d8d0b27aec
+  checksum: 737fffd053dacdb4fd683828605d7264bc7d6fd1e881a087ee8ee8f32a53091d02cc715556dcff5df3138ee12368dc4999a13273846418cb0489252d8b59db24
   languageName: node
   linkType: hard
 
@@ -21655,7 +21662,7 @@ __metadata:
     cross-env: "npm:7.0.3"
     dotenv-flow: "npm:3.2.0"
     dotenv-flow-cli: "npm:1.0.0"
-    es-check: "npm:7.0.1"
+    es-check: "npm:7.1.0"
     eslint: "npm:8.32.0"
     eslint-config-next: "npm:13.1.5"
     get-tsconfig: "npm:4.3.0"
@@ -30167,10 +30174,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"winston@npm:^3.2.1":
-  version: 3.8.1
-  resolution: "winston@npm:3.8.1"
+"winston@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "winston@npm:3.8.2"
   dependencies:
+    "@colors/colors": "npm:1.5.0"
     "@dabh/diagnostics": "npm:^2.0.2"
     async: "npm:^3.2.3"
     is-stream: "npm:^2.0.0"
@@ -30181,7 +30189,7 @@ __metadata:
     stack-trace: "npm:0.0.x"
     triple-beam: "npm:^1.3.0"
     winston-transport: "npm:^4.5.0"
-  checksum: 877e5d65fa80c337377ccd7ea8980792a57307f10af316ce29319c9658dfafe56a19b6babba73e5d65a74debb361fae0a1e4416f254f6371567406488d9f446b
+  checksum: 50d7712f49ebb22317b9619334f2dca55f5760257e44915013fd2c060267064386347048e6ecf9f550dfcfba705dc94f58163b44eca72abff388037e792af524
   languageName: node
   linkType: hard
 
