@@ -296,8 +296,6 @@ const nextConfig = {
 let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore because sentry does not match nextjs current definitions
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
     // the following options are set automatically, and overriding them is not
