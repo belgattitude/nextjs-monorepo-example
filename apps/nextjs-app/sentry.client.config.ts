@@ -13,7 +13,7 @@ sentryInit({
     process.env.NEXTJS_SENTRY_TRACING ?? ''
   )
     ? undefined
-    : 1.0,
+    : 0.05,
 
   // ...
   // Note: if you want to override the automatic release value, do not set a
