@@ -19,7 +19,7 @@ jobs:
           # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
           fetch-depth: 0
 
-      - name: Use Node.js 18.x
+      - name: ♻️ Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
@@ -28,7 +28,7 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       # @link https://github.com/changesets/action
-      - name: Create Release Pull Request or Publish to npm
+      - name: 🦋 Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
