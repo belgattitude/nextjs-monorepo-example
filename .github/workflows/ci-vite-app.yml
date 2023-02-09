@@ -31,6 +31,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/vite-app
+
     strategy:
       matrix:
         node-version: [18.x]
@@ -45,22 +50,14 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
 
-      - name: Typecheck
-        working-directory: apps/vite-app
-        run: |
-          yarn typecheck
+      - name: 🕵️ Typecheck
+        run: yarn typecheck
 
-      - name: Linter
-        working-directory: apps/vite-app
-        run: |
-          yarn lint
+      - name: 🔬 Linter
+        run: yarn lint
 
-      - name: Unit tests
-        working-directory: apps/vite-app
-        run: |
-          yarn test-unit --runInBand --color
+      - name: 🧪 Unit tests
+        run: yarn test-unit --runInBand --color
 
-      - name: Build vite-app
-        working-directory: apps/vite-app
-        run: |
-          yarn build
+      - name: 🏗 Build vite-app
+        run: yarn build
