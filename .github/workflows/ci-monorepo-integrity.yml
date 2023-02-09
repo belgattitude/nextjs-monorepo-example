@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -39,13 +39,13 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
 
-      - name: 🔬 Check for duplicate dependencies in lock file
+      - name: 👬🏽 Check for duplicate dependencies in lock file
         run: yarn dedupe --check
 
-      - name: 🔬 Check for yarn constraints.pro
+      - name: 🦺 Check for yarn constraints.pro
         run: yarn constraints
 
       # Disabled till the pothos prisma typescript peer-dep is fixed
-      #- name: Check monorepo dependency graph
+      #- name: 🛟 Check monorepo dependency graph
       #  run: |
       #    yarn check:install
