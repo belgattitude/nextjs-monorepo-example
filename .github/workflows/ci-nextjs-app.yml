@@ -34,13 +34,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/nextjs-app
+
     strategy:
       matrix:
         node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -49,7 +54,7 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs build nextjs-app from cache
+      - name: ♻️ Restore nextjs build nextjs-app from cache
         uses: actions/cache@v3
         with:
           path: |
@@ -61,25 +66,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
 
-      - name: Typecheck
-        working-directory: apps/nextjs-app
-        run: |
-          yarn typecheck
+      - name: 🕵️ Typecheck
+        run: yarn typecheck
 
-      - name: Linter
-        working-directory: apps/nextjs-app
-        run: |
-          yarn lint
+      - name: 🔬 Linter
+        run: yarn lint
 
-      - name: Unit tests
-        working-directory: apps/nextjs-app
-        run: |
-          yarn test-unit
+      - name: 🧪 Unit tests
+        run: yarn test-unit
 
-      - name: Build web-app
-        working-directory: apps/nextjs-app
-        run: |
-          yarn build
+      - name: 🏗 Build web-app
+        run: yarn build
         env:
           # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: true
@@ -94,12 +91,8 @@ jobs:
           # Fully disable sentry upload
           NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
-      - name: Check browser bundle size limits
-        working-directory: apps/nextjs-app
-        run: |
-          yarn check-size
+      - name: 📐 Check browser bundle size limits
+        run: yarn check-size
 
-      - name: Check ecmascript checks for build files
-        working-directory: apps/nextjs-app
-        run: |
-          yarn check-dist
+      - name: 🧐 Check ecmascript checks for build files
+        run: yarn check-dist

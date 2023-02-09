@@ -31,13 +31,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/remix-app
+
     strategy:
       matrix:
         node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -45,23 +50,18 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
 
-      - name: Typecheck
-        working-directory: apps/remix-app
-        run: |
-          yarn typecheck
+      - name: 🕵️ Typecheck
+        run: yarn typecheck
 
-      - name: Linter
-        working-directory: apps/remix-app
+      - name: 🔬 Linter
         run: |
           yarn lint
           yarn lint-styles
 
-      - name: Unit tests
-        working-directory: apps/remix-app
-        run: |
-          yarn test-unit --runInBand --color
+      - name: 🧪 Unit tests
+        run: yarn test-unit --runInBand --color
 
-      - name: Build remix-app
+      - name: 🏗 Build remix-app
         working-directory: apps/remix-app
         run: |
           yarn build
