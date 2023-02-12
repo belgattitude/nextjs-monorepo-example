@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -57,7 +57,7 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       # see https://github.com/vercel/next.js/pull/27362
-      - name: Restore nextjs build nextjs-app from cache
+      - name: ♻️ Restore nextjs build nextjs-app from cache
         uses: actions/cache@v3
         with:
           path: |
@@ -69,11 +69,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
 
-      - name: Start database
+      - name: 🏁 Start database
         working-directory: packages/db-main-prisma
         run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
 
-      - name: Create and seed test database
+      - name: 🚚 Create and seed test database
         working-directory: packages/db-main-prisma
         run: |
           yarn prisma db push
@@ -81,10 +81,9 @@ jobs:
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
-      - name: Build nextjs-app
+      - name: 🏗 Build nextjs-app
         working-directory: apps/nextjs-app
-        run: |
-          yarn build
+        run: yarn build
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
           # Don't need to lint / typecheck for e2e, they're done in another workflow
@@ -97,10 +96,9 @@ jobs:
       - name: 📥 Playwright install
         uses: ./.github/actions/playwright-install
 
-      - name: E2E run nextjs-app playwright tests
+      - name: 🧪 E2E run nextjs-app playwright tests
         working-directory: apps/nextjs-app
-        run: |
-          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
+        run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
         env:
           E2E_WEBSERVER_MODE: BUILD_AND_START
           CI: 1

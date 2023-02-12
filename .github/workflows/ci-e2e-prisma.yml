@@ -30,6 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
+    defaults:
+      run:
+        working-directory: packages/db-main-prisma
+
     strategy:
       fail-fast: false
       matrix:
@@ -40,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -48,13 +52,10 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
 
-      - name: Start postgresql
-        working-directory: packages/db-main-prisma
+      - name: 🏁 Start postgresql
         run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
 
-      - name: E2E prisma
-        working-directory: packages/db-main-prisma
-        run: |
-          yarn test-e2e
+      - name: 🧪 E2E prisma
+        run: yarn test-e2e
         env:
           E2E_PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db-main-prisma-e2e?schema=public
