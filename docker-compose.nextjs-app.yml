@@ -15,6 +15,11 @@ services:
       context: .
       dockerfile: Dockerfile
       target: develop
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    environment:
+      NEXTJS_APP_PORT: ${NEXTJS_APP_PORT:-3000}
     volumes:
       # Share the source code to allow development
       - .:/app/
