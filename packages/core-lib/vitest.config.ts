@@ -19,6 +19,11 @@ export default defineConfig({
       reporter: ['text', 'clover'],
       extension: ['js', 'jsx', 'ts', 'tsx'],
     },
+    // To mimic Jest behaviour regarding mocks.
+    // @link https://vitest.dev/config/#clearmocks
+    clearMocks: true,
+    mockReset: true,
+    restoreMocks: true,
     include: testFiles,
     exclude: [
       '**/node_modules/**',
