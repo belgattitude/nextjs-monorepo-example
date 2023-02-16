@@ -40,6 +40,7 @@ RUN --mount=type=bind,target=/docker-context \
           --exclude='*/node_modules' \
           --include='package.json' \
           --include='schema.prisma' \
+          --include='.meshrc.yaml' \
           --include='*/' --exclude='*' \
           /docker-context/ /workspace-install/;
 
