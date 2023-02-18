@@ -10,7 +10,7 @@ Ubuntu example:
 
 > Warning: you may have to uninstall OS defaults before:
 >
-> ```
+> ```bash
 > sudo apt-get remove docker docker-engine docker.io containerd runc
 > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 > echo \
