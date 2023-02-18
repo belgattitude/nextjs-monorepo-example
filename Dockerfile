@@ -14,8 +14,8 @@
 #      ignore: all **/node_modules folders and .yarn/cache        #
 ###################################################################
 
-ARG NODE_VERSION=16
-ARG ALPINE_VERSION=3.15
+ARG NODE_VERSION=18
+ARG ALPINE_VERSION=3.17
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS deps
 RUN apk add --no-cache rsync
@@ -40,6 +40,7 @@ RUN --mount=type=bind,target=/docker-context \
           --exclude='*/node_modules' \
           --include='package.json' \
           --include='schema.prisma' \
+          --include='.meshrc.yaml' \
           --include='*/' --exclude='*' \
           /docker-context/ /workspace-install/;
 
@@ -125,14 +126,15 @@ CMD ["./node_modules/.bin/next", "start", "apps/nextjs-app/", "-p", "${NEXTJS_AP
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS develop
 ENV NODE_ENV=development
+ENV PORT=${PORT:-3000}
 
 WORKDIR /app
 
 COPY --from=deps /workspace-install ./
 
-EXPOSE ${NEXTJS_APP_PORT:-3000}
+EXPOSE ${PORT}
 
 WORKDIR /app/apps/nextjs-app
 
-CMD ["yarn", "dev", "-p", "${NEXTJS_APP_PORT:-3000}"]
+CMD ["yarn", "dev"]
 
