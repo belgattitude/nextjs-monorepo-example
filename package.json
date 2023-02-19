@@ -1,84 +1,71 @@
 {
   "name": "nextjs-monorepo-example",
-  "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example"
-  },
+  "keywords": [
+    "eslint-plugin",
+    "example",
+    "monorepo",
+    "nextjs",
+    "playwright",
+    "prisma",
+    "remix",
+    "storybook",
+    "vite",
+    "workspace"
+  ],
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
-  "keywords": [
-    "example",
-    "monorepo",
-    "workspace",
-    "nextjs",
-    "vite",
-    "remix",
-    "eslint-plugin",
-    "playwright",
-    "storybook",
-    "prisma"
-  ],
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "license": "MIT",
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": "belgattitude/nextjs-monorepo-example",
   "scripts": {
-    "g:clean": "yarn clean:global-cache && yarn workspaces foreach -ptv run clean",
-    "g:build": "yarn workspaces foreach -p --topological-dev -v run build",
-    "g:build-changed": "yarn workspaces foreach --topological-dev --no-private -v --since=origin/main run build",
-    "g:test-unit": "yarn workspaces foreach -ptv run test-unit",
-    "g:test-unit-jest": "yarn workspaces foreach -ptv run test-unit-jest",
-    "g:test-e2e": "yarn workspaces foreach -tv run test-e2e",
-    "g:lint": "yarn workspaces foreach -ptv run lint --color",
-    "g:lint-styles": "yarn workspaces foreach -ptv run lint-styles --color",
-    "g:typecheck": "yarn workspaces foreach -ptv run typecheck",
-    "g:lint-staged-files": "lint-staged --allow-empty",
-    "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
-    "g:changeset": "changeset",
-    "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
-    "g:release": "yarn g:build && changeset publish",
-    "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
-    "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
-    "clean:global-cache": "rimraf ./.cache",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:test:unit": "yarn workspaces foreach -ptv --include '@your-org/*' run test-unit",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
-    "docker:prune-cache": "docker buildx prune",
-    "docker:nextjs-app:install": "docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty deps",
-    "docker:nextjs-app:develop": "docker compose -f ./docker-compose.yml -f docker-compose.nextjs-app.yml up develop main-db",
-    "docker:nextjs-app:develop:reinstall": "docker compose -f docker-compose.nextjs-app.yml build --progress=tty --no-cache --force-rm develop",
-    "docker:nextjs-app:build": "docker compose -f docker-compose.nextjs-app.yml build --progress=tty runner",
-    "docker:nextjs-app:serve": "docker compose -f docker-compose.nextjs-app.yml --env-file ./apps/nextjs-app/.env.local up runner",
-    "docker:up:main-db": "docker compose up -d main-db",
-    "docker:down": "docker compose down",
-    "docker:nuke-all": "npm-run-all --sequential --continue-on-error --print-label \"docker:nuke:*\"",
-    "docker:nuke:images": "docker image rm -f $(docker image ls -q)",
-    "docker:nuke:containers": "docker container rm -f $(docker container ls -qa)",
-    "docker:nuke:volumes": "docker volume rm $(docker volume ls -q)",
-    "docker:nuke:prune-cachemount": "docker builder prune --filter type=exec.cachemount",
-    "docker:nuke:prune-buildx": "docker buildx prune",
-    "nuke:node_modules": "npx rimraf@3 '**/node_modules'",
-    "deps:check": "npx npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
-    "deps:update": "npx npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "check:install": "yarn dlx @yarnpkg/doctor@3.1.4 .",
     "check:renovate:config": "docker run -v renovate.json5:/usr/src/app/renovate.json5 -it renovate/renovate renovate-config-validator",
+    "clean:global-cache": "rimraf ./.cache",
+    "deps:check": "npx npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
+    "deps:update": "npx npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
+    "docker:down": "docker compose down",
+    "docker:nextjs-app:build": "docker compose -f docker-compose.nextjs-app.yml build --progress=tty runner",
+    "docker:nextjs-app:develop": "docker compose -f ./docker-compose.yml -f docker-compose.nextjs-app.yml up develop main-db",
+    "docker:nextjs-app:develop:reinstall": "docker compose -f docker-compose.nextjs-app.yml build --progress=tty --no-cache --force-rm develop",
+    "docker:nextjs-app:install": "docker buildx bake -f docker-compose.nextjs-app.yml --progress=tty deps",
+    "docker:nextjs-app:serve": "docker compose -f docker-compose.nextjs-app.yml --env-file ./apps/nextjs-app/.env.local up runner",
+    "docker:nuke-all": "npm-run-all --sequential --continue-on-error --print-label \"docker:nuke:*\"",
+    "docker:nuke:containers": "docker container rm -f $(docker container ls -qa)",
+    "docker:nuke:images": "docker image rm -f $(docker image ls -q)",
+    "docker:nuke:prune-buildx": "docker buildx prune",
+    "docker:nuke:prune-cachemount": "docker builder prune --filter type=exec.cachemount",
+    "docker:nuke:volumes": "docker volume rm $(docker volume ls -q)",
+    "docker:prune-cache": "docker buildx prune",
+    "docker:up:main-db": "docker compose up -d main-db",
+    "g:build": "yarn workspaces foreach -p --topological-dev -v run build",
+    "g:build-changed": "yarn workspaces foreach --topological-dev --no-private -v --since=origin/main run build",
+    "g:changeset": "changeset",
+    "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
+    "g:clean": "yarn clean:global-cache && yarn workspaces foreach -ptv run clean",
+    "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
+    "g:lint": "yarn workspaces foreach -ptv run lint --color",
+    "g:lint-staged-files": "lint-staged --allow-empty",
+    "g:lint-styles": "yarn workspaces foreach -ptv run lint-styles --color",
+    "g:release": "yarn g:build && changeset publish",
+    "g:share-static-hardlink": "yarn workspaces foreach -pv --include '*-app' run share-static-hardlink",
+    "g:share-static-symlink": "yarn workspaces foreach -pv --include '*-app' run share-static-symlink",
+    "g:test-e2e": "yarn workspaces foreach -tv run test-e2e",
+    "g:test-unit": "yarn workspaces foreach -ptv run test-unit",
+    "g:test-unit-jest": "yarn workspaces foreach -ptv run test-unit-jest",
+    "g:typecheck": "yarn workspaces foreach -ptv run typecheck",
     "install:playwright": "playwright install",
+    "nuke:node_modules": "npx rimraf@3 '**/node_modules'",
+    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
+    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
+    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
+    "packages:test:unit": "yarn workspaces foreach -ptv --include '@your-org/*' run test-unit",
+    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
     "postinstall": "is-ci || yarn husky install"
-  },
-  "helpResolutions": {
-    "@graphql-inspector/core": "https://github.com/kamilkisiela/graphql-inspector/issues/2175"
-  },
-  "resolutions": {
-    "@graphql-inspector/core": "3.3.0"
   },
   "dependencies": {
     "cross-env": "7.0.3"
@@ -107,5 +94,15 @@
     "yarn": ">=1.22.0",
     "npm": "please-use-yarn"
   },
-  "packageManager": "yarn@4.0.0-rc.39"
+  "helpResolutions": {
+    "@graphql-inspector/core": "https://github.com/kamilkisiela/graphql-inspector/issues/2175"
+  },
+  "packageManager": "yarn@4.0.0-rc.39",
+  "resolutions": {
+    "@graphql-inspector/core": "3.3.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

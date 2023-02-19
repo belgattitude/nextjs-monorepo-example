@@ -1,44 +1,37 @@
 {
   "name": "@your-org/core-lib",
   "version": "3.15.2",
-  "license": "MIT",
   "private": true,
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
     "directory": "packages/core-lib"
   },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
-  "sideEffects": false,
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
-    "dev": "microbundle watch",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "dev": "microbundle watch",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/core-lib.eslintcache",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test-unit",
     "test-unit": "vitest run",
-    "test-unit-watch": "vitest watch --ui",
     "test-unit-jest": "jest --config jest.config.js",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
+    "test-unit-watch": "vitest watch --ui",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "@httpx/exception": "^1.7.1",
     "@your-org/ts-utils": "workspace:^",
     "dequal": "^2.0.3"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@testing-library/react": "14.0.0",
@@ -65,5 +58,12 @@
     "vite": "4.1.2",
     "vite-tsconfig-paths": "4.0.5",
     "vitest": "0.28.5"
-  }
+  },
+  "module": "dist/index.esm.js",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts"
 }

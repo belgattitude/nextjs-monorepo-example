@@ -1,18 +1,18 @@
 {
   "name": "vite-app",
   "version": "0.6.11",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
     "clean": "rimraf ./dist ./tsconfig.tsbuildinfo ./node_modules/.vite",
+    "dev": "vite",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/vite-app.eslintcache",
     "serve": "vite preview",
     "test": "yarn test-unit",
     "test-unit": "echo 'No test present yet'",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/vite-app.eslintcache",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "@emotion/react": "11.10.6",

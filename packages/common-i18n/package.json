@@ -1,18 +1,7 @@
 {
   "name": "@your-org/common-i18n",
   "version": "1.2.1",
-  "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
-    "directory": "packages/common-i18n"
-  },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -21,6 +10,17 @@
       "import": "./src/locales/*.json"
     },
     "./package.json": "./package.json"
+  },
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "directory": "packages/common-i18n"
   },
   "scripts": {
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",

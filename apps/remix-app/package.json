@@ -1,36 +1,36 @@
 {
   "name": "remix-app",
   "version": "1.10.11",
-  "license": "MIT",
   "private": true,
   "sideEffects": false,
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
     "directory": "apps/remix-app"
   },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
   "scripts": {
+    "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
+    "?share-static-symlink": "echo 'Use this command to link assets... from shared static folder'",
     "build": "npm run build-css && remix build",
     "build-css": "tailwindcss -o ./src/tailwind.css",
-    "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
-    "watch-tailwind": "tailwindcss -o ./src/tailwind.css --watch",
-    "remix-dev": "remix dev",
     "clean": "rimraf ./.cache ./coverage ./src/tailwind.css ./api/index.js ./api/index.js.map ./public/build ./tsconfig.tsbuildinfo",
-    "?share-static-symlink": "echo 'Use this command to link assets... from shared static folder'",
-    "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
-    "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
+    "dev": "npm-run-all --parallel --print-label watch-tailwind remix-dev",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
+    "lint-styles": "stylelint 'src/**/*.css'",
+    "remix-dev": "remix dev",
     "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
+    "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
-    "lint-styles": "stylelint 'src/**/*.css'",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --fix"
+    "watch-tailwind": "tailwindcss -o ./src/tailwind.css --watch"
   },
   "dependencies": {
     "@emotion/cache": "11.10.5",

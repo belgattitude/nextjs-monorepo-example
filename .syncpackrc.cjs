@@ -33,12 +33,10 @@ module.exports = {
     "contributors",
     "dependencies",
     "devDependencies",
-    "keywords",
     "peerDependencies",
-    "resolutions",
-    "scripts"
+    "resolutions"
   ],
-  "sortFirst": ["name", "description", "version", "author"],
+  "sortFirst": ["name",  "version",  "private", "sideEffects", "type", "main", "exports", "description", "keywords", "author", "license", "homepage", "repository", "scripts"],
   "source": ["apps/**", "packages/**", "./package.json"],
   "versionGroups": []
 }

@@ -1,46 +1,38 @@
 {
   "name": "@your-org/db-main-prisma",
   "version": "2.13.0",
-  "license": "MIT",
   "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/index.ts",
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
     "directory": "packages/db-main-prisma"
   },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
-  "type": "module",
-  "sideEffects": false,
-  "main": "./src/index.ts",
-  "prisma": {
-    "seed": "tsx ./prisma/seed.ts"
-  },
   "scripts": {
+    "build": "tsup",
+    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "debug-test-e2e": "cross-env DEBUG=testcontainers vitest run $@",
+    "dev": "tsup --watch",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/db-main-prisma.eslintcache",
+    "postinstall": "prisma generate",
+    "prisma-db-push": "dotenv-flow -- yarn prisma db push",
+    "prisma-db-seed": "dotenv-flow -- yarn prisma db seed",
     "prisma-migrate": "dotenv-flow -- yarn prisma migrate",
     "prisma-migrate-reset": "dotenv-flow -- yarn prisma migrate reset",
-    "prisma-db-seed": "dotenv-flow -- yarn prisma db seed",
-    "prisma-db-push": "dotenv-flow -- yarn prisma db push",
     "prisma-studio": "dotenv-flow -- yarn prisma studio",
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/db-main-prisma.eslintcache",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "test": "run-s test:unit",
-    "test-unit": "echo \"No unit tests yet\"",
     "test-e2e": "dotenv-flow -- yarn vitest run",
-    "debug-test-e2e": "cross-env DEBUG=testcontainers vitest run $@",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
-    "postinstall": "prisma generate"
-  },
-  "peerDependencies": {
-    "@pothos/plugin-prisma": "^3.41.0",
-    "@prisma/client": "^4.10.1",
-    "graphql": "^16.6.0"
+    "test-unit": "echo \"No unit tests yet\"",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@pothos/core": "3.25.0",
@@ -72,5 +64,13 @@
     "vite": "4.1.2",
     "vite-tsconfig-paths": "4.0.5",
     "vitest": "0.28.5"
+  },
+  "peerDependencies": {
+    "@pothos/plugin-prisma": "^3.41.0",
+    "@prisma/client": "^4.10.1",
+    "graphql": "^16.6.0"
+  },
+  "prisma": {
+    "seed": "tsx ./prisma/seed.ts"
   }
 }
