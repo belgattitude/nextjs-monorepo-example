@@ -42,6 +42,18 @@ jobs:
       - name: 🦺 Check for yarn constraints.pro
         run: yarn constraints
 
+      - name: 🦺 Syncpack lint-semver-ranges
+        run: yarn syncpack lint-semver-ranges
+
+      - name: 🦺 Syncpack lint-semver-ranges
+        run: yarn syncpack lint-semver-ranges
+
+      - name: 🦺 Syncpack apps same deps
+        run: yarn syncpack list --types prod,dev --source "apps/*/package.json"
+
+      - name: 🦺 Syncpack packages same deps
+        run: yarn syncpack list --types prod,dev,peer --source "packages/*/package.json"
+
       # Disabled till the pothos prisma typescript peer-dep is fixed
       #- name: 🛟 Check monorepo dependency graph
       #  run: |
