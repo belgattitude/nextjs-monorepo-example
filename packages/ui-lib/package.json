@@ -1,54 +1,35 @@
 {
   "name": "@your-org/ui-lib",
   "version": "3.15.1",
-  "license": "MIT",
   "private": true,
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
   "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
   "repository": {
     "type": "git",
     "url": "https://github.com/belgattitude/nextjs-monorepo-example",
     "directory": "packages/ui-lib"
   },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
-  "sideEffects": false,
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "build-storybook": "build-storybook --output-dir build/storybook",
     "clean": "rimraf ./dist ./build ./tsconfig.tsbuildinfo ./node_modules/.cache",
+    "dev": "tsup --watch",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "serve-storybook": "sirv build/storybook --cors --port 8888",
+    "storybook": "start-storybook -p 6006",
     "test": "run-s test-unit",
     "test-unit": "echo \"No unit tests yet\"",
-    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --output-dir build/storybook",
-    "serve-storybook": "sirv build/storybook --cors --port 8888"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "@your-org/ts-utils": "workspace:^"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/react": {
-      "optional": true
-    },
-    "@types/react-dom": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@babel/core": "7.20.12",
@@ -101,5 +82,24 @@
     "tsup": "6.6.3",
     "typescript": "4.9.5",
     "webpack": "5.75.0"
-  }
+  },
+  "module": "dist/index.esm.js",
+  "peerDependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts"
 }
