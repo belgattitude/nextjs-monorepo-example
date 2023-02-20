@@ -2702,16 +2702,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@envelop/validation-cache@npm:^5.0.5":
-  version: 5.0.5
-  resolution: "@envelop/validation-cache@npm:5.0.5"
+"@envelop/validation-cache@npm:^5.0.5, @envelop/validation-cache@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@envelop/validation-cache@npm:5.1.2"
   dependencies:
+    fast-json-stable-stringify: "npm:^2.1.0"
     lru-cache: "npm:^6.0.0"
-    tslib: "npm:^2.4.0"
+    sha1-es: "npm:^1.8.2"
+    tslib: "npm:^2.5.0"
   peerDependencies:
-    "@envelop/core": ^3.0.4
+    "@envelop/core": ^3.0.6
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: f30058e2ba00d7dfea625a3e4fba53d252b2e8af128544c7722ea960d799d28bb8f0883c21be1e7b442c7318609f4f5b7929652928ebce5e8b75d9a13fefcc3b
+  checksum: 44e8c496982c51ca74088f221ae2a2edababfc2553a9ce34ad31181836863feeb4669e39a65b9e7f79e04c6f457db19ca706f7cce9ea7bc1a2724df2eb8c08fc
   languageName: node
   linkType: hard
 
@@ -16661,6 +16663,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-yoga@npm:3.7.0":
+  version: 3.7.0
+  resolution: "graphql-yoga@npm:3.7.0"
+  dependencies:
+    "@envelop/core": "npm:^3.0.4"
+    "@envelop/validation-cache": "npm:^5.1.2"
+    "@graphql-tools/executor": "npm:^0.0.14"
+    "@graphql-tools/schema": "npm:^9.0.0"
+    "@graphql-tools/utils": "npm:^9.2.1"
+    "@graphql-yoga/subscription": "npm:^3.1.0"
+    "@whatwg-node/fetch": "npm:^0.8.1"
+    "@whatwg-node/server": "npm:^0.6.7"
+    dset: "npm:^3.1.1"
+    lru-cache: "npm:^7.14.1"
+    tslib: "npm:^2.3.1"
+  peerDependencies:
+    graphql: ^15.2.0 || ^16.0.0
+  checksum: 3bab69674f85e412176d4e27794f8598445af0a98c2af36e7e649483ef557bf88c5b5eb4288001fcc495d71ef0b3a8bb92ecfa42d88a45ef69af527608523f2f
+  languageName: node
+  linkType: hard
+
 "graphql@npm:16.6.0":
   version: 16.6.0
   resolution: "graphql@npm:16.6.0"
@@ -21867,7 +21890,7 @@ __metadata:
     eslint-config-next: "npm:13.1.6"
     get-tsconfig: "npm:4.4.0"
     graphql: "npm:16.6.0"
-    graphql-yoga: "npm:3.6.0"
+    graphql-yoga: "npm:3.7.0"
     happy-dom: "npm:8.6.0"
     i18next: "npm:22.4.10"
     jest: "npm:29.4.3"
@@ -26579,6 +26602,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sha1-es@npm:^1.8.2":
+  version: 1.8.2
+  resolution: "sha1-es@npm:1.8.2"
+  checksum: 813d731ba484e747ed947b219729be76532fb1e01f6a0ff31ab2fdb22e50b770d8ac56140069abc0eb60792cd666864e9c6e5b9bcc856123f2735af57e2d070f
+  languageName: node
+  linkType: hard
+
 "shallow-clone@npm:^3.0.0":
   version: 3.0.1
   resolution: "shallow-clone@npm:3.0.1"
@@ -28722,7 +28752,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.5.0, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:~2.5.0":
+"tslib@npm:2.5.0, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:~2.5.0":
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: 5a6ee935f56cd653af29de928483acbab7323f964b053e98b6b318abc69431fb0e4f660c4f4a396e2e93852510bef25eeb9f1d951d060b2d7bcc313811e5da6f
