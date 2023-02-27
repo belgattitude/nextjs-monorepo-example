@@ -3237,9 +3237,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@eslint/eslintrc@npm:1.4.1"
+"@eslint/eslintrc@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@eslint/eslintrc@npm:2.0.0"
   dependencies:
     ajv: "npm:^6.12.4"
     debug: "npm:^4.3.2"
@@ -3250,7 +3250,14 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     minimatch: "npm:^3.1.2"
     strip-json-comments: "npm:^3.1.1"
-  checksum: 4e469ed508c3154078503b1f22b9d7f2498e76e770ff3f8c61c9961a16760c817e977f2f00b02201d1e91d6a4ebc766c1c67aae9189b00d5c1fe2e7205b6ad72
+  checksum: 29a8b98afca4e088f84dc1e7be849e51ca6df31172a90ef3898dd201e7e022ee7d665d999b0134849ac7279497d5270867945bdf534ad3ca0ac036e1869b310c
+  languageName: node
+  linkType: hard
+
+"@eslint/js@npm:8.35.0":
+  version: 8.35.0
+  resolution: "@eslint/js@npm:8.35.0"
+  checksum: ada3a3a42de60014ddae9f2f81e96442168b74151c6785194191f17850497c8750ab0140ca37c143dda1bfaf149cfc63ff28adcf94c41ceada4afc05ff596711
   languageName: node
   linkType: hard
 
@@ -8944,7 +8951,7 @@ __metadata:
     "@types/node": "npm:18.14.1"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     graphql: "npm:16.6.0"
     jest: "npm:29.4.3"
     npm-run-all: "npm:4.1.5"
@@ -8965,7 +8972,7 @@ __metadata:
     "@types/node": "npm:18.14.1"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     prettier: "npm:2.8.4"
     rimraf: "npm:4.1.2"
     typescript: "npm:4.9.5"
@@ -8989,7 +8996,7 @@ __metadata:
     "@your-org/ts-utils": "workspace:^"
     cross-env: "npm:7.0.3"
     dequal: "npm:^2.0.3"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     jest: "npm:29.4.3"
     jest-environment-jsdom: "npm:29.4.3"
     microbundle: "npm:0.15.1"
@@ -9025,7 +9032,7 @@ __metadata:
     cross-env: "npm:7.0.3"
     dotenv-flow: "npm:3.2.0"
     dotenv-flow-cli: "npm:1.0.0"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     execa: "npm:7.0.0"
     graphql: "npm:16.6.0"
     is-port-reachable: "npm:4.0.0"
@@ -9063,7 +9070,7 @@ __metadata:
     "@types/react-dom": "npm:18.0.11"
     "@typescript-eslint/eslint-plugin": "npm:^5.53.0"
     "@typescript-eslint/parser": "npm:^5.53.0"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     eslint-config-prettier: "npm:^8.6.0"
     eslint-import-resolver-typescript: "npm:^3.5.3"
     eslint-plugin-import: "npm:^2.27.5"
@@ -9114,7 +9121,7 @@ __metadata:
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
     es-check: "npm:7.1.0"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     get-tsconfig: "npm:4.4.0"
     jest: "npm:29.4.3"
     rimraf: "npm:4.1.2"
@@ -9164,7 +9171,7 @@ __metadata:
     babel-plugin-polyfill-corejs3: "npm:0.6.0"
     core-js: "npm:3.29.0"
     cross-env: "npm:7.0.3"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     jest: "npm:29.4.3"
     jest-environment-jsdom: "npm:29.4.3"
     npm-run-all: "npm:4.1.5"
@@ -14853,11 +14860,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.34.0":
-  version: 8.34.0
-  resolution: "eslint@npm:8.34.0"
+"eslint@npm:8.35.0":
+  version: 8.35.0
+  resolution: "eslint@npm:8.35.0"
   dependencies:
-    "@eslint/eslintrc": "npm:^1.4.1"
+    "@eslint/eslintrc": "npm:^2.0.0"
+    "@eslint/js": "npm:8.35.0"
     "@humanwhocodes/config-array": "npm:^0.11.8"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -14871,7 +14879,7 @@ __metadata:
     eslint-utils: "npm:^3.0.0"
     eslint-visitor-keys: "npm:^3.3.0"
     espree: "npm:^9.4.0"
-    esquery: "npm:^1.4.0"
+    esquery: "npm:^1.4.2"
     esutils: "npm:^2.0.2"
     fast-deep-equal: "npm:^3.1.3"
     file-entry-cache: "npm:^6.0.1"
@@ -14898,7 +14906,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: ec20023e4d680f390b89509f27b40824957d6518ed19c43c52b979e891a3ee225cf09a7fc9e9f882b3636f5cfa34a7a2e20416a2b22047d94db9b1ac3a55e9d9
+  checksum: 9e49b49d9f877bcfbf376166e5a870c6a725b1e713e339f05b85a0d70ebd9ab3c72faceac27251b25fbbd53fd06594d6c00b335b5a59de3a36486eeeafa0f2bc
   languageName: node
   linkType: hard
 
@@ -14923,12 +14931,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esquery@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "esquery@npm:1.4.0"
+"esquery@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "esquery@npm:1.4.2"
   dependencies:
     estraverse: "npm:^5.1.0"
-  checksum: 7f287f5390f12feed1b2b4dd42f3a4501774effcbcbb76c340e5b9a3c25a133739dc18657c6103cb520dd4a8814d33ff732587c7de42f0ff51a0deaf4c190428
+  checksum: f4f0c6b1c5e2a733ba5a501a3d7847ba56db99cb8b4d76f2a9c57fbf6d282b3e5f7c15ff7178771cc47a863b92a5648ff1b4977b4e9b8d8c36ff9fcb652ebb60
   languageName: node
   linkType: hard
 
@@ -21907,7 +21915,7 @@ __metadata:
     dotenv-flow: "npm:3.2.0"
     dotenv-flow-cli: "npm:1.0.0"
     es-check: "npm:7.1.0"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     eslint-config-next: "npm:13.2.1"
     get-tsconfig: "npm:4.4.0"
     graphql: "npm:16.6.0"
@@ -21967,7 +21975,7 @@ __metadata:
     "@types/shell-quote": "npm:1.7.1"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     husky: "npm:8.0.3"
     is-ci: "npm:3.0.1"
     lint-staged: "npm:13.1.2"
@@ -25739,7 +25747,7 @@ __metadata:
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     autoprefixer: "npm:10.4.13"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     get-tsconfig: "npm:4.4.0"
     jest: "npm:29.4.3"
     jest-css-modules-transform: "npm:4.4.2"
@@ -29759,7 +29767,7 @@ __metadata:
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
-    eslint: "npm:8.34.0"
+    eslint: "npm:8.35.0"
     happy-dom: "npm:8.9.0"
     prettier: "npm:2.8.4"
     react: "npm:18.2.0"
