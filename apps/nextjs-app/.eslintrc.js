@@ -39,6 +39,13 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['next.config.mjs'],
+      rules: {
+        'import/order': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+      },
+    },
+    {
       files: ['src/pages/\\_*.{ts,tsx}'],
       rules: {
         'react/display-name': 'off',

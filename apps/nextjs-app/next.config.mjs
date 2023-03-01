@@ -5,10 +5,12 @@ import path from 'node:path';
 import url from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
-
 import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.js';
+
+// @ts-ignore
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
@@ -268,6 +270,12 @@ const nextConfig = {
         __SENTRY_TRACING__: NEXTJS_SENTRY_TRACING,
       })
     );
+
+    // Nex with Prisma 4.11.0 (helps standalone build in monorepos)
+    // https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo
+    if (isServer) {
+      config.plugins.push(new PrismaPlugin());
+    }
 
     config.module.rules.push({
       test: /\.svg$/,
