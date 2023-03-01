@@ -1,5 +1,16 @@
 # nextjs-app
 
+## 3.59.0
+
+### Minor Changes
+
+- [#3407](https://github.com/belgattitude/nextjs-monorepo-example/pull/3407) [`e9730790`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e9730790e49393a03d88810c638e6ee385a81b98) Thanks [@belgattitude](https://github.com/belgattitude)! - Use @prisma/nextjs-monorepo-workaround-plugin for standalone monorepo support
+
+### Patch Changes
+
+- Updated dependencies [[`e9730790`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e9730790e49393a03d88810c638e6ee385a81b98)]:
+  - @your-org/db-main-prisma@2.14.0
+
 ## 3.58.0
 
 ### Minor Changes
