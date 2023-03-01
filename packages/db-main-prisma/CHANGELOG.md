@@ -1,5 +1,11 @@
 # @your-org/db-main-prisma
 
+## 2.14.0
+
+### Minor Changes
+
+- [#3407](https://github.com/belgattitude/nextjs-monorepo-example/pull/3407) [`e9730790`](https://github.com/belgattitude/nextjs-monorepo-example/commit/e9730790e49393a03d88810c638e6ee385a81b98) Thanks [@belgattitude](https://github.com/belgattitude)! - Use jsonProtocol preview feature available in prisma 4.11.0
+
 ## 2.13.0
 
 ### Minor Changes
