@@ -4135,6 +4135,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-yoga/logger@npm:0.0.1":
+  version: 0.0.1
+  resolution: "@graphql-yoga/logger@npm:0.0.1"
+  dependencies:
+    tslib: "npm:^2.3.1"
+  checksum: 15f59bd2b6e45c2e50f04c2e3abbd196b1ad5f3c257dd9a106f164933e7c7e49a1eff6bed1178a23969bb105a9855a814a036c0a25a8ed2c43464e903fa56377
+  languageName: node
+  linkType: hard
+
 "@graphql-yoga/subscription@npm:^3.1.0":
   version: 3.1.0
   resolution: "@graphql-yoga/subscription@npm:3.1.0"
@@ -8928,22 +8937,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whatwg-node/fetch@npm:^0.8.0, @whatwg-node/fetch@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "@whatwg-node/fetch@npm:0.8.1"
+"@whatwg-node/fetch@npm:^0.8.0, @whatwg-node/fetch@npm:^0.8.1, @whatwg-node/fetch@npm:^0.8.2":
+  version: 0.8.2
+  resolution: "@whatwg-node/fetch@npm:0.8.2"
   dependencies:
     "@peculiar/webcrypto": "npm:^1.4.0"
-    "@whatwg-node/node-fetch": "npm:^0.3.0"
+    "@whatwg-node/node-fetch": "npm:^0.3.1"
     busboy: "npm:^1.6.0"
     urlpattern-polyfill: "npm:^6.0.2"
     web-streams-polyfill: "npm:^3.2.1"
-  checksum: 25f6ce2d217751570416876cdbe502872a982841f6e905a5a10e6cfa9193d75a5b92dcb667bd47120bd6287997f8a8d4f03b7bd2b98c71932c23966a404d1710
+  checksum: 21e2ea7fd48c2b96f79cfbfe601045d5d133ccfa89df7dd9c122e857927ad7b5bd625a67574520f53f5341c97054ca1cfdbca85891977884614bce36df26ade1
   languageName: node
   linkType: hard
 
-"@whatwg-node/node-fetch@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@whatwg-node/node-fetch@npm:0.3.0"
+"@whatwg-node/node-fetch@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@whatwg-node/node-fetch@npm:0.3.1"
   dependencies:
     "@whatwg-node/events": "npm:^0.0.2"
     busboy: "npm:^1.6.0"
@@ -8952,7 +8961,7 @@ __metadata:
     tslib: "npm:^2.3.1"
   peerDependencies:
     "@types/node": ^18.0.6
-  checksum: 2cc78bde6ad94813305c897e6f2952222ec3312bd8b4479072a4cbe11ebcdcc8ba0d09e3b528844e9c51a092135246d6c0654e1e5668153f83ee9b7eac39866a
+  checksum: 276befd9006ab6b494965692c49a8067b47f1b6d917d2ac0f7b74fcd9bf384df19795d77a4b42ef1215fc6c9a3145f1e9c8aa5f5d1c2e13669f28a4fd882f13b
   languageName: node
   linkType: hard
 
@@ -8977,13 +8986,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whatwg-node/server@npm:^0.7.0":
-  version: 0.7.1
-  resolution: "@whatwg-node/server@npm:0.7.1"
+"@whatwg-node/server@npm:^0.7.0, @whatwg-node/server@npm:^0.7.1":
+  version: 0.7.2
+  resolution: "@whatwg-node/server@npm:0.7.2"
   dependencies:
-    "@whatwg-node/fetch": "npm:^0.8.1"
+    "@whatwg-node/fetch": "npm:^0.8.2"
     tslib: "npm:^2.3.1"
-  checksum: ba3bcc18da1778f5378705b3469d051ca82c7e63db8c36362f452feea5b2e05fc0ab26f349b088bb7d7b8fa38b228de3b36775a1d84304cf383ee315e1e4336b
+  checksum: e52ec909c3a1c5d4c52125e4b651a51f9bfdb36fdc4512160a1b2949efc5f2b95184b1865ee0853832e7cb08267c07e93d4d52a913cbde1f32f7acbe2668cccb
   languageName: node
   linkType: hard
 
@@ -16787,6 +16796,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-yoga@npm:3.7.1":
+  version: 3.7.1
+  resolution: "graphql-yoga@npm:3.7.1"
+  dependencies:
+    "@envelop/core": "npm:^3.0.4"
+    "@envelop/validation-cache": "npm:^5.1.2"
+    "@graphql-tools/executor": "npm:^0.0.15"
+    "@graphql-tools/schema": "npm:^9.0.0"
+    "@graphql-tools/utils": "npm:^9.2.1"
+    "@graphql-yoga/logger": "npm:0.0.1"
+    "@graphql-yoga/subscription": "npm:^3.1.0"
+    "@whatwg-node/fetch": "npm:^0.8.1"
+    "@whatwg-node/server": "npm:^0.7.1"
+    dset: "npm:^3.1.1"
+    lru-cache: "npm:^7.14.1"
+    tslib: "npm:^2.3.1"
+  peerDependencies:
+    graphql: ^15.2.0 || ^16.0.0
+  checksum: 0f22f47a9a40085ce69116dce8958de01e03a38a2cd4ea4e8c1043f365b2b6a917f4f8b9835acbc4e89505fbeef9960da65e3def2749b3400ead75a2fda74b76
+  languageName: node
+  linkType: hard
+
 "graphql@npm:16.6.0":
   version: 16.6.0
   resolution: "graphql@npm:16.6.0"
@@ -22014,7 +22045,7 @@ __metadata:
     eslint-config-next: "npm:13.2.3"
     get-tsconfig: "npm:4.4.0"
     graphql: "npm:16.6.0"
-    graphql-yoga: "npm:3.7.0"
+    graphql-yoga: "npm:3.7.1"
     happy-dom: "npm:8.9.0"
     i18next: "npm:22.4.10"
     jest: "npm:29.4.3"
