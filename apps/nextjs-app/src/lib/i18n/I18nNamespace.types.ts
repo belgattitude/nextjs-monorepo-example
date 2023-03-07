@@ -1,9 +1,7 @@
-import type { CustomTypeOptions } from 'i18next';
+import type { CustomTypeOptions, Namespace } from 'i18next';
 
 export type I18nNamespace = keyof CustomTypeOptions['resources'];
 
-/**
- * Helper to get fully typed namespaced keys
- */
-export type I18nActiveNamespaces<NamespacesUnion extends I18nNamespace> =
-  Extract<I18nNamespace, NamespacesUnion>[];
+type ArrayElementOrSelf<T> = T extends Array<infer U> ? U[] : T[];
+
+export type I18nActiveNamespaces = ArrayElementOrSelf<Namespace>;
