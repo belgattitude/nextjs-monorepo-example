@@ -36,7 +36,7 @@ module.exports = {
     "peerDependencies",
     "resolutions"
   ],
-  "sortFirst": ["name", "version", "private", "module", "sideEffects", "type", "main", "exports", "description", "keywords", "author", "license", "homepage", "repository", "scripts"],
+  "sortFirst": ["name", "version", "private", "module", "sideEffects", "type", "main", "types", "exports", "description", "keywords", "author", "license", "homepage", "repository", "scripts"],
   "source": ["apps/**", "packages/**", "./package.json"],
   "versionGroups": []
 }
