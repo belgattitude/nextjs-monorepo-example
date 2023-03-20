@@ -1,7 +1,7 @@
 // @ts-check
 import { getTsconfig } from 'get-tsconfig';
 import { pathsToModuleNameMapper } from 'ts-jest';
-import { getJestCachePath } from '../../cache.config';
+// import { getJestCachePath } from '../../cache.config';
 
 const tsConfigFile = new URL('./tsconfig.json', import.meta.url).pathname;
 
@@ -25,7 +25,7 @@ const getTsConfigBasePaths = (tsConfigFile) => {
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   displayName: `ts-utils:unit`,
-  cacheDirectory: getJestCachePath('@belgattitude/ts-utils'),
+  // cacheDirectory: getJestCachePath('@your-org/ts-utils'),
   testEnvironment: 'node',
   extensionsToTreatAsEsm: ['.ts'],
   verbose: true,
