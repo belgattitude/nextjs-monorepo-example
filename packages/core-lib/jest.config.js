@@ -36,8 +36,6 @@ const config = {
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   testMatch: ['<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   moduleNameMapper: {
-    // For @testing-library/react
-    '^@/test-utils$': '<rootDir>/../config/jest/test-utils',
     ...getTsConfigBasePaths(),
   },
   // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true

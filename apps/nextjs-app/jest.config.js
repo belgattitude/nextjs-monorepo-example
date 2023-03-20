@@ -7,7 +7,7 @@ const { getJestCachePath } = require('../../cache.config');
 
 const packageJson = require('./package.json');
 
-const tsConfigFile = './tsconfig.jest.json';
+const tsConfigFile = './tsconfig.json';
 
 /**
  * Transform the tsconfig paths into jest compatible one (support extends)

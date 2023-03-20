@@ -1,6 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { act, renderHook, waitFor } from '@testing-library/react';
 import type { FC } from 'react';
+import { render, screen, act, renderHook, waitFor } from '@/test-utils';
 import { usePromise } from '../use-promise';
 
 describe('usePromise', () => {
