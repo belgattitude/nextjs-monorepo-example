@@ -7,10 +7,13 @@
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["@your-org/api-gateway#build"]
     },
+    "typecheck": {
+      "dependsOn": ["@your-org/api-gateway#build"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@your-org/api-gateway#build", "@your-org/api-gateway#dev"]
+      "dependsOn": ["@your-org/api-gateway#dev"]
     }
   }
 }
