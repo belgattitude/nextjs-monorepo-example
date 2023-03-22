@@ -1,0 +1,15 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      // "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
+      "outputs": [".next/**", "!.next/cache/**"]
+      // "dependsOn": ["^build"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
