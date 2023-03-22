@@ -7,6 +7,10 @@
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["@your-org/api-gateway#build"]
     },
+    "vercel-build": {
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dependsOn": ["@your-org/api-gateway#build"]
+    },
     "typecheck": {
       "dependsOn": ["@your-org/api-gateway#build"]
     },
