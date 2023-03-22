@@ -31,7 +31,6 @@ builder.queryType({
       },
       resolve: (parent, { name }) => `hello, ${name || 'World'}`,
     }),
-    /*
     me: t.prismaField({
       type: 'User',
       args: {
@@ -46,7 +45,6 @@ builder.queryType({
         });
       },
     }),
-    */
   }),
 });
 
