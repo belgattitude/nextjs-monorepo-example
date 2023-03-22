@@ -18,6 +18,8 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'clover'],
       extension: ['js', 'jsx', 'ts', 'tsx'],
+      all: true,
+      include: ['src/**/*.js', 'src/**/*.ts'],
     },
     include: testFiles,
     // To mimic Jest behaviour regarding mocks.

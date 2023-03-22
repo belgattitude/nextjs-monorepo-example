@@ -1,3 +1,4 @@
+import { HttpUnauthorized } from '@httpx/exception';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -21,7 +22,7 @@ export const nextAuthConfig: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, _req) {
-        if (!credentials) throw new Error('No credentials provided');
+        if (!credentials) throw new HttpUnauthorized('No credentials provided');
         const { username, password } = credentials ?? {};
         if (username === 'admin' && password === 'demo') {
           return {
@@ -32,7 +33,7 @@ export const nextAuthConfig: NextAuthOptions = {
             image: undefined,
           };
         }
-        throw new Error('Wrong credentials');
+        throw new HttpUnauthorized('Wrong credentials');
       },
     }),
   ],
