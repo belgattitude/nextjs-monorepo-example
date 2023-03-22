@@ -1,50 +1,57 @@
 {
   "folders": [
     {
-      "name": "nextjs-app",
+      "name": "🌳 root",
+      "path": "."
+    },
+    {
+      "name": "🍂 nextjs-app",
       "path": "apps/nextjs-app"
     },
     {
-      "name": "remix-app",
+      "name": "🍂 remix-app",
       "path": "apps/remix-app"
     },
     {
-      "name": "vite-app",
+      "name": "🍂 vite-app",
       "path": "apps/vite-app"
     },
     {
-      "name": "api-gateway",
+      "name": "📦 api-gateway",
       "path": "packages/api-gateway"
     },
     {
-      "name": "common-i18n",
+      "name": "📦 common-i18n",
       "path": "packages/common-i18n"
     },
     {
-      "name": "core-lib",
+      "name": "📦 core-lib",
       "path": "packages/core-lib"
     },
     {
-      "name": "db-main-prisma",
+      "name": "📦 db-main-prisma",
       "path": "packages/db-main-prisma"
     },
     {
-      "name": "eslint-config-bases",
+      "name": "📦 eslint-config-bases",
       "path": "packages/eslint-config-bases"
     },
     {
-      "name": "ui-lib",
-      "path": "packages/ui-lib"
-    },
+      "name": "📦 ts-utils",
+      "path": "packages/ts-utils"
+    }
     {
-      "name": "root",
-      "path": "."
+      "name": "📦 ui-lib",
+      "path": "packages/ui-lib"
     }
   ],
   "extensions": {
     "recommendations": [
+      "folke.vscode-monorepo-workspace",
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
+      "ZixuanChen.vitest-explorer",
+      "Orta.vscode-jest"
     ]
   },
   "settings": {
@@ -56,7 +63,7 @@
     // Disable vscode formatting for js,jsx,ts,tsx files
     // to allow dbaeumer.vscode-eslint to format them
     "[javascript]": {
-      "editor.formatOnSave": false,
+      "editor.formatOnSave": false
     },
     "eslint.alwaysShowStatus": true,
     // https://github.com/Microsoft/vscode-eslint#mono-repository-setup
@@ -69,7 +76,18 @@
       "./packages/core-lib",
       "./packages/db-main-prisma",
       "./packages/eslint-config-bases",
+      "./packages/ts-utils",
       "./packages/ui-lib"
+    ],
+    "jest.disabledWorkspaceFolders": [
+      "🍂 nextjs-app",
+      "📦 eslint-config-bases",
+      "📦 db-main-prisma",
+      "📦 common-i18n",
+      "🍂 remix-app",
+      "📦 ui-lib",
+      "📦 core-lib",
+      "🍂 vite-app"
     ]
   }
 }
