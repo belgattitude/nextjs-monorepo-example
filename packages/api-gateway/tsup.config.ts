@@ -2,10 +2,10 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({
   entry: ['src/index.ts'],
-  splitting: false,
+  splitting: true,
   clean: true,
   dts: true,
-  format: ['cjs'],
+  format: ['esm'],
   // platform: 'node',
   target: ['node18'],
   tsconfig: new URL('./tsconfig.build.json', import.meta.url).pathname,

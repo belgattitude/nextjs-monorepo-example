@@ -3,14 +3,20 @@
   "version": "1.2.2",
   "private": true,
   "sideEffects": false,
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "commonjs": "./dist/index.js",
-      "default": "./dist/index.js"
+      "module": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ]
+    }
   },
   "author": {
     "name": "Vanvelthem Sébastien",
@@ -25,7 +31,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "build-mesh": "mesh build --fileType js",
+    "build-mesh": "mesh build",
     "dev": "tsup --watch",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo ./.mesh",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
