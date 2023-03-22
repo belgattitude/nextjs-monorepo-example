@@ -12,8 +12,7 @@ export class SearchPoemsQuery {
     return this.mapToResult(await this.searchPoems(params));
   };
 
-  private mapToResult = (rows: SearchPoems) => {
-    // https://www.prisma.io/docs/support/help-articles/working-with-many-to-many-relations#explicit-relations
+  private mapToResult = async (rows: SearchPoems) => {
     return rows.map((poem) => {
       const { createdAt, updatedAt, keywords, ...rest } = poem;
       return {
@@ -29,8 +28,8 @@ export class SearchPoemsQuery {
    */
   private searchPoems = async (params: SearchPoemsParams) => {
     const { limit, offset } = params ?? {};
-    try {
-      return await this.prisma.poem.findMany({
+    return this.prisma.poem
+      .findMany({
         skip: offset,
         take: limit,
         include: {
@@ -41,12 +40,12 @@ export class SearchPoemsQuery {
           },
         },
         orderBy: { author: 'desc' },
+      })
+      .catch((e) => {
+        throw new HttpInternalServerError({
+          message: `Poems can't be retrieved`,
+          cause: e instanceof Error ? e : undefined,
+        });
       });
-    } catch (e) {
-      throw new HttpInternalServerError({
-        message: `Poems can't be retrieved`,
-        cause: e instanceof Error ? e : undefined,
-      });
-    }
   };
 }

@@ -14,14 +14,21 @@ Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://gith
 
 ## Quick start
 
-> For rest/api database access be sure to start `docker-compose up main-db`,
-> see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/packages/db-main-prisma/README.md).
-
 ```bash
 $ yarn install
 $ cd apps/nextjs-app
 $ yarn dev
 ```
+
+### Backend
+
+For rest/api database access be sure to start
+
+```bash
+docker-compose up main-db
+```
+
+To create the database and seed it: see the [@your-org/db-main-prisma README](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/packages/db-main-prisma/README.md).
 
 ### Features
 

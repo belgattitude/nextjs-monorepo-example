@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     react({
-      // fastRefresh: true,
+      // fastRefresh: false,
     }),
   ],
   test: {
@@ -16,11 +16,12 @@ export default defineConfig({
     environment: 'happy-dom',
     setupFiles: './config/test/setupVitest.ts',
     passWithNoTests: true,
+    /*
     deps: {
       experimentalOptimizer: {
-        enabled: false,
+        enabled: true,
       },
-    },
+    }, */
     cache: {
       dir: '../../.cache/vitest/core-lib',
     },

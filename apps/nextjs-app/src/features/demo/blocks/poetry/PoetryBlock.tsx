@@ -1,4 +1,6 @@
+import { createHttpException, type HttpException } from '@httpx/exception';
 import { useQuery } from '@tanstack/react-query';
+import { HTTPError } from 'ky';
 import type { FC } from 'react';
 import { fetchPoemsWithKy } from '../../api/fetch-poems-ky.api';
 import { PoemGrid } from '../../components/PoemGrid';
@@ -6,14 +8,28 @@ import { PoemGrid } from '../../components/PoemGrid';
 const PoemGridWithReactQueryAndKy: FC = () => {
   const { data, isLoading, error } = useQuery(
     ['posts'],
-    () => fetchPoemsWithKy(),
-    {}
+    async () => fetchPoemsWithKy(),
+    {
+      onError: (err): HttpException => {
+        if (err instanceof HTTPError) {
+          return createHttpException(err.response.status, {
+            message: err.message,
+          });
+        }
+        return createHttpException(500);
+      },
+    }
   );
   if (isLoading) {
     return <div>Loading...</div>;
   }
   if (error) {
-    return <div>Error {JSON.stringify(error)}</div>;
+    const { message, name } = error as HttpException;
+    return (
+      <div>
+        Error {message} ({name})
+      </div>
+    );
   }
   return <>{data && <PoemGrid poems={data} />}</>;
 };
