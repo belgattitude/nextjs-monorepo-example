@@ -9,6 +9,9 @@
       "outputs": ["dist/**"],
       "dependsOn": ["build-mesh"]
     },
+    "typecheck": {
+      "dependsOn": ["@your-org/api-gateway#build"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,
