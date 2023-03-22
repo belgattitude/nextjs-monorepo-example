@@ -59,7 +59,7 @@
     "g:test-unit-jest": "yarn workspaces foreach -ptv run test-unit-jest",
     "g:typecheck": "yarn workspaces foreach -ptv run typecheck",
     "install:playwright": "playwright install",
-    "nuke:node_modules": "npx rimraf@3 '**/node_modules'",
+    "nuke:node_modules": "npx rimraf@3.0.1 '**/node_modules'",
     "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
     "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
     "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.1",
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@types/prettier": "2.7.2",
     "@types/shell-quote": "1.7.1",
