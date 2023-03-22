@@ -3,7 +3,9 @@
   "globalDependencies": ["**/.env.*local*", "**/tsconfig*.json"],
   "pipeline": {
     "test": {},
-    "lint": {},
+    "lint": {
+      "env": ["TIMING"]
+    },
     "lint-styles": {},
     "typecheck": {},
     "build": {
