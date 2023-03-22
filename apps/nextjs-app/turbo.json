@@ -4,12 +4,13 @@
   "pipeline": {
     "build": {
       // "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
-      "outputs": [".next/**", "!.next/cache/**"]
-      // "dependsOn": ["^build"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dependsOn": ["@your-org/api-gateway#build"]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["@your-org/api-gateway#build", "@your-org/api-gateway#dev"]
     }
   }
 }

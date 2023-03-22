@@ -2,10 +2,16 @@
   "name": "@your-org/api-gateway",
   "version": "1.2.2",
   "private": true,
-  "module": "dist/index.esm.js",
   "sideEffects": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "commonjs": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
@@ -18,11 +24,12 @@
     "directory": "packages/api-gateway"
   },
   "scripts": {
-    "build-mesh": "mesh build",
-    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "build": "tsup",
+    "build-mesh": "mesh build --fileType js",
+    "dev": "tsup --watch",
+    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo ./.mesh",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
-    "postinstall": "mesh build",
     "test": "jest --config jest.config.js --passWithNoTests",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
@@ -49,6 +56,5 @@
   },
   "peerDependencies": {
     "graphql": "^16.4.0"
-  },
-  "source": "src/index.ts"
+  }
 }
