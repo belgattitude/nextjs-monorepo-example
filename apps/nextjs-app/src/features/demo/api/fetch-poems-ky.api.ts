@@ -1,4 +1,3 @@
-import { createHttpException } from '@httpx/exception';
 import type { JsonApiResponse } from '@your-org/core-lib/api/json-api';
 import { isJsonApiSuccessResponse } from '@your-org/core-lib/api/json-api';
 import type { SearchPoems } from '@/backend/features/poem/SearchPoems';

@@ -1,17 +1,20 @@
 import type { CorsOptions } from 'cors';
 
-export const corsAllowedOrigins = [
+export const corsAllowedOrigins: string[] = [
   // previews
   '.+\\-belgattitude.vercel.app',
   // for local development
   'localhost',
 ];
 
-const regexpString = `^https?://(([^/])+\\.)?(${corsAllowedOrigins.join(
-  '|'
-)})(\\:\\d+)?$`;
-
-export const corsWhilelistedOriginsRegexp = new RegExp(regexpString);
+export const getCorsWhitelistOriginRegexp = (allowedOrigins?: string[]) => {
+  const origins =
+    allowedOrigins !== undefined ? allowedOrigins : corsAllowedOrigins;
+  return new RegExp(
+    `^https?://(([^/])+\\.)?(${origins.join('|')})(\\:\\d+)?$`,
+    'i'
+  );
+};
 
 type CorsDefaultOptions = Pick<CorsOptions, 'maxAge'>;
 

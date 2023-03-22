@@ -1,7 +1,6 @@
 import { createHttpException } from '@httpx/exception';
 import {
   isJsonApiErrorResponse,
-  type JsonApiError,
   type JsonApiResponse,
 } from '@your-org/core-lib/api/json-api';
 import type { NormalizedOptions, HTTPError } from 'ky';
