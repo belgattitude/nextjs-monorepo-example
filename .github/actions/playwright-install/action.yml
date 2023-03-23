@@ -22,7 +22,7 @@ runs:
       shell: bash
       run: |
         echo "CURRENT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')" >> $GITHUB_OUTPUT
-        echo "BROWSERS=${{inputs.browsers}} | sed -r 's/[[:space:]]+/+/g'" >> $GITHUB_OUTPUT
+        echo "BROWSERS=$(${{inputs.browsers}} | sed -r 's/[[:space:]]+/+/g')" >> $GITHUB_OUTPUT
 
     - name: Compute cache config
       id: playwright-cache-config
