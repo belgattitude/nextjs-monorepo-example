@@ -1,7 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local*", "**/tsconfig*.json"],
+  "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "pipeline": {
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"]
+    },
     "test": {},
     "test-unit": {},
     "lint": {
@@ -9,10 +13,6 @@
     },
     "lint-styles": {},
     "typecheck": {},
-    "build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
-    },
     "build-storybook": {},
     "clean": {
       "cache": false
