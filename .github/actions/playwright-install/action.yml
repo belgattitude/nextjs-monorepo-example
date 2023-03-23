@@ -22,7 +22,6 @@ runs:
       shell: bash
       run: |
         echo "CURRENT_VERSION=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
-        echo "CACHE_KEY=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
 
     - name: Compute cache config
       id: playwright-cache-config
@@ -47,7 +46,7 @@ runs:
         echo "Cache key: ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}"
         echo "Cache matched key: ${{ steps.playwright-cache.outputs.cache-matched-key }}"
         echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
-        echo "Cache match: ${{ steps.playwright-cache.outputs.cache-matched-key == ${{ steps.playwright-cache-config.outputs.CACHE_KEY }} }}"
+        echo "Cache match: ${{ steps.playwright-cache.outputs.cache-matched-key == steps.playwright-cache-config.outputs.CACHE_KEY }}"
 
     #- name: Install Playwright OS Deps
     #  shell: bash
