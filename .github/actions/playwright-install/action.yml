@@ -21,7 +21,7 @@ runs:
       id: playwright-config
       shell: bash
       run: |
-        echo "CURRENT_VERSION=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
+        echo "CURRENT_VERSION=$(npm why --json -ws  @playwright/test | jq --raw-output '.[0].version') >> $GITHUB_OUTPUT
         echo "BROWSERS=${{inputs.browsers}} | sed -r 's/[[:space:]]+/+/g' >> GITHUB_OUTPUT
 
     - name: Compute cache config
