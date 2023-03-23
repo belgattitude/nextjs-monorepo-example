@@ -23,7 +23,7 @@ runs:
       run: |
         echo "CURRENT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')" >> $GITHUB_OUTPUT
         RAW_BROWSERS="${{ inputs.browsers }}"
-        BROWSERS=$(echo $RAW_BROWSERS | sed -r 's/[[:space:]]+/+/g')')
+        BROWSERS=$(echo $RAW_BROWSERS | sed -r 's/[[:space:]]+/+/g')
         echo "BROWSERS=$BROWSERS >> $GITHUB_OUTPUT
 
     - name: ⚙️ Compute cache config
