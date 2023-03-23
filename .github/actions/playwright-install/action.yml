@@ -8,7 +8,7 @@ inputs:
   cache-prefix:
     description: 'Used to invalidate cache in case of issue'
     required: false
-    default: '2023.01'
+    default: ''
   browsers:
     description: 'Set browsers to install (ie: "chromium webkit")'
     required: false
@@ -21,8 +21,8 @@ runs:
       id: playwright-config
       shell: bash
       run: |
-        echo "CURRENT_VERSION=$(npm info @playwright/test version)" >> $GITHUB_OUTPUT
-        echo "CACHE_KEY=$(npm info @playwright/test version)" >> $GITHUB_OUTPUT
+        echo "CURRENT_VERSION=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
+        echo "CACHE_KEY=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
 
     - name: Compute cache config
       id: playwright-cache-config
@@ -34,8 +34,7 @@ runs:
       uses: actions/cache@v3
       id: playwright-cache
       with:
-        path: |
-          ${{ inputs.playwright-cache-folder }}
+        path: ${{ inputs.playwright-cache-folder }}
         key: ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}
 
     - name: Playwright debug
@@ -46,13 +45,15 @@ runs:
         echo "Playwright cache folder: ${{ inputs.playwright-cache-folder }}"
         echo "Browsers: ${{ inputs.browsers }}"
         echo "Cache key: ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}"
+        echo "Cache matched key: ${{ steps.playwright-cache.outputs.cache-matched-key }}"
         echo "Cache hit: ${{ steps.playwright-cache.outputs.cache-hit == 'true' }}"
+        echo "Cache match: ${{ steps.playwright-cache.outputs.cache-matched-key == ${{ steps.playwright-cache-config.outputs.CACHE_KEY }} }}"
 
     #- name: Install Playwright OS Deps
     #  shell: bash
     #  run: npx playwright install-deps
 
     - name: Install Playwright Browsers
-      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      if: steps.playwright-cache.outputs.cache-matched-key != ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}
       shell: bash
       run: npx playwright install chromium webkit
