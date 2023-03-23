@@ -22,12 +22,13 @@ runs:
       shell: bash
       run: |
         echo "CURRENT_VERSION=$(npm why --json -ws  @playwright/test) | jq --raw-output '.[0].version'" >> $GITHUB_OUTPUT
+        echo "BROWSERS=${{inputs.browsers}} | sed -r 's/[[:space:]]+/+/g' >> GITHUB_OUTPUT
 
     - name: Compute cache config
       id: playwright-cache-config
       shell: bash
       run: |
-        echo "CACHE_KEY=${{ runner.os }}-playwright-cache-${{ inputs.cache-prefix }}-${{ steps.playwright-config.outputs.CURRENT_VERSION }}" >> $GITHUB_OUTPUT
+        echo "CACHE_KEY=${{ runner.os }}-playwright-cache-${{ inputs.cache-prefix }}-${{ steps.playwright-config.outputs.CURRENT_VERSION }}-${{ steps.playwright-config.outputs.BROWSERS }}" >> $GITHUB_OUTPUT
 
     - name: Restore playwright install
       uses: actions/cache@v3
@@ -55,4 +56,4 @@ runs:
     - name: Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-matched-key != ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}
       shell: bash
-      run: npx playwright install chromium webkit
+      run: npx playwright install ${{ inputs.browsers }}
