@@ -8,7 +8,7 @@ inputs:
   cache-prefix:
     description: 'Used to invalidate cache in case of issue'
     required: false
-    default: ''
+    default: 'default'
   browsers:
     description: 'Set browsers to install (ie: "chromium webkit")'
     required: false
@@ -17,20 +17,20 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Expose playwright config
+    - name: ⚙️ Expose playwright config
       id: playwright-config
       shell: bash
       run: |
         echo "CURRENT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')" >> $GITHUB_OUTPUT
         echo "BROWSERS=$(${{inputs.browsers}} | sed -r 's/[[:space:]]+/+/g')" >> $GITHUB_OUTPUT
 
-    - name: Compute cache config
+    - name: ⚙️ Compute cache config
       id: playwright-cache-config
       shell: bash
       run: |
         echo "CACHE_KEY=${{ runner.os }}-playwright-cache-${{ inputs.cache-prefix }}-${{ steps.playwright-config.outputs.CURRENT_VERSION }}-${{ steps.playwright-config.outputs.BROWSERS }}" >> $GITHUB_OUTPUT
 
-    - name: Restore playwright install
+    - name: ♻️ Restore playwright install
       uses: actions/cache@v3
       id: playwright-cache
       with:
@@ -53,7 +53,7 @@ runs:
     #  shell: bash
     #  run: npx playwright install-deps
 
-    - name: Install Playwright Browsers
+    - name: 📥 Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-matched-key != ${{ steps.playwright-cache-config.outputs.CACHE_KEY }}
       shell: bash
       run: npx playwright install ${{ inputs.browsers }}
