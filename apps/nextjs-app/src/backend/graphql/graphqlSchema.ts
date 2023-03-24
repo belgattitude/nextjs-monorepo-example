@@ -23,6 +23,14 @@ const builder = new SchemaBuilder<{
   },
 });
 
+builder.prismaObject('User', {
+  fields: (t) => ({
+    // expose fields from the database
+    id: t.exposeID('id'),
+    email: t.exposeString('email'),
+  }),
+});
+
 builder.queryType({
   fields: (t) => ({
     hello: t.string({
@@ -31,7 +39,7 @@ builder.queryType({
       },
       resolve: (parent, { name }) => `hello, ${name || 'World'}`,
     }),
-    me: t.prismaField({
+    getUser: t.prismaField({
       type: 'User',
       args: {
         id: t.arg.int({ required: true }),
