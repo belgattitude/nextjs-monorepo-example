@@ -4,20 +4,16 @@
   "pipeline": {
     "build": {
       // "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "dependsOn": ["@your-org/api-gateway#build"]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "vercel-build": {
-      "outputs": [".next/**", "!.next/cache/**"],
-      "dependsOn": ["@your-org/api-gateway#build"]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
-    "typecheck": {
-      "dependsOn": ["@your-org/api-gateway#build"]
-    },
+    "typecheck": {},
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@your-org/api-gateway#dev"]
+      "dependsOn": ["@your-org/api-gateway#codegen"]
     }
   }
 }
