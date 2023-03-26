@@ -1,3 +1,4 @@
+## Adapted from: https://github.com/alexkaratarakis/gitattributes
 ## Specific to yarn
 
 /.yarn/**            linguist-vendored
@@ -5,24 +6,6 @@
 /.yarn/plugins/**/*  binary
 /.pnp.*              binary linguist-generated
 
-## Source: https://github.com/alexkaratarakis/gitattributes
-## Modified * text=auto to * text eol=lf to force LF endings.
-
-## GITATTRIBUTES FOR WEB PROJECTS
-#
-# These settings are for any web project.
-#
-# Details per file setting:
-#   text    These files should be normalized (i.e. convert CRLF to LF).
-#   binary  These files are binary and should be left untouched.
-#
-# Note that binary is a macro for -text -diff.
-######################################################################
-
-# Auto detect
-##   Force LF line endings automatically for files detected as
-##   text and leave all files detected as binary untouched.
-##   This will handle all files NOT defined below.
 *                 text eol=lf
 
 # Source code
@@ -210,3 +193,8 @@ Procfile          text
 
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
+
+
+# Specific for json5
+
+turbo.json           json5
