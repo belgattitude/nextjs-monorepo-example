@@ -38,4 +38,4 @@ jobs:
 
       - name: 🛟 Check if codegen is in sync
         shell: bash
-        run: yarn exec check:git-pristine
+        run: bash ./scripts/check-git-pristine.sh
