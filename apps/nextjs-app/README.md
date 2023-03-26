@@ -9,7 +9,8 @@ Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://gith
 
 - Home: [Demo/Vercel](https://monorepo-nextjs-app.vercel.app)
 - SSR-I18n: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
-- API: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/rest/post/1)
+- REST API: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/rest/post/1)
+- GRAPHIQL: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/graphql)
 - [Changelog](https://github.com/belgattitude/monorepo-nextjs-app/blob/main/apps/nextjs-app/CHANGELOG.md)
 
 ## Quick start
@@ -85,15 +86,15 @@ Try this route http://localhost:3000/api/rest/poem
 
 ### Graphql (sdl)
 
-In development just open http://localhost:3000/api/graphql-sdl to have the graphiql console.
+In development just open http://localhost:3000/api/graphql to have the graphiql console.
 
 Try
 
 ```gql
 query {
-  allPoems {
+  getUser(id: 1) {
     id
-    title
+    email
   }
 }
 ```
