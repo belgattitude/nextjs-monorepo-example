@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Banner } from '@/components/banner/Banner';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { CtaBlock, FeaturesBlock, HeroBlock } from '../blocks';
