@@ -285,16 +285,9 @@ const nextConfig = {
           loader: '@svgr/webpack',
           // https://react-svgr.com/docs/webpack/#passing-options
           options: {
-            svgo: true,
+            svgo: isProd,
             // @link https://github.com/svg/svgo#configuration
-            svgoConfig: {
-              multipass: false,
-              datauri: 'base64',
-              js2svg: {
-                indent: 2,
-                pretty: false,
-              },
-            },
+            // svgoConfig: { }
           },
         },
       ],
