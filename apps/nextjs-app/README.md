@@ -5,7 +5,7 @@
 
 ## Intro
 
-Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+Basic demo of a nextjs app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
 
 - Home: [Demo/Vercel](https://monorepo-nextjs-app.vercel.app)
 - SSR-I18n: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
