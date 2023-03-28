@@ -5,7 +5,7 @@
 
 ## Intro
 
-Basic demo nextjs nextjs-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+Basic demo of a nextjs app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
 
 - Home: [Demo/Vercel](https://monorepo-nextjs-app.vercel.app)
 - SSR-I18n: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
@@ -104,8 +104,8 @@ query {
 ### I18N & typings
 
 Translations are handled by [next-i18next](https://github.com/isaachinman/next-i18next).
-See the [next-i18next.config.js](./next-i18next.config.js).
-The keys autocompletion and typechecks are enabled in [./src/typings/react-i18next.d.ts](./src/typings/react-i18next.d.ts).
+See the [next-i18next.config.mjs](./next-i18next.config.mjs).
+The keys autocompletion and typechecks are enabled in [./src/types.d/i18next.d.ts](./src/types.d/i18next.d.ts).
 
 ## Structure
 
@@ -124,7 +124,7 @@ The keys autocompletion and typechecks are enabled in [./src/typings/react-i18ne
 │       ├── .env.development
 │       ├── (.env.local)*
 │       ├── next.config.mjs
-│       ├── next-i18next.config.js
+│       ├── next-i18next.config.mjs
 │       ├── tsconfig.json    (local paths enabled)
 │       └── tailwind.config.js
 └── packages  (monorepo's packages that this app is using)
