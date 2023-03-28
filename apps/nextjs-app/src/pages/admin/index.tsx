@@ -1,10 +1,10 @@
 import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { ReactElement } from 'react';
 import { adminConfig } from '@/features/admin/admin.config';
 import { AdminLayout } from '@/features/admin/layouts';
 import { AdminMainPage } from '@/features/admin/pages';
+import { getServerTranslations } from '@/lib/i18n';
 
 type Props = {
   /** Add props here */
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { i18nNamespaces } = adminConfig;
   return {
     props: {
-      ...(await serverSideTranslations(locale, i18nNamespaces)),
+      ...(await getServerTranslations(locale, i18nNamespaces)),
     },
     // revalidate: 60,
   };
