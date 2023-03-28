@@ -1,11 +1,12 @@
 import path from 'path';
 
-const defaultLocale = 'en';
 const debugI18n = ['true', 1].includes(
   process?.env?.NEXTJS_DEBUG_I18N ?? 'false'
 );
 
 const localePublicFolder = undefined;
+
+export const defaultLocale = 'en';
 
 /**
  * @type {import('next-i18next').UserConfig}

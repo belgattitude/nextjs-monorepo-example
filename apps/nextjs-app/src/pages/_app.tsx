@@ -2,7 +2,7 @@ import type { EmotionCache } from '@emotion/cache';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
-import nextI18nextConfig from '../../next-i18next.config';
+import nextI18nextConfig from '../../next-i18next.config.mjs';
 import { AppProviders } from '../AppProviders';
 
 /**
