@@ -376,6 +376,7 @@ Some convenience scripts can be run in any folder of this repo and will call the
 | Name                         | Description                                                                                                                          |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `yarn g:changeset`           | Add a changeset to declare a new version                                                                                             |
+| `yarn g:codegen`             | Run codegen in all workspaces                                                                                                        |
 | `yarn g:typecheck`           | Run typechecks in all workspaces                                                                                                     |
 | `yarn g:lint`                | Display linter issues in all workspaces                                                                                              |
 | `yarn g:lint --fix`          | Attempt to run linter auto-fix in all workspaces                                                                                     |

@@ -1,0 +1,66 @@
+schema {
+  query: Query
+}
+
+directive @globalOptions(sourceName: String, endpoint: String, operationHeaders: ObjMap, queryStringOptions: ObjMap, queryParams: ObjMap) on OBJECT
+
+directive @httpOperation(path: String, operationSpecificHeaders: ObjMap, httpMethod: HTTPMethod, isBinary: Boolean, requestBaseBody: ObjMap, queryParamArgMap: ObjMap, queryStringOptionsByParam: ObjMap) on FIELD_DEFINITION
+
+type Query @globalOptions(sourceName: "CatFacts", endpoint: "https://catfact.ninja/") {
+  "Returns a a list of breeds"
+  getBreeds(
+    "limit the amount of results returned"
+    limit: BigInt
+  ): [Breed_model] @httpOperation(path: "/breeds", operationSpecificHeaders: "{\"accept\":\"application/json\"}", httpMethod: GET, queryParamArgMap: "{\"limit\":\"limit\"}")
+  "Returns a random fact"
+  getRandomFact(
+    "maximum length of returned fact"
+    max_length: BigInt
+  ): CatFact_model @httpOperation(path: "/fact", operationSpecificHeaders: "{\"accept\":\"application/json\"}", httpMethod: GET, queryParamArgMap: "{\"max_length\":\"max_length\"}")
+  "Returns a a list of facts"
+  getFacts(
+    "maximum length of returned fact"
+    max_length: BigInt
+    "limit the amount of results returned"
+    limit: BigInt
+  ): [CatFact_model] @httpOperation(path: "/facts", operationSpecificHeaders: "{\"accept\":\"application/json\"}", httpMethod: GET, queryParamArgMap: "{\"max_length\":\"max_length\",\"limit\":\"limit\"}")
+}
+
+"Breed"
+type Breed_model {
+  "Breed"
+  breed: String
+  "Country"
+  country: String
+  "Origin"
+  origin: String
+  "Coat"
+  coat: String
+  "Pattern"
+  pattern: String
+}
+
+"The `BigInt` scalar type represents non-fractional signed whole numeric values."
+scalar BigInt
+
+"CatFact"
+type CatFact_model {
+  "Fact"
+  fact: String
+  "Length"
+  length: Int
+}
+
+scalar ObjMap
+
+enum HTTPMethod {
+  GET
+  HEAD
+  POST
+  PUT
+  DELETE
+  CONNECT
+  OPTIONS
+  TRACE
+  PATCH
+}

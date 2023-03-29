@@ -2,7 +2,7 @@ import createEmotionServer from '@emotion/server/create-instance';
 import type { DocumentProps } from 'next/document';
 import Document, { Html, Main, Head, NextScript } from 'next/document';
 import { createEmotionCache } from '@/lib/emotion';
-import { i18n } from '../../next-i18next.config';
+import { defaultLocale } from '../../next-i18next.config.mjs';
 
 type Props = DocumentProps & {
   emotionStyleTags?: string[];
@@ -10,7 +10,7 @@ type Props = DocumentProps & {
 
 class MyDocument extends Document<Props> {
   render() {
-    const locale = this.props.locale ?? i18n.defaultLocale;
+    const locale = this.props.locale ?? defaultLocale;
 
     return (
       <Html lang={locale}>

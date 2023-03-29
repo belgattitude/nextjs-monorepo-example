@@ -1,7 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Generated build mesh on postinstall
-.mesh
+# The .mesh folder can be ignored. Reasons to keep it in git varies, in our
+# example it's versionned and a ci check will prevent it to go out of sync.
+# .mesh
 
 # build
 /dist
