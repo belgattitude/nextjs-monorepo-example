@@ -2,9 +2,7 @@ name: CI-e2e-prisma
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     paths:
       - 'packages/db-main-prisma'
       - 'package.json'
@@ -13,10 +11,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     paths:
       - 'packages/db-main-prisma'
       - 'package.json'

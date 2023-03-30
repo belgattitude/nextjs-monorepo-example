@@ -2,9 +2,7 @@ name: CI-nextjs-app
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
@@ -17,10 +15,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'

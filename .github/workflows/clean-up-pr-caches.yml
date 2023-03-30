@@ -3,8 +3,7 @@ name: Cleanup caches for closed branches
 
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
   workflow_dispatch:
 
 jobs:
