@@ -2,9 +2,7 @@ name: CI-nextjs-app
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
@@ -17,10 +15,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
@@ -67,16 +62,18 @@ jobs:
             ${{ runner.os }}-nextjs-app-${{ hashFiles('**/yarn.lock') }}-
 
       - name: 🕵️ Typecheck
-        run: yarn typecheck
+        run: yarn --top-level run turbo typecheck
 
       - name: 🔬 Linter
-        run: yarn lint
+        run: yarn --top-level run turbo lint
+        env:
+          TIMING: 1
 
       - name: 🧪 Unit tests
-        run: yarn test-unit
+        run: yarn --top-level run turbo test-unit
 
       - name: 🏗 Build web-app
-        run: yarn build
+        run: yarn --top-level run turbo build
         env:
           # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: true

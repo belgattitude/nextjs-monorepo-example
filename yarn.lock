@@ -3450,7 +3450,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/config@npm:10.1.13, @graphql-mesh/config@npm:^10.1.13":
+"@graphql-mesh/config@npm:10.1.13":
   version: 10.1.13
   resolution: "@graphql-mesh/config@npm:10.1.13"
   dependencies:
@@ -3492,7 +3492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/graphql@npm:^0.34.13":
+"@graphql-mesh/graphql@npm:0.34.13":
   version: 0.34.13
   resolution: "@graphql-mesh/graphql@npm:0.34.13"
   dependencies:
@@ -3565,7 +3565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/openapi@npm:^0.35.26":
+"@graphql-mesh/openapi@npm:0.35.26":
   version: 0.35.26
   resolution: "@graphql-mesh/openapi@npm:0.35.26"
   dependencies:
@@ -3582,7 +3582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/runtime@npm:0.46.21, @graphql-mesh/runtime@npm:^0.46.21":
+"@graphql-mesh/runtime@npm:0.46.21":
   version: 0.46.21
   resolution: "@graphql-mesh/runtime@npm:0.46.21"
   dependencies:
@@ -5314,17 +5314,6 @@ __metadata:
     set-cookie-parser: "npm:^2.4.8"
     source-map: "npm:^0.7.3"
   checksum: 91e891b85b93d8ea5eb1c1aea7fa4f5fda36ae889c406e5137391506df1dbedd52b8fe7745b4cfbd2182a51a3d5ea1b6cba11f29abbfa7ab9190dbb23e595f9c
-  languageName: node
-  linkType: hard
-
-"@remix-run/vercel@npm:1.14.3":
-  version: 1.14.3
-  resolution: "@remix-run/vercel@npm:1.14.3"
-  dependencies:
-    "@remix-run/node": "npm:1.14.3"
-  peerDependencies:
-    "@vercel/node": ^1.8.3 || ^2.4.0
-  checksum: b186191586a14f7bb4ba9c67a1118ad7473e6b772ae71a07923e6b96156ce12eb766e8636fb99c403f306f16058439e0e4eb5905817cfd1ab88e2e658d3ea216
   languageName: node
   linkType: hard
 
@@ -8023,6 +8012,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/remix@npm:1.14.3-patch.1":
+  version: 1.14.3-patch.1
+  resolution: "@vercel/remix@npm:1.14.3-patch.1"
+  dependencies:
+    "@remix-run/node": "npm:1.14.3"
+    "@remix-run/server-runtime": "npm:1.14.3"
+    isbot: "npm:3.6.6"
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: ffc96ea13f923a4f9409a145d8f2d8d47ec0d678d8cc2853c1b10aa258e9fc8891b0b51a89f3394bb5228f65e46aae08b24f583bb096d126c7b79daaa68a2fb5
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react@npm:3.1.0, @vitejs/plugin-react@npm:^3.0.1":
   version: 3.1.0
   resolution: "@vitejs/plugin-react@npm:3.1.0"
@@ -8187,10 +8190,10 @@ __metadata:
   resolution: "@your-org/api-gateway@workspace:packages/api-gateway"
   dependencies:
     "@graphql-mesh/cli": "npm:0.82.30"
-    "@graphql-mesh/config": "npm:^10.1.13"
-    "@graphql-mesh/graphql": "npm:^0.34.13"
-    "@graphql-mesh/openapi": "npm:^0.35.26"
-    "@graphql-mesh/runtime": "npm:^0.46.21"
+    "@graphql-mesh/config": "npm:10.1.13"
+    "@graphql-mesh/graphql": "npm:0.34.13"
+    "@graphql-mesh/openapi": "npm:0.35.26"
+    "@graphql-mesh/runtime": "npm:0.46.21"
     "@types/jest": "npm:29.5.0"
     "@types/node": "npm:18.15.11"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -8202,6 +8205,7 @@ __metadata:
     prettier: "npm:2.8.7"
     rimraf: "npm:4.4.1"
     ts-jest: "npm:29.0.5"
+    tsup: "npm:6.7.0"
     typescript: "npm:5.0.2"
   peerDependencies:
     graphql: ^16.4.0
@@ -15128,6 +15132,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"isbot@npm:3.6.6":
+  version: 3.6.6
+  resolution: "isbot@npm:3.6.6"
+  checksum: 348fe70f6528ff38d80d8d830cc24f36bb3cb7a485b81e612d808bad58ce8eb022ffd029f7b7505a9ed15e1b007bb7ca948393d0eed0d366579601efa9c241d3
+  languageName: node
+  linkType: hard
+
+"isbot@npm:latest":
+  version: 3.6.7
+  resolution: "isbot@npm:3.6.7"
+  checksum: ea5078c37072b7a826855ebdf1f0fcffc3d9300aa52bfd1a7520731970d699ccec61a6a66239f5721d0f2bd35c8832ee7f254aa9ffbf3a8069c81875866351e6
+  languageName: node
+  linkType: hard
+
 "isexe@npm:^2.0.0":
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
@@ -18122,6 +18140,7 @@ __metadata:
     rimraf: "npm:4.4.1"
     shell-quote: "npm:1.8.0"
     syncpack: "npm:9.8.4"
+    turbo: "npm:1.8.8"
     typescript: "npm:5.0.2"
   languageName: unknown
   linkType: soft
@@ -20946,7 +20965,6 @@ __metadata:
     "@remix-run/node": "npm:1.14.3"
     "@remix-run/react": "npm:1.14.3"
     "@remix-run/serve": "npm:1.14.3"
-    "@remix-run/vercel": "npm:1.14.3"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.3"
     "@testing-library/dom": "npm:9.2.0"
@@ -20958,6 +20976,7 @@ __metadata:
     "@types/react": "npm:18.0.31"
     "@types/react-dom": "npm:18.0.11"
     "@types/testing-library__jest-dom": "npm:5.14.5"
+    "@vercel/remix": "npm:1.14.3-patch.1"
     "@your-org/common-i18n": "workspace:^"
     "@your-org/core-lib": "workspace:^"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -20965,6 +20984,7 @@ __metadata:
     autoprefixer: "npm:10.4.14"
     eslint: "npm:8.37.0"
     get-tsconfig: "npm:4.5.0"
+    isbot: "npm:latest"
     jest: "npm:29.5.0"
     jest-css-modules-transform: "npm:4.4.2"
     jest-environment-jsdom: "npm:29.5.0"
@@ -23370,6 +23390,77 @@ __metadata:
   dependencies:
     safe-buffer: "npm:^5.0.1"
   checksum: 04bb1f31a4f757d78547536d3c58bf7d24645735ecc5af75536cf9ee46e8d4d8c802518a16062d9c07f78874946dd2ea600d2df42e5c538cdd9a414994bce54d
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-darwin-64@npm:1.8.8"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-arm64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-darwin-arm64@npm:1.8.8"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-linux-64@npm:1.8.8"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-arm64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-linux-arm64@npm:1.8.8"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-windows-64@npm:1.8.8"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-arm64@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo-windows-arm64@npm:1.8.8"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo@npm:1.8.8":
+  version: 1.8.8
+  resolution: "turbo@npm:1.8.8"
+  dependencies:
+    turbo-darwin-64: "npm:1.8.8"
+    turbo-darwin-arm64: "npm:1.8.8"
+    turbo-linux-64: "npm:1.8.8"
+    turbo-linux-arm64: "npm:1.8.8"
+    turbo-windows-64: "npm:1.8.8"
+    turbo-windows-arm64: "npm:1.8.8"
+  dependenciesMeta:
+    turbo-darwin-64:
+      optional: true
+    turbo-darwin-arm64:
+      optional: true
+    turbo-linux-64:
+      optional: true
+    turbo-linux-arm64:
+      optional: true
+    turbo-windows-64:
+      optional: true
+    turbo-windows-arm64:
+      optional: true
+  bin:
+    turbo: bin/turbo
+  checksum: bfa8327dead44473de4514a0db08952bcc4e208c001e7de8c5ae37f07aa084f7f2de9ccc34ffe7d0b7efd64b278d0d6da5e02b1ef2bce7c1b072a616fc964d6b
   languageName: node
   linkType: hard
 

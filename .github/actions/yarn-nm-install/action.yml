@@ -12,6 +12,11 @@
 name: 'Monorepo install (yarn)'
 description: 'Run yarn install with node_modules linker and cache enabled'
 inputs:
+  enable-corepack:
+    description: 'Enable corepack'
+    required: false
+    default: 'true'
+
   skip-prisma-postinstall-generate:
     description: 'Avoid prisma to automatically generate schema on postinstall'
     required: false
@@ -25,6 +30,11 @@ runs:
   using: 'composite'
 
   steps:
+    - name: ⚙️ Enable Corepack
+      if: ${{ inputs.enable-corepack }} == 'true'
+      shell: bash
+      run: corepack enable
+
     - name: ⚙️ Expose yarn config as "$GITHUB_OUTPUT"
       id: yarn-config
       shell: bash

@@ -2,15 +2,9 @@ name: CI-codegen-sync
 
 on:
   push:
-    branches:
-      - dev
-      - main
-
+    branches: [dev, main]
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
 
 jobs:
   codegen:
@@ -20,10 +14,6 @@ jobs:
         node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
-        with:
-          # Fetch all git history so that yarn workspaces --since can compare with the correct commits
-          # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
-          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

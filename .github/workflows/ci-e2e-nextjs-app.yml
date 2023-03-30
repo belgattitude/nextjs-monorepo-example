@@ -2,9 +2,7 @@ name: CI-e2e-nextjs-app
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
@@ -15,10 +13,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
@@ -83,7 +78,7 @@ jobs:
 
       - name: 🏗 Build nextjs-app
         working-directory: apps/nextjs-app
-        run: yarn build
+        run: yarn --top-level run turbo build
         env:
           PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
           # Don't need to lint / typecheck for e2e, they're done in another workflow

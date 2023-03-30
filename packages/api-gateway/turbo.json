@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build-mesh": {
+      "outputs": [".mesh/**"]
+    },
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["build-mesh"]
+    },
+    "typecheck": {
+      "dependsOn": ["@your-org/api-gateway#build"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["build-mesh"]
+    }
+  }
+}

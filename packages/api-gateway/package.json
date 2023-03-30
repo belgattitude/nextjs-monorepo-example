@@ -18,21 +18,21 @@
     "directory": "packages/api-gateway"
   },
   "scripts": {
-    "codegen": "mesh build --throwOnInvalidConfig=true",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "codegen": "rimraf .mesh && mesh build --throwOnInvalidConfig=true",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
     "test": "jest --config jest.config.js --passWithNoTests",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "@graphql-mesh/config": "^10.1.13",
-    "@graphql-mesh/graphql": "^0.34.13",
-    "@graphql-mesh/openapi": "^0.35.26",
-    "@graphql-mesh/runtime": "^0.46.21"
-  },
   "devDependencies": {
     "@graphql-mesh/cli": "0.82.30",
+    "@graphql-mesh/config": "10.1.13",
+    "@graphql-mesh/graphql": "0.34.13",
+    "@graphql-mesh/openapi": "0.35.26",
+    "@graphql-mesh/runtime": "0.46.21",
     "@types/jest": "29.5.0",
     "@types/node": "18.15.11",
     "@your-org/eslint-config-bases": "workspace:^",
@@ -44,10 +44,10 @@
     "prettier": "2.8.7",
     "rimraf": "4.4.1",
     "ts-jest": "29.0.5",
+    "tsup": "6.7.0",
     "typescript": "5.0.2"
   },
   "peerDependencies": {
     "graphql": "^16.4.0"
-  },
-  "source": "src/index.ts"
+  }
 }
