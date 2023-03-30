@@ -55,27 +55,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
 
-      # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
-      # That allows to see if we're introducing "surface" regressions (just the types)
+      # Typecheck packages that have changed
       - name: 🕵️ Typecheck
-        run: yarn workspaces foreach -tv --since=origin/main --from 'packages/*' --recursive run typecheck
+        run: yarn workspaces foreach -tv --since --include 'packages/*' run typecheck
 
-      # Lint packages that have changed (--include & --since)
       - name: 🔬 Linter
         run: |
-          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run lint
-          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run lint-styles
+          yarn workspaces foreach -tv --since --include 'packages/*' run lint
+          yarn workspaces foreach -tv --since --include 'packages/*' run lint-styles
 
-      # Test packages that have changed (--include & --since)
-      - name: 🧪 Unit tests changed packages
+      - name: 🧪 Unit tests
         run: |
-          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run test-unit
+          yarn workspaces foreach -tv --since --include 'packages/*' run test-unit
 
-      - name: 🏗 Run build for changed packages
+      - name: 🏗 Run build
         run: |
-          yarn workspaces foreach -tv  --since=origin/main --include 'packages/*' run build
+          yarn workspaces foreach -tv --since --include 'packages/*' run build
 
-      # Test storybook build on packages that have changed (--include & --since)
       - name: 🧐 Run storybook build for changed packages
         run: |
-          yarn workspaces foreach -tv  --since=origin/main --include 'packages/*' run build-storybook
+          yarn workspaces foreach -tv  --since --include 'packages/*' run build-storybook
