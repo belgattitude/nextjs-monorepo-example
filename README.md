@@ -45,6 +45,13 @@ Useful to
 If you are enjoying some this guide in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude), a [coffee](https://ko-fi.com/belgattitude) or a dropped star.
 That gives me some more time to improve it to the next level.
 
+## Install
+
+```bash
+corepack enable
+yarn install
+```
+
 ## Structure
 
 [![Open in Gitpod](https://img.shields.io/badge/Open%20In-Gitpod.io-%231966D2?style=for-the-badge&logo=gitpod)](https://gitpod.io/#https://github.com/belgattitude/nextjs-monorepo-example)
