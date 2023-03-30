@@ -32,6 +32,7 @@ runs:
   steps:
     - name: ⚙️ Enable Corepack
       if: ${{ inputs.enable-corepack }} == 'true'
+      shell: bash
       run: corepack enable
 
     - name: ⚙️ Expose yarn config as "$GITHUB_OUTPUT"
