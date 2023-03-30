@@ -211,6 +211,36 @@ const nextConfig = {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
 
+    // Useful to keep lambdas sizes low when vercel/nft isn't able to drop unneeded deps for you.
+    // This is particularly useful to remove musl binaries when deploying on vercel for example.
+    // (ie esbuild-musl, swc-musl...). This also also help to keep docker images smaller
+    //
+    // Note that yarn 3+/4 is less impacted thanks to supportedArchitectures.
+    // See https://yarnpkg.com/configuration/yarnrc#supportedArchitectures and
+    // config example in https://github.com/belgattitude/nextjs-monorepo-example/pull/3582
+    // NPM/PNPM might adopt https://github.com/npm/rfcs/pull/519 in the future.
+    //
+    // Caution: use it with care because you'll have to maintain this over time.
+    //
+    // How to debug in vercel: set NEXT_DEBUG_FUNCTION_SIZE=1 in vercel env, then
+    // check the last lines of vercel build.
+    //
+    // Related issue: https://github.com/vercel/next.js/issues/42641
+
+    // outputFileTracingExcludes: {
+    //  '*': [
+    //    '**/node_modules/@swc/core-linux-x64-gnu/**/*',
+    //    '**/node_modules/@swc/core-linux-x64-musl/**/*',
+    //    // If you're nor relying on mdx-remote... drop this
+    //    '**/node_modules/esbuild/linux/**/*',
+    //    '**/node_modules/webpack/**/*',
+    //    '**/node_modules/terser/**/*',
+    //    // If you're not relying on sentry edge or any weird stuff... drop this too
+    //    // https://github.com/getsentry/sentry-javascript/pull/6982
+    //    '**/node_modules/rollup/**/*',
+    //  ],
+    // },
+
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
