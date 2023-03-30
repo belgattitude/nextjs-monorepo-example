@@ -1,0 +1,19 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      // "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "vercel-build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "typecheck": {},
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["@your-org/api-gateway#codegen"]
+    }
+  }
+}

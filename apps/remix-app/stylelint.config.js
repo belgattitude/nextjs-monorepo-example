@@ -3,6 +3,7 @@
  */
 module.exports = {
   extends: ['stylelint-config-standard'],
+  ignoreFiles: ['./src/tailwind.css'],
   rules: {
     'at-rule-no-unknown': [
       true,

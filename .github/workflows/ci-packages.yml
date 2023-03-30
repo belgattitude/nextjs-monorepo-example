@@ -55,23 +55,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
 
-      # Typecheck packages that have changed
       - name: 🕵️ Typecheck
-        run: yarn workspaces foreach -tv --since --include 'packages/*' run typecheck
+        run: yarn turbo typecheck --filter="./packages/*"
 
       - name: 🔬 Linter
         run: |
-          yarn workspaces foreach -tv --since --include 'packages/*' run lint
-          yarn workspaces foreach -tv --since --include 'packages/*' run lint-styles
+          yarn turbo lint --filter="./packages/*"
+          yarn turbo lint-styles --filter="./packages/*"
 
       - name: 🧪 Unit tests
-        run: |
-          yarn workspaces foreach -tv --since --include 'packages/*' run test-unit
+        run: yarn turbo test-unit --filter="./packages/*"
 
       - name: 🏗 Run build
-        run: |
-          yarn workspaces foreach -tv --since --include 'packages/*' run build
+        run: yarn turbo build --filter="./packages/*"
 
       - name: 🧐 Run storybook build for changed packages
-        run: |
-          yarn workspaces foreach -tv  --since --include 'packages/*' run build-storybook
+        run: yarn turbo build-storybook --filter="./packages/*"
