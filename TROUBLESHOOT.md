@@ -10,6 +10,8 @@ corepack enable
 yarn install
 ```
 
+> PS: same applied to docker, in vercel just add ENABLE_EXPERIMENTAL_COREPACK=1 to your env.
+
 ## Development
 
 ### Limit of file watchers reached
