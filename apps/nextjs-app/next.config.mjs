@@ -227,19 +227,19 @@ const nextConfig = {
     //
     // Related issue: https://github.com/vercel/next.js/issues/42641
 
-    outputFileTracingExcludes: {
-      '*': [
-        '**/node_modules/@swc/core-linux-x64-gnu/**/*',
-        '**/node_modules/@swc/core-linux-x64-musl/**/*',
-        // If you're nor relying on mdx-remote... drop this
-        '**/node_modules/esbuild/linux/**/*',
-        '**/node_modules/webpack/**/*',
-        '**/node_modules/terser/**/*',
-        // If you're not relying on sentry edge or any weird stuff... drop this too
-        // https://github.com/getsentry/sentry-javascript/pull/6982
-        '**/node_modules/rollup/**/*',
-      ],
-    },
+    // outputFileTracingExcludes: {
+    //  '*': [
+    //    '**/node_modules/@swc/core-linux-x64-gnu/**/*',
+    //    '**/node_modules/@swc/core-linux-x64-musl/**/*',
+    //    // If you're nor relying on mdx-remote... drop this
+    //    '**/node_modules/esbuild/linux/**/*',
+    //    '**/node_modules/webpack/**/*',
+    //    '**/node_modules/terser/**/*',
+    //    // If you're not relying on sentry edge or any weird stuff... drop this too
+    //    // https://github.com/getsentry/sentry-javascript/pull/6982
+    //    '**/node_modules/rollup/**/*',
+    //  ],
+    // },
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
