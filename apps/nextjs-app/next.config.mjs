@@ -211,18 +211,29 @@ const nextConfig = {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
 
-    // Depending on usage you might want to drop this too (you'll have to maintain it)
-    // @link https://github.com/vercel/next.js/issues/42641
+    // Useful to keep lambdas sizes low when vercel/nft isn't able to drop unneeded deps for you.
+    // This is particularly useful to remove musl binaries when deploying on vercel for example.
+    // (ie esbuild-musl, swc-musl...). This also also help to keep docker images smaller
+    //
+    // Note that yarn 3+/4 is less impacted thanks to supportedArchitectures.
+    // See https://yarnpkg.com/configuration/yarnrc#supportedArchitectures and
+    // config example in https://github.com/belgattitude/nextjs-monorepo-example/pull/3582
+    // NPM/PNPM might adopt https://github.com/npm/rfcs/pull/519 in the future.
+    //
+    // Caution: use it with care because you'll have to maintain this over time.
+    //
+    // Related issue: https://github.com/vercel/next.js/issues/42641
+
     outputFileTracingExcludes: {
       '*': [
-        './**/node_modules/@swc/core-linux-x64-gnu',
-        './**/node_modules/@swc/core-linux-x64-musl',
+        '**/node_modules/@swc/core-linux-x64-gnu',
+        '**/node_modules/@swc/core-linux-x64-musl',
         // If you're nor relying on mdx-remote... drop this
-        './**/node_modules/esbuild/linux',
+        '**/node_modules/esbuild/linux',
         // If you're not relying on sentry edge... drop this
-        './**/node_modules/webpack',
-        './**/node_modules/rollup',
-        './**/node_modules/terser',
+        '**/node_modules/webpack',
+        '**/node_modules/rollup',
+        '**/node_modules/terser',
       ],
     },
 
