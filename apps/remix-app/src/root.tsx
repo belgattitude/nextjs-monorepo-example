@@ -2,14 +2,14 @@ import { withEmotionCache } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
+  LiveReload,
   ScrollRestoration,
   useCatch,
 } from '@remix-run/react';
-import type { MetaFunction } from '@remix-run/react/dist/routeModules';
+import type { MetaFunction } from '@vercel/remix';
 import { useContext, useEffect } from 'react';
 import { NotFoundPage } from '@/features/system/pages';
 import {
@@ -25,9 +25,11 @@ const Container = styled('div')`
   padding: 1em;
 `;
 
-export const meta: MetaFunction = () => {
-  return { title: 'Remix with Emotion' };
-};
+export const meta: MetaFunction = () => ({
+  charset: 'utf-8',
+  title: 'Remix app demo',
+  viewport: 'width=device-width,initial-scale=1',
+});
 
 interface DocumentProps {
   children: React.ReactNode;
