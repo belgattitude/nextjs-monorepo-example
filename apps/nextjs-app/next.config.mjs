@@ -211,6 +211,21 @@ const nextConfig = {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
 
+    // Depending on usage you might want to drop this too (you'll have to maintain it)
+    // @link https://github.com/vercel/next.js/issues/42641
+    outputFileTracingExcludes: {
+      '*': [
+        './**/node_modules/@swc/core-linux-x64-gnu',
+        './**/node_modules/@swc/core-linux-x64-musl',
+        // If you're nor relying on mdx-remote... drop this
+        './**/node_modules/esbuild/linux',
+        // If you're not relying on sentry edge... drop this
+        './**/node_modules/webpack',
+        './**/node_modules/rollup',
+        './**/node_modules/terser',
+      ],
+    },
+
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     // @link {https://github.com/vercel/next.js/discussions/27876|Discussion}
