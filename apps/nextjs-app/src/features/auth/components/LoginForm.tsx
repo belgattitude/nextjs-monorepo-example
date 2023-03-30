@@ -91,7 +91,7 @@ export const LoginForm: FC<Props> = (_props) => {
         type="submit"
         disabled={isSubmitting}
         className={clsx(
-          'inline-flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
+          'inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
           isSubmitting ? 'bg-indigo-100' : 'bg-indigo-600'
         )}
       >

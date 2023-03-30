@@ -2,12 +2,15 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
     "target": "esnext",
     "module": "esnext",
     "jsx": "react-jsx",
-    "jsxFactory": "",
-    "jsxFragmentFactory": ""
+    "incremental": false // dts with tsup requires rootDir if incremental (which does not work well aliases)
   },
-  "exclude": ["dist", "**/__tests__/*"]
+  "exclude": [
+    "**/*.stories.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.mdx",
+    ".storybook/**"
+  ]
 }

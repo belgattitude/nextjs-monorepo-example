@@ -147,10 +147,6 @@ const nextConfig = {
     // emotion: true,
   },
 
-  // Standalone build
-  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  output: 'standalone',
-
   sentry: {
     hideSourceMaps: true,
     // To disable the automatic instrumentation of API route handlers and server-side data fetching functions
@@ -207,9 +203,47 @@ const nextConfig = {
     } */
   },
 
+  // Standalone build
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+  output: 'standalone',
+  outputFileTracing: true,
+
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
+
+    // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
+    // to keep lambdas sizes / docker images low when vercel/nft isn't able to
+    // drop unneeded deps for you. ie: esbuil-musl, swc-musl... when not actually needed
+    //
+    // Note that yarn 3+/4 is less impacted thanks to supportedArchitectures.
+    // See https://yarnpkg.com/configuration/yarnrc#supportedArchitectures and
+    // config example in https://github.com/belgattitude/nextjs-monorepo-example/pull/3582
+    // NPM/PNPM might adopt https://github.com/npm/rfcs/pull/519 in the future.
+    //
+    // Caution: use it with care because you'll have to maintain this over time.
+    //
+    // How to debug in vercel: set NEXT_DEBUG_FUNCTION_SIZE=1 in vercel env, then
+    // check the last lines of vercel build.
+    //
+    // Related issue: https://github.com/vercel/next.js/issues/42641
+
+    // Caution if using pnpm you might also need to consider that things are hoisted
+    // under node_modules/.pnpm/<something variable>. Depends on version
+    //
+    // outputFileTracingExcludes: {
+    //  '*': [
+    //    '**/node_modules/@swc/core-linux-x64-gnu/**/*',
+    //    '**/node_modules/@swc/core-linux-x64-musl/**/*',
+    //    // If you're nor relying on mdx-remote... drop this
+    //    '**/node_modules/esbuild/linux/**/*',
+    //    '**/node_modules/webpack/**/*',
+    //    '**/node_modules/terser/**/*',
+    //    // If you're not relying on sentry edge or any weird stuff... drop this too
+    //    // https://github.com/getsentry/sentry-javascript/pull/6982
+    //    '**/node_modules/rollup/**/*',
+    //  ],
+    // },
 
     // Prefer loading of ES Modules over CommonJS
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
