@@ -229,14 +229,15 @@ const nextConfig = {
 
     outputFileTracingExcludes: {
       '*': [
-        '**/node_modules/@swc/core-linux-x64-gnu',
-        '**/node_modules/@swc/core-linux-x64-musl',
+        '**/node_modules/@swc/core-linux-x64-gnu/**/*',
+        '**/node_modules/@swc/core-linux-x64-musl/**/*',
         // If you're nor relying on mdx-remote... drop this
-        '**/node_modules/esbuild/linux',
-        // If you're not relying on sentry edge... drop this
-        '**/node_modules/webpack',
-        '**/node_modules/rollup',
-        '**/node_modules/terser',
+        '**/node_modules/esbuild/linux/**/*',
+        '**/node_modules/webpack/**/*',
+        '**/node_modules/terser/**/*',
+        // If you're not relying on sentry edge or any weird stuff... drop this too
+        // https://github.com/getsentry/sentry-javascript/pull/6982
+        '**/node_modules/rollup/**/*',
       ],
     },
 
