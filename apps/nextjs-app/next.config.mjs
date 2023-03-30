@@ -212,11 +212,9 @@ const nextConfig = {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
 
-    // Useful in cunjunction out to `outputFileTracing: true` to keep lambdas sizes low when
-    // vercel/nft isn't able to drop unneeded deps for you.
-    //
-    // For example this allows to remove some binaries when deploying on vercel for example.
-    // (ie esbuild-musl, swc-musl...). This also also help to keep docker images smaller
+    // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
+    // to keep lambdas sizes / docker images low when vercel/nft isn't able to
+    // drop unneeded deps for you. ie: esbuil-musl, swc-musl... when not actually needed
     //
     // Note that yarn 3+/4 is less impacted thanks to supportedArchitectures.
     // See https://yarnpkg.com/configuration/yarnrc#supportedArchitectures and
