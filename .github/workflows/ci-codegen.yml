@@ -2,15 +2,9 @@ name: CI-codegen-sync
 
 on:
   push:
-    branches:
-      - dev
-      - main
-
+    branches: [dev, main]
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
 
 jobs:
   codegen:
@@ -22,6 +16,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           # Fetch all git history so that yarn workspaces --since can compare with the correct commits
+          # base branches are defined in yarnrc.yml
           # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
           fetch-depth: 0
 

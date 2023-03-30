@@ -2,22 +2,10 @@
   "name": "@your-org/api-gateway",
   "version": "1.2.2",
   "private": true,
+  "module": "dist/index.esm.js",
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "module": "./dist/index.mjs",
-      "default": "./dist/index.mjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/index.d.ts"
-      ]
-    }
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
@@ -32,21 +20,19 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "codegen": "mesh build --throwOnInvalidConfig=true",
+    "codegen": "rimraf .mesh && mesh build --throwOnInvalidConfig=true",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
     "test": "jest --config jest.config.js --passWithNoTests",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "@graphql-mesh/config": "^10.1.13",
-    "@graphql-mesh/graphql": "^0.34.13",
-    "@graphql-mesh/openapi": "^0.35.26",
-    "@graphql-mesh/runtime": "^0.46.21"
-  },
   "devDependencies": {
     "@graphql-mesh/cli": "0.82.30",
+    "@graphql-mesh/config": "10.1.13",
+    "@graphql-mesh/graphql": "0.34.13",
+    "@graphql-mesh/openapi": "0.35.26",
+    "@graphql-mesh/runtime": "0.46.21",
     "@types/jest": "29.5.0",
     "@types/node": "18.15.11",
     "@your-org/eslint-config-bases": "workspace:^",

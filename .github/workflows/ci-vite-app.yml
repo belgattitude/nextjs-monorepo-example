@@ -2,9 +2,7 @@ name: CI-vite-app
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     paths:
       - 'apps/vite-app/**'
       - 'package.json'
@@ -15,10 +13,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     paths:
       - 'apps/vite-app/**'
       - 'package.json'
