@@ -77,7 +77,7 @@ export const FeaturesBlock: FC<Props> = () => {
                       {feature.name}
                     </p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
+                  <dd className="ml-16 mt-2 text-base text-gray-500">
                     {feature.description}
                   </dd>
                 </div>
