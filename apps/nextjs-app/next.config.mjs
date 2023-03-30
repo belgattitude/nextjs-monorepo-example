@@ -147,10 +147,6 @@ const nextConfig = {
     // emotion: true,
   },
 
-  // Standalone build
-  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  output: 'standalone',
-
   sentry: {
     hideSourceMaps: true,
     // To disable the automatic instrumentation of API route handlers and server-side data fetching functions
@@ -207,13 +203,18 @@ const nextConfig = {
     } */
   },
 
+  // Standalone build
+  // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+  output: 'standalone',
+  outputFileTracing: true,
+
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     outputFileTracingRoot: workspaceRoot,
 
-    // Useful to keep lambdas sizes low when vercel/nft isn't able to drop unneeded deps for you.
-    // This is particularly useful to remove musl binaries when deploying on vercel for example.
-    // (ie esbuild-musl, swc-musl...). This also also help to keep docker images smaller
+    // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
+    // to keep lambdas sizes / docker images low when vercel/nft isn't able to
+    // drop unneeded deps for you. ie: esbuil-musl, swc-musl... when not actually needed
     //
     // Note that yarn 3+/4 is less impacted thanks to supportedArchitectures.
     // See https://yarnpkg.com/configuration/yarnrc#supportedArchitectures and
@@ -227,6 +228,9 @@ const nextConfig = {
     //
     // Related issue: https://github.com/vercel/next.js/issues/42641
 
+    // Caution if using pnpm you might also need to consider that things are hoisted
+    // under node_modules/.pnpm/<something variable>. Depends on version
+    //
     // outputFileTracingExcludes: {
     //  '*': [
     //    '**/node_modules/@swc/core-linux-x64-gnu/**/*',
