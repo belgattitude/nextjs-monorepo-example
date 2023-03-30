@@ -11,7 +11,7 @@ export const HeroBlock: FC<Props> = () => {
 
   return (
     <section className="body-font text-gray-600">
-      <div className="container mx-auto flex flex-col items-center py-24 px-5 md:flex-row">
+      <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">
         <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:grow lg:pr-24">
           <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">
             Before they sold out&nbsp;
@@ -25,10 +25,10 @@ export const HeroBlock: FC<Props> = () => {
             hexagon try-hard chambray.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none">
+            <button className="inline-flex rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">
               Button
             </button>
-            <button className="ml-4 inline-flex rounded border-0 bg-gray-100 py-2 px-6 text-lg text-gray-700 hover:bg-gray-200 focus:outline-none">
+            <button className="ml-4 inline-flex rounded border-0 bg-gray-100 px-6 py-2 text-lg text-gray-700 hover:bg-gray-200 focus:outline-none">
               Button
             </button>
           </div>
