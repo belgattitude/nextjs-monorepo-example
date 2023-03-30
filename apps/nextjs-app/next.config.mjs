@@ -222,6 +222,9 @@ const nextConfig = {
     //
     // Caution: use it with care because you'll have to maintain this over time.
     //
+    // How to debug in vercel: set NEXT_DEBUG_FUNCTION_SIZE=1 in vercel env, then
+    // check the last lines of vercel build.
+    //
     // Related issue: https://github.com/vercel/next.js/issues/42641
 
     outputFileTracingExcludes: {
