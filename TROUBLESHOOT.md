@@ -1,5 +1,17 @@
 # TROUBLESHOOT
 
+## Install fails
+
+This repo uses the official but experimental [corepack](https://nodejs.org/api/corepack.html) to select the correct
+package manager to use. Just enable it, then run install
+
+```bash
+corepack enable
+yarn install
+```
+
+> PS: Same applies to docker. For vercel just add ENABLE_EXPERIMENTAL_COREPACK=1 to your vercel env.
+
 ## Development
 
 ### Limit of file watchers reached
