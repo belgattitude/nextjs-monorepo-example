@@ -10,7 +10,7 @@ corepack enable
 yarn install
 ```
 
-> PS: same applied to docker, in vercel just add ENABLE_EXPERIMENTAL_COREPACK=1 to your env.
+> PS: Same applies to docker. For vercel just add ENABLE_EXPERIMENTAL_COREPACK=1 to your vercel env.
 
 ## Development
 
