@@ -18,7 +18,7 @@
     "directory": "packages/api-gateway"
   },
   "scripts": {
-    "codegen": "mesh build --throwOnInvalidConfig=true",
+    "codegen": "rimraf .mesh && mesh build --throwOnInvalidConfig=true",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/api-gateway.eslintcache",
