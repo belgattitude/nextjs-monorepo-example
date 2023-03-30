@@ -6,6 +6,14 @@
 /.yarn/plugins/**/*  binary
 /.pnp.*              binary linguist-generated
 
+# Specific for json5
+
+turbo.json        text=auto linguist-language=JSON-with-Comments
+tsconfig.json     text=auto linguist-language=JSON-with-Comments
+tsconfig.*.json   text=auto linguist-language=JSON-with-Comments
+*.code-workspace  text=auto linguist-language=JSON-with-Comments
+
+
 *                 text eol=lf
 
 # Source code
@@ -194,11 +202,4 @@ Procfile          text
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
 
-
-# Specific for json5
-
-turbo.json       linguist-language=JSON-with-Comments
-tsconfig.json    linguist-language=JSON-with-Comments
-tsconfig.*.json  linguist-language=JSON-with-Comments
-.code-workspace  linguist-language=JSON-with-Comments
 
