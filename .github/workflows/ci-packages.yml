@@ -2,9 +2,7 @@ name: CI-packages
 
 on:
   push:
-    branches:
-      - dev
-      - main
+    branches: [dev, main]
     paths:
       - 'packages/**'
       - 'package.json'
@@ -15,10 +13,7 @@ on:
       - '.github/**'
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
     paths:
       - 'packages/**'
       - 'package.json'
@@ -63,26 +58,24 @@ jobs:
       # Typecheck packages that have changed + packages and apps that depends on them (--from & --since)
       # That allows to see if we're introducing "surface" regressions (just the types)
       - name: 🕵️ Typecheck
-        run: yarn workspaces foreach -tv --from '@your-org/*' --exclude '*-app' --since=origin/main --recursive run typecheck
+        run: yarn workspaces foreach -tv --since=origin/main --from 'packages/*' --recursive run typecheck
 
       # Lint packages that have changed (--include & --since)
       - name: 🔬 Linter
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run lint
-          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run lint-styles
+          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run lint
+          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run lint-styles
 
       # Test packages that have changed (--include & --since)
       - name: 🧪 Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main --recursive run test-unit
-      # to debug cache issues: ls ${{ github.workspace }}/.cache
-      # Build packages that have changed (--include & --since), assuming that
-      # apps build are done already. Otherwise --from & --since
+          yarn workspaces foreach -tv --since=origin/main --include 'packages/*' run test-unit
+
       - name: 🏗 Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@your-org/*' --exclude '*-app' --since=origin/main run build
+          yarn workspaces foreach -tv  --since=origin/main --include 'packages/*' run build
 
       # Test storybook build on packages that have changed (--include & --since)
       - name: 🧐 Run storybook build for changed packages
         run: |
-          yarn workspaces foreach -tv --exclude '*-app' --since=origin/main run build-storybook
+          yarn workspaces foreach -tv  --since=origin/main --include 'packages/*' run build-storybook
