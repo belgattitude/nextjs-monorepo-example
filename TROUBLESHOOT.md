@@ -1,5 +1,15 @@
 # TROUBLESHOOT
 
+## Install fails
+
+This repo uses the official but experimental [corepack](https://nodejs.org/api/corepack.html) to select the correct
+package manager to use. Just enable it, then run install
+
+```bash
+corepack enable
+yarn install
+```
+
 ## Development
 
 ### Limit of file watchers reached
