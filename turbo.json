@@ -3,8 +3,9 @@
   "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": ["dist/**"]
+      // This repo example relies on tsconfig paths to ease starting
+      // "dependsOn": ["^build"]
     },
     "test": {},
     "test-unit": {},
