@@ -35,6 +35,8 @@ jobs:
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
+        with:
+          skip-prisma-postinstall-generate: true
 
       - name: 👬🏽 Check for duplicate dependencies in lock file
         run: yarn dedupe --check
