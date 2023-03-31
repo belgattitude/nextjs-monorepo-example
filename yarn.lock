@@ -2100,13 +2100,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/media-query-list-parser@npm:^2.0.0, @csstools/media-query-list-parser@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@csstools/media-query-list-parser@npm:2.0.1"
+"@csstools/media-query-list-parser@npm:^2.0.0, @csstools/media-query-list-parser@npm:^2.0.1, @csstools/media-query-list-parser@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@csstools/media-query-list-parser@npm:2.0.2"
   peerDependencies:
     "@csstools/css-parser-algorithms": ^2.0.0
     "@csstools/css-tokenizer": ^2.0.0
-  checksum: 89682eb8cd75f05d0942a19b862f9f18b179b52b661f2f8468f426b9ec1f5f0339aeea40213a9dc9654c3a8605ed356eb2b53ef7a3f5a68b6cd7958c4fdaaab7
+  checksum: f4b98ebd8c564c02a3dbbe05feef8f1b14620fbc4bad041adacc4ed8fde48d36b95f80773691cc816819b35cadbad22bb5af92f06a8e91534338b4dc642eb518
   languageName: node
   linkType: hard
 
@@ -2240,6 +2240,20 @@ __metadata:
   peerDependencies:
     postcss: ^8.4
   checksum: dec9102408d6c98c0e221ca63c259683b5424a68c033c66010096ebded7a5d08b3a87491ab91fa42a4725e07a78f8d1ec787534f7151c19ac596d7ce13f26b59
+  languageName: node
+  linkType: hard
+
+"@csstools/postcss-media-minmax@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@csstools/postcss-media-minmax@npm:1.0.0"
+  dependencies:
+    "@csstools/css-calc": "npm:^1.0.1"
+    "@csstools/css-parser-algorithms": "npm:^2.1.0"
+    "@csstools/css-tokenizer": "npm:^2.1.0"
+    "@csstools/media-query-list-parser": "npm:^2.0.2"
+  peerDependencies:
+    postcss: ^8.4
+  checksum: 9fdce4e48b88e2572066aa90d7b8ddbfd70aa45fdb4a6848c30adf040501f08bfe1ea908423b18eb9ce87bec14450316a25e3323ae5764f77812396793a537eb
   languageName: node
   linkType: hard
 
@@ -10717,10 +10731,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssdb@npm:^7.5.2":
-  version: 7.5.2
-  resolution: "cssdb@npm:7.5.2"
-  checksum: 922f809a10d4e7d4dbcc612016f795ff887787371c32401b430047d0ac9edadb26f973b7d410c7da8558f6534e9b5563fcd30033ae4770def66ccf89fcde962a
+"cssdb@npm:^7.5.3":
+  version: 7.5.3
+  resolution: "cssdb@npm:7.5.3"
+  checksum: a4bb4cabb08175479607e6ae9b36bb8502638bd1d2b6fbecc3d98ede6fb8bd7f7fcd3a12d1d6289e409b0273946578343aba2f239cf81333d64d11739d3eca29
   languageName: node
   linkType: hard
 
@@ -18084,7 +18098,7 @@ __metadata:
     picocolors: "npm:1.0.0"
     postcss: "npm:8.4.21"
     postcss-flexbugs-fixes: "npm:5.0.2"
-    postcss-preset-env: "npm:8.2.0"
+    postcss-preset-env: "npm:8.3.0"
     prettier: "npm:2.8.7"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -19508,15 +19522,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-media-minmax@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "postcss-media-minmax@npm:5.0.0"
-  peerDependencies:
-    postcss: ^8.1.0
-  checksum: de6f2e7c63d2cb15ceae1f6586bca9599f5f031417721e9b55fa8c825fb6641b411b4a92925ab57a78dcbf9b3323857a54245acc942139110f2d4033d8a850c9
-  languageName: node
-  linkType: hard
-
 "postcss-media-query-parser@npm:^0.2.3":
   version: 0.2.3
   resolution: "postcss-media-query-parser@npm:0.2.3"
@@ -19660,9 +19665,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-preset-env@npm:8.2.0":
-  version: 8.2.0
-  resolution: "postcss-preset-env@npm:8.2.0"
+"postcss-preset-env@npm:8.3.0":
+  version: 8.3.0
+  resolution: "postcss-preset-env@npm:8.3.0"
   dependencies:
     "@csstools/postcss-cascade-layers": "npm:^3.0.1"
     "@csstools/postcss-color-function": "npm:^2.1.0"
@@ -19675,6 +19680,7 @@ __metadata:
     "@csstools/postcss-logical-float-and-clear": "npm:^1.0.1"
     "@csstools/postcss-logical-resize": "npm:^1.0.1"
     "@csstools/postcss-logical-viewport-units": "npm:^1.0.2"
+    "@csstools/postcss-media-minmax": "npm:^1.0.0"
     "@csstools/postcss-media-queries-aspect-ratio-number-values": "npm:^1.0.1"
     "@csstools/postcss-nested-calc": "npm:^2.0.2"
     "@csstools/postcss-normalize-display-values": "npm:^2.0.1"
@@ -19690,7 +19696,7 @@ __metadata:
     css-blank-pseudo: "npm:^5.0.2"
     css-has-pseudo: "npm:^5.0.2"
     css-prefers-color-scheme: "npm:^8.0.2"
-    cssdb: "npm:^7.5.2"
+    cssdb: "npm:^7.5.3"
     postcss-attribute-case-insensitive: "npm:^6.0.2"
     postcss-clamp: "npm:^4.1.0"
     postcss-color-functional-notation: "npm:^5.0.2"
@@ -19709,7 +19715,6 @@ __metadata:
     postcss-initial: "npm:^4.0.1"
     postcss-lab-function: "npm:^5.2.0"
     postcss-logical: "npm:^6.1.0"
-    postcss-media-minmax: "npm:^5.0.0"
     postcss-nesting: "npm:^11.2.1"
     postcss-opacity-percentage: "npm:^2.0.0"
     postcss-overflow-shorthand: "npm:^4.0.1"
@@ -19721,7 +19726,7 @@ __metadata:
     postcss-value-parser: "npm:^4.2.0"
   peerDependencies:
     postcss: ^8.4
-  checksum: 026b0813c5bdec1e65cbacaf4b50e55b85884295ba7e09d8684e14215f392632c98b1d003d053275a544308c77d49d22e150b20b8be424fa1cb06d4df072a9c8
+  checksum: 0a2e77bdd23cc9137cb9ff8f85b073f71555a9fc24ee7fada7113f82b8fc0fde7e33e658f2cd8d2dcd88e41f40275597973d7bb504d19998f6c74fb0ded58651
   languageName: node
   linkType: hard
 
