@@ -3,10 +3,19 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      // "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
+      "env": [
+        // "NEXT_PUBLIC_STRAPI_API_URL",
+        "NEXTJS_IGNORE_LINT",
+        "NEXTJS_IGNORE_TYPECHECK"
+      ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "vercel-build": {
+      "env": [
+        // "NEXT_PUBLIC_STRAPI_API_URL",
+        "NEXTJS_IGNORE_LINT",
+        "NEXTJS_IGNORE_TYPECHECK"
+      ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "typecheck": {},
