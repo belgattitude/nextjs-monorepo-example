@@ -12,6 +12,7 @@ export default async function handleListPoems(
 ) {
   if (req.method === 'GET') {
     const searchPoem = new SearchPoemsQuery(prismaClient);
+
     try {
       const { json: serializableData, meta } = serialize(
         await searchPoem.execute({

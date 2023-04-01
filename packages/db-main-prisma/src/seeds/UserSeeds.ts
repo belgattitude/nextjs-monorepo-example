@@ -21,6 +21,27 @@ const userData: Prisma.UserCreateInput[] = [
       ],
     },
   },
+  {
+    firstName: 'Marcelo',
+    lastName: 'santana',
+    username: 'marcelo',
+    email: 'marcelo@gmail.com',
+    password: '123456',
+    role: 'ADMIN',
+    Post: {
+      create: [
+        {
+          title: 'Nextjs monorepo example2',
+          slug: '123first-post2',
+          link: 'https://github.com/belgattitude/nextjs-monorepo-example',
+          content: 'Hello world',
+          image:
+            'https://images.unsplash.com/photo-1625904835711-fa25795530e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80',
+          publishedAt: new Date(),
+        },
+      ],
+    },
+  },
 ];
 
 export class UserSeeds extends AbstractSeed {
