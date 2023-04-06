@@ -59,15 +59,24 @@ That gives me some more time to improve it to the next level.
         <img width="65" src="https://avatars.githubusercontent.com/u/98402122?s=200&v=4" alt="Jetbrains logo" />    
       </a>
     </td>
+    <td>
+      <a href="https://www.vercel.com/?ref=belgattitude" target="_blank">
+        <img width="65" src="https://avatars.githubusercontent.com/u/14985020?s=200&v=4" alt="Vercel logo" />    
+      </a>
+    </td>
+
   </tr>
   <tr>
-    <td>
+    <td align="center">
       <a href="https://www.jetbrains.com/?ref=belgattitude" target="_blank">JetBrains</a>
     </td>
-    <td>
+    <td align="center">
       <a href="https://www.embie.be/?ref=belgattitude" target="_blank">Embie.be</a>
     </td>
-  </tr>
+    <td align="center">
+      <a href="https://vercel.com/?ref=belgattitude" target="_blank">Vercel</a>
+    </td>
+   </tr>
 </table>
 
 ## Install
