@@ -64,7 +64,6 @@ That gives me some more time to improve it to the next level.
         <img width="65" src="https://avatars.githubusercontent.com/u/14985020?s=200&v=4" alt="Vercel logo" />    
       </a>
     </td>
-
   </tr>
   <tr>
     <td align="center">
