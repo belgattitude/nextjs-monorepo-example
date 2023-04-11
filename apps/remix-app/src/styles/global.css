@@ -166,7 +166,7 @@ input:where([type='search']) {
   padding-bottom: var(--space);
 }
 
-@media print, screen and (min-width: 640px) {
+@media print, screen and (640px <= width) {
   .remix__page {
     --gap: 2rem;
 
@@ -175,7 +175,7 @@ input:where([type='search']) {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (1024px <= width) {
   .remix__page {
     --gap: 4rem;
   }

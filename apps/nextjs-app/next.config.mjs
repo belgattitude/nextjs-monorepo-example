@@ -339,6 +339,7 @@ const nextConfig = {
 let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
+  // @ts-ignore cause sentry is not always following nextjs types
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
     // the following options are set automatically, and overriding them is not

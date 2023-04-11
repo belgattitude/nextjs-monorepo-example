@@ -45,6 +45,39 @@ Useful to
 If you are enjoying some this guide in your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude), a [coffee](https://ko-fi.com/belgattitude) or a dropped star.
 That gives me some more time to improve it to the next level.
 
+### Special thanks to
+
+<table>
+  <tr>
+    <td>
+      <a href="https://www.jetbrains.com/?ref=belgattitude" target="_blank">
+         <img width="65" src="https://asset.brandfetch.io/idarKiKkI-/id53SttZhi.jpeg" alt="Jetbrains logo" />
+      </a>
+    </td>
+    <td>
+      <a href="https://www.embie.be/?ref=belgattitude" target="_blank">
+        <img width="65" src="https://avatars.githubusercontent.com/u/98402122?s=200&v=4" alt="Jetbrains logo" />    
+      </a>
+    </td>
+    <td>
+      <a href="https://www.vercel.com/?ref=belgattitude" target="_blank">
+        <img width="65" src="https://avatars.githubusercontent.com/u/14985020?s=200&v=4" alt="Vercel logo" />    
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.jetbrains.com/?ref=belgattitude" target="_blank">JetBrains</a>
+    </td>
+    <td align="center">
+      <a href="https://www.embie.be/?ref=belgattitude" target="_blank">Embie.be</a>
+    </td>
+    <td align="center">
+      <a href="https://vercel.com/?ref=belgattitude" target="_blank">Vercel</a>
+    </td>
+   </tr>
+</table>
+
 ## Install
 
 ```bash
