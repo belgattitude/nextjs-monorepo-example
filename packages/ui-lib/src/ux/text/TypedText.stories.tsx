@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import React from 'react';
 import { TypedText } from './TypedText';
 
@@ -13,43 +13,45 @@ export default {
   //     options: ['sky', 'green', 'blue', 'red'],
   //   },
   // },
-} as ComponentMeta<typeof TypedText>;
+} as Meta<typeof TypedText>;
 
-export const BasicExample: ComponentStory<typeof TypedText> = (args) => {
-  return (
-    <div>
-      <span
-        style={{
-          fontFamily: 'Inter, Ubuntu',
-          maxWidth: '900px',
-          border: '1px solid blue',
-          fontSize: '3em',
-          fontWeight: 900,
-          lineHeight: '1.5em',
-          display: 'flex',
-        }}
-      >
-        <div>
-          <div
-            className={
-              'container overflow-hidden w-full rounded shadow-lg m-8 p-16'
-            }
-          >
-            <TypedText
-              css={css`
-                border: 1px solid grey;
-                padding: 15px 10px;
-                border-radius: 91% 9% 90% 10% / 29% 82% 18% 71%;
-                background-color: blueviolet;
-                color: white;
-              `}
-              {...args}
+export const BasicExample: StoryObj<typeof TypedText> = {
+  render: (args) => {
+    return (
+      <div>
+        <span
+          style={{
+            fontFamily: 'Inter, Ubuntu',
+            maxWidth: '900px',
+            border: '1px solid blue',
+            fontSize: '3em',
+            fontWeight: 900,
+            lineHeight: '1.5em',
+            display: 'flex',
+          }}
+        >
+          <div>
+            <div
+              className={
+                'container overflow-hidden w-full rounded shadow-lg m-8 p-16'
+              }
             >
-              Hello world
-            </TypedText>
+              <TypedText
+                css={css`
+                  border: 1px solid grey;
+                  padding: 15px 10px;
+                  border-radius: 91% 9% 90% 10% / 29% 82% 18% 71%;
+                  background-color: blueviolet;
+                  color: white;
+                `}
+                {...args}
+              >
+                Hello world
+              </TypedText>
+            </div>
           </div>
-        </div>
-      </span>
-    </div>
-  );
+        </span>
+      </div>
+    );
+  },
 };
