@@ -8,6 +8,7 @@ import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/pla
 import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
+import { validatedServerEnv } from './src/config/validated-server-env.mjs';
 
 // @ts-ignore
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
