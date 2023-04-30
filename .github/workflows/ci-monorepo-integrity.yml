@@ -42,9 +42,6 @@ jobs:
       - name: 🦺 Syncpack lint-semver-ranges
         run: yarn syncpack lint-semver-ranges
 
-      - name: 🦺 Syncpack lint-semver-ranges
-        run: yarn syncpack lint-semver-ranges
-
       - name: 🦺 Syncpack apps same prod and dev
         run: yarn syncpack list --types prod,dev --source "apps/*/package.json"
 
