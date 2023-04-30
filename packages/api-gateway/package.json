@@ -27,13 +27,12 @@
     "test": "jest --config jest.config.js --passWithNoTests",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
-  "devDependencies": {
+  "dependencies": {
     "@graphql-mesh/cli": "0.82.35",
-    "@graphql-mesh/config": "11.0.0",
-    "@graphql-mesh/graphql": "1.0.0",
-    "@graphql-mesh/http": "0.93.1",
-    "@graphql-mesh/openapi": "1.0.0",
-    "@graphql-mesh/runtime": "1.0.0",
+    "@graphql-mesh/openapi": "0.93.1",
+    "@graphql-mesh/runtime": "0.93.2"
+  },
+  "devDependencies": {
     "@types/jest": "29.5.1",
     "@types/node": "18.16.3",
     "@your-org/eslint-config-bases": "workspace:^",
@@ -47,8 +46,5 @@
     "ts-jest": "29.1.0",
     "tsup": "6.7.0",
     "typescript": "5.0.4"
-  },
-  "peerDependencies": {
-    "graphql": "^16.4.0"
   }
 }
