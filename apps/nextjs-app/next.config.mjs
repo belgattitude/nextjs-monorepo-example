@@ -37,6 +37,10 @@ const isProd = process.env.NODE_ENV === 'production';
 const isCI = trueEnv.includes(process.env?.CI ?? 'false');
 const enableCSP = true;
 
+const NEXTJS_STANDALONE = trueEnv.includes(
+  process.env?.NEXTJS_STANDALONE ?? 'false'
+);
+
 const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
 );
@@ -210,12 +214,13 @@ const nextConfig = {
 
   // Standalone build
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  output: 'standalone',
-  outputFileTracing: true,
+  ...(NEXTJS_STANDALONE
+    ? { output: 'standalone', outputFileTracing: true }
+    : {}),
 
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: workspaceRoot,
+    ...(NEXTJS_STANDALONE ? { outputFileTracingRoot: workspaceRoot } : {}),
 
     // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
     // to keep lambdas sizes / docker images low when vercel/nft isn't able to
