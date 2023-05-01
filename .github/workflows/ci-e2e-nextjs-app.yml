@@ -56,9 +56,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/apps/nextjs-app/.next/cache
-            ${{ github.workspace }}/.cache
-            ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-          key: nextjs-app-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: e2e-nextjs-app-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: 🏁 Start database
         working-directory: packages/db-main-prisma
