@@ -84,6 +84,15 @@ runs:
         path: '**/node_modules'
         key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
+    - name: Debug caches
+      shell: bash
+      run: |
+        echo "OS: ${{ matrix.os }}"
+        echo "CURRENT_NODE_VERSION: ${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}"
+        echo "CURRENT_BRANCH: ${{ steps.yarn-config.outputs.CURRENT_BRANCH }}"
+        echo "Install state cache"
+        ls -la .yarn/ci-cache
+
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --immutable --inline-builds
