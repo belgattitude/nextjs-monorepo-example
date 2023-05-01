@@ -57,7 +57,7 @@ runs:
       run: |
         echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         echo "CURRENT_NODE_VERSION="node-$(node --version | cut -d . -f 1  | sed 's/[^0-9]*//g')".x" >> $GITHUB_OUTPUT
-        echo "CURRENT_BRANCH=$(echo ${{ github.head_ref }})" >> $GITHUB_OUTPUT
+        echo "CURRENT_BRANCH=$(echo ${{ github.head_ref || github.ref_name }})" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore yarn cache
       uses: actions/cache@v3
@@ -90,8 +90,6 @@ runs:
         echo "OS: ${{ runner.os }}"
         echo "CURRENT_NODE_VERSION: ${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}"
         echo "CURRENT_BRANCH: ${{ steps.yarn-config.outputs.CURRENT_BRANCH }}"
-        echo "Install state cache"
-        ls -la .yarn/ci-cache
 
     - name: 📥 Install dependencies
       shell: bash
