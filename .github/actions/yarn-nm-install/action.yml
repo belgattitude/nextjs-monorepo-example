@@ -3,17 +3,17 @@
 #--------------------------------------------------------------------------------------#
 # Requirement: @setup/node should be run before                                        #
 #                                                                                      #
-# Usage in your workflows:                                                             #
+# Usage in workflows steps:                                                            #
+#                                                                                      #
 #      - name: 📥 Monorepo install                                                     #
 #        uses: ./.github/actions/yarn-nm-install                                       #
 #        with:                                                                         #
 #          enable-corepack: false # (default)                                          #
 #          cache-install-state: true # (default)                                       #
-#          cache-node-modules: true # (default, set false if slower action/cache       #
+#          cache-node-modules: true # (default, set false if slower action/cache)      #
 #                                                                                      #
-# References:                                                                          #
+# Reference:                                                                           #
 #   - latest: https://gist.github.com/belgattitude/042f9caf10d029badbde6cf9d43e400a    #
-#   - bench: https://gist.github.com/belgattitude/0ecd26155b47e7be1be6163ecfbb0f0b     #
 ########################################################################################
 
 name: 'Monorepo install (yarn)'
@@ -34,7 +34,7 @@ inputs:
   skip-prisma-postinstall-generate:
     description: 'Avoid prisma to automatically generate schema on postinstall'
     required: false
-    default: 'true'
+    default: 'false'
   playwright-skip-browser-download:
     description: 'Avoid playwright to download browsers automatically'
     required: false
