@@ -82,7 +82,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: '**/node_modules'
-        key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}--${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+        key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: Debug caches
       shell: bash
