@@ -13,15 +13,25 @@ export const serverEnvSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
 });
 
-const parsedEnv = serverEnvSchema.safeParse(process.env);
-
-if (!parsedEnv.success) {
-  console.error(
-    pc.red('error'.padEnd(6)).concat('- Invalid server env(s):'),
-    Object.keys(parsedEnv.error.flatten().fieldErrors).join(',')
-  );
-  console.error(JSON.stringify(parsedEnv.error.format(), null, 2));
-  process.exit(1);
-}
-
-export const validatedServerEnv = parsedEnv.data;
+export const getValidatedServerEnv = () => {
+  const parsedEnv = serverEnvSchema.safeParse(process.env);
+  if (!parsedEnv.success) {
+    if (process) {
+      console.error(
+        pc.red('error'.padEnd(6)).concat('- Invalid server env(s):'),
+        Object.keys(parsedEnv.error.flatten().fieldErrors).join(',')
+      );
+      console.error(JSON.stringify(parsedEnv.error.format(), null, 2));
+      process.exit(1);
+    } else {
+      throw new Error(
+        `Invalid server env(s): ${JSON.stringify(
+          parsedEnv.error.format(),
+          null,
+          2
+        )}}`
+      );
+    }
+  }
+  return parsedEnv.data;
+};
