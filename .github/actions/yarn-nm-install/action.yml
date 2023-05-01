@@ -26,6 +26,10 @@ inputs:
     description: 'Cache node_modules (invalidated on os/lock/node-version/branch)'
     required: false
     default: 'true'
+  cache-install-state:
+    description: 'Cache yarn install state (invalidated lock/os/node-version/branch)'
+    required: false
+    default: 'true'
   skip-prisma-postinstall-generate:
     description: 'Avoid prisma to automatically generate schema on postinstall'
     required: false
