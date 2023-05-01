@@ -315,7 +315,7 @@ const nextConfig = {
       })
     );
 
-    // Nex with Prisma 4.11.0 (helps standalone build in monorepos)
+    // Nextjs with Prisma 4.11.0+ (helps standalone build in monorepos)
     // https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo
     if (isServer) {
       config.plugins.push(new PrismaPlugin());
