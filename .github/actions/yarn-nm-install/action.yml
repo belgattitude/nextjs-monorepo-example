@@ -9,7 +9,6 @@
 #        uses: ./.github/actions/yarn-nm-install                                       #
 #        with:                                                                         #
 #          enable-corepack: false # (default)                                          #
-#          cache-install-state: true # (default)                                       #
 #          cache-node-modules: true # (default, set false if slower action/cache)      #
 #                                                                                      #
 # Reference:                                                                           #
@@ -23,12 +22,12 @@ inputs:
     description: 'Enable corepack'
     required: false
     default: 'false'
-  cache-install-state:
-    description: 'Cache yarn install state (invalidated on lock changes)'
+  cache-node-modules:
+    description: 'Cache node_modules, might speed up link step (invalidated lock/os/node-version/branch)'
     required: false
     default: 'true'
-  cache-node-modules:
-    description: 'Cache node_modules (invalidated on lock changes)'
+  cache-install-state:
+    description: 'Cache yarn install state, might speed up resolution step if node-modules cache is activated (invalidated lock/os/node-version/branch)'
     required: false
     default: 'true'
   skip-prisma-postinstall-generate:
@@ -57,6 +56,7 @@ runs:
       run: |
         echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         echo "CURRENT_NODE_VERSION="node-$(node --version | cut -d . -f 1  | sed 's/[^0-9]*//g')".x" >> $GITHUB_OUTPUT
+        echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's,/,-,g')" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore yarn cache
       uses: actions/cache@v3
@@ -67,21 +67,28 @@ runs:
         restore-keys: |
           yarn-download-cache-
 
-    - name: ♻️ Restore yarn install state
-      if: inputs.cache-install-state == 'true'
-      id: yarn-install-state-cache
-      uses: actions/cache@v3
-      with:
-        path: .yarn/ci-cache/
-        key: yarn-install-state-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
-
     - name: ♻️ Restore node_modules
       if: inputs.cache-node-modules == 'true'
       id: yarn-nm-cache
       uses: actions/cache@v3
       with:
         path: '**/node_modules'
-        key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+        key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+
+    - name: ♻️ Restore yarn install state
+      if: inputs.cache-install-state == 'true' && inputs.cache-node-modules == 'true'
+      id: yarn-install-state-cache
+      uses: actions/cache@v3
+      with:
+        path: .yarn/ci-cache/
+        key: yarn-install-state-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+
+    - name: Debug caches
+      shell: bash
+      run: |
+        echo "OS: ${{ runner.os }}"
+        echo "CURRENT_NODE_VERSION: ${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}"
+        echo "CURRENT_BRANCH: ${{ steps.yarn-config.outputs.CURRENT_BRANCH }}"
 
     - name: 📥 Install dependencies
       shell: bash
@@ -89,8 +96,8 @@ runs:
       env:
         # Overrides/align yarnrc.yml options (v3, v4) for a CI context
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
-        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Very small speedup when lock does not change
+        YARN_NM_MODE: 'hardlinks-local' # harlinks-local for ci
+        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Speedup on resolution step if cache hit
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
