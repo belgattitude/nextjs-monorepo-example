@@ -9,7 +9,6 @@
 #        uses: ./.github/actions/yarn-nm-install                                       #
 #        with:                                                                         #
 #          enable-corepack: false # (default)                                          #
-#          cache-install-state: true # (default)                                       #
 #          cache-node-modules: true # (default, set false if slower action/cache)      #
 #                                                                                      #
 # Reference:                                                                           #
@@ -23,10 +22,6 @@ inputs:
     description: 'Enable corepack'
     required: false
     default: 'false'
-  cache-install-state:
-    description: 'Cache yarn install state (invalidated lock/os/node-version/branch)'
-    required: false
-    default: 'true'
   cache-node-modules:
     description: 'Cache node_modules (invalidated on os/lock/node-version/branch)'
     required: false
@@ -69,7 +64,7 @@ runs:
           yarn-download-cache-
 
     - name: ♻️ Restore yarn install state
-      if: inputs.cache-install-state == 'true'
+      if: inputs.cache-install-state == 'true' && inputs.cache-node-modules == 'true'
       id: yarn-install-state-cache
       uses: actions/cache@v3
       with:
