@@ -3,8 +3,9 @@ import {
   getIoRedisOptionsFromDsn,
   IoRedisCacheAdapter,
 } from '@soluble/cache-ioredis';
+import { validatedServerEnv } from '@/config/validated-server-env.mjs';
 
-const appCacheDsn = process.env?.APP_CACHE_DSN ?? null;
+const appCacheDsn = validatedServerEnv.APP_CACHE_DSN ?? null;
 
 export const appCache = !appCacheDsn
   ? new MapCacheAdapter()
