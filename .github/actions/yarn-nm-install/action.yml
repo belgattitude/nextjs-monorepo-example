@@ -57,7 +57,7 @@ runs:
       run: |
         echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         echo "CURRENT_NODE_VERSION="node-$(node --version | cut -d . -f 1  | sed 's/[^0-9]*//g')".x" >> $GITHUB_OUTPUT
-        echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
+        echo "CURRENT_BRANCH=$(echo ${ github.head_ref })" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore yarn cache
       uses: actions/cache@v3
@@ -87,7 +87,7 @@ runs:
     - name: Debug caches
       shell: bash
       run: |
-        echo "OS: ${{ matrix.os }}"
+        echo "OS: ${{ runner.os }}"
         echo "CURRENT_NODE_VERSION: ${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}"
         echo "CURRENT_BRANCH: ${{ steps.yarn-config.outputs.CURRENT_BRANCH }}"
         echo "Install state cache"
@@ -99,8 +99,8 @@ runs:
       env:
         # Overrides/align yarnrc.yml options (v3, v4) for a CI context
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
-        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Very small speedup when lock does not change
+        YARN_NM_MODE: 'hardlinks-local' # harlinks-local for ci
+        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Speedup on resolution step if cache hit
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
