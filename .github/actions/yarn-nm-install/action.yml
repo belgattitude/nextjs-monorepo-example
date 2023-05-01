@@ -57,6 +57,7 @@ runs:
       run: |
         echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         echo "CURRENT_NODE_VERSION="node-$(node --version | cut -d . -f 1  | sed 's/[^0-9]*//g')".x" >> $GITHUB_OUTPUT
+        echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore yarn cache
       uses: actions/cache@v3
@@ -73,7 +74,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: .yarn/ci-cache/
-        key: yarn-install-state-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+        key: yarn-install-state-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: ♻️ Restore node_modules
       if: inputs.cache-node-modules == 'true'
