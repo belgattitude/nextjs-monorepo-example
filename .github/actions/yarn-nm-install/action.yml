@@ -96,7 +96,7 @@ runs:
       env:
         # Overrides/align yarnrc.yml options (v3, v4) for a CI context
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
-        YARN_NM_MODE: 'hardlinks-local' # harlinks-local for ci
+        YARN_NM_MODE: 'hardlinks-local' # hardlinks-local for ci
         YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Speedup on resolution step if cache hit
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
