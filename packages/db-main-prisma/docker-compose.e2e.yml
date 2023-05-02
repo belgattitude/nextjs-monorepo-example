@@ -12,6 +12,15 @@ services:
       - POSTGRES_DB=e2edb
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
     volumes:
       - e2e_db_data:/var/lib/postgresql/data:rw
 
