@@ -48,7 +48,7 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       - name: 🏁 Start postgresql
-        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+        run: docker-compose -f docker-compose.e2e.yml up --wait ${{ matrix.database }} --detach
 
       - name: 🧪 E2E prisma
         run: yarn test-e2e
