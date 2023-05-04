@@ -29,14 +29,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: apps/nextjs-app
-
     strategy:
       matrix:
         node-version: [18.x]
+    env:
+      TURBO_API: 'http://127.0.0.1:9080'
+      TURBO_TEAM: 'nextjs-monorepo-example'
+      TURBO_TOKEN: 'local_server_turbo_relaxed_token'
+
     steps:
       - uses: actions/checkout@v3
 
@@ -44,6 +47,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: ⏩ TurboRepo local server
+        uses: felixmosh/turborepo-gh-artifacts@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          server-token: ${{ env.TURBO_TOKEN }}
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
