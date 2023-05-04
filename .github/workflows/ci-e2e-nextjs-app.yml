@@ -60,7 +60,7 @@ jobs:
 
       - name: 🏁 Start database
         working-directory: packages/db-main-prisma
-        run: docker-compose -f docker-compose.e2e.yml up --detach ${{ matrix.database }}
+        run: docker compose -f docker-compose.e2e.yml up ${{ matrix.database }} --wait --detach
 
       - name: 🌱 Create and seed test db schema
         working-directory: packages/db-main-prisma
