@@ -1,5 +1,4 @@
-version: '3.8'
-
+name: nextjs-monorepo-example-db-main-prisma-e2e
 services:
   e2e-postgres:
     container_name: db-main-prisma-e2e-postgresql
@@ -13,16 +12,12 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
     healthcheck:
-      test:
-        [
-          'CMD-SHELL',
-          "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'",
-        ]
-      interval: 10s
-      timeout: 3s
-      retries: 3
-    volumes:
-      - e2e_db_data:/var/lib/postgresql/data:rw
-
-volumes:
-  e2e_db_data:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    #volumes:
+    # Do not persist volumes for e2e
+    #- e2e_db_data:/var/lib/postgresql/data:rw
+#volumes:
+#e2e_db_data:
