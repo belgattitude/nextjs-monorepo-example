@@ -29,11 +29,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: apps/nextjs-app
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -44,6 +42,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: 🔽 TurboRepo local server
+        uses: felixmosh/turborepo-gh-artifacts@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
