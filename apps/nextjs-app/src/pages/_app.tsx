@@ -1,4 +1,5 @@
 import type { EmotionCache } from '@emotion/cache';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
@@ -20,10 +21,7 @@ import '@fontsource/inter/700.css';
 // @link https://fontsource.org/docs/variable-fonts
 import '@fontsource/inter/variable.css';
 
-// Workaround for https://github.com/zeit/next.js/issues/8592
 export type MyAppProps = AppProps & {
-  /** Will be defined only is there was an error */
-  err?: Error;
   emotionCache?: EmotionCache;
 };
 
@@ -31,14 +29,14 @@ export type MyAppProps = AppProps & {
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
 const MyApp = (appProps: MyAppProps) => {
-  const { Component, pageProps, err, emotionCache } = appProps;
+  const { Component, pageProps, emotionCache } = appProps;
   return (
     <AppProviders emotionCache={emotionCache}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      {/* Workaround for https://github.com/vercel/next.js/issues/8592 */}
-      <Component {...pageProps} err={err} />
+      <Component {...pageProps} />
+      <Analytics />
     </AppProviders>
   );
 };
