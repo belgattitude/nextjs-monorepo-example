@@ -72,5 +72,7 @@ jobs:
       - name: 🏗 Run build
         run: yarn turbo build --filter="./packages/*"
 
-      - name: 🧐 Run storybook build for changed packages
+      - name: 🧐 Build storybook
         run: yarn turbo build-storybook --filter="./packages/*"
+        env:
+          STORYBOOK_DISABLE_TELEMETRY: 1
