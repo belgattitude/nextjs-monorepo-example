@@ -4,7 +4,7 @@
 /**
  * @type {{mono: string[], sans: string[], serif: string[]}}
  */
-const browserFonts = {
+export const browserFonts = {
   sans: [
     'ui-sans-serif',
     'system-ui',
@@ -39,8 +39,4 @@ const browserFonts = {
     'Courier New',
     'monospace',
   ],
-};
-
-module.exports = {
-  browserFonts: browserFonts,
 };
