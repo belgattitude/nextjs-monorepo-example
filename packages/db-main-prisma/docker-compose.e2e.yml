@@ -8,17 +8,16 @@ services:
         published: 5432
         protocol: tcp
     environment:
-      - POSTGRES_DB=e2edb
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_INITDB_ARGS='--locale-provider=icu --icu-locale=en --no-sync'
+      POSTGRES_DB: e2edb
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_INITDB_ARGS: '--locale-provider=icu --icu-locale=en-US --no-sync'
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 2s
       timeout: 5s
       retries: 5
-    #volumes:
-    # Do not persist volumes for e2e
-    #- e2e_db_data:/var/lib/postgresql/data:rw
-#volumes:
-#e2e_db_data:
+    volumes:
+      - e2e_db_data:/var/lib/postgresql/data:rw
+volumes:
+  e2e_db_data:
