@@ -33,7 +33,7 @@
     "test": "yarn test-unit",
     "test-e2e": "cross-env E2E_WEBSERVER_MODE=BUILD_AND_START playwright test",
     "test-unit": "vitest run",
-    "test-unit-jest": "jest --config ./jest.config.js",
+    "test-unit-jest": "jest --config ./jest.config.cjs",
     "test-unit-watch": "vitest watch --ui",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
     "vercel-build": "yarn share-static-hardlink && next build"
