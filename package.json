@@ -48,7 +48,7 @@
     "g:build-changed": "yarn workspaces foreach --topological-dev --no-private -v --since=origin/main run build",
     "g:changeset": "changeset",
     "g:check-dist": "yarn workspaces foreach -ptv run check-dist",
-    "g:clean": "yarn clean:global-cache && yarn workspaces foreach -ptv run clean",
+    "g:clean": "yarn clean:global-cache && rimraf ./out && yarn workspaces foreach -ptv run clean",
     "g:codegen": "yarn workspaces foreach -ptv run codegen",
     "g:fix-all-files": "yarn workspaces foreach -ptv run fix-all-files",
     "g:lint": "yarn workspaces foreach -ptv run lint --color",
