@@ -13,7 +13,7 @@ services:
       POSTGRES_DB: e2edb
       POSTGRES_INITDB_ARGS: '--locale-provider=icu --icu-locale=en-US --no-sync'
     healthcheck:
-      test: ['CMD-SHELL', "sh -c 'pg_isready -U ${POSTGRES_USER}'"]
+      test: ['CMD-SHELL', "sh -c 'pg_isready -U postgres -d e2edb'"]
       interval: 2s
       timeout: 5s
       retries: 5
