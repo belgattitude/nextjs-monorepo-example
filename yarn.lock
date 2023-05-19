@@ -7902,7 +7902,7 @@ __metadata:
     rimraf: "npm:5.0.1"
     ts-jest: "npm:29.1.0"
     tsup: "npm:6.7.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
   peerDependencies:
     graphql: ^16.6.0
   languageName: unknown
@@ -7919,7 +7919,7 @@ __metadata:
     eslint: "npm:8.40.0"
     prettier: "npm:2.8.8"
     rimraf: "npm:5.0.1"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
   languageName: unknown
   linkType: soft
 
@@ -7950,7 +7950,7 @@ __metadata:
     rimraf: "npm:5.0.1"
     ts-jest: "npm:29.1.0"
     tsup: "npm:6.7.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-tsconfig-paths: "npm:4.2.0"
     vitest: "npm:0.31.1"
@@ -7989,7 +7989,7 @@ __metadata:
     transliteration: "npm:2.3.5"
     tsup: "npm:6.7.0"
     tsx: "npm:3.12.7"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-tsconfig-paths: "npm:4.2.0"
     vitest: "npm:0.31.1"
@@ -8034,7 +8034,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.1"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
   peerDependencies:
     eslint: ^8.22.0
     prettier: ^2.7.0
@@ -8073,7 +8073,7 @@ __metadata:
     ts-jest: "npm:29.1.0"
     tslib: "npm:2.5.2"
     tsup: "npm:6.7.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-tsconfig-paths: "npm:4.2.0"
     vitest: "npm:0.31.1"
@@ -8122,7 +8122,7 @@ __metadata:
     tailwindcss: "npm:3.3.2"
     ts-jest: "npm:29.1.0"
     tsup: "npm:6.7.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-tsconfig-paths: "npm:4.2.0"
   peerDependencies:
@@ -17760,7 +17760,7 @@ __metadata:
     tailwindcss: "npm:3.3.2"
     ts-jest: "npm:29.1.0"
     type-fest: "npm:3.10.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-plugin-svgr: "npm:3.2.0"
     vite-tsconfig-paths: "npm:4.2.0"
@@ -17792,7 +17792,7 @@ __metadata:
     shell-quote: "npm:1.8.1"
     syncpack: "npm:9.8.6"
     turbo: "npm:1.9.7"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
   languageName: unknown
   linkType: soft
 
@@ -20600,7 +20600,7 @@ __metadata:
     stylelint-config-standard: "npm:33.0.0"
     tailwindcss: "npm:3.3.2"
     ts-jest: "npm:29.1.0"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
   languageName: unknown
   linkType: soft
 
@@ -23175,7 +23175,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.0.4, typescript@npm:^4.6.4 || ^5.0.0, typescript@npm:^5.0.4":
+"typescript@npm:5.1.1-rc":
+  version: 5.1.1-rc
+  resolution: "typescript@npm:5.1.1-rc"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: cc6113a48343f9ad1d8f4eb756c53906843b870ce0c65087152e4e3a1851084f4501b558b010b77b82a83dea7ddad6145db20cb4c90b83c0d3cdefef791b0c0b
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^4.6.4 || ^5.0.0, typescript@npm:^5.0.4":
   version: 5.0.4
   resolution: "typescript@npm:5.0.4"
   bin:
@@ -23185,7 +23195,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.6.4 || ^5.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.1.1-rc#optional!builtin<compat/typescript>":
+  version: 5.1.1-rc
+  resolution: "typescript@patch:typescript@npm%3A5.1.1-rc#optional!builtin<compat/typescript>::version=5.1.1-rc&hash=77c9e2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f2f96e667bce51b7a05f8388b3f64f17acaf7207faebc0a59b7c8dc1c58b193d71541bd61f2a17cdcb378b455185a32fa5950972034bae4706c9f81f50c36b42
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^4.6.4 || ^5.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>":
   version: 5.0.4
   resolution: "typescript@patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"
   bin:
@@ -23757,7 +23777,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.1"
-    typescript: "npm:5.0.4"
+    typescript: "npm:5.1.1-rc"
     vite: "npm:4.3.8"
     vite-plugin-svgr: "npm:3.2.0"
     vite-tsconfig-paths: "npm:4.2.0"
