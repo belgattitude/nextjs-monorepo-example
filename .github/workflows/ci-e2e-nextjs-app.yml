@@ -43,6 +43,8 @@ jobs:
       TURBO_API: 'http://127.0.0.1:9080'
       TURBO_TEAM: 'nextjs-monorepo-example'
       TURBO_TOKEN: 'local_server_turbo_relaxed_token'
+      PRISMA_DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public'
+      CI: 1
 
     steps:
       - uses: actions/checkout@v3
@@ -77,8 +79,6 @@ jobs:
         run: |
           yarn prisma db push
           yarn prisma db seed
-        env:
-          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
 
       - name: 🏗 Build nextjs-app
         working-directory: apps/nextjs-app
@@ -96,12 +96,13 @@ jobs:
         uses: ./.github/actions/playwright-install
 
       - name: 🧪 E2E run nextjs-app playwright tests
-        working-directory: apps/nextjs-app
-        run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
-        env:
-          E2E_WEBSERVER_MODE: BUILD_AND_START
-          CI: 1
-          PRISMA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/webapp-e2e?schema=public
+        uses: BerniWittmann/background-server-action@v1
+        with:
+          cwd: apps/nextjs-app
+          command: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- yarn test-e2e
+          start: yarn run start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 30
 
       - uses: actions/upload-artifact@v3
         if: always()
