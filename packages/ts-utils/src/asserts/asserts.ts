@@ -53,7 +53,7 @@ export function assertSafeInteger(
   if (typeof v !== 'number' || !Number.isSafeInteger(v)) {
     throw createAssertException(
       msgOrErrorFactory,
-      'Value is not a safe integer BILOUTEBILL'
+      'Value is not a safe integer'
     );
   }
 }

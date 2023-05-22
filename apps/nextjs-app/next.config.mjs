@@ -8,15 +8,20 @@ import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/pla
 import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
+import { getValidatedServerEnv } from './src/config/validated-server-env.mjs';
 
 // @ts-ignore
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
+
+// validate server env
+getValidatedServerEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
   '..',
   '..'
 );
+
 /**
  * Once supported replace by node / eslint / ts and out of experimental, replace by
  * `import packageJson from './package.json' assert { type: 'json' };`
@@ -31,6 +36,10 @@ const trueEnv = ['true', '1', 'yes'];
 const isProd = process.env.NODE_ENV === 'production';
 const isCI = trueEnv.includes(process.env?.CI ?? 'false');
 const enableCSP = true;
+
+const NEXTJS_STANDALONE = trueEnv.includes(
+  process.env?.NEXTJS_STANDALONE ?? 'false'
+);
 
 const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
@@ -205,12 +214,13 @@ const nextConfig = {
 
   // Standalone build
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  output: 'standalone',
-  outputFileTracing: true,
+  ...(NEXTJS_STANDALONE
+    ? { output: 'standalone', outputFileTracing: true }
+    : {}),
 
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: workspaceRoot,
+    ...(NEXTJS_STANDALONE ? { outputFileTracingRoot: workspaceRoot } : {}),
 
     // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
     // to keep lambdas sizes / docker images low when vercel/nft isn't able to
@@ -305,7 +315,7 @@ const nextConfig = {
       })
     );
 
-    // Nex with Prisma 4.11.0 (helps standalone build in monorepos)
+    // Nextjs with Prisma 4.11.0+ (helps standalone build in monorepos)
     // https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo
     if (isServer) {
       config.plugins.push(new PrismaPlugin());
@@ -339,6 +349,7 @@ const nextConfig = {
 let config = nextConfig;
 
 if (!NEXTJS_DISABLE_SENTRY) {
+  // @ts-ignore cause sentry is not always following nextjs types
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
     // the following options are set automatically, and overriding them is not

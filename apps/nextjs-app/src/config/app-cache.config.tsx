@@ -4,7 +4,7 @@ import {
   IoRedisCacheAdapter,
 } from '@soluble/cache-ioredis';
 
-const appCacheDsn = process.env?.APP_CACHE_DSN ?? null;
+const appCacheDsn = process.env.APP_CACHE_DSN ?? null;
 
 export const appCache = !appCacheDsn
   ? new MapCacheAdapter()

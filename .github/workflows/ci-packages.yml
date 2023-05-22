@@ -29,17 +29,23 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+    env:
+      TURBO_API: 'http://127.0.0.1:9080'
+      TURBO_TEAM: 'nextjs-monorepo-example'
+      TURBO_TOKEN: 'local_server_turbo_relaxed_token'
     steps:
       - uses: actions/checkout@v3
-        with:
-          # Fetch all git history so that yarn workspaces --since can compare with the correct commits
-          # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
-          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: ⏩ TurboRepo local server
+        uses: felixmosh/turborepo-gh-artifacts@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          server-token: ${{ env.TURBO_TOKEN }}
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
@@ -50,10 +56,7 @@ jobs:
           path: |
             ${{ github.workspace }}/.cache
             ${{ github.workspace }}/**/tsconfig.tsbuildinfo
-
-          key: ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('packages/**.[jt]sx?', 'packages/**.json') }}
-          restore-keys: |
-            ${{ runner.os }}-packages-cache-${{ hashFiles('**/yarn.lock') }}-
+          key: packages-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: 🕵️ Typecheck
         run: yarn turbo typecheck --filter="./packages/*"
@@ -69,5 +72,7 @@ jobs:
       - name: 🏗 Run build
         run: yarn turbo build --filter="./packages/*"
 
-      - name: 🧐 Run storybook build for changed packages
+      - name: 🧐 Build storybook
         run: yarn turbo build-storybook --filter="./packages/*"
+        env:
+          STORYBOOK_DISABLE_TELEMETRY: 1
