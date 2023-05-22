@@ -5,6 +5,6 @@ import { browserFonts } from '../shared/browser-fonts';
 
 export const tailwindTheme = {
   fontFamily: {
-    sans: ['InterVariable', ...browserFonts.sans],
+    sans: ['Inter Variable', ...browserFonts.sans],
   },
 };
