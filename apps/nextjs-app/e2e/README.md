@@ -12,7 +12,8 @@ yarn dev
 ## Launch docker
 
 ```bash
-docker run -it --rm --ipc=host --add-host=host.docker.internal:host-gateway -v $PWD:/app -w /app mcr.microsoft.com/playwright:v1.31.0-focal /bin/bash
+export PLAYWRIGHT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')
+docker run -it --rm --ipc=host --add-host=host.docker.internal:host-gateway -v $PWD:/app -w /app mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-focal /bin/bash
 ```
 
 ## In the docker container
