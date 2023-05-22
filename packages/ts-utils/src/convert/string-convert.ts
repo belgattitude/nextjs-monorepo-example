@@ -1,4 +1,4 @@
-import { isParsableNumeric, isParsableSafeInteger } from '../typeguards';
+import { isParsableNumeric, isParsableSafeInteger } from '../typeguards/index';
 
 export function stringToSafeInteger(value: string | unknown): number | null {
   if (!isParsableSafeInteger(value)) {
