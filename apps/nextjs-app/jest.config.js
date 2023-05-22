@@ -1,13 +1,9 @@
 // @ts-check
+import { getTsconfig } from 'get-tsconfig';
+import { pathsToModuleNameMapper } from 'ts-jest';
 
-const { getTsconfig } = require('get-tsconfig');
-const { pathsToModuleNameMapper } = require('ts-jest');
-
-const { getJestCachePath } = require('../../cache.config');
-
-const packageJson = require('./package.json');
-
-const tsConfigFile = './tsconfig.json';
+const tsConfigFile = new URL('./tsconfig.jest.json', import.meta.url).pathname;
+const tsConfigPathsFile = new URL('./tsconfig.json', import.meta.url).pathname;
 
 /**
  * Transform the tsconfig paths into jest compatible one (support extends)
@@ -21,20 +17,20 @@ const getTsConfigBasePaths = (tsConfigFile) => {
   const tsPaths = parsedTsConfig.config.compilerOptions?.paths;
   return tsPaths
     ? pathsToModuleNameMapper(tsPaths, {
-        prefix: '<rootDir>/src',
+        prefix: '<rootDir>/',
       })
     : {};
 };
 
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
-  displayName: `${packageJson.name}:unit`,
-  cacheDirectory: getJestCachePath(packageJson.name),
+  displayName: `nextjs-app:unit`,
   testEnvironment: 'jsdom',
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   verbose: true,
-  rootDir: './',
-  testMatch: ['<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'],
+  rootDir: './src',
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  testMatch: ['<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   transform: {
     '^.+\\.m?[tj]sx?$': [
       'ts-jest',
@@ -44,13 +40,13 @@ const config = {
     ],
   },
   moduleNameMapper: {
+    '^.+\\.(svg)$': '<rootDir>/../config/tests/ReactSvgrMock.tsx',
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
-    '\\.svg$': '<rootDir>/config/tests/ReactSvgrMock.tsx',
-    ...getTsConfigBasePaths(tsConfigFile),
+    ...getTsConfigBasePaths(tsConfigPathsFile),
   },
   // false by default, overrides in cli, ie: yarn test:unit --collect-coverage=true
   collectCoverage: false,
-  coverageDirectory: '<rootDir>/coverage',
+  coverageDirectory: '<rootDir>/../coverage',
   collectCoverageFrom: [
     '<rootDir>/**/*.{ts,tsx,js,jsx}',
     '!**/*.test.{js,ts}',
@@ -58,4 +54,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;
