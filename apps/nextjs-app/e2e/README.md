@@ -13,7 +13,7 @@ yarn dev
 
 ```bash
 export PLAYWRIGHT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')
-docker run -it --rm --ipc=host --add-host=host.docker.internal:host-gateway -v $PWD:/app -w /app mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-focal /bin/bash
+docker run -it --rm --ipc=host --add-host=host.docker.internal:host-gateway -v $PWD:/app -w /app mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-jammy /bin/bash
 ```
 
 ## In the docker container
