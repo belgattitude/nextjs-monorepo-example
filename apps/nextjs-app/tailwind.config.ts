@@ -1,10 +1,9 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import { tailwindTheme } from './src/themes/tailwind/tailwind.theme'; // sharedTheme = require('./src/themes/tailwind/tailwind.theme');
-import { tailwindV3Colors } from './src/themes/shared/colors';
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import { tailwindV3Colors } from './src/themes/shared/colors';
+import { tailwindTheme } from './src/themes/tailwind/tailwind.theme'; // sharedTheme = require('./src/themes/tailwind/tailwind.theme');
 
-/** @type {import('tailwindcss').Config} */
-const tailwindConfig = {
+const tailwindConfig: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
