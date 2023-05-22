@@ -12,14 +12,7 @@ import { AppProviders } from '../AppProviders';
  */
 import '../styles/global.css';
 
-/**
- * Local fonts
- * @link https://fontsource.org/docs/guides/nextjs
- */
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/700.css';
-// @link https://fontsource.org/docs/variable-fonts
-import '@fontsource/inter/variable.css';
+import '@fontsource-variable/inter';
 
 export type MyAppProps = AppProps & {
   emotionCache?: EmotionCache;
