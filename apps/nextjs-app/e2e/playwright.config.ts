@@ -3,14 +3,12 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 
-const isCI = ['true', '1'].includes(process.env?.CI ?? '');
-
-const outputDir = new URL('./e2e/.out', import.meta.url).pathname;
-const testDir = new URL('e2e', import.meta.url).pathname;
-
 // Reference: https://playwright.dev/docs/test-configuration
+/**
+ * @type {Partial<import('@playwright/test').PlaywrightTestConfig>}
+ */
 const config: PlaywrightTestConfig = {
-  testDir: testDir,
+  testDir: '.',
   timeout: 6_000,
   /* Maximum time one test can run for. */
   /* Opt out of parallel tests on CI. */
@@ -19,19 +17,18 @@ const config: PlaywrightTestConfig = {
   outputDir: `./output`,
   preserveOutput: 'always',
   reporter: [
-    isCI ? ['github'] : ['list'],
-    ['json', { outputFile: `${outputDir}/reports/test-results.json` }],
+    ['json', { outputFile: `./.out/reports/test-results.json` }],
     [
       'html',
       {
-        outputFolder: `${outputDir}/reports/html`,
-        open: isCI ? 'never' : 'on-failure',
+        outputFolder: `./.out/reports/html`,
+        open: 'on-failure',
       },
     ],
   ],
 
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://host.docker.internal:3000',
     headless: true,
     // Retry a test if it's failing with enabled tracing. This allows you to analyse the DOM, console logs, network traffic etc.
     // More information: https://playwright.dev/docs/trace-viewer

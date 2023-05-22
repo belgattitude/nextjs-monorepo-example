@@ -1,10 +1,10 @@
 // @ts-check
 // Keep this file as '.js' as it's included in tailwind.config.js
 
-const { browserFonts } = require('../shared/browser-fonts');
+import { browserFonts } from '../shared/browser-fonts';
 
-module.exports = {
+export const tailwindTheme = {
   fontFamily: {
-    sans: ['InterVariable', ...browserFonts.sans],
+    sans: ['Inter Variable', ...browserFonts.sans],
   },
 };

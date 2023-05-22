@@ -46,6 +46,12 @@ module.exports = {
       },
     },
     {
+      files: ['tailwind.config.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
+    },
+    {
       files: ['src/pages/\\_*.{ts,tsx}'],
       rules: {
         'react/display-name': 'off',

@@ -1,4 +1,4 @@
-import { getRandomInt } from '../random';
+import { getRandomInt } from '../random/index';
 
 export class ArrayUtils {
   static getRandom<T>(items: T[]): T {
