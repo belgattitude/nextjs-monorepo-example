@@ -17,9 +17,6 @@ import {
   EmotionStyleServerContext,
 } from '@/lib/emotion';
 
-// eslint-disable-next-line import/no-unresolved, @typescript-eslint/no-unused-vars
-import tailwind from './tailwind.css';
-
 const Container = styled('div')`
   background-color: #ff0000;
   padding: 1em;
