@@ -112,7 +112,3 @@ runs:
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
         HUSKY: '0' # By default do not run HUSKY install
 
-    - name: 📥 Post generate prisma
-      if: inputs.skip-prisma-postinstall-generate == 'true'
-      shell: bash
-      run: ls -la # yarn workspace @your-org/db-main-prisma run prisma generate
