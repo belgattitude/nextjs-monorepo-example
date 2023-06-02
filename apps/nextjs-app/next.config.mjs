@@ -209,7 +209,12 @@ const nextConfig = {
     /* if needed
     "@mui/lab": {
       transform: "@mui/lab/{{member}}"
-    } */
+    },
+    lodash: {
+      transform: 'lodash/{{member}}',
+      preventFullImport: true,
+    },
+    */
   },
 
   // Standalone build
@@ -360,6 +365,7 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // https://github.com/getsentry/sentry-webpack-plugin#options.
     // silent: isProd, // Suppresses all logs
     dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
+    silent: !NEXTJS_SENTRY_DEBUG,
   });
 } else {
   const { sentry, ...rest } = config;
