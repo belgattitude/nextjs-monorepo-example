@@ -81,8 +81,10 @@ export const nextAuthConfig: NextAuthOptions = {
         },
       };
     },
-    // async jwt({ token, user, account, profile, isNewUser }) {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger }) {
+      if (trigger === 'signUp') {
+        // See examples: https://github.com/nextauthjs/next-auth/issues/7658#issuecomment-1565248630
+      }
       if (user) {
         token.role = user.role;
       }
