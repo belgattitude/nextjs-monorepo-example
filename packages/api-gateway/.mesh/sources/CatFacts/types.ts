@@ -9,18 +9,20 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
+  ID: { input: string | number; output: string; }
   /** The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text. */
-  String: string;
-  Boolean: boolean;
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
   /** The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. */
-  Int: number;
-  Float: number;
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
   /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  BigInt: bigint;
-  ObjMap: any;
+  BigInt: { input: bigint; output: bigint; }
+  ObjMap: { input: any; output: any; }
 };
 
 export type Query = {
@@ -34,40 +36,40 @@ export type Query = {
 
 
 export type QuerygetBreedsArgs = {
-  limit?: InputMaybe<Scalars['BigInt']>;
+  limit?: InputMaybe<Scalars['BigInt']['input']>;
 };
 
 
 export type QuerygetRandomFactArgs = {
-  max_length?: InputMaybe<Scalars['BigInt']>;
+  max_length?: InputMaybe<Scalars['BigInt']['input']>;
 };
 
 
 export type QuerygetFactsArgs = {
-  max_length?: InputMaybe<Scalars['BigInt']>;
-  limit?: InputMaybe<Scalars['BigInt']>;
+  max_length?: InputMaybe<Scalars['BigInt']['input']>;
+  limit?: InputMaybe<Scalars['BigInt']['input']>;
 };
 
 /** Breed */
 export type Breed_model = {
   /** Breed */
-  breed?: Maybe<Scalars['String']>;
+  breed?: Maybe<Scalars['String']['output']>;
   /** Country */
-  country?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']['output']>;
   /** Origin */
-  origin?: Maybe<Scalars['String']>;
+  origin?: Maybe<Scalars['String']['output']>;
   /** Coat */
-  coat?: Maybe<Scalars['String']>;
+  coat?: Maybe<Scalars['String']['output']>;
   /** Pattern */
-  pattern?: Maybe<Scalars['String']>;
+  pattern?: Maybe<Scalars['String']['output']>;
 };
 
 /** CatFact */
 export type CatFact_model = {
   /** Fact */
-  fact?: Maybe<Scalars['String']>;
+  fact?: Maybe<Scalars['String']['output']>;
   /** Length */
-  length?: Maybe<Scalars['Int']>;
+  length?: Maybe<Scalars['Int']['output']>;
 };
 
 export type HTTPMethod =
