@@ -7951,7 +7951,9 @@ __metadata:
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
     "@httpx/exception": "npm:^1.7.2"
+    "@testing-library/dom": "npm:9.3.0"
     "@testing-library/react": "npm:14.0.0"
+    "@testing-library/user-event": "npm:14.4.3"
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@types/react": "npm:18.2.11"
@@ -8057,12 +8059,14 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.1"
+    tailwindcss: "npm:3.3.2"
     typescript: "npm:5.0.4"
   peerDependencies:
     eslint: ^8.22.0
     prettier: ^2.7.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    tailwindcss: ^3.2.2
     typescript: ^4.9.5 || ^5.0.0
   peerDependenciesMeta:
     prettier:
@@ -8070,6 +8074,8 @@ __metadata:
     react:
       optional: true
     react-dom:
+      optional: true
+    tailwindcss:
       optional: true
     typescript:
       optional: true
@@ -8084,7 +8090,6 @@ __metadata:
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@vitest/coverage-istanbul": "npm:0.32.0"
-    "@vitest/ui": "npm:0.32.0"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
     es-check: "npm:7.1.1"
@@ -8118,12 +8123,15 @@ __metadata:
     "@storybook/testing-library": "npm:0.1.0"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.3"
+    "@testing-library/dom": "npm:9.3.0"
     "@testing-library/jest-dom": "npm:5.16.5"
     "@testing-library/react": "npm:14.0.0"
+    "@testing-library/user-event": "npm:14.4.3"
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@types/react": "npm:18.2.11"
     "@types/react-dom": "npm:18.2.4"
+    "@vitest/coverage-istanbul": "npm:0.32.0"
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ts-utils": "workspace:^"
     autoprefixer: "npm:10.4.14"
@@ -8148,11 +8156,12 @@ __metadata:
     typescript: "npm:5.0.4"
     vite: "npm:4.3.9"
     vite-tsconfig-paths: "npm:4.2.0"
+    vitest: "npm:0.32.0"
   peerDependencies:
-    "@emotion/react": ^11.10.6
-    "@emotion/styled": ^11.10.6
-    "@types/react": ^18.0.0
-    "@types/react-dom": ^18.0.0
+    "@emotion/react": ^11.10.8
+    "@emotion/styled": ^11.10.8
+    "@types/react": ^18.2.11
+    "@types/react-dom": ^18.2.4
     react: ^18.2.0
     react-dom: ^18.2.0
   peerDependenciesMeta:
@@ -11262,7 +11271,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enquirer@npm:^2.3.0":
+"enquirer@npm:2.3.6, enquirer@npm:^2.3.0":
   version: 2.3.6
   resolution: "enquirer@npm:2.3.6"
   dependencies:
@@ -13253,6 +13262,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:10.2.6, glob@npm:^10.2.5":
+  version: 10.2.6
+  resolution: "glob@npm:10.2.6"
+  dependencies:
+    foreground-child: "npm:^3.1.0"
+    jackspeak: "npm:^2.0.3"
+    minimatch: "npm:^9.0.1"
+    minipass: "npm:^5.0.0 || ^6.0.2"
+    path-scurry: "npm:^1.7.0"
+  bin:
+    glob: dist/cjs/src/bin.js
+  checksum: edd296a1a24718a94543a8b7b71b182c137e7d07b680a6814584fb56ad352dc6bb57da49c27b5e42c3ac74d6d8cad9c38f04b02f6694403c229110508be1fc94
+  languageName: node
+  linkType: hard
+
 "glob@npm:7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
@@ -13281,34 +13305,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:8.1.0, glob@npm:^8.0.1, glob@npm:^8.0.3, glob@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "glob@npm:8.1.0"
-  dependencies:
-    fs.realpath: "npm:^1.0.0"
-    inflight: "npm:^1.0.4"
-    inherits: "npm:2"
-    minimatch: "npm:^5.0.1"
-    once: "npm:^1.3.0"
-  checksum: b2d53aa8d54a3e5b3998f52e72140deea385d292a68719144cda70148c335aa956bd03a643f50f6e4f685ee40ae538ee62a96278cc7b797f731a50a3babfcf63
-  languageName: node
-  linkType: hard
-
-"glob@npm:^10.2.5":
-  version: 10.2.5
-  resolution: "glob@npm:10.2.5"
-  dependencies:
-    foreground-child: "npm:^3.1.0"
-    jackspeak: "npm:^2.0.3"
-    minimatch: "npm:^9.0.0"
-    minipass: "npm:^5.0.0 || ^6.0.2"
-    path-scurry: "npm:^1.7.0"
-  bin:
-    glob: dist/cjs/src/bin.js
-  checksum: 065a3c0d9b91b32c55d987f4c3b99d5dd2bf35cc7574d13ad4329ef0d9aee3daf8c633a15bdb56fe422d5cb27e6bbc0f65a16b4bdedf54ed779bd98e27edf428
-  languageName: node
-  linkType: hard
-
 "glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.0":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
@@ -13320,6 +13316,19 @@ __metadata:
     once: "npm:^1.3.0"
     path-is-absolute: "npm:^1.0.0"
   checksum: c55966a5db7ed2f30976a1490f3165f9d4e20ac7cabf01b55da4cc4f8f53a4c506e6f427e469c2fbf68636200871f3acf07e159ba6d9b65e7386216b98474a34
+  languageName: node
+  linkType: hard
+
+"glob@npm:^8.0.1, glob@npm:^8.0.3, glob@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "glob@npm:8.1.0"
+  dependencies:
+    fs.realpath: "npm:^1.0.0"
+    inflight: "npm:^1.0.4"
+    inherits: "npm:2"
+    minimatch: "npm:^5.0.1"
+    once: "npm:^1.3.0"
+  checksum: b2d53aa8d54a3e5b3998f52e72140deea385d292a68719144cda70148c335aa956bd03a643f50f6e4f685ee40ae538ee62a96278cc7b797f731a50a3babfcf63
   languageName: node
   linkType: hard
 
@@ -17170,12 +17179,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:6.2.0":
-  version: 6.2.0
-  resolution: "minimatch@npm:6.2.0"
+"minimatch@npm:9.0.1, minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "minimatch@npm:9.0.1"
   dependencies:
     brace-expansion: "npm:^2.0.1"
-  checksum: fbe404ebd5faa0cb1e74d116efa906e4e5e5d9ed2c2ae4d2521073f7319e77c5942a7be25012a187f415c71b43610a840ef874aac33a1583edd6f391f32a48a6
+  checksum: 6648745fd9fc8d5870d59d4fde5defd9d4cb3d44cbb6831e97e103c43f1d9bf5fcc24cea54e9e3bf09eac7e002cce200cc295e30c84180198970a0bed369f037
   languageName: node
   linkType: hard
 
@@ -17194,15 +17203,6 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 0c0446ede579b1736bfea4efb288c2dea17ce80fd0339d00547625ed97a60ed403c7c2fb141211119937a811bc635b3f0f44debeb9d7870b3f58cf0fe78ddccc
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "minimatch@npm:9.0.0"
-  dependencies:
-    brace-expansion: "npm:^2.0.1"
-  checksum: 07983996ed1698bb849aa39b42e295c76255720663ee53e5cf1904a87cf652ba54e038efabe3fa673e8fe2f64ab7872985b27a36da26220a2325162e7bededbe
   languageName: node
   linkType: hard
 
@@ -17775,7 +17775,7 @@ __metadata:
     prettier: "npm:2.8.8"
     rimraf: "npm:5.0.1"
     shell-quote: "npm:1.8.1"
-    syncpack: "npm:9.8.6"
+    syncpack: "npm:10.5.1"
     turbo: "npm:1.10.3"
     typescript: "npm:5.0.4"
   languageName: unknown
@@ -21013,7 +21013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.0, semver@npm:7.x, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.0":
+"semver@npm:7.5.0":
   version: 7.5.0
   resolution: "semver@npm:7.5.0"
   dependencies:
@@ -21021,6 +21021,17 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 4cc7856258319d36c441fb969fa2ee622fa3761ce1b04013ed5d05979adfcf3079f4fc4dff11f9b2588802620d579da2c209a4e26803d9adfbf44b78244b683b
+  languageName: node
+  linkType: hard
+
+"semver@npm:7.5.1, semver@npm:7.x, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.0":
+  version: 7.5.1
+  resolution: "semver@npm:7.5.1"
+  dependencies:
+    lru-cache: "npm:^6.0.0"
+  bin:
+    semver: bin/semver.js
+  checksum: 20fce7894334634f553a64334b21fa2dc7cccd08a5f31122c187f1c1d3e45b8fc47d599d3fa52342c3fb3ee0bd139a8fbd41bc5b9e849ada8f7e7cc91b18a180
   languageName: node
   linkType: hard
 
@@ -22237,29 +22248,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"syncpack@npm:9.8.6":
-  version: 9.8.6
-  resolution: "syncpack@npm:9.8.6"
+"syncpack@npm:10.5.1":
+  version: 10.5.1
+  resolution: "syncpack@npm:10.5.1"
   dependencies:
     chalk: "npm:4.1.2"
     commander: "npm:10.0.1"
     cosmiconfig: "npm:8.1.3"
+    enquirer: "npm:2.3.6"
     fs-extra: "npm:11.1.1"
-    glob: "npm:8.1.0"
-    minimatch: "npm:6.2.0"
+    glob: "npm:10.2.6"
+    minimatch: "npm:9.0.1"
     read-yaml-file: "npm:2.1.0"
-    semver: "npm:7.5.0"
+    semver: "npm:7.5.1"
     tightrope: "npm:0.1.0"
-    zod: "npm:3.21.4"
+    ts-toolbelt: "npm:9.6.0"
   bin:
     syncpack: dist/bin.js
     syncpack-fix-mismatches: dist/bin-fix-mismatches/index.js
     syncpack-format: dist/bin-format/index.js
+    syncpack-lint: dist/bin-lint/index.js
     syncpack-lint-semver-ranges: dist/bin-lint-semver-ranges/index.js
     syncpack-list: dist/bin-list/index.js
     syncpack-list-mismatches: dist/bin-list-mismatches/index.js
+    syncpack-prompt: dist/bin-prompt/index.js
     syncpack-set-semver-ranges: dist/bin-set-semver-ranges/index.js
-  checksum: aeab07bccfd5cec4c8eb61c7a7c7a9f0bea99f7b805b8a1e45b0fa9d3f6604cbc9210cd24f7fe5126f513587fdf9b0ffde71fe64ea15f4b85604743bbabc206c
+  checksum: 5d02c56e89a4f3285e42d13ab0213ed23e6d90485d3001cfa80aa071d2657d6c412caaa7662aa64cb1e367c3d595af33b1d8ec8df91c08f8d325dc6fc57efc61
   languageName: node
   linkType: hard
 
@@ -22790,6 +22804,13 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: c4caff4b9bb7a3a44adbb64a38786ce4203c2ebceb8b5373b504d0826cf047f9f23105767a3e130e2f4078629f592a8332cfd8ee1061b57b7d159de49c7d8f6f
+  languageName: node
+  linkType: hard
+
+"ts-toolbelt@npm:9.6.0":
+  version: 9.6.0
+  resolution: "ts-toolbelt@npm:9.6.0"
+  checksum: db99ff8d9b470cad80d9484b16270bee478f40b7047f117ad7e44ca4077648f0aaf91278f8d317153023374c6a4bbcc6ab3c78f19ad93b88d561454fada42edf
   languageName: node
   linkType: hard
 
