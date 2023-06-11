@@ -7951,7 +7951,9 @@ __metadata:
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
     "@httpx/exception": "npm:^1.7.2"
+    "@testing-library/dom": "npm:9.3.0"
     "@testing-library/react": "npm:14.0.0"
+    "@testing-library/user-event": "npm:14.4.3"
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@types/react": "npm:18.2.11"
@@ -8057,12 +8059,14 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:5.0.1"
+    tailwindcss: "npm:3.3.2"
     typescript: "npm:5.0.4"
   peerDependencies:
     eslint: ^8.22.0
     prettier: ^2.7.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    tailwindcss: ^3.2.2
     typescript: ^4.9.5 || ^5.0.0
   peerDependenciesMeta:
     prettier:
@@ -8070,6 +8074,8 @@ __metadata:
     react:
       optional: true
     react-dom:
+      optional: true
+    tailwindcss:
       optional: true
     typescript:
       optional: true
@@ -8084,7 +8090,6 @@ __metadata:
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@vitest/coverage-istanbul": "npm:0.32.0"
-    "@vitest/ui": "npm:0.32.0"
     "@your-org/eslint-config-bases": "workspace:^"
     cross-env: "npm:7.0.3"
     es-check: "npm:7.1.1"
@@ -8118,12 +8123,15 @@ __metadata:
     "@storybook/testing-library": "npm:0.1.0"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.3"
+    "@testing-library/dom": "npm:9.3.0"
     "@testing-library/jest-dom": "npm:5.16.5"
     "@testing-library/react": "npm:14.0.0"
+    "@testing-library/user-event": "npm:14.4.3"
     "@types/jest": "npm:29.5.2"
     "@types/node": "npm:20.3.0"
     "@types/react": "npm:18.2.11"
     "@types/react-dom": "npm:18.2.4"
+    "@vitest/coverage-istanbul": "npm:0.32.0"
     "@your-org/eslint-config-bases": "workspace:^"
     "@your-org/ts-utils": "workspace:^"
     autoprefixer: "npm:10.4.14"
@@ -8148,11 +8156,12 @@ __metadata:
     typescript: "npm:5.0.4"
     vite: "npm:4.3.9"
     vite-tsconfig-paths: "npm:4.2.0"
+    vitest: "npm:0.32.0"
   peerDependencies:
-    "@emotion/react": ^11.10.6
-    "@emotion/styled": ^11.10.6
-    "@types/react": ^18.0.0
-    "@types/react-dom": ^18.0.0
+    "@emotion/react": ^11.10.8
+    "@emotion/styled": ^11.10.8
+    "@types/react": ^18.2.11
+    "@types/react-dom": ^18.2.4
     react: ^18.2.0
     react-dom: ^18.2.0
   peerDependenciesMeta:
