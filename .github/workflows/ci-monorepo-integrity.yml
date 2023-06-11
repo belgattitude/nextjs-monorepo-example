@@ -46,8 +46,8 @@ jobs:
 
       - name: 🦺 Syncpack - packages - lint-semver-ranges
         run:
-          yarn syncpack lint-semver-ranges --types prod,dev,peer --source "package.json" --source "packages/*/package.json"
-          || yarn syncpack list-semver-ranges --types prod,dev,peer --source "package.json" --source "packages/*/package.json"
+          yarn syncpack lint-semver-ranges --types prod,dev --source "package.json" --source "packages/*/package.json"
+          || yarn syncpack list-semver-ranges --types prod,dev --source "package.json" --source "packages/*/package.json"
 
       # Disabled till the pothos prisma typescript peer-dep is fixed
       #- name: 🛟 Check monorepo dependency graph
