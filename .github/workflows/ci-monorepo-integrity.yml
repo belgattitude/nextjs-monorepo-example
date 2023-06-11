@@ -39,19 +39,15 @@ jobs:
       - name: 🦺 Check for yarn constraints.pro
         run: yarn constraints
 
-      - name: 🦺 Syncpack lint-semver-ranges
-        continue-on-error: true
-        run: yarn syncpack lint-semver-ranges --source "package.json" --source "apps/*/package.json" --source "packages/*/package.json"
+      - name: 🦺 Syncpack - apps - lint-semver-ranges
+        run:
+          yarn syncpack lint-semver-ranges --types prod,dev --source "package.json" --source "apps/*/package.json"
+          || yarn syncpack list-semver-ranges --types prod,dev --source "package.json" --source "apps/*/package.json"
 
-      - name: 🦺 Show list-semver-ranges if failure
-        if: failure()
-        run: yarn syncpack list-semver-ranges --source "package.json" --source "apps/*/package.json" --source "packages/*/package.json"
-
-      - name: 🦺 Syncpack apps same prod and dev
-        run: yarn syncpack list --types prod,dev --source "package.json" --source "apps/*/package.json"
-
-      - name: 🦺 Syncpack packages same prod, dev, peer
-        run: yarn syncpack list --types prod,dev --source "package.json" --source "packages/*/package.json"
+      - name: 🦺 Syncpack - packages - lint-semver-ranges
+        run:
+          yarn syncpack lint-semver-ranges --types prod,dev,peer --source "package.json" --source "packages/*/package.json"
+          || yarn syncpack list-semver-ranges --types prod,dev,peer --source "package.json" --source "packages/*/package.json"
 
       # Disabled till the pothos prisma typescript peer-dep is fixed
       #- name: 🛟 Check monorepo dependency graph
