@@ -4,6 +4,8 @@
 
 Vercel supports it natively, so there's pretty much nothing to do.
 
+> _Tip_: if you are using corepack, you must set the environment variable `ENABLE_EXPERIMENTAL_COREPACK=1`
+
 ### Install command
 
 On vercel, override the **Install command** with:
