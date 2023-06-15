@@ -18,7 +18,6 @@ export const getServerTranslations = async (
 ): Promise<SSRConfig> => {
   const config = configOverride ?? nextI18nextConfig;
 
-  // Slice needed here cause serverSlideTranslations does not accept Readonly type
   return serverSideTranslations(
     locale,
     namespacesRequired,
