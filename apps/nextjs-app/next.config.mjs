@@ -188,9 +188,9 @@ const nextConfig = {
   // please see https://github.com/vercel/next.js/issues/42837
   transpilePackages: isProd
     ? [
-        // ky is build for modern browsers
         'ky',
-        // example tailwind merge
+        // i18next is build for modern browsers
+        // 'i18next',
         // tailwind-merge contains nullish operator ?.
         // 'tailwind-merge',
       ]
