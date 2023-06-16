@@ -59,7 +59,7 @@
   "scripts": {
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx --fix",
-    "lint": "eslint  --ext .ts,.js,.cjs,.mjs --cache --cache-location ../../.cache/eslint/eslint-config-bases.eslintcache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --cache --cache-location ../../.cache/eslint/eslint-config-bases.eslintcache",
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
