@@ -7,7 +7,7 @@ import type home from './locales/en/home.json';
 import type navigation from './locales/en/navigation.json';
 import type system from './locales/en/system.json';
 
-export interface I18nNamespaces {
+export interface I18nResources {
   admin: typeof admin;
   auth: typeof auth;
   blog: typeof blog;

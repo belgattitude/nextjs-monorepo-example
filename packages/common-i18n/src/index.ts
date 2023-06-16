@@ -1,1 +1,1 @@
-export type { I18nNamespaces } from './I18nNamespaces';
+export type { I18nResources } from './I18nResources.types';
