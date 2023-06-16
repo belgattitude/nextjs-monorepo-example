@@ -190,7 +190,7 @@ const nextConfig = {
     ? [
         'ky',
         // i18next is build for modern browsers
-        //'i18next',
+        // 'i18next',
         // tailwind-merge contains nullish operator ?.
         // 'tailwind-merge',
       ]
