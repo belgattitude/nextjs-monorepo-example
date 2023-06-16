@@ -3,7 +3,7 @@ import { getTsconfig } from 'get-tsconfig';
 import { pathsToModuleNameMapper } from 'ts-jest';
 // import { getJestCachePath } from '../../cache.config';
 
-const tsConfigFile = new URL('./tsconfig.json', import.meta.url).pathname;
+const tsConfigFile = new URL('./tsconfig.jest.json', import.meta.url).pathname;
 
 /**
  * Transform the tsconfig paths into jest compatible one (support extends)
