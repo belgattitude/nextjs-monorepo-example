@@ -1,8 +1,8 @@
 import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getServerTranslations } from '@/backend/i18n/getServerTranslations';
 import { authConfig } from '@/features/auth/auth.config';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
-import { getServerTranslations } from '@/lib/i18n';
 
 type Props = {
   /** Add props here */

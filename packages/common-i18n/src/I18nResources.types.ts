@@ -11,8 +11,8 @@ export interface I18nResources {
   admin: typeof admin;
   auth: typeof auth;
   blog: typeof blog;
-  demo: typeof demo;
   common: typeof common;
+  demo: typeof demo;
   home: typeof home;
   navigation: typeof navigation;
   system: typeof system;

@@ -1,8 +1,8 @@
 import { HttpBadRequest } from '@httpx/exception';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { getServerTranslations } from '@/backend/i18n/getServerTranslations';
 import { homeConfig } from '@/features/home/home.config';
 import { HomePage } from '@/features/home/pages';
-import { getServerTranslations } from '@/lib/i18n';
 
 type Props = {
   /** Add HomeRoute props here */

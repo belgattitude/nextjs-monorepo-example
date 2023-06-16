@@ -1,7 +1,7 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { getServerTranslations } from '@/backend/i18n/getServerTranslations';
 import { NotFoundPage } from '@/features/system/pages';
 import { systemConfig } from '@/features/system/system.config';
-import { getServerTranslations } from '@/lib/i18n';
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale = 'en' } = context;

@@ -36,6 +36,9 @@ export default defineConfig({
       extension: ['js', 'jsx', 'ts', 'tsx'],
     },
     include: testFiles,
+    // you might want to disable it, if you don't have tests that rely on CSS
+    // since parsing CSS is slow
+    css: true,
     // To mimic Jest behaviour regarding mocks.
     // @link https://vitest.dev/config/#clearmocks
     clearMocks: true,

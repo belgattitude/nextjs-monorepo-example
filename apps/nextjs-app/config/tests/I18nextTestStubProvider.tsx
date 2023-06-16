@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import type { FC, ReactNode } from 'react';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
-import type { I18nNamespace } from '@/lib/i18n';
+import type { I18nNamespace } from '@/lib/i18n/I18nNamespace.types';
 
 /**
  * Fully wrapped strategy for i18next, you can use stub/mocks as well

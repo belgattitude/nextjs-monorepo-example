@@ -1,10 +1,15 @@
-import type { I18nActiveNamespaces } from '@/lib/i18n';
+import { getSortedI18nNamespaces } from '@/lib/i18n/getSortedI18nNamespaces';
+
+const i18nNamespaces = getSortedI18nNamespaces([
+  'auth',
+  'common',
+  'navigation',
+]);
 
 export type AuthConfig = {
-  // Define namespaces in use in both the type and the config.
-  i18nNamespaces: I18nActiveNamespaces;
+  i18nNamespaces: typeof i18nNamespaces;
 };
 
 export const authConfig: AuthConfig = {
-  i18nNamespaces: ['common', 'navigation', 'auth'],
+  i18nNamespaces,
 };

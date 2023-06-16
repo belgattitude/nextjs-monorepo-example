@@ -1,10 +1,11 @@
-import type { I18nActiveNamespaces } from '@/lib/i18n';
+import { getSortedI18nNamespaces } from '@/lib/i18n/getSortedI18nNamespaces';
+
+const i18nNamespaces = getSortedI18nNamespaces(['system']);
 
 export type SystemConfig = {
-  // Define namespaces in use in both the type and the config.
-  i18nNamespaces: I18nActiveNamespaces;
+  i18nNamespaces: typeof i18nNamespaces;
 };
 
 export const systemConfig: SystemConfig = {
-  i18nNamespaces: ['system'],
+  i18nNamespaces,
 };
