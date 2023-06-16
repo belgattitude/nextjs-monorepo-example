@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { adminConfig } from '@/features/admin/admin.config';
 import { AdminLayout } from '@/features/admin/layouts';
 import { AdminMainPage } from '@/features/admin/pages';
-import { getServerTranslations } from '@/lib/i18n';
+import { getServerTranslations } from '@/lib/i18n/getServerTranslations';
 
 type Props = {
   /** Add props here */

@@ -2,7 +2,7 @@ import { HttpBadRequest } from '@httpx/exception';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { demoConfig } from '@/features/demo/demo.config';
 import { DemoPage } from '@/features/demo/pages';
-import { getServerTranslations } from '@/lib/i18n';
+import { getServerTranslations } from '@/lib/i18n/getServerTranslations';
 
 type Props = {
   /** Add HomeRoute props here */

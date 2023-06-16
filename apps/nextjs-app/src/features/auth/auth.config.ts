@@ -1,4 +1,4 @@
-import { getSortedI18nNamespaces } from '@/lib/i18n';
+import { getSortedI18nNamespaces } from '@/lib/i18n/getSortedI18nNamespaces';
 
 const i18nNamespaces = getSortedI18nNamespaces([
   'auth',
