@@ -3,29 +3,16 @@
 // @link https://tailwindcss.com/docs/using-with-preprocessors
 
 const isProd = process.env.NODE_ENV === 'production';
-const supportsIE11 = false;
-const enableCssGrid = false;
 
 module.exports = {
   plugins: {
     tailwindcss: {},
     ...(isProd
       ? {
-          'postcss-flexbugs-fixes': {},
           'postcss-preset-env': {
-            autoprefixer: {
-              flexbox: 'no-2009',
-              // https://github.com/postcss/autoprefixer#does-autoprefixer-polyfill-grid-layout-for-ie
-              ...(enableCssGrid
-                ? {
-                    grid: 'autoplace',
-                  }
-                : {}),
-            },
+            // https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#stability-and-portability
             stage: 3,
-            features: {
-              'custom-properties': supportsIE11,
-            },
+            autoprefixer: { grid: true },
           },
         }
       : {}),
