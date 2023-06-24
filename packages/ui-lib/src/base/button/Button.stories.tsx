@@ -7,6 +7,7 @@ import { Button } from './Button';
 export default {
   title: 'Input/Button',
   component: Button,
+  tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
