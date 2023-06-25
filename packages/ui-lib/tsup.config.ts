@@ -8,7 +8,7 @@ export default defineConfig((options) => ({
   dts: true,
   format: ['esm'],
   platform: 'browser',
-  target: ['es2017', 'chrome70', 'edge18', 'firefox70', 'node14'],
+  target: ['es2020', 'chrome70', 'edge18', 'firefox70', 'node18'],
   tsconfig: new URL('./tsconfig.build.json', import.meta.url).pathname,
   sourcemap: !options.watch,
   minify: !options.watch,
