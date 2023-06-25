@@ -8,7 +8,7 @@ export default defineConfig((options) => {
     dts: true,
     format: ['esm'],
     platform: 'node',
-    target: ['node14'],
+    target: ['node18'],
     tsconfig: new URL('./tsconfig.build.json', import.meta.url).pathname,
     sourcemap: !options.watch,
     // Do not minify node only packages to let patching possible by the consumer (ie: patch-package)
