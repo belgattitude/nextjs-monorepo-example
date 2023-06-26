@@ -6922,18 +6922,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.29.15":
-  version: 4.29.15
-  resolution: "@tanstack/query-core@npm:4.29.15"
-  checksum: 3a6309590203b0d03da5b3c1c607d6f969a6948549fb70546d4fe9ec9ce00fc6b6a1e7239ec177e2339ec867b7927f5dd7e46fc74136beb2bb1c444acb56d4aa
+"@tanstack/query-core@npm:4.29.17":
+  version: 4.29.17
+  resolution: "@tanstack/query-core@npm:4.29.17"
+  checksum: 7aaec318176bbe153a4d9f4e245f2c3db797d1367eebeeacb332be2a8d14f5d1626f38df56928a219ab1ac04123623888d897eb972f1e6b053a3e423aa8985de
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:4.29.15":
-  version: 4.29.15
-  resolution: "@tanstack/react-query@npm:4.29.15"
+"@tanstack/react-query@npm:4.29.17":
+  version: 4.29.17
+  resolution: "@tanstack/react-query@npm:4.29.17"
   dependencies:
-    "@tanstack/query-core": "npm:4.29.15"
+    "@tanstack/query-core": "npm:4.29.17"
+    client-only: "npm:0.0.1"
     use-sync-external-store: "npm:^1.2.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -6944,7 +6945,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 41d996ed4c0a8cd54de75e32da8c85a585dc94f6a0077e575c0147b7ba20fceebbae1f23073e07dd1fc69ba7cb140f794813087b5b71eecc71586ce69b9ee5c5
+  checksum: a479435e655557cf7039bc05a477f8bfc094f559da3490c23e7c8cafb9d4e854f0d8f9030c43e3b6fc3e982c5495ca3145ef70af3fb8d27ada70a68fb83b0a71
   languageName: node
   linkType: hard
 
@@ -17956,7 +17957,7 @@ __metadata:
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.3"
     "@tailwindcss/typography": "npm:0.5.9"
-    "@tanstack/react-query": "npm:4.29.15"
+    "@tanstack/react-query": "npm:4.29.17"
     "@testing-library/dom": "npm:9.3.1"
     "@testing-library/jest-dom": "npm:5.16.5"
     "@testing-library/react": "npm:14.0.0"
@@ -20204,6 +20205,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:18.1.0":
+  version: 18.1.0
+  resolution: "react-dom@npm:18.1.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.22.0"
+  peerDependencies:
+    react: ^18.1.0
+  checksum: 64f7d85c50ea702dcaf746af16dd54554aa05847d5915003ea0ea9d8c44bea72c3b96ba8a13341011bb028b6c2d12bd9b1ab7ede0184ca1a63118fcc3bc958dc
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -20385,6 +20398,15 @@ __metadata:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: ca32d3fd2168c976c5d90a317f25d5f5cd723608b415fb3b9006f9d793c8965c619562d0884503a3e44e4b06efbca4fdd1520f30e58ca3e00a0890e637d55419
+  languageName: node
+  linkType: hard
+
+"react@npm:18.1.0":
+  version: 18.1.0
+  resolution: "react@npm:18.1.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: d1ec025276096aa8b87cc4ee95f911612f21c4d54e08a3fdf5a9d3d2242f825142eef300b13f26e17a14a94adcb640f4278ae5b4fe0de3a912adc325434b9a2a
   languageName: node
   linkType: hard
 
@@ -21211,6 +21233,15 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.2.0"
   checksum: 97b50daf6ca3a153e89842efa18a862e446248296622b7473c169c84c823ee8a16e4a43bac2f73f11fc8cb9168c73fbb0d73340f26552bac17970e9052367aa9
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.22.0":
+  version: 0.22.0
+  resolution: "scheduler@npm:0.22.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 6d4753d2710870c71273a4b503fffd2d293f8714b1d32274d08def0377205541309711c13fc4507e9173f16d7e5c1efee731254452ad245eb5681f67b919ef3e
   languageName: node
   linkType: hard
 
@@ -23974,8 +24005,8 @@ __metadata:
     eslint: "npm:8.43.0"
     happy-dom: "npm:9.20.3"
     prettier: "npm:2.8.8"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
+    react: "npm:18.1.0"
+    react-dom: "npm:18.1.0"
     rimraf: "npm:5.0.1"
     typescript: "npm:5.1.3"
     vite: "npm:4.3.9"
