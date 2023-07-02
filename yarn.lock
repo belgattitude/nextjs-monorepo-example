@@ -2821,26 +2821,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@effect/data@npm:0.12.5":
-  version: 0.12.5
-  resolution: "@effect/data@npm:0.12.5"
-  checksum: 69971a520829d2406ed70f28c18ea3d6cc90c2c788491d9dccc90a06a9be6e682488a40036b01aa7bba1876941affe62d0fa9dd1aa2b5d752da3291dfe1cb0dd
+"@effect/data@npm:0.12.9":
+  version: 0.12.9
+  resolution: "@effect/data@npm:0.12.9"
+  checksum: fe74088a52cc92415f260d838fa41a800758da29f066117522d51d3fee653c9ebccb251c4927f1fdd88ce5ec6be2eb64bfb75a11e4f54873e67455ac17079149
   languageName: node
   linkType: hard
 
-"@effect/data@npm:^0.12.6, @effect/data@npm:^0.12.7, @effect/data@npm:~0.12.2, @effect/data@npm:~0.12.6":
+"@effect/data@npm:^0.12.7, @effect/data@npm:^0.12.9, @effect/data@npm:~0.12.6":
   version: 0.12.10
   resolution: "@effect/data@npm:0.12.10"
   checksum: 5cb5d7ae9e375e7d80434488c83223ffd5d983e0c1c1d932b891584abb457bc21e23f575ddcb35636ba8ec04b21ca2951433efbd28bba460cefac390a6b649b2
   languageName: node
   linkType: hard
 
-"@effect/io@npm:0.26.0":
-  version: 0.26.0
-  resolution: "@effect/io@npm:0.26.0"
+"@effect/io@npm:0.27.0":
+  version: 0.27.0
+  resolution: "@effect/io@npm:0.27.0"
   dependencies:
-    "@effect/data": "npm:~0.12.2"
-  checksum: 3a8814c4dd3908bf29f0ed811c1f7a64dc8bf189a6a6d0734ded8b2b04b9bec57d35c4fc28881f7ff7e6fd28da80e11cd44abdbe623b607ca3e62f3bb143da69
+    "@effect/data": "npm:~0.12.6"
+  checksum: 37469631794101ca53fea50116cbcb52e7d8dee5ef57b4604647b8069aa539d392acbb6162189ae3d53250e2dba21583a221e26d5b518aa43e90ba69abcf1f73
   languageName: node
   linkType: hard
 
@@ -2853,17 +2853,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@effect/match@npm:0.24.4":
-  version: 0.24.4
-  resolution: "@effect/match@npm:0.24.4"
+"@effect/io@npm:^0.27.0":
+  version: 0.27.2
+  resolution: "@effect/io@npm:0.27.2"
   dependencies:
-    "@effect/data": "npm:^0.12.6"
-    "@effect/schema": "npm:^0.20.1"
-  checksum: c6938dfcf85c4d6bef517ee6318ce49ecee20cfb0843b639e95281dc042d296312c7c1ecb4fcaeba4a9747b36f01d337114a8790c71d4a3b95f4585395f090e7
+    "@effect/data": "npm:~0.12.6"
+  checksum: 787ee5b750e6ed6583c59151cc42ea84180d82cc0c0ba46673d7618baace029cd01011834e7707548fdb2f41b22c9de84c96a75f3837371e762d1b733d167f60
   languageName: node
   linkType: hard
 
-"@effect/schema@npm:^0.20.1":
+"@effect/match@npm:0.24.5":
+  version: 0.24.5
+  resolution: "@effect/match@npm:0.24.5"
+  dependencies:
+    "@effect/data": "npm:^0.12.9"
+    "@effect/schema": "npm:^0.20.2"
+  checksum: b472456aca387bb4d6c377a626d7431ac35529bfa84881dfa126aa2e43cc4026cf5be63c3d58c413eaf22cb6cb11f1b8f51814676d6e99a6c1554701782c3293
+  languageName: node
+  linkType: hard
+
+"@effect/schema@npm:0.21.0":
+  version: 0.21.0
+  resolution: "@effect/schema@npm:0.21.0"
+  dependencies:
+    "@effect/data": "npm:^0.12.9"
+    "@effect/io": "npm:^0.27.0"
+    fast-check: "npm:^3.10.0"
+  checksum: 8dc36d9c3a19b7916876da2e1693c0d593dcb33376ccb1cf35e56299240583edb829d947b70bfd4d7d1416de16b820bce4caa2cf43ad8cce1bf976f82ad9303c
+  languageName: node
+  linkType: hard
+
+"@effect/schema@npm:^0.20.2":
   version: 0.20.3
   resolution: "@effect/schema@npm:0.20.3"
   dependencies:
@@ -17909,12 +17929,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:9.0.1":
-  version: 9.0.1
-  resolution: "minimatch@npm:9.0.1"
+"minimatch@npm:9.0.2, minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
+  version: 9.0.2
+  resolution: "minimatch@npm:9.0.2"
   dependencies:
     brace-expansion: "npm:^2.0.1"
-  checksum: b4e98f4dc740dcf33999a99af23ae6e5e1c47632f296dc95cb649a282150f92378d41434bf64af4ea2e5975255a757d031c3bf014bad9214544ac57d97f3ba63
+  checksum: b468863a8b5071ffdfd63ad2cbe01c2b708807d80907036102b3c1499502fcc6d8965f571707f8ff820aa23c67784344a77cc2c3e0e9ec7778dab56f76a61595
   languageName: node
   linkType: hard
 
@@ -17933,15 +17953,6 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 126b36485b821daf96d33b5c821dac600cc1ab36c87e7a532594f9b1652b1fa89a1eebcaad4dff17c764dce1a7ac1531327f190fed5f97d8f6e5f889c116c429
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
-  version: 9.0.2
-  resolution: "minimatch@npm:9.0.2"
-  dependencies:
-    brace-expansion: "npm:^2.0.1"
-  checksum: b468863a8b5071ffdfd63ad2cbe01c2b708807d80907036102b3c1499502fcc6d8965f571707f8ff820aa23c67784344a77cc2c3e0e9ec7778dab56f76a61595
   languageName: node
   linkType: hard
 
@@ -18506,7 +18517,7 @@ __metadata:
     prettier: "npm:2.8.8"
     rimraf: "npm:5.0.1"
     shell-quote: "npm:1.8.1"
-    syncpack: "npm:10.6.1"
+    syncpack: "npm:10.7.2"
     turbo: "npm:1.10.7"
     typescript: "npm:5.1.6"
   languageName: unknown
@@ -19043,7 +19054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ora@npm:^5.4.1":
+"ora@npm:5.4.1, ora@npm:^5.4.1":
   version: 5.4.1
   resolution: "ora@npm:5.4.1"
   dependencies:
@@ -20350,7 +20361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prompts@npm:^2.0.1, prompts@npm:^2.4.0":
+"prompts@npm:2.4.2, prompts@npm:^2.0.1, prompts@npm:^2.4.0":
   version: 2.4.2
   resolution: "prompts@npm:2.4.2"
   dependencies:
@@ -22937,22 +22948,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"syncpack@npm:10.6.1":
-  version: 10.6.1
-  resolution: "syncpack@npm:10.6.1"
+"syncpack@npm:10.7.2":
+  version: 10.7.2
+  resolution: "syncpack@npm:10.7.2"
   dependencies:
-    "@effect/data": "npm:0.12.5"
-    "@effect/io": "npm:0.26.0"
-    "@effect/match": "npm:0.24.4"
+    "@effect/data": "npm:0.12.9"
+    "@effect/io": "npm:0.27.0"
+    "@effect/match": "npm:0.24.5"
+    "@effect/schema": "npm:0.21.0"
     chalk: "npm:4.1.2"
     commander: "npm:11.0.0"
     cosmiconfig: "npm:8.2.0"
     enquirer: "npm:2.3.6"
     fs-extra: "npm:11.1.1"
     globby: "npm:11.1.0"
-    minimatch: "npm:9.0.1"
+    minimatch: "npm:9.0.2"
+    ora: "npm:5.4.1"
+    prompts: "npm:2.4.2"
     read-yaml-file: "npm:2.1.0"
-    semver: "npm:7.5.2"
+    semver: "npm:7.5.3"
     tightrope: "npm:0.1.0"
     ts-toolbelt: "npm:9.6.0"
   bin:
@@ -22965,7 +22979,8 @@ __metadata:
     syncpack-list-mismatches: dist/bin-list-mismatches/index.js
     syncpack-prompt: dist/bin-prompt/index.js
     syncpack-set-semver-ranges: dist/bin-set-semver-ranges/index.js
-  checksum: 4279bf99a2dc94004c8dd5bcb4542febe515c18e3295902d2be07e38e67f62f71682119948e3379e8748c33df2820d37880cebcaade9822d1562f8ca40f03a55
+    syncpack-update: dist/bin-update/index.js
+  checksum: 788fcac4046fb664a5859b029d63cb2ce20132d6a09b09b1ca685b10caf69fcc97b74ef630f0dfc1dbe316729695340108fbabd6ea33403c5dd363a2749d0f0e
   languageName: node
   linkType: hard
 
