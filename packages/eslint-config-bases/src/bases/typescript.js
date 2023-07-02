@@ -95,7 +95,7 @@ module.exports = {
       { allow: ['private-constructors'] },
     ],
     '@typescript-eslint/no-unused-vars': [
-      'warn',
+      'error',
       { argsIgnorePattern: '^_', ignoreRestSiblings: true },
     ],
     '@typescript-eslint/consistent-type-exports': 'error',
