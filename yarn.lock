@@ -2489,7 +2489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-parser-algorithms@npm:^2.1.1, @csstools/css-parser-algorithms@npm:^2.2.0, @csstools/css-parser-algorithms@npm:^2.3.0":
+"@csstools/css-parser-algorithms@npm:^2.1.1, @csstools/css-parser-algorithms@npm:^2.3.0":
   version: 2.3.0
   resolution: "@csstools/css-parser-algorithms@npm:2.3.0"
   peerDependencies:
@@ -2505,7 +2505,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/media-query-list-parser@npm:^2.1.0, @csstools/media-query-list-parser@npm:^2.1.2":
+"@csstools/media-query-list-parser@npm:^2.1.2":
   version: 2.1.2
   resolution: "@csstools/media-query-list-parser@npm:2.1.2"
   peerDependencies:
@@ -2802,15 +2802,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.4
   checksum: cb73752b6ccbbbdb0b257be85f173cb7d87a078e5b0128f0e110ea72bfd9ade3243b7ed74e961b5acd8a118935b2e2634a6d31a63d1619949086f6255a46374f
-  languageName: node
-  linkType: hard
-
-"@csstools/selector-specificity@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@csstools/selector-specificity@npm:2.2.0"
-  peerDependencies:
-    postcss-selector-parser: ^6.0.10
-  checksum: 84ae0e902e8879d375406bd7d2e117b862e18cf8e5f82cecad62fcf729a8fc1527e2b3e2774b0e869a17e2006bd27ac5240f79220638183b273aeece97acd3f2
   languageName: node
   linkType: hard
 
@@ -13226,16 +13217,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.9":
-  version: 3.2.12
-  resolution: "fast-glob@npm:3.2.12"
+"fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "fast-glob@npm:3.3.0"
   dependencies:
     "@nodelib/fs.stat": "npm:^2.0.2"
     "@nodelib/fs.walk": "npm:^1.2.3"
     glob-parent: "npm:^5.1.2"
     merge2: "npm:^1.3.0"
     micromatch: "npm:^4.0.4"
-  checksum: 641e748664ae0fdc4dadd23c812fd7d6c80cd92d451571cb1f81fa87edb750e917f25abf74fc9503c97438b0b67ecf75b738bb8e50a83b16bd2a88b4d64e81fa
+  checksum: 4cd74914f13eab48dd1a0d16051aa102c13d30ea8a79c991563ea3111a37ff6d888518964291d52d723e7ad2a946149ce9f13d27ad9a07a1e4e1aefb4717ed29
   languageName: node
   linkType: hard
 
@@ -19860,13 +19851,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-media-query-parser@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "postcss-media-query-parser@npm:0.2.3"
-  checksum: 39f9e9c383ec98d85103c5f3d1eb5a9088a47357ed26d3c7501aeba1302840521cffa1b851bc2d8146f1ccdef263fe3088f4d435bda1c0dc0b6f9387865574c8
-  languageName: node
-  linkType: hard
-
 "postcss-modules-extract-imports@npm:^3.0.0":
   version: 3.0.0
   resolution: "postcss-modules-extract-imports@npm:3.0.0"
@@ -21266,7 +21250,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     remix: "npm:1.18.1"
-    stylelint: "npm:15.9.0"
+    stylelint: "npm:15.10.0"
     stylelint-config-standard: "npm:33.0.0"
     tailwindcss: "npm:3.3.2"
     ts-jest: "npm:29.1.1"
@@ -22721,21 +22705,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:15.9.0":
-  version: 15.9.0
-  resolution: "stylelint@npm:15.9.0"
+"stylelint@npm:15.10.0":
+  version: 15.10.0
+  resolution: "stylelint@npm:15.10.0"
   dependencies:
-    "@csstools/css-parser-algorithms": "npm:^2.2.0"
+    "@csstools/css-parser-algorithms": "npm:^2.3.0"
     "@csstools/css-tokenizer": "npm:^2.1.1"
-    "@csstools/media-query-list-parser": "npm:^2.1.0"
-    "@csstools/selector-specificity": "npm:^2.2.0"
+    "@csstools/media-query-list-parser": "npm:^2.1.2"
+    "@csstools/selector-specificity": "npm:^3.0.0"
     balanced-match: "npm:^2.0.0"
     colord: "npm:^2.9.3"
     cosmiconfig: "npm:^8.2.0"
     css-functions-list: "npm:^3.1.0"
     css-tree: "npm:^2.3.1"
     debug: "npm:^4.3.4"
-    fast-glob: "npm:^3.2.12"
+    fast-glob: "npm:^3.3.0"
     fastest-levenshtein: "npm:^1.0.16"
     file-entry-cache: "npm:^6.0.1"
     global-modules: "npm:^2.0.0"
@@ -22753,7 +22737,6 @@ __metadata:
     normalize-path: "npm:^3.0.0"
     picocolors: "npm:^1.0.0"
     postcss: "npm:^8.4.24"
-    postcss-media-query-parser: "npm:^0.2.3"
     postcss-resolve-nested-selector: "npm:^0.1.1"
     postcss-safe-parser: "npm:^6.0.0"
     postcss-selector-parser: "npm:^6.0.13"
@@ -22768,7 +22751,7 @@ __metadata:
     write-file-atomic: "npm:^5.0.1"
   bin:
     stylelint: bin/stylelint.js
-  checksum: 697d3344c28a8b7fa0db4c40dd87319ad67fd0cd6afbc8598c6cdb974791035fbd9b8918f040bb205492d19aded2590281057dcaa10c5416654deb2ccb8306cf
+  checksum: 6cf1b39bfbae092f8cf94e669df8761faa2672724f410760d7339755b344fb5d03209e6416525d9fa47ef9e35a7eedbd74fa94e63f7660d66bbf8d5b40cba602
   languageName: node
   linkType: hard
 
