@@ -5,12 +5,12 @@ export type AsyncFnParams<TParams> = TParams;
 
 export type AsyncFnWithParams<
   TResult,
-  TParams extends Record<string, unknown>
+  TParams extends Record<string, unknown>,
 > = (variables: TParams) => Promise<TResult>;
 export type AsyncFnWithoutParams<TResult> = () => Promise<TResult>;
 export type AsyncFn<
   TResult,
-  TParams extends Record<string, unknown> = Partial<Record<string, unknown>>
+  TParams extends Record<string, unknown> = Partial<Record<string, unknown>>,
 > = AsyncFnWithParams<TResult, TParams> | AsyncFnWithoutParams<TResult>;
 
 export interface UsePromiseOptions<TResult> {
@@ -21,7 +21,7 @@ const emptyParams = {};
 
 export function usePromise<
   TResult,
-  TVariables extends Record<string, unknown> = Partial<Record<string, unknown>>
+  TVariables extends Record<string, unknown> = Partial<Record<string, unknown>>,
 >(
   promise: AsyncFn<TResult, TVariables>,
   params: AsyncFnParams<TVariables>,
