@@ -24,7 +24,10 @@ export const nextAuthConfig: NextAuthOptions = {
       async authorize(credentials, _req) {
         if (!credentials) throw new HttpUnauthorized('No credentials provided');
         const { username, password } = credentials ?? {};
-        if (username === 'admin' && password === 'demo') {
+        if (
+          ['admin', 'admin@example.com'].includes(username) &&
+          password === 'demo'
+        ) {
           return {
             id: '1',
             name: 'admin',

@@ -1,5 +1,6 @@
 import { useSession } from 'next-auth/react';
 import type { FC } from 'react';
+import { TextAvatar } from '@/components/avatar/TextAvatar';
 
 export const AdminSidebar: FC = () => {
   // @todo better to use middleware or https://next-auth.js.org/getting-started/client#custom-client-session-handling
@@ -325,7 +326,10 @@ export const AdminSidebar: FC = () => {
               <label className="whites mx-2 flex h-fit w-full cursor-pointer p-0 hover:bg-gray-4">
                 <div className="flex flex-row gap-4 p-4">
                   <div className="avatar-square avatar avatar-md">
-                    <img src={user?.image} alt="avatar" />
+                    {user !== undefined ? (
+                      <TextAvatar name={user.name ?? 'Demo User'} />
+                    ) : null}
+                    {/* <img src={user?.image ?? } alt="avatar" /> */}
                   </div>
 
                   <div className="flex flex-col">

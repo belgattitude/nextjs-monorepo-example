@@ -8,11 +8,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const loginFormSchema = z.object({
-  /**
   username: z.string().min(2, { message: 'Minimum 2 chars' }).email({
     message: 'Invalid email',
-  }), */
-  username: z.string().min(2, { message: 'Minimum 2 chars' }),
+  }),
   password: z.string().min(4, { message: 'Minimum 4 chars' }),
 });
 
