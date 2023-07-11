@@ -26,7 +26,7 @@ export default defineConfig({
       dir: '../../.cache/vitest/core-lib',
     },
     coverage: {
-      provider: 'istanbul',
+      provider: 'v8',
       reporter: ['text', 'clover'],
       extension: ['js', 'jsx', 'ts', 'tsx'],
       all: true,

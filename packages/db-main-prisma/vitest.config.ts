@@ -15,7 +15,7 @@ export default defineConfig({
       dir: '../../.cache/vitest/db-main-e2e',
     },
     coverage: {
-      provider: 'istanbul',
+      provider: 'v8',
       reporter: ['text', 'clover'],
       extension: ['js', 'jsx', 'ts', 'tsx'],
       all: true,
