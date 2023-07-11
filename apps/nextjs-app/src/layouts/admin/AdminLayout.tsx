@@ -1,12 +1,12 @@
 import type { FC, ReactNode } from 'react';
-import { MainFooter } from '@/components/layout/MainFooter';
+import { AdminSidebar } from '@/layouts/admin/AdminSidebar';
 
-export const MainLayout: FC<{ children: ReactNode }> = (props) => {
+export const AdminLayout: FC<{ children: ReactNode }> = (props) => {
   const { children } = props;
   return (
     <div className="flex h-screen flex-col">
+      <AdminSidebar />
       <main>{children}</main>
-      <MainFooter />
     </div>
   );
 };
