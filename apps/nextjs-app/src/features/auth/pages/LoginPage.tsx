@@ -4,13 +4,14 @@ import type { FC } from 'react';
 import { authConfig } from '@/features/auth/auth.config';
 import { LoginForm } from '@/features/auth/components/LoginForm';
 
-export const LoginPage: FC = () => {
+export const LoginPage: FC = (props) => {
   const { t } = useTranslation(authConfig.i18nNamespaces);
+  const redirectToPage = '/admin';
   return (
     <>
       <NextSeo title={t('auth:page.title')} />
       <div className="flex h-screen items-center justify-center">
-        <LoginForm />
+        <LoginForm redirectToPage={redirectToPage} />
       </div>
     </>
   );
