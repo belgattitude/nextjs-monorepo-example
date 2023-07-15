@@ -1,3 +1,5 @@
+import type { NonEmptyArray } from '../types';
+
 export type IsoDateString = string;
 export const isIsoDateString = (dateStr: unknown): dateStr is IsoDateString => {
   if (
@@ -12,6 +14,10 @@ export const isIsoDateString = (dateStr: unknown): dateStr is IsoDateString => {
   } catch (e: unknown) {
     return false;
   }
+};
+
+export const isNonEmptyArray = <T>(v: unknown): v is NonEmptyArray<T> => {
+  return Array.isArray(v) && v.length > 0;
 };
 
 export const isNonEmptyString = (v: unknown, trim = true): v is string => {
