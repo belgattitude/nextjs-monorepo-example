@@ -1,3 +1,4 @@
+import type { NonEmptyArray } from '../../types';
 import { ArrayUtils } from '../ArrayUtils';
 
 describe('ArrayUtils', () => {
@@ -11,8 +12,8 @@ describe('ArrayUtils', () => {
   });
   describe('getRandom', () => {
     it('should return different elements', () => {
-      const arr = ['cool', 'test', true, 0];
-      const results: typeof arr = [];
+      const arr = ['cool', 'test', true, 0] satisfies NonEmptyArray<any>;
+      const results: NonEmptyArray<(typeof arr)[number]> = [0];
       const maxIterations = 20;
       for (let i = 0; i < maxIterations; i++) {
         results.push(ArrayUtils.getRandom(arr));
@@ -21,7 +22,7 @@ describe('ArrayUtils', () => {
       expect(unique.length).toBeGreaterThan(1);
     });
     it('should always return an element from the array', () => {
-      const arr = ['cool', 'test', true, 0];
+      const arr = ['cool', 'test', true, 0] satisfies NonEmptyArray<any>;
       const maxIterations = 20;
       for (let i = 0; i < maxIterations; i++) {
         const el = ArrayUtils.getRandom(arr);

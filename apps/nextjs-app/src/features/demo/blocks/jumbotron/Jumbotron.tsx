@@ -75,13 +75,13 @@ const GradientText = styled.span<Props>`
   }
 `;
 
-const titles: [string, GradientTextBackgrounds][] = [
+const titles = [
   ['Typescript', 'sky'],
   ['React', 'orange'],
   ['Nextjs', 'violet'],
   ['Prisma', 'yellow'],
   ['Emotion', 'fun'],
-];
+] satisfies [string, GradientTextBackgrounds][];
 
 export const Jumbotron: FC = () => {
   const [count, setCount] = useState(0);
@@ -104,7 +104,7 @@ export const Jumbotron: FC = () => {
         One of many possibles
         <br /> made with
         {titles.map((title, idx) => {
-          const [label, grad] = titles[idx];
+          const [label, grad] = title;
           const curr = idx === count;
           return (
             <GradientText

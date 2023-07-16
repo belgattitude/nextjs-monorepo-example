@@ -12,7 +12,7 @@ type Props = {
 
 const mapToFullName = (nameOrFullName: string | FullName): FullName => {
   if (typeof nameOrFullName === 'string') {
-    const [firstName, lastName] = nameOrFullName.split(' ');
+    const [firstName = 'F', lastName = 'L'] = nameOrFullName.split(' ');
     return {
       firstName,
       lastName,

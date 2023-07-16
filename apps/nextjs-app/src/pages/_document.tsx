@@ -9,7 +9,7 @@ type Props = DocumentProps & {
 };
 
 class MyDocument extends Document<Props> {
-  render() {
+  override render() {
     const locale = this.props.locale ?? defaultLocale;
 
     return (

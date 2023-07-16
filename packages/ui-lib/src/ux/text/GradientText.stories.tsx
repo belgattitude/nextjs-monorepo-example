@@ -64,7 +64,7 @@ export const AnimatedExample: StoryObj<typeof GradientText> = {
           >
             Typescript
             {titles.map((title, idx) => {
-              const [label, grad] = titles[idx];
+              const [label, grad] = title;
               const curr = idx === activeIdx;
               return (
                 <GradientText
