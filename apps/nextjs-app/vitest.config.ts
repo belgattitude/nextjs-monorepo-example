@@ -31,7 +31,7 @@ export default defineConfig({
       dir: '../../.cache/vitest/nextjs-app',
     },
     coverage: {
-      provider: 'istanbul',
+      provider: 'v8',
       reporter: ['text', 'clover'],
       extension: ['js', 'jsx', 'ts', 'tsx'],
     },
