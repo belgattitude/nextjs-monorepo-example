@@ -62,7 +62,9 @@ runs:
 
   steps:
     - name: ⚙️ Enable Corepack
-      if: ${{ inputs.enable-corepack }} == 'true'
+      # Booleans aren't booleans
+      # https://github.com/actions/runner/issues/2238 (https://github.com/actions/runner/issues/1483)
+      if: inputs.enable-corepack == 'true'
       shell: bash
       working-directory: ${{ inputs.cwd }}
       run: corepack enable
