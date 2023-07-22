@@ -193,7 +193,7 @@ export const LoginForm: FC<Props> = (props) => {
               type="submit"
               disabled={isSubmitting}
               className={clsx(
-                'btn-primary btn w-full',
+                'btn btn-primary w-full',
                 isSubmitting ? '' : 'bg-indigo-600'
               )}
             >

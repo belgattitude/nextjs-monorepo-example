@@ -18,7 +18,7 @@ export const AdminSidebar: FC = () => {
           htmlFor="sidebar-mobile-fixed"
           className="sidebar-overlay"
         ></label>
-        <aside className="sidebar-fixed-left sidebar-mobile sidebar h-full justify-start max-sm:fixed max-sm:-translate-x-full">
+        <aside className="sidebar sidebar-fixed-left sidebar-mobile h-full justify-start max-sm:fixed max-sm:-translate-x-full">
           <section className="sidebar-title items-center p-4">
             <svg
               fill="none"
@@ -150,7 +150,7 @@ export const AdminSidebar: FC = () => {
 
                     <div className="menu-item-collapse">
                       <div className="min-h-0">
-                        <label className="menu-item-disabled menu-item ml-6">
+                        <label className="menu-item menu-item-disabled ml-6">
                           Change Email
                         </label>
                         <label className="menu-item ml-6">Profile</label>
@@ -305,7 +305,7 @@ export const AdminSidebar: FC = () => {
 
                     <div className="menu-item-collapse">
                       <div className="min-h-0">
-                        <label className="menu-item-disabled menu-item ml-6">
+                        <label className="menu-item menu-item-disabled ml-6">
                           Create contract
                         </label>
                         <label className="menu-item ml-6">All contracts</label>
@@ -339,7 +339,7 @@ export const AdminSidebar: FC = () => {
                   </div>
                 </div>
               </label>
-              <div className="dropdown-menu-right-top dropdown-menu ml-2">
+              <div className="dropdown-menu dropdown-menu-right-top ml-2">
                 <a className="dropdown-item text-sm">Profile</a>
                 <a tabIndex={-1} className="dropdown-item text-sm">
                   Account settings
@@ -368,7 +368,7 @@ export const AdminSidebar: FC = () => {
         <div className="w-fit">
           <label
             htmlFor="sidebar-mobile-fixed"
-            className="btn-primary btn sm:hidden"
+            className="btn btn-primary sm:hidden"
           >
             Open Sidebar
           </label>
