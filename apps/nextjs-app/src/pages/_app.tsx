@@ -34,18 +34,6 @@ const MyApp = (appProps: MyAppProps) => {
   );
 };
 
-/**
- * Generally don't enable getInitialProp if you don't need to,
- * all your pages will be served server-side (no static optimizations).
- */
-/*
-MyApp.getInitialProps = async appContext => {
-   // calls page's `getInitialProps` and fills `appProps.pageProps`
-   const appProps = await App.getInitialProps(appContext)
-   return { ...appProps }
-}
-*/
-
 export default appWithTranslation(MyApp, {
   ...nextI18nextConfig,
 });

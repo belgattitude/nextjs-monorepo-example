@@ -4,12 +4,15 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "incremental": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
-    "verbatimModuleSyntax": true,
-    "incremental": true,
     "paths": {
       "@/test-utils": ["../config/tests/test-utils"],
       "@/config/*": ["./config/*"],

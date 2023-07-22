@@ -6,15 +6,15 @@ import url from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import { createSecureHeaders } from 'next-secure-headers';
-import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
-import { getValidatedServerEnv } from './src/config/validated-server-env.mjs';
+import { buildEnv } from './src/config/build-env.config.mjs';
+import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 
 // @ts-ignore
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 // validate server env
-getValidatedServerEnv();
+const _serverEnv = getServerRuntimeEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
@@ -31,94 +31,51 @@ const packageJson = JSON.parse(
   readFileSync(new URL('./package.json', import.meta.url)).toString('utf-8')
 );
 
-const trueEnv = ['true', '1', 'yes'];
-
 const isProd = process.env.NODE_ENV === 'production';
-const isCI = trueEnv.includes(process.env?.CI ?? 'false');
-const enableCSP = true;
-
-const NEXTJS_STANDALONE = trueEnv.includes(
-  process.env?.NEXTJS_STANDALONE ?? 'false'
-);
-
-const NEXTJS_IGNORE_ESLINT = trueEnv.includes(
-  process.env?.NEXTJS_IGNORE_ESLINT ?? 'false'
-);
-const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
-  process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
-);
-const NEXTJS_SENTRY_UPLOAD_DRY_RUN = trueEnv.includes(
-  process.env?.NEXTJS_SENTRY_UPLOAD_DRY_RUN ?? 'false'
-);
-const NEXTJS_DISABLE_SENTRY = trueEnv.includes(
-  process.env?.NEXTJS_DISABLE_SENTRY ?? 'false'
-);
-
-const NEXTJS_SENTRY_DEBUG = trueEnv.includes(
-  process.env?.NEXTJS_SENTRY_DEBUG ?? 'false'
-);
-const NEXTJS_SENTRY_TRACING = trueEnv.includes(
-  process.env?.NEXTJS_SENTRY_TRACING ?? 'false'
-);
-
-/**
- * A way to allow CI optimization when the build done there is not used
- * to deliver an image or deploy the files.
- * @link https://nextjs.org/docs/advanced-features/source-maps
- */
-const disableSourceMaps = trueEnv.includes(
-  process.env?.NEXT_DISABLE_SOURCEMAPS ?? 'false'
-);
-
-if (disableSourceMaps) {
-  console.log(
-    `${pc.green(
-      'notice'
-    )}- Sourcemaps generation have been disabled through NEXT_DISABLE_SOURCEMAPS`
-  );
-}
 
 // @link https://github.com/jagaapple/next-secure-headers
 const secureHeaders = createSecureHeaders({
   contentSecurityPolicy: {
-    directives: enableCSP
-      ? {
-          defaultSrc: "'self'",
-          styleSrc: [
-            "'self'",
-            "'unsafe-inline'",
-            'https://unpkg.com/@graphql-yoga/graphiql/dist/style.css',
-            'https://meet.jitsi.si',
-            'https://8x8.vc',
-          ],
-          scriptSrc: [
-            "'self'",
-            "'unsafe-eval'",
-            "'unsafe-inline'",
-            'https://unpkg.com/@graphql-yoga/graphiql',
-            // 'https://meet.jit.si/external_api.js',
-            // 'https://8x8.vc/external_api.js',
-          ],
-          frameSrc: [
-            "'self'",
-            // 'https://meet.jit.si',
-            // 'https://8x8.vc',
-          ],
-          connectSrc: [
-            "'self'",
-            'https://vitals.vercel-insights.com',
-            'https://*.sentry.io',
-            // 'wss://ws.pusherapp.com',
-            // 'wss://ws-eu.pusher.com',
-            // 'https://sockjs.pusher.com',
-            // 'https://sockjs-eu.pusher.com',
-          ],
-          imgSrc: ["'self'", 'https:', 'http:', 'data:'],
-          workerSrc: ['blob:'],
-        }
-      : {},
+    directives:
+      buildEnv.NEXT_BUILD_ENV_CSP === true
+        ? {
+            defaultSrc: "'self'",
+            styleSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              'https://unpkg.com/@graphql-yoga/graphiql/dist/style.css',
+              'https://meet.jitsi.si',
+              'https://8x8.vc',
+            ],
+            scriptSrc: [
+              "'self'",
+              "'unsafe-eval'",
+              "'unsafe-inline'",
+              'https://unpkg.com/@graphql-yoga/graphiql',
+              // 'https://meet.jit.si/external_api.js',
+              // 'https://8x8.vc/external_api.js',
+            ],
+            frameSrc: [
+              "'self'",
+              // 'https://meet.jit.si',
+              // 'https://8x8.vc',
+            ],
+            connectSrc: [
+              "'self'",
+              'https://vitals.vercel-insights.com',
+              'https://*.sentry.io',
+              // 'wss://ws.pusherapp.com',
+              // 'wss://ws-eu.pusher.com',
+              // 'https://sockjs.pusher.com',
+              // 'https://sockjs-eu.pusher.com',
+            ],
+            imgSrc: ["'self'", 'https:', 'http:', 'data:'],
+            workerSrc: ['blob:'],
+          }
+        : {},
   },
-  ...(enableCSP && process.env.NODE_ENV === 'production'
+  ...(buildEnv.NEXT_BUILD_ENV_CSP === true &&
+  process.env.NODE_ENV === 'production'
     ? {
         forceHTTPSRedirect: [
           true,
@@ -134,7 +91,7 @@ const secureHeaders = createSecureHeaders({
  */
 const nextConfig = {
   reactStrictMode: true,
-  productionBrowserSourceMaps: !disableSourceMaps,
+  productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
   i18n: nextI18nConfig.i18n,
   optimizeFonts: true,
 
@@ -145,7 +102,7 @@ const nextConfig = {
 
   onDemandEntries: {
     // period (in ms) where the server will keep pages in the buffer
-    maxInactiveAge: (isCI ? 3600 : 25) * 1000,
+    maxInactiveAge: (buildEnv.NEXT_BUILD_ENV_CI ? 3600 : 25) * 1000,
   },
 
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
@@ -219,13 +176,15 @@ const nextConfig = {
 
   // Standalone build
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
-  ...(NEXTJS_STANDALONE
+  ...(buildEnv.NEXT_BUILD_ENV_OUTPUT === 'standalone'
     ? { output: 'standalone', outputFileTracing: true }
     : {}),
 
   experimental: {
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    ...(NEXTJS_STANDALONE ? { outputFileTracingRoot: workspaceRoot } : {}),
+    ...(buildEnv.NEXT_BUILD_ENV_OUTPUT === 'standalone'
+      ? { outputFileTracingRoot: workspaceRoot }
+      : {}),
 
     // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
     // to keep lambdas sizes / docker images low when vercel/nft isn't able to
@@ -271,11 +230,11 @@ const nextConfig = {
   },
 
   typescript: {
-    ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
+    ignoreBuildErrors: !buildEnv.NEXT_BUILD_ENV_TYPECHECK,
   },
 
   eslint: {
-    ignoreDuringBuilds: NEXTJS_IGNORE_ESLINT,
+    ignoreDuringBuilds: !buildEnv.NEXT_BUILD_ENV_LINT,
     // dirs: [`${__dirname}/src`],
   },
 
@@ -315,8 +274,8 @@ const nextConfig = {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/tree-shaking/
     config.plugins.push(
       new webpack.DefinePlugin({
-        __SENTRY_DEBUG__: NEXTJS_SENTRY_DEBUG,
-        __SENTRY_TRACING__: NEXTJS_SENTRY_TRACING,
+        __SENTRY_DEBUG__: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG,
+        __SENTRY_TRACING__: buildEnv.NEXT_BUILD_ENV_SENTRY_TRACING,
       })
     );
 
@@ -353,7 +312,7 @@ const nextConfig = {
 
 let config = nextConfig;
 
-if (!NEXTJS_DISABLE_SENTRY) {
+if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
   // @ts-ignore cause sentry is not always following nextjs types
   config = withSentryConfig(config, {
     // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -364,8 +323,8 @@ if (!NEXTJS_DISABLE_SENTRY) {
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options.
     // silent: isProd, // Suppresses all logs
-    dryRun: NEXTJS_SENTRY_UPLOAD_DRY_RUN,
-    silent: !NEXTJS_SENTRY_DEBUG,
+    dryRun: buildEnv.NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN === true,
+    silent: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG === false,
   });
 } else {
   const { sentry, ...rest } = config;
