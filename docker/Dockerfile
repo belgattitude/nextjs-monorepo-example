@@ -31,25 +31,26 @@ FROM app-builder as app-installer
 
 ENV NEXTJS_APP=$NEXTJS_APP
 
-ENV NEXT_BUILD_ENV_TYPECHECK=false
-ENV NEXT_BUILD_ENV_LINT=false
-ENV NEXT_BUILD_ENV_OUTPUT=standalone
+ENV NEXT_BUILD_ENV_TYPECHECK false
+ENV NEXT_BUILD_ENV_LINT false
+ENV NEXT_BUILD_ENV_OUTPUT standalone
+ENV NEXT_BUILD_ENV_SENTRY_ENABLED false
+ENV NEXT_BUILD_ENV_SENTRY_TRACING false
 
 ENV TZ=Europe/Brussels
 
 # Optimize for YARN installation speed
-ENV YARN_ENABLE_GLOBAL_CACHE=false
-ENV YARN_ENABLE_MIRROR=false
-ENV YARN_NODE_LINKER=node-modules
-ENV YARN_NM_MODE=hardlinks-local
-
-# If using different compression level than in local (recommended: do not)
-ENV YARN_COMPRESSION_LEVEL=mixed
-ENV YARN_CHECKSUM_BEHAVIOR=ignore
+ENV YARN_ENABLE_GLOBAL_CACHE false
+ENV YARN_ENABLE_MIRROR false
+ENV YARN_NODE_LINKER node-modules
+ENV YARN_NM_MODE hardlinks-local
+# If using different compression level than in local (recommended: prefer to not do this)
+ENV YARN_COMPRESSION_LEVEL 0
+ENV YARN_CHECKSUM_BEHAVIOR ignore
 
 # Disabling some well-known postinstall scripts
-ENV PRISMA_SKIP_POSTINSTALL_GENERATE=true
-ENV HUSKY=0
+ENV PRISMA_SKIP_POSTINSTALL_GENERATE true
+ENV HUSKY 0
 
 WORKDIR /app
 
@@ -66,6 +67,7 @@ COPY --link turbo.json turbo.json
 COPY --link tsconfig.base.json tsconfig.base.json
 
 RUN yarn workspace @your-org/db-main-prisma prisma-generate
+RUN yarn workspace nextjs-app share-static-hardlink
 RUN yarn turbo run build --filter=nextjs-app...
 
 #############################################################
