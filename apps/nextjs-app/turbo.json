@@ -3,19 +3,11 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "env": [
-        // "NEXT_PUBLIC_STRAPI_API_URL",
-        "NEXTJS_IGNORE_LINT",
-        "NEXTJS_IGNORE_TYPECHECK"
-      ],
+      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "vercel-build": {
-      "env": [
-        // "NEXT_PUBLIC_STRAPI_API_URL",
-        "NEXTJS_IGNORE_LINT",
-        "NEXTJS_IGNORE_TYPECHECK"
-      ],
+      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "typecheck": {},

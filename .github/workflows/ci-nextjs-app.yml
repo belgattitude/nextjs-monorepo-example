@@ -80,18 +80,12 @@ jobs:
       - name: 🏗 Build web-app
         run: yarn --top-level run turbo build
         env:
-          # Speed up build: they are linted in a previous step
-          NEXTJS_IGNORE_ESLINT: true
-          # Speed up build: they are typechecked in a previous step
-          NEXTJS_IGNORE_TYPECHECK: true
-          # Speed up build: don't run if not needed, enable if it becomes needed
-          NEXT_DISABLE_SOURCEMAPS: true
-          # Don't send telemetry for ci
+          NEXT_BUILD_ENV_ESLINT: false
+          NEXT_BUILD_ENV_TYPECHECK: false
+          NEXT_BUILD_ENV_SOURCEMAPS: false
+          NEXT_BUILD_ENV_SENTRY_ENABLED: true
+          NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN: true
           NEXT_TELEMETRY_DISABLED: true
-          # To allow checking size-limits
-          NEXTJS_DISABLE_SENTRY: false
-          # Fully disable sentry upload
-          NEXTJS_SENTRY_UPLOAD_DRY_RUN: true
 
       - name: 📐 Check browser bundle size limits
         run: yarn check-size
