@@ -18,7 +18,8 @@
     "directory": "packages/core-lib"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "echo \"Unrequired and disabled when using tsonfig paths aliases, run 'build:force' to test a build.\"",
+    "build:force": "tsup",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "dev": "tsup --watch",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
@@ -30,7 +31,7 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@httpx/exception": "^1.8.1",
+    "@httpx/exception": "^1.8.2",
     "@your-org/ts-utils": "workspace:^",
     "dequal": "^2.0.3"
   },
@@ -39,7 +40,7 @@
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@types/jest": "29.5.3",
-    "@types/node": "20.4.1",
+    "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "4.0.3",
