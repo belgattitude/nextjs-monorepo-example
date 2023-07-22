@@ -23,6 +23,8 @@ COPY --link . .
 # https://turbo.build/repo/docs/handbook/deploying-with-docker
 RUN turbo prune --scope=nextjs-app --docker --out-dir=./out/nextjs-app/
 
+COPY --link static/ ./out/nextjs-app
+
 #############################################################
 # Stage 2 - App installation                                #
 #############################################################
@@ -45,8 +47,8 @@ ENV YARN_ENABLE_MIRROR false
 ENV YARN_NODE_LINKER node-modules
 ENV YARN_NM_MODE hardlinks-local
 # If using different compression level than in local (recommended: prefer to not do this)
-ENV YARN_COMPRESSION_LEVEL 0
-ENV YARN_CHECKSUM_BEHAVIOR ignore
+#ENV YARN_COMPRESSION_LEVEL 0
+#ENV YARN_CHECKSUM_BEHAVIOR ignore
 
 # Disabling some well-known postinstall scripts
 ENV PRISMA_SKIP_POSTINSTALL_GENERATE true
