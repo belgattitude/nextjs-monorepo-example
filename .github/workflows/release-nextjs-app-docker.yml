@@ -85,12 +85,12 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Inspect
-        if: success()
+        continue-on-error: true
         run: |
           docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
 
       - name: Debug size
-        if: success()
+        continue-on-error: true
         run: |
           docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ./test.tar.gz
           ls -lah ./test.tar.gz
