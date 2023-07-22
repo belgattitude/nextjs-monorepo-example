@@ -4184,10 +4184,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@httpx/exception@npm:1.8.2, @httpx/exception@npm:^1.7.0, @httpx/exception@npm:^1.8.2":
-  version: 1.8.2
-  resolution: "@httpx/exception@npm:1.8.2"
-  checksum: 96dae9817246622cfaea25c3c60030f26a3bd7fe93ecef2e238259d7183b870bc7faee63c6ca0b1640eab809c173e49d55b5bbaabf94b0e19814fd179706c3ab
+"@httpx/dsn-parser@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@httpx/dsn-parser@npm:0.10.1"
+  checksum: 8ec6534b1b953eabc6b8522a02ee6db83a073ff43724f7a741e192d5ee4985ddee9939dbcfb2bc6f8e5500fb1aea1f520440f22197a3f5f73f757ea7286a0e06
+  languageName: node
+  linkType: hard
+
+"@httpx/exception@npm:1.8.3, @httpx/exception@npm:^1.7.0, @httpx/exception@npm:^1.8.3":
+  version: 1.8.3
+  resolution: "@httpx/exception@npm:1.8.3"
+  checksum: ea2d705ea898fad8c9eca8f0f6c074038186248a014dcbcc2493d9a01deab213b722b5a683ed752709fb56714f53d454a371d675be0def86acd74d452360218a
   languageName: node
   linkType: hard
 
@@ -8305,7 +8312,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/core-lib@workspace:packages/core-lib"
   dependencies:
-    "@httpx/exception": "npm:^1.8.2"
+    "@httpx/exception": "npm:^1.8.3"
     "@testing-library/dom": "npm:9.3.1"
     "@testing-library/react": "npm:14.0.0"
     "@testing-library/user-event": "npm:14.4.3"
@@ -9119,17 +9126,6 @@ __metadata:
   version: 4.7.2
   resolution: "axe-core@npm:4.7.2"
   checksum: 1b94fcbe203296fc7174992a3d70dbcd477d88b933afa045aaffa1704fe63d8da8945e4b38fc576f9c7384abeb353e2d6607ab54d25b5c90b255ef2244bda29a
-  languageName: node
-  linkType: hard
-
-"axios@npm:1.4.0":
-  version: 1.4.0
-  resolution: "axios@npm:1.4.0"
-  dependencies:
-    follow-redirects: "npm:^1.15.0"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: b987e4259e5cfc93e95ee306c267a44380bbc045789a91b716e8434a75e22987344605eb4e133482fe285dd3a2e0b7e791ba26999965f04a5ecdde25f56930cb
   languageName: node
   linkType: hard
 
@@ -11229,6 +11225,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"destr@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "destr@npm:2.0.0"
+  checksum: d25f8cf03b3aebad766cd61ebf0e8af58f7dc2710d031486eabcbd3eef35c096539cb5ce1352e5060beb235bb41929c23bbbb54b9a6791a36e64fdea33ea0230
+  languageName: node
+  linkType: hard
+
 "destroy@npm:1.2.0":
   version: 1.2.0
   resolution: "destroy@npm:1.2.0"
@@ -13230,16 +13233,6 @@ __metadata:
   version: 1.1.0
   resolution: "fn.name@npm:1.1.0"
   checksum: 000198af190ae02f0138ac5fa4310da733224c628e0230c81e3fff7c4e094af7e0e8bb9f4357cabd21db601759d89f3445da744afbae20623cfa41edf3888397
-  languageName: node
-  linkType: hard
-
-"follow-redirects@npm:^1.15.0":
-  version: 1.15.2
-  resolution: "follow-redirects@npm:1.15.2"
-  peerDependenciesMeta:
-    debug:
-      optional: true
-  checksum: 8be0d39919770054812537d376850ccde0b4762b0501c440bd08724971a078123b55f57704f2984e0664fecc0c86adea85add63295804d9dce401cd9604c91d3
   languageName: node
   linkType: hard
 
@@ -18050,7 +18043,8 @@ __metadata:
     "@fontsource-variable/inter": "npm:5.0.5"
     "@headlessui/react": "npm:1.7.15"
     "@hookform/resolvers": "npm:3.1.1"
-    "@httpx/exception": "npm:1.8.2"
+    "@httpx/dsn-parser": "npm:0.10.1"
+    "@httpx/exception": "npm:1.8.3"
     "@mui/icons-material": "npm:5.14.1"
     "@mui/material": "npm:5.14.1"
     "@next/bundle-analyzer": "npm:13.4.12"
@@ -18067,7 +18061,6 @@ __metadata:
     "@size-limit/file": "npm:8.2.6"
     "@soluble/cache-interop": "npm:0.12.8"
     "@soluble/cache-ioredis": "npm:0.13.11"
-    "@soluble/dsn-parser": "npm:1.9.2"
     "@svgr/webpack": "npm:8.0.1"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.4"
@@ -18095,7 +18088,6 @@ __metadata:
     "@your-org/ts-utils": "workspace:^"
     "@your-org/ui-lib": "workspace:^"
     autoprefixer: "npm:10.4.14"
-    axios: "npm:1.4.0"
     clsx: "npm:2.0.0"
     cors: "npm:2.8.5"
     cross-env: "npm:7.0.3"
@@ -18121,6 +18113,7 @@ __metadata:
     next-secure-headers: "npm:2.2.0"
     next-seo: "npm:6.1.0"
     npm-run-all: "npm:4.1.5"
+    ofetch: "npm:1.1.1"
     picocolors: "npm:1.0.0"
     postcss: "npm:8.4.27"
     postcss-flexbugs-fixes: "npm:5.0.2"
@@ -18231,7 +18224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch-native@npm:^1.0.2":
+"node-fetch-native@npm:^1.0.2, node-fetch-native@npm:^1.2.0":
   version: 1.2.0
   resolution: "node-fetch-native@npm:1.2.0"
   checksum: d5f10c475c8ec8f03d19754ec5d6d2eee5fa82c50cc8f805e0a551f525c58809bd8291fc4b5a7275a5d6ff8bbe446417dbd1733d065544e2e6ac9a606aa83a20
@@ -18537,6 +18530,17 @@ __metadata:
     define-properties: "npm:^1.1.4"
     es-abstract: "npm:^1.20.4"
   checksum: adea807c90951df34eb2f5c6a90ab5624e15c71f0b3a3e422db16933c9f4e19551d10649fffcb4adcac01d86d7c14a64bfb500d8f058db5a52976150a917f6eb
+  languageName: node
+  linkType: hard
+
+"ofetch@npm:1.1.1":
+  version: 1.1.1
+  resolution: "ofetch@npm:1.1.1"
+  dependencies:
+    destr: "npm:^2.0.0"
+    node-fetch-native: "npm:^1.2.0"
+    ufo: "npm:^1.1.2"
+  checksum: dbc5097a249f055b278952b9de8d3e04731b14739d8a48c366564d30303c2f150ef6e1437d3c3858d527fe021974ccd75a4a9b651035962e395669e0ad58a50b
   languageName: node
   linkType: hard
 
