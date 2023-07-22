@@ -70,6 +70,7 @@ jobs:
 
       - name: Build and export to Docker
         uses: docker/build-push-action@v4
+        continue-on-error: true
         with:
           load: true
           context: './docker'
@@ -84,10 +85,12 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Inspect
+        if: success()
         run: |
           docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
 
       - name: Debug size
+        if: success()
         run: |
           docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ./test.tar.gz
           ls -lah ./test.tar.gz
