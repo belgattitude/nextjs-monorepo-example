@@ -8,7 +8,7 @@ ARG NEXTJS_APP=nextjs-app
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as app-builder
 
-RUN corepack enable
+RUN apk add --no-cache libc6-compat git && corepack enable
 
 ENV NEXTJS_APP=$NEXTJS_APP
 
@@ -27,9 +27,7 @@ RUN turbo prune --scope=nextjs-app --docker --out-dir=./out/nextjs-app/
 # Stage 2 - App installation                                #
 #############################################################
 
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as app-installer
-
-RUN apk add --no-cache libc6-compat git && corepack enable
+FROM app-builder as app-installer
 
 ENV NEXTJS_APP=$NEXTJS_APP
 
