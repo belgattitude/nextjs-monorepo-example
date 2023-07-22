@@ -2,7 +2,30 @@ name: Release nextjs-app docker
 
 on:
   push:
-    branches: [main]
+    branches: [dev, main]
+    # Only consider those paths to trigger the action
+    paths:
+      - 'apps/nextjs-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/**'
+
+  pull_request:
+    types: [opened, synchronize, reopened]
+    # Only consider those paths to trigger the action
+    paths:
+      - 'apps/nextjs-app/**'
+      - 'packages/**'
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/**'
 
 env:
   IMAGE: nextjs-monorepo-example/nextjs-app
