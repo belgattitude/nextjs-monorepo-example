@@ -1,8 +1,35 @@
-import { HttpUnauthorized } from '@httpx/exception';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { createHttpUnauthorized } from '@/lib/auth/error';
+import { getServerRuntimeEnv } from './server-runtime-env.config.mjs';
+
+const serverRuntimeEnv = getServerRuntimeEnv();
 
 const oneDayInSeconds = 86400;
+
+/**
+ * @todo Remove this once oauth is ready
+ */
+const getStaticAllowedDemoAdminUser = (email: string, password: string) => {
+  const enableDemoAdminUser = serverRuntimeEnv.AUTH_ENABLE_DEMO_ADMIN_USER;
+
+  if (
+    enableDemoAdminUser &&
+    email === 'admin@example.com' &&
+    password === 'demo123'
+  ) {
+    return {
+      id: '1',
+      name: 'admin',
+      email,
+      role: 'admin',
+      image: undefined,
+    };
+  }
+  return null;
+};
+
+// @todo move this out
 
 export const nextAuthConfig: NextAuthOptions = {
   providers: [
@@ -14,40 +41,37 @@ export const nextAuthConfig: NextAuthOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: {
-          label: 'Username',
+        email: {
+          label: 'Email',
           type: 'text',
           placeholder: 'me@example.com',
         },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, _req) {
-        if (!credentials) throw new HttpUnauthorized('No credentials provided');
-        const { username, password } = credentials ?? {};
-        if (
-          ['admin', 'admin@example.com'].includes(username) &&
-          password === 'demo'
-        ) {
-          return {
-            id: '1',
-            name: 'admin',
-            email: 'admin@example.com',
-            role: 'admin',
-            image: undefined,
-          };
+        if (!credentials) {
+          throw createHttpUnauthorized('Credentials not provided');
         }
-        throw new HttpUnauthorized('Wrong credentials');
+
+        const { email, password } = credentials ?? {};
+        // @todo remove this when oauth provider is in place.
+        const staticAllowedDemoAdminUser = getStaticAllowedDemoAdminUser(
+          email,
+          password
+        );
+        if (staticAllowedDemoAdminUser) return staticAllowedDemoAdminUser;
+
+        throw createHttpUnauthorized('Invalid credentials');
       },
     }),
   ],
-  theme: {
-    colorScheme: 'light',
-  },
   session: {
     strategy: 'jwt',
+    maxAge: oneDayInSeconds * 30,
+    updateAge: oneDayInSeconds, // 24 hours
   },
   /**
-     session: {
+   session: {
     // When using `"database"`, the session cookie will only contain a `sessionToken` value,
     // which is used to look up the session in the database.
     strategy: 'jwt',

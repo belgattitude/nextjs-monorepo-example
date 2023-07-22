@@ -1,13 +1,11 @@
 import type { JsonApiResponse } from '@your-org/core-lib/api/json-api';
 import { isJsonApiSuccessResponse } from '@your-org/core-lib/api/json-api';
 import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
-import { kyJsonApi } from '@/config/ky';
+import { apiFetcher } from '@/config/api-fetcher.config';
 
-export const fetchPoemsWithKy = async (): Promise<SearchPoems> => {
-  return kyJsonApi
-    .get('/api/rest/poem')
-    .json<JsonApiResponse<SearchPoems>>()
-    .then((resp) => {
+export const fetchPoems = async (): Promise<SearchPoems> => {
+  return apiFetcher<JsonApiResponse<SearchPoems>>('/api/rest/poem').then(
+    (resp) => {
       if (!isJsonApiSuccessResponse(resp)) {
         throw new Error(
           // @todo improve error reporting
@@ -15,5 +13,6 @@ export const fetchPoemsWithKy = async (): Promise<SearchPoems> => {
         );
       }
       return resp.data;
-    });
+    }
+  );
 };

@@ -140,12 +140,9 @@ const nextConfig = {
     unoptimized: false,
   },
 
-  // Packages to be transpiled part of nextjs build to follow nextjs/browserslist compatibility.
-  // This replaces next-transpile-modules starting from nextjs 13.1, if you're relying on css
-  // please see https://github.com/vercel/next.js/issues/42837
   transpilePackages: isProd
     ? [
-        'ky',
+        'ofetch',
         // i18next is build for modern browsers
         // 'i18next',
         // tailwind-merge contains nullish operator ?.

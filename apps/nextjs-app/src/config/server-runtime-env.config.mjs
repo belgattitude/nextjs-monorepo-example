@@ -1,6 +1,6 @@
 // @ts-check
 
-import { isParsableDsn } from '@soluble/dsn-parser';
+import { isParsableDsn } from '@httpx/dsn-parser';
 import { z } from 'zod';
 import {
   getValidatedServerRuntimeEnv,

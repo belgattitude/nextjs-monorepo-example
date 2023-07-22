@@ -31,6 +31,7 @@ module.exports = {
     '@your-org/eslint-config-bases/prettier',
   ],
   rules: {
+    '@typescript-eslint/naming-convention': 'off',
     // https://github.com/vercel/next.js/discussions/16832
     '@next/next/no-img-element': 'off',
     // For the sake of example
