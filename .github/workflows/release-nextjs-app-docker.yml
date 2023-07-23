@@ -42,7 +42,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        #working-directory: .
+        working-directory: ${{ github.workspace }}
 
     steps:
       - name: Checkout
@@ -73,7 +73,8 @@ jobs:
         continue-on-error: true
         with:
           load: true
-          context: './docker'
+          context: .
+          file: ./docker/Dockerfile
           # push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
