@@ -228,6 +228,7 @@ const nextConfig = {
 
   typescript: {
     ignoreBuildErrors: !buildEnv.NEXT_BUILD_ENV_TYPECHECK,
+    tsconfigPath: buildEnv.NEXT_BUILD_ENV_TSCONFIG,
   },
 
   eslint: {
