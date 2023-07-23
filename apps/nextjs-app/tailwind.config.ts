@@ -4,7 +4,11 @@ import { tailwindV3Colors } from './src/themes/shared/colors';
 import { tailwindTheme } from './src/themes/tailwind/tailwind.theme'; // sharedTheme = require('./src/themes/tailwind/tailwind.theme');
 
 const tailwindConfig: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{jsx,tsx}',
+    '!./src/backend/**/*',
+    '!/src/pages/api/**/*',
+  ],
   theme: {
     screens: {
       ...defaultTheme.screens,
