@@ -20,8 +20,9 @@ describe('getBuildEnv', () => {
             'Disable sourcemaps: https://nextjs.org/docs/advanced-features/source-maps',
         })
         .default(true),
-      NEXT_BUILD_ENV_LINT: zConvertTruthyStrToBool.default(true),
-      NEXT_BUILD_ENV_TYPECHECK: zConvertTruthyStrToBool.default(true),
+      NEXT_BUILD_ENV_LINT: zConvertTruthyStrToBool(true),
+      NEXT_BUILD_ENV_TYPECHECK: zConvertTruthyStrToBool(true),
+      NEXT_BUILD_ENV_TSCONFIG: z.string().optional(),
     });
   };
 

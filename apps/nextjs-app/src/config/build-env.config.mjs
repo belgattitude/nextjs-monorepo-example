@@ -24,19 +24,23 @@ const schema = {
     })
     .default('classic'),
   // https://nextjs.org/docs/advanced-features/source-maps',
-  NEXT_BUILD_ENV_SOURCEMAPS: zConvertTruthyStrToBool.default(isProd),
-  NEXT_BUILD_ENV_LINT: zConvertTruthyStrToBool.default(falseOnCi),
-  NEXT_BUILD_ENV_TYPECHECK: zConvertTruthyStrToBool.default(falseOnCi),
-  NEXT_BUILD_ENV_CSP: zConvertTruthyStrToBool.default(true),
-  NEXT_BUILD_ENV_CI: zConvertTruthyStrToBool.default(isCI),
+  NEXT_BUILD_ENV_SOURCEMAPS: zConvertTruthyStrToBool(isProd),
+  NEXT_BUILD_ENV_TSCONFIG: z
+    .string()
+    .endsWith('.json')
+    .default('tsconfig.json'),
+  NEXT_BUILD_ENV_TYPECHECK: zConvertTruthyStrToBool(falseOnCi),
+  NEXT_BUILD_ENV_LINT: zConvertTruthyStrToBool(falseOnCi),
+  NEXT_BUILD_ENV_CSP: zConvertTruthyStrToBool(true),
+  NEXT_BUILD_ENV_CI: zConvertTruthyStrToBool(isCI),
 
   // --------------------------------------------------------------------
   // Sentry related
   // --------------------------------------------------------------------
-  NEXT_BUILD_ENV_SENTRY_ENABLED: zConvertTruthyStrToBool.default(true),
-  NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN: zConvertTruthyStrToBool.default(true),
-  NEXT_BUILD_ENV_SENTRY_DEBUG: zConvertTruthyStrToBool.default(false),
-  NEXT_BUILD_ENV_SENTRY_TRACING: zConvertTruthyStrToBool.default(false),
+  NEXT_BUILD_ENV_SENTRY_ENABLED: zConvertTruthyStrToBool(true),
+  NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN: zConvertTruthyStrToBool(true),
+  NEXT_BUILD_ENV_SENTRY_DEBUG: zConvertTruthyStrToBool(false),
+  NEXT_BUILD_ENV_SENTRY_TRACING: zConvertTruthyStrToBool(false),
 };
 
 export const buildEnvSchema = z.object(schema);

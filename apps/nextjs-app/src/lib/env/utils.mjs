@@ -11,11 +11,11 @@ export const truthyStrEnvValue = ['true', '1'];
 /**
  * Allow to convert truthy string ('1', 'true') values to boolean
  */
-export const zConvertTruthyStrToBool = z.preprocess(
-  // @ts-ignore
-  (val) => truthyStrEnvValue.includes(val),
-  z.boolean()
-);
+export const zConvertTruthyStrToBool = (defaultValue = false) =>
+  z.preprocess((val) => {
+    if (val === undefined) return defaultValue;
+    return truthyStrEnvValue.includes(String(val));
+  }, z.boolean());
 
 /**
  * @type {(zodSafeParseError: import('zod').SafeParseError<unknown>) => never}

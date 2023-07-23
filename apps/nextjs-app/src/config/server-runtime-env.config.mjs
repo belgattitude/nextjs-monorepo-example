@@ -19,7 +19,7 @@ export const serverRuntimeEnvSchema = z.object({
   // --------------------------------------------------------------------
   // Authentication related
   // --------------------------------------------------------------------
-  AUTH_ENABLE_DEMO_ADMIN_USER: zConvertTruthyStrToBool.default(false),
+  AUTH_ENABLE_DEMO_ADMIN_USER: zConvertTruthyStrToBool(false),
 
   NEXTAUTH_SECRET: z.string().min(15),
   NEXTAUTH_URL: z.string().url(),
