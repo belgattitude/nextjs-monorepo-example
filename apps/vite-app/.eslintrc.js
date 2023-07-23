@@ -25,7 +25,7 @@ module.exports = {
     '@your-org/eslint-config-bases/react',
     '@your-org/eslint-config-bases/rtl',
     // Apply prettier and disable incompatible rules
-    '@your-org/eslint-config-bases/prettier',
+    '@your-org/eslint-config-bases/prettier-plugin',
   ],
   rules: {
     'jsx-a11y/anchor-is-valid': 'off',

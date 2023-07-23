@@ -28,7 +28,7 @@ module.exports = {
     // Add specific rules for nextjs
     'plugin:@next/next/core-web-vitals',
     // Apply prettier and disable incompatible rules
-    '@your-org/eslint-config-bases/prettier',
+    '@your-org/eslint-config-bases/prettier-plugin',
   ],
   rules: {
     '@typescript-eslint/naming-convention': 'off',

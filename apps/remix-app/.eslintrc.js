@@ -34,7 +34,7 @@ module.exports = {
     // Specific rules for remix
     '@remix-run/eslint-config',
     // Apply prettier and disable incompatible rules
-    '@your-org/eslint-config-bases/prettier',
+    '@your-org/eslint-config-bases/prettier-plugin',
   ],
   env: {
     browser: true,
