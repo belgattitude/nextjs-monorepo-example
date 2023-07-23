@@ -2,18 +2,16 @@
 
 import { withAuth } from 'next-auth/middleware';
 
-type MiddlewareEnabledRouteMatchers = (typeof middlewareEnabledRoutes)[number];
+type MiddlewareEnabledRouteMatchers = (typeof config.matcher)[number];
 
-const middlewareEnabledRoutes = [
-  '/admin/:path*',
-  '/profile/:path*',
-  '/test',
-] as const;
+export const config = {
+  matcher: [
+    '/admin/:path*',
+    // '/profile/:path*'
+  ],
+};
 
-const adminAuthRoutes: MiddlewareEnabledRouteMatchers[] = [
-  '/admin/:path*',
-  '/test',
-];
+const adminAuthRoutes: MiddlewareEnabledRouteMatchers[] = ['/admin/:path*'];
 
 const isAdminRoute = (
   pathName: string,
@@ -38,5 +36,3 @@ export default withAuth({
     },
   },
 });
-
-export const config = { matcher: [...middlewareEnabledRoutes] };
