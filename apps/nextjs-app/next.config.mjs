@@ -6,6 +6,7 @@ import url from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import { createSecureHeaders } from 'next-secure-headers';
+import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
 import { buildEnv } from './src/config/build-env.config.mjs';
 import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
@@ -32,6 +33,14 @@ const packageJson = JSON.parse(
 );
 
 const isProd = process.env.NODE_ENV === 'production';
+
+if (!buildEnv.NEXT_BUILD_ENV_SOURCEMAPS) {
+  console.log(
+    `- ${pc.green(
+      'info'
+    )} Sourcemaps generation have been disabled through NEXT_BUILD_ENV_SOURCEMAPS`
+  );
+}
 
 // @link https://github.com/jagaapple/next-secure-headers
 const secureHeaders = createSecureHeaders({
