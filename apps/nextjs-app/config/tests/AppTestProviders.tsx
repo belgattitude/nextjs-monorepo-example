@@ -1,6 +1,6 @@
 import type { Session } from 'next-auth';
 import type { FC, PropsWithChildren } from 'react';
-import { AppProviders } from '../../src/AppProviders';
+import { AppProviders } from '../../src/providers/AppProviders';
 import { I18nextTestStubProvider } from './I18nextTestStubProvider';
 
 const fakeNextAuthSession: Session = {
