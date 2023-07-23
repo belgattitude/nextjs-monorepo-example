@@ -20,7 +20,7 @@ module.exports = {
     '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/jest',
     // Apply prettier and disable incompatible rules
-    '@your-org/eslint-config-bases/prettier',
+    '@your-org/eslint-config-bases/prettier-plugin',
   ],
   rules: {
     // optional overrides per project

@@ -3,9 +3,15 @@
  * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
  */
 
+// Allow to pass an env to check cycles, defaults to 2 (lint time+++)
+// @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
+// @see https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
+const checkCycles = process.env?.ESLINT_IMPORT_NO_CYCLE === 'true';
+
 module.exports = {
   env: {
     es6: true,
+    browser: true,
     node: true,
   },
   parser: '@typescript-eslint/parser',
@@ -19,21 +25,22 @@ module.exports = {
     sourceType: 'module',
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx', '.mts'],
+    },
     'import/resolver': {
       typescript: {},
     },
   },
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
   ],
   rules: {
-    // Useful by disabled as it is very slow / add per project
-    // https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
-    // 'import/no-cycle': 2,
-
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
+    ...(checkCycles ? { 'import/no-cycle': 2 } : {}),
     // will use 'import/no-duplicates'.
     'no-duplicate-imports': 'off',
     'spaced-comment': [
@@ -54,8 +61,8 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'no-empty-function': 'off',
     'import/default': ['error'],
-    // Slow: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md
-    'import/namespace': 'off', // ['error'] If you want the extra check (typechecks will spot most issues already)
+    // Caution this rule is slow https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md
+    'import/namespace': 'off', // ['error'] If you want the extra check (typechecking will spot most issues already)
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
     'import/no-duplicates': [
       'error',
@@ -101,67 +108,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': [
       'error',
-      { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
-    ],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        selector: 'default',
-        format: ['camelCase'],
-        leadingUnderscore: 'forbid',
-        trailingUnderscore: 'forbid',
-      },
-      {
-        selector: 'variable',
-        format: ['camelCase'],
-        leadingUnderscore: 'allow',
-      },
-      {
-        selector: ['function'],
-        format: ['camelCase'],
-      },
-      {
-        selector: 'parameter',
-        format: ['camelCase'],
-        leadingUnderscore: 'allow',
-      },
-      {
-        selector: 'class',
-        format: ['PascalCase'],
-      },
-      {
-        selector: 'classProperty',
-        format: ['camelCase'],
-        leadingUnderscore: 'allow',
-      },
-      {
-        selector: 'objectLiteralProperty',
-        format: [
-          'camelCase',
-          // Some external libraries use snake_case for params
-          'snake_case',
-          // Env variables are generally uppercase
-          'UPPER_CASE',
-          // DB / Graphql might use PascalCase for relationships
-          'PascalCase',
-        ],
-        leadingUnderscore: 'allowSingleOrDouble',
-        trailingUnderscore: 'allowSingleOrDouble',
-      },
-      {
-        selector: ['typeAlias', 'interface'],
-        format: ['PascalCase'],
-      },
-      {
-        selector: ['typeProperty'],
-        format: ['camelCase'],
-        // For graphql __typename
-        leadingUnderscore: 'allowDouble',
-      },
-      {
-        selector: ['typeParameter'],
-        format: ['PascalCase'],
-      },
+      { prefer: 'type-imports' },
     ],
   },
   overrides: [
@@ -172,28 +119,25 @@ module.exports = {
         sourceType: 'module',
       },
       rules: {
-        '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/consistent-type-exports': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
       },
     },
     {
-      // commonjs or assumed
+      // javascript commonjs
       files: ['*.js', '*.cjs'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 2020,
       },
       rules: {
-        '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/consistent-type-exports': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
-        'import/order': 'off',
       },
     },
   ],

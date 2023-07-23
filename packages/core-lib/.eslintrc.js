@@ -25,7 +25,7 @@ module.exports = {
     '@your-org/eslint-config-bases/rtl',
     '@your-org/eslint-config-bases/react',
     // Apply prettier and disable incompatible rules
-    '@your-org/eslint-config-bases/prettier',
+    '@your-org/eslint-config-bases/prettier-plugin',
   ],
   rules: {
     // optional overrides per project

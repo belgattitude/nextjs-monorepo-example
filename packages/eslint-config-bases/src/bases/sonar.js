@@ -24,6 +24,7 @@ module.exports = {
       extends: ['plugin:sonarjs/recommended'],
       rules: {
         'sonarjs/no-nested-template-literals': 'off',
+        'sonarjs/prefer-single-boolean-return': 'off',
       },
     },
     {
