@@ -94,7 +94,7 @@ jobs:
           MAX_SIZE_IN_MB: 80
           ZSTD_LEVEL: 8
         run: |
-          zstd -${{ env.MAX_SIZE }} -i ./docker-image.tar -o ./docker-image.tar.zst          
+          zstd -${{ env.ZSTD_LEVEL }} -i ./docker-image.tar -o ./docker-image.tar.zst          
           ls -lah | grep docker-image.tar
           if [ $(ls -s --block-size=1048576 ./docker-image.tar.zst | cut -d' ' -f1)  -gt ${{ env.MAX_SIZE_IN_MB }} ]; then 
              echo 'Error: docker image too big'; 
