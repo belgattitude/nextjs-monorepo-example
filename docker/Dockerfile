@@ -14,11 +14,11 @@ ENV NEXTJS_APP=$NEXTJS_APP
 
 WORKDIR /app
 
+COPY --link . .
+
 # We can't run turbo without yarn install first, let's install locally and make sure
 # both local and docker are aligned on the package.json version.
 RUN TURBO_VERSION=$(cat package.json | jq '.devDependencies["turbo"]' -r) npm i -g turbo@${TURBO_VERSION}
-
-COPY --link . .
 
 # https://turbo.build/repo/docs/handbook/deploying-with-docker
 RUN turbo prune --scope=nextjs-app --docker --out-dir=./out/nextjs-app/
@@ -95,9 +95,9 @@ COPY --from=app-installer --link /app/apps/nextjs-app/next.config.mjs \
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=app-installer --link --chown=nextjs:nodejs /app/apps/nextjs-app/.next/standalone ./
-COPY --from=app-installer --link --chown=nextjs:nodejs /app/apps/nextjs-app/.next/static ./apps/nextjs-app/.next/static
-COPY --from=app-installer --link --chown=nextjs:nodejs /app/apps/nextjs-app/public ./apps/nextjs-app/.next/public
+COPY --from=app-installer --chown=nextjs:nodejs /app/apps/nextjs-app/.next/standalone ./
+COPY --from=app-installer --chown=nextjs:nodejs /app/apps/nextjs-app/.next/static ./apps/nextjs-app/.next/static
+COPY --from=app-installer --chown=nextjs:nodejs /app/apps/nextjs-app/public ./apps/nextjs-app/.next/public
 
 EXPOSE ${PORT}
 

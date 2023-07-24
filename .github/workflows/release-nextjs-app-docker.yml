@@ -3,7 +3,6 @@ name: Release nextjs-app docker
 on:
   push:
     branches: [dev, main]
-    # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
@@ -16,7 +15,6 @@ on:
 
   pull_request:
     types: [opened, synchronize, reopened]
-    # Only consider those paths to trigger the action
     paths:
       - 'apps/nextjs-app/**'
       - 'packages/**'
@@ -36,7 +34,7 @@ permissions:
 jobs:
   docker:
     # if main branch not protected
-    #if: ${{ github.repository == 'belgattitude/nextjs-monorepo-example' && contains('refs/heads/main',github.ref)}}
+    if: ${{ github.repository == 'belgattitude/nextjs-monorepo-example' && contains('refs/heads/main',github.ref)}}
     runs-on: ubuntu-latest
     name: Nextjs-app docker build
     defaults:
@@ -48,33 +46,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Docker meta
+      - name: ⚙️ Setup Docker meta
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.IMAGE }}
 
-      - name: Set up QEMU
+      - name: ⚙️ Setup QEMU
         uses: docker/setup-qemu-action@v2
 
-      - name: Set up Docker Buildx
+      - name: ⚙️ Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Login to Docker Hub
-        # Disabled for now... cheaper to self-host, use github repo or upload
+      - name: 🤫 Login to Docker Hub
+        # Disabled for example
         if: false
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and export to Docker
+      - name: 🏗 Build and export to Docker
         uses: docker/build-push-action@v4
-        continue-on-error: true
         with:
           load: true
           context: .
           file: ./docker/Dockerfile
+          # Disabled for example
           # push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -85,13 +83,11 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Inspect
-        continue-on-error: true
+      - name: 🕵️ Inspect
         run: |
           docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
 
-      - name: Debug size
-        continue-on-error: true
+      - name: 📐 Save and display image size (zstd)
         run: |
-          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ./test.tar.gz
-          ls -lah ./test.tar.gz
+          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | zstd > ./test.tar.zst
+          ls -lah ./test.tar.zst
