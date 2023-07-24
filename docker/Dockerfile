@@ -16,14 +16,12 @@ WORKDIR /app
 
 # We can't run turbo without yarn install first, let's install locally and make sure
 # both local and docker are aligned on the package.json version.
-RUN TURBO_VERSION=$(npm ls turbo | grep turbo | sed 's/.*@//') npm i -g turbo@${TURBO_VERSION}
+RUN TURBO_VERSION=$(cat package.json | jq '.devDependencies["turbo"]' -r) npm i -g turbo@${TURBO_VERSION}
 
 COPY --link . .
 
 # https://turbo.build/repo/docs/handbook/deploying-with-docker
 RUN turbo prune --scope=nextjs-app --docker --out-dir=./out/nextjs-app/
-
-COPY --link static/ ./out/nextjs-app
 
 #############################################################
 # Stage 2 - App installation                                #
