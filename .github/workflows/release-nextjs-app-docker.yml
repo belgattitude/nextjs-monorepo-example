@@ -91,5 +91,5 @@ jobs:
 
       - name: 📐 Compress saved image and show size
         run: |
-          zstd -i ./docker-image.tar -o ./docker-image.tar.zst          
+          zstd -5 -i ./docker-image.tar -o ./docker-image.tar.zst          
           ls -lah | grep docker-image.tar
