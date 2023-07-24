@@ -15,8 +15,6 @@
     "directory": "apps/remix-app"
   },
   "scripts": {
-    "?share-static-hardlink": "echo 'Use this command to link assets... from shared static folder'",
-    "?share-static-symlink": "echo 'Use this command to link assets... from shared static folder'",
     "build": "npm run build-css && remix build",
     "build-css": "tailwindcss -o ./src/tailwind.css",
     "clean": "rimraf ./.cache ./coverage ./src/tailwind.css ./api/index.js ./api/index.js.map ./public/build ./tsconfig.tsbuildinfo",
@@ -25,8 +23,6 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/remix-app.eslintcache",
     "lint-styles": "stylelint 'src/**/*.css'",
     "remix-dev": "remix dev",
-    "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
-    "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
