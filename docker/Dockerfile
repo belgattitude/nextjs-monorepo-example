@@ -55,16 +55,20 @@ ENV HUSKY=0
 WORKDIR /app
 
 # First install the dependencies (as they change less often)
-COPY .gitignore .gitignore
-COPY --from=app-builder /app/out/nextjs-app/json/ .
-COPY --from=app-builder /app/out/nextjs-app/yarn.lock ./yarn.lock
+COPY --link .gitignore .gitignore
+COPY --from=app-builder --link /app/out/nextjs-app/json/ .
+COPY --from=app-builder --link /app/out/nextjs-app/yarn.lock ./yarn.lock
 
-RUN yarn install --inline-builds
+#RUN yarn install --inline-builds
+
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
+    YARN_CACHE_FOLDER=/root/.yarn3-cache \
+    yarn install --inline-builds
 
 # Build the project
 COPY --from=app-builder /app/out/nextjs-app/full/ .
-COPY turbo.json turbo.json
-COPY tsconfig.base.json tsconfig.base.json
+COPY --link turbo.json turbo.json
+COPY --link tsconfig.base.json tsconfig.base.json
 
 RUN yarn workspace @your-org/db-main-prisma prisma-generate
 RUN yarn turbo run build --filter=nextjs-app...

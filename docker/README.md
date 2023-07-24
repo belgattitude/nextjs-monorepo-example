@@ -12,6 +12,8 @@
 ```bash
 cd ./docker
 docker compose build
+docker compose build --progress=plain # More verbose
+docker compose build --parallel       # Might be faster
 docker compose up
 docker compose down
 ```
