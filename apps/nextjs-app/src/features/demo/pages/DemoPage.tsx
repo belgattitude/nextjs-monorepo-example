@@ -32,7 +32,7 @@ export const DemoPage: FC = () => {
           </li>
         </ul>
         <Image
-          src={'/shared-assets/images/nextjs-logo.png'}
+          src={'/images/nextjs-logo.png'}
           alt={'logo'}
           width={400}
           height={240}

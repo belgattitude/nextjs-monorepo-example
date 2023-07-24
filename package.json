@@ -41,8 +41,6 @@
     "g:lint-staged-files": "lint-staged --allow-empty",
     "g:lint-styles": "yarn workspaces foreach -ptv run lint-styles --color",
     "g:release": "yarn g:build && changeset publish",
-    "g:share-static-hardlink": "yarn workspaces foreach -pv --include 'apps/*' run share-static-hardlink",
-    "g:share-static-symlink": "yarn workspaces foreach -pv --include 'apps/*' run share-static-symlink",
     "g:test-e2e": "yarn workspaces foreach -tv run test-e2e",
     "g:test-unit": "yarn workspaces foreach -tv run test-unit",
     "g:test-unit-jest": "yarn workspaces foreach -tv run test-unit-jest",

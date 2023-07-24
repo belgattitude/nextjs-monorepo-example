@@ -25,18 +25,13 @@
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --fix",
     "flamegraph-home": "npx 0x --output-dir './.debug/flamegraph/{pid}.0x' --on-port 'autocannon http://localhost:$PORT --duration 20' -- node ../../node_modules/.bin/next start",
     "lint": "cross-env TIMING=1 eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs,.mdx,.graphql --cache --cache-location ../../.cache/eslint/nextjs-app.eslintcache",
-    "share-static-hardlink": "rimraf ./public/shared-assets && syncdir ../../static/assets ./public/shared-assets --copy",
-    "share-static-hardlink?": "echo 'Use this command to link assets... from shared static folder'",
-    "share-static-symlink": "rimraf ./public/shared-assets && symlink-dir ../../static/assets ./public/shared-assets",
-    "share-static-symlink?": "echo 'Use this command to link assets... from shared static folder'",
     "start": "next start",
     "test": "yarn test-unit",
     "test-e2e": "cross-env E2E_WEBSERVER_MODE=BUILD_AND_START playwright test",
     "test-unit": "vitest run",
     "test-unit-jest": "jest --config ./jest.config.js",
     "test-unit-watch": "vitest watch --ui",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "vercel-build": "yarn share-static-hardlink && next build"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "browserslist": {
     "production": [
@@ -151,8 +146,6 @@
     "react-test-renderer": "18.2.0",
     "rimraf": "5.0.1",
     "size-limit": "8.2.6",
-    "symlink-dir": "5.1.1",
-    "sync-directory": "6.0.4",
     "tailwindcss": "3.3.3",
     "ts-jest": "29.1.1",
     "typescript": "5.1.6",

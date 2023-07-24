@@ -69,7 +69,6 @@ COPY --link turbo.json turbo.json
 COPY --link tsconfig.base.json tsconfig.base.json
 
 RUN yarn workspace @your-org/db-main-prisma prisma-generate
-RUN yarn workspace nextjs-app share-static-hardlink
 RUN yarn turbo run build --filter=nextjs-app...
 
 #############################################################

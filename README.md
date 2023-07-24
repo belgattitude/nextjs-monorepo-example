@@ -123,12 +123,6 @@ yarn install
 
 > Apps can depend on packages, packages can depend on each others...
 
-#### Shared static assets
-
-If needed static resources like **images**,... can be shared by using symlinks in the repo.
-
-- See the global [static](./static) folder.
-
 #### Folder overview
 
 <details>
@@ -150,8 +144,6 @@ If needed static resources like **images**,... can be shared by using symlinks i
 │   └── nextjs-app                  (NextJS app with api-routes)
 │       ├── e2e/                 (E2E tests with playwright)
 │       ├── public/
-│       │   ├── shared-assets/   (possible symlink to global assets)
-│       │   └── shared-locales/  (possible symlink to global locales)
 │       ├── src/
 │       │   └── pages/api        (api routes)
 │       ├── CHANGELOG.md
