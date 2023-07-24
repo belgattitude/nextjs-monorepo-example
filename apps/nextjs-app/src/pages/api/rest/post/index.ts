@@ -1,6 +1,5 @@
 import { HttpMethodNotAllowed } from '@httpx/exception';
-import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
-import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import { JsonApiResponseFactory, JsonApiErrorFactory } from '@httpx/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';

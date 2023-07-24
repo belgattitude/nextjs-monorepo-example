@@ -1,17 +1,17 @@
 import { HttpMethodNotAllowed } from '@httpx/exception';
-import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
-import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
+import { JsonApiResponseFactory, JsonApiErrorFactory } from '@httpx/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { serialize } from 'superjson';
 import { prismaClient } from '@/backend/config/container.config';
 import { SearchPoemsQuery } from '@/backend/features/poem/SearchPoems';
+
+const searchPoem = new SearchPoemsQuery(prismaClient);
 
 export default async function handleListPoems(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    const searchPoem = new SearchPoemsQuery(prismaClient);
     try {
       const { json: serializableData, meta } = serialize(
         await searchPoem.execute({

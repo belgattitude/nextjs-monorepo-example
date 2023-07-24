@@ -1,6 +1,6 @@
 import { HttpException, HttpNotFound } from '@httpx/exception';
+import { JsonApiResponseFactory } from '@httpx/json-api';
 import { zodReq } from '@nextvalid/zod-request';
-import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
