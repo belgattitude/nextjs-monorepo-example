@@ -33,26 +33,26 @@ FROM app-builder as app-installer
 
 ENV NEXTJS_APP=$NEXTJS_APP
 
-ENV NEXT_BUILD_ENV_TYPECHECK false
-ENV NEXT_BUILD_ENV_LINT false
-ENV NEXT_BUILD_ENV_OUTPUT standalone
-ENV NEXT_BUILD_ENV_SENTRY_ENABLED false
-ENV NEXT_BUILD_ENV_SENTRY_TRACING false
+ENV NEXT_BUILD_ENV_TYPECHECK=false
+ENV NEXT_BUILD_ENV_LINT=false
+ENV NEXT_BUILD_ENV_OUTPUT=standalone
+ENV NEXT_BUILD_ENV_SENTRY_ENABLED=false
+ENV NEXT_BUILD_ENV_SENTRY_TRACING=false
 
-ENV TZ Europe/Brussels
+ENV TZ=Europe/Brussels
 
 # Optimize for YARN installation speed
-ENV YARN_ENABLE_GLOBAL_CACHE false
-ENV YARN_ENABLE_MIRROR false
-ENV YARN_NODE_LINKER node-modules
-ENV YARN_NM_MODE hardlinks-local
+ENV YARN_ENABLE_GLOBAL_CACHE=false
+ENV YARN_ENABLE_MIRROR=false
+ENV YARN_NODE_LINKER=node-modules
+ENV YARN_NM_MODE=hardlinks-local
 # If using different compression level than in local (recommended: prefer to not do this)
 #ENV YARN_COMPRESSION_LEVEL 0
 #ENV YARN_CHECKSUM_BEHAVIOR ignore
 
 # Disabling some well-known postinstall scripts
-ENV PRISMA_SKIP_POSTINSTALL_GENERATE true
-ENV HUSKY 0
+ENV PRISMA_SKIP_POSTINSTALL_GENERATE=true
+ENV HUSKY=0
 
 WORKDIR /app
 
