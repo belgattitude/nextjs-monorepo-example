@@ -83,11 +83,13 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: 🕵️ Inspect
-        run: |
-          docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
+      - name: 🕵️ Docker image inspect
+        run: docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
 
-      - name: 📐 Save and display image size (zstd)
+      - name: 💾 Save docker image
+        run: docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} -o ./docker-image.tar
+
+      - name: 📐 Compress saved image and show size
         run: |
-          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | zstd > ./test.tar.zst
-          ls -lah ./test.tar.zst
+          zstd -i ./docker-image.tar -o ./docker-image.tar.zst          
+          ls -lah | grep docker-image.tar
