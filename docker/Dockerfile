@@ -8,7 +8,7 @@ ARG NEXTJS_APP=nextjs-app
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as app-builder
 
-RUN apk add --no-cache libc6-compat git && corepack enable
+RUN apk add --no-cache libc6-compat git jq && corepack enable
 
 ENV NEXTJS_APP=$NEXTJS_APP
 
