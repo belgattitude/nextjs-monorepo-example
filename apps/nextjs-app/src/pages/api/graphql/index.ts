@@ -10,11 +10,15 @@ import { createYoga } from 'graphql-yoga';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { graphqlSchema } from '@/backend/graphql/graphqlSchema';
 
-// Docs: https://vercel.com/docs/concepts/functions/serverless-functions
+// Warning on vercel upload limit is 4Mb
+// @link https://nextjs.org/docs/pages/building-your-application/routing/api-routes
+// @link https://vercel.com/docs/concepts/functions/serverless-functions
 export const config = {
   api: {
     // Disable body parsing (required for file uploads)
     bodyParser: false,
+    sizeLimit: '4mb',
+    responseLimit: '10mb',
   },
 };
 
