@@ -29,6 +29,22 @@ export default createYoga<{
   schema: graphqlSchema,
   graphqlEndpoint: '/api/graphql',
   graphiql: true,
+  batching: {
+    /** @link https://the-guild.dev/graphql/yoga-server/docs/features/request-batching */
+    limit: 2,
+  },
+  // @link https://the-guild.dev/graphql/yoga-server/docs/features/cors
+  cors: (request) => {
+    const requestOrigin = request.headers.get('origin') ?? '*';
+    return {
+      origin: requestOrigin,
+      credentials: true,
+      allowedHeaders: ['X-Custom-Header'],
+      methods: ['POST', 'GET'],
+    };
+  },
+  // @link https://the-guild.dev/graphql/yoga-server/docs/features/parsing-and-validation-caching
+  parserAndValidationCache: true,
   plugins: [
     useGraphQlJit(),
     useValidationCache(),
