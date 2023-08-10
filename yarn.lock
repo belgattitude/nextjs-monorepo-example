@@ -1940,13 +1940,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:17.7.0":
-  version: 17.7.0
-  resolution: "@commitlint/cli@npm:17.7.0"
+"@commitlint/cli@npm:17.7.1":
+  version: 17.7.1
+  resolution: "@commitlint/cli@npm:17.7.1"
   dependencies:
     "@commitlint/format": "npm:^17.4.4"
     "@commitlint/lint": "npm:^17.7.0"
-    "@commitlint/load": "npm:^17.7.0"
+    "@commitlint/load": "npm:^17.7.1"
     "@commitlint/read": "npm:^17.5.1"
     "@commitlint/types": "npm:^17.4.4"
     execa: "npm:^5.0.0"
@@ -1956,7 +1956,7 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: 0330ebe6710be869902d7fae29da340878a9bd44d2cbe0ec3db5a0767e25861582b3fdb22cc3b341b53faaa4aef6094923a9c4a42d61a926dde61176575e12a7
+  checksum: d2d184c446289d9abf065a5925c6976237ce0a4e10ab890d439143d128532701da6140cae9497320a4072b50c2087473b2a9176bac2c86f67a5367269b08718c
   languageName: node
   linkType: hard
 
@@ -2032,22 +2032,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^17.7.0":
-  version: 17.7.0
-  resolution: "@commitlint/load@npm:17.7.0"
+"@commitlint/load@npm:^17.7.1":
+  version: 17.7.1
+  resolution: "@commitlint/load@npm:17.7.1"
   dependencies:
     "@commitlint/config-validator": "npm:^17.6.7"
     "@commitlint/execute-rule": "npm:^17.4.0"
     "@commitlint/resolve-extends": "npm:^17.6.7"
     "@commitlint/types": "npm:^17.4.4"
+    "@types/node": "npm:20.4.7"
     chalk: "npm:^4.1.0"
     cosmiconfig: "npm:^8.0.0"
-    cosmiconfig-typescript-loader: "npm:^5.0.0"
+    cosmiconfig-typescript-loader: "npm:^4.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     lodash.merge: "npm:^4.6.2"
     lodash.uniq: "npm:^4.5.0"
     resolve-from: "npm:^5.0.0"
-  checksum: bd1d81e1f20b5739008d14d203b153a4e90d0a9d011dde8c0de1626eeadb55eaa0ab6350e3a433fe70ca9c51b4cc09205353cecc181c16bedafc502f0195325a
+    ts-node: "npm:^10.8.1"
+    typescript: "npm:^4.6.4 || ^5.0.0"
+  checksum: 5861f72acf08cf5c18e83545b344cd76a4c1111ed149e9c3afe9084d9035ddb9b35100272291c2bd99736a5ed56032c8a3614ae5574ab862b7dcd920549b7721
   languageName: node
   linkType: hard
 
@@ -8388,7 +8391,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.4.5":
+"@types/node@npm:*, @types/node@npm:20.4.7":
+  version: 20.4.7
+  resolution: "@types/node@npm:20.4.7"
+  checksum: 95c0179ca0c1e3c96f3613276f98c7f620ee035f5d871e3045bc39e76fb77f4330b03b79335d8d254e88c8deb1143fcaa2fb4ad576d857c31f389282fe56a0f1
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.4.5":
   version: 20.4.5
   resolution: "@types/node@npm:20.4.5"
   checksum: ed414b8fea1b462cb7444464e18cf0786a11def8b863bcca52b0466992d04f701422f9fc3c33e0601444bfdbf9e18d8f4b163d35902758495b51e635b09fee64
@@ -11546,16 +11556,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig-typescript-loader@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "cosmiconfig-typescript-loader@npm:5.0.0"
-  dependencies:
-    jiti: "npm:^1.19.1"
+"cosmiconfig-typescript-loader@npm:^4.0.0":
+  version: 4.4.0
+  resolution: "cosmiconfig-typescript-loader@npm:4.4.0"
   peerDependencies:
     "@types/node": "*"
-    cosmiconfig: ">=8.2"
+    cosmiconfig: ">=7"
+    ts-node: ">=10"
     typescript: ">=4"
-  checksum: 0eb1a767a589cf092e68729e184d5917ae0b167b6f5d908bc58cee221d66b937430fc58df64029795ef98bb8e85c575da6e3819c5f9679c721de7bdbb4bde719
+  checksum: a204eb354943f84ab0434d108fdf593db84c477f107f3ccb586e2d659c1d87f03071d8983c96d4ce2a59cc524ec845697f0432876339e4c28bde84b665cd92a6
   languageName: node
   linkType: hard
 
@@ -16997,7 +17006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:^1.18.2, jiti@npm:^1.19.1":
+"jiti@npm:^1.18.2":
   version: 1.19.1
   resolution: "jiti@npm:1.19.1"
   bin:
@@ -19427,7 +19436,7 @@ __metadata:
   dependencies:
     "@changesets/changelog-github": "npm:0.4.8"
     "@changesets/cli": "npm:2.26.2"
-    "@commitlint/cli": "npm:17.7.0"
+    "@commitlint/cli": "npm:17.7.1"
     "@commitlint/config-conventional": "npm:17.7.0"
     "@types/prettier": "npm:2.7.3"
     "@types/shell-quote": "npm:1.7.1"
@@ -24605,7 +24614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.9.1":
+"ts-node@npm:^10.8.1, ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
@@ -25047,7 +25056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.1.6, typescript@npm:^5.0.4":
+"typescript@npm:5.1.6, typescript@npm:^4.6.4 || ^5.0.0, typescript@npm:^5.0.4":
   version: 5.1.6
   resolution: "typescript@npm:5.1.6"
   bin:
@@ -25057,7 +25066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.6.4 || ^5.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"
   bin:
