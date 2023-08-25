@@ -1,5 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import type { HTMLAttributes, FC } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type FC,
+} from 'react';
 
 type TypedTextProps = {
   /** Animation speed in milliseconds */

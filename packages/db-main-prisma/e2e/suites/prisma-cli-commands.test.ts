@@ -1,5 +1,4 @@
-import { execa } from 'execa';
-import type { Options as ExecaOptions } from 'execa';
+import { execa, type Options as ExecaOptions } from 'execa';
 import { PrismaManager, PrismaClientDbMain } from '../../src';
 import { getAndCheckDatabaseDsn } from '../e2e-dsn-services.util';
 

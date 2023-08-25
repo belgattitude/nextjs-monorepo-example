@@ -1,7 +1,6 @@
 // @ts-check
 
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
 const isCI = ['true', '1'].includes(process.env?.CI ?? '');
 

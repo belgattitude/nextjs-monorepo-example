@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import type { FC } from 'react';
-import { useState } from 'react';
+import { useState, type FC } from 'react';
 import { useIntervalWhen } from 'rooks';
 
 // noinspection CssUnknownTarget

@@ -2,8 +2,7 @@
 
 import path from 'path';
 import { loadEnvConfig } from '@next/env';
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { devices, type PlaywrightTestConfig } from '@playwright/test';
 import pc from 'picocolors';
 
 const webServerModes = ['DEV', 'START', 'BUILD_AND_START'] as const;

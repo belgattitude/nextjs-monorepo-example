@@ -1,5 +1,4 @@
-import { parseDsn } from '@soluble/dsn-parser';
-import type { ParsedDsn } from '@soluble/dsn-parser';
+import { parseDsn, type ParsedDsn } from '@soluble/dsn-parser';
 import isPortReachable from 'is-port-reachable';
 import pc from 'picocolors';
 

@@ -1,7 +1,6 @@
 // @ts-check
 
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
 // Reference: https://playwright.dev/docs/test-configuration
 /**

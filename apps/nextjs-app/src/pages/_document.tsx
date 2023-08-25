@@ -1,6 +1,12 @@
 import createEmotionServer from '@emotion/server/create-instance';
-import type { DocumentProps } from 'next/document';
-import Document, { Html, Main, Head, NextScript } from 'next/document';
+import {
+  default as Document,
+  type DocumentProps,
+  Html,
+  Main,
+  Head,
+  NextScript,
+} from 'next/document';
 import { createEmotionCache } from '@/lib/emotion';
 import { defaultLocale } from '../../next-i18next.config.mjs';
 

@@ -8,8 +8,7 @@ import {
   flush as sentryFlush,
 } from '@sentry/nextjs';
 import type { NextPage, NextPageContext } from 'next';
-import NextErrorComponent from 'next/error';
-import type { ErrorProps } from 'next/error';
+import NextErrorComponent, { type ErrorProps } from 'next/error';
 import { ErrorPage } from '@/features/system/pages';
 
 const sentryIgnoredStatusCodes: number[] = [404, 410];
