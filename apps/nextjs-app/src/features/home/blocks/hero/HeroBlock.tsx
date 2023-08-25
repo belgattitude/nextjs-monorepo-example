@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
 import type { FC } from 'react';
 
 type Props = {
@@ -7,8 +6,6 @@ type Props = {
 };
 
 export const HeroBlock: FC<Props> = () => {
-  const { t } = useTranslation(['home', 'common']);
-
   return (
     <section className="body-font text-gray-600">
       <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">

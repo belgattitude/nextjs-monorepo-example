@@ -32,7 +32,7 @@ module.exports = {
     '@your-org/eslint-config-bases/tailwind',
     '@your-org/eslint-config-bases/rtl',
     // Specific rules for remix
-    '@remix-run/eslint-config',
+    // '@remix-run/eslint-config',
     // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier-plugin',
   ],

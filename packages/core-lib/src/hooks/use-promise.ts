@@ -60,7 +60,7 @@ export function usePromise<
       })
       .catch((error) => {
         if (mounted.current) {
-          setError(error);
+          setError(error as Error);
           setIsLoading(false);
         }
       });
@@ -71,7 +71,7 @@ export function usePromise<
   useEffect(() => {
     mounted.current = true;
     if (immediate) {
-      promiseFn();
+      void promiseFn();
     }
     return () => {
       // Loading cannot be safely determined here

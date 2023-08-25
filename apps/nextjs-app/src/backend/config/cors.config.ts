@@ -8,8 +8,7 @@ export const corsAllowedOrigins: string[] = [
 ];
 
 export const getCorsWhitelistOriginRegexp = (allowedOrigins?: string[]) => {
-  const origins =
-    allowedOrigins !== undefined ? allowedOrigins : corsAllowedOrigins;
+  const origins = allowedOrigins ?? corsAllowedOrigins;
   return new RegExp(
     `^https?://(([^/])+\\.)?(${origins.join('|')})(\\:\\d+)?$`,
     'i'

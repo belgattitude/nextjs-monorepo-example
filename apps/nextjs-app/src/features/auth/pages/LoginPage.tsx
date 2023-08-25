@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { authConfig } from '@/features/auth/auth.config';
 import { LoginForm } from '@/features/auth/components/LoginForm';
 
-export const LoginPage: FC = (props) => {
+export const LoginPage: FC = () => {
   const { t } = useTranslation(authConfig.i18nNamespaces);
   const redirectToPage = '/admin';
   return (

@@ -36,6 +36,8 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
         // Enable Jest rules
         'jest/no-focused-tests': 'error',
         'jest/prefer-mock-promise-shorthand': 'error',
@@ -48,6 +50,9 @@ module.exports = {
         'jest/prefer-strict-equal': 'error',
         'jest/prefer-to-have-length': 'error',
         'jest/consistent-test-it': ['error', { fn: 'it' }],
+        // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
+        '@typescript-eslint/unbound-method': 'off',
+        'jest/unbound-method': 'error',
       },
     },
   ],

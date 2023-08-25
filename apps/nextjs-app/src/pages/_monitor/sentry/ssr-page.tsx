@@ -26,7 +26,8 @@ export default function MonitorSentrySsrRoute(
  */
 export const getServerSideProps: GetServerSideProps<Props> = async (
   _context
-) => {
+  // eslint-disable-next-line @typescript-eslint/require-await
+): Promise<never> => {
   throw new Error(
     'Error purposely crafted for monitoring sentry (/pages/_monitor/sentry/ssr-page.tsx)'
   );

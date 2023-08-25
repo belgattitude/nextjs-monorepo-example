@@ -13,8 +13,6 @@ const BgWaved = styled(FooterWaves)`
 `;
 
 const FooterCtn = styled.footer`
-  //background-image: url('/images/layout/footer-waves.svg');
-  //background-image: url(${() => FooterWaves.url});
   display: grid;
   .content,
   .bgImage {

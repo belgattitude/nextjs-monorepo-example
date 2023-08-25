@@ -303,7 +303,7 @@ const poemData = poems.map((p) => {
 
 export class PoemSeeds extends AbstractSeed {
   execute = async (): Promise<void> => {
-    poemData.forEach(async (p) => {
+    for await (const p of poemData) {
       const { keywords, ...poemWithoutKeywords } = p;
       const poem = await this.prisma.poem.upsert({
         where: {
@@ -315,6 +315,6 @@ export class PoemSeeds extends AbstractSeed {
         create: p,
       });
       this.log('UPSERT', `User ${poem.slug} - ${poem.title}`);
-    });
+    }
   };
 }

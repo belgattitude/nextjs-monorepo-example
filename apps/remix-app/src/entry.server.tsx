@@ -13,6 +13,7 @@ export default function handleRequest(
   remixContext: EntryContext
 ) {
   const cache = createEmotionCache();
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
   const html = renderToString(

@@ -47,13 +47,12 @@ export const LoginForm: FC<Props> = (props) => {
     });
     const {
       ok = false,
-      url,
       status = 500,
       error = 'Server or network Error',
     } = result ?? {};
 
     if (ok) {
-      router.push(redirectToPage);
+      await router.push(redirectToPage);
     } else {
       setError(`${status} - ${error}`);
     }

@@ -20,7 +20,7 @@ module.exports = {
       jsx: true,
       globalReturn: false,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     project: ['tsconfig.json'],
     sourceType: 'module',
   },
@@ -34,9 +34,10 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
   ],
   rules: {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
@@ -85,7 +86,6 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
-    '@typescript-eslint/ban-tslint-comment': ['error'],
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
@@ -108,12 +108,42 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': [
       'error',
-      { prefer: 'type-imports' },
+      { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
+    ],
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/unbound-method': ['error', { ignoreStatic: true }],
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowNumber: true,
+        allowBoolean: true,
+        allowAny: true,
+        allowNever: true,
+        allowNullish: true,
+      },
+    ],
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: {
+          arguments: false,
+          attributes: false,
+        },
+      },
     ],
   },
   overrides: [
     {
+      files: ['*.d.ts'],
+      rules: {
+        '@typescript-eslint/no-import-type-side-effects': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+      },
+    },
+    {
       files: ['*.mjs'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -122,14 +152,18 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/consistent-type-exports': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
       },
     },
     {
       // javascript commonjs
       files: ['*.js', '*.cjs'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
       parser: 'espree',
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
       },
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',

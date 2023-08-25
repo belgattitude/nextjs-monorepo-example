@@ -20,6 +20,7 @@ export const apiFetcher = ofetch.create({
    */
   keepalive: true,
 
+  /*
   async onRequest({ request, options }) {
     // Nothing yet
   },
@@ -30,5 +31,5 @@ export const apiFetcher = ofetch.create({
 
   async onResponseError({ request, response, options }) {
     // Nothing yet
-  },
+  }, */
 });

@@ -1,4 +1,4 @@
-import { HttpException, HttpNotFound } from '@httpx/exception';
+import { HttpException } from '@httpx/exception';
 import { JsonApiResponseFactory } from '@httpx/json-api';
 import { zodReq } from '@nextvalid/zod-request';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -28,16 +28,13 @@ export default async function handleGetPost(
     const { id } = schema.parse(req).query;
     const postRepo = new PostRepositorySsr(prismaClient);
     const post = await postRepo.getPost(id);
-    if (!post) {
-      throw new HttpNotFound(`Post ${id} not found`);
-    }
-    return res.json(JsonApiResponseFactory.fromSuccess(post));
+    res.json(JsonApiResponseFactory.fromSuccess(post));
   } catch (e) {
     const { statusCode, message } =
       e instanceof HttpException
         ? e
         : { statusCode: 500, message: 'Unknown error' };
-    return res
+    res
       .status(statusCode)
       .json(JsonApiResponseFactory.fromError(message, statusCode));
   }

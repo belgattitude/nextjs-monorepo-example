@@ -22,6 +22,7 @@ export type MyAppProps = AppProps & {
  * @link https://nextjs.org/docs/advanced-features/custom-app
  */
 const MyApp = (appProps: MyAppProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { Component, pageProps, emotionCache } = appProps;
   return (
     <AppProviders emotionCache={emotionCache}>

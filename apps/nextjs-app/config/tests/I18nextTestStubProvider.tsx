@@ -8,7 +8,7 @@ import type { I18nNamespace } from '@/lib/i18n/I18nNamespace.types';
  * @link {https://react.i18next.com/misc/testing}
  */
 // eslint-disable-next-line import/no-named-as-default-member
-i18next.use(initReactI18next).init({
+void i18next.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
   ns: ['common'],

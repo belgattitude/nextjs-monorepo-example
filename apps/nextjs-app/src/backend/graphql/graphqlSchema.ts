@@ -37,7 +37,7 @@ builder.queryType({
       args: {
         name: t.arg.string(),
       },
-      resolve: (parent, { name }) => `hello, ${name || 'World'}`,
+      resolve: (parent, { name }) => `hello, ${name ?? 'World'}`,
     }),
     getUser: t.prismaField({
       type: 'User',

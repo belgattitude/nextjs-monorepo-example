@@ -12,7 +12,7 @@ export class SearchPoemsQuery {
     return this.mapToResult(await this.searchPoems(params));
   };
 
-  private mapToResult = async (rows: SearchPoems) => {
+  private mapToResult = (rows: SearchPoems) => {
     return rows.map((poem) => {
       const { createdAt, updatedAt, keywords, ...rest } = poem;
       return {

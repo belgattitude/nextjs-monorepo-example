@@ -21,6 +21,6 @@ sentryInit({
       console.log('Sentry event', event);
       console.log('Sentry hint', hint);
     }
-    return event;
+    return Promise.resolve(event);
   },
 });
