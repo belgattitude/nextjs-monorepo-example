@@ -11,7 +11,7 @@ describe('usePromise', () => {
       const callback = jest.fn();
       const promiseFn = async (deps: Deps) => {
         callback(deps);
-        return expected;
+        return Promise.resolve(expected);
       };
 
       const { result, rerender } = renderHook(() =>
@@ -43,6 +43,7 @@ describe('usePromise', () => {
 
     it('should set error when promise fails', async () => {
       const callback = jest.fn();
+      // eslint-disable-next-line @typescript-eslint/require-await
       const promiseFn = async () => {
         callback();
         throw new Error('cool');
@@ -71,6 +72,7 @@ describe('usePromise', () => {
       const callback = jest.fn();
       const promiseFn = async () => {
         callback();
+        return Promise.resolve(0);
       };
 
       const { result } = renderHook(() => usePromise(promiseFn, {}));

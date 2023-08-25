@@ -6,7 +6,7 @@ type Props = {
     request: Request,
     options: NormalizedOptions,
     response: Response
-  ) => void;
+  ) => Promise<void>;
 };
 
 export class KyFactory {
@@ -22,7 +22,7 @@ export class KyFactory {
                   [401, 403].includes(status) &&
                   this.props.onAuthFailure !== undefined
                 ) {
-                  this.props.onAuthFailure(request, options, response);
+                  await this.props.onAuthFailure(request, options, response);
                 }
                 return response;
               },

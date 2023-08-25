@@ -4,7 +4,8 @@ import { TextAvatar } from '@/components/avatar/TextAvatar';
 
 export const AdminSidebar: FC = () => {
   // @todo better to use middleware or https://next-auth.js.org/getting-started/client#custom-client-session-handling
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const user = session?.user;
   return (
     <div className="flex flex-row sm:gap-10">

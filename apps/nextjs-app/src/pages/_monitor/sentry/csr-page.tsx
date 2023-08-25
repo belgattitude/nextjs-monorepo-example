@@ -1,6 +1,7 @@
 import { useEffect, useState, type FC } from 'react';
 
-const getAsyncError = async (): Promise<void> => {
+// eslint-disable-next-line @typescript-eslint/require-await
+const getAsyncError = async (): Promise<never> => {
   throw new Error(
     'Error purposely crafted for monitoring sentry (/pages/_monitor/sentry/csr-page.tsx)'
   );
@@ -10,7 +11,7 @@ const MonitorSentryCsrRoute: FC = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    getAsyncError().catch((err) => setError(err));
+    getAsyncError().catch((err) => setError(err as Error));
   }, []);
 
   if (error) {

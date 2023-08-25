@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const NotFoundPage: FC<Props> = (props) => {
-  const title = props.title || 'Not Found';
+  const title = props.title ?? 'Not Found';
   return (
     <>
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-white">

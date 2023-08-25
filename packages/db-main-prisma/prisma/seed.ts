@@ -7,10 +7,10 @@ async function main() {
   console.log(`Start seeding ...`);
 
   const userSeeds = new UserSeeds(prisma);
-  userSeeds.execute();
+  await userSeeds.execute();
 
   const companySeeds = new PoemSeeds(prisma);
-  companySeeds.execute();
+  await companySeeds.execute();
 
   console.log(`Seeding finished.`);
 }

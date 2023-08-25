@@ -2,7 +2,7 @@ import { parseDsn, type ParsedDsn } from '@soluble/dsn-parser';
 import isPortReachable from 'is-port-reachable';
 import pc from 'picocolors';
 
-const dsn = process.env.E2E_PRISMA_DATABASE_URL as string;
+const dsn = process.env.E2E_PRISMA_DATABASE_URL!;
 
 export const getValidatedDsn = (): { dsn: string } & ParsedDsn => {
   const parsedDsn = parseDsn(dsn);

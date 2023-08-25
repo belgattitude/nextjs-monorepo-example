@@ -1,4 +1,4 @@
-import { type I18nActiveNamespaces } from '@/lib/i18n/I18nNamespace.types';
+import type { I18nActiveNamespaces } from '@/lib/i18n/I18nNamespace.types';
 
 /**
  * Ensure that the i18nNamespaces are sorted alphabetically when passed in feature configs.

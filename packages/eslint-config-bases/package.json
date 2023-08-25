@@ -57,68 +57,57 @@
       "require": "./src/bases/typescript.js"
     }
   },
-  "author": {
-    "name": "Vanvelthem Sébastien",
-    "url": "https://github.com/belgattitude"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
-    "directory": "packages/eslint-config-bases"
-  },
   "scripts": {
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
-    "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --cache --cache-location ../../.cache/eslint/eslint-config-bases.eslintcache",
-    "typecheck": "tsc --project tsconfig.json --noEmit"
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "fix-all-files": "eslint  --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --fix",
+    "check-dist": "es-check -v"
   },
   "dependencies": {
-    "@rushstack/eslint-patch": "^1.3.2",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@tanstack/eslint-plugin-query": "^4.32.5",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jest": "^27.2.3",
     "eslint-plugin-jest-formatting": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-playwright": "^0.15.3",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-regexp": "^1.15.0",
     "eslint-plugin-sonarjs": "^0.21.0",
     "eslint-plugin-storybook": "^0.6.13",
-    "eslint-plugin-tailwindcss": "^3.13.0",
-    "eslint-plugin-testing-library": "^6.0.0"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "5.17.0",
-    "@testing-library/react": "14.0.0",
-    "@types/jest": "29.5.4",
-    "@types/node": "20.4.5",
-    "@types/prettier": "2.7.3",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.47.0",
-    "prettier": "3.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rimraf": "5.0.1",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
+    "eslint-plugin-testing-library": "^6.0.1"
   },
   "peerDependencies": {
+    "@graphql-eslint/eslint-plugin": "^3.14.3",
     "eslint": "^8.30.0",
+    "eslint-plugin-mdx": "^2.0.5",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "graphql": "^16.6.0",
     "prettier": "^2.8.0 || ^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^4.9.5 || ^5.0.0"
+    "typescript": "^4.9.4 || ^5.0.2"
   },
   "peerDependenciesMeta": {
+    "@graphql-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-mdx": {
+      "optional": true
+    },
+    "eslint-plugin-tailwindcss": {
+      "optional": true
+    },
+    "graphql": {
+      "optional": true
+    },
     "prettier": {
       "optional": true
     },
@@ -134,5 +123,29 @@
     "typescript": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@angular-eslint/template-parser": "16.1.1",
+    "@graphql-eslint/eslint-plugin": "3.20.1",
+    "@testing-library/jest-dom": "6.1.2",
+    "@testing-library/react": "14.0.0",
+    "@types/jest": "29.5.4",
+    "@types/node": "20.5.6",
+    "@types/prettier": "2.7.3",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "es-check": "7.1.1",
+    "eslint": "8.48.0",
+    "eslint-plugin-mdx": "2.2.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
+    "graphql": "16.8.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2"
+  },
+  "engines": {
+    "node": ">=18.12.0"
   }
 }

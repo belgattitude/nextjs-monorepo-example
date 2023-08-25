@@ -59,7 +59,8 @@ export const nextAuthConfig: NextAuthOptions = {
           email,
           password
         );
-        if (staticAllowedDemoAdminUser) return staticAllowedDemoAdminUser;
+        if (staticAllowedDemoAdminUser)
+          return Promise.resolve(staticAllowedDemoAdminUser);
 
         throw createHttpUnauthorized('Invalid credentials');
       },
@@ -96,17 +97,17 @@ export const nextAuthConfig: NextAuthOptions = {
     },
     */
     async redirect({ url, baseUrl }) {
-      return url.startsWith(baseUrl) ? url : baseUrl;
+      return Promise.resolve(url.startsWith(baseUrl) ? url : baseUrl);
     },
     // async session({ session, token, user }) {
     async session({ session, token }) {
-      return {
+      return Promise.resolve({
         ...session,
         user: {
           ...session.user,
-          role: token.role as string,
+          role: token.role,
         },
-      };
+      });
     },
     async jwt({ token, user, trigger }) {
       if (trigger === 'signUp') {
@@ -115,7 +116,7 @@ export const nextAuthConfig: NextAuthOptions = {
       if (user) {
         token.role = user.role;
       }
-      return token;
+      return Promise.resolve(token);
     },
   },
   pages: {
