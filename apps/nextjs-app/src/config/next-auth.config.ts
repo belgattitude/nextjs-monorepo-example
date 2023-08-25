@@ -1,5 +1,5 @@
 import type { NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import { default as CredentialsProvider } from 'next-auth/providers/credentials';
 import { createHttpUnauthorized } from '@/lib/auth/error';
 import { getServerRuntimeEnv } from './server-runtime-env.config.mjs';
 

@@ -1,5 +1,4 @@
-import type { EmotionCache } from '@emotion/react';
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, type EmotionCache } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';

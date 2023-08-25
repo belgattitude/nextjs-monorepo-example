@@ -1,5 +1,4 @@
-import Ky from 'ky';
-import type { Options, NormalizedOptions } from 'ky';
+import Ky, { type Options, type NormalizedOptions } from 'ky';
 
 type Props = {
   baseUrl?: string;

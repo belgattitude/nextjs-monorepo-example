@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FC } from 'react';
 
 type Props = {
   apiUrl: string;

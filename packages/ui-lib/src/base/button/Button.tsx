@@ -1,7 +1,6 @@
 // To test out support for emotion-11/css prop in storybook
 
 import type { FC } from 'react';
-import React from 'react';
 import { cssButtonStyle } from './Button.styles';
 
 type ButtonProps = {

@@ -1,5 +1,7 @@
-import type { JsonApiResponse } from '@httpx/json-api';
-import { isJsonApiSuccessResponse } from '@httpx/json-api';
+import {
+  isJsonApiSuccessResponse,
+  type JsonApiResponse,
+} from '@httpx/json-api';
 import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
 import { apiFetcher } from '@/config/api-fetcher.config';
 
