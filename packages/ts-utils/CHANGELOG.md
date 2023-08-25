@@ -1,5 +1,11 @@
 # @your-org/ts-utils
 
+## 1.1.2
+
+### Patch Changes
+
+- [#4298](https://github.com/belgattitude/nextjs-monorepo-example/pull/4298) [`c32aeeb4`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c32aeeb428b27e44fe1ff7b1c39ef176a4330daa) Thanks [@belgattitude](https://github.com/belgattitude)! - Lint with typescript eslint v6
+
 ## 1.1.1
 
 ### Patch Changes
