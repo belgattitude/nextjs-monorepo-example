@@ -1,5 +1,16 @@
 # remix-app
 
+## 1.10.12
+
+### Patch Changes
+
+- [#4298](https://github.com/belgattitude/nextjs-monorepo-example/pull/4298) [`c32aeeb4`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c32aeeb428b27e44fe1ff7b1c39ef176a4330daa) Thanks [@belgattitude](https://github.com/belgattitude)! - Lint with typescript eslint v6
+
+- Updated dependencies [[`c32aeeb4`](https://github.com/belgattitude/nextjs-monorepo-example/commit/c32aeeb428b27e44fe1ff7b1c39ef176a4330daa)]:
+  - @your-org/common-i18n@1.2.2
+  - @your-org/core-lib@3.15.3
+  - @your-org/ui-lib@3.15.2
+
 ## 1.10.11
 
 ### Patch Changes
