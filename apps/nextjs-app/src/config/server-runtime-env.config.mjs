@@ -7,7 +7,23 @@ import {
   zConvertTruthyStrToBool,
 } from '../lib/env/index.mjs';
 
+// Although used by many tools, production phases are internal and not documented in nextjs.
+// So we're left with one option, specifying via an env variable (not a build-env cause they validate at build time)
+// and we want to keep something that works at build (ie docker) and runtime.
+// @see confirmed by Lee Robinson - https://github.com/vercel/next.js/issues/37269#issuecomment-1608579557
+const isProductionPhaseBuild = process.env.NEXTJS_PRODUCTION_PHASE === 'build';
+const isTest = process.env.NODE_ENV === 'test';
+
+const disableRuntimeValidation = isProductionPhaseBuild || isTest;
+
+/**
+ * @type {import('zod').ZodType<string>}
+ */
 const dsnSchema = z.custom((dsn) => isParsableDsn(dsn), 'Invalid DSN format.');
+
+/**
+ * @typedef {import('zod').infer<typeof serverRuntimeEnvSchema>} ServerRuntimeEnv
+ */
 
 export const serverRuntimeEnvSchema = z.object({
   // --------------------------------------------------------------------
@@ -21,9 +37,29 @@ export const serverRuntimeEnvSchema = z.object({
   // --------------------------------------------------------------------
   AUTH_ENABLE_DEMO_ADMIN_USER: zConvertTruthyStrToBool(false),
 
-  NEXTAUTH_SECRET: z.string().min(15),
-  NEXTAUTH_URL: z.string().url(),
+  // @todo implement azure AD
+  AZURE_AD_CLIENT_ID: z.string().min(5),
+  AZURE_AD_CLIENT_SECRET: z.string().min(20),
+  AZURE_AD_TENANT_ID: z.string().min(5),
+
+  NEXTAUTH_SECRET: z.string().min(40),
+  NEXTAUTH_URL: z.string().min(10).url(),
+  // @see alternative for production: https://next-auth.js.org/configuration/options#logger
+  NEXTAUTH_DEBUG: zConvertTruthyStrToBool(false),
+  // Disable https protection
+  NEXTAUTH_DISABLE_SECURE_COOKIE: zConvertTruthyStrToBool(false),
 });
 
-export const getServerRuntimeEnv = () =>
-  getValidatedServerRuntimeEnv(serverRuntimeEnvSchema);
+/**
+ * @type any
+ */
+const disabledServerRuntimeEnv = {};
+
+/**
+ * @return {ServerRuntimeEnv}
+ */
+export const getServerRuntimeEnv = () => {
+  return disableRuntimeValidation
+    ? /** @type ServerRuntimeEnv */ disabledServerRuntimeEnv
+    : getValidatedServerRuntimeEnv(serverRuntimeEnvSchema);
+};
