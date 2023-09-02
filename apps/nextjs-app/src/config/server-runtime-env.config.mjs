@@ -2,6 +2,7 @@
 
 import { isParsableDsn } from '@httpx/dsn-parser';
 import { z } from 'zod';
+import { default as isCI } from 'is-ci';
 import {
   getValidatedServerRuntimeEnv,
   zConvertTruthyStrToBool,
@@ -13,8 +14,10 @@ import {
 // @see confirmed by Lee Robinson - https://github.com/vercel/next.js/issues/37269#issuecomment-1608579557
 const isProductionPhaseBuild = process.env.NEXTJS_PRODUCTION_PHASE === 'build';
 const isTest = process.env.NODE_ENV === 'test';
+const isRunningInCI = process.env.CI === 'true' || isCI;
 
-const disableRuntimeValidation = isProductionPhaseBuild || isTest;
+const disableRuntimeValidation =
+  isProductionPhaseBuild || isTest || isRunningInCI;
 
 /**
  * @type {import('zod').ZodType<string>}
@@ -36,11 +39,6 @@ export const serverRuntimeEnvSchema = z.object({
   // Authentication related
   // --------------------------------------------------------------------
   AUTH_ENABLE_DEMO_ADMIN_USER: zConvertTruthyStrToBool(false),
-
-  // @todo implement azure AD
-  AZURE_AD_CLIENT_ID: z.string().min(5),
-  AZURE_AD_CLIENT_SECRET: z.string().min(20),
-  AZURE_AD_TENANT_ID: z.string().min(5),
 
   NEXTAUTH_SECRET: z.string().min(40),
   NEXTAUTH_URL: z.string().min(10).url(),
