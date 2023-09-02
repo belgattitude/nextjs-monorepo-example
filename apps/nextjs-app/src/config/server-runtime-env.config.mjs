@@ -1,8 +1,8 @@
 // @ts-check
 
 import { isParsableDsn } from '@httpx/dsn-parser';
-import { z } from 'zod';
 import { default as isCI } from 'is-ci';
+import { z } from 'zod';
 import {
   getValidatedServerRuntimeEnv,
   zConvertTruthyStrToBool,
