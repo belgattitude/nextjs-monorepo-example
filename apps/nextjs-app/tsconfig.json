@@ -40,8 +40,9 @@
     },
     "types": ["vitest/globals"]
   },
-  "exclude": ["**/node_modules", "**/.*/"],
+  "exclude": ["**/node_modules", "**/.*/*"],
   "include": [
+    ".eslintrc.*",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
@@ -50,6 +51,7 @@
     "**/*.cjs",
     "**/*.mjs",
     "**/*.jsx",
-    "**/*.json"
+    "**/*.json",
+    ".next/types/**/*.ts"
   ]
 }

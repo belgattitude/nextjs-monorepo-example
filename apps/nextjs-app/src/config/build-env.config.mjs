@@ -23,17 +23,18 @@ const schema = {
         'For standalone mode: https://nextjs.org/docs/pages/api-reference/next-config-js/output',
     })
     .default('classic'),
-  // https://nextjs.org/docs/advanced-features/source-maps',
-  NEXT_BUILD_ENV_SOURCEMAPS: zConvertTruthyStrToBool(isProd),
   NEXT_BUILD_ENV_TSCONFIG: z
     .string()
     .endsWith('.json')
     .default('tsconfig.json'),
   NEXT_BUILD_ENV_TYPECHECK: zConvertTruthyStrToBool(falseOnCi),
   NEXT_BUILD_ENV_LINT: zConvertTruthyStrToBool(falseOnCi),
+  NEXT_BUILD_ENV_SOURCEMAPS: zConvertTruthyStrToBool(isProd),
   NEXT_BUILD_ENV_CSP: zConvertTruthyStrToBool(true),
   NEXT_BUILD_ENV_CI: zConvertTruthyStrToBool(isCI),
-
+  NEXT_BUILD_ENV_BUILD_ID: z
+    .string()
+    .default(isProd ? new Date().toISOString().replace(':', '_') : ''),
   // --------------------------------------------------------------------
   // Sentry related
   // --------------------------------------------------------------------

@@ -33,13 +33,9 @@
     }
     //"types": ["node", "jest", "@testing-library/jest-dom"]
   },
-  "exclude": [
-    "**/node_modules",
-    "**/.*/",
-    "public/build",
-    "src/server/api/build"
-  ],
+  "exclude": ["**/.*/*", "public/build", "src/server/api/build"],
   "include": [
+    ".eslintrc.*",
     "remix.env.d.ts",
     "**/*.ts",
     "**/*.tsx",
