@@ -16,6 +16,16 @@
     "paths": {},
     "types": ["jest", "vitest/globals"]
   },
-  "exclude": ["**/node_modules", "**/.*/", "./dist", "./coverage"],
-  "include": ["**/*.ts", "**/*.js", "**/.cjs", "**/*.mjs", "**/*.json"]
+  "exclude": ["**/node_modules", "**/.*/*", "dist"],
+  "include": [
+    ".eslintrc.*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.json"
+  ]
 }
