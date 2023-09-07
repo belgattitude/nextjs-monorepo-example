@@ -4,7 +4,19 @@ The project takes inspiration from the popular [bulletproof-react](https://githu
 ([direct link](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)) with adaptations
 specific to nextjs (no appDir) and server side features.
 
-### High level
+### Monorepo level
+
+```
+.
+├── 🌳 apps
+│   ├── 📦 nextjs-app  
+│   └── (react-expo-app, tauri-app...)
+└── packages    
+    ├── design-system         
+    └── (prisma-db, common-i18n...)
+```
+
+### App level
 
 ```
 🌳 (generally starts at ./apps in monorepos)
