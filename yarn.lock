@@ -5462,19 +5462,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.37.1":
-  version: 1.37.1
-  resolution: "@playwright/test@npm:1.37.1"
+"@playwright/test@npm:1.38.0":
+  version: 1.38.0
+  resolution: "@playwright/test@npm:1.38.0"
   dependencies:
-    "@types/node": "npm:*"
-    fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.37.1"
-  dependenciesMeta:
-    fsevents:
-      optional: true
+    playwright: "npm:1.38.0"
   bin:
     playwright: cli.js
-  checksum: 82f12766cfbbc38592d38e8ddca185c488332b0747fb607ddc00b4f8cbb7311cfb712b27f780504b737c71aec9c49748bca7ad7784521ece5b5bb5db3d3031c8
+  checksum: 0eda2c1d2804ba575e3a0ed2db4ad656e332e62d4c3ebb5a74d2a7767a6452b04aeba878b745a35615bed10f55ed02f933243ef2fa4e5ae6e0b43b28f70cd2e5
   languageName: node
   linkType: hard
 
@@ -19814,7 +19809,7 @@ __metadata:
     "@next/bundle-analyzer": "npm:13.4.19"
     "@next/env": "npm:13.4.19"
     "@nextvalid/zod-request": "npm:0.4.0"
-    "@playwright/test": "npm:1.37.1"
+    "@playwright/test": "npm:1.38.0"
     "@pothos/core": "npm:3.35.0"
     "@pothos/plugin-errors": "npm:3.11.1"
     "@pothos/plugin-prisma": "npm:3.59.2"
@@ -21107,12 +21102,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.37.1":
-  version: 1.37.1
-  resolution: "playwright-core@npm:1.37.1"
+"playwright-core@npm:1.38.0":
+  version: 1.38.0
+  resolution: "playwright-core@npm:1.38.0"
   bin:
     playwright-core: cli.js
-  checksum: 3eddeb05569a2aa54375bcc4955fe2e497865481cd523cdaa095d7695b1ea48f3f34438cc652e4a9096e1d7b2c47e29776713a4730c171f6186805866a0aa53b
+  checksum: 3f5df826db8569206e1181721d36452851727ed08970790609f159c36743be9e152a7d2df936eeed9ef6a9cd929604a485d98b070645f39f4eae06fb1b2a5f8b
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.38.0":
+  version: 1.38.0
+  resolution: "playwright@npm:1.38.0"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.38.0"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 4323bd3abe6829ef209c370703c0b2f37fa21af021e07c95a897d6e6481d6c1e970049421112ccaf2a8a0b5783e3a0b4cdffc880a25f2440915a15fd1a8f29e4
   languageName: node
   linkType: hard
 
