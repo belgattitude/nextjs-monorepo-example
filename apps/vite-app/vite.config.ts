@@ -26,9 +26,6 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     passWithNoTests: true,
-    cache: {
-      dir: '../../.cache/vitest/vite-app',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],

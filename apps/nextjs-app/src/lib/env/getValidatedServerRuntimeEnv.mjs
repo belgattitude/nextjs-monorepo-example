@@ -28,11 +28,6 @@ export const serverRuntimeEnvSchema = z.object({
 
   NEXTAUTH_URL: z.string().url(),
   NEXTAUTH_SECRET: z.string().min(15),
-
-  // @todo implement azure AD
-  AZURE_AD_CLIENT_ID: z.string().min(5),
-  AZURE_AD_CLIENT_SECRET: z.string().min(20),
-  AZURE_AD_TENANT_ID: z.string().min(5),
 });
 
 /**
