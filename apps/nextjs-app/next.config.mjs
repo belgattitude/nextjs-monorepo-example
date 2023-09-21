@@ -159,27 +159,6 @@ const nextConfig = {
       ]
     : [],
 
-  modularizeImports: {
-    '@mui/material': {
-      transform: '@mui/material/{{member}}',
-    },
-    '@mui/icons-material': {
-      transform: '@mui/icons-material/{{member}}',
-    },
-    '@mui/styles': {
-      transform: '@mui/styles/{{member}}',
-    },
-    /* if needed
-    "@mui/lab": {
-      transform: "@mui/lab/{{member}}"
-    },
-    lodash: {
-      transform: 'lodash/{{member}}',
-      preventFullImport: true,
-    },
-    */
-  },
-
   // Standalone build
   // @link https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
   ...(buildEnv.NEXT_BUILD_ENV_OUTPUT === 'standalone'
