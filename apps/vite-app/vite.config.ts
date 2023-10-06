@@ -15,9 +15,6 @@ export default defineConfig({
     }),
     tsconfigPaths(),
     svgr({
-      // Set it to `true` to export React component as default.
-      // Notice that it will override the default behavior of Vite.
-      exportAsDefault: true,
       // svgr options: https://react-svgr.com/docs/options/
       svgrOptions: {},
     }),
