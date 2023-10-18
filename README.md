@@ -182,11 +182,12 @@ yarn install
 ├── static                       (no code: images, json, locales,...)
 │   ├── assets
 │   └── locales
+├── docker                       (docker...)
+│   ├── .dockerignore
+│   ├── docker-compose.yml       (compose specific for nextjs-app)
+│   ├── docker-compose.db.yml    (general services like postgresql...)
+│   └── Dockerfile               (multistage build for nextjs-app)
 ├── .yarnrc.yml
-├── .dockerignore
-├── docker-compose.nextjs-app.yml   (compose specific for nextjs-app)
-├── docker-compose.yml           (general services like postgresql...)
-├── Dockerfile                   (multistage build for nextjs-app)
 ├── package.json                 (the workspace config)
 └── tsconfig.base.json           (base typescript config)
 ```
