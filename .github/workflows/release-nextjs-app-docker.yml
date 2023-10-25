@@ -4,6 +4,7 @@ on:
   push:
     branches: [dev, main]
     paths:
+      - 'docker/**'
       - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
@@ -16,6 +17,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
+      - 'docker/**'
       - 'apps/nextjs-app/**'
       - 'packages/**'
       - 'package.json'
