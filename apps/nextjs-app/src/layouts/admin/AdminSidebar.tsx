@@ -71,7 +71,7 @@ export const AdminSidebar: FC = () => {
                     <span>General</span>
                   </li>
 
-                  <li className="menu-active menu-item">
+                  <li className="menu-item menu-active">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 opacity-75"

@@ -1,35 +1,19 @@
-import { createHttpException, type HttpException } from '@httpx/exception';
 import { useQuery } from '@tanstack/react-query';
-import { HTTPError } from 'ky';
 import type { FC } from 'react';
 import { fetchPoems } from '../../api/fetch-poems.api';
 import { PoemGrid } from '../../components/PoemGrid';
 
 const PoemGridWithReactQuery: FC = () => {
-  const { data, isLoading, error } = useQuery(
-    ['poems'],
-    async () => fetchPoems(),
-    {
-      onError: (err): HttpException => {
-        if (err instanceof HTTPError) {
-          return createHttpException(err.response.status, {
-            message: err.message,
-          });
-        }
-        return createHttpException(500);
-      },
-    }
-  );
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['poems'],
+    queryFn: fetchPoems,
+  });
   if (isLoading) {
     return <div>Loading...</div>;
   }
   if (error) {
-    const { message, name } = error as HttpException;
-    return (
-      <div>
-        Error {message} ({name})
-      </div>
-    );
+    const { message } = error;
+    return <div>Error {message}</div>;
   }
   return <>{data && <PoemGrid poems={data} />}</>;
 };
