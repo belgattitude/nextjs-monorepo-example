@@ -31,7 +31,7 @@ jobs:
         working-directory: apps/remix-app
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     env:
       TURBO_API: 'http://127.0.0.1:9080'
       TURBO_TEAM: 'nextjs-monorepo-example'
