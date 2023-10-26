@@ -1952,13 +1952,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:18.1.0":
-  version: 18.1.0
-  resolution: "@commitlint/cli@npm:18.1.0"
+"@commitlint/cli@npm:18.2.0":
+  version: 18.2.0
+  resolution: "@commitlint/cli@npm:18.2.0"
   dependencies:
     "@commitlint/format": "npm:^18.1.0"
     "@commitlint/lint": "npm:^18.1.0"
-    "@commitlint/load": "npm:^18.1.0"
+    "@commitlint/load": "npm:^18.2.0"
     "@commitlint/read": "npm:^18.1.0"
     "@commitlint/types": "npm:^18.1.0"
     execa: "npm:^5.0.0"
@@ -1968,7 +1968,7 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: eb81079308624aa3456dd214b712fc797478a5dd61d070297515d51a0d62cdcf76fd84d31c74b8ef9b1ff758d3477e8ed9b3173f9d3585e424b48233b0c45603
+  checksum: 4df8d4a9791fbe1e6c0b8eddb195e3031607c5573dc676d8009cade4b130fe923b6d3edb83f3c661dd912c0a8d94b7c9523fb9267e893b37d880130957aa9426
   languageName: node
   linkType: hard
 
@@ -2044,9 +2044,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^18.1.0":
-  version: 18.1.0
-  resolution: "@commitlint/load@npm:18.1.0"
+"@commitlint/load@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "@commitlint/load@npm:18.2.0"
   dependencies:
     "@commitlint/config-validator": "npm:^18.1.0"
     "@commitlint/execute-rule": "npm:^18.1.0"
@@ -2055,14 +2055,12 @@ __metadata:
     "@types/node": "npm:^18.11.9"
     chalk: "npm:^4.1.0"
     cosmiconfig: "npm:^8.0.0"
-    cosmiconfig-typescript-loader: "npm:^4.0.0"
+    cosmiconfig-typescript-loader: "npm:^5.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     lodash.merge: "npm:^4.6.2"
     lodash.uniq: "npm:^4.5.0"
     resolve-from: "npm:^5.0.0"
-    ts-node: "npm:^10.8.1"
-    typescript: "npm:^5.2.2"
-  checksum: b3a9e71901a31d25e54ea570f3eda0466911a149dc24eee9148c9daca3ace99c99e5f499b9d674665349438357d8d936fc387192636c7e37084bc7b4f00a7a63
+  checksum: 9343d71c9cccf15cc86c394b5989306340801458357dd58e8f89eb0f7991d4ccccf0bab2699e7c2383f938c10d8e542f35973ed4ec335857d80b76c8681b3b33
   languageName: node
   linkType: hard
 
@@ -11687,15 +11685,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig-typescript-loader@npm:^4.0.0":
-  version: 4.4.0
-  resolution: "cosmiconfig-typescript-loader@npm:4.4.0"
+"cosmiconfig-typescript-loader@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "cosmiconfig-typescript-loader@npm:5.0.0"
+  dependencies:
+    jiti: "npm:^1.19.1"
   peerDependencies:
     "@types/node": "*"
-    cosmiconfig: ">=7"
-    ts-node: ">=10"
+    cosmiconfig: ">=8.2"
     typescript: ">=4"
-  checksum: a204eb354943f84ab0434d108fdf593db84c477f107f3ccb586e2d659c1d87f03071d8983c96d4ce2a59cc524ec845697f0432876339e4c28bde84b665cd92a6
+  checksum: 0eb1a767a589cf092e68729e184d5917ae0b167b6f5d908bc58cee221d66b937430fc58df64029795ef98bb8e85c575da6e3819c5f9679c721de7bdbb4bde719
   languageName: node
   linkType: hard
 
@@ -19780,7 +19779,7 @@ __metadata:
   dependencies:
     "@changesets/changelog-github": "npm:0.4.8"
     "@changesets/cli": "npm:2.26.2"
-    "@commitlint/cli": "npm:18.1.0"
+    "@commitlint/cli": "npm:18.2.0"
     "@commitlint/config-conventional": "npm:18.1.0"
     "@types/prettier": "npm:2.7.3"
     "@types/shell-quote": "npm:1.7.3"
@@ -25015,7 +25014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.8.1, ts-node@npm:^10.9.1":
+"ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
@@ -25457,7 +25456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2, typescript@npm:^5.0.4, typescript@npm:^5.2.2":
+"typescript@npm:5.2.2, typescript@npm:^5.0.4":
   version: 5.2.2
   resolution: "typescript@npm:5.2.2"
   bin:
@@ -25467,7 +25466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>":
   version: 5.2.2
   resolution: "typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:
