@@ -83,6 +83,7 @@ export default createYoga<{
     maxAliasesPlugin({
       // @link https://escape.tech/graphql-armor/docs/plugins/max-aliases
       n: 15,
+      allowList: [],
     }),
   ],
 });
