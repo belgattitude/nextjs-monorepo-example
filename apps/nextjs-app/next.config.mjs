@@ -9,13 +9,13 @@ import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
 import { buildEnv } from './src/config/build-env.config.mjs';
-//import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
+// import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 
 // @ts-ignore
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 // validate server env
-//const _serverEnv = getServerRuntimeEnv();
+// const _serverEnv = getServerRuntimeEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
