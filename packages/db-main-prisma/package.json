@@ -19,7 +19,7 @@
   "scripts": {
     "build": "echo \"Unrequired and disabled when using tsonfig paths aliases, run 'build-force' to test a build.\"",
     "build-force": "tsup",
-    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "clean": "rimraf ./dist ./coverage ./src/generated ./tsconfig.tsbuildinfo",
     "debug-test-e2e": "cross-env DEBUG=testcontainers vitest run $@",
     "dev": "tsup --watch",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",

@@ -1,13 +1,13 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
-  // output = "../src/generated"
+  previewFeatures = ["multiSchema", "views"]
+  output = "../src/generated/client"
 }
 
 generator pothos {
   provider     = "prisma-pothos-types"
-  clientOutput = "@prisma/client"
-  output       = "../src/generated/prisma-pothos-types.ts"
+  clientOutput = "../client"
+  output       = "../src/generated/pothos/prisma-pothos-types.ts"
 }
 
 datasource db {
