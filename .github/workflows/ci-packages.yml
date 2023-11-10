@@ -65,6 +65,8 @@ jobs:
         run: |
           yarn turbo lint --filter="./packages/*"
           yarn turbo lint-styles --filter="./packages/*"
+        env:
+          TIMING: 1
 
       - name: 🧪 Unit tests
         run: yarn turbo test-unit --filter="./packages/*"

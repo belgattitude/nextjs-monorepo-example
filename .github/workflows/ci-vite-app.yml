@@ -59,6 +59,8 @@ jobs:
 
       - name: 🔬 Linter
         run: yarn --top-level run turbo lint
+        env:
+          TIMING: 1
 
       - name: 🧪 Unit tests
         run: yarn --top-level run turbo test-unit
