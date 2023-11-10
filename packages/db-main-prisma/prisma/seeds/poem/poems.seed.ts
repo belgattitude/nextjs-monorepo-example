@@ -1,6 +1,6 @@
-import type { Prisma } from '@prisma/client';
 import keywordExtractor from 'keyword-extractor';
 import { slugify } from 'transliteration';
+import type { PrismaDbMain as Prisma } from '@your-org/db-main-prisma';
 
 /* eslint-disable sonarjs/no-duplicate-string */
 

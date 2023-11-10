@@ -61,6 +61,8 @@ jobs:
         run: |
           yarn --top-level run turbo lint
           yarn --top-level run turbo lint-styles
+        env:
+          TIMING: 1
 
       - name: 🧪 Unit tests
         run: yarn --top-level run turbo test-unit

@@ -3,7 +3,6 @@
   "version": "2.14.1",
   "private": true,
   "sideEffects": false,
-  "type": "module",
   "main": "./src/index.ts",
   "author": {
     "name": "Vanvelthem Sébastien",
@@ -18,13 +17,13 @@
   },
   "scripts": {
     "build": "echo \"Unrequired and disabled when using tsonfig paths aliases, run 'build-force' to test a build.\"",
-    "build-force": "tsup",
+    "build-force": "echo \"'build-force' not working yet for prisma.\"",
     "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
     "debug-test-e2e": "cross-env DEBUG=testcontainers vitest run $@",
     "dev": "tsup --watch",
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/db-main-prisma.eslintcache",
-    "postinstall": "prisma generate",
+    "codegen": "rimraf ./src/generated && prisma generate",
     "prisma-generate": "prisma generate",
     "prisma-db-push": "dotenv-flow -- yarn prisma db push",
     "prisma-db-seed": "dotenv-flow -- yarn prisma db seed",

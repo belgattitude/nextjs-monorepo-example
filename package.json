@@ -42,9 +42,9 @@
     "g:typecheck": "turbo run typecheck",
     "g:turbo": "turbo",
     "install:playwright": "playwright install",
-    "install:husky": "is-ci || husky install",
+    "install:husky": "husky install",
     "nuke:node_modules": "rimraf --glob '**/node_modules'",
-    "postinstall": "run install:husky"
+    "postinstall": "run-s install:husky g:codegen"
   },
   "dependencies": {
     "cross-env": "7.0.3"
@@ -59,7 +59,6 @@
     "@your-org/eslint-config-bases": "workspace:^",
     "eslint": "8.53.0",
     "husky": "8.0.3",
-    "is-ci": "3.0.1",
     "lint-staged": "15.0.2",
     "npm-run-all": "4.1.5",
     "prettier": "3.0.3",

@@ -2,7 +2,10 @@
  * Convenience singleton to deal with fast-refresh
  * and connection limits in development mode.
  */
-import type { Prisma, PrismaClient } from '@prisma/client';
+import type {
+  PrismaDbMain as Prisma,
+  PrismaClientDbMain as PrismaClient,
+} from './index';
 export type PrismaClientOptions = Prisma.PrismaClientOptions;
 
 declare let global: {

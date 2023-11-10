@@ -1,12 +1,12 @@
 import SchemaBuilder from '@pothos/core';
 import PluginErrors from '@pothos/plugin-errors';
 import PluginPrisma from '@pothos/plugin-prisma';
-import type { DbMainPrismaTypes } from '@your-org/db-main-prisma';
+import type { DbMainPothosTypes } from '@your-org/db-main-prisma';
 import { prismaDbMain } from '@/server/config';
 
 const builder = new SchemaBuilder<{
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  PrismaTypes: DbMainPrismaTypes;
+  PrismaTypes: DbMainPothosTypes;
 }>({
   plugins: [PluginErrors, PluginPrisma],
   prisma: {
