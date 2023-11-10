@@ -7,11 +7,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import stylesheet from '../styles/tailwind.css?inline';
 
-export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: stylesheet },
-];
+// https://remix.run/docs/en/main/future/vite#fix-up-css-imports
+import stylesheet from '../styles/tailwind.css';
+
 export default function App() {
   return (
     <html lang="en">
