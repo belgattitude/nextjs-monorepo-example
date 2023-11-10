@@ -32,7 +32,7 @@
     "g:clean": "yarn clean:global-cache && yarn clean:turbo && rimraf ./out && yarn workspaces foreach -A -ptv run clean",
     "g:codegen": "turbo run codegen",
     "g:fix-all-files": "turbo run fix-all-files",
-    "g:lint": "turbo run lint --color",
+    "g:lint": "TIMING=1 turbo run lint --color",
     "g:lint-staged-files": "lint-staged --allow-empty",
     "g:lint-styles": "turbo run lint-styles --color",
     "g:release": "yarn g:build && changeset publish",

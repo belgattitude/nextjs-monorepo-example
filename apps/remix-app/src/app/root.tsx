@@ -1,4 +1,3 @@
-import type { LinksFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -9,6 +8,7 @@ import {
 } from '@remix-run/react';
 
 // https://remix.run/docs/en/main/future/vite#fix-up-css-imports
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import stylesheet from '../styles/tailwind.css';
 
 export default function App() {
