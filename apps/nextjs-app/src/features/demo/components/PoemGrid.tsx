@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
+import type { SearchPoems } from '@/server/features/poem/SearchPoems';
 import { PoemCard } from './PoemCard';
 
 export const PoemGrid: FC<{ poems: SearchPoems }> = (props) => {

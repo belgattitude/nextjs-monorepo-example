@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { SearchPoems } from '@/backend/features/poem/SearchPoems';
+import type { SearchPoems } from '@/server/features/poem/SearchPoems';
 
 type Poem = SearchPoems[0];
 
@@ -18,7 +18,7 @@ export const PoemCard: FC<Props> = (props) => {
   const image = img ?? defaultImg;
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
-      <div className="aspect-h-9 aspect-w-16 h-56 lg:aspect-none">
+      <div className="aspect-h-9 aspect-w-16 lg:aspect-none h-56">
         <img
           className="h-full w-full object-cover object-center lg:h-full lg:w-full"
           src={image ?? ''}

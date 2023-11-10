@@ -9,13 +9,13 @@ import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
 import { buildEnv } from './src/config/build-env.config.mjs';
-import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
+// import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 
 // @ts-ignore
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 // validate server env
-const _serverEnv = getServerRuntimeEnv();
+// const _serverEnv = getServerRuntimeEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
@@ -104,8 +104,9 @@ const nextConfig = {
   i18n: nextI18nConfig.i18n,
   optimizeFonts: true,
 
+  // @link https://nextjs.org/docs/pages/api-reference/next-config-js/httpAgentOptions
   httpAgentOptions: {
-    // @link https://nextjs.org/blog/next-11-1#builds--data-fetching
+    // ⚠️ keepAlive might introduce memory-leaks for long-running servers (ie: on docker)
     keepAlive: true,
   },
 

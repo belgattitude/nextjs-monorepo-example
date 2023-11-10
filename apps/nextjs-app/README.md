@@ -11,7 +11,6 @@ Basic demo of a nextjs app, part of the [nextjs-monorepo-example](https://github
 - SSR-I18n: [Demo/Vercel english](https://monorepo-nextjs-app.vercel.app/en/home) | [Demo/vercel french](https://monorepo-nextjs-app.vercel.app/fr/home)
 - REST API: [Demo rest/Vercel](https://monorepo-nextjs-app.vercel.app/api/rest/post/1)
 - GRAPHIQL (pothos): [Demo/Vercel](https://monorepo-nextjs-app.vercel.app/api/graphql)
-- GRAPHQL gateway (MESH): [Demo/Vercel](https://monorepo-nextjs-app.vercel.app/api/gateway/graphql)
 - [Changelog](https://github.com/belgattitude/monorepo-nextjs-app/blob/main/apps/nextjs-app/CHANGELOG.md)
 
 ## Quick start
