@@ -96,7 +96,6 @@ yarn install
 │   ├── remix-app   (csr, ssr, api, jest)
 │   └── vite-app
 └── packages
-    ├── api-gateway         (graphql mesh)
     ├── common-i18n         (locales...)
     ├── core-lib
     ├── db-main-prisma
