@@ -3,8 +3,8 @@ import { JsonApiResponseFactory } from '@httpx/json-api';
 import { zodReq } from '@nextvalid/zod-request';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
-import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
-import { prismaClient } from '@/backend/config/container.config';
+import { PostRepositorySsr } from '@/server/api/rest/post-repository.ssr';
+import { prismaClient } from '@/server/config/container.config';
 
 const schema = zodReq({
   method: 'GET',

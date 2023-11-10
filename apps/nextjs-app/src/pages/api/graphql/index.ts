@@ -8,7 +8,7 @@ import { maxDirectivesPlugin } from '@escape.tech/graphql-armor-max-directives';
 import { maxTokensPlugin } from '@escape.tech/graphql-armor-max-tokens';
 import { createYoga } from 'graphql-yoga';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { graphqlSchema } from '@/backend/graphql/graphqlSchema';
+import { graphqlSchema } from '@/server/graphql/graphqlSchema';
 
 // Warning on vercel upload limit is 4Mb
 // @link https://nextjs.org/docs/pages/building-your-application/routing/api-routes

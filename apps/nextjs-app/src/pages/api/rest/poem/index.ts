@@ -2,8 +2,8 @@ import { HttpMethodNotAllowed } from '@httpx/exception';
 import { JsonApiResponseFactory, JsonApiErrorFactory } from '@httpx/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { serialize } from 'superjson';
-import { prismaClient } from '@/backend/config/container.config';
-import { SearchPoemsQuery } from '@/backend/features/poem/SearchPoems';
+import { prismaClient } from '@/server/config/container.config';
+import { SearchPoemsQuery } from '@/server/features/poem/SearchPoems';
 
 const searchPoem = new SearchPoemsQuery(prismaClient);
 

@@ -1,8 +1,8 @@
 import { HttpMethodNotAllowed } from '@httpx/exception';
 import { JsonApiResponseFactory, JsonApiErrorFactory } from '@httpx/json-api';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
-import { prismaClient } from '@/backend/config/container.config';
+import { PostRepositorySsr } from '@/server/api/rest/post-repository.ssr';
+import { prismaClient } from '@/server/config/container.config';
 
 export default async function handleListPosts(
   req: NextApiRequest,
