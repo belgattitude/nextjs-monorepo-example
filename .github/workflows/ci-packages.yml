@@ -70,7 +70,7 @@ jobs:
         run: yarn turbo test-unit --filter="./packages/*"
 
       - name: 🏗 Run build (--force cause it's not required when using aliases)
-        run: yarn turbo build:force --filter="./packages/*"
+        run: yarn turbo build-force --filter="./packages/*"
 
       - name: 🧐 Build storybook
         run: yarn turbo build-storybook --filter="./packages/*"

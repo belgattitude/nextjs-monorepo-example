@@ -4,7 +4,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "ESNext",
+    "verbatimModuleSyntax": true,
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "declarationDir": "./dist",
     "incremental": true,
     "tsBuildInfoFile": "./tsconfig.build.tsbuildinfo" // for tsup rollup dts tsBuildInfoFile is required when using incremental
