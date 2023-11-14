@@ -2,7 +2,7 @@ name: nextjs-monorepo-example-db-main-prisma-e2e
 services:
   e2e-postgres:
     container_name: db-main-prisma-e2e-postgresql
-    image: postgres:16.0-alpine3.18
+    image: postgres:16.1-alpine3.18
     ports:
       - target: 5432
         published: 5432
