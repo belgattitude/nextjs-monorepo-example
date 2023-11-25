@@ -3,6 +3,7 @@
   "extends": ["//"],
   "pipeline": {
     "codegen": {
+      "inputs": ["src/**/*", "prisma/**/*"],
       "outputs": ["src/generated/**"]
     }
   }
