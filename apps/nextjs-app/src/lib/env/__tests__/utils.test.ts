@@ -11,7 +11,7 @@ describe('utils', () => {
       ['1', true, true],
       ['0', true, false],
     ] as [value: string | undefined, defaultVal: boolean, expected: boolean][])(
-      'when "%p" is given should return "%b"',
+      'when "%s" is given should return "%s"',
       (value, defaultVal, expected) => {
         const schema = z.object({
           TEST: zConvertTruthyStrToBool(defaultVal),
