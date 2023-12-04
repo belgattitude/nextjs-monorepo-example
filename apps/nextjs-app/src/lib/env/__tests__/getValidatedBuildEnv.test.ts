@@ -45,7 +45,7 @@ describe('getBuildEnv', () => {
       ['1', true],
       ['false', false],
       ['0', false],
-    ])('when "%p" is given should return "%b"', (truthyValue, expected) => {
+    ])('when "%s" is given should return "%s"', (truthyValue, expected) => {
       const zodSchema = createExampleSchema({ defaultOutput: 'classic' });
       const injectedEnv = {
         NEXT_BUILD_ENV_LINT: truthyValue,
