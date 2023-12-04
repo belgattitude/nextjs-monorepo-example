@@ -5861,27 +5861,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry-internal/tracing@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry-internal/tracing@npm:7.84.0"
+"@sentry-internal/feedback@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry-internal/feedback@npm:7.85.0"
   dependencies:
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-  checksum: 366827521d18e220db051ab28e8290b3b4c48588706b85553990f3466710ecb5d00fb57ddb64d4c893f10182bfbf4f8ba7de79438071bc8a22f1a77065ea89b7
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: cf4048bdb547c3e33d8cae2e6470cc055ff81e2bbc60d1715e09ec97b0c1889cd9833ffc6490e6cf4e665546d75b8393e6663f1d52f2cfa593a15676d173d1ea
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/browser@npm:7.84.0"
+"@sentry-internal/tracing@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry-internal/tracing@npm:7.85.0"
   dependencies:
-    "@sentry-internal/tracing": "npm:7.84.0"
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/replay": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-  checksum: 14fe428cad492150d6be9b431049bd8a6dd3bcd12b977fd2704628c7b888611112b6b41e5257c79e9147c1d7018b36e84841be1a5212432f60a8df9a25d911f6
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: 3ae23d1d4d5dcee0328a875492cbc1c7335949a4f57a0fd6d15a899488011e6acead0a7ed66de3387af33775f35df9daa941c7992fcea406773041b652b6891e
+  languageName: node
+  linkType: hard
+
+"@sentry/browser@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/browser@npm:7.85.0"
+  dependencies:
+    "@sentry-internal/feedback": "npm:7.85.0"
+    "@sentry-internal/tracing": "npm:7.85.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/replay": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: b730363ac6127d471a965e732802bec9c576e627001ca5ee110afbfc93a4de16efe2d0a80c05fe98339f3014a134214d6c3a41484958a678b40afe15288e785a
   languageName: node
   linkType: hard
 
@@ -5901,40 +5913,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/core@npm:7.84.0"
+"@sentry/core@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/core@npm:7.85.0"
   dependencies:
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-  checksum: 1305eb8727dc4f942b52f34b36fe8d21b61ae754d51371bc74db6d52867688e9bf1a66303699e61239d0bd0731d457250ba761dc31a1dbe74c38ea3dd65f27ef
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: 16b88d9a38a7e32fc8c1a34d38baae17d99fabd242c7d79487d6c0bcb56d670112d7dbd5a3a0d5bb99f7cae9ef78f4e72afcd4633335cfb1dd9a4e38debf0c40
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/integrations@npm:7.84.0"
+"@sentry/integrations@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/integrations@npm:7.85.0"
   dependencies:
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
     localforage: "npm:^1.8.1"
-  checksum: fa522a7f4545b68bef96e887eb3c6e2c7b3d286404d0b744967d8e561abd0393c55f6e7b7491d6f3e5819cba984bb3eea341716bca42e892aa2a410b83c90360
+  checksum: 9b615aa2ce36369c6b2d647bb94cd51c841c2ef4f410eae4eb45d49caaf24f8b4a1103217e98d7555b1ac1bdc714663075c794e52798da5823579e2fa453a809
   languageName: node
   linkType: hard
 
-"@sentry/nextjs@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/nextjs@npm:7.84.0"
+"@sentry/nextjs@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/nextjs@npm:7.85.0"
   dependencies:
     "@rollup/plugin-commonjs": "npm:24.0.0"
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/integrations": "npm:7.84.0"
-    "@sentry/node": "npm:7.84.0"
-    "@sentry/react": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-    "@sentry/vercel-edge": "npm:7.84.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/integrations": "npm:7.85.0"
+    "@sentry/node": "npm:7.85.0"
+    "@sentry/react": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+    "@sentry/vercel-edge": "npm:7.85.0"
     "@sentry/webpack-plugin": "npm:1.21.0"
     chalk: "npm:3.0.0"
     resolve: "npm:1.22.8"
@@ -5947,74 +5959,74 @@ __metadata:
   peerDependenciesMeta:
     webpack:
       optional: true
-  checksum: e6598837f47719461bd3a02dea8e1307b444ebba182ef32c5ff5cce51a5a57fa1560e03fb30c6a9ed011ba5eebcb54e26e99e3bf768006cff3ec5075b66b24c8
+  checksum: 599a0b028c89b66312cd90851444aee6b331f255012c02a248fc33703af809cf854d52b846e421b4b6f369262037415423620e62467fe3d5d60a23d931e2be42
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/node@npm:7.84.0"
+"@sentry/node@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/node@npm:7.85.0"
   dependencies:
-    "@sentry-internal/tracing": "npm:7.84.0"
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
+    "@sentry-internal/tracing": "npm:7.85.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
     https-proxy-agent: "npm:^5.0.0"
-  checksum: 1fb362e026cd101f3072dfa564ea031aa4b51f504664e288242abd6a687bd0068f0b06511cb491dca531fb46ebd03da2c807e9483b96d1701d04b90b678f1849
+  checksum: b9a8a8e6927125068d48c4662ac2faeeb8780f2ea117980806dee24934e93ff73a1f3051a1c4f56dde3993e4eff1ab5d3c76e2acd45a482bd4a11b0dc9189601
   languageName: node
   linkType: hard
 
-"@sentry/react@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/react@npm:7.84.0"
+"@sentry/react@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/react@npm:7.85.0"
   dependencies:
-    "@sentry/browser": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
+    "@sentry/browser": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
     hoist-non-react-statics: "npm:^3.3.2"
   peerDependencies:
     react: 15.x || 16.x || 17.x || 18.x
-  checksum: d5b4b2ce2e4e7009ec1f2bcab1b008d8fab29cfb2ac4a818b6e2f6a444e1b690115c081da14ee2a35ec61b9b923c2faab0fa41a4f26af2f86d621cf1b9fe7bd8
+  checksum: b94b25e83d788cf3824df6acc2157c93fb30b49b03293ba88b4014f39e3c5ab0bca457247d4dc7b1bf25c50e007c7556118ec1e719b001471fc15f036102d75b
   languageName: node
   linkType: hard
 
-"@sentry/replay@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/replay@npm:7.84.0"
+"@sentry/replay@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/replay@npm:7.85.0"
   dependencies:
-    "@sentry-internal/tracing": "npm:7.84.0"
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-  checksum: 6fccd3e9f4727e5ba78d5e1a036ed285ab5d003c32fd3ceef6f94d86f9eb99a9e8093606ab83a321b7649e4a59b564f36864744bafbff73c15f90f3c1a86e7c1
+    "@sentry-internal/tracing": "npm:7.85.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: 31998e00dcb2a71f696f2489e9aa1ed48ae09f84dc12073141eda2b39e25cad65a2e45941a2c51e0f250bf665fff8ac7fdf77acd8d652fa1d40274553536b6de
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/types@npm:7.84.0"
-  checksum: f1e9e3d682943bd4ae40e690690397d8dad8e8404a3d7fa1e847046b221e00d04427964ee01eb7a11ac897373fa85b768862721cbe604c248b276449d5b46943
+"@sentry/types@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/types@npm:7.85.0"
+  checksum: d2af8270e06e88f840935b56669a35ca2a13b42de7f4159e8c256449a9721a9d89c3c92e9da44f7f83bc1d55d0715e56cc344661ebd5a2ed681c1c36d9644137
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/utils@npm:7.84.0"
+"@sentry/utils@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/utils@npm:7.85.0"
   dependencies:
-    "@sentry/types": "npm:7.84.0"
-  checksum: a122b28d51851ed3562a06160c8b37072914ee2499634351e699b926c26685231258cc9e28fb0e8677bea4ca5441969386e6e97102b832e98f92a7960d0b2d6e
+    "@sentry/types": "npm:7.85.0"
+  checksum: 71071412e2982ecedb8101198c4632d52526322f3f81cef61fa37b4c3cda3409049fc5112b77e1caf0ed184550e99094ae012e0c80e16e1a3906402f11f93b40
   languageName: node
   linkType: hard
 
-"@sentry/vercel-edge@npm:7.84.0":
-  version: 7.84.0
-  resolution: "@sentry/vercel-edge@npm:7.84.0"
+"@sentry/vercel-edge@npm:7.85.0":
+  version: 7.85.0
+  resolution: "@sentry/vercel-edge@npm:7.85.0"
   dependencies:
-    "@sentry-internal/tracing": "npm:7.84.0"
-    "@sentry/core": "npm:7.84.0"
-    "@sentry/types": "npm:7.84.0"
-    "@sentry/utils": "npm:7.84.0"
-  checksum: e35192a611479f4487261065fecade0d546ff6c144ec419c8c8dcda9cefcbffe7fca9fa678c6650a4c3728525ed76f78f0f2bbbd94b5482b963e2ad97b164a8b
+    "@sentry-internal/tracing": "npm:7.85.0"
+    "@sentry/core": "npm:7.85.0"
+    "@sentry/types": "npm:7.85.0"
+    "@sentry/utils": "npm:7.85.0"
+  checksum: 402381172a06d1b29ef155a684e8be2b6946465786b8d5f6980142c3c1b5cdd46f9d9b1b71c44c1419b0cb3321c022ea60c8006af83406df745adbf3bdf91684
   languageName: node
   linkType: hard
 
@@ -7782,14 +7794,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.41, @types/react@npm:>=16":
-  version: 18.2.41
-  resolution: "@types/react@npm:18.2.41"
+"@types/react@npm:*, @types/react@npm:18.2.42, @types/react@npm:>=16":
+  version: 18.2.42
+  resolution: "@types/react@npm:18.2.42"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 5cc72491ce8be95e7bbedd8bf039ca971772ecd22d989feb045af7e73247c7e6cff25a2f1c2200be461fb2f6b5aacef739e1ba9fd83c744209dfd3ce8aa75afe
+  checksum: 2946d78c1f9a220a4dfedd7995b8bcba47235b19756bf3dd845c604bb24fff8d0ff5be81c0c98ac7f4488791e8c7e6cbcc4898c40c0209d74a1223b8fbfb994f
   languageName: node
   linkType: hard
 
@@ -8494,7 +8506,7 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@testing-library/user-event": "npm:14.5.1"
     "@types/node": "npm:20.10.3"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@vitejs/plugin-react": "npm:4.2.1"
     "@vitest/coverage-v8": "npm:1.0.1"
@@ -8571,7 +8583,7 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@types/jest": "npm:29.5.10"
     "@types/node": "npm:20.10.3"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@typescript-eslint/eslint-plugin": "npm:^6.13.2"
     "@typescript-eslint/parser": "npm:^6.13.2"
@@ -8673,7 +8685,7 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@testing-library/user-event": "npm:14.5.1"
     "@types/node": "npm:20.10.3"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@vitest/coverage-v8": "npm:1.0.1"
     "@your-org/eslint-config-bases": "workspace:^"
@@ -17420,8 +17432,8 @@ __metadata:
     "@pothos/plugin-prisma": "npm:3.62.0"
     "@prisma/client": "npm:5.6.0"
     "@prisma/nextjs-monorepo-workaround-plugin": "npm:5.6.0"
-    "@sentry/nextjs": "npm:7.84.0"
-    "@sentry/react": "npm:7.84.0"
+    "@sentry/nextjs": "npm:7.85.0"
+    "@sentry/react": "npm:7.85.0"
     "@size-limit/file": "npm:11.0.0"
     "@soluble/cache-interop": "npm:0.12.8"
     "@soluble/cache-ioredis": "npm:0.13.11"
@@ -17436,7 +17448,7 @@ __metadata:
     "@types/cors": "npm:2.8.17"
     "@types/is-ci": "npm:3.0.4"
     "@types/node": "npm:20.10.3"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@types/react-test-renderer": "npm:18.0.7"
     "@vercel/analytics": "npm:1.1.1"
@@ -20173,7 +20185,7 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@testing-library/user-event": "npm:14.5.1"
     "@types/node": "npm:20.10.3"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@vitest/coverage-v8": "npm:1.0.1"
     "@vitest/ui": "npm:1.0.1"
@@ -23299,7 +23311,7 @@ __metadata:
     "@babel/core": "npm:7.23.5"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
-    "@types/react": "npm:18.2.41"
+    "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@vitejs/plugin-react": "npm:4.2.1"
     "@vitest/coverage-v8": "npm:1.0.1"
