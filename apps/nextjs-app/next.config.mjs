@@ -3,8 +3,6 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
-import withBundleAnalyzer from '@next/bundle-analyzer';
-import { withSentryConfig } from '@sentry/nextjs'; // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
 import nextI18nConfig from './next-i18next.config.mjs';
@@ -300,28 +298,47 @@ const nextConfig = {
 let config = nextConfig;
 
 if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
-  // @ts-ignore cause sentry is not always following nextjs types
-  config = withSentryConfig(config, {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-    // silent: isProd, // Suppresses all logs
-    dryRun: buildEnv.NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN === true,
-    silent: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG === false,
-  });
+  console.log('SENTRY ENABLED');
+  try {
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/
+    const withSentryConfig = await import('@sentry/nextjs').then(
+      (mod) => mod.withSentryConfig
+    );
+    // @ts-ignore cause sentry is not always following nextjs types
+    config = withSentryConfig(config, {
+      // Additional config options for the Sentry Webpack plugin. Keep in mind that
+      // the following options are set automatically, and overriding them is not
+      // recommended:
+      //   release, url, org, project, authToken, configFile, stripPrefix,
+      //   urlPrefix, include, ignore
+      // For all available options, see:
+      // https://github.com/getsentry/sentry-webpack-plugin#options.
+      // silent: isProd, // Suppresses all logs
+      dryRun: buildEnv.NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN === true,
+      silent: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG === false,
+    });
+    console.log(`- ${pc.green('info')} Sentry enabled for this build`);
+  } catch {
+    console.log(`- ${pc.red('error')} Could not enable sentry, import failed`);
+
+    // do nothing, sentry isn't installed in deps
+  }
 } else {
   const { sentry, ...rest } = config;
   config = rest;
 }
 
 if (process.env.ANALYZE === 'true') {
-  config = withBundleAnalyzer({
-    enabled: true,
-  })(config);
+  try {
+    const withBundleAnalyzer = await import('@next/bundle-analyzer').then(
+      (mod) => mod.default
+    );
+    config = withBundleAnalyzer({
+      enabled: true,
+    })(config);
+  } catch {
+    // Do nothing, @next/bundle-analyzer is probably purged in prod or not installed
+  }
 }
 
 export default config;

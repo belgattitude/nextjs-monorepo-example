@@ -38,7 +38,7 @@ const schema = {
   // --------------------------------------------------------------------
   // Sentry related
   // --------------------------------------------------------------------
-  NEXT_BUILD_ENV_SENTRY_ENABLED: zConvertTruthyStrToBool(true),
+  NEXT_BUILD_ENV_SENTRY_ENABLED: zConvertTruthyStrToBool(false),
   NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN: zConvertTruthyStrToBool(true),
   NEXT_BUILD_ENV_SENTRY_DEBUG: zConvertTruthyStrToBool(false),
   NEXT_BUILD_ENV_SENTRY_TRACING: zConvertTruthyStrToBool(false),
