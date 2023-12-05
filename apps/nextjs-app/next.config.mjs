@@ -298,7 +298,6 @@ const nextConfig = {
 let config = nextConfig;
 
 if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
-  console.log('SENTRY ENABLED');
   try {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/
     const withSentryConfig = await import('@sentry/nextjs').then(
