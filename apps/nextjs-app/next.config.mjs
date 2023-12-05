@@ -319,8 +319,6 @@ if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
     console.log(`- ${pc.green('info')} Sentry enabled for this build`);
   } catch {
     console.log(`- ${pc.red('error')} Could not enable sentry, import failed`);
-
-    // do nothing, sentry isn't installed in deps
   }
 } else {
   const { sentry, ...rest } = config;
