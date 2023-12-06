@@ -4843,17 +4843,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:5.6.0":
-  version: 5.6.0
-  resolution: "@prisma/client@npm:5.6.0"
-  dependencies:
-    "@prisma/engines-version": "npm:5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee"
+"@prisma/client@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/client@npm:5.7.0"
   peerDependencies:
     prisma: "*"
   peerDependenciesMeta:
     prisma:
       optional: true
-  checksum: 21f5840833dbd88cf60d6d3585faab192481a8caf16a6ee2cba8ec8720d8995bc0eee13d66e3bbe31b6f3809c832fd95cf2d2993aaa2dc1ca354e37685852aef
+  checksum: f5a634a735fdcb9576f949a9ba84da48744db514ce853b04021c7a13c673081cfb110244f20f7985516c69a101000fefcecf51ad634fd2b9c41c6715bec1c014
   languageName: node
   linkType: hard
 
@@ -4868,17 +4866,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/engines-version@npm:5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee":
-  version: 5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee
-  resolution: "@prisma/engines-version@npm:5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee"
-  checksum: 06a0e9126213cb881ef15e6d13b2ba29be1d31c65aca6bf070b5182ce82a04de3b93b721549a27be3ddb551e003aa94fa0ca61b78736d5bd3579b9114ba96b49
+"@prisma/debug@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/debug@npm:5.7.0"
+  checksum: d8aa4a57bb853c163cc43d97f60475191ffade88423ec9e68d5358a70d0177662401d28ece9a161053da0148c35ed1e91c39d09c81458ddc9eccb9a8ab440651
   languageName: node
   linkType: hard
 
-"@prisma/engines@npm:5.6.0":
-  version: 5.6.0
-  resolution: "@prisma/engines@npm:5.6.0"
-  checksum: 587cf254da9628ddfd21a8f519b841c5c7713f2e3208e65cae3ec0ef812a67a001bee4ffe19d8ba71a867419a3f8540b64d7998c63696b951270397732d08886
+"@prisma/engines-version@npm:5.7.0-41.79fb5193cf0a8fdbef536e4b4a159cad677ab1b9":
+  version: 5.7.0-41.79fb5193cf0a8fdbef536e4b4a159cad677ab1b9
+  resolution: "@prisma/engines-version@npm:5.7.0-41.79fb5193cf0a8fdbef536e4b4a159cad677ab1b9"
+  checksum: 14ca49380c7c1e930fb2748342b046ca73c383d17b1a0442ac080e75a541d35d7e44853449e476422c4b56edb7bbe1a3eff43a9034e7d47a61edf04c06f3d9f8
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/engines@npm:5.7.0"
+  dependencies:
+    "@prisma/debug": "npm:5.7.0"
+    "@prisma/engines-version": "npm:5.7.0-41.79fb5193cf0a8fdbef536e4b4a159cad677ab1b9"
+    "@prisma/fetch-engine": "npm:5.7.0"
+    "@prisma/get-platform": "npm:5.7.0"
+  checksum: c128e6b4c99d3c7bfe144ee384ed16b4f97af475f47d1138caa3d335e1ba0d33a1d4c2113974878c307aba0473f0543df844b1f309f86a1061195101c1dd351e
+  languageName: node
+  linkType: hard
+
+"@prisma/fetch-engine@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/fetch-engine@npm:5.7.0"
+  dependencies:
+    "@prisma/debug": "npm:5.7.0"
+    "@prisma/engines-version": "npm:5.7.0-41.79fb5193cf0a8fdbef536e4b4a159cad677ab1b9"
+    "@prisma/get-platform": "npm:5.7.0"
+  checksum: d5c7fe88700f9d29ed6b84c4d0613ad385725b298413f4c0d1cdb5b9d6b95ddcb28a2c2dc8491826c8cae065401879e8356bb1f98e90208f34db596f5c6d9425
   languageName: node
   linkType: hard
 
@@ -4894,10 +4915,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/nextjs-monorepo-workaround-plugin@npm:5.6.0":
-  version: 5.6.0
-  resolution: "@prisma/nextjs-monorepo-workaround-plugin@npm:5.6.0"
-  checksum: b463d9ef2c7a3ed0a5df4ae319f33849ea9c12360eead3c24b5ee2ea5cae741760d4374eaeb17dbdd93089530c7e7edb5a0897c4da33b2bc423d5ff4bfc6e0bf
+"@prisma/get-platform@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/get-platform@npm:5.7.0"
+  dependencies:
+    "@prisma/debug": "npm:5.7.0"
+  checksum: ed3ad91cb6c4887c7bc4df59771cf03e8150f13e51c460fe2acddb08b5181b1699ec852957537827fb7533d6861facd8cc31a7baa6a95f5ddd4bdd0604f77adc
+  languageName: node
+  linkType: hard
+
+"@prisma/nextjs-monorepo-workaround-plugin@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@prisma/nextjs-monorepo-workaround-plugin@npm:5.7.0"
+  checksum: 0e97747edfa161fb58e352cc4b1e6f0cea35aef00c1528316f0d468639e4ee0348cb778483605f4521b043144db307c3df92d4042a1474d63f0632116ac74020
   languageName: node
   linkType: hard
 
@@ -8538,7 +8568,7 @@ __metadata:
   dependencies:
     "@pothos/core": "npm:3.40.0"
     "@pothos/plugin-prisma": "npm:3.62.0"
-    "@prisma/client": "npm:5.6.0"
+    "@prisma/client": "npm:5.7.0"
     "@soluble/dsn-parser": "npm:1.9.2"
     "@types/node": "npm:20.10.3"
     "@vitest/coverage-v8": "npm:1.0.1"
@@ -8556,7 +8586,7 @@ __metadata:
     npm-run-all: "npm:4.1.5"
     picocolors: "npm:1.0.0"
     prettier: "npm:3.1.0"
-    prisma: "npm:5.6.0"
+    prisma: "npm:5.7.0"
     rimraf: "npm:5.0.5"
     transliteration: "npm:2.3.5"
     tsup: "npm:8.0.1"
@@ -17430,8 +17460,8 @@ __metadata:
     "@pothos/core": "npm:3.40.0"
     "@pothos/plugin-errors": "npm:3.11.1"
     "@pothos/plugin-prisma": "npm:3.62.0"
-    "@prisma/client": "npm:5.6.0"
-    "@prisma/nextjs-monorepo-workaround-plugin": "npm:5.6.0"
+    "@prisma/client": "npm:5.7.0"
+    "@prisma/nextjs-monorepo-workaround-plugin": "npm:5.7.0"
     "@sentry/nextjs": "npm:7.85.0"
     "@sentry/react": "npm:7.85.0"
     "@size-limit/file": "npm:11.0.1"
@@ -19233,14 +19263,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:5.6.0":
-  version: 5.6.0
-  resolution: "prisma@npm:5.6.0"
+"prisma@npm:5.7.0":
+  version: 5.7.0
+  resolution: "prisma@npm:5.7.0"
   dependencies:
-    "@prisma/engines": "npm:5.6.0"
+    "@prisma/engines": "npm:5.7.0"
   bin:
     prisma: build/index.js
-  checksum: 8d8069295cf7402f6eb103fa1d5c511c1006fc78057fa180e9b0688076703b33301ce6b04a30575d8b01f0bbe9a26b3c196d0bc4f9253eca9ee780e0800ce602
+  checksum: dec098d6a0661e435522fd8ae1990b8ad36a6077a1ff91fe591d2f52a442fbd44240c6cea2cef3ae0cfd033bf560ea577da375c575c103e7323890b50fd88387
   languageName: node
   linkType: hard
 
