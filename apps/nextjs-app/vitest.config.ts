@@ -18,6 +18,7 @@ export default defineConfig({
   ],
   test: {
     globals: true,
+    /*
     deps: {
       optimizer: {
         web: {
@@ -25,7 +26,7 @@ export default defineConfig({
         },
         ssr: { enabled: false },
       },
-    },
+    }, */
     typecheck: {
       enabled: false,
     },
