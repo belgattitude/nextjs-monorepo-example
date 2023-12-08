@@ -3,11 +3,11 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*"],
+      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*", "SENTRY_*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "vercel-build": {
-      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*"],
+      "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*", "SENTRY_*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "typecheck": {},
