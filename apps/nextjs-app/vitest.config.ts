@@ -1,8 +1,7 @@
 import react from '@vitejs/plugin-react-swc';
-import svgr from 'vite-plugin-svgr';
+import magicalSvg from 'vite-plugin-magical-svg';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
-
 const testFiles = ['./src/**/*.test.{js,jsx,ts,tsx}'];
 export default defineConfig({
   plugins: [
@@ -11,37 +10,48 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
     }),
     tsconfigPaths(),
-    svgr({
-      // svgr options: https://react-svgr.com/docs/options/
-      svgrOptions: {},
+    // Trick, till https://github.com/cyyynthia/vite-plugin-magical-svg/issues/6 is fixed
+    (magicalSvg as unknown as { default: typeof magicalSvg }).default({
+      target: 'react',
+      svgo: false,
     }),
   ],
   test: {
     globals: true,
-    /*
     deps: {
       optimizer: {
         web: {
-          enabled: false,
+          enabled: true,
         },
-        ssr: { enabled: false },
+        ssr: { enabled: true },
       },
-    }, */
+    },
     typecheck: {
       enabled: false,
     },
+    // threads is good, vmThreads is faster (perf++) but comes with possible memory leaks
+    // @link https://vitest.dev/config/#vmthreads
     pool: 'threads',
     poolOptions: {
+      vmThreads: {
+        // useAtomics -> perf+
+        // @link https://vitest.dev/config/#pooloptions-threads-useatomics
+        useAtomics: true,
+      },
       threads: {
-        minThreads: 1,
-        maxThreads: 16,
-        // useAtomics: true,
-        // isolate: false,
+        // minThreads: 4,
+        // maxThreads: 16,
+        // useAtomics -> perf+
+        // @link https://vitest.dev/config/#pooloptions-threads-useatomics
+        useAtomics: true,
+        // isolate to false makes perf++ but comes with limitations
+        // @link https://vitest.dev/config/#pooloptions-threads-isolate
+        isolate: true,
       },
     },
     environmentMatchGlobs: [
       ['**/*.ts', 'node'],
-      ['**/*.tsx', 'happy-dom'],
+      ['**/*.tsx', 'jsdom'],
     ],
     passWithNoTests: false,
     setupFiles: './config/tests/setupVitest.ts',

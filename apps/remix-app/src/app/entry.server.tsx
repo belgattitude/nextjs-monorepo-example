@@ -6,7 +6,7 @@ import {
   type EntryContext,
 } from '@remix-run/node';
 import { RemixServer } from '@remix-run/react';
-import isbot from 'isbot';
+import { isbot } from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
 
 const ABORT_DELAY = 5_000;
@@ -18,7 +18,8 @@ export default function handleRequest(
   remixContext: EntryContext,
   _loadContext: AppLoadContext
 ) {
-  return isbot(request.headers.get('user-agent'))
+  const userAgent = request.headers.get('user-agent');
+  return userAgent && isbot(userAgent)
     ? handleBotRequest(
         request,
         responseStatusCode,
