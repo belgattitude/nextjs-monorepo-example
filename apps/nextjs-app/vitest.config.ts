@@ -3,6 +3,7 @@ import magicalSvg from 'vite-plugin-magical-svg';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 const testFiles = ['./src/**/*.test.{js,jsx,ts,tsx}'];
+
 export default defineConfig({
   plugins: [
     react({
@@ -10,8 +11,8 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
     }),
     tsconfigPaths(),
-    // Trick, till https://github.com/cyyynthia/vite-plugin-magical-svg/issues/6 is fixed
-    (magicalSvg as unknown as { default: typeof magicalSvg }).default({
+    // @ts-expect-error till the magicalSvg types are solved
+    magicalSvg({
       target: 'react',
       svgo: false,
     }),
