@@ -12,7 +12,6 @@ module.exports = {
   "dependencyTypes": ["dev", "prod", "peer"],
   "filter": ".",
   "indent": "  ",
-  "semverRange": "",
   "semverGroups": [
     {
       "range": "",
