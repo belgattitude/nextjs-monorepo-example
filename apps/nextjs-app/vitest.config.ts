@@ -11,7 +11,6 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
     }),
     tsconfigPaths(),
-    // @ts-expect-error till the magicalSvg types are solved
     magicalSvg({
       target: 'react',
       svgo: false,
