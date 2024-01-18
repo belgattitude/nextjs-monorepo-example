@@ -17,27 +17,28 @@
       "@/test-utils": ["../config/tests/test-utils"],
       "@/config/*": ["./config/*"],
       "@/lib/*": ["./lib/*"],
+      "@/types/*": ["./types/*"],
+      "@/styles/*": ["./styles/*"],
       "@/components/*": ["./components/*"],
-      "@/server/*": ["./server/*"],
       "@/features/*": ["./features/*"],
       "@/layouts/*": ["./layouts/*"],
-      "@/pages/*": ["./pages/*"],
+      "@/app/*": ["./app/*"],
       "@/public/*": ["../public/*"],
       "@/themes/*": ["./themes/*"],
       "@your-org/common-i18n": ["../../../packages/common-i18n/src/index"],
       "@your-org/common-i18n/locales/*": [
-        "../../../packages/common-i18n/src/locales/*"
+        "../../../packages/common-i18n/src/locales/*",
       ],
       "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
       "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
       "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
       "@your-org/core-lib": ["../../../packages/core-lib/src/index"],
       "@your-org/db-main-prisma": [
-        "../../../packages/db-main-prisma/src/index"
+        "../../../packages/db-main-prisma/src/index",
       ],
-      "@your-org/ts-utils": ["../../../packages/ts-utils/src/index"]
+      "@your-org/ts-utils": ["../../../packages/ts-utils/src/index"],
     },
-    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
   },
   "exclude": ["**/node_modules", "**/.*/*"],
   "include": [
@@ -51,6 +52,6 @@
     "**/*.mjs",
     "**/*.jsx",
     "**/*.json",
-    ".next/types/**/*.ts"
-  ]
+    ".next/types/**/*.ts",
+  ],
 }

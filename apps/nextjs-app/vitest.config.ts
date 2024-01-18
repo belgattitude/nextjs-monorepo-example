@@ -2,13 +2,13 @@ import react from '@vitejs/plugin-react-swc';
 import magicalSvg from 'vite-plugin-magical-svg';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
+
 const testFiles = ['./src/**/*.test.{js,jsx,ts,tsx}'];
 
 export default defineConfig({
   plugins: [
     react({
       devTarget: 'es2022',
-      jsxImportSource: '@emotion/react',
     }),
     tsconfigPaths(),
     magicalSvg({
