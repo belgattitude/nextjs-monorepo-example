@@ -5,15 +5,23 @@ import path from 'node:path';
 import url from 'node:url';
 import { createSecureHeaders } from 'next-secure-headers';
 import pc from 'picocolors';
-import nextI18nConfig from './next-i18next.config.mjs';
+
+// import nextI18nConfig from './next-i18next.config.mjs';
 import { buildEnv } from './src/config/build-env.config.mjs';
+
 // import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 
 // @ts-ignore
-import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
+// import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 // validate server env
 // const _serverEnv = getServerRuntimeEnv();
+
+const TRANS_VIRTUAL_MODULE_NAME = 'virtual-lingui-trans';
+
+const rscTrans = path.resolve('./src/lib/i18n/rsc-trans.tsx');
+
+console.log(rscTrans);
 
 const workspaceRoot = path.resolve(
   path.dirname(url.fileURLToPath(import.meta.url)),
@@ -50,9 +58,8 @@ const secureHeaders = createSecureHeaders({
             styleSrc: [
               "'self'",
               "'unsafe-inline'",
-              'https://unpkg.com/@graphql-yoga/graphiql/dist/style.css',
-              'https://meet.jitsi.si',
-              'https://8x8.vc',
+              // 'https://meet.jitsi.si',
+              // 'https://8x8.vc',
             ],
             scriptSrc: [
               "'self'",
@@ -94,12 +101,52 @@ const secureHeaders = createSecureHeaders({
 });
 
 /**
+ * Subsitute Clientside Lingui Trans compoent for RSC compatiable version via webpack
+ */
+class LinguiTransRscResolver {
+  /**
+   * @param {{ ensureHook: (arg0: string) => any; getHook: (arg0: string) => { (): any; new (): any; tapAsync: { (arg0: string, arg1: (request: any, resolveContext: any, callback: any) => any): void; new (): any; }; }; doResolve: (arg0: any, arg1: any, arg2: null, arg3: any, arg4: any) => any; }} resolver
+   */
+  apply(resolver) {
+    const target = resolver.ensureHook('resolve');
+    resolver
+      .getHook('resolve')
+      .tapAsync(
+        'LinguiTransRscResolver',
+        (request, resolveContext, callback) => {
+          if (request.request === TRANS_VIRTUAL_MODULE_NAME) {
+            const req = {
+              ...request,
+              request:
+                request.context.issuerLayer === 'rsc'
+                  ? // RSC Version without Context
+                    rscTrans
+                  : // Regular version
+                    '@lingui/macro',
+            };
+
+            return resolver.doResolve(
+              target,
+              req,
+              null,
+              resolveContext,
+              callback
+            );
+          }
+
+          callback();
+        }
+      );
+  }
+}
+
+/**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
-  i18n: nextI18nConfig.i18n,
+  // i18n: nextI18nConfig.i18n,
   optimizeFonts: true,
 
   // @link https://nextjs.org/docs/pages/api-reference/next-config-js/httpAgentOptions
@@ -116,10 +163,6 @@ const nextConfig = {
   // @link https://nextjs.org/docs/advanced-features/compiler#minification
   // Sometimes buggy so enable/disable when debugging.
   swcMinify: true,
-
-  compiler: {
-    // emotion: true,
-  },
 
   sentry: {
     hideSourceMaps: true,
@@ -150,7 +193,6 @@ const nextConfig = {
 
   transpilePackages: isProd
     ? [
-        'ofetch',
         // i18next is build for modern browsers
         // 'i18next',
         // tailwind-merge contains nullish operator ?.
@@ -169,6 +211,17 @@ const nextConfig = {
     ...(buildEnv.NEXT_BUILD_ENV_OUTPUT === 'standalone'
       ? { outputFileTracingRoot: workspaceRoot }
       : {}),
+
+    swcPlugins: [
+      [
+        '@lingui/swc-plugin',
+        {
+          runtimeModules: {
+            trans: [TRANS_VIRTUAL_MODULE_NAME, 'Trans'],
+          },
+        },
+      ],
+    ],
 
     // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
     // to keep lambdas sizes / docker images low when vercel/nft isn't able to
@@ -264,11 +317,13 @@ const nextConfig = {
       })
     );
 
+    config.resolve.plugins.push(new LinguiTransRscResolver());
+
     // Nextjs with Prisma 4.11.0+ (helps standalone build in monorepos)
     // https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo
-    if (isServer) {
-      config.plugins.push(new PrismaPlugin());
-    }
+    // if (isServer) {
+    //   config.plugins.push(new PrismaPlugin());
+    // }
 
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find(
