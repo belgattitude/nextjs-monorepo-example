@@ -33,7 +33,7 @@ runs:
         echo "CACHE_KEY=${{ runner.os }}-playwright-cache-${{ inputs.cache-prefix }}-${{ steps.playwright-config.outputs.CURRENT_VERSION }}-${{ steps.playwright-config.outputs.BROWSERS }}" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore playwright install
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: playwright-cache
       with:
         path: ${{ inputs.playwright-cache-folder }}
