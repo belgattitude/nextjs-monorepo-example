@@ -20,7 +20,7 @@ export const PoemCard: FC<Props> = (props) => {
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <div className="aspect-h-9 aspect-w-16 lg:aspect-none h-56">
         <img
-          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          className="size-full object-cover object-center lg:size-full"
           src={image ?? ''}
           alt={title}
         />

@@ -4,7 +4,6 @@ import { createHttpUnauthorized } from '@/lib/auth/error';
 import { getServerRuntimeEnv } from './server-runtime-env.config.mjs';
 
 const serverRuntimeEnv = getServerRuntimeEnv();
-console.log('###############################', serverRuntimeEnv);
 const oneDayInSeconds = 86400;
 
 /**

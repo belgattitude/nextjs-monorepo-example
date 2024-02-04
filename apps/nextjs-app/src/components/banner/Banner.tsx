@@ -12,7 +12,7 @@ export const Banner: FC<Props> = () => {
         <div className="flex flex-wrap items-center justify-between">
           <div className="flex w-0 flex-1 items-center">
             <span className="flex rounded-lg bg-indigo-800 p-2">
-              <SpeakerIcon className="h-6 w-6 text-white" aria-hidden="true" />
+              <SpeakerIcon className="size-6 text-white" aria-hidden="true" />
             </span>
             <p className="ml-3 truncate font-medium text-white">
               <span className="md:hidden">We announced a new product!</span>
@@ -35,7 +35,7 @@ export const Banner: FC<Props> = () => {
               className="-mr-1 flex rounded-md p-2 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
             >
               <span className="sr-only">Dismiss</span>
-              <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+              <XIcon className="size-6 text-white" aria-hidden="true" />
             </button>
           </div>
         </div>

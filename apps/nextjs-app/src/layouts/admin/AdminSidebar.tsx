@@ -51,7 +51,7 @@ export const AdminSidebar: FC = () => {
                   <li className="menu-item">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 opacity-75"
+                      className="size-5 opacity-75"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -74,7 +74,7 @@ export const AdminSidebar: FC = () => {
                   <li className="menu-item menu-active">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 opacity-75"
+                      className="size-5 opacity-75"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -91,7 +91,7 @@ export const AdminSidebar: FC = () => {
                   <li className="menu-item">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 opacity-75"
+                      className="size-5 opacity-75"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -118,7 +118,7 @@ export const AdminSidebar: FC = () => {
                       <div className="flex gap-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 opacity-75"
+                          className="size-5 opacity-75"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -136,7 +136,7 @@ export const AdminSidebar: FC = () => {
                       <span className="menu-icon">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
+                          className="size-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -291,7 +291,7 @@ export const AdminSidebar: FC = () => {
                       <span className="menu-icon">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
+                          className="size-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
