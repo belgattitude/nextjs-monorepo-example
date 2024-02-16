@@ -8348,12 +8348,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:1.1.4":
-  version: 1.1.4
-  resolution: "@vercel/analytics@npm:1.1.4"
+"@vercel/analytics@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@vercel/analytics@npm:1.2.0"
   dependencies:
     server-only: "npm:^0.0.1"
-  checksum: 10c0/10f1e0a0ed5b18cddcdd4c33e49144f5423a7f5d66046544106f6436af70da0b7e6e34888d5d936eecd87de3c0fb061c22e8a509274481f42f027621f36b082b
+  peerDependencies:
+    next: ">= 13"
+    react: ^18 || ^19
+  peerDependenciesMeta:
+    next:
+      optional: true
+    react:
+      optional: true
+  checksum: 10c0/ee6c541ce0e5ee5ad9c46d808db9c053c5fa8930897f59edf9a0cd5a30f62b06dd4120585fe9ecd9918f032cf713d315db22126615e9b6d65a43980fc71e0bf3
   languageName: node
   linkType: hard
 
@@ -17887,7 +17895,7 @@ __metadata:
     "@types/react": "npm:18.2.55"
     "@types/react-dom": "npm:18.2.19"
     "@types/react-test-renderer": "npm:18.0.7"
-    "@vercel/analytics": "npm:1.1.4"
+    "@vercel/analytics": "npm:1.2.0"
     "@vitejs/plugin-react-swc": "npm:3.6.0"
     "@vitest/coverage-v8": "npm:1.2.2"
     "@vitest/ui": "npm:1.2.2"
