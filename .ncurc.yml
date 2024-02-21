@@ -3,4 +3,7 @@
 # @link https://github.com/raineorshine/npm-check-updates
 
 # Add here exclusions on packages if any
-reject: ['syncpack']
+reject: [
+    # remix vite plugin doesn't handle v4/5+
+    'isbot',
+  ]
