@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { Header } from './Header';
 
 const meta = {
@@ -17,10 +18,19 @@ type Story = StoryObj<typeof meta>;
 
 export const LoggedIn: Story = {
   args: {
+    onLogout: fn(),
+    onLogin: fn(),
+    onCreateAccount: fn(),
     user: {
       name: 'Jane Doe',
     },
   },
 };
 
-export const LoggedOut: Story = {};
+export const LoggedOut: Story = {
+  args: {
+    onLogout: fn(),
+    onLogin: fn(),
+    onCreateAccount: fn(),
+  },
+};
