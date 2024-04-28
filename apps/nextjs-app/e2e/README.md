@@ -12,7 +12,7 @@ yarn dev
 ## Launch docker
 
 ```bash
-export PLAYWRIGHT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')
+export PLAYWRIGHT_VERSION=$(npm ls @playwright/test | grep '@playwright/test@' | grep -v 'deduped' |  sed 's/.*@//' | uniq -u)
 docker run -it --rm --ipc=host --add-host=host.docker.internal:host-gateway -v $PWD:/app -w /app mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-jammy /bin/bash
 ```
 
