@@ -21,7 +21,7 @@ runs:
       id: playwright-config
       shell: bash
       run: |
-        echo "CURRENT_VERSION=$(npm ls @playwright/test | grep @playwright | sed 's/.*@//')" >> $GITHUB_OUTPUT
+        echo "CURRENT_VERSION=$(npm ls @playwright/test | grep '@playwright/test@' | grep -v 'deduped' |  sed 's/.*@//' | uniq -u)" >> $GITHUB_OUTPUT
         RAW_BROWSERS="${{ inputs.browsers }}"
         BROWSERS=$(echo $RAW_BROWSERS | sed -r 's/[[:space:]]+/+/g')
         echo "BROWSERS=$BROWSERS" >> $GITHUB_OUTPUT
