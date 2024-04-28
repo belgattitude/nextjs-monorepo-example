@@ -9,7 +9,7 @@ export const AdminSidebar: FC = () => {
   const user = session?.user;
   return (
     <div className="flex flex-row sm:gap-10">
-      <div className="sm:w-full sm:max-w-[18rem]">
+      <div className="sm:w-full sm:max-w-72">
         <input
           type="checkbox"
           id="sidebar-mobile-fixed"
