@@ -29,8 +29,8 @@
   </a>
 </p>
 
-> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by [Yarn 3.2+](https://dev.to/arcanis/yarn-32-libc-yarn-explain-next-major--o22)
-> / [typescript path aliases](https://www.typescriptlang.org/tsconfig#paths). Not the only way to do.
+> Howtos for monorepo. New to monorepos ? [check this FAQ](./README.md#monorepo). This example is managed by turborepo and yarn 4 with a
+> / [typescript path aliases](https://www.typescriptlang.org/tsconfig#paths) approach. Not the only way to do.
 
 Useful to
 
