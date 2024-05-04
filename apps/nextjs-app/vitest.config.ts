@@ -5,6 +5,7 @@ import { defineConfig } from 'vitest/config';
 const testFiles = ['./src/**/*.test.{js,jsx,ts,tsx}'];
 
 export default defineConfig({
+  cacheDir: '../../.cache/vitest/nextjs-app',
   plugins: [
     react({
       devTarget: 'es2022',
@@ -29,10 +30,13 @@ export default defineConfig({
     typecheck: {
       enabled: false,
     },
-    // threads is good, vmThreads is faster (perf++) but comes with possible memory leaks
+    // forks or threads are good options, vmThreads might sometimes be faster (perf++) but comes with possible memory leaks
     // @link https://vitest.dev/config/#vmthreads
-    pool: 'threads',
+    pool: 'forks',
     poolOptions: {
+      forks: {
+        isolate: true,
+      },
       vmThreads: {
         // useAtomics -> perf+
         // @link https://vitest.dev/config/#pooloptions-threads-useatomics
@@ -51,13 +55,10 @@ export default defineConfig({
     },
     environmentMatchGlobs: [
       ['**/*.ts', 'node'],
-      ['**/*.tsx', 'jsdom'],
+      ['**/*.tsx', 'happy-dom'],
     ],
     passWithNoTests: false,
     setupFiles: './config/tests/setupVitest.ts',
-    cache: {
-      dir: '../../.cache/vitest/nextjs-app',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],
