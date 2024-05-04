@@ -26,9 +26,8 @@ module.exports = {
     '@your-org/eslint-config-bases/react',
     '@your-org/eslint-config-bases/tailwind',
     '@your-org/eslint-config-bases/rtl',
-    // Add specific rules for nextjs
+    '@your-org/eslint-config-bases/storybook',
     'plugin:@next/next/core-web-vitals',
-    // Apply prettier and disable incompatible rules
     '@your-org/eslint-config-bases/prettier-plugin',
   ],
   rules: {

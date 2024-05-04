@@ -10,6 +10,7 @@ module.exports = {
   ignorePatterns: [...getDefaultIgnorePatterns()],
   extends: [
     './src/bases/typescript',
+    './src/bases/sonar',
     './src/bases/prettier-plugin',
     './src/bases/mdx',
   ],
