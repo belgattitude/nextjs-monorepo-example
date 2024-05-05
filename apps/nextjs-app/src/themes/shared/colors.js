@@ -6,7 +6,7 @@ const tailwindColors = require('tailwindcss/colors');
  *     that will log a warning when accessing the object key
  * @type {Record<string, string | Record<string, string>>}
  */
-const tailwindV3Colors = Object.entries(
+export const tailwindV3Colors = Object.entries(
   Object.getOwnPropertyDescriptors(tailwindColors)
 )
   .filter(

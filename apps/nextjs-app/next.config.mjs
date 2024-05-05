@@ -170,6 +170,16 @@ const nextConfig = {
       ? { outputFileTracingRoot: workspaceRoot }
       : {}),
 
+    // https://github.com/vercel/turbo/issues/4832
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+
     // Useful in conjunction with to `output: 'standalone'` and `outputFileTracing: true`
     // to keep lambdas sizes / docker images low when vercel/nft isn't able to
     // drop unneeded deps for you. ie: esbuil-musl, swc-musl... when not actually needed
