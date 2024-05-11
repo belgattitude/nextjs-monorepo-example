@@ -45,6 +45,7 @@ ENV YARN_ENABLE_GLOBAL_CACHE=false
 ENV YARN_ENABLE_MIRROR=false
 ENV YARN_NODE_LINKER=node-modules
 ENV YARN_NM_MODE=hardlinks-local
+ENV YARN_ENABLE_HARDENED_MODE=0
 # If using different compression level than in local (recommended: prefer to not do this)
 #ENV YARN_COMPRESSION_LEVEL 0
 #ENV YARN_CHECKSUM_BEHAVIOR ignore
