@@ -332,7 +332,6 @@ if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
       // For all available options, see:
       // https://github.com/getsentry/sentry-webpack-plugin#options.
       // silent: isProd, // Suppresses all logs
-      dryRun: buildEnv.NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN === true,
       silent: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG === false,
     });
     console.log(`- ${pc.green('info')} Sentry enabled for this build`);

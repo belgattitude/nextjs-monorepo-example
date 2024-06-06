@@ -2,10 +2,27 @@
   "name": "@your-org/core-lib",
   "version": "3.15.3",
   "private": true,
-  "module": "dist/index.esm.js",
+  "type": "module",
   "sideEffects": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
@@ -35,25 +52,25 @@
   },
   "devDependencies": {
     "@testing-library/dom": "10.1.0",
-    "@testing-library/react": "15.0.7",
+    "@testing-library/react": "16.0.0",
     "@testing-library/user-event": "14.5.2",
-    "@types/node": "20.12.11",
-    "@types/react": "18.3.1",
+    "@types/node": "20.14.2",
+    "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@vitejs/plugin-react": "4.2.1",
+    "@vitejs/plugin-react": "4.3.0",
     "@vitest/coverage-v8": "1.6.0",
     "@vitest/ui": "1.6.0",
     "@your-org/eslint-config-bases": "workspace:^",
     "cross-env": "7.0.3",
     "eslint": "8.57.0",
-    "npm-run-all2": "6.1.2",
-    "prettier": "3.2.5",
+    "npm-run-all2": "6.2.0",
+    "prettier": "3.3.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rimraf": "5.0.6",
-    "tsup": "8.0.2",
+    "rimraf": "5.0.7",
+    "tsup": "8.1.0",
     "typescript": "5.4.5",
-    "vite": "5.2.11",
+    "vite": "5.2.12",
     "vite-tsconfig-paths": "4.3.2",
     "vitest": "1.6.0"
   },

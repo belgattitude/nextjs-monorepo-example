@@ -16,6 +16,7 @@ export default defineConfig({
       svgo: false,
     }),
   ],
+  cacheDir: '../../.cache/vitest/nextjs-app',
   test: {
     globals: true,
     deps: {
@@ -55,9 +56,6 @@ export default defineConfig({
     ],
     passWithNoTests: false,
     setupFiles: './config/tests/setupVitest.ts',
-    cache: {
-      dir: '../../.cache/vitest/nextjs-app',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],
