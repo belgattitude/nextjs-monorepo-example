@@ -5,13 +5,11 @@ const testFiles = ['./src/**/*.test.{js,ts}'];
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  cacheDir: '../../.cache/vitest/ts-utils',
   test: {
     globals: true,
     environment: 'node',
     passWithNoTests: false,
-    cache: {
-      dir: '../../.cache/vitest/ts-utils',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],

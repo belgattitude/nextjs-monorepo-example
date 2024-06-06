@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "codegen": {
       "inputs": ["src/**/*", "prisma/**/*"],
       "outputs": ["src/generated/**"]
