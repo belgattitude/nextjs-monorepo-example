@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "globalPassThroughEnv": ["AWS_SECRET_KEY", "GITHUB_TOKEN"],
-  "pipeline": {
+  "tasks": {
     "codegen": {
       // Codegen caching might also be disabled and enabled by workspace (see packages/db-main-prisma/turbo.json)
       // as generated code location might vary between toolings

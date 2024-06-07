@@ -121,14 +121,6 @@ const nextConfig = {
     // emotion: true,
   },
 
-  sentry: {
-    hideSourceMaps: true,
-    // To disable the automatic instrumentation of API route handlers and server-side data fetching functions
-    // In other words, disable if you prefer to explicitly handle sentry per api routes (ie: wrapApiHandlerWithSentry)
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#configure-server-side-auto-instrumentation
-    autoInstrumentServerFunctions: false,
-  },
-
   // @link https://nextjs.org/docs/basic-features/image-optimization
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -332,16 +324,12 @@ if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true) {
       // For all available options, see:
       // https://github.com/getsentry/sentry-webpack-plugin#options.
       // silent: isProd, // Suppresses all logs
-      dryRun: buildEnv.NEXT_BUILD_ENV_SENTRY_UPLOAD_DRY_RUN === true,
       silent: buildEnv.NEXT_BUILD_ENV_SENTRY_DEBUG === false,
     });
     console.log(`- ${pc.green('info')} Sentry enabled for this build`);
   } catch {
     console.log(`- ${pc.red('error')} Could not enable sentry, import failed`);
   }
-} else {
-  const { sentry, ...rest } = config;
-  config = rest;
 }
 
 if (process.env.ANALYZE === 'true') {

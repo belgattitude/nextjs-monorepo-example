@@ -5,15 +5,13 @@ const testFiles = ['./e2e/suites/*.test.{js,ts}'];
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  cacheDir: '../../.cache/vitest/db-main-prisma',
   test: {
     globals: true,
     environment: 'node',
     testTimeout: 15_000,
     passWithNoTests: false,
     // setupFiles: './config/tests/setupVitest.ts',
-    cache: {
-      dir: '../../.cache/vitest/db-main-e2e',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],
