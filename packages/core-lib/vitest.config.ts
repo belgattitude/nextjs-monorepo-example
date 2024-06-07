@@ -11,6 +11,7 @@ export default defineConfig({
       // fastRefresh: false,
     }),
   ],
+  cacheDir: '../../.cache/vitest/core-lib',
   test: {
     globals: true,
     environment: 'happy-dom',
@@ -22,9 +23,6 @@ export default defineConfig({
         enabled: true,
       },
     }, */
-    cache: {
-      dir: '../../.cache/vitest/core-lib',
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'clover'],

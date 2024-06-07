@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "env": ["NEXT_BUILD_ENV_*", "NEXT_PUBLIC_*", "SENTRY_*"],
       "outputs": [".next/**", "!.next/cache/**"]
