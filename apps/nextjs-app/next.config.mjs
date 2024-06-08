@@ -308,7 +308,10 @@ const nextConfig = {
 
 let config = nextConfig;
 
-if (buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true && process.env.SENTRY_AUTH_TOKEN !== "") {
+if (
+  buildEnv.NEXT_BUILD_ENV_SENTRY_ENABLED === true &&
+  process.env.SENTRY_AUTH_TOKEN !== ''
+) {
   try {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/
     const withSentryConfig = await import('@sentry/nextjs').then(
