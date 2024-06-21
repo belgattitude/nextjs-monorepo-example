@@ -35,7 +35,7 @@ export class PrismaManager {
         PrismaManager.instances ??= {};
         PrismaManager.instances[instanceKey] = prismaClientFactory();
       }
-      return PrismaManager.instances[instanceKey]!;
+      return PrismaManager.instances[instanceKey];
     } else {
       // PrismaClient is attached to the `global` object in development to prevent
       // exhausting your database connection limit.
@@ -46,7 +46,7 @@ export class PrismaManager {
           '[PrismaFactory.createDevSafeInstance]: Dev instance created and preserved globally.'
         );
       }
-      return global.__PRISMA_INSTANCES__[instanceKey]!;
+      return global.__PRISMA_INSTANCES__[instanceKey];
     }
   }
 }
