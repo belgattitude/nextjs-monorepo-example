@@ -43,7 +43,8 @@
     "install:playwright": "playwright install",
     "install:husky": "husky install",
     "nuke:node_modules": "rimraf --glob '**/node_modules'",
-    "postinstall": "run-s install:husky g:codegen"
+    "postinstall": "run-s install:husky g:codegen",
+    "check:install": "yarn dlx @yarnpkg/doctor ."
   },
   "dependencies": {
     "cross-env": "7.0.3"
