@@ -81,6 +81,8 @@ RUN yarn turbo run build --filter=nextjs-app...
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS app-runner
 
+ARG NEXTJS_APP_PORT
+
 # Bort PORT / HOSTNAME envs are respected by nextjs start/dev.
 ENV HOSTNAME=0.0.0.0
 ENV PORT=${NEXTJS_APP_PORT:-3000}
