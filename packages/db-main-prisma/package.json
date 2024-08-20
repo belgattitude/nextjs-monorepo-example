@@ -3,7 +3,14 @@
   "version": "2.14.1",
   "private": true,
   "sideEffects": false,
-  "main": "./src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
@@ -68,8 +75,8 @@
   },
   "peerDependencies": {
     "@pothos/plugin-prisma": "^3.41.0",
-    "@prisma/client": "^4.10.1 || ^5.0.0",
-    "graphql": "^16.6.0"
+    "@prisma/client": "^5.0.0",
+    "graphql": "^16.9.0"
   },
   "prisma": {
     "seed": "tsx ./prisma/seed.ts"
