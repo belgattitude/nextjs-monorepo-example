@@ -3,7 +3,14 @@
   "version": "2.14.1",
   "private": true,
   "sideEffects": false,
-  "main": "./src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "author": {
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
@@ -49,7 +56,7 @@
     "dotenv-flow": "4.1.0",
     "dotenv-flow-cli": "1.1.1",
     "eslint": "8.57.0",
-    "execa": "9.3.0",
+    "execa": "9.3.1",
     "graphql": "16.9.0",
     "is-port-reachable": "4.0.0",
     "keyword-extractor": "0.0.28",
@@ -63,13 +70,13 @@
     "tsx": "4.17.0",
     "typescript": "5.5.4",
     "vite": "5.4.1",
-    "vite-tsconfig-paths": "4.3.2",
+    "vite-tsconfig-paths": "5.0.1",
     "vitest": "2.0.5"
   },
   "peerDependencies": {
     "@pothos/plugin-prisma": "^3.41.0",
-    "@prisma/client": "^4.10.1 || ^5.0.0",
-    "graphql": "^16.6.0"
+    "@prisma/client": "^5.0.0",
+    "graphql": "^16.9.0"
   },
   "prisma": {
     "seed": "tsx ./prisma/seed.ts"
