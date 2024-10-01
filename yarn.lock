@@ -7815,7 +7815,7 @@ __metadata:
     get-tsconfig: "npm:4.8.1"
     prettier: "npm:3.3.3"
     rimraf: "npm:6.0.1"
-    size-limit: "npm:11.1.5"
+    size-limit: "npm:11.1.6"
     tslib: "npm:2.7.0"
     tsup: "npm:8.3.0"
     typescript: "npm:5.6.2"
@@ -8822,6 +8822,15 @@ __metadata:
     fsevents:
       optional: true
   checksum: 10c0/8361dcd013f2ddbe260eacb1f3cb2f2c6f2b0ad118708a343a5ed8158941a39cb8fb1d272e0f389712e74ee90ce8ba864eece9e0e62b9705cb468a2f6d917462
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "chokidar@npm:4.0.1"
+  dependencies:
+    readdirp: "npm:^4.0.1"
+  checksum: 10c0/4bb7a3adc304059810bb6c420c43261a15bb44f610d77c35547addc84faa0374265c3adc67f25d06f363d9a4571962b02679268c40de07676d260de1986efea9
   languageName: node
   linkType: hard
 
@@ -11239,15 +11248,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fdir@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "fdir@npm:6.3.0"
+"fdir@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "fdir@npm:6.4.0"
   peerDependencies:
     picomatch: ^3 || ^4
   peerDependenciesMeta:
     picomatch:
       optional: true
-  checksum: 10c0/be91cd6ab2edbc6df457a69b79672ee9345996986821918ef01908ce9619b8cbecd9c6c13d4ca5d0aeb548b162050d68c599f45bb3fbff194a91e16f25e646b5
+  checksum: 10c0/9a03efa1335d78ea386b701799b08ad9e7e8da85d88567dc162cd28dd8e9486e8c269b3e95bfeb21dd6a5b14ebf69d230eb6e18f49d33fbda3cd97432f648c48
   languageName: node
   linkType: hard
 
@@ -13055,12 +13064,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:^1.19.1, jiti@npm:^1.21.0, jiti@npm:^1.21.6":
+"jiti@npm:^1.19.1, jiti@npm:^1.21.0":
   version: 1.21.6
   resolution: "jiti@npm:1.21.6"
   bin:
     jiti: bin/jiti.js
   checksum: 10c0/05b9ed58cd30d0c3ccd3c98209339e74f50abd9a17e716f65db46b6a35812103f6bde6e134be7124d01745586bca8cc5dae1d0d952267c3ebe55171949c32e56
+  languageName: node
+  linkType: hard
+
+"jiti@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "jiti@npm:2.0.0"
+  bin:
+    jiti: lib/jiti-cli.mjs
+  checksum: 10c0/ef702464cc6e62983bf671bfc4c3a1746cf909a12830e33aa3cb12f5f4401a308d7fbe7b8607c2b7d5092e022dd9349c64b86ff1828f133d69d3ad732bdced97
   languageName: node
   linkType: hard
 
@@ -14945,7 +14963,7 @@ __metadata:
     rippleui: "npm:1.12.1"
     rooks: "npm:7.14.1"
     sharp: "npm:0.33.5"
-    size-limit: "npm:11.1.5"
+    size-limit: "npm:11.1.6"
     superjson: "npm:2.2.1"
     tailwindcss: "npm:3.4.13"
     type-fest: "npm:4.26.1"
@@ -16982,6 +17000,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"readdirp@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "readdirp@npm:4.0.1"
+  checksum: 10c0/e5a0b547015f68ecc918f115b62b75b2b840611480a9240cb3317090a0ddac01bb9b40315a8fa08acdf52a43eea17b808c89b645263cba3ab64dc557d7f801f1
+  languageName: node
+  linkType: hard
+
 "readdirp@npm:~3.6.0":
   version: 3.6.0
   resolution: "readdirp@npm:3.6.0"
@@ -17883,20 +17908,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"size-limit@npm:11.1.5":
-  version: 11.1.5
-  resolution: "size-limit@npm:11.1.5"
+"size-limit@npm:11.1.6":
+  version: 11.1.6
+  resolution: "size-limit@npm:11.1.6"
   dependencies:
     bytes-iec: "npm:^3.1.1"
-    chokidar: "npm:^3.6.0"
-    jiti: "npm:^1.21.6"
+    chokidar: "npm:^4.0.1"
+    jiti: "npm:^2.0.0"
     lilconfig: "npm:^3.1.2"
     nanospinner: "npm:^1.1.0"
     picocolors: "npm:^1.1.0"
-    tinyglobby: "npm:^0.2.6"
+    tinyglobby: "npm:^0.2.7"
   bin:
     size-limit: bin.js
-  checksum: 10c0/4aed5a599908242d6ef26a947704fbea38ba81c5c4d1ee59b446bab239ca9d248fbfd16f724f0d2178485b86514c7022d0cce7169de6753f0e9ba0b79a14f563
+  checksum: 10c0/b5fafb2a75f4d0273bdbf3b595f3cc95ec425bdff374e27f9887973e0d4a645c0cbed7cbcedea8078f8ee0ef829eb997f010ff750727b7ba4dc9c0d71fda0cf8
   languageName: node
   linkType: hard
 
@@ -18756,13 +18781,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.1, tinyglobby@npm:^0.2.6":
-  version: 0.2.6
-  resolution: "tinyglobby@npm:0.2.6"
+"tinyglobby@npm:^0.2.1, tinyglobby@npm:^0.2.6, tinyglobby@npm:^0.2.7":
+  version: 0.2.8
+  resolution: "tinyglobby@npm:0.2.8"
   dependencies:
-    fdir: "npm:^6.3.0"
+    fdir: "npm:^6.4.0"
     picomatch: "npm:^4.0.2"
-  checksum: 10c0/d7b5eb4c5b9c341f961c1d3c30624f9a1e22b27b48a79a65b48120245a77c143827f75f5854628fef1a4bd4bc3cfaf06ce76497f3a574e3f933229c5e556e5fe
+  checksum: 10c0/3d71cbd4c2144d4adaaf96e3d3dcb3d1496fbf5843c05eb84cff521ecd53093ecd30b176f5e7593f95bf0c15f703a3b68354fabe9ae2f4d93f1d9433497cb09d
   languageName: node
   linkType: hard
 
