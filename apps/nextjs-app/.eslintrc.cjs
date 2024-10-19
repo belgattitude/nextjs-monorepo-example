@@ -14,8 +14,8 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    projectService: true,
     tsconfigRootDir: __dirname,
-    project: 'tsconfig.json',
   },
   ignorePatterns: [...getDefaultIgnorePatterns(), '.next', '.out'],
   extends: [
