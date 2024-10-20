@@ -15,18 +15,18 @@ describe('Typeguards tests', () => {
     });
     describe('when trim === true (default)', () => {
       it('should work as expected', () => {
-        expect(isNonEmptyString('cool')).toBeTruthy();
-        expect(isNonEmptyString(1)).toBeFalsy();
-        expect(isNonEmptyString('  ')).toBeFalsy();
-        expect(isNonEmptyString('')).toBeFalsy();
-        expect(isNonEmptyString(null)).toBeFalsy();
-        expect(isNonEmptyString({})).toBeFalsy();
+        expect(isNonEmptyString('cool')).toBe(true);
+        expect(isNonEmptyString(1)).toBe(false);
+        expect(isNonEmptyString('  ')).toBe(false);
+        expect(isNonEmptyString('')).toBe(false);
+        expect(isNonEmptyString(null)).toBe(false);
+        expect(isNonEmptyString({})).toBe(false);
       });
     });
     describe('when trim === false', () => {
       it('should work as expected', () => {
-        expect(isNonEmptyString('cool ', false)).toBeTruthy();
-        expect(isNonEmptyString('  ', false)).toBeTruthy();
+        expect(isNonEmptyString('cool ', false)).toBe(true);
+        expect(isNonEmptyString('  ', false)).toBe(true);
       });
     });
   });
@@ -66,12 +66,12 @@ describe('Typeguards tests', () => {
 
   describe('isIsoDateString', () => {
     it('should return true for valid isoDate strings', () => {
-      expect(isIsoDateString('2022-02-06T15:20:19.131Z')).toBeTruthy();
+      expect(isIsoDateString('2022-02-06T15:20:19.131Z')).toBe(true);
     });
     it('should return false for invalid isDate strings', () => {
-      expect(isIsoDateString('2022-40-20T15:20:19.131Z')).toBeFalsy();
-      expect(isIsoDateString(new Date())).toBeFalsy();
-      expect(isIsoDateString(null)).toBeFalsy();
+      expect(isIsoDateString('2022-40-20T15:20:19.131Z')).toBe(false);
+      expect(isIsoDateString(new Date())).toBe(false);
+      expect(isIsoDateString(null)).toBe(false);
     });
   });
 
@@ -114,15 +114,15 @@ describe('Typeguards tests', () => {
 
   describe('isPresent', () => {
     it('should return false when null or undefined', () => {
-      expect(isPresent(null)).toBeFalsy();
-      expect(isPresent(undefined)).toBeFalsy();
+      expect(isPresent(null)).toBe(false);
+      expect(isPresent(undefined)).toBe(false);
     });
     it('should return true when not null and not undefined', () => {
-      expect(isPresent(false)).toBeTruthy();
-      expect(isPresent(true)).toBeTruthy();
-      expect(isPresent(NaN)).toBeTruthy();
-      expect(isPresent('hello')).toBeTruthy();
-      expect(isPresent(0)).toBeTruthy();
+      expect(isPresent(false)).toBe(true);
+      expect(isPresent(true)).toBe(true);
+      expect(isPresent(NaN)).toBe(true);
+      expect(isPresent('hello')).toBe(true);
+      expect(isPresent(0)).toBe(true);
     });
   });
 });

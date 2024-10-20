@@ -27,6 +27,7 @@ export const exitOrThrowError = (zodSafeParseError) => {
       Object.keys(zodSafeParseError.error.flatten().fieldErrors).join(',')
     );
     console.error(JSON.stringify(zodSafeParseError.error.format(), null, 2));
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(1);
   } else {
     throw new Error(

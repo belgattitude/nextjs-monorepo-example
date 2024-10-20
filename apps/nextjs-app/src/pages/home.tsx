@@ -4,6 +4,7 @@ import { homeConfig } from '@/features/home/home.config';
 import { HomePage } from '@/features/home/pages';
 import { getServerTranslations } from '@/server/i18n/getServerTranslations';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   /** Add HomeRoute props here */
 };

@@ -20,7 +20,7 @@ module.exports = {
   ignorePatterns: [...getDefaultIgnorePatterns(), '.next', '.out'],
   extends: [
     '@your-org/eslint-config-bases/typescript',
-    '@your-org/eslint-config-bases/sonar',
+    // '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/jest',
     '@your-org/eslint-config-bases/react',
@@ -55,7 +55,7 @@ module.exports = {
       },
     },
     {
-      files: ['src/pages/\\_*.{ts,tsx}'],
+      files: [String.raw`src/pages/\_*.{ts,tsx}`],
       rules: {
         'react/display-name': 'off',
       },

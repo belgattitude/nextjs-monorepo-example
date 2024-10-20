@@ -327,9 +327,9 @@ export const AdminSidebar: FC = () => {
               <label className="whites mx-2 flex h-fit w-full cursor-pointer p-0 hover:bg-gray-4">
                 <div className="flex flex-row gap-4 p-4">
                   <div className="avatar-square avatar avatar-md">
-                    {user !== undefined ? (
+                    {user === undefined ? null : (
                       <TextAvatar name={user.name ?? 'Demo User'} />
-                    ) : null}
+                    )}
                     {/* <img src={user?.image ?? } alt="avatar" /> */}
                   </div>
 

@@ -9,7 +9,9 @@
 export function getRandomInt(min: number, max: number): number {
   [min, max].forEach((v, idx) => {
     if (!Number.isSafeInteger(v)) {
-      throw new Error(`${idx === 0 ? 'min' : 'max'} is not a valid integer`);
+      throw new TypeError(
+        `${idx === 0 ? 'min' : 'max'} is not a valid integer`
+      );
     }
   });
   if (max < min) {

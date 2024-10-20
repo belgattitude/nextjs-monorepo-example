@@ -6,6 +6,7 @@ import { AdminLayout } from '@/features/admin/layouts';
 import { AdminMainPage } from '@/features/admin/pages';
 import { getServerTranslations } from '@/server/i18n/getServerTranslations';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   /** Add props here */
 };

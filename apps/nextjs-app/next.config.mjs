@@ -27,7 +27,7 @@ const workspaceRoot = path.resolve(
  * @type {import('type-fest').PackageJson}
  */
 const packageJson = JSON.parse(
-  readFileSync(new URL('./package.json', import.meta.url)).toString('utf-8')
+  readFileSync(new URL('package.json', import.meta.url)).toString('utf8')
 );
 
 const isProd = process.env.NODE_ENV === 'production';

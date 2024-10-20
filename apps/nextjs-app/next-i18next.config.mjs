@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 
 const debugI18n = ['true', 1].includes(
   process?.env?.NEXTJS_DEBUG_I18N ?? 'false'
@@ -30,7 +30,7 @@ export default {
   },
   */
   localePath:
-    typeof window === 'undefined'
-      ? path.resolve('../../packages/common-i18n/src/locales')
-      : localePublicFolder,
+    'window' in globalThis
+      ? localePublicFolder
+      : path.resolve('../../packages/common-i18n/src/locales'),
 };

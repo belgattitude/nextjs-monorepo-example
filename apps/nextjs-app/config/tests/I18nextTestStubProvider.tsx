@@ -7,7 +7,6 @@ import type { I18nNamespace } from '@/lib/i18n/I18nNamespace.types';
  * Fully wrapped strategy for i18next, you can use stub/mocks as well
  * @link {https://react.i18next.com/misc/testing}
  */
-// eslint-disable-next-line import/no-named-as-default-member
 void i18next.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',

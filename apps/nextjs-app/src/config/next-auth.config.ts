@@ -4,7 +4,7 @@ import { createHttpUnauthorized } from '@/lib/auth/error';
 import { getServerRuntimeEnv } from './server-runtime-env.config.mjs';
 
 const serverRuntimeEnv = getServerRuntimeEnv();
-const oneDayInSeconds = 86400;
+const oneDayInSeconds = 86_400;
 
 /**
  * @todo Remove this once oauth is ready
@@ -58,8 +58,7 @@ export const nextAuthConfig: NextAuthOptions = {
           email,
           password
         );
-        if (staticAllowedDemoAdminUser)
-          return Promise.resolve(staticAllowedDemoAdminUser);
+        if (staticAllowedDemoAdminUser) return staticAllowedDemoAdminUser;
 
         throw createHttpUnauthorized('Invalid credentials');
       },
@@ -96,17 +95,17 @@ export const nextAuthConfig: NextAuthOptions = {
     },
     */
     async redirect({ url, baseUrl }) {
-      return Promise.resolve(url.startsWith(baseUrl) ? url : baseUrl);
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
     // async session({ session, token, user }) {
     async session({ session, token }) {
-      return Promise.resolve({
+      return {
         ...session,
         user: {
           ...session.user,
           role: token.role,
         },
-      });
+      };
     },
     async jwt({ token, user, trigger }) {
       if (trigger === 'signUp') {
@@ -115,7 +114,7 @@ export const nextAuthConfig: NextAuthOptions = {
       if (user) {
         token.role = user.role;
       }
-      return Promise.resolve(token);
+      return token;
     },
   },
   pages: {

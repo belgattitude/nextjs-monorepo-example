@@ -12,7 +12,7 @@ import nextI18nextConfig from '../../../next-i18next.config.mjs';
 
 export const getServerTranslations = async (
   locale: string,
-  namespacesRequired?: I18nActiveNamespaces | I18nNamespace | undefined,
+  namespacesRequired?: I18nActiveNamespaces | I18nNamespace,
   configOverride?: UserConfig | null,
   extraLocales?: string[] | false
 ): Promise<SSRConfig> => {

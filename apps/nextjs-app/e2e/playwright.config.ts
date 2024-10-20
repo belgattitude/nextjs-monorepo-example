@@ -8,7 +8,7 @@ import { devices, type PlaywrightTestConfig } from '@playwright/test';
  */
 const config: PlaywrightTestConfig = {
   testDir: '.',
-  timeout: 6_000,
+  timeout: 6000,
   /* Maximum time one test can run for. */
   /* Opt out of parallel tests on CI. */
   // workers: process.env.CI ? 1 : undefined,

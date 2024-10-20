@@ -11,7 +11,7 @@ export const isIsoDateString = (dateStr: unknown): dateStr is IsoDateString => {
   try {
     const d = new Date(dateStr);
     return d.toISOString() === dateStr;
-  } catch (e: unknown) {
+  } catch {
     return false;
   }
 };
