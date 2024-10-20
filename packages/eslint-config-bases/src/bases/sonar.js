@@ -38,7 +38,7 @@ module.exports = {
           'warn',
           {
             // For NextJs styled-jsx <style jsx>{`...`}</style>
-            ignore: ['jsx'],
+            ignore: ['jsx', 'css'],
           },
         ],
       },

@@ -1,4 +1,4 @@
-import { stringToFloat, stringToSafeInteger } from '../';
+import { stringToFloat, stringToSafeInteger } from '..';
 
 describe('StringConvert tests', () => {
   describe('stringtoSafeInteger', () => {

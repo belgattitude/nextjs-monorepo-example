@@ -20,6 +20,7 @@ module.exports = {
   ignorePatterns: [...getDefaultIgnorePatterns(), '/storybook-static'],
   extends: [
     '@your-org/eslint-config-bases/typescript',
+    '@your-org/eslint-config-bases/import-x',
     '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/jest',

@@ -1,4 +1,3 @@
-/* eslint-disable import/export */
 import { cleanup, render } from '@testing-library/react';
 import type React from 'react';
 
@@ -20,7 +19,9 @@ const customRender = (ui: React.ReactElement, options = {}) =>
     ...options,
   });
 
+// eslint-disable-next-line import-x/export
 export * from '@testing-library/react';
 export { default as userEvent } from '@testing-library/user-event';
 // override render export
+// eslint-disable-next-line import-x/export
 export { customRender as render };

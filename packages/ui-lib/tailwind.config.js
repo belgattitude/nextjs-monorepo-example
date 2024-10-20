@@ -15,6 +15,7 @@ const tailwindV3Colors = Object.entries(
       Object.prototype.hasOwnProperty.call(desc, 'value') &&
       typeof desc.value !== 'function'
   )
+  // eslint-disable-next-line unicorn/no-array-reduce
   .reduce((acc, [key]) => {
     if (
       !['coolGray', 'lightBlue', 'warmGray', 'trueGray', 'blueGray'].includes(

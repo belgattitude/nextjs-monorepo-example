@@ -266,7 +266,7 @@ const poems: Prisma.PoemCreateInput[] = [
 ].map((poem) => {
   const sanitizedContent = poem.content
     // @link http://www.unicode.org/reports/tr18/#RL1.6
-    .split(/(\r\n|[\n\v\f\r\x85\u2028\u2029])/)
+    .split(/(\r\n|[\n\v\f\r\u0085\u2028\u2029])/)
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
     .join('\n')
@@ -303,7 +303,7 @@ const poemData = poems.map((p) => {
 
 export class PoemSeeds extends AbstractSeed {
   execute = async (): Promise<void> => {
-    for await (const p of poemData) {
+    for (const p of poemData) {
       const { keywords, ...poemWithoutKeywords } = p;
       const poem = await this.prisma.poem.upsert({
         where: {

@@ -7,20 +7,20 @@ type Props = {
 
 export const AsyncMessage: FC<Props> = (props) => {
   const [msg, setMsg] = useState<string | null>(null);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     fetch(props.apiUrl)
       .then((res) => res.text())
       .then((data) => {
         setMsg(data);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : 'Unknown error');
-        setLoading(false);
+        setIsLoading(false);
       });
   }, [props.apiUrl]);
 
