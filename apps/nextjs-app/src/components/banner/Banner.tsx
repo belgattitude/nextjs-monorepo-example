@@ -1,11 +1,7 @@
 import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
 import type { FC } from 'react';
 
-type Props = {
-  children?: never;
-};
-
-export const Banner: FC<Props> = () => {
+export const Banner: FC = () => {
   return (
     <div className="bg-indigo-600">
       <div className="mx-auto max-w-7xl p-3 sm:px-6 lg:px-8">

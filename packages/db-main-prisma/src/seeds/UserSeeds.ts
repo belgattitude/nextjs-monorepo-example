@@ -1,4 +1,4 @@
-import type { PrismaDbMain as Prisma } from '../';
+import type { PrismaDbMain as Prisma } from '..';
 import { AbstractSeed } from '../lib/AbstractSeed';
 
 const userData: Prisma.UserCreateInput[] = [

@@ -1,6 +1,6 @@
 import keywordExtractor from 'keyword-extractor';
 import { slugify } from 'transliteration';
-import type { PrismaDbMain as Prisma } from '../';
+import type { PrismaDbMain as Prisma } from '..';
 import { AbstractSeed } from '../lib/AbstractSeed';
 
 /* eslint-disable sonarjs/no-duplicate-string */
