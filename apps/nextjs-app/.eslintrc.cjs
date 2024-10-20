@@ -21,7 +21,7 @@ module.exports = {
   extends: [
     '@your-org/eslint-config-bases/typescript',
     '@your-org/eslint-config-bases/import-x',
-    // '@your-org/eslint-config-bases/sonar',
+    '@your-org/eslint-config-bases/sonar',
     '@your-org/eslint-config-bases/regexp',
     '@your-org/eslint-config-bases/jest',
     '@your-org/eslint-config-bases/react',
@@ -39,6 +39,7 @@ module.exports = {
     // For the sake of example
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md
     'jsx-a11y/anchor-is-valid': 'off',
+    'sonarjs/anchor-is-valid': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
   },
   overrides: [

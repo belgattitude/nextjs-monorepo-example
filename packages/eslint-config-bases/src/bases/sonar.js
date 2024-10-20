@@ -18,6 +18,9 @@ module.exports = {
       excludedFiles: filePatterns.nonCodeFile,
       files: filePatterns.anyCode,
       rules: {
+        // better handled by jsx-a11y plugin
+        'sonarjs/anchor-is-valid': 'off',
+        'sonarjs/label-has-associated-control': 'off',
         // Typescript-eslint does the job well enough
         'sonarjs/no-misused-promises': 'off',
         // Because plugin unused-import does it better (autofix)
@@ -28,6 +31,8 @@ module.exports = {
         'sonarjs/sonar-no-unused-vars': 'off',
         // because it's handled by typescript-eslint
         'sonarjs/deprecation': 'off',
+        // it makes too much noise
+        'sonarjs/sonar-prefer-read-only-props': 'off',
         // because it doesn't play well with exactOptionalTypes
         'sonarjs/no-redundant-optional': 'off',
         'sonarjs/jsx-no-useless-fragment': 'off',

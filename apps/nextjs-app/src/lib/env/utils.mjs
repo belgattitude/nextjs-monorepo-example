@@ -3,7 +3,7 @@
 import pc from 'picocolors';
 import { z } from 'zod';
 
-const isRunningInNode = process !== undefined;
+const isRunningInNode = process != undefined;
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 export const truthyStrEnvValue = ['true', '1'];

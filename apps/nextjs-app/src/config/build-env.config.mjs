@@ -13,7 +13,6 @@ const isProd = process.env.NODE_ENV === 'production';
 const falseOnCi = !isCI;
 
 /**
- * @todo working with jsdoc/mjs is limited, see later on how to improve this
  * @satisfies { Record<`NEXT_BUILD_ENV_${string}`, import('zod').ZodSchema> }
  */
 const schema = {
