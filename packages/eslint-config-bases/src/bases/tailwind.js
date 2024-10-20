@@ -1,6 +1,6 @@
 /**
  * Opinionated config base for projects using react.
- * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
+ * @see https://github.com/belgattitude/shared-dx/tree/main/packages/eslint-config-bases
  */
 
 const reactPatterns = {
@@ -20,11 +20,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: [...reactPatterns.files],
       extends: [
         // @see https://github.com/francoismassart/eslint-plugin-tailwindcss,
         'plugin:tailwindcss/recommended',
       ],
+      files: [...reactPatterns.files],
       rules: {
         'tailwindcss/no-custom-classname': 'off',
       },

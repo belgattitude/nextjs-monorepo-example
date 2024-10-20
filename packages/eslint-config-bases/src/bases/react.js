@@ -1,6 +1,6 @@
 /**
  * Opinionated config base for projects using react.
- * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
+ * @see https://github.com/belgattitude/shared-dx/tree/main/packages/eslint-config-bases
  */
 
 const reactPatterns = {
@@ -22,30 +22,30 @@ module.exports = {
     es6: true,
     node: true,
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   overrides: [
     {
-      files: [...reactPatterns.files, ...stylesPatterns.files],
       extends: [
-        // @see https://github.com/yannickcr/eslint-plugin-react
+        // @see https://github.com/jsx-eslint/eslint-plugin-react
         'plugin:react/recommended',
         // @see https://www.npmjs.com/package/eslint-plugin-react-hooks
         'plugin:react-hooks/recommended',
         // @see https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
         'plugin:jsx-a11y/recommended',
       ],
+      files: [...reactPatterns.files, ...stylesPatterns.files],
       rules: {
-        // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
-        'react/no-unknown-property': ['error', { ignore: ['css'] }],
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
         'react/no-unescaped-entities': ['error', { forbid: ['>'] }],
+        // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
       },
     },
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };

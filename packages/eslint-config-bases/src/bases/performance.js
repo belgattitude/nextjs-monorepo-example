@@ -6,14 +6,13 @@
 const { filePatterns } = require('../config/file-patterns');
 
 module.exports = {
-  // @see https://github.com/ota-meshi/eslint-plugin-regexp
-  extends: ['plugin:regexp/recommended'],
   overrides: [
     {
-      extends: ['plugin:regexp/recommended'],
-      files: filePatterns.typescriptAndJsCodeWithJsx,
+      plugins: ['unicorn'],
+      files: filePatterns.typescriptAndJsCodeWithoutJsx,
+      excludedFiles: filePatterns.nonCodeFile,
       rules: {
-        'regexp/prefer-result-array-groups': 'off',
+        'unicorn/prefer-set-has': 'error',
       },
     },
   ],
