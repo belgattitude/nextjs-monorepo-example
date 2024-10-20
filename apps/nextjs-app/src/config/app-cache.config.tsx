@@ -6,11 +6,11 @@ import {
 
 const appCacheDsn = process.env.APP_CACHE_DSN ?? null;
 
-export const appCache = !appCacheDsn
-  ? new MapCacheAdapter()
-  : new IoRedisCacheAdapter({
+export const appCache = appCacheDsn
+  ? new IoRedisCacheAdapter({
       connection: getIoRedisOptionsFromDsn(appCacheDsn, {
-        connectTimeout: 3_000,
+        connectTimeout: 3000,
         maxRetriesPerRequest: 2,
       }),
-    });
+    })
+  : new MapCacheAdapter();

@@ -51,7 +51,7 @@ const sentryCaptureExceptionFailsafe = (
  * Possible causes vary, but the most common is that the request is blocked by ad-blockers or csrf rules.
  */
 const sentryFlushServerSide = async (flushAfter: number) => {
-  if (typeof window === 'undefined') {
+  if (!('window' in globalThis)) {
     try {
       await sentryFlush(flushAfter);
     } catch (e) {
@@ -124,7 +124,7 @@ CustomError.getInitialProps = async ({
     errorInitialProps.sentryErrorId = sentryCaptureExceptionFailsafe(err);
     // Flushing before returning is necessary if deploying to Vercel, see
     // https://vercel.com/docs/platform/limits#streaming-responses
-    await sentryFlushServerSide(1_500);
+    await sentryFlushServerSide(1500);
     return errorInitialProps;
   }
 
@@ -134,7 +134,7 @@ CustomError.getInitialProps = async ({
   errorInitialProps.sentryErrorId = sentryCaptureException(
     new Error(`_error.js getInitialProps missing data at path: ${asPath}`)
   );
-  await sentryFlushServerSide(1_500);
+  await sentryFlushServerSide(1500);
   return errorInitialProps;
 };
 

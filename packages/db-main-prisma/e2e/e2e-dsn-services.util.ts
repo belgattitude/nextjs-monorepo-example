@@ -26,7 +26,7 @@ export const getAndCheckDatabaseDsn = async (): Promise<string> => {
   const { dsn, port, host } = getValidatedDsn();
   const reachable = await isPortReachable(port as unknown as number, {
     host: host,
-    timeout: 5_000,
+    timeout: 5000,
   });
 
   if (!reachable) {

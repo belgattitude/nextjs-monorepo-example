@@ -1,5 +1,3 @@
-import path from 'path';
-
 const debugI18n = ['true', 1].includes(
   process?.env?.NEXTJS_DEBUG_I18N ?? 'false'
 );
@@ -7,6 +5,17 @@ const debugI18n = ['true', 1].includes(
 const localePublicFolder = undefined;
 
 export const defaultLocale = 'en';
+
+const getLocalesPath = async () => {
+  if ('window' in globalThis) {
+    return localePublicFolder;
+  }
+  // eslint-disable-next-line unicorn/prefer-node-protocol,unicorn/import-style
+  const path = await import('path').then((mod) => mod.default);
+  return path.resolve('../../packages/common-i18n/src/locales');
+};
+
+const localePath = await getLocalesPath();
 
 /**
  * @type {import('next-i18next').UserConfig}
@@ -29,8 +38,5 @@ export default {
     escapeValue: false,
   },
   */
-  localePath:
-    typeof window === 'undefined'
-      ? path.resolve('../../packages/common-i18n/src/locales')
-      : localePublicFolder,
+  localePath,
 };

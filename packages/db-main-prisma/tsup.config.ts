@@ -9,7 +9,7 @@ export default defineConfig((options) => {
     format: ['esm'],
     platform: 'node',
     target: ['node18'],
-    tsconfig: new URL('./tsconfig.build.json', import.meta.url).pathname,
+    tsconfig: new URL('tsconfig.build.json', import.meta.url).pathname,
     sourcemap: !options.watch,
     // Do not minify node only packages to let patching possible by the consumer (ie: patch-package)
     minify: false,

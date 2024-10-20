@@ -17,16 +17,15 @@ export function assertIncludes<T extends string[]>(
   v: string | undefined,
   stringArray: T,
   msgOrErrorFactory?: MsgOrErrorFactory,
-  caseInsensitive?: boolean
+  insensitive = false
 ): asserts v is T[number] {
-  const insensitive = caseInsensitive ?? false;
   const val = insensitive ? v?.toUpperCase() : v;
   const allowed = insensitive
     ? stringArray.map((v) => v.toUpperCase())
     : stringArray;
   if (!val || !allowed.includes(val)) {
     const msg = [
-      `Value '${v ? v : typeof v}' is not in allowed values`,
+      `Value '${v ?? typeof v}' is not in allowed values`,
       `(${stringArray.join(',')}`,
       insensitive ? '(case insensitive).' : '(case sensitive).',
     ].join(',');
@@ -66,9 +65,9 @@ function createAssertException(
     typeof msgOrErrorFactory === 'string' ||
     msgOrErrorFactory === undefined
   ) {
-    throw new Error(
+    return new Error(
       msgOrErrorFactory ?? fallbackMsg ?? 'Assertion did not pass.'
     );
   }
-  throw msgOrErrorFactory();
+  return msgOrErrorFactory();
 }

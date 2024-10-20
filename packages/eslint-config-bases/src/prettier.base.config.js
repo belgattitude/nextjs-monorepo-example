@@ -4,13 +4,13 @@
  * @type {import('prettier').Config}
  */
 module.exports = {
-  singleQuote: true,
-  semi: true,
-  tabWidth: 2,
-  bracketSpacing: true,
-  trailingComma: 'es5',
   bracketSameLine: false,
-  useTabs: false,
+  bracketSpacing: true,
   endOfLine: 'lf',
   overrides: [],
+  semi: true,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'es5',
+  useTabs: false,
 };

@@ -12,7 +12,7 @@ describe('usePromise', () => {
       const callback = vi.fn();
       const promiseFn = async (deps: Deps) => {
         callback(deps);
-        return Promise.resolve(expected);
+        return expected;
       };
 
       const { result, rerender } = renderHook(() =>
@@ -21,7 +21,7 @@ describe('usePromise', () => {
       // initial data
       const initialValue = result.current;
       expect(result.current.data).toBeNull();
-      expect(result.current.isLoading).toStrictEqual(true);
+      expect(result.current.isLoading).toBe(true);
       expect(result.current.error).toBeNull();
 
       // resolved data
@@ -32,13 +32,13 @@ describe('usePromise', () => {
       expect(callback).toHaveBeenCalledTimes(1);
 
       expect(result.current.data).toStrictEqual(expected);
-      expect(result.current.isLoading).toStrictEqual(false);
+      expect(result.current.isLoading).toBe(false);
       expect(result.current.error).toBeNull();
 
       rerender();
       expect(callback).toHaveBeenCalledTimes(1);
       expect(result.current.data).toStrictEqual(expected);
-      expect(result.current.isLoading).toStrictEqual(false);
+      expect(result.current.isLoading).toBe(false);
       expect(result.current.error).toBeNull();
     });
 
@@ -55,7 +55,7 @@ describe('usePromise', () => {
       // initial data
       const initialValue = result.current;
       expect(result.current.data).toBeNull();
-      expect(result.current.isLoading).toStrictEqual(true);
+      expect(result.current.isLoading).toBe(true);
       expect(result.current.error).toBeNull();
 
       // resolved data
@@ -65,22 +65,22 @@ describe('usePromise', () => {
 
       expect(callback).toHaveBeenCalledTimes(1);
       expect(result.current.error).toBeInstanceOf(Error);
-      expect(result.current.isLoading).toStrictEqual(false);
-      expect(result.current.error?.message).toStrictEqual('cool');
+      expect(result.current.isLoading).toBe(false);
+      expect(result.current.error?.message).toBe('cool');
     });
 
     it('should call the promise when forceReload is called', async () => {
       const callback = vi.fn();
       const promiseFn = async () => {
         callback();
-        return Promise.resolve(0);
+        return 0;
       };
 
       const { result } = renderHook(() => usePromise(promiseFn, {}));
       // initial data
       const initialValue = result.current;
       expect(result.current.data).toBeNull();
-      expect(result.current.isLoading).toStrictEqual(true);
+      expect(result.current.isLoading).toBe(true);
       expect(result.current.error).toBeNull();
 
       // resolved data

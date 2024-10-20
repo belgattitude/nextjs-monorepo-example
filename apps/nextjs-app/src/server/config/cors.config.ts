@@ -2,7 +2,7 @@ import type { CorsOptions } from 'cors';
 
 export const corsAllowedOrigins: string[] = [
   // previews
-  '.+\\-belgattitude.vercel.app',
+  String.raw`.+\-belgattitude.vercel.app`,
   // for local development
   'localhost',
 ];

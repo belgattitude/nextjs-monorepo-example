@@ -58,7 +58,7 @@ export default createYoga<{
     costLimitPlugin(
       // @link https://escape.tech/graphql-armor/docs/plugins/cost-limit
       {
-        maxCost: 5_000,
+        maxCost: 5000,
         objectCost: 2,
         scalarCost: 1,
         depthCostFactor: 1.5,
@@ -78,7 +78,7 @@ export default createYoga<{
     maxTokensPlugin(
       // @link https://escape.tech/graphql-armor/docs/plugins/max-tokens
       {
-        n: 1_000,
+        n: 1000,
       }
     ),
     maxAliasesPlugin({

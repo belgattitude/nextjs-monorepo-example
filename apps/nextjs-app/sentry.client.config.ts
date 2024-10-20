@@ -23,7 +23,7 @@ Sentry.init({
       console.log('Sentry event', event);
       console.log('Sentry hint', hint);
     }
-    return Promise.resolve(event);
+    return event;
   },
   ignoreErrors: [
     /**

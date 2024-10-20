@@ -32,7 +32,7 @@ export default defineConfig({
     },
     // threads is good, vmThreads is faster (perf++) but comes with possible memory leaks
     // @link https://vitest.dev/config/#vmthreads
-    pool: 'threads',
+    pool: 'forks',
     poolOptions: {
       vmThreads: {
         // useAtomics -> perf+
@@ -52,7 +52,7 @@ export default defineConfig({
     },
     environmentMatchGlobs: [
       ['**/*.ts', 'node'],
-      ['**/*.tsx', 'jsdom'],
+      ['**/*.tsx', 'happy-dom'],
     ],
     passWithNoTests: false,
     setupFiles: './config/tests/setupVitest.ts',

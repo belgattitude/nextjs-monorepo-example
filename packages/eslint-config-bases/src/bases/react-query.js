@@ -1,6 +1,6 @@
 /**
  * Opinionated config base for projects using react.
- * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
+ * @see https://github.com/belgattitude/shared-dx/tree/main/packages/eslint-config-bases
  */
 
 const reactPatterns = {
@@ -15,11 +15,11 @@ const reactPatterns = {
 module.exports = {
   overrides: [
     {
-      files: [...reactPatterns.files],
       extends: [
         // @see https://tanstack.com/query/v4/docs/react/eslint/eslint-plugin-query
         'plugin:@tanstack/eslint-plugin-query/recommended',
       ],
+      files: [...reactPatterns.files],
       // rules: { },
     },
   ],

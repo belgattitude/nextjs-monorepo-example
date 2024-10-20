@@ -2,8 +2,8 @@ import { getRandomInt } from '../getRandomInt';
 
 describe('getRandomInt tests', () => {
   it('should return an integer between min and max', () => {
-    expect([100, 101].includes(getRandomInt(100, 101))).toBeTruthy();
-    expect([-101, -100].includes(getRandomInt(-101, -100))).toBeTruthy();
+    expect([100, 101]).toContain(getRandomInt(100, 101));
+    expect([-101, -100]).toContain(getRandomInt(-101, -100));
   });
 
   it('should throw if not a number', () => {

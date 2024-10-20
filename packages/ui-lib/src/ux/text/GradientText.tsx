@@ -76,7 +76,8 @@ export const GradientText = styled.span<GradientTextProps>`
       transition-duration: 1s;
     }
   }
-  ${(props) => {
+
+  ${(props) => /* eslint-disable-line sonarjs/function-return-type */ {
     const { css } = props;
     return css;
   }};

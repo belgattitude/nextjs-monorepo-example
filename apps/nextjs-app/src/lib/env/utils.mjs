@@ -3,7 +3,7 @@
 import pc from 'picocolors';
 import { z } from 'zod';
 
-const isRunningInNode = process !== undefined;
+const isRunningInNode = process != undefined;
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 export const truthyStrEnvValue = ['true', '1'];
@@ -27,6 +27,7 @@ export const exitOrThrowError = (zodSafeParseError) => {
       Object.keys(zodSafeParseError.error.flatten().fieldErrors).join(',')
     );
     console.error(JSON.stringify(zodSafeParseError.error.format(), null, 2));
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(1);
   } else {
     throw new Error(

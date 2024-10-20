@@ -1,11 +1,9 @@
 /**
  * Opinionated config base for projects using storybook.
- * @see https://github.com/belgattitude/nextjs-monorepo-example/tree/main/packages/eslint-config-bases
+ * @see https://github.com/belgattitude/shared-dx/tree/main/packages/eslint-config-bases
  */
 
-const storybookPatterns = {
-  files: ['**/*.stories.{ts,tsx,mdx}'],
-};
+const { filePatterns } = require('../config/file-patterns');
 
 module.exports = {
   env: {
@@ -15,10 +13,22 @@ module.exports = {
   },
   overrides: [
     {
-      // For performance run storybook/recommended on test files, not regular code
-      files: storybookPatterns.files,
       extends: ['plugin:storybook/recommended'],
-      rules: {},
+      files: filePatterns.storybook,
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        // Relax rules that are known to be slow and less useful in a test context
+        'import-x/namespace': 'off',
+        'import-x/no-duplicates': 'off',
+        // no checks for exports
+        'import-x/no-unused-modules': 'warn',
+      },
     },
   ],
 };

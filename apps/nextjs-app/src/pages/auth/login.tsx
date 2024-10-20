@@ -4,6 +4,7 @@ import { authConfig } from '@/features/auth/auth.config';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { getServerTranslations } from '@/server/i18n/getServerTranslations';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {
   /** Add props here */
 };

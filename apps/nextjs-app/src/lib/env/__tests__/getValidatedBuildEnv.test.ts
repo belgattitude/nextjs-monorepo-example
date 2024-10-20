@@ -36,7 +36,7 @@ describe('getBuildEnv', () => {
     });
     expect(
       (buildEnv as unknown as typeof injectedEnv).NEXT_BUILD_ENV_OUTPUT
-    ).toStrictEqual('classic');
+    ).toBe('classic');
   });
 
   describe('boolean coercion', () => {

@@ -14,9 +14,9 @@ export const BasicCard: FC<Props> = (props) => {
   const imgSrc = isNonEmptyString(image) ? image : undefined;
   return (
     <S.Ctn>
-      {imgSrc !== undefined ? (
+      {imgSrc === undefined ? null : (
         <img loading="lazy" src={imgSrc} alt="something" />
-      ) : null}
+      )}
       <div className="container">
         <h4>
           <strong>{title}</strong>
