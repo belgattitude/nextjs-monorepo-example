@@ -1,5 +1,5 @@
-ARG NODE_VERSION=20.16
-ARG ALPINE_VERSION=3.19
+ARG NODE_VERSION=20.18
+ARG ALPINE_VERSION=3.20
 
 #############################################################
 # Stage 1 - App extraction / pruning                        #
