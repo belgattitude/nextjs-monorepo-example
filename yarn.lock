@@ -13060,12 +13060,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:23.16.8":
-  version: 23.16.8
-  resolution: "i18next@npm:23.16.8"
+"i18next@npm:24.0.0":
+  version: 24.0.0
+  resolution: "i18next@npm:24.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10c0/57d249191e8a39bbbbe190cfa2e2bb651d0198e14444fe80453d3df8d02927de3c147c77724e9ae6c72fa241898cd761e3fdcd55d053db373471f1ac084bf345
+  peerDependencies:
+    typescript: ^5
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/675e87241883dffb18f7bea6d996475777f14406e55c2915ecafb6e4ec28c3e921b675f194e99c3de0f9f234a4a2e204f8c53cfc4fd34a1db89f98c191713034
   languageName: node
   linkType: hard
 
@@ -15768,7 +15773,7 @@ __metadata:
     graphql: "npm:16.9.0"
     graphql-jit: "npm:0.8.7"
     graphql-yoga: "npm:5.10.3"
-    i18next: "npm:23.16.8"
+    i18next: "npm:24.0.0"
     is-ci: "npm:3.0.1"
     jose: "npm:5.9.6"
     jsdom: "npm:25.0.1"
