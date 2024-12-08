@@ -12,6 +12,8 @@ services:
       - POSTGRES_DB=maindb
       - POSTGRES_PASSWORD=!ChangeMe!
       - POSTGRES_USER=nextjs
+    networks:
+      - nextjs-monorepo-example-network
     volumes:
       - db_data:/var/lib/postgresql/data:rw
       # you may use a bind-mounted host directory instead,
@@ -20,3 +22,7 @@ services:
 
 volumes:
   db_data:
+
+networks:
+  nextjs-monorepo-example-network:
+    driver: bridge
