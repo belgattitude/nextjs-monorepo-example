@@ -9,18 +9,18 @@ const oneDayInSeconds = 86_400;
 /**
  * @todo Remove this once oauth is ready
  */
-const getStaticAllowedDemoAdminUser = (email: string, password: string) => {
+const getStaticAllowedDemoAdminUser = (username: string, password: string) => {
   const enableDemoAdminUser = serverRuntimeEnv.AUTH_ENABLE_DEMO_ADMIN_USER;
 
   if (
     enableDemoAdminUser &&
-    email === 'admin@example.com' &&
+    username === 'admin@example.com' &&
     password === 'demo123'
   ) {
     return {
       id: '1',
       name: 'admin',
-      email,
+      username,
       role: 'admin',
       image: undefined,
     };
@@ -40,7 +40,7 @@ export const nextAuthConfig: NextAuthOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        email: {
+        username: {
           label: 'Email',
           type: 'text',
           placeholder: 'me@example.com',
@@ -52,10 +52,10 @@ export const nextAuthConfig: NextAuthOptions = {
           throw createHttpUnauthorized('Credentials not provided');
         }
 
-        const { email, password } = credentials ?? {};
+        const { username, password } = credentials ?? {};
         // @todo remove this when oauth provider is in place.
         const staticAllowedDemoAdminUser = getStaticAllowedDemoAdminUser(
-          email,
+          username,
           password
         );
         if (staticAllowedDemoAdminUser) return staticAllowedDemoAdminUser;
