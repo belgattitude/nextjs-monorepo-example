@@ -1,111 +1,66 @@
-/**
- * Renovatebot config and overrides for the monorepo
- *
- * - https://docs.renovatebot.com/configuration-options/
- * - https://docs.renovatebot.com/presets-default/
- */
 {
-  "extends": ["config:base"],
-  "enabled": true,
-  "enabledManagers": ["npm", "docker-compose", "dockerfile", "github-actions"],
-  "postUpdateOptions": [
-    // https://docs.renovatebot.com/configuration-options/#postupdateoptions
-    // Will run yarn dedupe --strategy highest
-    'yarnDedupeHighest'
-  ],
-  "packageRules": [
+  extends: ["config:recommended"],
+  enabled: true,
+  enabledManagers: ["npm", "docker-compose", "dockerfile", "github-actions"],
+  postUpdateOptions: ["yarnDedupeHighest"],
+  packageRules: [
     {
-      // Disabled packages, see why in .ncurc.yml
-      "enabled": false,
-      "matchPackageNames": [
-        "is-port-reachable",
-        "execa",
-      ],
+      enabled: false,
+      matchPackageNames: ["is-port-reachable", "execa"],
     },
     {
-      "groupName": "vitest monorepo",
-      "groupSlug": "vitest",
-      "matchPackageNames": [
-        "vitest",
-      ],
-      "matchPackagePrefixes": [
-        "@vitest/"
-      ]
+      groupName: "vitest monorepo",
+      groupSlug: "vitest",
+      matchPackageNames: ["vitest", "@vitest/{/,}**"],
     },
     {
-      "groupName": "remix monorepo",
-      "groupSlug": "remix",
-      "matchPackageNames": [
-        "remix",
-      ],
-      "matchPackagePrefixes": [
-        "@remix-run/"
-      ]
+      groupName: "remix monorepo",
+      groupSlug: "remix",
+      matchPackageNames: ["remix", "@remix-run/{/,}**"],
     },
     {
-      "groupName": "pothos monorepo",
-      "groupSlug": "pothos",
-      "matchPackagePrefixes": [
-        "@pothos/"
-      ]
+      groupName: "pothos monorepo",
+      groupSlug: "pothos",
+      matchPackageNames: ["@pothos/{/,}**"],
     },
     {
-      "groupName": "tailwind monorepo",
-      "groupSlug": "tailwind",
-      "matchPackageNames": [
-        "remix",
-      ],
-      "matchPackagePrefixes": [
-        "@tailwindcss/"
-      ]
+      groupName: "tailwind monorepo",
+      groupSlug: "tailwind",
+      matchPackageNames: ["remix", "@tailwindcss/{/,}**"],
     },
     {
-      "groupName": "graphql-mesh monorepo",
-      "groupSlug": "graphql-mesh",
-      "matchPackagePrefixes": [
-        "@graphql-mesh/"
-      ]
+      groupName: "graphql-mesh monorepo",
+      groupSlug: "graphql-mesh",
+      matchPackageNames: ["@graphql-mesh/{/,}**"],
     },
     {
-      "groupName": "cache-interop monorepo",
-      "groupSlug": "cache-interop",
-      "matchPackageNames": [
+      groupName: "cache-interop monorepo",
+      groupSlug: "cache-interop",
+      matchPackageNames: [
         "@soluble/dsn-parser",
         "@soluble/cache-ioredis",
         "@soluble/cache-redis",
-        "@soluble/cache-interop"
+        "@soluble/cache-interop",
       ],
     },
     {
-      // Root package.json
-      "matchFiles": ["package.json"],
-      "matchDepTypes": [
-        "dependencies",
-      ],
-      "rangeStrategy": "pin"
+      matchFileNames: ["package.json"],
+      matchDepTypes: ["dependencies"],
+      rangeStrategy: "pin",
     },
     {
-      // Will pin dependencies found in apps/*...
-      "matchPaths": ["apps/**"],
-      "matchDepTypes": [
-        "dependencies",
-      ],
-      "rangeStrategy": "pin"
+      matchFileNames: ["apps/**"],
+      matchDepTypes: ["dependencies"],
+      rangeStrategy: "pin",
     },
     {
-      // Will preserve semver found in packages/*
-      "matchPaths": ["packages/**"],
-      "matchDepTypes": [
-        "dependencies",
-      ],
-      "rangeStrategy": "replace"
+      matchFileNames: ["packages/**"],
+      matchDepTypes: ["dependencies"],
+      rangeStrategy: "replace",
     },
     {
-      // All dev deps
-      "matchDepTypes": [
-        "devDependencies"
-      ],
-      "rangeStrategy": "auto"
-    }
-  ]
+      matchDepTypes: ["devDependencies"],
+      rangeStrategy: "auto",
+    },
+  ],
 }
