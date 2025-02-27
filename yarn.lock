@@ -5334,38 +5334,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pothos/core@npm:3.41.2":
-  version: 3.41.2
-  resolution: "@pothos/core@npm:3.41.2"
+"@pothos/core@npm:4.5.0":
+  version: 4.5.0
+  resolution: "@pothos/core@npm:4.5.0"
   peerDependencies:
-    graphql: ">=15.1.0"
-  checksum: 10c0/87ace79c21398262f8f088824bd3f681f2e87232016d1c5d271c063277db1728643d484d98a8e63e07d50025f12632df6a6ac927e6f387e5582be9f0b09d8049
+    graphql: ">=16.6.0"
+  checksum: 10c0/3ad8a7dbb41d340305f0a69854ea21cfd71622c6322d6d4791b32c38184fe53105ba478f76e6c56821b945b9e22c137abc3f32fe47b625d69bc57acb0f5a2831
   languageName: node
   linkType: hard
 
-"@pothos/plugin-errors@npm:3.11.2":
-  version: 3.11.2
-  resolution: "@pothos/plugin-errors@npm:3.11.2"
+"@pothos/plugin-errors@npm:4.2.0":
+  version: 4.2.0
+  resolution: "@pothos/plugin-errors@npm:4.2.0"
   peerDependencies:
     "@pothos/core": "*"
-    graphql: ">=15.1.0"
-  checksum: 10c0/f24316cec1cd3abb924227bb5e907e79322754de2c128c524003aff5400f7ae43f67eb9b8abb4f49881f0420df46a19d7e38082f717fcdb94838463262b86ae0
+    graphql: ">=16.6.0"
+  checksum: 10c0/90a252a52d3c2e8fc729c4bb9691ae560d71718daaac818320558dbcb686641f6f8b400b33c3efbe05e61238655c7b566b5cd743284aff3d4cec4ec5dcfddc22
   languageName: node
   linkType: hard
 
-"@pothos/plugin-prisma@npm:3.65.3":
-  version: 3.65.3
-  resolution: "@pothos/plugin-prisma@npm:3.65.3"
+"@pothos/plugin-prisma@npm:4.4.0":
+  version: 4.4.0
+  resolution: "@pothos/plugin-prisma@npm:4.4.0"
   dependencies:
-    "@prisma/generator-helper": "npm:^5.13.0"
+    "@prisma/generator-helper": "npm:^6.0.0"
   peerDependencies:
     "@pothos/core": "*"
     "@prisma/client": "*"
-    graphql: ^16.8.1
+    graphql: ">=16.6.0"
     typescript: ">=4.7.2"
   bin:
     prisma-pothos-types: bin/generator.js
-  checksum: 10c0/fa0e9287380243462b6b9e3b0194a3ca8a467f6636832e7ec97a47ba03718935377f78899c35cc622ee7cbf027c499a22342ffee6aeae130fd5d2f3e9bbfb88f
+  checksum: 10c0/e493bd67c182d94de04c859875a2618bc5121456b6c7bb4f9e208855fecc7e8cba8e3acde5c8c0e7aeaffeb6763bab62fa1e3b1eb54c6cae1f8581e7686e0753
   languageName: node
   linkType: hard
 
@@ -5385,6 +5385,13 @@ __metadata:
   version: 5.22.0
   resolution: "@prisma/debug@npm:5.22.0"
   checksum: 10c0/ff7c5e84d9f9b568a2a1992eb39fc7c3ab6d9e326c77fdefec1655ccfbf6c0ee268a5dcf087867848eb00a0328c9cc75a164880ec7cd60f7fd634e2fca2943d9
+  languageName: node
+  linkType: hard
+
+"@prisma/debug@npm:6.4.1":
+  version: 6.4.1
+  resolution: "@prisma/debug@npm:6.4.1"
+  checksum: 10c0/840f495d2514f26f0412d198bd1cfc2ac44b26b96a8693de0543813babd9cb5d75cb2c3daff4c28640cab8554ef066eb22166b39d775f322a78a8ccce8d7b111
   languageName: node
   linkType: hard
 
@@ -5418,12 +5425,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/generator-helper@npm:^5.13.0":
-  version: 5.22.0
-  resolution: "@prisma/generator-helper@npm:5.22.0"
+"@prisma/generator-helper@npm:^6.0.0":
+  version: 6.4.1
+  resolution: "@prisma/generator-helper@npm:6.4.1"
   dependencies:
-    "@prisma/debug": "npm:5.22.0"
-  checksum: 10c0/d7a6a6f66330b38aea76cd148b1bbdf43e373f6401e8edabaebc12db81abc35712386c97f1178d97d1655905a4ff822000b902c407ead986565984555b9893d0
+    "@prisma/debug": "npm:6.4.1"
+  checksum: 10c0/4db9317d832d9ee71ab265442ec05ae9aaca1b3c9c98f9de6fc6842c4b7ecf146150b278557dda9e955f6415e32e9f149fae968f1fc0c275c19b8267a8de0ce8
   languageName: node
   linkType: hard
 
@@ -7966,8 +7973,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@your-org/db-main-prisma@workspace:packages/db-main-prisma"
   dependencies:
-    "@pothos/core": "npm:3.41.2"
-    "@pothos/plugin-prisma": "npm:3.65.3"
+    "@pothos/core": "npm:4.5.0"
+    "@pothos/plugin-prisma": "npm:4.4.0"
     "@prisma/client": "npm:5.22.0"
     "@soluble/dsn-parser": "npm:1.9.2"
     "@types/node": "npm:22.13.5"
@@ -7996,7 +8003,7 @@ __metadata:
     vite-tsconfig-paths: "npm:5.1.4"
     vitest: "npm:2.1.8"
   peerDependencies:
-    "@pothos/plugin-prisma": ^3.41.0
+    "@pothos/plugin-prisma": ^3.41.0 || ^4.0.0
     "@prisma/client": ^5.0.0
     graphql: ^16.9.0
   languageName: unknown
@@ -15553,9 +15560,9 @@ __metadata:
     "@next/bundle-analyzer": "npm:15.1.7"
     "@next/env": "npm:15.1.7"
     "@playwright/test": "npm:1.50.1"
-    "@pothos/core": "npm:3.41.2"
-    "@pothos/plugin-errors": "npm:3.11.2"
-    "@pothos/plugin-prisma": "npm:3.65.3"
+    "@pothos/core": "npm:4.5.0"
+    "@pothos/plugin-errors": "npm:4.2.0"
+    "@pothos/plugin-prisma": "npm:4.4.0"
     "@prisma/client": "npm:5.22.0"
     "@prisma/nextjs-monorepo-workaround-plugin": "npm:5.22.0"
     "@sentry/nextjs": "npm:8.54.0"
